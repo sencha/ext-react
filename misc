@@ -1,0 +1,2 @@
+git remote add upstream https://github.com/sencha/ext-react.git
+git remote -v
