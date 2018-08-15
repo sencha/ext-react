@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
 stuff
+working
 .vscode
 .DS_Store
 .idea
