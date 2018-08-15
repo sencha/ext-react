@@ -1,8 +1,8 @@
 {
-  "name": "@sencha/ext-react-boilerplate17",
+  "name": "@sencha/ext-react-boilerplate16",
   "product": "ext-react",
   "private": true,
-  "version": "2.0.0",
+  "version": "6.6.0",
   "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
   "scripts": {
@@ -39,28 +39,26 @@
   "devDependencies": {
     "@sencha/ext-react-babel-plugin": "~6.6.0",
     "@sencha/ext-react-webpack-plugin": "~6.6.0",
-    
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4",
 
-    "cross-env": "^5.2.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+
     "copy-webpack-plugin": "^4.5.2",
     "html-webpack-plugin": "^3.2.0",
-    "opn":"^5.3.0",
-    "babel-loader": "^7.1.5",
-    "portfinder": "^1.0.13",
+    "webpack-shell-plugin": "^0.5.0",
+    "portfinder": "^1.0.16",
+
     "babel-core": "^6.26.3",
-    "babel-jest": "^23.2.0",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "jest": "^23.2.0",
-    "react-hot-loader": "^4.3.3",
-    "react-test-renderer": "^16.4.1",
-    "rimraf": "^2.6.2",
-    "static-server": "^2.2.1"
+
+    "react-hot-loader": "^4.3.4",
+    "cross-env": "^5.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
