@@ -1,0 +1,60 @@
+{
+  "name": "@sencha/ext-react-webpack-plugin",
+  "version": "6.6.0",
+  "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "babel ./src --out-dir ./dist --watch --source-maps",
+    "build": "babel ./src --out-dir ./dist",
+    "prepublish": "npm run build",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "@extjs/sencha-cmd": "^6.6.0",
+    "@sencha/ext": "^6.6.0",
+    "chalk": "^2.4.1",
+    "ast-traverse": "^0.1.1",
+    "astring": "^1.3.0",
+    "babel-generator": "^6.26.1",
+    "opn":"^5.3.0",
+    "babylon": "^6.18.0",
+    "cjson": "^0.5.0",
+    "mkdirp": "^0.5.1",
+    "resolve": "^1.7.1",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-plugin-transform-object-rest-spread": " ^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-async-to-generator":"^6.24.1",
+    "babel-plugin-transform-regenerator":"^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "sourceMaps": "inline",
+    "plugins": [
+      "transform-object-rest-spread",
+      "add-module-exports",
+      "transform-async-to-generator",
+      "transform-regenerator"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/ext-react.git"
+  },
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin",
+  "peerDependencies": {
+    "webpack": "^2.2.1"
+  }
+}

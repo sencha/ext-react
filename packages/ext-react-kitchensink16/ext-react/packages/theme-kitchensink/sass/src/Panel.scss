@@ -1,0 +1,11 @@
+@include panel-ui(
+    $ui: 'instructions',
+    $body-font-size: 15px,
+    $body-padding: 8px 15px,
+    $body-line-height: 2em
+);
+
+@include panel-ui(
+    $ui: 'code-panel',
+    $body-background-color: #282c34
+);

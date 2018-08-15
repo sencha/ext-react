@@ -1,2 +1,9 @@
 git remote add upstream https://github.com/sencha/ext-react.git
 git remote -v
+
+
+
+    "css-loader": "^0.28.11",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.21.0",

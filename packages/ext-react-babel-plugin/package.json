@@ -1,0 +1,32 @@
+{
+  "name": "@sencha/ext-react-babel-plugin",
+  "version": "6.6.0",
+  "description": "Converts ES6 imports to reactify calls.",
+  "main": "dist/ext-react-babel-plugin.js",
+  "module": "index.js",
+  "scripts": {
+		"build": "webpack",
+		"buildb": "babel ./src --out-dir ./dist",
+    "watch": "webpack --watch",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/ext-react.git"
+  },
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin",
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+		"webpack": "^2.2.1",
+		"webpack-config":" ^7.5.0",
+		"fs":"^0.0.1-security"
+  },
+  "dependencies": {
+  }
+}
