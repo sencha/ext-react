@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [ "es2015", { "modules": false } ],
+    "stage-2",
+    "react"
+  ],
+  "plugins": [ 
+    "@sencha/ext-react-babel-plugin",
+    "transform-runtime"
+  ],
+  "ignore": [
+    "build"
+  ]
+}

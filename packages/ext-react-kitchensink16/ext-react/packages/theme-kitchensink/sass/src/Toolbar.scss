@@ -1,0 +1,6 @@
+@include toolbar-ui(
+    $ui: 'app-transparent-toolbar',
+    $background-color: transparent,
+    $padding: 0,
+    $padding-big: 0
+);

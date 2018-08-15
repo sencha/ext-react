@@ -1,0 +1,15 @@
+{
+    "apps": [],
+    "frameworks": {
+        "ext": "../node_modules/@sencha/ext-modern"
+    },
+    "build": {
+        "dir": "${workspace.dir}/build"
+    },
+    "packages": {
+        "dir": "${workspace.dir}/packages,${workspace.dir}/../node_modules/@sencha,${workspace.dir}/../node_modules/@extjs"
+    },
+    "properties": {
+        "build.web.root": "${workspace.dir}/../"
+    }
+}
