@@ -7,7 +7,7 @@
         "dir": "${workspace.dir}/build"
     },
     "packages": {
-        "dir": "${workspace.dir}/packages,${workspace.dir}/../node_modules/@extjs,${workspace.dir}/../node_modules/@sencha"
+        "dir": "${workspace.dir}/packages,${workspace.dir}/../node_modules/@sencha"
     },
     "properties": {
         "build.web.root": "${workspace.dir}/../"

@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-const WebpackShellPlugin = require('webpack-shell-plugin');
+//const WebpackShellPlugin = require('webpack-shell-plugin');
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
@@ -27,6 +27,10 @@ module.exports = function (env) {
         production: isProd,
         treeShaking: false
       })
+      // new WebpackShellPlugin({
+      //   dev: false,
+      //   onBuildEnd: ['node extract-code.js']
+      // })
     ]
     if (!isProd) {
       plugins.push(
