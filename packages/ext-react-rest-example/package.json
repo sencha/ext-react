@@ -1,0 +1,76 @@
+{
+  "name": "@sencha/ext-react-rest-example",
+  "private": true,
+  "version": "6.6.0",
+  "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "start": "node server",
+    "debug": "node --nolazy --debug-brk=5858 server",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.prod=true",
+    "prod": "cross-env NODE_ENV=production node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/extjs-reactor.git"
+  },
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sencha/extjs-reactor/issues"
+  },
+  "homepage": "https://github.com/sencha/extjs-reactor#readme",
+  "dependencies": {
+    "@sencha/ext": "~6.6.0",
+    "@sencha/ext-modern": "~6.6.0",
+    "@sencha/ext-modern-treegrid": "~6.6.0",
+    
+    "@sencha/ext-react": "~6.6.0",
+    "@sencha/ext-react-transition": "~6.6.0",
+
+    "@sencha/ext-modern-theme-material": "~6.6.0",
+
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+
+    "express": "^4.16.3",
+    "sqlite3": "^4.0.1"
+  },
+  "devDependencies": {
+    "@sencha/ext-react-babel-plugin": "~6.6.0",
+    "@sencha/ext-react-webpack-plugin": "~6.6.0",
+
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+
+    "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack-shell-plugin": "^0.5.0",
+    "portfinder": "^1.0.16",
+
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+
+    "react-hot-loader": "^4.3.4",
+    "cross-env": "^5.2.0",
+    "rimraf": "^2.6.2",
+
+    "webpack-dev-middleware": "^3.1.3",
+
+    "babel-jest": "^23.2.0",
+    "jest": "^23.2.0",
+    "react-test-renderer": "^16.4.1"
+  }
+}

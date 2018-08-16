@@ -1240,7 +1240,9 @@ var PATTERNS = {
   "ext-pivot": '@sencha\/ext-pivot',
   "ext-pivot-locale": '@sencha\/ext-pivot-locale',
   "ext-d3": '@sencha\/ext-d3',
-  "ext-pivot-d3": '@sencha\/ext-pivot-d3'
+  "ext-pivot-d3": '@sencha\/ext-pivot-d3',
+  "ext-react": '@sencha\/ext-react',
+  "ext-react-transition": '@sencha\/ext-react-transition'
 };
 
 module.exports = function (babel) {
@@ -1262,16 +1264,21 @@ module.exports = function (babel) {
   var prevFile = '';
   var sameFile = false;
   var importWritten = false;
+  var shouldWrite = false;
+
   return {
     visitor: {
       ImportDeclaration: function ImportDeclaration(path) {
         var node = path.node;
 
+
         if (prevFile != path.hub.file.opts.sourceFileName) {
           //console.log(`\ndifferent ${path.hub.file.opts.sourceFileName}`)
           sameFile = false;
           importWritten = false;
+          shouldWrite = false;
         } else {
+          //console.log(`\nsame ${path.hub.file.opts.sourceFileName}`)
           sameFile = true;
         }
 
@@ -1291,67 +1298,36 @@ module.exports = function (babel) {
           node.specifiers.forEach(function (spec) {
             var local = spec.local.name;
             var imported = spec.imported.name;
-            if (local == 'launch') {
-              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { ${local} } from '@sencha/ext-react${reactVersion}'`)
-              declarations.push(t.importDeclaration([t.importSpecifier(t.identifier('' + local), t.identifier('' + local))], t.stringLiteral('@sencha/ext-react' + reactVersion)));
-            } else {
+            if (local == 'reactify') {
+              sameFile = false;
+              importWritten = false;
+              shouldWrite = false;
+            }
+            if (local != 'launch' && local != 'reactify' && local != 'Template') {
               //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} = reactify('${imported}')`)
+              shouldWrite = true;
               declarations.push(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(local), t.callExpression(t.identifier('reactify'), [t.stringLiteral(imported)]))]));
             }
           });
-          if (declarations.length) {
+
+          // console.log('matches')
+          // console.log(`sameFile: ${sameFile}`)
+          // console.log(`importWritten: ${importWritten}`)
+          // console.log(`shouldWrite: ${shouldWrite}`)
+
+          if (shouldWrite) {
+            shouldWrite = false;
             if (sameFile && !importWritten) {
               //console.log('importWritten')
               importWritten = true;
-              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react${reactVersion}'`)
-              path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))], t.stringLiteral('@sencha/ext-react' + reactVersion)));
+              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react'`)
+              path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))], t.stringLiteral('@sencha/ext-react')));
             }
             path.replaceWithMultiple(declarations);
           }
         }
         prevFile = path.hub.file.opts.sourceFileName;
       }
-
-      //       ImportDeclaration2: function(path) {
-      //         //console.log("path: " + path)
-
-      //         console.log("in: " + path.hub.file.opts.sourceFileName)
-      //         const { node } = path
-      //         //if (node.source) {console.log(node.source.value)}
-      //         if (node.source && node.source.type === 'StringLiteral') {
-      //           for (var id in PATTERNS) {
-      //             if (PATTERNS.hasOwnProperty(id)) {
-      //               if (node.source.value == PATTERNS[id]) {
-      //                 //console.log("found: " + node.source.value)
-      //                 const local = node.specifiers[0].local.name;
-      //                 if(local === 'launch' || local === 'reactify'|| local === 'Template') {
-      //                   readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import ${local} from '@sencha/ext-react${reactVersion}'`)
-      //                   path.replaceWith(t.importDeclaration([t.importSpecifier(t.identifier(local), t.identifier(local))],t.stringLiteral(`@sencha/ext-react${reactVersion}`)))
-      //                 }
-      //                 else {
-      //                   const declarations = [];
-      //                   node.specifiers.forEach(spec => {
-      //                     const imported = spec.imported.name
-      //                     const local = spec.local.name
-      //                     readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} from reactify('${imported}')`)
-      //                     declarations.push(t.variableDeclaration('const',[t.variableDeclarator(t.identifier(local),t.callExpression(t.identifier('reactify'),[t.stringLiteral(imported)]))]))
-      //                     if (declarations.length) {
-      //                       if(prevFile != path.hub.file.opts.sourceFileName) {
-      //                         readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import reactify from '@sencha/ext-react${reactVersion}'`)
-      //                         path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))],t.stringLiteral(`@sencha/ext-react${reactVersion}`)))
-      //                       }
-      // //                      prevFile = path.hub.file.opts.sourceFileName
-      //                       //path.replaceWithMultiple(declarations)
-      //                     }
-      //                   })
-      //                 }
-      //               }
-      //             }
-      //           }
-      //         }
-      //         prevFile = path.hub.file.opts.sourceFileName
-
-      //       }  //ImportDeclaration
     }
   };
 };

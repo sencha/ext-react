@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReactTestRenderer snapshots should handle nested array prop values 1`] = `
+<Container
+  data={
+    Array [
+      Array [
+        1,
+        "One",
+      ],
+      Array [
+        2,
+        "Two",
+      ],
+    ]
+  }
+/>
+`;
+
+exports[`ReactTestRenderer snapshots should not interfere with Components that do not use ExtReact 1`] = `
+<div>
+  <div
+    className="inner"
+  />
+</div>
+`;
+
+exports[`ReactTestRenderer snapshots should omit complex props 1`] = `
+<Grid
+  foo={
+    Object {
+      "$className": "Foo",
+    }
+  }
+  store={
+    Object {
+      "$className": "Ext.data.Store",
+    }
+  }
+  title="Employees"
+/>
+`;
+
+exports[`ReactTestRenderer snapshots should render composite components 1`] = `
+<Container>
+  <Panel
+    title="MyStatelessComponent"
+  />
+</Container>
+`;
+
+exports[`ReactTestRenderer snapshots should support ExtReact components inside html elements 1`] = `
+<div>
+  <Container>
+    <Button
+      text="Button"
+    />
+    <div>
+      Test
+    </div>
+  </Container>
+</div>
+`;
+
+exports[`ReactTestRenderer snapshots should support function props 1`] = `
+<Button
+  handler={[Function]}
+  text="Button"
+/>
+`;
+
+exports[`ReactTestRenderer snapshots should support html child elements 1`] = `
+<Container>
+  <div
+    className="foo"
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    <b>
+      F
+    </b>
+    oo
+    <b>
+      b
+    </b>
+    ar
+  </div>
+  <div
+    className="bar"
+  >
+    Bar
+  </div>
+</Container>
+`;
+
+exports[`ReactTestRenderer snapshots should support nested ExtReact components 1`] = `
+<Grid
+  store={
+    Object {
+      "$className": "Ext.data.Store",
+    }
+  }
+  title="Employees"
+>
+  <Toolbar>
+    <Button
+      text="Add Record"
+    />
+  </Toolbar>
+  <Column
+    dataIndex="name"
+    text="Name"
+  />
+</Grid>
+`;
