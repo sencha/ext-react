@@ -1,0 +1,157 @@
+h1, h2, h3 {
+    color: $base-color;
+    font-weight: normal;
+}
+
+hr {
+    border-width: 1px 0 0 0;
+    border-color: #D0D0D0;
+    border-style: solid;
+}
+
+.sencha-logo {
+    background-image: url(../resources/sencha.png);
+    height: 22px;
+    width: 16px;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+    top: 4px;
+    margin-right: 10px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.app-title {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.app-menu-header {
+    font-size: 18px;
+    padding: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #DADADA;
+    color: $base-color;
+}
+
+.app-banner {
+    background-color: $base-color;
+    background-image: url("../resources/hero-desktop.svg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 40px;
+    padding: 40px 0;
+    text-align: center;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 480px) {
+  .app-banner {
+    background-image: url("../resources/hero.svg");
+    font-size: 30px;
+  }
+}
+
+
+.app-desktop-tabs {
+    .x-tabbar {
+        background-color: $base-color;
+        align-items: left;
+    }
+    .x-tab {
+        flex: none !important;
+        min-width: 80px !important;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.app-event-name {
+    color: $base-color;
+    line-height: 1.3;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.app-event-speaker {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 1em;
+}
+.app-event-time, .app-event-location {
+    font-size: 14px;
+    color: #666
+}
+
+.app-banner-tabs {
+    transform: translateZ(0) !important;
+    position: absolute !important;
+}
+
+.app-notification-item {
+    padding: 5px 0;
+}
+
+.app-notification-text {
+    padding: 0 0 10px 0;
+}
+
+.app-notification-time {
+    font-weight: bold;
+}
+
+.app-speaker-image {
+    float: left;
+    border-radius: 50%;
+    margin: 0 10px 5px 0;
+    width: 100px;
+}
+
+.app-speaker-name {
+    font-weight: normal;
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+.app-speaker-title {
+    font-size: 16px;
+    color: #8b8b8b;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.app-speaker-company {
+    font-size: 16px;
+    font-weight: lighter;
+    color: #8b8b8b;
+    padding-bottom: 30px;
+}
+
+.app-speaker-bio, .app-event-abstract {
+    font-weight: lighter;
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+.app-speaker-bio {
+    font-size: 16px;
+}
+
+.land {
+    fill: #222;
+}
+.boundary {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1px;
+}

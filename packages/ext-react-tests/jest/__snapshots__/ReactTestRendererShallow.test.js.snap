@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReactTestRenderer shallow snapshots should support child html elements 1`] = `
+<Container>
+  <div>
+    Foo
+  </div>
+  <ChildComponent />
+</Container>
+`;
+
+exports[`ReactTestRenderer shallow snapshots should support shallow rendering 1`] = `
+<Container>
+  <Panel
+    title="Child"
+  />
+  <ChildComponent />
+</Container>
+`;

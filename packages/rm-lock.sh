@@ -1,0 +1,14 @@
+rm ext-react/package-lock.json
+rm ext-react-babel-plugin/package-lock.json
+rm ext-react-boilerplate/package-lock.json
+rm ext-react-classic-boilerplate/package-lock.json
+rm ext-react-conference-app/package-lock.json
+rm ext-react-demo/package-lock.json
+rm ext-react-kitchensink/package-lock.json
+rm ext-react-modern-boilerplate/package-lock.json
+rm ext-react-rest-example/package-lock.json
+rm ext-react-tests/package-lock.json
+rm ext-react-typescript-boilerplate/package-lock.json
+rm ext-react-webpack-plugin/package-lock.json
+rm extjs-to-react-converter/package-lock.json
+rm generator-ext-react/package-lock.json

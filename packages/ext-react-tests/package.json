@@ -1,0 +1,102 @@
+{
+  "name": "@sencha/ext-react-tests",
+  "version": "6.6.0",
+  "description": "Sencha Test suite for the reactor library.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf build",
+    "start": "webpack-dev-server --progress",
+    "local": "webpack-dev-server --progress --env.local=true",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.prod=true",
+    "test": "jest && concurrently --raw --kill-others --success=first \"pushd build; static-server --port=8087\" \"stc run -o teamcity -s test/All_Tests -p Embedded\"",
+    "update-snapshots": "jest -u",
+    "pretest": "npm run build",
+    "preupdate-snapshots": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/extjs-reactor.git"
+  },
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sencha/extjs-reactor/issues"
+  },
+  "homepage": "https://github.com/sencha/extjs-reactor#readme",
+  "dependencies": {
+    "@sencha/ext": "~6.6.0",
+    "@sencha/ext-modern": "~6.6.0",
+    "@sencha/ext-modern-treegrid": "~6.6.0",
+    
+    "@sencha/ext-react": "~6.6.0",
+    "@sencha/ext-react-transition": "~6.6.0",
+
+    "@sencha/ext-modern-theme-material": "~6.6.0",
+
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+
+    "babel-polyfill": "^6.23.0",
+    "babel-runtime": "^6.23.0",
+
+    "d3": "4.5.0"
+  },
+  "devDependencies": {
+    "@sencha/ext-react-babel-plugin": "~6.6.0",
+    "@sencha/ext-react-webpack-plugin": "~6.6.0",
+    
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+
+    "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack-shell-plugin": "^0.5.0",
+    "portfinder": "^1.0.16",
+
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+
+    "react-hot-loader": "^4.3.4",
+    "cross-env": "^5.2.0",
+    "rimraf": "^2.6.2",
+
+    "check-dependencies": "^1.0.1",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.26.1",
+
+    "jest": "^20.0.4",
+    "jest-teamcity-reporter": "^0.6.2",
+
+    "open-browser-webpack-plugin": "0.0.5",
+    "react-test-renderer": "^15.5.4",
+    "static-server": "^2.0.4",
+    "style-loader": "^0.13.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+      "./node_modules/@extjs/reactor/jest/setup.js",
+      "./build/ext-react/ext.js"
+    ],
+    "unmockedModulePathPatterns": [
+      "react",
+      "react-dom",
+      "react-addons-test-utils",
+      "enzyme"
+    ],
+    "testResultsProcessor": "jest-teamcity-reporter"
+  }
+}
