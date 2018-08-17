@@ -11,18 +11,15 @@ var nodeDir = path.resolve(__dirname)
 var pkg = (fs.existsSync(nodeDir + '/package.json') && JSON.parse(fs.readFileSync(nodeDir + '/package.json', 'utf-8')) || {});
 version = pkg.version
 
-console.log (`Welcome to ${boldGreen('Sencha ExtGen')} v${version} - The Ext JS code generator
+console.log (`Welcome to ${boldGreen('Sencha ExtReactGen')} v${version} - The ExtReact code generator
 
 ${boldGreen('Quick Start:')} 
-ext-gen app MyAppName
-ext-gen app -i
+ext-react-gen app CoolExtReactApp
+ext-react-gen app -i
  
 ${boldGreen('Examples:')} 
-ext-gen app --template universalclassicmodern --classictheme theme-graphite --moderntheme theme-material --name CoolUniversalApp
-ext-gen app --template classicdesktop --classictheme theme-graphite --name CoolDesktopApp 
-ext-gen app --interactive
-ext-gen app --classictheme theme-graphite -n ClassicApp
-ext-gen app -t moderndesktop -n ModernApp
+ext-react-gen app --language javascript --theme graphite --name CoolExtReactApp
+ext-react-gen app -l javascript -t graphite -n CoolExtReactApp
 
-Run ${boldGreen('ext-gen --help')} to see all options
+Run ${boldGreen('ext-react-gen --help')} to see all options
 `)
