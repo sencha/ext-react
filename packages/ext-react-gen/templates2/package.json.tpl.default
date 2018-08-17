@@ -1,0 +1,51 @@
+{
+  "name": "{packageName}",
+  "product": "ext",
+  "version": "{version}",
+  "description": "{description}",
+  "scripts": {
+    "start": "cross-env-shell npm run $npm_package_extbuild_defaultprofile",
+    "desktop": "webpack-dev-server --profile=desktop --environment=development --verbose=no -w --open",
+    "desktop-v": "webpack-dev-server --profile=desktop --environment=development --verbose=yes -w --progress --open",
+    "phone": "webpack-dev-server --profile=phone --environment=development --verbose=no -w --progress --open",
+    "phone-v": "webpack-dev-server --profile=phone --environment=development --verbose=yes -w --progress --open",
+    "all": "webpack-dev-server --profile=all --environment=development --verbose=no -w --progress --open",
+    "all-v": "webpack-dev-server --profile=all --environment=development --verbose=yes -w --progress --open",
+    "build-desktop-testing": "ext-build app build desktop testing",
+    "build-desktop-production": "ext-build app build desktop production",
+    "build-phone-testing": "ext-build app build phone testing",
+    "build-phone-production": "ext-build app build phone production",
+    "createview": "cross-env-shell ext-build generate viewpackage $npm_package_extbuild_defaultprofile $VIEW"
+  },
+  "extbuild": {
+    "defaultprofile": "desktop",
+    "defaultenvironment": "development",
+    "defaultverbose": "no"
+  },
+  "dependencies": {<tpl if="modern == true">
+    "{npmScope}/ext-modern": "^6.6.0",
+    "{npmScope}/ext-modern-{modernTheme}": "^6.6.0",</tpl><tpl if="classic == true">    "{npmScope}/ext-classic": "^6.6.0",
+    "{npmScope}/ext-classic-{classicTheme}": "^6.6.0",
+</tpl>    "{npmScope}/ext": "^6.6.0"
+  },
+  "devDependencies": {
+    "{npmScope}/ext-webpack-plugin": "~1.0.0",
+    "command-line-args": "^5.0.2",
+	"cross-env": "^5.2.0",
+    "portfinder": "^1.0.13",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{gitRepositoryURL}"
+  },
+  "keywords": [{keywords}],
+  "author": "{authorName}",
+  "license": "{license}",
+  "bugs": {
+    "url": "{bugsURL}"
+  },
+  "homepage": "{homepageURL}"
+}

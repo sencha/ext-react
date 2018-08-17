@@ -2,7 +2,9 @@ import _extends from 'babel-runtime/helpers/extends';
 import React from 'react';
 import { reactify } from './reactify';
 
-//import { ExtReact } from '@sencha/ext-modern';
+export function ExtReact() {}
+
+//import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
 
 import { settings } from './reactify';
