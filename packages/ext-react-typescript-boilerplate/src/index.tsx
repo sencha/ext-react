@@ -5,13 +5,9 @@
 // }
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+//import * as ReactDOM from 'react-dom';
 import App from './App'; // app components
-import { launch } from '@extjs/reactor16';
-import { ExtReact } from '@sencha/ext-modern';
-
+import { launch } from '@sencha/ext-react'
+import { ExtReact } from '@sencha/ext-react'
 
 launch(<ExtReact><App/></ExtReact>);
-
-
-

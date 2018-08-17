@@ -522,7 +522,7 @@ mklink ext c:\path\to\ext-6.5.x
 
 
 
-If you're using Babel, we recommend adding `@extjs/reactor-babel-plugin` to your .babelrc.  The `reactor-babel-plugin` require module compilation to be turned off.  For example:
+If you're using Babel, we recommend adding `@sencha/ext-react-babel-plugin` to your .babelrc.  The `ext-react-babel-plugin` require module compilation to be turned off.  For example:
 
 ```javascript
 {
@@ -532,7 +532,7 @@ If you're using Babel, we recommend adding `@extjs/reactor-babel-plugin` to your
     "react"
   ],
   "plugins": [
-    "@extjs/reactor-babel-plugin",
+    "@sencha/ext-react-babel-plugin",
     "transform-runtime"
   ]
 }
