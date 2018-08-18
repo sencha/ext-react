@@ -49,8 +49,6 @@
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
 
-    "css-loader": "^0.28.11",
-    "style-loader": "^0.21.0",
     "d3": "4.5.0",
     "highlightjs": "^9.10.0",
     "history": "^4.7.2"
@@ -76,6 +74,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
 
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
     "react-hot-loader": "^4.3.4",
     "cross-env": "^5.2.0",
     "rimraf": "^2.6.2"
