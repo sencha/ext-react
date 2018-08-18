@@ -27,10 +27,8 @@
     "@sencha/ext": "~6.6.0",
     "@sencha/ext-modern": "~6.6.0",
     "@sencha/ext-modern-treegrid": "~6.6.0",
-    
     "@sencha/ext-react": "~6.6.0",
     "@sencha/ext-react-transition": "~6.6.0",
-
     "@sencha/ext-modern-theme-material": "~6.6.0",
 
     "@sencha/ext-calendar": "~6.6.0",

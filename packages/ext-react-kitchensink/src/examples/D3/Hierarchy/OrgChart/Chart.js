@@ -1,4 +1,4 @@
-import { reactify } from '@sencha/ext-react16';
+import { reactify } from '@sencha/ext-react';
 
 /**
  * By overriding the `addNodes` and `updateNodes` of the stock tree component

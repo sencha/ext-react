@@ -5,8 +5,8 @@ import * as d3 from 'd3'
 window.d3 = d3
 require('./index.css')
 
-import { launch } from '@sencha/ext'
-import { ExtReact } from '@sencha/ext'
+import { launch } from '@sencha/ext-react'
+import { ExtReact } from '@sencha/ext-react'
 
 launch(() => {
   let top = Ext.get('loadingSplashTop'), wrapper = Ext.get('loadingSplash')

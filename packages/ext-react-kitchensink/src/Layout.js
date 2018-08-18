@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { TitleBar, Container, NestedList, Panel, Button, Transition } from '@sencha/ext-modern'
+import { TitleBar, Container, NestedList, Panel, Button } from '@sencha/ext-modern'
 import { Transition } from '@sencha/ext-react-transition'
-
 
 //import hljs, { highlightBlock } from 'highlightjs';
 import NavTree from './NavTree';
@@ -156,7 +155,6 @@ class Layout extends Component {
                 collapsed={!showTree}
               /> 
               <Breadcrumbs docked="top" node={selectedNavNode}/>
-                <Transition type="slide" bindDirectionToLocation padding="30">
                 { component ? (
                   <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                     { layout === 'fit' ? (
@@ -168,7 +166,6 @@ class Layout extends Component {
                 ) : selectedNavNode ? (
                   <NavView key={selectedNavNode.id} node={selectedNavNode}/>
                 ) : null }
-                </Transition>
               </Container>
           </Container>
           { files && (
