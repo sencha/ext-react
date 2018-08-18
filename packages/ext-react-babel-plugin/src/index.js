@@ -46,6 +46,8 @@ module.exports = function(babel) {
   return {
     visitor: {
       ImportDeclaration: function(path) {
+        console.log(`in: ${path.hub.file.opts.sourceFileName}`)
+
         const { node } = path
 
         if(prevFile != path.hub.file.opts.sourceFileName) {
