@@ -2,7 +2,6 @@
 const npmScope = '@sencha'
 const path = require('path');
 const fs = require('fs-extra');
-
 const { kebabCase, pick } = require('lodash')
 const util = require('./util.js')
 const appUpgrade = require('./appUpgrade.js')
@@ -17,7 +16,6 @@ const LANGUAGE = {
   TYPESCRIPT: 'TypeScript',
   JAVASCRIPT: 'JavaScript'
 }
-
 const CODE = {
   EXAMPLE: 'Include some example code', 
   BARE_BONES: 'Generate an empty app'
@@ -33,7 +31,6 @@ function boldRed (s) {
   var endMarker = `\x1b[0m`
   return (`${boldredcolor}${s}${endMarker}`)
 }
-
 function getPrefix () {
   var prefix
   if (require('os').platform() == 'darwin') {
@@ -44,7 +41,6 @@ function getPrefix () {
   }
   return prefix
 }
-
 var app =(`${boldGreen(getPrefix())} ext-react-gen:`)
 
 var answers = {
@@ -79,9 +75,8 @@ const optionDefinitions = [
   { name: 'defaults', alias: 'd', type: Boolean },
   { name: 'auto', alias: 'a', type: Boolean },
   { name: 'name', alias: 'n', type: String },
-  { name: 'template', alias: 't', type: String },
-  { name: 'moderntheme', alias: 'm', type: String },
-  { name: 'classictheme', alias: 'c', type: String },
+  { name: 'theme', alias: 't', type: String },
+  { name: 'language', alias: 'l', type: String },
 ]
 
 var version = ''
@@ -186,10 +181,10 @@ function step00() {
 
   setDefaults()
   if (cmdLine.verbose == true) {
-    process.env.EXTGEN_VERBOSE = 'true'
+    process.env.EXTREACTGEN_VERBOSE = 'true'
   }
   else {
-    process.env.EXTGEN_VERBOSE = 'false'
+    process.env.EXTREACTGEN_VERBOSE = 'false'
   }
   if (cmdLine.help == true) {
     stepHelpGeneral() 
@@ -261,7 +256,7 @@ function step01() {
 
 function step02() {
   new Input({
-    message: 'What would you like to name your React app?',
+    message: 'What would you like to name your ExtReact app?',
     default:  config.appName
   }).run().then(answer => {
     answers['appName'] = answer
@@ -276,11 +271,10 @@ function step03a() {
     choices: ['material', 'triton', 'ios'],
     default: 'material'
   }).run().then(answer => {
-    answers['baseTheme'] = answer
+    answers['theme'] = answer
     step03b()
   })
 }
-
 
 function step03b() {
   new List({
@@ -293,42 +287,13 @@ function step03b() {
   })
 }
 
-
-function step03() {
+function step03c() {
   new List({
-    message: 'What type of Ext JS template do you want?',
-    choices: ['make a selection from a list','type a folder name'],
-    default: 'make a selection from a list'
+    message: 'Which language would you like to use',
+    choices:  [LANGUAGE.JAVASCRIPT, LANGUAGE.TYPESCRIPT],
+    default: LANGUAGE.JAVASCRIPT
   }).run().then(answer => {
-    answers['templateType'] = answer
-    if(answers['templateType'] == 'make a selection from a list') {
-      step04()
-    }
-    else {
-      step05()
-    }
-  })
-}
-
-function step04() {
-  new List({
-    message: 'What Ext JS template would you like to use?',
-    choices: ['classicdesktop', 'moderndesktop', 'universalclassicmodern', 'universalmodern'],
-    default: 'classicdesktop'
-  }).run().then(answer => {
-    answers['classic'] = false
-    answers['modern'] = false
-    answers['universal'] = false
-    if (answer.includes("classic")) {
-      answers['classic'] = true
-    }
-    if (answer.includes("modern")) {
-      answers['modern'] = true
-    }
-    if (answer.includes("universal")) {
-      answers['universal'] = true
-    }
-    answers['template'] = answer
+    answers['language'] = answer
     if(answers['useDefaults'] == true) {
       step99()
     }
@@ -338,20 +303,65 @@ function step04() {
   })
 }
 
-function step05() {
-  new Input({
-    message: 'What is the Template folder name?',
-    default:  config.templateFolderName
-  }).run().then(answer => { 
-    answers['templateFolderName'] = answer
-    if(answers['useDefaults'] == true) {
-      step99()
-    }
-    else {
-      step06()
-    }
-  })
-}
+
+// function step03() {
+//   new List({
+//     message: 'What type of Ext JS template do you want?',
+//     choices: ['make a selection from a list','type a folder name'],
+//     default: 'make a selection from a list'
+//   }).run().then(answer => {
+//     answers['templateType'] = answer
+//     if(answers['templateType'] == 'make a selection from a list') {
+//       step04()
+//     }
+//     else {
+//       step05()
+//     }
+//   })
+// }
+
+// function step04() {
+//   new List({
+//     message: 'What Ext JS template would you like to use?',
+//     choices: ['classicdesktop', 'moderndesktop', 'universalclassicmodern', 'universalmodern'],
+//     default: 'classicdesktop'
+//   }).run().then(answer => {
+//     answers['classic'] = false
+//     answers['modern'] = false
+//     answers['universal'] = false
+//     if (answer.includes("classic")) {
+//       answers['classic'] = true
+//     }
+//     if (answer.includes("modern")) {
+//       answers['modern'] = true
+//     }
+//     if (answer.includes("universal")) {
+//       answers['universal'] = true
+//     }
+//     answers['template'] = answer
+//     if(answers['useDefaults'] == true) {
+//       step99()
+//     }
+//     else {
+//       step06()
+//     }
+//   })
+// }
+
+// function step05() {
+//   new Input({
+//     message: 'What is the Template folder name?',
+//     default:  config.templateFolderName
+//   }).run().then(answer => { 
+//     answers['templateFolderName'] = answer
+//     if(answers['useDefaults'] == true) {
+//       step99()
+//     }
+//     else {
+//       step06()
+//     }
+//   })
+// }
 
 function step06() {
   new Input({
@@ -365,7 +375,7 @@ function step06() {
 
 function step07() {
   new Input({
-    message: 'What version is your Ext JS application?',
+    message: 'What version is your ExtReact application?',
     default: config.version
   }).run().then(answer => { 
     answers['version'] = answer
@@ -447,13 +457,13 @@ function step99() {
 
   displayDefaults()
 
-  if (answers['template'] == null) {
-    if (!fs.existsSync(answers['templateFolderName'])) {
-      answers['template'] = 'folder'
-      console.log('Error, Template folder does not exist - ' + answers['templateFolderName'])
-      return
-    }
-  }
+  // if (answers['template'] == null) {
+  //   if (!fs.existsSync(answers['templateFolderName'])) {
+  //     answers['template'] = 'folder'
+  //     console.log('Error, Template folder does not exist - ' + answers['templateFolderName'])
+  //     return
+  //   }
+  // }
 
   if (cmdLine.auto == true) {
     stepCreate()
@@ -462,11 +472,11 @@ function step99() {
 
   var message
   if (cmdLine.defaults == true) {
-    message = 'Generate the Ext JS npm project?'
+    message = 'Generate the ExtReact npm project?'
     displayDefaults()
   }
   else {
-    message = 'Would you like to generate the Ext JS npm project with above config now?'
+    message = 'Would you like to generate the ExtReact npm project with above config now?'
   }
 
   new Confirm({
@@ -527,7 +537,7 @@ async function stepCreate() {
   const boilerplate = path.dirname(require.resolve('@sencha/ext-react-boilerplate'))
   console.log(boilerplate)
   //console.log(answers['code'])
-  answers['baseTheme'] = 'ios'
+  answers['theme'] = 'ios'
   //answers['packageName'] = 'ios'
 
 
@@ -545,11 +555,11 @@ async function stepCreate() {
 
       // set base theme
 
-      answers['baseTheme'] = `theme-${answers['baseTheme']}`;
+      answers['theme'] = `theme-${answers['theme']}`;
  
 
         const theme = path.join('ext-react', 'packages', 'custom-ext-react-theme', 'package.json');
-        const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['baseTheme'])
+        const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['theme'])
         fs.writeFileSync(theme, themePackageJson, 'utf8');
 
         // update package.json
@@ -574,8 +584,8 @@ async function stepCreate() {
 //        console.log(fs.readJsonSync('package.json'))
 
         Object.assign(packageInfo, pick(fs.readJsonSync('package.json'), 'main', 'scripts', 'dependencies', 'devDependencies', 'jest'));
-        if (answers['baseTheme'] !== 'theme-material') {
-            packageInfo.dependencies[`@sencha/ext-modern-${answers['baseTheme']}`] = packageInfo.dependencies['@sencha/ext-modern-theme-material'];
+        if (answers['theme'] !== 'theme-material') {
+            packageInfo.dependencies[`@sencha/ext-modern-${answers['theme']}`] = packageInfo.dependencies['@sencha/ext-modern-theme-material'];
         }
 
         //fs.writeJSON('package.json', packageInfo, null, '  ');
@@ -588,7 +598,7 @@ async function stepCreate() {
         const indexHtml = path.join('src', 'index.html');
         fs.writeFileSync(indexHtml, fs.readFileSync(indexHtml, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8');
         //fs.writeFileSync(theme, themePackageJson, 'utf8');
-        //const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', this.baseTheme)
+        //const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', this.theme)
 
 
         // README.md
@@ -662,7 +672,7 @@ async function stepCreate() {
     const substrings = ['[ERR]', '[WRN]', '[INF] Processing', "[INF] Server", "[INF] Writing content", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
     var command = `npm${/^win/.test(require('os').platform()) ? ".cmd" : ""}`
     var args = []
-    if (process.env.EXTGEN_VERBOSE == 'true') {
+    if (process.env.EXTREACTGEN_VERBOSE == 'true') {
       args = ['install']
     }
     else {
@@ -705,12 +715,14 @@ async function stepCreate() {
   // new generateApp(options)
 
 
-  console.log(`${app} Your Ext React project is ready`)
+  console.log(`${app} Your ExtReact project is ready`)
   console.log(boldGreen(`\ntype "cd ${answers['packageName']}" then "npm start" to run the development build and open your new application in a web browser\n`))
  }
 
  function setDefaults() {
-  answers['language'] = LANGUAGE.JAVASCRIPT
+  answers['theme'] = config.theme
+  answers['language'] = config.language
+  answers['code'] = config.code
 
   if (cmdLine.name != undefined) {
     answers['appName'] = cmdLine.name
@@ -722,36 +734,35 @@ async function stepCreate() {
     answers['packageName'] = config.packageName
     answers['description'] = config.description
   }
-  if (cmdLine.template != undefined) {
-    answers['template'] = cmdLine.template
-    answers['templateType'] = "make a selection from a list"
-  }
-  else {
-    answers['template'] = config.template
-    answers['templateType'] = config.templateType
-  }
-  if (cmdLine.classictheme != undefined) {
-    answers['classicTheme'] = cmdLine.classictheme
-  }
-  else {
-    answers['classicTheme'] = config.classicTheme
-  }
-  if (cmdLine.moderntheme != undefined) {
-    answers['modernTheme'] = cmdLine.moderntheme
-  }
-  else {
-    answers['modernTheme'] = config.modernTheme
-  }
+  // if (cmdLine.template != undefined) {
+  //   answers['template'] = cmdLine.template
+  //   answers['templateType'] = "make a selection from a list"
+  // }
+  // else {
+  //   answers['template'] = config.template
+  //   answers['templateType'] = config.templateType
+  // }
+  // if (cmdLine.classictheme != undefined) {
+  //   answers['classicTheme'] = cmdLine.classictheme
+  // }
+  // else {
+  //   answers['classicTheme'] = config.classicTheme
+  // }
+  // if (cmdLine.moderntheme != undefined) {
+  //   answers['modernTheme'] = cmdLine.moderntheme
+  // }
+  // else {
+  //   answers['modernTheme'] = config.modernTheme
+  // }
 
-  answers['code'] = 'Include some example code'
-  answers['classic'] = false
-  answers['modern'] = false
-  if (answers['template'].includes("classic")) {
-    answers['classic'] = true
-  }
-  if (answers['template'].includes("modern")) {
-    answers['modern'] = true
-  }
+  // answers['classic'] = false
+  // answers['modern'] = false
+  // if (answers['template'].includes("classic")) {
+  //   answers['classic'] = true
+  // }
+  // if (answers['template'].includes("modern")) {
+  //   answers['modern'] = true
+  // }
 
   answers['version'] = config.version
   answers['repositoryURL'] = config.repositoryURL
@@ -773,15 +784,19 @@ function displayDefaults() {
   //console.log(`classic:\t${answers['classic']}`)
   //console.log(`modern:\t\t${answers['modern']}`)
 
-  console.log(boldGreen(`Defaults for Ext JS app:`))
+  console.log(boldGreen(`Defaults for ExtReact app:`))
   console.log(`appName:\t${answers['appName']}`)
-  console.log(`template:\t${answers['template']}`)
-  if(answers['classic'] == true) {
-    console.log(`classicTheme:\t${answers['classicTheme']}`)
-  }
-  if(answers['modern'] == true) {
-    console.log(`modernTheme:\t${answers['modernTheme']}`)
-  }
+  console.log(`theme:\t\t${answers['theme']}`)
+  console.log(`language:\t${answers['language']}`)
+  console.log(`code:\t\t${answers['code']}`)
+
+
+  // if(answers['classic'] == true) {
+  //   console.log(`classicTheme:\t${answers['classicTheme']}`)
+  // }
+  // if(answers['modern'] == true) {
+  //   console.log(`modernTheme:\t${answers['modernTheme']}`)
+  // }
   console.log('')
   console.log(boldGreen(`Defaults for package.json:`))
   console.log(`packageName:\t${answers['packageName']}`)
