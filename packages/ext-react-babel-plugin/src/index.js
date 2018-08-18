@@ -31,7 +31,7 @@ module.exports = function(babel) {
     var reactEntry = pkg.dependencies.react
     var is16 = reactEntry.includes("16");
     if (is16) { reactVersion = 16 } else { reactVersion = 15 }
-    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersion: ' + reactVersion + '')
+    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersionx: ' + reactVersion + '')
   }
   else {
     reactVersion = 16
