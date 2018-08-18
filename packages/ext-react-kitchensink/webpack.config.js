@@ -63,7 +63,7 @@ module.exports = function (env) {
       context: sourcePath,
       entry: {
         'vendor': ['react', 'prop-types', 'react-redux', 'react-dom', 'react-router-dom', 'history', 'redux', 'd3', 'highlightjs'],
-        'ext-react16': ['@sencha/ext-react16'],
+        'ext-react': ['@sencha/ext-react'],
         'app': ['babel-polyfill','./index.js']
       },
       output: {
