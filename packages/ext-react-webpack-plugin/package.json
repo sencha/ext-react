@@ -10,6 +10,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "@sencha/cmd": "^6.6.0",
     "@sencha/ext": "^6.6.0",
     "chalk": "^2.4.1",
     "ast-traverse": "^0.1.1",
