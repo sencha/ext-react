@@ -1269,13 +1269,11 @@ module.exports = function (babel) {
   return {
     visitor: {
       ImportDeclaration: function ImportDeclaration(path) {
-        console.log('in: ' + path.hub.file.opts.sourceFileName);
-
         var node = path.node;
 
 
         if (prevFile != path.hub.file.opts.sourceFileName) {
-          console.log('\ndifferent ' + path.hub.file.opts.sourceFileName);
+          //console.log(`\ndifferent ${path.hub.file.opts.sourceFileName}`)
           sameFile = false;
           importWritten = false;
           shouldWrite = false;
@@ -1306,7 +1304,7 @@ module.exports = function (babel) {
               shouldWrite = false;
             }
             if (local != 'launch' && local != 'reactify' && local != 'Template') {
-              readline.cursorTo(process.stdout, 0);console.log(app + 'generated-> const ' + local + ' = reactify(\'' + imported + '\')');
+              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} = reactify('${imported}')`)
               shouldWrite = true;
               declarations.push(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(local), t.callExpression(t.identifier('reactify'), [t.stringLiteral(imported)]))]));
             }
@@ -1322,7 +1320,7 @@ module.exports = function (babel) {
             if (sameFile && !importWritten) {
               //console.log('importWritten')
               importWritten = true;
-              readline.cursorTo(process.stdout, 0);console.log(app + 'generated-> import { reactify } from \'@sencha/ext-react\'');
+              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react'`)
               path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))], t.stringLiteral('@sencha/ext-react')));
             }
             path.replaceWithMultiple(declarations);
