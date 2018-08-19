@@ -23,10 +23,11 @@ module.exports = function (env) {
         to: 'resources'
       }]),
       new ExtReactWebpackPlugin({
+        theme: 'theme-kitchensink',
+        overrides: ['ext-react/overrides'],
         port: port,
         production: isProd,
         treeShaking: false,
-        theme: 'theme-kitchensink',
         packages: local ? [
           'font-ext', 
           'ux', 
@@ -37,10 +38,7 @@ module.exports = function (env) {
           'pivot', 
           'calendar', 
           'charts'
-        ] : undefined,
-        overrides: [
-          path.join('.', 'ext-react', 'overrides')
-        ]
+        ] : undefined
       }),
       new WebpackShellPlugin({
         dev: false,
