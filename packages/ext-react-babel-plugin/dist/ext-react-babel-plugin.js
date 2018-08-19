@@ -1255,7 +1255,7 @@ module.exports = function (babel) {
     } else {
       reactVersion = 15;
     }
-    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersionx: ' + reactVersion + '');
+    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersion: ' + reactVersion + '');
   } else {
     reactVersion = 16;
   }
