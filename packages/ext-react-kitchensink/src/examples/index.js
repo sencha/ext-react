@@ -22,7 +22,7 @@ import ResizableHandle from './Panels/ResizableHandle/ResizableHandle';
 import CollapsiblePanel from './Panels/CollapsiblePanel/CollapsiblePanel';
 import BasicDatePanel from './Panels/BasicDatePanel/BasicDatePanel';
 import AdvancedDatePanel from './Panels/AdvancedDatePanel/AdvancedDatePanel';
-import TimePanel from './Panels/Timepanel/TimePanel';
+import TimePanel from './Panels/TimePanel/TimePanel';
 // Tabs
 
 import BasicTabs from './Tabs/BasicTabs/BasicTabs';
