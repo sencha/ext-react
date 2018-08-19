@@ -7,8 +7,5 @@
   "plugins": [ 
     "@sencha/ext-react-babel-plugin",
     "transform-runtime"
-  ],
-  "ignore": [
-    "build"
   ]
 }
