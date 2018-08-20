@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Grid, Toolbar, SegmentedButton, Button, Column } from '@sencha/ext-modern';
-import './data';
+import '../RestaurantData';
 
 Ext.require([
     'Ext.grid.cell.Number',

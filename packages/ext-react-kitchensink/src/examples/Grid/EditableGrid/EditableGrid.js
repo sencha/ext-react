@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Column, Toolbar, NumberField, DatePickerField, RendererCell } from '@sencha/ext-modern';
+import '../CompanyData';
 import model from '../CompanyModel';
 
 Ext.require([
@@ -18,7 +19,8 @@ export default class EditableGrid extends Component {
     pageSize: 0,
     proxy: {
       type: 'ajax',
-      url: 'resources/data/CompanyData.json'
+      url: '/KitchenSink/Companys'
+//      url: 'resources/data/CompanyData.json'
     } 
   });
 

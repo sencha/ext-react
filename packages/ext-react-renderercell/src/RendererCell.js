@@ -82,7 +82,7 @@ Ext.define('Ext.react.RendererCell', {
 
             if (typeof markup === 'object') {
                 // Ext.reactor.ReactDOM is set by reactor before the app is launched
-                result = Ext.reactor.ReactDOM.render(markup, me.bodyElement.dom); 
+                result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
             
                 if (result.isWidget) {
                     needsSizing = result !== me.widget;
