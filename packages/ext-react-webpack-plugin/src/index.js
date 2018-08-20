@@ -123,11 +123,6 @@ module.exports = class ExtReactWebpackPlugin {
       }
     };
 
-
-
-
-
-
     if (compiler.hooks) {
       compiler.hooks.compilation.tap('ext-react-compilation', (compilation,data) => {
         readline.cursorTo(process.stdout, 0);console.log(app + 'ext-react-compilation')

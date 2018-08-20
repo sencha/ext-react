@@ -168,7 +168,7 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
  * @param {String} targetDir 
  */
 export function createJSDOMEnvironment(targetDir) {
-    return 'window.Ext = Ext;Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
+    return 'window.Ext = Ext;Ext.require("Ext.react.RendererCell");Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
 }
 
 /**

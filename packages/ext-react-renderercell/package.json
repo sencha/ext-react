@@ -1,0 +1,12 @@
+{
+  "name": "@sencha/ext-react-renderercell",
+  "version": "6.6.0",
+  "description": "ext-react-renderercell",
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/sencha/ext-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/ext-react.git"
+  }
+}
