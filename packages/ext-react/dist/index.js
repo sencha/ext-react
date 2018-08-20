@@ -170,9 +170,9 @@ export function launch(rootComponent) {
  */
 export function install(options) {
   if (options.viewport) {
-    console.warn('[@sencha/ext-react16] Warning: install({ viewport: true }) is deprecated.  Use launch(<App/>) in place of Ext.onReady(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))).');
+    console.warn('[@sencha/ext-react] Warning: install({ viewport: true }) is deprecated.  Use launch(<App/>) in place of Ext.onReady(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))).');
   } else {
-    console.warn('[@sencha/ext-react16] Warning: install() is deprecated.  Use launch(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))) in place of Ext.onReady(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))).');
+    console.warn('[@sencha/ext-react] Warning: install() is deprecated.  Use launch(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))) in place of Ext.onReady(() => ReactDOM.render(<App/>, document.getElementById(\'root\'))).');
   }
 
   launch(null, options);
