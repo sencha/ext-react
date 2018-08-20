@@ -1,6 +1,6 @@
 # ext-react 6.6
 
-This repo is for Ext JS ExtReact 6.6, which supports React 16 and above
+This repo is for ExtReact 6.6, which supports React 16 and above
 
 test
 
@@ -32,22 +32,22 @@ npm install --save-dev @sencha/ext-react-webpack-plugin @sencha/ext-react-babel-
 
 ## Getting Started with ExtReact
 
-To create a new ExtReact app, we recommend using the [ExtReact Yeoman Generator](https://github.com/sencha/ext-react/tree/master/packages/generator-ext-react):
+To create a new ExtReact app, we recommend using the [ExtReact Generator](https://github.com/sencha/ext-react/tree/master/packages/ext-react-gen):
 
 ```
-npm install -g yo @sencha/generator-ext-react
-yo @extjs/ext-react
+npm install -g @sencha/ext-react-gen
+@sencha/ext-react-gen
 ```
 
-The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Boilerplate](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-boilerplate).
+The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate).
 
 
 ## Getting Started with Ext JS and React
 
 If you're starting from scratch with Ext JS and React, we recommend cloning one of the boilerplates and following the instructions there:
 
-* [React + Ext JS Classic Boilerplate](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-classic-boilerplate)
-* [React + Ext JS Modern Boilerplate](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-modern-boilerplate)
+* [React + Ext JS Classic Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate)
+* [React + Ext JS Modern Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate)
 
 ## Launching your Application
 
@@ -56,10 +56,11 @@ If you're starting from scratch with Ext JS and React, we recommend cloning one 
 To launch your app, add the following to your index.js file (your webpack entry point):
 
 ```javascript
-import { launch } from '@extjs/reactor';
-import App from './App';
+import { launch } from '@sencha/ext-react'
+import { ExtReact } from '@sencha/ext-react'
+import App from './App'
 
-launch(<App/>);
+launch(<ExtReact><App/></ExtReact>)
 ```
 
 The launch function renders the specified component into the document body. It also accepts a callback function that returns the component to be rendered:
@@ -70,7 +71,7 @@ launch(() => {
   // ...
   
   // return the component to be rendered
-  return <App/>;
+  return <ExtReact><App/></ExtReact>
 })
 ```
 
@@ -94,7 +95,7 @@ ReactDOM.render(<App/>, document.getElementById('root'));
 ```jsx
 // App.js
 import React, { Component } from 'react';
-import { ExtReact } from '@sencha/ext-modern';
+import { ExtReact } from '@sencha/ext-react';
 import { Panel } from '@sencha/ext-modern';
 
 class App extends Component {
@@ -107,23 +108,6 @@ class App extends Component {
   }
 }
 ```
-or...
-
-```jsx
-// App.js
-import React, { Component } from 'react';
-import { RootPanel } from '@sencha/ext-modern';
-
-class App extends Component {
-  render() {
-    return (
-      <RootPanel title="ExtReact">Hello World!</RootPanel>
-     )
-  }
-}
-```
-
-
 
 ### renderWhenReady(Component)
 
@@ -139,7 +123,7 @@ use your library to call `launch`.
 // App.js
 import React, { Component } from 'react';
 import { Panel } from '@sencha/ext-modern';
-import { renderWhenReady } from '@extjs/reactor';
+import { renderWhenReady } from '@sencha/ext-react';
 
 class App extends Component {
     render() {
@@ -168,7 +152,7 @@ Here is an example that uses the launch function's callback parameter to enable 
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@extjs/reactor';
+import { launch } from '@sencha/ext-react';
 import App from './App'
 
 let viewport;
