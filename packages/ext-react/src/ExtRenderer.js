@@ -18,7 +18,7 @@ const CLASS_CACHE = {
   Field: Ext.ClassManager.getByAlias('widget.field'),
   FitLayout: Ext.ClassManager.getByAlias('layout.fit'),
   TabPanel: Ext.ClassManager.getByAlias('widget.tabpanel'),
-//  RendererCell: Ext.ClassManager.getByAlias('widget.renderercell'),
+  RendererCell: Ext.ClassManager.getByAlias('widget.renderercell'),
   Field: Ext.ClassManager.getByAlias('widget.field')
 }
 

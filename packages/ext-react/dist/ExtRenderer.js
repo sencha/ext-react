@@ -21,7 +21,8 @@ var CLASS_CACHE = (_CLASS_CACHE = {
   Dialog: Ext.ClassManager.getByAlias('widget.dialog'),
   Field: Ext.ClassManager.getByAlias('widget.field'),
   FitLayout: Ext.ClassManager.getByAlias('layout.fit'),
-  TabPanel: Ext.ClassManager.getByAlias('widget.tabpanel')
+  TabPanel: Ext.ClassManager.getByAlias('widget.tabpanel'),
+  RendererCell: Ext.ClassManager.getByAlias('widget.renderercell')
 }, _CLASS_CACHE['Field'] = Ext.ClassManager.getByAlias('widget.field'), _CLASS_CACHE);
 
 var ExtRenderer = ReactFiberReconciler({
