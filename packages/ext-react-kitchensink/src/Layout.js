@@ -155,17 +155,19 @@ class Layout extends Component {
                 collapsed={!showTree}
               /> 
               <Breadcrumbs docked="top" node={selectedNavNode}/>
-                { component ? (
-                  <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
-                    { layout === 'fit' ? (
-                        <Container padding="30" layout="fit">{ example }</Container> 
-                    ) : (
-                        example 
-                    )}
-                  </Container>
-                ) : selectedNavNode ? (
-                  <NavView key={selectedNavNode.id} node={selectedNavNode}/>
-                ) : null }
+                <Transition type="slide" bindDirectionToLocation padding="30">
+                  { component ? (
+                    <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                      { layout === 'fit' ? (
+                          <Container padding="30" layout="fit">{ example }</Container> 
+                      ) : (
+                          example 
+                      )}
+                    </Container>
+                  ) : selectedNavNode ? (
+                    <NavView key={selectedNavNode.id} node={selectedNavNode}/>
+                  ) : null }
+                </Transition>
               </Container>
           </Container>
           { files && (
