@@ -4,7 +4,7 @@
   "createNow":true,
   "appName":"MyApp",
   "theme": "material",
-  "language": "JavsScript",
+  "language": "TypeScript",
   "code": "Include some example code",
   "packageName":"my-app",
   "version":"0.0.1",

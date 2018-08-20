@@ -535,7 +535,7 @@ async function stepCreate() {
   // console.log(`${app} package.json created for ${answers['packageName']}`)
 
 
-  const boilerplate = ''
+  var boilerplate = ''
   if (answers['language'] == LANGUAGE.TYPESCRIPT) {
     boilerplate = path.dirname(require.resolve('@sencha/ext-react-typescript-boilerplate'))
   }
