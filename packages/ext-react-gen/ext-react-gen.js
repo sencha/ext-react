@@ -534,10 +534,18 @@ async function stepCreate() {
   // fs.writeFileSync(destDir + '/package.json', t);
   // console.log(`${app} package.json created for ${answers['packageName']}`)
 
-  const boilerplate = path.dirname(require.resolve('@sencha/ext-react-boilerplate'))
-  console.log(boilerplate)
+
+  const boilerplate = ''
+  if (answers['language'] == LANGUAGE.TYPESCRIPT) {
+    boilerplate = path.dirname(require.resolve('@sencha/ext-react-typescript-boilerplate'))
+  }
+  else {
+    boilerplate = path.dirname(require.resolve('@sencha/ext-react-boilerplate'))
+  }
+
+  //console.log(boilerplate)
   //console.log(answers['code'])
-  answers['theme'] = 'ios'
+  //answers['theme'] = 'ios'
   //answers['packageName'] = 'ios'
 
 
@@ -613,7 +621,7 @@ async function stepCreate() {
         fs.copyFileSync(
           path.join(templatesDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/README.md' : 'js/README.md'),
           path.join(destDir, 'README.md')
-      )
+        )
 
         // swap out minimal App.js if the user chose not to include examples
 
