@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Column, RendererCell } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-modern';
 import model from '../CompanyModel';
 
 export default class BasicGridExample extends Component {
