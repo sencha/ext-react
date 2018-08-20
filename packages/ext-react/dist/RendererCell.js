@@ -1,3 +1,4 @@
+import _typeof from 'babel-runtime/helpers/typeof';
 /**
  * Use this component to render a React element inside of a grid cell.  
  *
@@ -63,13 +64,15 @@ Ext.define('Ext.react.RendererCell', {
         forceWidth: false
     },
 
-    setValue: function (value) {
-        var me = this, 
-            context = me.refreshContext, 
+    setValue: function setValue(value) {
+        var me = this,
+            context = me.refreshContext,
             column = context.column,
             needsSizing = false,
             scope = column.getScope(),
-            markup, renderer, result;
+            markup,
+            renderer,
+            result;
 
         if (context.summary) {
             renderer = me.getSummaryRenderer() || column.getSummaryRenderer();
@@ -80,10 +83,10 @@ Ext.define('Ext.react.RendererCell', {
         if (renderer) {
             markup = renderer.call(scope, value, context.record, context.dataIndex, me, column);
 
-            if (typeof markup === 'object') {
+            if ((typeof markup === 'undefined' ? 'undefined' : _typeof(markup)) === 'object') {
                 // Ext.reactor.ReactDOM is set by reactor before the app is launched
-                result = Ext.reactor.ReactDOM.render(markup, me.bodyElement.dom); 
-            
+                result = Ext.reactor.ReactDOM.render(markup, me.bodyElement.dom);
+
                 if (result.isWidget) {
                     needsSizing = result !== me.widget;
                     me.widget = result;
@@ -105,7 +108,7 @@ Ext.define('Ext.react.RendererCell', {
         return me;
     },
 
-    updateWidth: function (width, oldWidth) {
+    updateWidth: function updateWidth(width, oldWidth) {
         this.callParent(arguments);
 
         if (this.getForceWidth()) {
@@ -113,17 +116,20 @@ Ext.define('Ext.react.RendererCell', {
         }
     },
 
-    doDestroy: function () {
+    doDestroy: function doDestroy() {
         this.widget = null;
         Ext.react.ReactDOM.unmountComponentAtNode(this.bodyElement.dom);
         this.callParent();
     },
 
     privates: {
-        setWidgetWidth: function (width) {
+        setWidgetWidth: function setWidgetWidth(width) {
             var me = this,
                 el = me.bodyElement,
-                widget, column, leftPad, rightPad;
+                widget,
+                column,
+                leftPad,
+                rightPad;
 
             if (!me.rendered) {
                 return;
@@ -143,3 +149,4 @@ Ext.define('Ext.react.RendererCell', {
         }
     }
 });
+//# sourceMappingURL=RendererCell.js.map
