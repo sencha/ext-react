@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Column, RendererCell, SegmentedButton, WidgetCell } from '@sencha/ext-modern';
 import ActionsCell from './ActionsCell';
+import '../../CompanyData';
 
 export default class RendererCellExample extends Component {
     
@@ -9,7 +10,7 @@ export default class RendererCellExample extends Component {
         pageSize: 0,
         proxy: {
             type: 'ajax',
-            url: 'resources/data/CompanyData.json'
+            url: '/KitchenSink/Companys'
         } 
     });
 
