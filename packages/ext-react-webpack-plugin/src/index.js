@@ -285,7 +285,7 @@ module.exports = class ExtReactWebpackPlugin {
 
       let js;
       if (this.treeShaking) {
-        let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
+        let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
         // if (packages.indexOf('reacto') !== -1) {
         //   statements.push('Ext.require("Ext.react.RendererCell")');
         // }
