@@ -22,9 +22,12 @@ module.exports = function (env) {
         from: path.join(__dirname, 'resources'), 
         to: 'resources'
       }]),
+      new CopyWebpackPlugin([{
+        from: path.join(__dirname, 'ext-react/packages'), 
+        to: 'ext-react/packages'
+      }]),
       new ExtReactWebpackPlugin({
         theme: 'theme-conference-app',
-        overrides: ['ext-react/overrides'],
         port: port,
         production: isProd,
         treeShaking: false
