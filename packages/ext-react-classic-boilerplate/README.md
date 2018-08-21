@@ -12,11 +12,11 @@ If you haven't already, download Ext JS 6.2+.
 
 Then, run the following to clone and build the project:
 
-    git clone https://github.com/sencha/extjs-reactor.git
-    cd extjs-reactor/packages/reactor-classic-boilerplate
+    git clone https://github.com/sencha/ext-react.git
+    cd ext-react/packages/ext-react-classic-boilerplate
     npm install
 
-Copy or link your Ext JS SDK into packages/reactor-classic-boilerplate/ext.  On Mac OS and Linux, this can be done with the following command:
+Copy or link your Ext JS SDK into packages/ext-react-classic-boilerplate/ext.  On Mac OS and Linux, this can be done with the following command:
 
 ```
 ln -s /path/to/ext-6.x.x ext

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@extjs/reactor';
+import { launch } from '@sencha/ext-react';
 import App from './App'
 
 let viewport;

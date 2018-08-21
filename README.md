@@ -6,7 +6,7 @@ test
 
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
 
-[![Join the chat at https://gitter.im/sencha/extjs-reactor](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/sencha/extjs-reactor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/sencha/ext-react](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/sencha/ext-react?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Requirements
 
@@ -216,8 +216,8 @@ Here's a minimal React app that renders an `Ext.Panel` from the classic toolkit:
 
 ```jsx
 import React from 'react';
-import { launch } from '@extjs/reactor';
-import { Panel } from '@extjs/reactor/classic';
+import { launch } from '@sencha/ext-react'
+import { Panel } from '@sencha/ext-modern'
 
 launch(
     <Panel title="ExtReact">
@@ -233,13 +233,13 @@ TBD reviewed for v2.x.x
 Any Ext JS component can be imported by the capitalized, camel-cased version of it's xtype.  For example, 
 
 ```jsx
-import { Grid } from '@extjs/reactor/classic';
+import { Grid } from '@sencha/ext-classic';
 ```
 
 Dashes in xtypes should be converted to underscores.  For example:
 
 ```jsx
-import { D3_HeatMap } from '@extjs/reactor/classic';
+import { D3_HeatMap } from '@sencha/ext-classic';
 ```
 
 ## Configuring Components
@@ -250,7 +250,7 @@ React props are converted to Ext JS configs.  Here's a typical use of `Ext.grid.
 
 ```jsx
 import React, { Component } from 'react';
-import { Grid } from '@extjs/reactor/classic';
+import { Grid } from '@sencha/ext-classic';
 
 export default class MyComponent extends Component {
 
@@ -283,7 +283,7 @@ Any prop starting with "on" followed by a capital letter is automatically conver
 
 ```jsx
 import React, { Component } from 'react';
-import { Slider } from '@extjs/@extjs/reactor/classic';
+import { Slider } from '@extjs/@sencha/ext-classic';
 
 export default function MyComponent() {
     return (
@@ -311,7 +311,7 @@ You can also use a listeners object as is common in traditional Ext JS:
 
 ```jsx
 import React, { Component } from 'react';
-import { Slider } from '@extjs/reactor/classic';
+import { Slider } from '@sencha/ext-classic';
 
 export default function MyComponent() {
     return (
@@ -348,7 +348,7 @@ Refs point to Ext JS component instances:
 
 ```jsx
 import React, { Component } from 'react';
-import { Slider } from '@extjs/reactor/classic';
+import { Slider } from '@sencha/ext-classic';
 
 export default class MyComponent {
     render() {
@@ -377,7 +377,7 @@ When using the Ext JS classic toolkit, any component with a `dock` prop is autom
 Here is an example which docks a toolbar above a grid:
 
 ```jsx
-import { Grid, Panel, Toolbar, TextField } from '@extjs/reactor/classic';
+import { Grid, Panel, Toolbar, TextField } from '@sencha/ext-classic';
 
 function MyComponent(props) {
     return (
@@ -452,13 +452,13 @@ Ext.define('MyPackage.view.MyGrid', {
 You could import and use that component using:
 
 ```jsx
-import { MyGrid } from '@extjs/reactor/classic';
+import { MyGrid } from '@sencha/ext-classic';
 ```
 
 If your component doesn't have an xtype, you can using the `reactify` function to convert any Ext JS component into a react component:
 
 ```jsx
-import { reactify } from '@extjs/reactor';
+import { reactify } from '@sencha/ext-react'
 
 const MyGrid = reactify(MyPackage.view.MyGrid);
 
@@ -473,15 +473,15 @@ function MyComponent() {
 
 TBD reviewed for v2.x.x
 
-Select your toolkit, theme, and packages using [@extjs/reactor-webpack-plugin](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
+Select your toolkit, theme, and packages using [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
 
 ```JavaScript
-const ExtJSReactWebpackPlugin = require('@extjs/reactor-webpack-plugin');
+const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
 
 module.exports = {
     ...
     plugins: [
-        new ExtJSReactWebpackPlugin({
+        new ExtReactWebpackPlugin({
             sdk: 'ext', // location of Ext JS SDK.  You can either copy the sdk into your project or create a symbolic link to it.
             theme: 'theme-material', // the name of an Ext JS theme or a relative path to a custom theme
             toolkit: 'classic',
@@ -548,17 +548,17 @@ npm run install:clean
 
 TBD reviewed for v2.x.x
 
-Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/). See [packages/reactor-tests](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-tests) for instructions on how to set up a test environment.
+Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/). See [packages/ext-react-tests](https://github.com/sencha/ext-react/tree/master/packages/ext-react-tests) for instructions on how to set up a test environment.
 
 # Packages
 
 TBD reviewed for v2.x.x
 
-* [@extjs/reactor](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
-* [@extjs/reactor-webpack-plugin](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
-* [@extjs/reactor-babel-plugin](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
-* [@extjs/reactor-boilerplate](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
-* [@extjs/reactor-classic-boilerplate](https://github.com/sencha/extjs-reactor/tree/master/packages/reactor-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.
+* [@@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
+* [@@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
+* [@@sencha/ext-react-babel-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
+* [@@sencha/ext-react-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
+* [@@sencha/ext-react-classic-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.
 
 # Contributing
 

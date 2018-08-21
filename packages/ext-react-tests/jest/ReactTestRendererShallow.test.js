@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
-import { reactify } from '@extjs/reactor';
+import { reactify } from '@sencha/ext-react';
 const [ Container, Button, Grid, Column, Toolbar, Panel ] = reactify('Container', 'Button', 'Grid', 'Column', 'Toolbar', 'Panel');
  
 describe('ReactTestRenderer shallow snapshots', () => {

@@ -12,11 +12,11 @@ If you haven't already, download Ext JS 6.5+.
 
 Then, run the following to clone and build the project:
 
-    git clone https://github.com/sencha/extjs-reactor.git
-    cd extjs-reactor/packages/reactor-modern-boilerplate
+    git clone https://github.com/sencha/ext-react.git
+    cd ext-react/packages/ext-react-modern-boilerplate
     npm install
 
-Copy or link your Ext JS SDK into packages/reactor-modern-boilerplate/ext.  On Mac OS and Linux, this can be done with the following command:
+Copy or link your Ext JS SDK into packages/ext-react-modern-boilerplate/ext.  On Mac OS and Linux, this can be done with the following command:
 
 ```
 ln -s /path/to/ext-6.x.x ext

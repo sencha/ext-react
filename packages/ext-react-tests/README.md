@@ -1,16 +1,16 @@
-# reactor-tests
+# ext-react-tests
 
-This package contains a suite of tests for @extjs/reactor.
+This package contains a suite of tests for @sencha/ext-react.
 
 ## To Run
 
 * Fork/clone this repo.
 * `npm login --registry=https://npm.sencha.com --scope=@extjs` (Use your support portal credentials.  If using your username is your email address, replace "@" with "..".  For example, "developer..sencha.com")
 * `npm install`
-* `cd packages/reactor-tests`
+* `cd packages/ext-react-tests`
 * `ln -s /path/to/ext ext`
 * `npm start`
-* Open Sencha Test Studio at packages/reactor-tests
+* Open Sencha Test Studio at packages/ext-react-tests
 
 ## To Add Tests:
 

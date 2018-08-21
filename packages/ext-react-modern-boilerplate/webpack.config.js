@@ -66,7 +66,7 @@ module.exports = function (env) {
             },
 
             resolve: {
-                // The following is only needed when running this boilerplate within the extjs-reactor repo with lerna bootstrap.  You can remove this from your own projects.
+                // The following is only needed when running this boilerplate within the ext-react repo with lerna bootstrap.  You can remove this from your own projects.
                 alias: {
                     "react-dom": path.resolve('./node_modules/react-dom'),
                     "react": path.resolve('./node_modules/react')

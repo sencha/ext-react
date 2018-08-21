@@ -13,7 +13,7 @@
   "author": "Sencha, Inc.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sencha/extjs-reactor.git"
+    "url": "git+https://github.com/sencha/ext-react.git"
   },
   "license": "MIT",
   "dependencies": {
