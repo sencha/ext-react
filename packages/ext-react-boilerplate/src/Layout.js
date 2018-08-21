@@ -14,7 +14,7 @@ var REACT_VERSION = require('react').version
  */
 class Layout extends Component {
 
-		title = "ExtReact Boilerplate " + REACT_VERSION
+    title = "ExtReact Boilerplate " + REACT_VERSION
 
     state = {
         showAppMenu: false

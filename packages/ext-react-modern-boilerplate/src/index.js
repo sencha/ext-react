@@ -1,25 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@sencha/ext-react';
+import { launch } from '@sencha/ext-react'
+import {ExtReact} from '@sencha/ext-modern'
 import App from './App'
+let viewport
 
-let viewport;
-
-import {ExtReact} from '@sencha/ext-modern';
 const render = (Component, target) => {
-    ReactDOM.render(
-        <ExtReact>
-          <AppContainer>
-            <Component/>
-          </AppContainer>
-        </ExtReact>,
-        target
-    )
+  ReactDOM.render(
+    <ExtReact>
+      <AppContainer>
+        <Component/>
+      </AppContainer>
+    </ExtReact>,
+    target
+  )
 }
 
-launch(target => render(App, viewport = target));
+launch(target => render(App, viewport = target))
 
 if (module.hot) {
-    module.hot.accept('./App', () => render(App, viewport));
+  module.hot.accept('./App', () => render(App, viewport))
 }
