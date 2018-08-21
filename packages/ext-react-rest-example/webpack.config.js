@@ -44,8 +44,8 @@ module.exports = function (env) {
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
-        'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
-        'ext-react16': ['@sencha/ext-react16'],
+        'vendor': ['react', 'prop-types', 'react-dom'],
+        'ext-react': ['@sencha/ext-react'],
         'app': ['babel-polyfill','./index.js']
       },
       output: {
