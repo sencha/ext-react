@@ -17,7 +17,7 @@ export default class ReplaceNodeWithMarkup extends Component {
         return (
             <Container>
                 <Container>
-                    <div>This tests that reactor's patching of ReactComponentEnvironment.replaceNodeWithMarkup correctly adds and removes components when switching between null and an ExtReact component within the render method of a composite component.</div>
+                    <div>This tests that ExtReact's patching of ReactComponentEnvironment.replaceNodeWithMarkup correctly adds and removes components when switching between null and an ExtReact component within the render method of a composite component.</div>
                 </Container>
                 <Button itemId="toggleChild" text="Toggle Child" handler={this.toggleChild}/>
                 <Container itemId="container" layout="hbox">

@@ -24,7 +24,7 @@ module.exports = function (env) {
       }]),
       new ExtReactWebpackPlugin({
         // sdk: local ? 'ext' : undefined,
-        packages: local ? ['reactor'] : undefined,
+        packages: local ? ['ext-react'] : undefined,
         port: port,
         production: isProd,
         treeShaking: false

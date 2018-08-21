@@ -1,6 +1,6 @@
 import React from 'react';
 import { create } from 'react-test-renderer'
-import { reactify } from '@extjs/reactor';
+import { reactify } from '@sencha/ext-react';
 
 const Container = reactify('Container');
 const Button = reactify('Button');

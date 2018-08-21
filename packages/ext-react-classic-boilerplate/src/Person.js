@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Window, TextField } from '@extjs/reactor/classic';
+import { Window, TextField } from '@sencha/ext-classic';
 
 export default class Person extends Component {
     

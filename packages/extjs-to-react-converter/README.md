@@ -12,8 +12,8 @@ npm login --registry=http://npm.sencha.com --scope=@extjs
 
 Then, run the following to clone and build the project:
 
-    git clone https://github.com/sencha/extjs-reactor.git
-    cd extjs-reactor/packages/extjs-to-react-converter
+    git clone https://github.com/sencha/ext-react.git
+    cd ext-react/packages/extjs-to-react-converter
     npm install
     npm start
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Toolbar, Sheet, SearchField, List, Button } from '@sencha/ext-modern';
 import { connect } from 'react-redux';
 import { toggleSearch, search } from './actions';
-//import { Template } from '@extjs/reactor';
 import ScheduleList from './schedule/ScheduleList';
 
 class Search extends Component {

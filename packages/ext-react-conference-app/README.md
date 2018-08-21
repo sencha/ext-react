@@ -14,8 +14,8 @@ npm login --registry=http://npm.sencha.com --scope=@extjs
 Then, run the following to build and launch the app:
 
 ```
-git clone https://github.com/sencha/extjs-reactor.git
-cd packages/reactor-conference-app
+git clone https://github.com/sencha/ext-react.git
+cd packages/ext-react-conference-app
 npm install
 npm start
 ```

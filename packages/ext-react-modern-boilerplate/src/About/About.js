@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@extjs/reactor/modern';
+import { Container } from '@sencha/ext-modern';
 
 export default function About() {
   return (

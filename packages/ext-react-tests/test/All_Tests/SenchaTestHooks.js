@@ -1,10 +1,10 @@
 describe('Sencha Test Hooks', () => {
     beforeEach(() => ST.navigate('#/'))
     
-    it('should include $reactorComponentName on each rendered component', () => {
+    it('should include $ExtReactComponentName on each rendered component', () => {
         ST.navigate('#/SenchaTestHooks');
         ST.component('#target').and(component => {
-            expect(component.$reactorComponentName).toBe('Button')
+            expect(component.$ExtReactComponentName).toBe('Button')
         })
     });
 

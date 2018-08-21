@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-tests",
   "version": "6.6.0",
-  "description": "Sencha Test suite for the reactor library.",
+  "description": "Sencha Test suite for the ExtReact library.",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sencha/extjs-reactor.git"
+    "url": "git+https://github.com/sencha/ext-react.git"
   },
   "author": "Sencha, Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sencha/extjs-reactor/issues"
+    "url": "https://github.com/sencha/ext-react/issues"
   },
-  "homepage": "https://github.com/sencha/extjs-reactor#readme",
+  "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
     "@sencha/ext": "~6.6.0",
     "@sencha/ext-modern": "~6.6.0",
@@ -87,7 +87,7 @@
       "^.+\\.jsx?$": "babel-jest"
     },
     "setupFiles": [
-      "./node_modules/@extjs/reactor/jest/setup.js",
+      "./node_modules/@sencha/ext-react/jest/setup.js",
       "./build/ext-react/ext.js"
     ],
     "unmockedModulePathPatterns": [

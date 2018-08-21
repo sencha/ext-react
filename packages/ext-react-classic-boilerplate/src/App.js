@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Person from './Person';
 import data from './data';
-import { Panel, Grid, Toolbar, TextField } from '@extjs/reactor/classic';
+import { Panel, Grid, Toolbar, TextField } from '@sencha/ext-classic';
 var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {

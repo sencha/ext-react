@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sencha/extjs-reactor.git"
+    "url": "git+https://github.com/sencha/ext-react.git"
   },
   "dependencies": {
     "@sencha/ext-react": "~6.6.0",

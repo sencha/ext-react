@@ -81,7 +81,7 @@ Ext.define('Ext.react.RendererCell', {
             markup = renderer.call(scope, value, context.record, context.dataIndex, me, column);
 
             if (typeof markup === 'object') {
-                // Ext.reactor.ReactDOM is set by reactor before the app is launched
+                // Ext.react.ReactDOM is set by ExtReact before the app is launched
                 result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
             
                 if (result.isWidget) {

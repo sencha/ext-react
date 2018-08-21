@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TreeList } from '@extjs/reactor/modern';
+import { TreeList } from '@sencha/ext-modern';
 
 Ext.require('Ext.data.TreeStore');
 

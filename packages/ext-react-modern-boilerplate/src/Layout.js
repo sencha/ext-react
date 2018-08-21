@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Transition, Container, TitleBar, Button, Sheet, Panel } from '@extjs/reactor/modern';
+import { Transition, Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-modern';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
 import Home from './Home/Home';
