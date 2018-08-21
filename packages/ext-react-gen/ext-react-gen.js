@@ -641,7 +641,6 @@ async function stepCreate() {
             fs.copyFileSync(
               path.join(templatesDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/App.minimal.tsx' : 'js/App.minimal.js'),
               path.join(destDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'src/App.tsx' : 'src/App.js'),
-              this
             )
 
             // if (answers['language'] === LANGUAGE.JAVASCRIPT) {
@@ -653,7 +652,7 @@ async function stepCreate() {
 
             if (answers['language'] === LANGUAGE.JAVASCRIPT) {
               fs.copyFileSync(
-                path.join(e, 'js/App.test.js'),
+                path.join(templatesDir, 'js/App.test.js'),
                 path.join(destDir, '__tests__/App.test.js')
               )
           }
