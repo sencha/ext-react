@@ -482,7 +482,7 @@ module.exports = class ExtReactWebpackPlugin {
   _getSenchCmdPath() {
     try {
       // use @extjs/sencha-cmd from node_modules
-      return require('@extjs/sencha-cmd');
+      return require('@sencha/cmd');
     } catch (e) {
       // attempt to use globally installed Sencha Cmd
       return 'sencha';
