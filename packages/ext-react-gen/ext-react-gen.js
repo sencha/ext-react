@@ -828,18 +828,16 @@ function stepHelpGeneral() {
 
 function stepHelpApp() {
 
-  var message = `${boldGreen('Quick Start:')} ext-gen -a
+  var message = `${boldGreen('Quick Start:')} ext-react-gen -a
 
-ext-gen app (-h) (-d) (-i) (-t 'template') (-m 'moderntheme') (-c 'classictheme') (-n 'name') (-f 'folder')
+ext-react-gen app (-h) (-d) (-i) (-t 'template') (-m 'moderntheme') (-c 'classictheme') (-n 'name') (-f 'folder')
 
 -h --help          show help (no parameters also shows help)
 -d --defaults      show defaults for package.json
+-l
 -i --interactive   run in interactive mode (question prompts will display)
--t --template      name for Ext JS template used for generate
--c --classictheme  theme name for Ext JS classic toolkit
--m --moderntheme   theme name for Ext JS modern toolkit
+-t --theme         theme name for Ext JS modern toolkit
 -n --name          name for Ext JS generated app
--f --folder        folder name for Ext JS application (not implemented yet)
 -v --verbose       verbose npm messages (for problems only)
 
 ${boldGreen('Examples:')} 

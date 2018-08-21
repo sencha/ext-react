@@ -7,7 +7,7 @@ var fs = require('fs-extra')
 const sencha = require(`@sencha/cmd`)
 
 const spawnSync = require('child_process').spawnSync
-const spawn = require('child_process').spawn
+//const spawn = require('child_process').spawn
 const crossSpawn = require('cross-spawn')
 
 var prefix = ``
