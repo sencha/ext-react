@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-modern';
 import { Transition} from '@sencha/ext-react-transition';
 
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
 import Home from './Home/Home';
 import About from './About/About';
@@ -14,7 +14,7 @@ var REACT_VERSION = require('react').version
  */
 class Layout extends Component {
 
-    title = "ExtReact Boilerplate " + REACT_VERSION
+    title = "ExtReact Boilerplate - React v" + REACT_VERSION
 
     state = {
         showAppMenu: false
@@ -72,10 +72,12 @@ class Layout extends Component {
                         />
                     </Panel>
                 )}
+                <Transition type="fade">
                 <Switch>
-                		<Route path="/" component={Home} exact/>
-                		<Route path="/about" component={About}/>
+                  <Route path="/" component={Home} exact/>
+                  <Route path="/about" component={About}/>
                 </Switch>
+              </Transition>
             </Container>
         );
     }

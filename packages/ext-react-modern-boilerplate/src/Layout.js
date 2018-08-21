@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Transition, Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-modern';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
 import Home from './Home/Home';
 import About from './About/About';
@@ -9,7 +9,7 @@ var REACT_VERSION = require('react').version
 
 class Layout extends Component {
 
-  title = "ExtReact Modern Boilerplate - React " + REACT_VERSION
+  title = "ExtReact Modern Boilerplate - React v" + REACT_VERSION
 
   state = {
     showAppMenu: false

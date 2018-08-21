@@ -544,7 +544,7 @@ async function stepCreate() {
     boilerplate = path.dirname(require.resolve('@sencha/ext-react-typescript-boilerplate'))
   }
   else {
-    boilerplate = path.dirname(require.resolve('@sencha/ext-react-boilerplate'))
+    boilerplate = path.dirname(require.resolve('@sencha/ext-react-modern-boilerplate'))
   }
 
   //console.log(boilerplate)
