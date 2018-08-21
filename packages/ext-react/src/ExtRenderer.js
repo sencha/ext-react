@@ -117,8 +117,8 @@ const ExtRenderer = ReactFiberReconciler({
 	},
 
   finalizeInitialChildren(ExtJSComponent, type, props) {
-    console.log(ExtJSComponent.extJSClass)
-//    console.log('setting collection configs and creating EXT component here')
+    //console.log(ExtJSComponent.extJSClass)
+    //console.log('setting collection configs and creating EXT component here')
     const xtype = type.toLowerCase().replace(/_/g, '-')
     if (ExtJSComponent.extJSClass != null) {
       l(`ExtRenderer: finalizeInitialChildren, type: ${type}, xtype: ${xtype}, (ExtJSComponent, props)`, ExtJSComponent,props)

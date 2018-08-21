@@ -24,7 +24,7 @@ export default function Breadcrumbs(props) {
         
         if (node.parentNode) {
             items.unshift(
-              <Container>
+              <Container key={node.get('text') + '>'} >
                 <div 
                     className="x-font-icon md-icon-keyboard-arrow-right" 
                     key={node.get('text') + '>'}

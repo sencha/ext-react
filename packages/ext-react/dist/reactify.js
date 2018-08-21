@@ -116,7 +116,7 @@ export function reactify2(target) {
 //var reactifyObj = {};
 
 export function reactify(target) {
-  console.log('reactify ' + target);
+  //console.log('reactify ' + target)
   // console.log(reactifyObj)
   // if( typeof reactifyObj.numRoots == 'undefined' ) {
   //   reactifyObj.numRoots = 0;
@@ -128,7 +128,9 @@ export function reactify(target) {
     //check to make sure this is an Ext JS define
     //this is a custom ExtJS class (like worldmap), it has to have an xtype to work
     if (target.xtype == undefined) {
-      console.warn('ExtReact: Custom Ext JS component defined with no xtype', target.$config);
+      if (!(target.$config instanceof Ext.Configurator)) {
+        console.warn('ExtReact: Custom Ext JS component defined with no xtype', target.$config);
+      }
     }
     // else {
     //   l('target is a function: ' + target.xtype)
@@ -151,7 +153,7 @@ export function reactify(target) {
     return reactifiedClass;
   } else {
     // msg 001 l('target is: ' + target)
-    console.log('target is: ' + target);
+    //console.log('target is: ' + target)
     return target;
   }
 }

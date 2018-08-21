@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Column } from '@sencha/ext-modern';
+import './CompanyData';
 import model from './CompanyModel';
 
 Ext.define('KitchenSink.data.Init', {
@@ -11,6 +12,23 @@ Ext.define('KitchenSink.data.Init', {
   singleton: true,
 
   constructor: function() {
+
+  //   Ext.ux.ajax.SimManager.init({
+  //     //delay: 300
+  // }).register({
+  //     '/app/data/url': {
+  //         type: 'json',  // use JsonSimlet (type is like xtype for components)
+  //         data: [
+  //             { foo: 42, bar: 'abc' },
+  //         ]
+  //     }
+  // });
+
+  Ext.ux.ajax.SimManager.init({
+    defaultSimlet: null
+})
+
+
     Ext.ux.ajax.SimManager.init({
         defaultSimlet: null
     })
