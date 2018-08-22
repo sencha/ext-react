@@ -1,8 +1,8 @@
 {
-  "name": "@sencha/ext-react-typescript-boilerplate",
+  "name": "@sencha/ext-react-modern-typescript-boilerplate",
   "private": true,
   "version": "6.6.0",
-  "description": "A foundation for React apps built with ExtReact components and TypeScript.",
+  "description": "A foundation for React apps built with ExtReact modern toolkit components and TypeScript.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
