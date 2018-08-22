@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@extjs/ext-react';
+import { launch } from '@extjs/ext-react'
+import { ExtReact } from '@sencha/ext-react'
 import App from './App'
+let viewport
 
-let viewport;
-
-import {ExtReact} from '@sencha/ext-react';
 const render = (Component, target) => {
     ReactDOM.render(
         <ExtReact>
@@ -21,5 +20,5 @@ const render = (Component, target) => {
 launch(target => render(App, viewport = target));
 
 if (module.hot) {
-    module.hot.accept('./App', () => render(App, viewport));
+    module.hot.accept('./App', () => render(App, viewport))
 }

@@ -545,14 +545,14 @@ async function stepCreate() {
   // console.log(`${app} package.json created for ${answers['packageName']}`)
 
   var boilerplate = ''
-  if (answers['language'] == LANGUAGE.TYPESCRIPT) {
-    boilerplate = path.dirname(require.resolve('@sencha/ext-react-modern-typescript-boilerplate'))
+    if (answers['language'] == LANGUAGE.TYPESCRIPT) {
+    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
   }
   else {
-    boilerplate = path.dirname(require.resolve('@sencha/ext-react-modern-boilerplate'))
+    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
   }
 
-  //console.log(boilerplate)
+  //console.log('bp:' + boilerplate)
   //console.log(answers['code'])
   //answers['theme'] = 'ios'
   //answers['packageName'] = 'ios'
@@ -711,9 +711,15 @@ async function stepCreate() {
  }
 
  function setDefaults() {
-  answers['theme'] = config.theme
-  answers['language'] = config.language
-  answers['code'] = config.code
+
+  if (cmdLine.theme != undefined) { answers['theme'] = cmdLine.theme }
+  else { answers['theme'] = config.theme }
+
+  if (cmdLine.language != undefined) { answers['language'] = cmdLine.language }
+  else { answers['language'] = config.language }
+
+  if (cmdLine.code != undefined) { answers['code'] = cmdLine.code }
+  else { answers['code'] = config.code }
 
   if (cmdLine.name != undefined) {
     answers['appName'] = cmdLine.name
