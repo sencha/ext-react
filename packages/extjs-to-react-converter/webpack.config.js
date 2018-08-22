@@ -2,7 +2,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+//const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
 //const WebpackShellPlugin = require('webpack-shell-plugin');
 const portfinder = require('portfinder')
@@ -19,10 +19,10 @@ module.exports = function (env) {
         template: 'index.html',
         hash: true
       }), 
-      new CopyWebpackPlugin([{
-        from: path.join(__dirname, 'resources'), 
-        to: 'resources'
-      }]),
+      // new CopyWebpackPlugin([{
+      //   from: path.join(__dirname, 'resources'), 
+      //   to: 'resources'
+      // }]),
       new ExtReactWebpackPlugin({
         theme: 'custom-ext-react-theme',
         overrides: ['ext-react/overrides'],
@@ -46,8 +46,8 @@ module.exports = function (env) {
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
-        'vendor': ['react', 'prop-types', 'react-redux', 'react-dom', 'react-router-dom', 'history', 'redux'],
-        'ext-react16': ['@sencha/ext-react16'],
+        'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
+        'ext-react': ['@sencha/ext-react'],
         'app': ['babel-polyfill','./index.js']
       },
       output: {
