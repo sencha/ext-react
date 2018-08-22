@@ -23,7 +23,7 @@ module.exports = function (env) {
       //   to: 'resources'
       // }]),
       new ExtReactWebpackPlugin({
-        sdk: 'ext', // you need to copy the Ext JS SDK to the root of this package, or you can specify a full path to some other location
+//        sdk: 'ext', // you need to copy the Ext JS SDK to the root of this package, or you can specify a full path to some other location
         toolkit: 'classic',
         theme: 'theme-triton',
         overrides: ['overrides'],
