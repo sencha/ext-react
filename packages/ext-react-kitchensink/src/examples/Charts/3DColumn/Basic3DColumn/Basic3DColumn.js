@@ -70,7 +70,7 @@ export default class Basic3DColumnChartExample extends Component {
                         fields: 'name'
                     }]}
                 />
-            </Container>            
+            </Container>
         )
     }
 }

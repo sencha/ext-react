@@ -49,7 +49,7 @@ module.exports = function (env) {
       context: sourcePath,
       entry: {
         'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
-        'ext-react16': ['@sencha/ext-react16'],
+        'ext-react16': ['@sencha/ext-react'],
         'app': ['babel-polyfill','./index.js']
       },
       output: {

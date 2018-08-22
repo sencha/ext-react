@@ -2,6 +2,12 @@ git remote add upstream https://github.com/sencha/ext-react.git
 git remote -v
 
 
+git fetch upstream
+git merge upstream/master
+
+git merge upstream/ext-6.6.x
+
+
 
     "css-loader": "^0.28.11",
     "mkdirp": "^0.5.1",

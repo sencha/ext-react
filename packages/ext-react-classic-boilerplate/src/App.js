@@ -7,7 +7,7 @@ var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {
 
-  title = "Employees" + REACT_VERSION
+  title = "ExtReact Classic Boilerplate" + REACT_VERSION
 
     state = {
         person: null

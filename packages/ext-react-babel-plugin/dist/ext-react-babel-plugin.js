@@ -1232,6 +1232,7 @@ var PATTERNS = {
   "ext-core": '@sencha\/ext-core',
   "ext-modern": '@sencha\/ext-modern',
   "ext-modern-treegrid": '@sencha\/ext-modern-treegrid',
+  "ext-classic": '@sencha\/ext-classic',
   "ext-soap": '@sencha\/ext-soap',
   "ext-charts": '@sencha\/ext-charts',
   "ext-ux": '@sencha\/ext-ux',
@@ -1242,7 +1243,8 @@ var PATTERNS = {
   "ext-d3": '@sencha\/ext-d3',
   "ext-pivot-d3": '@sencha\/ext-pivot-d3',
   "ext-react": '@sencha\/ext-react',
-  "ext-react-transition": '@sencha\/ext-react-transition'
+  "ext-react-transition": '@sencha\/ext-react-transition',
+  "ext-react-cellrenderer": '@sencha\/ext-react-cellrenderer'
 };
 
 module.exports = function (babel) {
