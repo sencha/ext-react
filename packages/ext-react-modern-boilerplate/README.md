@@ -1,35 +1,22 @@
-# React + Ext JS Modern Boilerplate
+# ExtReact Boilerplate
 
-A foundation for React apps that use the Ext JS modern toolkit.
-
-## Requirements
-
-* Ext JS 6.5+
+A foundation for React apps built with [ExtReact](http://docs.sencha.com/extreact/latest/index.html) components.
 
 ## Quick Start
 
-If you haven't already, download Ext JS 6.5+.
+ExtReact and all related packages are hosted on Sencha's private NPM registry. To gain access to this registry, [sign up for a trial of ExtReact](https://www.sencha.com/products/extreact/evaluate).
+
+Once you have received your credentials, you can authenticate by running the following command:
+
+```
+npm login --registry=http://npm.sencha.com --scope=@sencha
+```
 
 Then, run the following to clone and build the project:
 
     git clone https://github.com/sencha/ext-react.git
-    cd ext-react/packages/ext-react-modern-boilerplate
+    cd ext-react/packages/ext-react-boilerplate16
     npm install
-
-Copy or link your Ext JS SDK into packages/ext-react-modern-boilerplate/ext.  On Mac OS and Linux, this can be done with the following command:
-
-```
-ln -s /path/to/ext-6.x.x ext
-```
-
-Or on windows:
-
-```
-mklink /J ext c:\path\to\ext-6.5.x
-```
-
-Then run:
-
     npm start
 
 This will start the app and open it in a browser window.  By default it tries to find
@@ -44,3 +31,17 @@ You can also run and serve a production build using:
 
     npm run build
     npm run prod
+
+# Tests
+
+This application uses jest to run unit tests.  You can run them with:
+
+```
+npm test
+```
+
+When you make changes, update test snapshots by running:
+
+```
+npm run update-snapshots
+```

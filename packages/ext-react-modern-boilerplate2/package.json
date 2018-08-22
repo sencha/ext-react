@@ -1,9 +1,8 @@
 {
-  "name": "@sencha/ext-react-modern-boilerplate",
-  "product": "ext-react",
+  "name": "@sencha/ext-react-modern-boilerplate2",
   "private": true,
   "version": "6.6.0",
-  "description": "A foundation for React 16 apps built with ExtReact components.",
+  "description": "A boilerplate project showing how to integrate React and Ext JS using the modern toolkit.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
@@ -23,13 +22,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@sencha/ext": "~6.6.0",
-    "@sencha/ext-modern": "~6.6.0",
-    "@sencha/ext-modern-treegrid": "~6.6.0",
-    "@sencha/ext-react": "~6.6.0",
+    "@sencha/ext": "^6.6.0",
+    "@sencha/ext-modern": "^6.6.0",
+    "@sencha/ext-modern-treegrid": "^6.6.0",
+    "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-react-transition": "~6.6.0",
     "@sencha/ext-react-renderercell": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
+    "@sencha/ext-react": "~6.6.0",
 
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -38,6 +37,7 @@
 
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0"
+
   },
   "devDependencies": {
     "@sencha/ext-react-babel-plugin": "~6.6.0",
