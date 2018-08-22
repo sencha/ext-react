@@ -3,7 +3,7 @@
 const parseArgs = require('minimist'),
     fs = require('fs'),
     path = require('path'),
-    sencha = require('@extjs/sencha-cmd'),
+    sencha = require('@sencha/cmd'),
     cjson = require('comment-json'),
     { fork } = require('child_process'), 
     mkdirp = require('mkdirp');

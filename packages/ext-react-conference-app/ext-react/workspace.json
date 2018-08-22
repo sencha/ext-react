@@ -1,7 +1,7 @@
 {
     "apps": [],
     "frameworks": {
-        "ext": "../node_modules/@sencha/ext-react"
+        "ext": "../node_modules/@sencha/ext"
     },
     "build": {
         "dir": "${workspace.dir}/build"
