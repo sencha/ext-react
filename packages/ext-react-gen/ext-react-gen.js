@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 const npmScope = '@sencha'
-const path = require('path');
-const fs = require('fs-extra');
+const path = require('path')
+const fs = require('fs-extra')
 const { kebabCase, pick } = require('lodash')
 const util = require('./util.js')
 const appUpgrade = require('./appUpgrade.js')

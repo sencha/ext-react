@@ -18,8 +18,8 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "@sencha/ext-react-boilerplate": "~6.6.0",
-    "@sencha/ext-react-typescript-boilerplate": "~6.6.0",
+    "@sencha/ext-react-modern-boilerplate": "~6.6.0",
+    "@sencha/ext-react-modern-typescript-boilerplate": "~6.6.0",
 
     "react": "^16.4.2",
 		"react-dom": "^16.4.2",
