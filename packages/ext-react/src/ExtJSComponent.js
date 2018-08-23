@@ -34,14 +34,15 @@ export class ExtJSComponent extends Component {
   }
 
   componentWillMount() {
+    l(`ExtJSComponent: componentWillMount`)
   }
 
   componentDidMount() {
     l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.createContainer`)
-    this._mountNode = EXTRenderer.createContainer(this.cmp);
+    this._mountNode = EXTRenderer.createContainer(this.cmp)
     //l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.updateContainer`)
     l(`ExtJSComponent: componentDidMount (reactChildren, _mountNode) call EXTRenderer.updateContainer`,this.reactChildren,this._mountNode)
-    EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this);
+    EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this)
   }
 
   componentDidUpdate(prevProps, prevState) {

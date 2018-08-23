@@ -1305,7 +1305,7 @@ module.exports = function (babel) {
               importWritten = false;
               shouldWrite = false;
             }
-            if (local != 'launch' && local != 'reactify' && local != 'Template') {
+            if (local != 'launch' && local != 'reactify' && local != 'Template' && local != 'renderWhenReady') {
               //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} = reactify('${imported}')`)
               shouldWrite = true;
               declarations.push(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(local), t.callExpression(t.identifier('reactify'), [t.stringLiteral(imported)]))]));
@@ -1620,7 +1620,7 @@ function supportsColor(stream) {
 		return 2;
 	}
 
-	if (/^screen|^xterm|^vt100|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+	if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
 		return 1;
 	}
 

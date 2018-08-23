@@ -1,7 +1,7 @@
 import React from 'react';
 import { reactify } from './reactify'
 
-export function ExtReact() {}
+export function ExtReact() {} //??
 
 //import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
@@ -110,7 +110,8 @@ export function go({callback, element}) {
  * @xparam {Object} [appConfig] Additional config parameters for Ext.application
  */
 export function launch(rootComponent, options = { debug: false, viewport: false }, appConfig = { }) {
-  configure(options);
+  console.log('launch')
+  configure(options)
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
 // 

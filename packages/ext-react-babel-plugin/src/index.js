@@ -82,7 +82,7 @@ module.exports = function(babel) {
               importWritten = false
               shouldWrite = false
             }
-            if (local != 'launch' && local != 'reactify' && local != 'Template') {
+            if (local != 'launch' && local != 'reactify' && local != 'Template' && local != 'renderWhenReady') {
               //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} = reactify('${imported}')`)
               shouldWrite = true
               declarations.push(

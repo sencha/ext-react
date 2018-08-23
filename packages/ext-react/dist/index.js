@@ -2,7 +2,7 @@ import _extends from 'babel-runtime/helpers/extends';
 import React from 'react';
 import { reactify } from './reactify';
 
-export function ExtReact() {}
+export function ExtReact() {} //??
 
 //import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
@@ -117,6 +117,7 @@ export function launch(rootComponent) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { debug: false, viewport: false };
   var appConfig = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
+  console.log('launch');
   configure(options);
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
