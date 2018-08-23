@@ -1,6 +1,6 @@
 import { ReactElement, Component, ComponentClass, StatelessComponent } from 'react';
 
-export default function ExtReact<P>(): void;
+export function ExtReact<P>()
 
 export interface LaunchOptions {
     debug: boolean
