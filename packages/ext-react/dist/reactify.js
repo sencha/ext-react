@@ -1,3 +1,4 @@
+import _typeof from 'babel-runtime/helpers/typeof';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
@@ -116,7 +117,8 @@ export function reactify2(target) {
 //var reactifyObj = {};
 
 export function reactify(target) {
-  //console.log('reactify ' + target)
+  //l('reactify ' + target)
+  console.log('reactify ' + target);
   // console.log(reactifyObj)
   // if( typeof reactifyObj.numRoots == 'undefined' ) {
   //   reactifyObj.numRoots = 0;
@@ -124,6 +126,13 @@ export function reactify(target) {
   // if (reactifyObj.numRoots > 1) {
   //   throw `${target} More than 1 root import defined (either ExtReact, RootContainer or RootPanel)`
   // }
+
+  if (target == 'D3_Tree') {
+    console.log(typeof target === 'undefined' ? 'undefined' : _typeof(target));
+    console.log(target.xtype);
+    console.log(target.$config);
+  }
+
   if (typeof target === 'function') {
     //check to make sure this is an Ext JS define
     //this is a custom ExtJS class (like worldmap), it has to have an xtype to work
@@ -153,7 +162,7 @@ export function reactify(target) {
     return reactifiedClass;
   } else {
     // msg 001 l('target is: ' + target)
-    //console.log('target is: ' + target)
+    l('target is: ' + target);
     return target;
   }
 }

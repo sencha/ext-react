@@ -44,23 +44,20 @@ const ExtRenderer = ReactFiberReconciler({
   },
 
   appendInitialChild(parentInstance, childInstance) {
-    // To handle childInstance = " " case
     if (childInstance == null || (typeof childInstance === "string" && childInstance.trim().length === 0)) {return}
-//    console.log(parentInstance)
-//    console.log(childInstance)
-
     if (parentInstance != null && childInstance != null) {
-     //SK : Do not uncomment below console statement. It will cause error in case of div
-    //  l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      //SK : Do not uncomment below console statement. It will cause error in case of div
+      //l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      l(`ExtRenderer: appendInitialChild`)
       var parentXtype = parentInstance.xtype
       var childXtype = childInstance.xtype
 
-      if (childXtype == 'column'  ||
-      childXtype == 'treecolumn'  ||
-      childXtype == 'textcolumn'  ||
-      childXtype == 'checkcolumn' ||
-      childXtype == 'datecolumn'  ||
-      childXtype == 'numbercolumn' )
+      if (childXtype == 'column'      ||
+          childXtype == 'treecolumn'  ||
+          childXtype == 'textcolumn'  ||
+          childXtype == 'checkcolumn' ||
+          childXtype == 'datecolumn'  ||
+          childXtype == 'numbercolumn' )
       {
         if(parentInstance.rawcolumns == undefined) { parentInstance.rawcolumns = [] }
         parentInstance.rawcolumns.push(childInstance.cmp)
@@ -110,13 +107,12 @@ const ExtRenderer = ReactFiberReconciler({
         } else {
           parentInstance.rawitems.push(childInstance.cmp)
         }
-        
-        //used to do this doAdd(childInstance.xtype, parentInstance.cmp, childInstance.cmp, childInstance.reactChildren)
       }
     }
 	},
 
   finalizeInitialChildren(ExtJSComponent, type, props) {
+    l(`ExtRenderer: finalizeInitialChildren`)
     //console.log(ExtJSComponent.extJSClass)
     //console.log('setting collection configs and creating EXT component here')
     const xtype = type.toLowerCase().replace(/_/g, '-')
@@ -124,12 +120,10 @@ const ExtRenderer = ReactFiberReconciler({
       l(`ExtRenderer: finalizeInitialChildren, type: ${type}, xtype: ${xtype}, (ExtJSComponent, props)`, ExtJSComponent,props)
       if(ExtJSComponent.rawcolumns != undefined) {
         l(`new set columns config (parent xtype,child columns)`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawcolumns)
-        //ExtJSComponent.cmp.setColumns(ExtJSComponent.rawcolumns)
         ExtJSComponent.rawConfigs.columns = ExtJSComponent.rawcolumns
       }
       if(ExtJSComponent.rawitems != undefined) {
         l(`new set items config (parent xtype,child items)`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawitems)
-        //ExtJSComponent.cmp.setItems(ExtJSComponent.rawitems)
         ExtJSComponent.rawConfigs.items = ExtJSComponent.rawitems
       }
       if(ExtJSComponent.rawmenu != undefined) {
@@ -140,7 +134,6 @@ const ExtRenderer = ReactFiberReconciler({
         l(`new set menu items config (parent xtype,child items)`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawmenuitems)
         ExtJSComponent.rawConfigs.items = ExtJSComponent.rawmenuitems
       }
-
       if(ExtJSComponent.rawbuttons != undefined) {
         l(`new set buttons items config (parent xtype,child items)`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawmenuitems)
         ExtJSComponent.rawConfigs.buttons = ExtJSComponent.rawbuttons
@@ -161,13 +154,11 @@ const ExtRenderer = ReactFiberReconciler({
         l(`new set widget config (parent xtype,child items)`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawmenu)
         ExtJSComponent.rawConfigs.tooltip = ExtJSComponent.rawtooltip
       }
-
       if(ExtJSComponent.rawConfigs.renderer != undefined && CLASS_CACHE.Column && isAssignableFrom(ExtJSComponent.rawConfigs,CLASS_CACHE.Column)) {
         l(`renderer`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawConfigs.renderer)
         ExtJSComponent.rawConfigs.cell= ExtJSComponent.rawConfigs.cell || {}
         ExtJSComponent.rawConfigs.cell.xtype = 'renderercell'
       }
-
       if(ExtJSComponent.rawConfigs.columns!= undefined && CLASS_CACHE.Column && isAssignableFrom(ExtJSComponent.rawConfigs,CLASS_CACHE.Column)) {
         l(`renderer`,ExtJSComponent.rawConfigs.xtype,ExtJSComponent.rawConfigs.renderer)
         ExtJSComponent.rawConfigs.columns.forEach(function(column){
@@ -177,20 +168,14 @@ const ExtRenderer = ReactFiberReconciler({
           }
         })
       }
-
       if(ExtJSComponent.rawConfigs.config != undefined ) {
         Object.assign(ExtJSComponent.rawConfigs, ExtJSComponent.rawConfigs.config);   
       }
-
       if (typeof(props.children) == 'string' || typeof(props.children) == 'number') {
         if(ExtJSComponent.rawhtml === undefined) {
           ExtJSComponent.rawConfigs.html = props.children
         }
       }
-
-
-//      console.log('right before new')
-//      console.log(ExtJSComponent)
       ExtJSComponent.rawConfigs = ExtJSComponent._cloneProps(ExtJSComponent.rawConfigs)
       ExtJSComponent.cmp = new ExtJSComponent.extJSClass(ExtJSComponent.rawConfigs)
       l(`ExtRenderer: finalizeInitialChildren, type: ${type}, xtype: ${xtype}, (ExtJSComponent.rawConfigs, ExtJSComponent.cmp)`, ExtJSComponent.rawConfigs, ExtJSComponent.cmp)
@@ -202,20 +187,17 @@ const ExtRenderer = ReactFiberReconciler({
       ExtJSComponent.cmp = cmp
       l(`ExtRenderer: finalizeInitialChildren, type: ${type}, xtype: ${xtype}, ExtJSComponent == html`,ExtJSComponent)
     }
-
-//    console.log('')
     return true;
-//  }
-},
+  },
  
   createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
     l(`createTextInstance (text, rootContainerInstance, internalInstanceHandle)`,text, rootContainerInstance, internalInstanceHandle)
-    return text;
+    return text
   },
  
   getPublicInstance(instance) {
     l(`getPublicInstance`,instance)
-    return instance;
+    return instance
   },
 
   prepareForCommit() {
@@ -224,7 +206,7 @@ const ExtRenderer = ReactFiberReconciler({
 
   prepareUpdate(domElement, type, oldProps, newProps) {
     l(`prepareUpdate ${type} **********`)
-    return UPDATE_SIGNAL;
+    return UPDATE_SIGNAL
   },
 
   resetAfterCommit() {
@@ -237,17 +219,17 @@ const ExtRenderer = ReactFiberReconciler({
 
   shouldDeprioritizeSubtree(type, props) {
     l(`shouldDeprioritizeSubtree**********`)
-    return false;
+    return false
   },
 
   getRootHostContext() {
-//    l(`getRootHostContext**********`)
-    return emptyObject;
+    l(`getRootHostContext**********`)
+    return emptyObject
   },
 
   getChildHostContext() {
-//    l(`getChildHostContext**********`)
-    return emptyObject;
+    l(`getChildHostContext**********`)
+    return emptyObject
   },
 
   //scheduleDeferredCallback: ReactDOMFrameScheduling.rIC,
@@ -285,12 +267,12 @@ const ExtRenderer = ReactFiberReconciler({
         throw error
       }
       else {
-//          console.log('appendChildToContainer This is ExtReactRoot, call add method on parent')
+        l('appendChildToContainer This is ExtReactRoot, call add method on parent')
         if(childCmp) {
           parentCmp.add(childCmp)
         } else {
-//            console.log("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child")
-        }          
+          l("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child")
+        }
       }
     }
     else {
@@ -301,7 +283,6 @@ const ExtRenderer = ReactFiberReconciler({
 
   removeChildFromContainer(parentInstance, child) {
     l(`removeChildFromContainer (parentInstance, child)`, parentInstance, child)
-
     if (parentInstance != null && child != null) {
       if(child.cmp) {
         parentInstance.remove(child.cmp, true)
@@ -313,13 +294,10 @@ const ExtRenderer = ReactFiberReconciler({
 
   commitMount(instance, type, newProps) {
     l(`commitMount**********`)
-    // Noop
   },
-
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     l(`commitUpdate ${type} (instance, updatePayload, oldProps, newProps)`, instance, updatePayload, oldProps, newProps)
-
     if (instance._applyProps) {
       instance._applyProps(oldProps, newProps, instance, type);
     }
@@ -331,8 +309,7 @@ const ExtRenderer = ReactFiberReconciler({
 
   appendChild(parentInstance, childInstance) {
     if(childInstance.cmp === undefined) {
-      // plain text instance
-//        console.log("plain text")
+      l("plain text")
       return false;
     }
     if (parentInstance != null && childInstance != null) {
@@ -343,77 +320,60 @@ const ExtRenderer = ReactFiberReconciler({
       console.warn('both are null')
     }
   },
-  
-//  mutation: {
 
+  insertBefore(parentInstance, child, beforeChild) {
+    l(`insertBefore**********`)
+    invariant(
+      child !== beforeChild,
+      'ExtRenderer: Can not insert node before itself',
+    );
+    if(parentInstance.cmp.insertBefore && typeof parentInstance.cmp.insertBefore === 'function') {
+      parentInstance.cmp.insertBefore(child.cmp, beforeChild.cmp);
+    }
+  },
 
+  insertInContainerBefore(parentInstance, child, beforeChild) {
+    l(`insertInContainerBefore**********`)
+    invariant(
+      child !== beforeChild,
+      'ExtRenderer: Can not insert node before itself',
+    );
+    child.injectBefore(beforeChild);
+  },
 
-
-
-    insertBefore(parentInstance, child, beforeChild) {
-      l(`insertBefore**********`)
-      invariant(
-        child !== beforeChild,
-        'ExtRenderer: Can not insert node before itself',
-      );
-      if(parentInstance.cmp.insertBefore && typeof parentInstance.cmp.insertBefore === 'function') {
-        parentInstance.cmp.insertBefore(child.cmp, beforeChild.cmp);
-      }
-      //child.injectBefore(beforeChild);
-    },
-
-    insertInContainerBefore(parentInstance, child, beforeChild) {
-      l(`insertInContainerBefore**********`)
-      invariant(
-        child !== beforeChild,
-        'ExtRenderer: Can not insert node before itself',
-      );
-      child.injectBefore(beforeChild);
-    },
-
-    removeChild(parentInstance, child) {
-
-      if (parentInstance != null && child != null) {
-        l(`removeChild (parentInstance, child)`, parentInstance, child)
-        //not working commented out for tab panel close - does this cause anything to break??
-
-        if (parentInstance.xtype == 'html') return //correct??
-        if (child.cmp != undefined) {
-//          console.log("CHECK BEFORE REMOVE")
-          if(parentInstance.cmp.xtype == 'grid' && child.cmp.xtype == 'column') {
-            parentInstance.cmp.removeColumn(child.cmp);
-          } 
-          else if(parentInstance.cmp.xtype === "button") {
-            if(child.cmp.xtype === "menu"){
-              parentInstance.cmp.setMenu(null)
-            }
+  removeChild(parentInstance, child) {
+    if (parentInstance != null && child != null) {
+      l(`removeChild (parentInstance, child)`, parentInstance, child)
+      //not working commented out for tab panel close - does this cause anything to break??
+      if (parentInstance.xtype == 'html') return //correct??
+      if (child.cmp != undefined) {
+        if(parentInstance.cmp.xtype == 'grid' && child.cmp.xtype == 'column') {
+          parentInstance.cmp.removeColumn(child.cmp);
+        } 
+        else if(parentInstance.cmp.xtype === "button") {
+          if(child.cmp.xtype === "menu"){
+            parentInstance.cmp.setMenu(null)
           }
-          else if(parentInstance.cmp.getItems!= undefined && typeof parentInstance.cmp.getItems == 'function' && parentInstance.cmp.getItems().get(child.cmp.getItemId())) {
-            parentInstance.cmp.remove(child.cmp, true)
-          } else {
-            console.log("DID NOTHING IN REMOVE")
-          }   
         }
+        else if(parentInstance.cmp.getItems!= undefined && typeof parentInstance.cmp.getItems == 'function' && parentInstance.cmp.getItems().get(child.cmp.getItemId())) {
+          parentInstance.cmp.remove(child.cmp, true)
+        } else {
+          console.log("DID NOTHING IN REMOVE")
+        }   
       }
-      else {
-        console.warn('removeChild - both are null')
-      }
-    },
+    }
+    else {
+      console.warn('removeChild - both are null')
+    }
+  },
 
+  commitTextUpdate(textInstance, oldText, newText) {
+    l(`commitTextUpdate**********`)
+  },
 
-
-    commitTextUpdate(textInstance, oldText, newText) {
-      l(`commitTextUpdate**********`)
-      // Noop
-    },
-
-
-
-//  },
-});
+})
 
 export default ExtRenderer
-
 
 /**
  * Wraps a dom element in an Ext Component so it can be added as a child item to an Ext Container.  We attach

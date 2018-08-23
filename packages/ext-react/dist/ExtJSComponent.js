@@ -44,7 +44,9 @@ export var ExtJSComponent = function (_Component) {
         return _this;
     }
 
-    ExtJSComponent.prototype.componentWillMount = function componentWillMount() {};
+    ExtJSComponent.prototype.componentWillMount = function componentWillMount() {
+        l('ExtJSComponent: componentWillMount');
+    };
 
     ExtJSComponent.prototype.componentDidMount = function componentDidMount() {
         l('ExtJSComponent: componentDidMount, element: ' + this.target + ', call EXTRenderer.createContainer');

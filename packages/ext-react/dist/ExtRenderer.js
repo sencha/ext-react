@@ -44,16 +44,13 @@ var ExtRenderer = ReactFiberReconciler({
     }
   },
   appendInitialChild: function appendInitialChild(parentInstance, childInstance) {
-    // To handle childInstance = " " case
     if (childInstance == null || typeof childInstance === "string" && childInstance.trim().length === 0) {
       return;
     }
-    //    console.log(parentInstance)
-    //    console.log(childInstance)
-
     if (parentInstance != null && childInstance != null) {
       //SK : Do not uncomment below console statement. It will cause error in case of div
-      //  l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      //l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      l('ExtRenderer: appendInitialChild');
       var parentXtype = parentInstance.xtype;
       var childXtype = childInstance.xtype;
 
@@ -101,12 +98,11 @@ var ExtRenderer = ReactFiberReconciler({
         } else {
           parentInstance.rawitems.push(childInstance.cmp);
         }
-
-        //used to do this doAdd(childInstance.xtype, parentInstance.cmp, childInstance.cmp, childInstance.reactChildren)
       }
     }
   },
   finalizeInitialChildren: function finalizeInitialChildren(ExtJSComponent, type, props) {
+    l('ExtRenderer: finalizeInitialChildren');
     //console.log(ExtJSComponent.extJSClass)
     //console.log('setting collection configs and creating EXT component here')
     var xtype = type.toLowerCase().replace(/_/g, '-');
@@ -114,12 +110,10 @@ var ExtRenderer = ReactFiberReconciler({
       l('ExtRenderer: finalizeInitialChildren, type: ' + type + ', xtype: ' + xtype + ', (ExtJSComponent, props)', ExtJSComponent, props);
       if (ExtJSComponent.rawcolumns != undefined) {
         l('new set columns config (parent xtype,child columns)', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawcolumns);
-        //ExtJSComponent.cmp.setColumns(ExtJSComponent.rawcolumns)
         ExtJSComponent.rawConfigs.columns = ExtJSComponent.rawcolumns;
       }
       if (ExtJSComponent.rawitems != undefined) {
         l('new set items config (parent xtype,child items)', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawitems);
-        //ExtJSComponent.cmp.setItems(ExtJSComponent.rawitems)
         ExtJSComponent.rawConfigs.items = ExtJSComponent.rawitems;
       }
       if (ExtJSComponent.rawmenu != undefined) {
@@ -130,7 +124,6 @@ var ExtRenderer = ReactFiberReconciler({
         l('new set menu items config (parent xtype,child items)', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawmenuitems);
         ExtJSComponent.rawConfigs.items = ExtJSComponent.rawmenuitems;
       }
-
       if (ExtJSComponent.rawbuttons != undefined) {
         l('new set buttons items config (parent xtype,child items)', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawmenuitems);
         ExtJSComponent.rawConfigs.buttons = ExtJSComponent.rawbuttons;
@@ -151,13 +144,11 @@ var ExtRenderer = ReactFiberReconciler({
         l('new set widget config (parent xtype,child items)', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawmenu);
         ExtJSComponent.rawConfigs.tooltip = ExtJSComponent.rawtooltip;
       }
-
       if (ExtJSComponent.rawConfigs.renderer != undefined && CLASS_CACHE.Column && isAssignableFrom(ExtJSComponent.rawConfigs, CLASS_CACHE.Column)) {
         l('renderer', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawConfigs.renderer);
         ExtJSComponent.rawConfigs.cell = ExtJSComponent.rawConfigs.cell || {};
         ExtJSComponent.rawConfigs.cell.xtype = 'renderercell';
       }
-
       if (ExtJSComponent.rawConfigs.columns != undefined && CLASS_CACHE.Column && isAssignableFrom(ExtJSComponent.rawConfigs, CLASS_CACHE.Column)) {
         l('renderer', ExtJSComponent.rawConfigs.xtype, ExtJSComponent.rawConfigs.renderer);
         ExtJSComponent.rawConfigs.columns.forEach(function (column) {
@@ -167,19 +158,14 @@ var ExtRenderer = ReactFiberReconciler({
           }
         });
       }
-
       if (ExtJSComponent.rawConfigs.config != undefined) {
         _Object$assign(ExtJSComponent.rawConfigs, ExtJSComponent.rawConfigs.config);
       }
-
       if (typeof props.children == 'string' || typeof props.children == 'number') {
         if (ExtJSComponent.rawhtml === undefined) {
           ExtJSComponent.rawConfigs.html = props.children;
         }
       }
-
-      //      console.log('right before new')
-      //      console.log(ExtJSComponent)
       ExtJSComponent.rawConfigs = ExtJSComponent._cloneProps(ExtJSComponent.rawConfigs);
       ExtJSComponent.cmp = new ExtJSComponent.extJSClass(ExtJSComponent.rawConfigs);
       l('ExtRenderer: finalizeInitialChildren, type: ' + type + ', xtype: ' + xtype + ', (ExtJSComponent.rawConfigs, ExtJSComponent.cmp)', ExtJSComponent.rawConfigs, ExtJSComponent.cmp);
@@ -190,10 +176,7 @@ var ExtRenderer = ReactFiberReconciler({
       ExtJSComponent.cmp = cmp;
       l('ExtRenderer: finalizeInitialChildren, type: ' + type + ', xtype: ' + xtype + ', ExtJSComponent == html', ExtJSComponent);
     }
-
-    //    console.log('')
     return true;
-    //  }
   },
   createTextInstance: function createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
     l('createTextInstance (text, rootContainerInstance, internalInstanceHandle)', text, rootContainerInstance, internalInstanceHandle);
@@ -221,11 +204,11 @@ var ExtRenderer = ReactFiberReconciler({
     return false;
   },
   getRootHostContext: function getRootHostContext() {
-    //    l(`getRootHostContext**********`)
+    l('getRootHostContext**********');
     return emptyObject;
   },
   getChildHostContext: function getChildHostContext() {
-    //    l(`getChildHostContext**********`)
+    l('getChildHostContext**********');
     return emptyObject;
   },
 
@@ -262,11 +245,11 @@ var ExtRenderer = ReactFiberReconciler({
         console.log('appendChildToContainer ERROR ExtReactRoot is the only one to be in do Add');
         throw error;
       } else {
-        //          console.log('appendChildToContainer This is ExtReactRoot, call add method on parent')
+        l('appendChildToContainer This is ExtReactRoot, call add method on parent');
         if (childCmp) {
           parentCmp.add(childCmp);
         } else {
-          //            console.log("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child")
+          l("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child");
         }
       }
     } else {
@@ -276,7 +259,6 @@ var ExtRenderer = ReactFiberReconciler({
   },
   removeChildFromContainer: function removeChildFromContainer(parentInstance, child) {
     l('removeChildFromContainer (parentInstance, child)', parentInstance, child);
-
     if (parentInstance != null && child != null) {
       if (child.cmp) {
         parentInstance.remove(child.cmp, true);
@@ -287,11 +269,9 @@ var ExtRenderer = ReactFiberReconciler({
   },
   commitMount: function commitMount(instance, type, newProps) {
     l('commitMount**********');
-    // Noop
   },
   commitUpdate: function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     l('commitUpdate ' + type + ' (instance, updatePayload, oldProps, newProps)', instance, updatePayload, oldProps, newProps);
-
     if (instance._applyProps) {
       instance._applyProps(oldProps, newProps, instance, type);
     } else {
@@ -301,8 +281,7 @@ var ExtRenderer = ReactFiberReconciler({
   },
   appendChild: function appendChild(parentInstance, childInstance) {
     if (childInstance.cmp === undefined) {
-      // plain text instance
-      //        console.log("plain text")
+      l("plain text");
       return false;
     }
     if (parentInstance != null && childInstance != null) {
@@ -312,18 +291,12 @@ var ExtRenderer = ReactFiberReconciler({
       console.warn('both are null');
     }
   },
-
-
-  //  mutation: {
-
-
   insertBefore: function insertBefore(parentInstance, child, beforeChild) {
     l('insertBefore**********');
     invariant(child !== beforeChild, 'ExtRenderer: Can not insert node before itself');
     if (parentInstance.cmp.insertBefore && typeof parentInstance.cmp.insertBefore === 'function') {
       parentInstance.cmp.insertBefore(child.cmp, beforeChild.cmp);
     }
-    //child.injectBefore(beforeChild);
   },
   insertInContainerBefore: function insertInContainerBefore(parentInstance, child, beforeChild) {
     l('insertInContainerBefore**********');
@@ -331,14 +304,11 @@ var ExtRenderer = ReactFiberReconciler({
     child.injectBefore(beforeChild);
   },
   removeChild: function removeChild(parentInstance, child) {
-
     if (parentInstance != null && child != null) {
       l('removeChild (parentInstance, child)', parentInstance, child);
       //not working commented out for tab panel close - does this cause anything to break??
-
       if (parentInstance.xtype == 'html') return; //correct??
       if (child.cmp != undefined) {
-        //          console.log("CHECK BEFORE REMOVE")
         if (parentInstance.cmp.xtype == 'grid' && child.cmp.xtype == 'column') {
           parentInstance.cmp.removeColumn(child.cmp);
         } else if (parentInstance.cmp.xtype === "button") {
@@ -357,12 +327,8 @@ var ExtRenderer = ReactFiberReconciler({
   },
   commitTextUpdate: function commitTextUpdate(textInstance, oldText, newText) {
     l('commitTextUpdate**********');
-    // Noop
   }
-}
-
-//  },
-);
+});
 
 export default ExtRenderer;
 
