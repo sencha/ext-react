@@ -1,4 +1,3 @@
-import _typeof from 'babel-runtime/helpers/typeof';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
@@ -96,7 +95,7 @@ function getTheClass(isRootContainer, xtype, target) {
       get: function get() {
         return target;
       } //original element passed from jsx
-      //   constructor(props) { super(props) }
+      //constructor(props) { super(props) }
 
     }]);
 
@@ -117,8 +116,7 @@ export function reactify2(target) {
 //var reactifyObj = {};
 
 export function reactify(target) {
-  //l('reactify ' + target)
-  console.log('reactify ' + target);
+  //console.log('reactify ' + target)
   // console.log(reactifyObj)
   // if( typeof reactifyObj.numRoots == 'undefined' ) {
   //   reactifyObj.numRoots = 0;
@@ -127,11 +125,11 @@ export function reactify(target) {
   //   throw `${target} More than 1 root import defined (either ExtReact, RootContainer or RootPanel)`
   // }
 
-  if (target == 'D3_Tree') {
-    console.log(typeof target === 'undefined' ? 'undefined' : _typeof(target));
-    console.log(target.xtype);
-    console.log(target.$config);
-  }
+  // if(target == 'D3_Tree') {
+  //   console.log(typeof(target))
+  //   console.log(target.xtype)
+  //   console.log(target.$config)
+  // }
 
   if (typeof target === 'function') {
     //check to make sure this is an Ext JS define
@@ -162,7 +160,7 @@ export function reactify(target) {
     return reactifiedClass;
   } else {
     // msg 001 l('target is: ' + target)
-    l('target is: ' + target);
+    //l('target is: ' + target)
     return target;
   }
 }
