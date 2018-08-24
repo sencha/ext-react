@@ -110,7 +110,6 @@ export function go({callback, element}) {
  * @xparam {Object} [appConfig] Additional config parameters for Ext.application
  */
 export function launch(rootComponent, options = { debug: false, viewport: false }, appConfig = { }) {
-  console.log('launch')
   configure(options)
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
