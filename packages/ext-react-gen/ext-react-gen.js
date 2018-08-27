@@ -637,7 +637,7 @@ async function stepCreate() {
       if (answers['language'] === LANGUAGE.JAVASCRIPT) {
         fs.copyFileSync(
           path.join(templatesDir, 'js/App.test.js'),
-          path.join(destDir, '__tests__/App.test.js')
+          path.join(destDir, 'src/App.test.js')
         )
     }
   } 
