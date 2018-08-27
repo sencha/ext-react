@@ -19,7 +19,7 @@ const styles = {
 
 const cardProps = {
   flex: 1,
-  height: '50px',
+  height: '100%',
   style: { ...styles.cardLight, ...styles.card },
   layout: {
       type: 'vbox',
@@ -29,33 +29,30 @@ const cardProps = {
 };
 
 export default function CarouselExample() {
-    return (
-        <Container layout={{ type: 'vbox', align: 'stretch' }} padding={10}>
-            <Carousel flex={1} shadow>
-                <Container {...cardProps} >
-                    <div>Swipe left to show the next card...</div>
-                </Container>
-                <Container {...cardProps}>
-                    <div>You can also tap on either side of the indicators.</div>
-                </Container>
-                <Container {...cardProps}>
-                    <div>Card #3</div>
-                </Container>
-            </Carousel>
-            <Carousel ui="light" direction="vertical" flex={1} shadow margin="20 0 0 0">
-                <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
-                    <div>Carousels can also be vertical <em>(swipe up)...</em></div>
-                </Container>
-                <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
-                    <div>And can also use <code style={styles.code}>ui:light</code>.</div>
-                </Container>
-                <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
-                    <div>Card #3</div>
-                </Container>
-            </Carousel>
+  return (
+    <Container layout={{ type: 'vbox', align: 'stretch' }} padding={10}>
+      <Carousel flex={1} shadow>
+        <Container {...cardProps}>
+          <div>Swipe left to show the next card...</div>
         </Container>
-    )
+        <Container {...cardProps}>
+          <div>You can also tap on either side of the indicators.</div>
+        </Container>
+        <Container {...cardProps}>
+          <div>Card #3</div>
+        </Container>
+      </Carousel>
+      <Carousel ui="light" direction="vertical" flex={1} shadow margin="20 0 0 0">
+        <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
+          <div>Carousels can also be vertical <em>(swipe up)...</em></div>
+        </Container>
+        <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
+          <div>And can also use <code style={styles.code}>ui:light</code>.</div>
+        </Container>
+        <Container {...cardProps} style={{...styles.cardDark, ...styles.card}}>
+          <div>Card #3</div>
+        </Container>
+      </Carousel>
+    </Container>
+  )
 }
-
-
-

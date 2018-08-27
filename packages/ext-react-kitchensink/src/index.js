@@ -15,7 +15,7 @@ launch(() => {
   wrapper.addCls('app-loaded')
   return <ExtReact><App/></ExtReact>
   }, 
-  { debug: true }, 
+  { debug: false }, 
   { 
     quickTips: {
       tooltip: {

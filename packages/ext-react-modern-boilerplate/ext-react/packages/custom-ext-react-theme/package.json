@@ -3,22 +3,19 @@
      * The name of the package.
      */
     "name": "custom-ext-react-theme",
-
     "sencha": {
         /**
          * Alternate names for this package.
          *
          *    "alternateName": [],
          */
-
-         /**
+        /**
           * The namespace of this package.
           *
           * As a general rule, all classes that belong to this package should be under this namespace
           * if multiple namespaces are part of this package, set this to "".
           */
-         "namespace": "Ext",
-
+        "namespace": "Ext",
         /**
          * The package type.
          *
@@ -29,7 +26,6 @@
          *  - template : A package containing one or more templates.
          */
         "type": "theme",
-
         /**
          * The parent theme package (only for "theme" package type).
          *
@@ -38,7 +34,6 @@
          *    "extend": "parent-theme-package",
          */
         "extend": "theme-material",
-
         /**
          * The toolkit used by this theme (only for "theme" package type).
          *
@@ -47,25 +42,21 @@
          *    "toolkit": "classic",
          */
         "toolkit": "",
-
-         /**
+        /**
           * The author of the package.
           *
           * Required only if you are distributing this package through a Sencha Cmd repository,
           * in which case it should match the name you assign to your local package repository.
           */
         "creator": "anonymous",
-
         /**
          * A summarized description of this package.
          */
         "summary": "Short summary",
-
         /**
          * A detailed description of this package.
          */
         "detailedDescription": "Long description of package",
-
         /**
          * The package version.
          *
@@ -73,7 +64,6 @@
          * This number should be in this format: d+(.d+)*
          */
         "version": "1.0.0",
-
         /**
          * The version that users can transparently update from without requiring code changes.
          *
@@ -81,13 +71,11 @@
          * they are backward compatible using the compatVersion property.
          */
         "compatVersion": "1.0.0",
-
         /**
          * Spec. version of this package.json file.
          * This is set automatically by Sencha Cmd when first generating this file
          */
         "format": "1",
-
         /**
          * Additional resources used during theme slicing operations
          */
@@ -99,29 +87,25 @@
                 }
             ]
         },
-
         /**
          * Controls the output directory.
          */
         "output": "${package.dir}/build",
-
         /**
          * Indicates whether this is a locally developed package or downloaded form a repository.
          * Defaults to true on newly generated packages, should not be changed.
          */
         "local": true,
-
         /**
          * The theme (package) this package will use (e.g., "ext-theme-neptune", etc.).
          * This is only needed if the built package will be used by a non-Cmd application.
          *
          *     "theme": "ext-theme-classic",
          */
-
         /**
          * Sass configuration properties.
          */
-        "sass" : {
+        "sass": {
             /**
              * The namespace to which this package's SASS corresponds. The default value of
              * "Ext" means that the files in ./sass/src (and ./sass/var) match classes in
@@ -133,7 +117,6 @@
              * ./sass/src/Ext/panel/Panel.scss.
              */
             "namespace": "",
-
             /**
              * Comma-separated list of files or folders containing extra Sass. These
              * files are automatically included in the Sass compilation. By default this
@@ -155,8 +138,7 @@
              */
             "etc": [
                 "${package.dir}/sass/etc/all.scss"
-             ],
-
+            ],
             /**
              * Comma-separated list of folders containing Sass variable definitions
              * files. These file can also define Sass mixins for use by components.
@@ -180,7 +162,6 @@
             "var": [
                 "${package.dir}/sass/var"
             ],
-
             /**
              * Comma-separated list of folders containing Sass rule files.
              *
@@ -199,9 +180,12 @@
              */
             "src": [
                 "${package.dir}/sass/src"
-            ]
+            ],
+            "generated": {
+                "var": "sass/save.scss",
+                "src": "sass/save"
+            }
         },
-
         /**
          * This is the comma-separated list of folders where classes reside. These
          * classes must be explicitly required to be included in the build.
@@ -209,7 +193,6 @@
         "classpath": [
             "${package.dir}/src"
         ],
-
         /**
          * Comma-separated string with the paths of directories or files to search. Any classes
          * declared in these locations will be automatically required and included in the build.
@@ -220,7 +203,6 @@
         "overrides": [
             "${package.dir}/overrides"
         ],
-
         "example": {
             /**
              * One or more folders that contain example applications for this package.
@@ -228,8 +210,8 @@
             "path": [
                 "${package.dir}/examples"
             ]
-
-            /**
+        },
+        /**
              * You can list apps specifically.
              *
              *      "apps": [
@@ -239,16 +221,13 @@
              *
              * By default, all subfolders in the path are considered example applications.
              */
-        },
-
         /**
          * The framework this package will use (i.e., "ext" or "touch").
          * This is only needed if the built package will be used by a non-Cmd application.
          *
          *     "framework": "ext",
          */
-        "framework": "--name",
-
+        "framework": "ext",
         /**
          * Packages can require other packages in the same way that applications can require
          * packages.
