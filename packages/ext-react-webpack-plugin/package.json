@@ -54,6 +54,6 @@
   "license": "MIT",
   "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin",
   "peerDependencies": {
-    "webpack": "^2.2.1"
+    "webpack": "^4.16.5"
   }
 }

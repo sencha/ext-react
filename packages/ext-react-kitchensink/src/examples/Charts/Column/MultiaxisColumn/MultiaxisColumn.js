@@ -47,7 +47,8 @@ export default class MultiaxisColumn extends Component {
                         type: 'bar',
                         xField: 'month',
                         yField: 'highF',
-                        yAxis: 'fahrenheit-axis',
+                        //yAxis: 'fahrenheit-axis',
+                        yAxis: 0,
                         style: {
                             minGapWidth: 10,
                             strokeStyle: 'rgb(52, 52, 53)'
@@ -57,7 +58,8 @@ export default class MultiaxisColumn extends Component {
                         type: 'bar',
                         xField: 'month',
                         yField: ['lowF'],
-                        yAxis: 'fahrenheit-axis',
+                        //yAxis: 'fahrenheit-axis',
+                        yAxis: 0,
                         style: {
                             minGapWidth: 10,
                             strokeStyle: 'rgb(52, 52, 53)'
@@ -65,26 +67,27 @@ export default class MultiaxisColumn extends Component {
                     }]}
                     axes={[{
                             type: 'numeric',
-                            id: 'fahrenheit-axis',
+                            //id: 'fahrenheit-axis2',
                             adjustByMajorUnit: true,
                             position: 'left',
                             titleMargin: 20,
                             minimum: 32,
                             grid: true,
                             title: 'Temperature in °F',
-                            listeners: {
-                                rangechange: (axis, range) => {
-                                    const cAxis = axis.getChart().getAxis('celsius-axis');
-                                    if(cAxis) {
-                                        cAxis.setMinimum((range[0] - 32) / 1.8);
-                                        cAxis.setMaximum((range[1] - 32) / 1.8);
-                                    }
-                                }
-                            }
+                            // listeners: {
+                            //     rangechange: (axis, range) => {
+                            //         //const cAxis = axis.getChart().getAxis('celsius-axis');
+                            //         const cAxis = axis.getChart().getAxis(0);
+                            //         if(cAxis) {
+                            //             cAxis.setMinimum((range[0] - 32) / 1.8);
+                            //             cAxis.setMaximum((range[1] - 32) / 1.8);
+                            //         }
+                            //     }
+                            // }
                         },
                         {
                             type: 'numeric',
-                            id: 'celsius-axis',
+                            //id: 'celsius-axis',
                             titleMargin: 20,
                             position: 'right',
                             title: 'Temperature in °C'
