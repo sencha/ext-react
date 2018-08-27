@@ -5,9 +5,14 @@ import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
 Ext.require([
-    'Ext.chart.series.Area',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category'
+  'Ext.chart.theme.Midnight',
+  'Ext.chart.theme.Green',
+  'Ext.chart.theme.Muted',
+  'Ext.chart.theme.Purple',
+  'Ext.chart.theme.Sky',
+  'Ext.chart.series.Area',
+  'Ext.chart.axis.Numeric',
+  'Ext.chart.axis.Category'
 ]);
 
 export default class BasicAreaChartExample extends Component {
@@ -29,10 +34,14 @@ export default class BasicAreaChartExample extends Component {
         this.store.loadData(createData(25));
     }
 
-    changeTheme = theme => this.setState({ theme })
+    changeTheme = (theme) => {
+      console.log(theme)
+      this.setState({ theme })
+    }
 
     render() {
-        const { theme } = this.state;
+        var { theme } = this.state
+        console.log(theme)
 
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
@@ -104,12 +113,12 @@ export default class BasicAreaChartExample extends Component {
                         grid: true,
                         visibleRange: [0, 0.25],
                         title: {
-                            text: 'Item Names',
+                            text: theme,
                             fontSize: 20
                         }
                     }]}
                 />
-            </Container>            
+            </Container>
         )
     }
 }

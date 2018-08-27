@@ -7,7 +7,7 @@ Converts Ext JS config objects to ExtReact JSX
 If you haven't already, sign in to Sencha's NPM registry:
 
 ```
-npm login --registry=http://npm.sencha.com --scope=@extjs
+npm login --registry=http://npm.sencha.com --scope=@sencha
 ```
 
 Then, run the following to clone and build the project:

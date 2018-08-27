@@ -78,9 +78,7 @@
     "jest": "^20.0.4",
     "jest-teamcity-reporter": "^0.6.2",
 
-    "open-browser-webpack-plugin": "0.0.5",
     "react-test-renderer": "^15.5.4",
-    "static-server": "^2.0.4",
     "style-loader": "^0.13.1"
   },
   "jest": {

@@ -7,6 +7,7 @@ import union from 'lodash.union';
 import isEqual from 'lodash.isequal';
 import capitalize from 'lodash.capitalize'
 import cloneDeepWith from 'lodash.clonedeepwith';
+import { renderWhenReady } from '..';
 
 export class ExtJSComponent extends Component {
 
@@ -399,13 +400,9 @@ export class ExtJSComponent extends Component {
     // }
 
       const keys = union(Object.keys(oldProps), Object.keys(props));
-//console.log('*****************************************************************keys')
-//console.log(keys)
       for (let key of keys) {
           const oldValue = oldProps[key], newValue = props[key];
-
           if (key === 'children') continue;
-
           if (!isEqual(oldValue, newValue)) {
               const eventName = this._eventNameForProp(key);
               if (eventName) {
@@ -413,16 +410,24 @@ export class ExtJSComponent extends Component {
 //                console.log(eventName)
                 this._replaceEvent(eventName, oldValue, newValue);
               } else {
+
                   const setter = this._setterFor(key);
                   if (setter) {
                       const value = this._cloneProps(newValue);
-                      if (this.ExtReactSettings.debug) console.log(setter, newValue);
-                      // console.log('*****************************************************************setter')
-                      // console.log(this.cmp.xtype + ' - ' + setter) 
-                      // console.log('*****************************************************************value')
-                      // console.log(key)
-                      // console.log(value)
-                      this.cmp[setter](value);
+                      if (this.ExtReactSettings.debug) console.log(setter, newValue, value)
+                      // if (key == 'theme') {
+                      //   Ext.thechart = this.cmp
+                      //   console.log('*****************************************************************setter')
+                      //   console.log(this.cmp.xtype + ' - ' + setter + ' - ' + value) 
+                      //   //console.log(this.cmp)
+                      //   //console.log('*****************************************************************value')
+                      //   //console.log(key)
+                      //   //console.log(value)
+                      //   // debugger
+                      //   //this.cmp.setTheme('Purple')
+                      //   //this.cmp.redraw()
+                      //  }
+                      this.cmp[setter](value)
                   }
               }
           }

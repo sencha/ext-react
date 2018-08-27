@@ -8,7 +8,7 @@ ExtReact and all related packages are hosted on Sencha's private NPM registry. T
 
 Once you have received your credentials, you can authenticate by running the following command:
 ```
-npm login --registry=http://npm.sencha.com --scope=@extjs
+npm login --registry=http://npm.sencha.com --scope=@sencha
 ```
 
 Then, run the following to build and launch the app:

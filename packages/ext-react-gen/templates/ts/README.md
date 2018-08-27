@@ -7,7 +7,7 @@
 If you haven't already, sign in to Sencha's NPM registry:
 
 ```
-npm login --registry=http://npm.sencha.com --scope=@extjs
+npm login --registry=http://npm.sencha.com --scope=@sencha
 ```
 
 ## Running
