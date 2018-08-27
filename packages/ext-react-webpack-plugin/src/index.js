@@ -453,7 +453,7 @@ module.exports = class ExtReactWebpackPlugin {
   // }
 
   /**
-   * Return the names of all ExtReact packages in the same parent directory as ext-react (typically node_modules/@extjs)
+   * Return the names of all ExtReact packages in the same parent directory as ext-react (typically node_modules/@sencha)
    * @private
    * @param {String} sdk Path to ext-react
    * @return {String[]}
@@ -482,7 +482,7 @@ module.exports = class ExtReactWebpackPlugin {
    */
   _getSenchCmdPath() {
     try {
-      // use @extjs/sencha-cmd from node_modules
+      // use @sencha/cmd from node_modules
       return require('@sencha/cmd');
     } catch (e) {
       // attempt to use globally installed Sencha Cmd

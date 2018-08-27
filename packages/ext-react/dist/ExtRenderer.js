@@ -220,6 +220,8 @@ var ExtRenderer = ReactFiberReconciler({
     //SK : FOR HTML Nested Components we need to create instance for only parent so we set the text context
     var xtype = type.toLowerCase().replace(/_/g, '-');
     var extJSClass = Ext.ClassManager.getByAlias('widget.' + xtype);
+    var s = typeof props.children === 'string' || typeof props.children === 'number' || extJSClass === undefined;
+    l('shouldSetTextContent**********s', s);
     return typeof props.children === 'string' || typeof props.children === 'number' || extJSClass === undefined;
   },
 
@@ -229,10 +231,6 @@ var ExtRenderer = ReactFiberReconciler({
 
   useSyncScheduling: true,
   supportsMutation: true,
-
-  // commitMount(_instance2, type, props, finishedWork) {
-  //   console.log('commitMount')
-  // },
 
   appendChildToContainer: function appendChildToContainer(parentInstance, childInstance) {
     //should only be for ExtReact root component

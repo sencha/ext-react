@@ -25,7 +25,7 @@ import { Grid, Panel } from '@sencha/ext-classic';
 Install via npm...
 
 ```bash
-npm install --save-dev @extjs/ext-react-babel-plugin
+npm install --save-dev @sencha/ext-react-babel-plugin
 ```
 
 ...then add to .babelrc:

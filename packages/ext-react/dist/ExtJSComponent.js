@@ -14,6 +14,7 @@ import union from 'lodash.union';
 import isEqual from 'lodash.isequal';
 import capitalize from 'lodash.capitalize';
 import cloneDeepWith from 'lodash.clonedeepwith';
+import { renderWhenReady } from '..';
 
 export var ExtJSComponent = function (_Component) {
     _inherits(ExtJSComponent, _Component);
@@ -416,8 +417,6 @@ export var ExtJSComponent = function (_Component) {
         // }
 
         var keys = union(_Object$keys(oldProps), _Object$keys(props));
-        //console.log('*****************************************************************keys')
-        //console.log(keys)
         for (var _iterator = keys, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
             var _ref2;
 
@@ -434,9 +433,7 @@ export var ExtJSComponent = function (_Component) {
 
             var oldValue = oldProps[key],
                 newValue = props[key];
-
             if (key === 'children') continue;
-
             if (!isEqual(oldValue, newValue)) {
                 var eventName = this._eventNameForProp(key);
                 if (eventName) {
@@ -444,15 +441,23 @@ export var ExtJSComponent = function (_Component) {
                     //                console.log(eventName)
                     this._replaceEvent(eventName, oldValue, newValue);
                 } else {
+
                     var setter = this._setterFor(key);
                     if (setter) {
                         var value = this._cloneProps(newValue);
-                        if (this.ExtReactSettings.debug) console.log(setter, newValue);
-                        // console.log('*****************************************************************setter')
-                        // console.log(this.cmp.xtype + ' - ' + setter) 
-                        // console.log('*****************************************************************value')
-                        // console.log(key)
-                        // console.log(value)
+                        if (this.ExtReactSettings.debug) console.log(setter, newValue, value);
+                        // if (key == 'theme') {
+                        //   Ext.thechart = this.cmp
+                        //   console.log('*****************************************************************setter')
+                        //   console.log(this.cmp.xtype + ' - ' + setter + ' - ' + value) 
+                        //   //console.log(this.cmp)
+                        //   //console.log('*****************************************************************value')
+                        //   //console.log(key)
+                        //   //console.log(value)
+                        //   // debugger
+                        //   //this.cmp.setTheme('Purple')
+                        //   //this.cmp.redraw()
+                        //  }
                         this.cmp[setter](value);
                     }
                 }

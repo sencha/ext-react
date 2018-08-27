@@ -283,7 +283,7 @@ Any prop starting with "on" followed by a capital letter is automatically conver
 
 ```jsx
 import React, { Component } from 'react';
-import { Slider } from '@extjs/@sencha/ext-classic';
+import { Slider } from '@sencha/ext-classic';
 
 export default function MyComponent() {
     return (
@@ -528,7 +528,7 @@ TBD reviewed for v2.x.x
 
 You must be authenticated to Sencha's npm registry to set up a development environment.  To do this, run:
 
-`npm login --registry=https://npm.sencha.com --scope=@extjs`
+`npm login --registry=https://npm.sencha.com --scope=@sencha`
 
 Use your support portal credentials.  If your username is your email address, replace "@" with "..".  For example, "developer..sencha.com".
 
