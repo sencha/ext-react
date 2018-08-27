@@ -11,7 +11,6 @@ import { settings } from './reactify';
 export { reactify };
 
 export function l(name, val, val2, val3, val4) {
-  settings.debug = true;
   if (settings.debug) {
     console.group(name);
     if (val != undefined) {
