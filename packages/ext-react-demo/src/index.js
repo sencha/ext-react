@@ -4,7 +4,8 @@ import { AppContainer } from 'react-hot-loader'
 import { launch } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
 //import App from './App'
-import App from './Chart/AppChart'
+//import App from './Chart/AppChart'
+import App from './D3/AppD3'
 
 let viewport
 
@@ -22,5 +23,5 @@ const render = (Component, target) => {
 launch(target => render(App, viewport = target))
 
 if (module.hot) {
-  module.hot.accept('./Chart/AppChart', () => render(App, viewport))
+  module.hot.accept('./D3/AppD3', () => render(App, viewport))
 }

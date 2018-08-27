@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Panel } from '@sencha/ext-modern';
 import * as d3 from 'd3'
 window.d3 = d3
-//import { D3_Tree } from '@sencha/ext-d3';
+import { D3_Tree } from '@sencha/ext-d3';
 import treeDataReader from './Salary';
 
 Ext.require([
@@ -10,7 +10,7 @@ Ext.require([
     'Ext.tip.ToolTip'
 ]);
 
-export default class D3TreeHierarchy extends Component {
+export default class AppD3 extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {
         autoLoad: true,
@@ -43,7 +43,6 @@ export default class D3TreeHierarchy extends Component {
     render() {
         return (
             <Panel shadow layout="fit">
-            {/* 
                 <D3_Tree
                     store={this.store}
                     colorAxis={{ field: 'id' }}
@@ -66,7 +65,6 @@ export default class D3TreeHierarchy extends Component {
                         }
                     }}
                 />
-            */}
             </Panel>
         )
     }
