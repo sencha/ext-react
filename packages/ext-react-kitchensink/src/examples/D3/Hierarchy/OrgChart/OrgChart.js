@@ -1,41 +1,40 @@
 import React, { Component } from 'react';
-import OrgChart from './Chart';
+import './Chart';
+import { Orgchart } from '@sencha/ext-modern';
 import { Panel } from '@sencha/ext-modern';
 import createStore from './createStore';
 
-export default class D3OrgChartExample extends Component {
+export default class D3OrgChart extends Component {
 
-    store = createStore()
+  store = createStore()
 
-    render() {
-        return (
-            <Panel shadow layout="fit" title="Organization Chart">
-                <OrgChart
-                    interactions={{
-                        type: 'panzoom',
-                        zoom: {
-                            extent: [0.5, 2],
-                            doubleTap: false
-                        },
-                    }}
-                    tooltip={{
-                        renderer: this.onTooltip
-                    }}
-                    nodeSize={[200, 100]}
-                    imagePath="resources/images/org-chart/"
-                    store={this.store}
-                />
-            </Panel>
-        )
-    }
+  render() {
+    return (
+      <Panel shadow layout="fit" title="Organization Chart">
+        <Orgchart
+          interactions={{
+            type: 'panzoom',
+            zoom: {
+              extent: [0.5, 2],
+              doubleTap: false
+            },
+          }}
+          tooltip={{
+            renderer: this.onTooltip
+          }}
+          nodeSize={[200, 100]}
+          imagePath="resources/images/org-chart/"
+          store={this.store}
+        />
+      </Panel>
+    )
+  }
 
-    onTooltip = (component, tooltip, node, element, event) => {
-        const record = node.data,
-            name = record.get('name'),
-            title = record.get('title');
-
-        tooltip.setHtml(`<span style="font-weight: bold">${name}</span><br>${title}`);
-    }
+  onTooltip = (component, tooltip, node, element, event) => {
+    const record = node.data,
+          name = record.get('name'),
+          title = record.get('title');
+    tooltip.setHtml(`<span style="font-weight: bold">${name}</span><br>${title}`);
+  }
 
 }
-

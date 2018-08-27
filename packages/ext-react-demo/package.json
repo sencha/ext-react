@@ -24,6 +24,8 @@
     "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-react": "~6.6.0",
 
+    "@sencha/ext-d3": "~6.6.0",
+    "d3": "4.5.0",
     "@sencha/ext-charts": "~6.6.0",
     "@sencha/ext-ux": "~6.6.0",
 

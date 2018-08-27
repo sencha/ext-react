@@ -1,15 +1,12 @@
-import { reactify } from '@sencha/ext-react';
-
 /**
  * By overriding the `addNodes` and `updateNodes` of the stock tree component
  * we are turning it into an org chart.
  */
-const OrgChart = Ext.define(null, {
+Ext.define('Ext.react.Orgchart', {
     extend: 'Ext.d3.hierarchy.tree.HorizontalTree',
-//    xtype: 'myorgchart',
+    xtype: 'orgchart',
     config: {
         imageField: 'url',
-
         imagePath: ''
     },
 
@@ -18,7 +15,7 @@ const OrgChart = Ext.define(null, {
      * for employee images, where the clip shape is a circle.
      */
     setupScene: function () {
-        OrgChart.superclass.setupScene.apply(this, arguments);
+        this.superclass.setupScene.apply(this, arguments);
 
         this.getDefs().append('clipPath')
             .attr('id', 'node-clip')
@@ -69,5 +66,3 @@ const OrgChart = Ext.define(null, {
             .call(nodeTransform);
     }
 });
-
-export default reactify(OrgChart);
