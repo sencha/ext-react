@@ -212,7 +212,6 @@ var ExtRenderer = ReactFiberReconciler({
     return emptyObject;
   },
 
-
   //scheduleDeferredCallback: ReactDOMFrameScheduling.rIC,
 
   shouldSetTextContent: function shouldSetTextContent(type, props) {
@@ -224,7 +223,6 @@ var ExtRenderer = ReactFiberReconciler({
     l('shouldSetTextContent**********s', s);
     return typeof props.children === 'string' || typeof props.children === 'number' || extJSClass === undefined;
   },
-
 
   //now: ReactDOMFrameScheduling.now,
   now: function now() {},
