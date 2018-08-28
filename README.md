@@ -2,8 +2,6 @@
 
 This repo is for ExtReact 6.6, which supports React 16 and above
 
-test
-
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
 
 [![Join the chat at https://gitter.im/sencha/ext-react](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/sencha/ext-react?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -25,7 +23,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 ```bash
 # Be sure to install react>=16 
 
-npm install --save @esencha/ext-react
+npm install --save @sencha/ext-react
 
 npm install --save-dev @sencha/ext-react-webpack-plugin @sencha/ext-react-babel-plugin
 ```
@@ -110,8 +108,6 @@ class App extends Component {
 ```
 
 ### renderWhenReady(Component)
-
-TBD reviewed for v 2.x.x
 
 If you do not need to create fullscreen components (for example if you're using ExtReact components with another 
 layout system), you can apply the `renderWhenReady` higher-order component to topmost component containing an ExtReact 
@@ -210,8 +206,6 @@ export default function App() {
 
 ## Hello World
 
-TBD reviewed for v2.x.x
-
 Here's a minimal React app that renders an `Ext.Panel` from the classic toolkit:
 
 ```jsx
@@ -228,8 +222,6 @@ launch(
 
 ## Importing Components
 
-TBD reviewed for v2.x.x
-
 Any Ext JS component can be imported by the capitalized, camel-cased version of it's xtype.  For example, 
 
 ```jsx
@@ -243,8 +235,6 @@ import { D3_HeatMap } from '@sencha/ext-classic';
 ```
 
 ## Configuring Components
-
-TBD reviewed for v2.x.x
 
 React props are converted to Ext JS configs.  Here's a typical use of `Ext.grid.Panel`:
 
@@ -276,8 +266,6 @@ export default class MyComponent extends Component {
 ```
 
 ## Handling Events
-
-TBD reviewed for v2.x.x
 
 Any prop starting with "on" followed by a capital letter is automatically converted to an Ext JS event listener.  Since Ext JS events are all lower-case, case is not preserved.  You're free to use camel-case, which is common in React.
 
@@ -330,8 +318,6 @@ export default function MyComponent() {
 
 ### defaults
 
-TBD reviewed for v2.x.x
-
 Use the defaults prop to apply a set of props to all children.  For example, to use flex: 1 for all items in a container:
 
 ```jsx
@@ -341,8 +327,6 @@ Use the defaults prop to apply a set of props to all children.  For example, to 
 ```
 
 ## Refs
-
-TBD reviewed for v2.x.x
 
 Refs point to Ext JS component instances:
 
@@ -372,7 +356,7 @@ export default class MyComponent {
 
 TBD reviewed for v2.x.x
 
-When using the Ext JS classic toolkit, any component with a `dock` prop is automatically added to (dockedItems)[http://docs.sencha.com/extjs/6.2.0/classic/Ext.panel.Panel.html#cfg-dockedItems].
+When using the Ext JS classic toolkit, any component with a `dock` prop is automatically added to (dockedItems)[http://docs.sencha.com/extjs/6.6.0/classic/Ext.panel.Panel.html#cfg-dockedItems].
 
 Here is an example which docks a toolbar above a grid:
 
@@ -392,8 +376,6 @@ function MyComponent(props) {
 ```
 
 ## Using HTML Elements and Non-Ext JS Components Inside of Ext JS Components
-
-TBD reviewed for v2.x.x
 
 HTML elements and other non-Ext JS React components are wrapped in an Ext.Component instance when they appear within an Ext JS Component.  This is allows Ext JS layouts to work with non-Ext JS components.  For example...
 
@@ -436,8 +418,6 @@ Ext.create({
 
 ## Using Custom Ext JS Components
 
-TBD reviewed for v2.x.x
-
 You can import custom Ext JS components in much the same way you would those from Ext JS itself.  Just reference the camel-case version of the component's xtype.
 
 For example, given the following component:
@@ -470,8 +450,6 @@ function MyComponent() {
 ```
 
 ## Building
-
-TBD reviewed for v2.x.x
 
 Select your toolkit, theme, and packages using [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
 
@@ -524,8 +502,6 @@ If you're using Babel, we recommend adding `@sencha/ext-react-babel-plugin` to y
 
 # Development
 
-TBD reviewed for v2.x.x
-
 You must be authenticated to Sencha's npm registry to set up a development environment.  To do this, run:
 
 `npm login --registry=https://npm.sencha.com --scope=@sencha`
@@ -536,8 +512,6 @@ This is a monorepo that uses lerna.  After cloning, run `npm install` at the roo
 
 ## Running Against ExtReact Pre-Releases
 
-TBD reviewed for v2.x.x
-
 You can upgrade all packages to use the latest `ext-react` and `sencha-cmd` by using the test.npm.sencha.com registry and running
 
 ```
@@ -546,13 +520,9 @@ npm run install:clean
 
 ## Running Tests
 
-TBD reviewed for v2.x.x
-
 Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/). See [packages/ext-react-tests](https://github.com/sencha/ext-react/tree/master/packages/ext-react-tests) for instructions on how to set up a test environment.
 
 # Packages
-
-TBD reviewed for v2.x.x
 
 * [@@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
 * [@@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
