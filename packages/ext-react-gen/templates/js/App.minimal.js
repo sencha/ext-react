@@ -9,8 +9,7 @@ export default class App extends Component {
     render() {
         return (
           <ExtReact>
-            <Container fullscreen>
-                <%= appName %>
+            <Container html="ExtReact App Template" fullscreen>
             </Container>
           </ExtReact>
         )
