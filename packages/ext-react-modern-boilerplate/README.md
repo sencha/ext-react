@@ -15,7 +15,7 @@ npm login --registry=http://npm.sencha.com --scope=@sencha
 Then, run the following to clone and build the project:
 
     git clone https://github.com/sencha/ext-react.git
-    cd ext-react/packages/ext-react-boilerplate
+    cd ext-react/packages/ext-react-modern-boilerplate
     npm install
     npm start
 
