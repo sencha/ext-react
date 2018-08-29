@@ -37,7 +37,7 @@ npm install -g @sencha/ext-react-gen
 @sencha/ext-react-gen
 ```
 
-The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate).
+The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Modern Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate).
 
 
 ## Getting Started with Ext JS and React
