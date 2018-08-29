@@ -2,7 +2,13 @@
 
 ## v6.6.0
 
-pending...
+* Support for React 16
+* Support for Webpack 4
+* Support for components from Ext JS 6.6
+* Use of npm packages from Ext JS 6.6
+* Removal or extjs-reactor name - everything now is ext-react
+* Alignment of ExtReact to version of Ext JS - version 6.6
+* Removed Yeoman requirement for ext-react-gen
 
 ## v1.1.2
 
