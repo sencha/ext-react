@@ -122,11 +122,11 @@ import { Panel } from '@sencha/ext-modern';
 import { renderWhenReady } from '@sencha/ext-react';
 
 class App extends Component {
-    render() {
-        return (
-         <Panel title="ExtReact">Hello World!</Panel>
-        )
-    }
+  render() {
+    return (
+      <Panel title="ExtReact">Hello World!</Panel>
+    )
+  }
 }
 
 export default renderWhenReady(App);
@@ -231,7 +231,7 @@ import { Grid } from '@sencha/ext-classic';
 Dashes in xtypes should be converted to underscores.  For example:
 
 ```jsx
-import { D3_HeatMap } from '@sencha/ext-classic';
+import { D3_HeatMap } from '@sencha/ext-D3';
 ```
 
 ## Configuring Components
@@ -314,16 +314,6 @@ export default function MyComponent() {
 
 ## Special Props
 
-### defaults
-
-Use the defaults prop to apply a set of props to all children.  For example, to use flex: 1 for all items in a container:
-
-```jsx
-<Container layout="vbox" defaults={{ flex: 1 }}>
-  <Container>Item</Container>
-</Container>
-```
-
 ## Refs
 
 Refs point to Ext JS component instances:
@@ -345,7 +335,7 @@ export default class MyComponent {
   }
 
   onChange() {
-    console.log('Slider value', this.slider.getValue()); // this.slider is an Ext.slider.Single
+    console.log('Slider value', this.slider.cmp.getValue()); // this.slider is an Ext.slider.Single
   }
 }
 ```
