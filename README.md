@@ -524,11 +524,11 @@ Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/)
 
 # Packages
 
-* [@@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
-* [@@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
-* [@@sencha/ext-react-babel-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
-* [@@sencha/ext-react-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
-* [@@sencha/ext-react-classic-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.
+* [@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
+* [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
+* [@sencha/ext-react-babel-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
+* [@sencha/ext-react-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
+* [@sencha/ext-react-classic-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.
 
 # Contributing
 
