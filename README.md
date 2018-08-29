@@ -24,8 +24,8 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 # Be sure to install react>=16 
 
 npm install --save @sencha/ext-react
-
-npm install --save-dev @sencha/ext-react-webpack-plugin @sencha/ext-react-babel-plugin
+npm install --save @sencha/ext @sencha/ext-modern @sencha/ext-modern-theme-material
+npm install --save-dev @sencha/ext-react-webpack-plugin @sencha/ext-react-babel-plugin html-webpack-plugin
 ```
 
 ## Getting Started with ExtReact
