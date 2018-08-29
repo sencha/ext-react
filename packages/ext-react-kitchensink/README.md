@@ -16,17 +16,17 @@ Then, run the following to build and launch the app:
 
 ```
 git clone https://github.com/sencha/ext-react.git
-cd packages/ext-react-kitchensink16
+cd packages/ext-react-kitchensink
 npm install
 npm start
 ```
 
-You can view the app by pointing your browser to [http://localhost:8084](http://localhost:8084)
+You can view the app by pointing your browser to [http://localhost:1962](http://localhost:1962)
 
 # Running against a local copy of the SDK repo
 
 1. `git clone git@github.com:sencha/ext-react.git`
 2. `npm install`
-3. `cd packages/ext-react-kitchensink16`
+3. `cd packages/ext-react-kitchensink`
 4. `ln -s /path/to/ExtJS ext` - or, for Windows: `mklink ext /path/to/ExtJS` 
 5. `npm run local`

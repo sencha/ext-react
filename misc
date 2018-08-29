@@ -5,3 +5,6 @@ git fetch upstream
 git merge upstream/master
 
 git merge upstream/ext-6.6.x
+
+
+git remote add upstream https://github.com/sencha/guides.git

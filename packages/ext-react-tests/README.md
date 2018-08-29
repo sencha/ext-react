@@ -8,7 +8,6 @@ This package contains a suite of tests for @sencha/ext-react.
 * `npm login --registry=https://npm.sencha.com --scope=@sencha` (Use your support portal credentials.  If using your username is your email address, replace "@" with "..".  For example, "developer..sencha.com")
 * `npm install`
 * `cd packages/ext-react-tests`
-* `ln -s /path/to/ext ext`
 * `npm start`
 * Open Sencha Test Studio at packages/ext-react-tests
 

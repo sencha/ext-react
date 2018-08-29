@@ -20,4 +20,4 @@ npm install
 npm start
 ```
 
-You can view the app by pointing your browser to [http://localhost:8085](http://localhost:8085)
+You can view the app by pointing your browser to [http://localhost:1962](http://localhost:1962)
