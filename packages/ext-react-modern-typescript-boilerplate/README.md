@@ -1,4 +1,4 @@
-# ExtReact TypeScript Boilerplate
+# ExtReact Modern TypeScript Boilerplate
 
 A foundation for React apps built with [ExtReact](http://docs.sencha.com/extreact/latest/index.html) components and TypeScript.
 
@@ -20,12 +20,12 @@ Then, run the following to clone and build the project:
     npm start
 
 This will start the app and open it in a browser window.  By default it tries to find
-an open port starting with 8080.  You can override the default port by providing `--env.port=(port)` 
+an open port starting with 1962.  You can override the default port by providing `--env.port=(port)` 
 as a command line argument.
 
-For example to use port 8081:
+For example to use port 1963:
 
-    npm start -- --env.port=8081
+    npm start -- --env.port=1963
 
 You can also run and serve a production build using:
 

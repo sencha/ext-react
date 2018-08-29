@@ -17,4 +17,4 @@ Then, run the following to clone and build the project:
     npm install
     npm start
 
-You can view the app by pointing your browser to [http://localhost:8080](http://localhost:8080)
+You can view the app by pointing your browser to [http://localhost:1962](http://localhost:1962)
