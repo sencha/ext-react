@@ -154,18 +154,18 @@ import App from './App'
 let viewport;
 
 const render = (Component, target) => {
-    ReactDOM.render(
-        <AppContainer>
-            <Component/>
-        </AppContainer>,
-        target
-    )
+  ReactDOM.render(
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
+    target
+  )
 }
 
 launch(target => render(App, viewport = target));
 
 if (module.hot) {
-    module.hot.accept('./App', () => render(App, viewport));
+  module.hot.accept('./App', () => render(App, viewport));
 }
 ```
 
@@ -214,9 +214,9 @@ import { launch } from '@sencha/ext-react'
 import { Panel } from '@sencha/ext-modern'
 
 launch(
-    <Panel title="ExtReact">
-        Hello World!
-    </Panel>
+  <Panel title="ExtReact">
+    Hello World!
+  </Panel>
 );
 ```
 
@@ -243,25 +243,23 @@ import React, { Component } from 'react';
 import { Grid } from '@sencha/ext-classic';
 
 export default class MyComponent extends Component {
-
-    render() {        
-        return (
-            <Grid
-                columns={[
-                    { text: 'Name', dataIndex: 'name' },
-                    { text: 'Email', dataIndex: 'email' }
-                ]}
-                store={{
-                    fields: ['name', 'email'],
-                    data: [
-                        { name: 'Tim Smith', email: 'tim101@gmail.com' },
-                        { name: 'Jill Lindsey', email: 'jlindsey890@gmail.com' }
-                    ]
-                }}
-            />
-        )
-    }
-
+  render() {
+    return (
+      <Grid
+        columns={[
+          { text: 'Name', dataIndex: 'name' },
+          { text: 'Email', dataIndex: 'email' }
+        ]}
+        store={{
+          fields: ['name', 'email'],
+          data: [
+            { name: 'Tim Smith', email: 'tim101@gmail.com' },
+            { name: 'Jill Lindsey', email: 'jlindsey890@gmail.com' }
+          ]
+        }}
+      />
+    )
+  }
 }
 ```
 
@@ -274,13 +272,13 @@ import React, { Component } from 'react';
 import { Slider } from '@sencha/ext-classic';
 
 export default function MyComponent() {
-    return (
-        <Slider
-            minValue={0}
-            maxValue={100}
-            onChange={(slider, value) => console.log(`Value set to ${value}`)}
-        />
-    )
+  return (
+    <Slider
+      minValue={0}
+      maxValue={100}
+      onChange={(slider, value) => console.log(`Value set to ${value}`)}
+    />
+  )
 }
 ```
 
@@ -288,10 +286,10 @@ Event handler props can also take an object with additional options:
 
 ```jsx
 <Button 
-    onAfterRender={{
-        single: true, // handler will only be called once
-        fn: () => {...}
-    }}
+  onAfterRender={{
+    single: true, // handler will only be called once
+    fn: () => {...}
+  }}
 />
 ```
 
@@ -302,15 +300,15 @@ import React, { Component } from 'react';
 import { Slider } from '@sencha/ext-classic';
 
 export default function MyComponent() {
-    return (
-        <Slider
-            minValue={0}
-            maxValue={100}
-            listeners={{
-                change: (slider, value) => console.log(`Value set to ${value}`)
-            }}
-        />
-    )
+  return (
+    <Slider
+      minValue={0}
+      maxValue={100}
+      listeners={{
+        change: (slider, value) => console.log(`Value set to ${value}`)
+      }}
+    />
+  )
 }
 ```
 
@@ -322,7 +320,7 @@ Use the defaults prop to apply a set of props to all children.  For example, to 
 
 ```jsx
 <Container layout="vbox" defaults={{ flex: 1 }}>
-    <Container>Item</Container>
+  <Container>Item</Container>
 </Container>
 ```
 
@@ -335,20 +333,20 @@ import React, { Component } from 'react';
 import { Slider } from '@sencha/ext-classic';
 
 export default class MyComponent {
-    render() {
-        return (
-            <Slider
-                ref={ slider => this.slider = slider }
-                minValue={0}
-                maxValue={100}
-                onChange={() => this.onChange()}
-            />         
-        )
-    }
+  render() {
+    return (
+      <Slider
+        ref={ slider => this.slider = slider }
+        minValue={0}
+        maxValue={100}
+        onChange={() => this.onChange()}
+      />
+    )
+  }
 
-    onChange() {
-        console.log('Slider value', this.slider.getValue()); // this.slider is an Ext.slider.Single
-    }
+  onChange() {
+    console.log('Slider value', this.slider.getValue()); // this.slider is an Ext.slider.Single
+  }
 }
 ```
 
@@ -364,14 +362,14 @@ Here is an example which docks a toolbar above a grid:
 import { Grid, Panel, Toolbar, TextField } from '@sencha/ext-classic';
 
 function MyComponent(props) {
-    return (
-        <Panel layout="fit">
-            <Toolbar dock="top">
-                <TextField emptyText="Search..." flex={1}/>
-            </Toolbar>
-            <Grid>...</Grid>
-        </Panel>
-    )
+  return (
+    <Panel layout="fit">
+      <Toolbar dock="top">
+        <TextField emptyText="Search..." flex={1}/>
+      </Toolbar>
+      <Grid>...</Grid>
+    </Panel>
+  )
 }
 ```
 
@@ -381,23 +379,23 @@ HTML elements and other non-Ext JS React components are wrapped in an Ext.Compon
 
 ```jsx
 <Panel layout="hbox">
-    <div>left</div>
-    <div>right</div>
+  <div>left</div>
+  <div>right</div>
 </Panel>
 ```
 ... will result in two divs side-by-side.  The component structure created is equivalent to:
 
 ```javascript
 Ext.create({
-    xtype: 'panel',
-    layout: 'hbox'
-    items: [{
-        xtype: 'component',
-        html: '<div>left</div>'
-    }, {
-        xtype: 'component',
-        html: '<div>right</div>'
-    }]
+  xtype: 'panel',
+  layout: 'hbox'
+  items: [{
+    xtype: 'component',
+    html: '<div>left</div>'
+  }, {
+    xtype: 'component',
+    html: '<div>right</div>'
+  }]
 });
 ```
 
@@ -411,8 +409,8 @@ When an Ext JS component contains only text, that text will be set as the html c
 
 ```javascript
 Ext.create({
-    xtype: 'panel',
-    html: 'Hello World!'
+  xtype: 'panel',
+  html: 'Hello World!'
 });
 ```
 
@@ -424,8 +422,8 @@ For example, given the following component:
 
 ```javascript
 Ext.define('MyPackage.view.MyGrid', {
-    extend: 'Ext.grid.Grid',
-    xtype: 'mygrid'
+  extend: 'Ext.grid.Grid',
+  xtype: 'mygrid'
 })
 ```
 
@@ -443,9 +441,9 @@ import { reactify } from '@sencha/ext-react'
 const MyGrid = reactify(MyPackage.view.MyGrid);
 
 function MyComponent() {
-    return (
-        <MyGrid/>
-    )
+  return (
+    <MyGrid/>
+  )
 }
 ```
 
@@ -457,32 +455,18 @@ Select your toolkit, theme, and packages using [@sencha/ext-react-webpack-plugin
 const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
 
 module.exports = {
-    ...
-    plugins: [
-        new ExtReactWebpackPlugin({
-            sdk: 'ext', // location of Ext JS SDK.  You can either copy the sdk into your project or create a symbolic link to it.
-            theme: 'theme-material', // the name of an Ext JS theme or a relative path to a custom theme
-            toolkit: 'classic',
-            packages: ['charts']
-        })
-    ]
-    ...
+  ...
+  plugins: [
+    new ExtReactWebpackPlugin({
+      port: '1962',
+      theme: 'theme-material', // the name of an Ext JS theme or a relative path to a custom theme
+      toolkit: 'classic',
+      packages: ['charts']
+    })
+  ]
+  ...
 }
 ```
-
-We recommend creating a symbolic link called "ext" in the root of your project that points to your local copy of the Ext JS SDK.  You can do this on Mac OS and linux with the following command:
-
-```
-ln -s /path/to/ext-6.x.x ext
-```
-
-Or on windows:
-
-```
-mklink ext c:\path\to\ext-6.5.x
-```
-
-
 
 If you're using Babel, we recommend adding `@sencha/ext-react-babel-plugin` to your .babelrc.  The `ext-react-babel-plugin` require module compilation to be turned off.  For example:
 
@@ -527,7 +511,7 @@ Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/)
 * [@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
 * [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
 * [@sencha/ext-react-babel-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
-* [@sencha/ext-react-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
+* [@sencha/ext-react-modern-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
 * [@sencha/ext-react-classic-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.
 
 # Contributing
