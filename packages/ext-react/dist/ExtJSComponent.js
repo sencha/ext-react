@@ -144,10 +144,7 @@ export var ExtJSComponent = function (_Component) {
                 config.renderTo = root;
             } else {
                 var root = document.getElementsByClassName('x-viewport-body-el')[0];
-                console.log('root*******');
-                console.log(root);
                 if (root == undefined) {
-                    console.log(count);
                     root = globalRoot[count];
                     count++;
                 } else {
