@@ -131,9 +131,7 @@ export function launch(rootComponent, options = { debug: false, viewport: false 
     launch: () => {
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
         // modern, ext-react
-//        const target = Ext.Viewport.getRenderTarget().dom;
-
-        const target = document.getElementById('root')
+        const target = Ext.Viewport.getRenderTarget().dom;
 
         if (typeof rootComponent === 'function') {
           rootComponent = rootComponent(target);
