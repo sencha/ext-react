@@ -1,15 +1,22 @@
 import React from 'react';
 import { reactify } from './reactify'
 
-export function ExtReact() {} //??
-
+//export function ExtReact() {} //??
 //import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
+
+var globalRoot = null
+export { globalRoot }
+export function render(RootComponent, target) {
+  globalRoot = target
+  ReactDOM.render(RootComponent, target)
+}
 
 import { settings } from './reactify'
 export { reactify }
 
 export function l(name,val,val2,val3,val4){
+  //settings.debug = true
   if (settings.debug) { 
     console.group(name);
     if (val != undefined) {
@@ -45,7 +52,6 @@ export function go({callback, element}) {
     name: '$ExtReactApp',
 //    ...appConfig,
     launch: () => {
-      debugger
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
         // modern, ext-react
         const target = Ext.Viewport.getRenderTarget().dom;
@@ -101,6 +107,10 @@ export function go({callback, element}) {
 }
 
 
+
+
+
+
 /**
  * Launches an ExtReact application, creating a viewport and rendering the specified root component into it.
  * @xparam {React.Component/Function} rootComponent You application's root component, or a function that returns the root component.
@@ -110,6 +120,7 @@ export function go({callback, element}) {
  * @xparam {Object} [appConfig] Additional config parameters for Ext.application
  */
 export function launch(rootComponent, options = { debug: false, viewport: false }, appConfig = { }) {
+  console.log('launch')
   configure(options)
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
@@ -120,11 +131,19 @@ export function launch(rootComponent, options = { debug: false, viewport: false 
     launch: () => {
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
         // modern, ext-react
-        const target = Ext.Viewport.getRenderTarget().dom;
+//        const target = Ext.Viewport.getRenderTarget().dom;
+
+        const target = document.getElementById('root')
+
         if (typeof rootComponent === 'function') {
           rootComponent = rootComponent(target);
         }
         if (rootComponent) {
+          console.log('rootComponent')
+          console.log(rootComponent)
+          console.log('target')
+          console.log(target)
+
           ReactDOM.render(rootComponent, target);
         }
       } else {

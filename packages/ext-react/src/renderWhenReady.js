@@ -1,4 +1,7 @@
 import React from 'react';
+import { reactify } from  './index'
+const ExtReact = reactify('ExtReact')
+//import { ExtReact } from '@sencha/ext-react'
 
 const launchQueue = [];
 
@@ -15,22 +18,41 @@ export default function renderWhenReady(Component) {
 
         constructor() {
             super();
+            console.log('constructor')
 
             this.state = {
-                ready: Ext.isReady
+                ready: Ext.isReady,
+                done: false
             }
         }
 
         componentWillMount() {
+          console.log('componentWillMount')
+          console.log(this.state.ready)
             if (!this.state.ready) {
                 launchQueue.push(this);
             }
         }
 
         render() {
-            return this.state.ready === true && (
-                <Component {...this.props}/>
-            );
+          console.log('render')
+          console.log(this.state.ready)
+
+          if (this.state.ready === true && this.state.done == false ) {
+            console.log('in')
+            this.state.done = true
+            return <Component {...this.props}/>
+
+            //return <ExtReact><Component {...this.props}/></ExtReact>
+            //return <div>hi</div>
+          }
+          else {
+            return false
+          }
+
+            // return this.state.ready === true && (
+            //     <ExtReact><Component {...this.props}/></ExtReact>
+            // );
         }
     }
 }

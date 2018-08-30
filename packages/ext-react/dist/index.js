@@ -2,15 +2,22 @@ import _extends from 'babel-runtime/helpers/extends';
 import React from 'react';
 import { reactify } from './reactify';
 
-export function ExtReact() {} //??
-
+//export function ExtReact() {} //??
 //import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
+
+var globalRoot = null;
+export { globalRoot };
+export function render(RootComponent, target) {
+  globalRoot = target;
+  ReactDOM.render(RootComponent, target);
+}
 
 import { settings } from './reactify';
 export { reactify };
 
 export function l(name, val, val2, val3, val4) {
+  //settings.debug = true
   if (settings.debug) {
     console.group(name);
     if (val != undefined) {
@@ -49,7 +56,6 @@ export function go(_ref) {
     name: '$ExtReactApp',
     //    ...appConfig,
     launch: function launch() {
-      debugger;
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
         // modern, ext-react
         var target = Ext.Viewport.getRenderTarget().dom;
@@ -117,6 +123,7 @@ export function launch(rootComponent) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { debug: false, viewport: false };
   var appConfig = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
+  console.log('launch');
   configure(options);
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
@@ -127,11 +134,19 @@ export function launch(rootComponent) {
     launch: function launch() {
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
         // modern, ext-react
-        var target = Ext.Viewport.getRenderTarget().dom;
+        //        const target = Ext.Viewport.getRenderTarget().dom;
+
+        var target = document.getElementById('root');
+
         if (typeof rootComponent === 'function') {
           rootComponent = rootComponent(target);
         }
         if (rootComponent) {
+          console.log('rootComponent');
+          console.log(rootComponent);
+          console.log('target');
+          console.log(target);
+
           ReactDOM.render(rootComponent, target);
         }
       } else {

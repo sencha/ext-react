@@ -1305,7 +1305,7 @@ module.exports = function (babel) {
               importWritten = false;
               shouldWrite = false;
             }
-            if (local != 'launch' && local != 'reactify' && local != 'Template' && local != 'renderWhenReady') {
+            if (local != 'launch' && local != 'reactify' && local != 'Template' && local != 'renderWhenReady' && local != 'render') {
               //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> const ${local} = reactify('${imported}')`)
               shouldWrite = true;
               declarations.push(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(local), t.callExpression(t.identifier('reactify'), [t.stringLiteral(imported)]))]));

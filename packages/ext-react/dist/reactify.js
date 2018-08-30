@@ -110,7 +110,7 @@ export function reactify2(target) {
 }
 
 export function reactify(target) {
-  //console.log('reactify ' + target)
+  console.log('reactify ' + target);
 
   if (typeof target === 'function') {
     //check to make sure this is an Ext JS define
