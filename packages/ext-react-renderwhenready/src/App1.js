@@ -3,14 +3,14 @@ import { Panel } from '@sencha/ext-modern'
 import { renderWhenReady } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
 
-class App extends Component {
+class App1 extends Component {
   render() {
     return (
       <ExtReact>
-        <Panel title="hello"style={{height:'400px'}}>Hello World!</Panel>
+        <Panel title="app1 title"style={{height:'400px'}}>app1</Panel>
       </ExtReact>
     )
  }
 }
 
-export default renderWhenReady(App)
+export default renderWhenReady(App1)

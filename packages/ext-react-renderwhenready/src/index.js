@@ -1,10 +1,11 @@
 import React from 'react'
-import App from './App'
+import App1 from './App1'
+import App2 from './App2'
 import { render } from '@sencha/ext-react'
 
-render(<App/>, document.getElementById('root'))
+render(<App1/>, document.getElementById('div1'))
 
-render(<App/>, document.getElementById('root2'))
+render(<App2/>, document.getElementById('div2'))
 
 
 
