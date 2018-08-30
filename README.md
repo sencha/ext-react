@@ -111,7 +111,7 @@ class App extends Component {
 
 If you do not need to create fullscreen components (for example if you're using ExtReact components with another 
 layout system), you can apply the `renderWhenReady` higher-order component to topmost component containing an ExtReact 
-element, omit the launch function, and render to a target element as is customary with React.  This is especially useful
+element, omit the launch function, and render to a target element with render (just like ReactDOM.render).  This is especially useful
 if you're building a library of components based on ExtReact and you don't want to require the applications that 
 use your library to call `launch`.
 
