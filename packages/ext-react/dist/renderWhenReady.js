@@ -3,6 +3,9 @@ import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
 import _inherits from 'babel-runtime/helpers/inherits';
 import React from 'react';
+import { reactify } from './index';
+var ExtReact = reactify('ExtReact');
+//import { ExtReact } from '@sencha/ext-react'
 
 var launchQueue = [];
 
@@ -22,20 +25,41 @@ export default function renderWhenReady(Component) {
 
             var _this = _possibleConstructorReturn(this, _React$Component.call(this));
 
+            console.log('constructor');
+
             _this.state = {
-                ready: Ext.isReady
+                ready: Ext.isReady,
+                done: false
             };
             return _this;
         }
 
         ExtReactRenderWhenReady.prototype.componentWillMount = function componentWillMount() {
+            console.log('componentWillMount');
+            console.log(this.state.ready);
             if (!this.state.ready) {
                 launchQueue.push(this);
             }
         };
 
         ExtReactRenderWhenReady.prototype.render = function render() {
-            return this.state.ready === true && React.createElement(Component, this.props);
+            console.log('render');
+            console.log(this.state.ready);
+
+            if (this.state.ready === true && this.state.done == false) {
+                console.log('in');
+                this.state.done = true;
+                return React.createElement(Component, this.props);
+
+                //return <ExtReact><Component {...this.props}/></ExtReact>
+                //return <div>hi</div>
+            } else {
+                return false;
+            }
+
+            // return this.state.ready === true && (
+            //     <ExtReact><Component {...this.props}/></ExtReact>
+            // );
         };
 
         return ExtReactRenderWhenReady;

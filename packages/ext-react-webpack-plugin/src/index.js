@@ -140,9 +140,17 @@ module.exports = class ExtReactWebpackPlugin {
         })
 
         compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tapAsync('ext-react-htmlgeneration',(data, cb) => {
+
           readline.cursorTo(process.stdout, 0);console.log(app + 'ext-react-htmlgeneration')
-          data.assets.js.unshift('ext-react/ext.js')
-          data.assets.css.unshift('ext-react/ext.css')          
+          //readline.cursorTo(process.stdout, 0);console.log(app + compilation.outputOptions.publicPath)
+          if (compilation.outputOptions.publicPath == undefined) {
+            data.assets.js.unshift('ext-react/ext.js')
+            data.assets.css.unshift('ext-react/ext.css')
+          }
+          else {
+            data.assets.js.unshift(path.join(compilation.outputOptions.publicPath, 'ext-react/ext.js'))
+            data.assets.css.unshift(path.join(compilation.outputOptions.publicPath, 'ext-react/ext.css'))
+          }
           cb(null, data)
         })
 

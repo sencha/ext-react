@@ -16,6 +16,8 @@ import capitalize from 'lodash.capitalize';
 import cloneDeepWith from 'lodash.clonedeepwith';
 import { renderWhenReady } from '..';
 
+import { globalRoot } from './index';
+
 export var ExtJSComponent = function (_Component) {
     _inherits(ExtJSComponent, _Component);
 
@@ -139,8 +141,12 @@ export var ExtJSComponent = function (_Component) {
                 var root = document.getElementsByClassName('reactroot')[0];
                 config.renderTo = root;
             } else {
-                config['fullscreen'] = true;
                 var root = document.getElementsByClassName('x-viewport-body-el')[0];
+                if (root == undefined) {
+                    root = globalRoot;
+                } else {
+                    config['fullscreen'] = true;
+                }
                 config.renderTo = root;
             }
             this.extJSConfig = config;

@@ -24,6 +24,12 @@ const CLASS_CACHE = {
 
 const ExtRenderer = ReactFiberReconciler({
 
+  createContainer(cmp) {
+    console.log('ccccccc')
+    console.log(cmp)
+  },
+
+
   createInstance(type, props, internalInstanceHandle) {
     let instance = null;
     const xtype = type.toLowerCase().replace(/_/g, '-')

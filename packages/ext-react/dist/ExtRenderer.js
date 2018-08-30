@@ -26,6 +26,10 @@ var CLASS_CACHE = (_CLASS_CACHE = {
 }, _CLASS_CACHE['Field'] = Ext.ClassManager.getByAlias('widget.field'), _CLASS_CACHE);
 
 var ExtRenderer = ReactFiberReconciler({
+  createContainer: function createContainer(cmp) {
+    console.log('ccccccc');
+    console.log(cmp);
+  },
   createInstance: function createInstance(type, props, internalInstanceHandle) {
     var instance = null;
     var xtype = type.toLowerCase().replace(/_/g, '-');
