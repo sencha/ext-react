@@ -117,27 +117,31 @@ use your library to call `launch`.
 
 ```jsx
 // App.js
-import React, { Component } from 'react';
-import { Panel } from '@sencha/ext-modern';
-import { renderWhenReady } from '@sencha/ext-react';
+import React, { Component } from 'react'
+import { Panel } from '@sencha/ext-modern'
+import { renderWhenReady } from '@sencha/ext-react'
+import { ExtReact } from '@sencha/ext-react'
 
 class App extends Component {
   render() {
     return (
-      <Panel title="ExtReact">Hello World!</Panel>
+      <ExtReact>
+        <Panel title="hello"style={{height:'400px'}}>Hello World!</Panel>
+      </ExtReact>
     )
-  }
+ }
 }
 
-export default renderWhenReady(App);
+export default renderWhenReady(App)
 ```
 
 ```jsx
 // index.js
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import App from './App'
+import { render } from '@sencha/ext-react'
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+render(<App/>, document.getElementById('root'))
 ```
 
 ### React Hot Loader
