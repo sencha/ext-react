@@ -4,6 +4,7 @@ import { render } from '@sencha/ext-react'
 
 render(<App/>, document.getElementById('root'))
 
+render(<App/>, document.getElementById('root2'))
 
 
 

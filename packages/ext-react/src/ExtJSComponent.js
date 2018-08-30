@@ -11,6 +11,8 @@ import { renderWhenReady } from '..';
 
 import { globalRoot } from './index'
 
+var count = 0
+
 export class ExtJSComponent extends Component {
 
   constructor(element) {
@@ -140,7 +142,9 @@ export class ExtJSComponent extends Component {
       else {
         var root = document.getElementsByClassName('x-viewport-body-el')[0]
         if(root == undefined) {
-          root = globalRoot
+          console.log(count)
+          root = globalRoot[count]
+          count++
         }
         else {
           config['fullscreen'] = true

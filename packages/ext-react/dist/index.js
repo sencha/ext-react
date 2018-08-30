@@ -6,11 +6,11 @@ import { reactify } from './reactify';
 //import { reactify } from '@sencha/ext-react'
 //var ExtReact = reactify('ExtReact')
 
-var globalRoot = null;
+var globalRoot = [];
 export { globalRoot };
-export function render(RootComponent, target) {
-  globalRoot = target;
-  ReactDOM.render(RootComponent, target);
+export function render(component, target) {
+  globalRoot.push(target);
+  ReactDOM.render(component, target);
 }
 
 import { settings } from './reactify';
