@@ -1,5 +1,5 @@
 {
-  "name": "@sencha/ext-react-demo",
+  "name": "@sencha/ext-react-renderwhenready",
   "version": "6.6.0",
   "description": "A Demo",
   "main": "index.js",
