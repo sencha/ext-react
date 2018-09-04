@@ -8,8 +8,8 @@ export default class Person extends Component {
 
         this.props.onSave({ 
             id: this.props.person.id,
-            name: name.getValue(),
-            email: email.getValue()
+            name: name.cmp.getValue(),
+            email: email.cmp.getValue()
         });
     }
 
