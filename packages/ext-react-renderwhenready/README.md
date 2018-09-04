@@ -1,1 +1,1 @@
-ext-react-demo
+ext-react-renderwhenready
