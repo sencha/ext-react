@@ -30,9 +30,9 @@
     "@sencha/ext-react-renderercell": "~6.6.0",
     "@sencha/ext-classic-theme-triton": "~6.6.0",
 
-    "react": "~16.4.2",
-    "react-dom": "~16.4.2",
-    "react-router-dom": "~4.3.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "prop-types": "^15.6.2"
