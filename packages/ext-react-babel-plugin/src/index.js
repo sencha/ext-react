@@ -1,4 +1,5 @@
 var reactVersion = 0 
+var reactVersionFull = ''
 import chalk from 'chalk'
 const app = `${chalk.green('ℹ ｢ext｣:')} ext-react-babel-plugin: `
 import * as readline from 'readline'
@@ -30,14 +31,15 @@ var PATTERNS =
 module.exports = function(babel) {
   if (fs != undefined && fs != {} && typeof fs.existsSync === 'function') {
     var pkg = (fs.existsSync('package.json') && JSON.parse(fs.readFileSync('package.json', 'utf-8')) || {});
-    var reactEntry = pkg.dependencies.react
-    var is16 = reactEntry.includes("16");
+    reactVersionFull = pkg.dependencies.react
+    var is16 = reactVersionFull.includes("16");
     if (is16) { reactVersion = 16 } else { reactVersion = 15 }
-    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersion: ' + reactVersion + '')
+    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersion: ' + reactVersionFull + '')
   }
   else {
     reactVersion = 16
   }
+
 
   const t = babel.types
   var prevFile = ''

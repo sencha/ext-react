@@ -1,15 +1,12 @@
 #! /usr/bin/env node
-//const npmScope = '@sencha'
 const path = require('path')
 const fs = require('fs-extra')
 const { kebabCase, pick } = require('lodash')
 const util = require('./util.js')
-const appUpgrade = require('./appUpgrade.js')
-//require('./XTemplate/js')
 const commandLineArgs = require('command-line-args')
-var List = require('prompt-list')
-var Input = require('prompt-input')
-var Confirm = require('prompt-confirm')
+const List = require('prompt-list')
+const Input = require('prompt-input')
+const Confirm = require('prompt-confirm')
 const glob = require('glob')
 
 const LANGUAGE = {
@@ -51,16 +48,6 @@ var answers = {
   'theme': null,
   'code': null,
   'language': null,
-
-//  'classic': null,
-//  'modern': null,
-//  'universal': null,
-//  'classicTheme': null,
-//  'modernTheme': null,
-//  'templateType': null,
-//  'template': null,
-//  'templateFolderName': null,
-
   'version': null,
   'description': null,
   'repositoryURL': null,
@@ -103,16 +90,14 @@ function stepStart() {
   
   let mainDefinitions = [{ name: 'command', defaultOption: true }]
   const mainCommandArgs = commandLineArgs(mainDefinitions, { stopAtFirstUnknown: true })
-//  console.log('')
-//  console.log(`mainCommandArgs: ${JSON.stringify(mainCommandArgs)}`)
+//  console.log('');console.log(`mainCommandArgs: ${JSON.stringify(mainCommandArgs)}`)
   var mainCommand = mainCommandArgs.command
 //  console.log(`mainCommand: ${JSON.stringify(mainCommand)}`)
   switch(mainCommand) {
     case undefined:
       let argv = mainCommandArgs._unknown || []
       if (argv.length == 0 ){
-//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`)
-//        console.log(`\n\nShortHelp`)
+//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`);console.log(`\n\nShortHelp`)
         stepShortHelp()
         break;
       }
@@ -121,9 +106,8 @@ function stepStart() {
       }
       else {
         cmdLine = commandLineArgs(optionDefinitions, { argv: argv, stopAtFirstUnknown: true })
-//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`)
-//        console.log(`\n\nstep00`)
-        step00()
+//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`);console.log(`\n\nstepCheckCmdLine`)
+        stepCheckCmdLine()
       }
       break;
     case 'app':
@@ -141,9 +125,8 @@ function stepStart() {
       let appSubArgs = appCommandArgs._unknown || []
 //      console.log(`appSubArgs: ${JSON.stringify(appSubArgs)}`)
       if (appSubArgs.length == 0) {
-//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`)
-//        console.log(`\n\nstep00`)
-        step00()
+//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`);console.log(`\n\nstepCheckCmdLine`)
+        stepCheckCmdLine()
       }
       else {
         var command = cmdLine.command
@@ -162,30 +145,17 @@ function stepStart() {
         if (name != '') {
           cmdLine.name = name
         }
-//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`)
-//        console.log(`\n\nstep00`)
-        step00()
+//        console.log(`cmdLine: ${JSON.stringify(cmdLine)}`);console.log(`\n\nstepCheckCmdLine`)
+        stepCheckCmdLine()
       }
       break;
-    // case 'upgrade':
-    //     upgrade();
-    //     break;
     default:
       console.log(`${app} ${boldRed('[ERR]')} command not available: '${mainCommand}'`)
   }
 }
 
-async function upgrade()
-{
- console.log('Upgrade started'); 
-  await appUpgrade.upgradeApp();
-  console.log('Upgrade done . Please run npm install and then npm run all');
-}
-
-function step00() {
-//  console.log('step00')
-//  console.log(`cmdLine: ${JSON.stringify(cmdLine)}, length: ${Object.keys(cmdLine).length}, process.argv.length: ${process.argv.length}`)
-
+function stepCheckCmdLine() {
+  //console.log('stepCheckCmdLine');console.log(`cmdLine: ${JSON.stringify(cmdLine)}, length: ${Object.keys(cmdLine).length}, process.argv.length: ${process.argv.length}`)
   setDefaults()
   if (cmdLine.verbose == true) {
     process.env.EXTREACTGEN_VERBOSE = 'true'
@@ -210,25 +180,24 @@ function step00() {
     console.log(`${app} ${boldRed('[ERR]')} unknown command '${cmdLine.command}'`)
   }
   else if (cmdLine.interactive == true && cmdLine.command == 'app') {
-    step00a()
+    stepSeeDefaults()
   }
   else if (process.argv.length == 2) {
     stepShortHelp()
   }
-
   else if (cmdLine.auto == true) {
-    step99()
+    stepGo()
   }
   else if (cmdLine.name != undefined) {
     cmdLine.auto = true
-    step99()
+    stepGo()
   }
   else {
     stepHelpGeneral()
   }
 }
 
-function step00a() {
+function stepSeeDefaults() {
   new Confirm({
     message: 
     `would you like to see the defaults for package.json?`,
@@ -237,15 +206,15 @@ function step00a() {
     answers['seeDefaults'] = answer
     if(answers['seeDefaults'] == true) {
       displayDefaults()
-      step01()
+      stepCreateWithDefaults()
     }
     else {
-      step01()
+      stepCreateWithDefaults()
     }
   })
 }
 
-function step01() {
+function stepCreateWithDefaults() {
   new Confirm({
     message: 'Would you like to create a package.json file with defaults?',
     default: config.useDefaults
@@ -253,48 +222,48 @@ function step01() {
     answers['useDefaults'] = answer
     if(answers['useDefaults'] == true) {
       setDefaults()
-      step02()
+      stepNameYourApp()
     }
     else {
-      step02()
+      stepNameYourApp()
     }
   })
 }
 
-function step02() {
+function stepNameYourApp() {
   new Input({
     message: 'What would you like to name your ExtReact app?',
     default:  config.appName
   }).run().then(answer => {
     answers['appName'] = answer
     answers['packageName'] = kebabCase(answers['appName'])
-    step03a()
+    stepTheme()
   })
 }
 
-function step03a() {
+function stepTheme() {
   new List({
     message: 'What theme would you like to use?',
     choices: ['material', 'triton', 'ios'],
     default: 'material'
   }).run().then(answer => {
     answers['theme'] = answer
-    step03b()
+    stepCode()
   })
 }
 
-function step03b() {
+function stepCode() {
   new List({
     message: 'Do you want to include example code (layout, navigation, routing, etc...), or just generate an empty app?',
     choices:  [CODE.BARE_BONES, CODE.EXAMPLE],
     default: CODE.EXAMPLE
   }).run().then(answer => {
     answers['code'] = answer
-    step03c()
+    stepLanguage()
   })
 }
 
-function step03c() {
+function stepLanguage() {
   new List({
     message: 'Which language would you like to use',
     choices:  [LANGUAGE.JAVASCRIPT, LANGUAGE.TYPESCRIPT],
@@ -302,175 +271,107 @@ function step03c() {
   }).run().then(answer => {
     answers['language'] = answer
     if(answers['useDefaults'] == true) {
-      step99()
+      stepGo()
     }
     else {
-      step06()
+      stepPackageName()
     }
   })
 }
 
-
-// function step03() {
-//   new List({
-//     message: 'What type of Ext JS template do you want?',
-//     choices: ['make a selection from a list','type a folder name'],
-//     default: 'make a selection from a list'
-//   }).run().then(answer => {
-//     answers['templateType'] = answer
-//     if(answers['templateType'] == 'make a selection from a list') {
-//       step04()
-//     }
-//     else {
-//       step05()
-//     }
-//   })
-// }
-
-// function step04() {
-//   new List({
-//     message: 'What Ext JS template would you like to use?',
-//     choices: ['classicdesktop', 'moderndesktop', 'universalclassicmodern', 'universalmodern'],
-//     default: 'classicdesktop'
-//   }).run().then(answer => {
-//     answers['classic'] = false
-//     answers['modern'] = false
-//     answers['universal'] = false
-//     if (answer.includes("classic")) {
-//       answers['classic'] = true
-//     }
-//     if (answer.includes("modern")) {
-//       answers['modern'] = true
-//     }
-//     if (answer.includes("universal")) {
-//       answers['universal'] = true
-//     }
-//     answers['template'] = answer
-//     if(answers['useDefaults'] == true) {
-//       step99()
-//     }
-//     else {
-//       step06()
-//     }
-//   })
-// }
-
-// function step05() {
-//   new Input({
-//     message: 'What is the Template folder name?',
-//     default:  config.templateFolderName
-//   }).run().then(answer => { 
-//     answers['templateFolderName'] = answer
-//     if(answers['useDefaults'] == true) {
-//       step99()
-//     }
-//     else {
-//       step06()
-//     }
-//   })
-// }
-
-function step06() {
+function stepPackageName() {
   new Input({
     message: 'What would you like to name the npm Package?',
     default:  kebabCase(answers['appName'])
   }).run().then(answer => { 
     answers['packageName'] = answer
-    step07()
+    stepVersion()
   })
 }
 
-function step07() {
+function stepVersion() {
   new Input({
     message: 'What version is your ExtReact application?',
     default: config.version
   }).run().then(answer => { 
     answers['version'] = answer
-    step08()
+    stepDescription()
   })
 }
 
-function step08() {
+function stepDescription() {
   new Input({
     message: 'What is the description?',
     default: config.description
   }).run().then(answer => { 
     answers['description'] = answer
-    step09()
+    stepRepositoryURL()
   })
 }
 
-function step09() {
+function stepRepositoryURL() {
   new Input({
     message: 'What is the GIT repository URL?',
     default: config.repositoryURL
   }).run().then(answer => { 
     answers['repositoryURL'] = answer
-    step10()
+    stepKeywords()
   })
 }
 
-function step10() {
+function stepKeywords() {
   new Input({
     message: 'What are the npm keywords?',
     default: config.keywords
   }).run().then(answer => { 
     answers['keywords'] = answer
-    step11()
+    stepAuthorName()
   })
 }
 
-function step11() {
+function stepAuthorName() {
   new Input({
     message: `What is the Author's Name?`,
     default: config.authorName
   }).run().then(answer => { 
     answers['authorName'] = answer
-    step12()
+    stepLicense()
   })
 }
 
-function step12() {
+function stepLicense() {
   new Input({
     message: 'What type of License does this project need?',
     default: config.license
   }).run().then(answer => { 
     answers['license'] = answer
-    step13()
+    stepBugsURL()
   })
 }
 
-function step13() {
+function stepBugsURL() {
   new Input({
     message: 'What is the URL to submit bugs?',
     default: config.bugsURL
   }).run().then(answer => { 
     answers['bugsURL'] = answer
-    step14()
+    stepHomepageURL()
   })
 }
 
-function step14() {
+function stepHomepageURL() {
   new Input({
     message: 'What is the Home Page URL?',
     default: config.homepageURL
   }).run().then(answer => { 
     answers['homepageURL'] = answer
-    step99()
+    stepGo()
   })
 }
 
-function step99() {
+function stepGo() {
 
   displayDefaults()
-
-  // if (answers['template'] == null) {
-  //   if (!fs.existsSync(answers['templateFolderName'])) {
-  //     answers['template'] = 'folder'
-  //     console.log('Error, Template folder does not exist - ' + answers['templateFolderName'])
-  //     return
-  //   }
-  // }
 
   if (cmdLine.auto == true) {
     stepCreate()
@@ -481,7 +382,6 @@ function step99() {
   var message
   if (cmdLine.defaults == true) {
     message = 'Generate the ExtReact npm project?'
-//    displayDefaults()
   }
   else {
     message = 'Would you like to generate the ExtReact npm project with above config now?'
@@ -518,32 +418,6 @@ async function stepCreate() {
   process.chdir(destDir)
   console.log(`${app} ${destDir} created`)
 
-  // var values = {
-  //   npmScope: npmScope,
-  //   classic: answers['classic'],
-  //   modern: answers['modern'],
-  //   universal: answers['universal'],
-  //   classicTheme: answers['classicTheme'],
-  //   modernTheme: answers['modernTheme'],
-  //   appName: answers['appName'],
-  //   packageName: answers['packageName'],
-  //   version: answers['version'],
-  //   repositoryURL: answers['repositoryURL'],
-  //   keywords: answers['keywords'],
-  //   authorName: answers['authorName'],
-  //   license: answers['license'],
-  //   bugsURL: answers['bugsURL'],
-  //   homepageURL: answers['homepageURL'],
-  //   description: answers['description'],
-  // }
-  // var file = nodeDir + '/templates/package.json.tpl.default'
-  // var content = fs.readFileSync(file).toString()
-  // var tpl = new Ext.XTemplate(content)
-  // var t = tpl.apply(values)
-  // tpl = null
-  // fs.writeFileSync(destDir + '/package.json', t);
-  // console.log(`${app} package.json created for ${answers['packageName']}`)
-
   var boilerplate = ''
     if (answers['language'] == LANGUAGE.TYPESCRIPT) {
     boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
@@ -551,11 +425,6 @@ async function stepCreate() {
   else {
     boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
   }
-
-  //console.log('bp:' + boilerplate)
-  //console.log(answers['code'])
-  //answers['theme'] = 'ios'
-  //answers['packageName'] = 'ios'
 
   // copy in files from boilerplate
   glob.sync('**/*', { cwd: boilerplate, ignore: ['build/**', 'node_modules/**', 'index.js'], dot: true })
@@ -599,41 +468,16 @@ async function stepCreate() {
   const indexHtml = path.join('src', 'index.html');
   fs.writeFileSync(indexHtml, fs.readFileSync(indexHtml, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8')
 
-        //fs.writeFileSync(theme, themePackageJson, 'utf8');
-        //const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', this.theme)
-
-        // README.md
-
-        // fs.copyTpl(
-        //     this.templatePath(answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/README.md' : 'js/README.md'),
-        //     this.destinationPath('README.md'),
-        //     this
-        // )
-
   fs.copyFileSync(
     path.join(templatesDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/README.md' : 'js/README.md'),
     path.join(destDir, 'README.md')
   )
 
   if (answers['code'] === CODE.BARE_BONES) {
-      // fs.copyTpl(
-      //     this.templatePath(answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/App.minimal.tsx' : 'js/App.minimal.js'),
-      //     this.destinationPath(answers['language'] === LANGUAGE.TYPESCRIPT ? 'src/App.tsx' : 'src/App.js'),
-      //     this
-      // )
-
       fs.copyFileSync(
         path.join(templatesDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'ts/App.minimal.tsx' : 'js/App.minimal.js'),
         path.join(destDir, answers['language'] === LANGUAGE.TYPESCRIPT ? 'src/App.tsx' : 'src/App.js'),
       )
-
-      // if (answers['language'] === LANGUAGE.JAVASCRIPT) {
-      //     fs.copyTpl(
-      //         this.templatePath('js/App.test.js'),
-      //         this.destinationPath('__tests__/App.test.js')
-      //     )
-      // }
-
       if (answers['language'] === LANGUAGE.JAVASCRIPT) {
         fs.copyFileSync(
           path.join(templatesDir, 'js/App.test.js'),
@@ -647,17 +491,6 @@ async function stepCreate() {
       //fs.write(layout, fs.read(layout).replace('ExtReact Boilerplate', answers['appName']));
       fs.writeFileSync(layout, fs.readFileSync(layout, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8');
   }
-
-
-  // var file = nodeDir + '/templates/webpack.config.js.tpl.default'
-  // var content = fs.readFileSync(file).toString()
-  // var tpl = new Ext.XTemplate(content)
-  // var t = tpl.apply(values)
-  // tpl = null
-  // fs.writeFileSync(destDir + '/webpack.config.js', t);
-  // console.log(`${app} webpack.config.js created for ${answers['packageName']}`)
-
-
 
   try {
     const substrings = ['[ERR]', '[WRN]', '[INF] Processing', "[INF] Server", "[INF] Writing content", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
@@ -683,29 +516,6 @@ async function stepCreate() {
   } catch(err) {
     console.log(boldRed('Error in npm install: ' + err));
   }
-
-  // var frameworkPath = path.join(destDir, 'node_modules', npmScope, 'ext', 'package.json');
-  // var cmdPath = path.join(destDir, 'node_modules', npmScope, 'cmd', 'package.json');
-  // var frameworkPkg = require(frameworkPath);
-  // var cmdPkg = require(cmdPath);
-  // var cmdVersion = cmdPkg.version_full
-  // var frameworkVersion = frameworkPkg.sencha.version
-
-  // var generateApp = require(`${npmScope}/ext-build-generate-app/generateApp.js`)
-  // var options = { 
-  //   parms: [ 'generate', 'app', answers['appName'], './' ],
-  //   sdk: `node_modules/${npmScope}/ext`,
-  //   template: answers['template'],
-  //   classicTheme: answers['classicTheme'],
-  //   modernTheme: answers['modernTheme'],
-  //   templateFull: answers['templateFolderName'],
-  //   cmdVersion: cmdVersion,
-  //   frameworkVersion: frameworkVersion,
-  //   force: false
-  // }
-  // new generateApp(options)
-
-
   console.log(`${app} Your ExtReact project is ready`)
   console.log(boldGreen(`\ntype "cd ${answers['packageName']}" then "npm start" to run the development build and open your new application in a web browser\n`))
  }
@@ -724,7 +534,7 @@ async function stepCreate() {
   if (cmdLine.name != undefined) {
     answers['appName'] = cmdLine.name
     answers['packageName'] = kebabCase(answers['appName'])
-    answers['description'] = `${answers['packageName']} description for Ext JS app ${answers['appName']}`
+    answers['description'] = `${answers['packageName']} description for ExtReact app ${answers['appName']}`
   }
   else {
     answers['appName'] = config.appName
@@ -741,16 +551,6 @@ async function stepCreate() {
 }
 
 function displayDefaults() {
-  //console.log(`For controlling ext-gen:`)
-  //console.log(`seeDefaults:\t${config.seeDefaults}`)
-  //console.log(`useDefaults:\t${config.useDefaults}`)
-  //console.log(`createNow:\t${config.createNow}`)
-  //console.log(`For template selection:`)
-  //console.log(`templateType:\t${config.templateType}`)
-  //console.log(`templateFolderName:\t${config.templateFolderName}`)
-  //console.log(`classic:\t${answers['classic']}`)
-  //console.log(`modern:\t\t${answers['modern']}`)
-
   console.log(boldGreen(`Defaults for ExtReact app:`))
   console.log(`appName:\t${answers['appName']}`)
   console.log(`theme:\t\t${answers['theme']}`)

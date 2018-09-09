@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import { l } from './index'
 import { reactify2, htmlify2 } from './reactify';
 import React from 'react';
-import ReactFiberReconciler from 'react-reconciler';
+import Reconciler from 'react-reconciler';
 import invariant from 'fbjs/lib/invariant';
 import emptyObject from 'fbjs/lib/emptyObject';
 const UPDATE_SIGNAL = {};
@@ -22,12 +22,12 @@ const CLASS_CACHE = {
   Field: Ext.ClassManager.getByAlias('widget.field')
 }
 
-const ExtRenderer = ReactFiberReconciler({
+const ExtRenderer = Reconciler({
 
-  createContainer(cmp) {
-    console.log('ccccccc')
-    console.log(cmp)
-  },
+  // createContainer(cmp) {
+  //   console.log('ccccccc')
+  //   console.log(cmp)
+  // },
 
 
   createInstance(type, props, internalInstanceHandle) {
@@ -57,7 +57,6 @@ const ExtRenderer = ReactFiberReconciler({
       l(`ExtRenderer: appendInitialChild`)
       var parentXtype = parentInstance.xtype
       var childXtype = childInstance.xtype
-
       if (childXtype == 'column'      ||
           childXtype == 'treecolumn'  ||
           childXtype == 'textcolumn'  ||
@@ -189,7 +188,13 @@ const ExtRenderer = ReactFiberReconciler({
     else {
       //SK : HTML Rendering - STEP 2  : Create component and render HTML in its DOM
       var cmp = Ext.create({xtype:'component', cls: 'x-react-element'})
-      ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+      if (Ext.isClassic) {
+        console.log(type)
+        ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+      }
+      else {
+        ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+      }
       ExtJSComponent.cmp = cmp
       l(`ExtRenderer: finalizeInitialChildren, type: ${type}, xtype: ${xtype}, ExtJSComponent == html`,ExtJSComponent)
     }
@@ -282,6 +287,15 @@ const ExtRenderer = ReactFiberReconciler({
       l('appendChildToContainer (null) parentInstance', parentInstance)
       l('appendChildToContainer (null) childInstance', childInstance)
     }
+
+//mjg
+    if (Ext.isClassic) {
+      if(childInstance.createElement) {
+        console.log(childInstance)
+        console.log(childInstance.createElement)
+        ReactDOM.render(childInstance.createElement,childInstance.cmp.getEl().dom)
+      }
+    }
   },
 
   removeChildFromContainer(parentInstance, child) {
@@ -361,7 +375,7 @@ const ExtRenderer = ReactFiberReconciler({
         else if(parentInstance.cmp.getItems!= undefined && typeof parentInstance.cmp.getItems == 'function' && parentInstance.cmp.getItems().get(child.cmp.getItemId())) {
           parentInstance.cmp.remove(child.cmp, true)
         } else {
-          console.log("DID NOTHING IN REMOVE")
+          l("DID NOTHING IN REMOVE")
         }   
       }
     }

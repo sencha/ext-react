@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import React from 'react'
 import App from './App'
 import * as d3 from 'd3'

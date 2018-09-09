@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-modern-typescript-boilerplate",
-  "private": true,
-  "version": "6.6.0",
+  "product": "ext-react",
+  "version": "6.6.1",
   "description": "A foundation for React apps built with ExtReact modern toolkit components and TypeScript.",
   "main": "index.js",
   "scripts": {
@@ -17,50 +17,52 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
     "@sencha/ext": "~6.6.0",
+    "@sencha/ext-charts": "~6.6.0",
+    "@sencha/ext-d3": "~6.6.0",
     "@sencha/ext-modern": "~6.6.0",
+    "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-modern-treegrid": "~6.6.0",
     "@sencha/ext-react": "~6.6.0",
-    "@sencha/ext-react-transition": "~6.6.0",
     "@sencha/ext-react-renderercell": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
-
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-router-dom": "^4.3.1",
     "prop-types": "^15.6.2",
-
-    "babel-polyfill": "^6.26.0",
-    "babel-runtime": "^6.26.0"
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "@sencha/ext-react-babel-plugin": "~6.6.0",
-    "@sencha/ext-react-webpack-plugin": "~6.6.0",
-
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5",
-
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@sencha/ext-react-babel-plugin": "~6.6.1",
+    "@sencha/ext-react-webpack-plugin": "~6.6.1",
+    "babel-loader": "^8.0.2",
     "copy-webpack-plugin": "^4.5.2",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack-shell-plugin": "^0.5.0",
-    "portfinder": "^1.0.16",
-
-    "@types/react": "^16.4.1",
-    "@types/react-dom": "^16.0.6",
-    "awesome-typescript-loader": "^5.2.0",
-    "typescript": "^2.9.2",
-
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-
-    "react-hot-loader": "^4.3.4",
     "cross-env": "^5.2.0",
-    "rimraf": "^2.6.2"
+    "html-webpack-plugin": "^3.2.0",
+    "portfinder": "^1.0.17",
+    "react-hot-loader": "^4.3.6",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-shell-plugin": "^0.5.0",
+
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "awesome-typescript-loader": "^5.2.1",
+    "typescript": "^3.0.3"
   }
 }

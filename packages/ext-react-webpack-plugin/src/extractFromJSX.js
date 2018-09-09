@@ -2,7 +2,7 @@
 
 import { parse } from 'babylon';
 import traverse from 'ast-traverse';
-import generate from 'babel-generator';
+import generate from '@babel/generator';
 
 const MODULE_PATTERN = /^@extjs\/(ext-react.*|reactor\/(classic|modern))$/;
 
