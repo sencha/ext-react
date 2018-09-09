@@ -10,7 +10,7 @@
   "version":"0.0.1",
   "description":"my-app description for React app MyApp",
   "repositoryURL":"https://github.com/",
-  "keywords":"\"Ext React\",\"Sencha\",\"HTML5\"",
+  "keywords":["ExtReact"],
   "authorName":"Sencha, Inc.",
   "license":"ISC",
   "bugsURL":"https://github.com/",

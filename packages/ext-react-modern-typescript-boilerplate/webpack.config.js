@@ -48,7 +48,7 @@ module.exports = function (env) {
       entry: {
         'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
         'ext-react': ['@sencha/ext-react'],
-        'app': ['babel-polyfill','./index.tsx']
+        'app': ['./index.tsx']
       },
       output: {
         path: path.resolve(__dirname, 'build'),

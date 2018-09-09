@@ -1,4 +1,4 @@
-# Ext React Babel Plugin
+# ExtReact Babel Plugin
 
 This [Babel](https://babeljs.io/) plugin allows you to import Ext JS Components as React Components using the following syntax...
 
@@ -32,7 +32,15 @@ npm install --save-dev @sencha/ext-react-babel-plugin
 
 ```javascript
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
+  ],
   "plugins": ["@sencha/ext-react-babel-plugin"]
 }
 ```

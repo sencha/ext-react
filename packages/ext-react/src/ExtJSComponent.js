@@ -63,6 +63,7 @@ export class ExtJSComponent extends Component {
   }
 
   render() {
+    l('render')
     return null
   }
 
@@ -144,6 +145,8 @@ export class ExtJSComponent extends Component {
         if(root == undefined) {
           root = globalRoot[count]
           count++
+          config['height'] = '100%'
+          config['width'] = '100%'
         }
         else {
           config['fullscreen'] = true

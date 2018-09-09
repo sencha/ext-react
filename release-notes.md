@@ -1,5 +1,11 @@
 # Release Notes
 
+## v6.6.1
+
+* Support for React 16.5
+* Support for Babel 7
+
+
 ## v6.6.0
 
 * Support for React 16

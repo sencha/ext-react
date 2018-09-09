@@ -120,32 +120,22 @@ export function go({callback, element}) {
  * @xparam {Object} [appConfig] Additional config parameters for Ext.application
  */
 export function launch(rootComponent, options = { debug: false, viewport: false }, appConfig = { }) {
-  console.log('launch')
   configure(options)
   Ext.namespace('Ext.react').ReactDOM = ReactDOM; // needed for RendererCell and any other components that can render React elements;
 
-// 
   Ext.application({
     name: '$ExtReactApp',
     ...appConfig,
     launch: () => {
       if (Ext.Viewport && Ext.Viewport.getRenderTarget) {
-        // modern, ext-react
         const target = Ext.Viewport.getRenderTarget().dom;
-
         if (typeof rootComponent === 'function') {
           rootComponent = rootComponent(target);
         }
         if (rootComponent) {
-          console.log('rootComponent')
-          console.log(rootComponent)
-          console.log('target')
-          console.log(target)
-
           ReactDOM.render(rootComponent, target);
         }
       } else {
-        // classic
         if (options.viewport || rootComponent) {
           const style = document.createElement('style');
           style.innerHTML = 'html, body, div[reactroot] { height: 100%; }';
