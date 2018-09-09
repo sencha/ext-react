@@ -6,6 +6,11 @@ const DEFAULT_SUBSTRS = ['[INF] Loading', '[LOG] Fashion build complete', '[ERR]
 
 export async function executeAsync (command, parms, options, compilation, cmdErrors, verbose = 'no', substrings = DEFAULT_SUBSTRS ) {
   await new Promise((resolve, reject) => {
+    if(verbose == 'yes') {
+      console.log(`-v-${app} command - ${command}`) 
+      console.log(`-v-${app} parms - ${parms}`) 
+      console.log(`-v-${app} options - ${JSON.stringify(options)}`) 
+    }
     let child = crossSpawn(command, parms, options)
     child.on('close', (code, signal) => {
       if(code === 0) { resolve(0) }
