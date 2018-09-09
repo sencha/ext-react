@@ -388,7 +388,6 @@ module.exports = class ExtReactWebpackPlugin {
           if (process.env.EXTREACT_VERBOSE  == 'yes') {
             verbose = 'yes'
           }
-          console.log(verbose)
           executeAsync(sencha, parms, options, compilation, cmdErrors, verbose).then (
             function() { onBuildDone() }, 
             function(reason) { resolve(reason) }
