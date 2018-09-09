@@ -216,42 +216,40 @@ module.exports = class ExtReactWebpackPlugin {
 
 
 
-      modules = compilation.chunks.reduce((a, b) => a.concat(b._modules), [])
-//      console.log(modules)
+//       modules = compilation.chunks.reduce((a, b) => a.concat(b._modules), [])
+// //      console.log(modules)
+//       var i = 0
+//       var theModule = ''
+//       for (let module of modules) {
+//         if (i == 0) {
+//           theModule = module
+//           i++
+//         }
+// //const deps = this.dependencies[module.resource]
+//         //console.log(deps)
+//         //if (deps) statements = statements.concat(deps);
+//       }
+//       var thePath = path.join(compiler.outputPath, 'module.txt')
+//       //console.log(thePath)
 
-      var i = 0
-      var theModule = ''
-      for (let module of modules) {
-        if (i == 0) {
-          //console.log('@@@@@@@@@@@@@@@@@@@@')
-          theModule = module
-          i++
-        }
-//const deps = this.dependencies[module.resource]
-        //console.log(deps)
-        //if (deps) statements = statements.concat(deps);
-      }
-      var thePath = path.join(compiler.outputPath, 'module.txt')
-      //console.log(thePath)
-
-      //var o = {};
-      //o.o = theModule;
-      //console.log(theModule[0].context)
+//       //var o = {};
+//       //o.o = theModule;
+//       //console.log(theModule[0].context)
       
-      var cache = [];
-      var h = JSON.stringify(theModule, function(key, value) {
-          if (typeof value === 'object' && value !== null) {
-              if (cache.indexOf(value) !== -1) {
-                  // Circular reference found, discard key
-                  return;
-              }
-              // Store value in our collection
-              cache.push(value);
-          }
-          return value;
-      });
-      cache = null; // Enable garbage collection
-      //fs.writeFileSync( thePath, h, 'utf8')
+//       var cache = [];
+//       var h = JSON.stringify(theModule, function(key, value) {
+//           if (typeof value === 'object' && value !== null) {
+//               if (cache.indexOf(value) !== -1) {
+//                   // Circular reference found, discard key
+//                   return;
+//               }
+//               // Store value in our collection
+//               cache.push(value);
+//           }
+//           return value;
+//       });
+//       cache = null; // Enable garbage collection
+//       //fs.writeFileSync( thePath, h, 'utf8')
 
 
 
@@ -330,6 +328,7 @@ module.exports = class ExtReactWebpackPlugin {
 
       const userPackages = path.join('.', 'ext-react', 'packages')
       if (fs.existsSync(userPackages)) {
+        readline.cursorTo(process.stdout, 0);console.log(app + 'Adding Package Folder: ' + userPackages)
         packageDirs.push(userPackages)
       }
 
@@ -385,7 +384,12 @@ module.exports = class ExtReactWebpackPlugin {
 
         if (this.watch && !watching || !this.watch) {
           var options = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-          executeAsync(sencha, parms, options, compilation, cmdErrors).then (
+          var verbose = 'no'
+          if (process.env.EXTREACT_VERBOSE  == 'yes') {
+            verbose = 'yes'
+          }
+          console.log(verbose)
+          executeAsync(sencha, parms, options, compilation, cmdErrors, verbose).then (
             function() { onBuildDone() }, 
             function(reason) { resolve(reason) }
           )
@@ -483,21 +487,24 @@ module.exports = class ExtReactWebpackPlugin {
     if (production) {
       build.treeShaking = false;
     }
+
     if (sdk) {
-      if (!fs.existsSync(sdk)) {
-          throw new Error(`No SDK found at ${path.resolve(sdk)}.  Did you for get to link/copy your Ext JS SDK to that location?`);
-      } else {
-          //mjg this needed? this._addExtReactPackage(build)
-      }
+      //compilation.errors.push( new Error(cmdErrors.join("")) )
+      throw new Error(`${chalk.red('SDK parameter no longer supported with ext-react-webpack-plugin')}  - use the Ext JS npm packages instead`);
+
+      // if (!fs.existsSync(sdk)) {
+      //     throw new Error(`No SDK found at ${path.resolve(sdk)}.  Did you for get to link/copy your Ext JS SDK to that location?`);
+      // } else {
+      //     //mjg this needed? this._addExtReactPackage(build)
+      // }
     } else {
       try {
-        //build.sdk = path.dirname(resolve('@sencha/ext-modern', { basedir: process.cwd() }))
         build.sdk = path.dirname(resolve('@sencha/ext', { basedir: process.cwd() }))
         build.packageDirs = [...(build.packageDirs || []), path.dirname(build.sdk)];
         build.packages = build.packages || this._findPackages(build.sdk);
       } catch (e) {
         //throw new Error(`@sencha/ext-modern not found.  You can install it with "npm install --save @sencha/ext-modern" or, if you have a local copy of the SDK, specify the path to it using the "sdk" option in build "${name}."`);
-        throw new Error(`@sencha/ext not found.  You can install it with "npm install --save @sencha/ext-modern" or, if you have a local copy of the SDK, specify the path to it using the "sdk" option in build "${name}."`);
+        throw new Error(`@sencha/ext not found.  You can install it with "npm install --save @sencha/ext`);
       }
     }
   }
