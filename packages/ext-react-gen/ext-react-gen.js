@@ -1,8 +1,8 @@
 #! /usr/bin/env node
+const util = require('./util.js')
 const path = require('path')
 const fs = require('fs-extra')
 const { kebabCase, pick } = require('lodash')
-const util = require('./util.js')
 const commandLineArgs = require('command-line-args')
 const List = require('prompt-list')
 const Input = require('prompt-input')
@@ -38,6 +38,7 @@ function getPrefix () {
   }
   return prefix
 }
+
 var app =(`${boldGreen(getPrefix())} ext-react-gen:`)
 
 var answers = {
@@ -75,7 +76,6 @@ const optionDefinitions = [
 var version = ''
 var config = {}
 var cmdLine = {}
-
 stepStart()
 
 function stepStart() {
