@@ -232,8 +232,10 @@ export const buildXML = function({ compress }) {
  * Creates the app.json file
  * @param {String} theme The name of the theme to use.
  * @param {String[]} packages The names of packages to include in the build
+ * @param {Object} sass Sass configuration properties.
+ * @param {Object} resources Extra resources to be copied into the resource folder as specified in the "resources" property of the "output" object. Folders specified in this list will be deeply copied.
  */
-export function createAppJson({ theme, packages, toolkit, overrides=[], packageDirs=[] }) {
+export function createAppJson({ theme, packages, toolkit, overrides=[], packageDirs=[], sass, resources }) {
 
   //var senchaPath = '/Users/marcgusmano/_git/sencha/ext-react/packages/ext-react-boilerplate17/node_modules/@sencha'
   //packageDirs.push(senchaPath)
@@ -250,7 +252,9 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
                 path: './resources',
                 shared: "./resources"
             }
-        }
+        },
+        sass,
+        resources
     };
 
     // if theme is local add it as an additional package dir

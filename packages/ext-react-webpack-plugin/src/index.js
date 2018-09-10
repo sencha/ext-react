@@ -33,6 +33,8 @@ module.exports = class ExtReactWebpackPlugin {
    * @param {Boolean} asynchronous Set to true to run Sencha Cmd builds asynchronously. This makes the webpack build finish much faster, but the app may not load correctly in your browser until Sencha Cmd is finished building the ExtReact bundle
    * @param {Boolean} production Set to true for production builds.  This tell Sencha Cmd to compress the generated JS bundle.
    * @param {Boolean} treeShaking Set to false to disable tree shaking in development builds.  This makes incremental rebuilds faster as all ExtReact components are included in the ext.js bundle in the initial build and thus the bundle does not need to be rebuilt after each change. Defaults to true.
+   * @param {Object} sass Sass configuration properties.
+   * @param {Object} resources Extra resources to be copied into the resource folder as specified in the "resources" property of the "output" object. Folders specified in this list will be deeply copied.
    */
   constructor(options) {
     this.firstTime = true
@@ -307,9 +309,11 @@ module.exports = class ExtReactWebpackPlugin {
     * @param {String[]} packageDirs Directories containing packages
     * @param {String[]} overrides An array of locations for overrides
     * @param {String} sdk The full path to the ExtReact SDK
+    * @param {Object} sass Sass configuration properties.
+    * @param {Object} resources Extra resources to be copied into the resource folder as specified in the "resources" property of the "output" object. Folders specified in this list will be deeply copied.
     * @private
     */
-  _buildExtBundle(compilation, cmdErrors, output, { toolkit='modern', theme, packages=[], packageDirs=[], sdk, overrides}) {
+  _buildExtBundle(compilation, cmdErrors, output, { toolkit='modern', theme, packages=[], packageDirs=[], sdk, overrides, sass, resources }) {
     let sencha = this._getSenchCmdPath()
     theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
 
@@ -337,7 +341,7 @@ module.exports = class ExtReactWebpackPlugin {
         rimraf(output)
         mkdirp(output)
         fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: this.production }), 'utf8')
-        fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs }), 'utf8')
+        fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs, sass, resources }), 'utf8')
         fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(sdk, packageDirs, output), 'utf8')
       }
       this.firstTime = false
