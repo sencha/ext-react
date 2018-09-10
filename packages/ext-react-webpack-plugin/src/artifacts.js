@@ -243,6 +243,7 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
         framework: "ext",
         toolkit,
         requires: packages,
+        overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
         packages: {
             dir: packageDirs.map(dir => path.resolve(dir))
         },
@@ -273,10 +274,12 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
  * Creates a js file containing code to make Ext JS load properly in jsdom
  * @param {String} targetDir 
  */
-// export function createJSDOMEnvironment(targetDir) {
-//     return 'window.Ext = Ext;Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
-//     //return 'window.Ext = Ext;Ext.require("Ext.react.RendererCell");Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
-// }
+export function createJSDOMEnvironment(targetDir) {
+  return 'window.Ext = Ext;';
+
+  //return 'window.Ext = Ext;Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
+  //return 'window.Ext = Ext;Ext.require("Ext.react.RendererCell");Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
+}
 
 /**
  * Creates the workspace.json file

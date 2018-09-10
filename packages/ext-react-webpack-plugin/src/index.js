@@ -10,6 +10,7 @@ import { executeAsync } from './executeAsync'
 import extractFromJSX from './extractFromJSX';
 import { sync as rimraf } from 'rimraf';
 import { buildXML, createAppJson, createWorkspaceJson } from './artifacts';
+import { createJSDOMEnvironment } from './artifacts';
 import { generate } from 'astring';
 import { sync as resolve } from 'resolve';
 let watching = false;
@@ -318,14 +319,10 @@ module.exports = class ExtReactWebpackPlugin {
     theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
 
     return new Promise((resolve, reject) => {
-      //this.onBuildFail = reject
-      //this.onBuildSuccess = resolve
       const onBuildDone = () => {
         if (cmdErrors.length) {
-          //this.onBuildFail(new Error(cmdErrors.join("")))
           reject(new Error(cmdErrors.join("")))
         } else {
-          //this.onBuildSuccess()
           resolve()
         }
       }
@@ -336,11 +333,11 @@ module.exports = class ExtReactWebpackPlugin {
         packageDirs.push(userPackages)
       }
 
-
       if (this.firstTime) {
         rimraf(output)
         mkdirp(output)
         fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: this.production }), 'utf8')
+        fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(), 'utf8')
         fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs, sass, resources }), 'utf8')
         fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(sdk, packageDirs, output), 'utf8')
       }
