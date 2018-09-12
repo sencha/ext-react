@@ -3,7 +3,7 @@ rm ext-react-babel-plugin/package-lock.json
 rm ext-react-classic-boilerplate/package-lock.json
 rm ext-react-conference-app/package-lock.json
 rm ext-react-demo/package-lock.json
-rm ext-react-froala/package-lock.json
+rm ext-react-froala-example/package-lock.json
 rm ext-react-gen/package-lock.json
 rm ext-react-kitchensink/package-lock.json
 rm ext-react-modern-boilerplate/package-lock.json

@@ -3,7 +3,7 @@ rm -r ext-react-babel-plugin/node_modules
 rm -r ext-react-classic-boilerplate/node_modules
 rm -r ext-react-conference-app/node_modules
 rm -r ext-react-demo/node_modules
-rm -r ext-react-froala/node_modules
+rm -r ext-react-froala-example/node_modules
 rm -r ext-react-gen/node_modules
 rm -r ext-react-kitchensink/node_modules
 rm -r ext-react-modern-boilerplate/node_modules
