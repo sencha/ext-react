@@ -21,10 +21,15 @@ module.exports = function (env) {
         production: isProd,
         treeShaking: false
       }),
+
+      // 1. Froala 
+      // Jquery is used with the Froala editor
+      // - https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery"
       })
+
     ]
     if (!isProd) {
       plugins.push(
@@ -33,7 +38,7 @@ module.exports = function (env) {
     }
     return {
       mode: 'development',
-      cache: true, //??
+      cache: true,
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
@@ -61,6 +66,10 @@ module.exports = function (env) {
                 'css-loader'
             ]
           },
+          
+          // 2. Froala 
+          // These loaders are used with the Froala editor.
+          // - https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react
           {
             test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
             use: "url-loader?limit=10000&mimetype=application/font-woff"
@@ -78,13 +87,11 @@ module.exports = function (env) {
             use: "url-loader?limit=10000&mimetype=image/svg+xml"
           }
 
-
-
-
         ]
       },
       resolve: {
-        // The following is only needed when running this boilerplate within the ext-react repo.  You can remove this from your own projects.
+        // The following is only needed when running this boilerplate within the ext-react repo.  
+        // You can remove this from your own projects.
         alias: {
           "react-dom": path.resolve('./node_modules/react-dom'),
           "react": path.resolve('./node_modules/react')
