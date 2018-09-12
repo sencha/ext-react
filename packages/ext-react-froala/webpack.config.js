@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-//const WebpackShellPlugin = require('webpack-shell-plugin');
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
@@ -12,25 +10,21 @@ module.exports = function (env) {
   return portfinder.getPortPromise().then(port => {
     const nodeEnv = env && env.prod ? 'production' : 'development';
     const isProd = nodeEnv === 'production'
-    //const local = env && env.local
+    const local = env && env.local
     const plugins = [
       new HtmlWebpackPlugin({
         template: 'index.html',
         hash: true
       }), 
-      new CopyWebpackPlugin([{
-        from: path.join(__dirname, 'resources'), 
-        to: 'resources'
-      }]),
       new ExtReactWebpackPlugin({
         port: port,
         production: isProd,
         treeShaking: false
+      }),
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
       })
-      // new WebpackShellPlugin({
-      //   dev: false,
-      //   onBuildEnd: ['node extract-code.js']
-      // })
     ]
     if (!isProd) {
       plugins.push(
@@ -43,7 +37,7 @@ module.exports = function (env) {
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
-        'vendor': ['react', 'prop-types', 'react-redux', 'react-dom', 'react-router-dom', 'history', 'redux'],
+        'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
         'ext-react': ['@sencha/ext-react'],
         'app': ['./index.js']
       },
@@ -66,7 +60,27 @@ module.exports = function (env) {
                 'style-loader', 
                 'css-loader'
             ]
+          },
+          {
+            test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+            use: "url-loader?limit=10000&mimetype=application/font-woff"
+          }, {
+            test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+            use: "url-loader?limit=10000&mimetype=application/font-woff"
+          }, {
+            test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            use: "url-loader?limit=10000&mimetype=application/octet-stream"
+          }, {
+            test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            use: "file-loader"
+          }, {
+            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            use: "url-loader?limit=10000&mimetype=image/svg+xml"
           }
+
+
+
+
         ]
       },
       resolve: {

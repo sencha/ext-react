@@ -1,24 +1,27 @@
-'use strict';
-import '@babel/polyfill';
-var reactVersion = 0
-var reactVersionFull = ''
-import chalk from 'chalk';
-import fs from 'fs';
-import path from 'path';
-import { sync as mkdirp } from 'mkdirp';
-import { executeAsync } from './executeAsync'
-import extractFromJSX from './extractFromJSX';
-import { sync as rimraf } from 'rimraf';
-import { buildXML, createAppJson, createWorkspaceJson } from './artifacts';
-import { createJSDOMEnvironment } from './artifacts';
-import { generate } from 'astring';
-import { sync as resolve } from 'resolve';
-let watching = false;
-const app = `${chalk.green('ℹ ｢ext｣:')} ext-react-webpack-plugin: `;
+'use strict'
+import '@babel/polyfill'
 import * as readline from 'readline'
+import { _getApp, _getVersions, _buildExtBundle } from './pluginUtil'
+import fs from 'fs'
+import path from 'path'
 
-module.exports = class ExtReactWebpackPlugin {
+import chalk from 'chalk'
+
+import { sync as mkdirp } from 'mkdirp'
+//import { _buildExtBundle } from './executeAsync'
+import extractFromJSX from './extractFromJSX'
+import { sync as rimraf } from 'rimraf'
+import { buildXML, createAppJson, createWorkspaceJson, createJSDOMEnvironment } from './artifacts'
+import { generate } from 'astring'
+import { sync as resolve } from 'resolve'
+//let watching = false
+
+const pluginName = 'ext-react-webpack-plugin'
+const app = _getApp(pluginName)
+
+export default class ExtReactWebpackPlugin {
   /**
+   * @param {String} port - the URL port number
    * @param {Object[]} builds
    * @param {Boolean} [debug=false] Set to true to prevent cleanup of build temporary build artifacts that might be helpful in troubleshooting issues.
    * deprecated @param {String} sdk The full path to the ExtReact SDK
@@ -35,33 +38,68 @@ module.exports = class ExtReactWebpackPlugin {
    * @param {Boolean} production Set to true for production builds.  This tell Sencha Cmd to compress the generated JS bundle.
    * @param {Boolean} treeShaking Set to false to disable tree shaking in development builds.  This makes incremental rebuilds faster as all ExtReact components are included in the ext.js bundle in the initial build and thus the bundle does not need to be rebuilt after each change. Defaults to true.
    */
+
+  getDefaultOptions() {
+    return {
+      port: 8016,
+      profile: 'desktop', 
+      environment: 'development', 
+      verbose: 'no',
+      currentFile: null,
+      manifest: null,
+      dependencies: [],
+      builds: {},
+      debug: false,
+      watch: false,
+      test: /\.(j|t)sx?$/,
+      /* begin single build only */
+      output: 'ext-react',
+      toolkit: 'modern',
+      packages: null,
+      packageDirs: [],
+      overrides: [],
+      asynchronous: false,
+      production: false,
+      manifestExtractor: extractFromJSX,
+      treeShaking: false
+      /* end single build only */
+    }
+  }
+
   constructor(options) {
+
     this.firstTime = true
     this.count = 0
+
     //can be in devdependencies - account for this: react: "15.16.0"
     var pkg = (fs.existsSync('package.json') && JSON.parse(fs.readFileSync('package.json', 'utf-8')) || {})
-    reactVersionFull = pkg.dependencies.react
-    var is16 = reactVersionFull.includes("16")
-    if (is16) { reactVersion = 16 }
-    else { reactVersion = 15 }
-    this.reactVersion = reactVersion
-    this.reactVersionFull = reactVersionFull
+    this.reactVersionFull = pkg.dependencies.react
+    var is16 = this.reactVersionFull.includes("16")
+    if (is16) { this.reactVersion = 16 }
+    else { this.reactVersion = 15 }
+    //this.reactVersion = reactVersion
+    //this.reactVersionFull = reactVersionFull
+
     const extReactRc = (fs.existsSync('.ext-reactrc') && JSON.parse(fs.readFileSync('.ext-reactrc', 'utf-8')) || {})
-    options = { ...this.getDefaultOptions(), ...options, ...extReactRc }
-    const { builds } = options
+    this.options = { ...this.getDefaultOptions(), ...options, ...extReactRc }
+    const { builds } = this.options
     if (Object.keys(builds).length === 0) {
-      const { builds, ...buildOptions } = options
+      const { builds, ...buildOptions } = this.options
       builds.ext = buildOptions
     }
     for (let name in builds) {
       this._validateBuildConfig(name, builds[name])
     }
+
+    // this.options = { 
+    //   ...options
+    // }
+
     Object.assign(this, {
-      ...options,
-      currentFile: null,
-      manifest: null,
-      dependencies: []
+      ...this.options
     })
+
+
   }
 
   watchRun() {
@@ -73,10 +111,9 @@ module.exports = class ExtReactWebpackPlugin {
       const isWebpack4 = compiler.hooks;
       if (isWebpack4) {this.webpackVersion = 'IS webpack 4'}
       else {this.webpackVersion = 'NOT webpack 4'}
-      readline.cursorTo(process.stdout, 0);console.log(app + 'reactVersion: ' + this.reactVersionFull + ', ' + this.webpackVersion)
+      process.stdout.cursorTo(0);console.log(_getVersions(app, pluginName, 'React'))
     }
     const me = this
-
     if (compiler.hooks) {
       if (this.asynchronous) {
         compiler.hooks.watchRun.tapAsync('ext-react-watch-run (async)', (watching, cb) => {
@@ -160,15 +197,14 @@ module.exports = class ExtReactWebpackPlugin {
           // copy Ext.define calls to the manifest.  This allows users to write standard ExtReact classes.
           parser.plugin('call Ext.define', addToManifest);
         })
-
       })
     }
 
 //*emit - once all modules are processed, create the optimized ExtReact build.
     if (compiler.hooks) {
       if (true) {
-        compiler.hooks.emit.tapAsync('ext-react-emit (async)', (compilation, callback) => {
-          readline.cursorTo(process.stdout, 0);console.log(app + 'ext-react-emit  (async)')
+        compiler.hooks.emit.tapAsync('ext-react-emit-async', (compilation, callback) => {
+          readline.cursorTo(process.stdout, 0);console.log(app + 'ext-react-emit-async')
           this.emit(compiler, compilation, callback)
         })
       }
@@ -209,81 +245,72 @@ module.exports = class ExtReactWebpackPlugin {
   }
 
   async emit(compiler, compilation, callback) {
-    var isWebpack4 = compilation.hooks;
-    var modules = []
-    if (isWebpack4) {
-      isWebpack4 = true
+//     var isWebpack4 = compilation.hooks;
+//     var modules = []
+//     if (isWebpack4) {
+//       isWebpack4 = true
+// //       modules = compilation.chunks.reduce((a, b) => a.concat(b._modules), [])
+// // //      console.log(modules)
+// //       var i = 0
+// //       var theModule = ''
+// //       for (let module of modules) {
+// //         if (i == 0) {
+// //           theModule = module
+// //           i++
+// //         }
+// // //const deps = this.dependencies[module.resource]
+// //         //console.log(deps)
+// //         //if (deps) statements = statements.concat(deps);
+// //       }
+// //       var thePath = path.join(compiler.outputPath, 'module.txt')
+// //       //console.log(thePath)
 
-
-
-
-//       modules = compilation.chunks.reduce((a, b) => a.concat(b._modules), [])
-// //      console.log(modules)
-//       var i = 0
-//       var theModule = ''
-//       for (let module of modules) {
-//         if (i == 0) {
-//           theModule = module
-//           i++
-//         }
-// //const deps = this.dependencies[module.resource]
-//         //console.log(deps)
-//         //if (deps) statements = statements.concat(deps);
-//       }
-//       var thePath = path.join(compiler.outputPath, 'module.txt')
-//       //console.log(thePath)
-
-//       //var o = {};
-//       //o.o = theModule;
-//       //console.log(theModule[0].context)
+// //       //var o = {};
+// //       //o.o = theModule;
+// //       //console.log(theModule[0].context)
       
-//       var cache = [];
-//       var h = JSON.stringify(theModule, function(key, value) {
-//           if (typeof value === 'object' && value !== null) {
-//               if (cache.indexOf(value) !== -1) {
-//                   // Circular reference found, discard key
-//                   return;
-//               }
-//               // Store value in our collection
-//               cache.push(value);
-//           }
-//           return value;
-//       });
-//       cache = null; // Enable garbage collection
-//       //fs.writeFileSync( thePath, h, 'utf8')
+// //       var cache = [];
+// //       var h = JSON.stringify(theModule, function(key, value) {
+// //           if (typeof value === 'object' && value !== null) {
+// //               if (cache.indexOf(value) !== -1) {
+// //                   // Circular reference found, discard key
+// //                   return;
+// //               }
+// //               // Store value in our collection
+// //               cache.push(value);
+// //           }
+// //           return value;
+// //       });
+// //       cache = null; // Enable garbage collection
+// //       //fs.writeFileSync( thePath, h, 'utf8')
+//     }
+//     else {
+//       isWebpack4 = false
+//       // modules = compilation.chunks.reduce((a, b) => a.concat(b.modules), [])
 
+//       // for (let module of modules) {
+//       //   const deps = this.dependencies[module.resource]
+//       //   console.log(deps)
+//       //   //if (deps) statements = statements.concat(deps);
+//       // }
+//     }
+    //const build = this.builds[Object.keys(this.builds)[0]];
 
-
-
-    }
-    else {
-      isWebpack4 = false
-
-
-
-      modules = compilation.chunks.reduce((a, b) => a.concat(b.modules), [])
-
-      for (let module of modules) {
-        const deps = this.dependencies[module.resource]
-        console.log(deps)
-        //if (deps) statements = statements.concat(deps);
-      }
-
-
-
-
-    }
-    const build = this.builds[Object.keys(this.builds)[0]];
-    let outputPath = path.join(compiler.outputPath, this.output);
+    let outputPath = path.join(compiler.outputPath, this.output)
     // webpack-dev-server overwrites the outputPath to "/", so we need to prepend contentBase
     if (compiler.outputPath === '/' && compiler.options.devServer) {
-      outputPath = path.join(compiler.options.devServer.contentBase, outputPath);
+      outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
     }
+    this._buildExtFolder(outputPath)
+    // var parms = ['app', 'build', this.options.profile, this.options.environment]
+    // var verbose = 'no'
+    // if (this.options.verbose != undefined) {
+    //   verbose = this.options.verbose
+    // }
+    var parms = ['app', 'build']
+    var verbose = 'no'
     var cmdErrors = []
-
-    let promise = this._buildExtBundle(compilation, cmdErrors, outputPath, build)
-
-    await promise
+    await _buildExtBundle(compilation, cmdErrors, outputPath, parms, verbose)
  
     if (this.watch && this.count == 0 && cmdErrors.length == 0) {
       var url = 'http://localhost:' + this.port
@@ -292,8 +319,56 @@ module.exports = class ExtReactWebpackPlugin {
       const opn = require('opn')
       opn(url)
     }
-    if (callback != null){ callback() }
+    callback()
   }
+
+  _buildExtFolder(output, toolkit='modern', theme, packages=[], packageDirs=[], sdk='node_modules/@sencha/ext', overrides=[]) {
+    theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
+    const userPackages = path.join('.', 'ext-react', 'packages')
+    if (fs.existsSync(userPackages)) {
+      readline.cursorTo(process.stdout, 0);console.log(app + 'Adding Package Folder: ' + userPackages)
+      packageDirs.push(userPackages)
+    }
+    if (this.firstTime) {
+      rimraf(output)
+      mkdirp(output)
+      fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: this.production }), 'utf8')
+      fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(), 'utf8')
+      fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs }), 'utf8')
+      fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(sdk, packageDirs, output), 'utf8')
+    }
+    this.firstTime = false
+    let js
+    js = 'Ext.require("Ext.*")'
+
+    // if (this.treeShaking) {
+    //   //let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
+    //   let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
+    //   // if (packages.indexOf('reacto') !== -1) {
+    //   //   statements.push('Ext.require("Ext.react.RendererCell")');
+    //   // }
+    //   //mjg
+    //   for (let module of modules) {
+    //     const deps = this.dependencies[module.resource];
+    //     if (deps) statements = statements.concat(deps);
+    //   }
+    //   js = statements.join(';\n');
+    // } else {
+    //   js = 'Ext.require("Ext.*")';
+    // }
+
+    if (this.manifest === null || js !== this.manifest) {
+      this.manifest = js
+      //readline.cursorTo(process.stdout, 0);console.log(app + 'tree shaking: ' + this.treeShaking)
+      const manifest = path.join(output, 'manifest.js')
+      fs.writeFileSync(manifest, js, 'utf8')
+      readline.cursorTo(process.stdout, 0);console.log(app + `building ExtReact bundle at: ${output}`)
+    }
+    else {
+      readline.cursorTo(process.stdout, 0);console.log(app + 'ExtReact rebuild NOT needed')
+    }
+  }
+
 
   /**
    /**
@@ -310,153 +385,128 @@ module.exports = class ExtReactWebpackPlugin {
     * @param {String} sdk The full path to the ExtReact SDK
     * @private
     */
-  _buildExtBundle(compilation, cmdErrors, output, { toolkit='modern', theme, packages=[], packageDirs=[], sdk, overrides}) {
-    let sencha = this._getSenchCmdPath()
-    theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
+  // _buildExtBundle(compilation, cmdErrors, output, { toolkit='modern', theme, packages=[], packageDirs=[], sdk, overrides}) {
+  //   let sencha = this._getSenchCmdPath()
+  //   theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
 
-    return new Promise((resolve, reject) => {
-      const onBuildDone = () => {
-        if (cmdErrors.length) {
-          reject(new Error(cmdErrors.join("")))
-        } else {
-          resolve()
-        }
-      }
+  //   return new Promise((resolve, reject) => {
+  //     const onBuildDone = () => {
+  //       if (cmdErrors.length) {
+  //         reject(new Error(cmdErrors.join("")))
+  //       } else {
+  //         resolve()
+  //       }
+  //     }
 
-      const userPackages = path.join('.', 'ext-react', 'packages')
-      if (fs.existsSync(userPackages)) {
-        readline.cursorTo(process.stdout, 0);console.log(app + 'Adding Package Folder: ' + userPackages)
-        packageDirs.push(userPackages)
-      }
+  //     const userPackages = path.join('.', 'ext-react', 'packages')
+  //     if (fs.existsSync(userPackages)) {
+  //       readline.cursorTo(process.stdout, 0);console.log(app + 'Adding Package Folder: ' + userPackages)
+  //       packageDirs.push(userPackages)
+  //     }
 
-      if (this.firstTime) {
-        rimraf(output)
-        mkdirp(output)
-        fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: this.production }), 'utf8')
-        fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(), 'utf8')
-        fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs }), 'utf8')
-        fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(sdk, packageDirs, output), 'utf8')
-      }
-      this.firstTime = false
+  //     if (this.firstTime) {
+  //       rimraf(output)
+  //       mkdirp(output)
+  //       fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: this.production }), 'utf8')
+  //       fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(), 'utf8')
+  //       fs.writeFileSync(path.join(output, 'app.json'), createAppJson({ theme, packages, toolkit, overrides, packageDirs }), 'utf8')
+  //       fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(sdk, packageDirs, output), 'utf8')
+  //     }
+  //     this.firstTime = false
 
-      let js
-      js = 'Ext.require("Ext.*")'
+  //     let js
+  //     js = 'Ext.require("Ext.*")'
 
-      // if (this.treeShaking) {
-      //   //let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
-      //   let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
-      //   // if (packages.indexOf('reacto') !== -1) {
-      //   //   statements.push('Ext.require("Ext.react.RendererCell")');
-      //   // }
-      //   //mjg
-      //   for (let module of modules) {
-      //     const deps = this.dependencies[module.resource];
-      //     if (deps) statements = statements.concat(deps);
-      //   }
-      //   js = statements.join(';\n');
-      // } else {
-      //   js = 'Ext.require("Ext.*")';
-      // }
-
-
-
-      // if (fs.existsSync(path.join(sdk, 'ext'))) {
-      //   // local checkout of the SDK repo
-      //   packageDirs.push(path.join('ext', 'packages'));
-      //   sdk = path.join(sdk, 'ext');
-      // }
+  //     // if (this.treeShaking) {
+  //     //   //let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
+  //     //   let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
+  //     //   // if (packages.indexOf('reacto') !== -1) {
+  //     //   //   statements.push('Ext.require("Ext.react.RendererCell")');
+  //     //   // }
+  //     //   //mjg
+  //     //   for (let module of modules) {
+  //     //     const deps = this.dependencies[module.resource];
+  //     //     if (deps) statements = statements.concat(deps);
+  //     //   }
+  //     //   js = statements.join(';\n');
+  //     // } else {
+  //     //   js = 'Ext.require("Ext.*")';
+  //     // }
 
 
 
-      var parms = []
-      if (this.watch) { parms = ['app', 'watch'] }
-      else { parms = ['app', 'build'] }
-
-      if (this.manifest === null || js !== this.manifest) {
-        this.manifest = js
-        //readline.cursorTo(process.stdout, 0);console.log(app + 'tree shaking: ' + this.treeShaking)
-        const manifest = path.join(output, 'manifest.js')
-        fs.writeFileSync(manifest, js, 'utf8')
-        readline.cursorTo(process.stdout, 0);console.log(app + `building ExtReact bundle at: ${output}`)
-
-        if (this.watch && !watching || !this.watch) {
-          var options = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-          var verbose = 'no'
-          if (process.env.EXTREACT_VERBOSE  == 'yes') {
-            verbose = 'yes'
-          }
-          executeAsync(sencha, parms, options, compilation, cmdErrors, verbose).then (
-            function() { onBuildDone() }, 
-            function(reason) { resolve(reason) }
-          )
-        }
-
-      }
-      else {
-        readline.cursorTo(process.stdout, 0);console.log(app + 'Ext rebuild NOT needed')
-        onBuildDone()
-      }
-
-      // var parms
-      // if (this.watch) {
-      //   if (!watching) {
-      //     parms = ['app', 'watch']
-      //   }
-      //   // if (!cmdRebuildNeeded) {
-      //   //   readline.cursorTo(process.stdout, 0);console.log(app + 'Ext rebuild NOT needed')
-      //   //   onBuildDone()
-      //   // }
-      // }
-      // else {
-      //   parms = ['app', 'build']
-      // }
-      // if (cmdRebuildNeeded) {
-      //   var options = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-      //   executeAsync(sencha, parms, options, compilation, cmdErrors).then(function() {
-      //     onBuildDone()
-      //   }, function(reason){
-      //     resolve(reason)
-      //   })
-      // }
+  //     // if (fs.existsSync(path.join(sdk, 'ext'))) {
+  //     //   // local checkout of the SDK repo
+  //     //   packageDirs.push(path.join('ext', 'packages'));
+  //     //   sdk = path.join(sdk, 'ext');
+  //     // }
 
 
-    })
-  }
 
-  /**
-   * Default config options
-   * @protected
-   * @return {Object}
-   */
-  getDefaultOptions() {
-    return {
-      port: 8016,
-      builds: {},
-      debug: false,
-      watch: false,
-      test: /\.(j|t)sx?$/,
+  //     var parms = []
+  //     if (this.watch) { parms = ['app', 'watch'] }
+  //     else { parms = ['app', 'build'] }
 
-      /* begin single build only */
-      output: 'ext-react',
-      toolkit: 'modern',
-      packages: null,
-      packageDirs: [],
-      overrides: [],
-      asynchronous: false,
-      production: false,
-      manifestExtractor: extractFromJSX,
-      treeShaking: false
-      /* end single build only */
-    }
-  }
+  //     if (this.manifest === null || js !== this.manifest) {
+  //       this.manifest = js
+  //       //readline.cursorTo(process.stdout, 0);console.log(app + 'tree shaking: ' + this.treeShaking)
+  //       const manifest = path.join(output, 'manifest.js')
+  //       fs.writeFileSync(manifest, js, 'utf8')
+  //       readline.cursorTo(process.stdout, 0);console.log(app + `building ExtReact bundle at: ${output}`)
+
+  //       if (this.watch && !watching || !this.watch) {
+  //         var options = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
+  //         var verbose = 'no'
+  //         if (process.env.EXTREACT_VERBOSE  == 'yes') {
+  //           verbose = 'yes'
+  //         }
+  //         executeAsync(sencha, parms, options, compilation, cmdErrors, verbose).then (
+  //           function() { onBuildDone() }, 
+  //           function(reason) { resolve(reason) }
+  //         )
+  //       }
+
+  //     }
+  //     else {
+  //       readline.cursorTo(process.stdout, 0);console.log(app + 'Ext rebuild NOT needed')
+  //       onBuildDone()
+  //     }
+
+  //     // var parms
+  //     // if (this.watch) {
+  //     //   if (!watching) {
+  //     //     parms = ['app', 'watch']
+  //     //   }
+  //     //   // if (!cmdRebuildNeeded) {
+  //     //   //   readline.cursorTo(process.stdout, 0);console.log(app + 'Ext rebuild NOT needed')
+  //     //   //   onBuildDone()
+  //     //   // }
+  //     // }
+  //     // else {
+  //     //   parms = ['app', 'build']
+  //     // }
+  //     // if (cmdRebuildNeeded) {
+  //     //   var options = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
+  //     //   executeAsync(sencha, parms, options, compilation, cmdErrors).then(function() {
+  //     //     onBuildDone()
+  //     //   }, function(reason){
+  //     //     resolve(reason)
+  //     //   })
+  //     // }
+
+
+  //   })
+  // }
+
+
 
   succeedModule(compilation, module) {
     this.currentFile = module.resource;
-    if (module.resource && module.resource.match(this.test) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-react${reactVersion}/`)) {
+    if (module.resource && module.resource.match(this.test) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-react${this.reactVersion}/`)) {
       const doParse = () => {
         this.dependencies[this.currentFile] = [
           ...(this.dependencies[this.currentFile] || []),
-          ...this.manifestExtractor(module._source._value, compilation, module, reactVersion)
+          ...this.manifestExtractor(module._source._value, compilation, module, this.reactVersion)
         ]
       }
       if (this.debug) {
@@ -542,19 +592,22 @@ module.exports = class ExtReactWebpackPlugin {
       // Remove any undefineds from map
       .filter(name => name);
   }
-
-  /**
-   * Returns the path to the sencha cmd executable
-   * @private
-   * @return {String}
-   */
-  _getSenchCmdPath() {
-    try { return require('@sencha/cmd') } 
-    catch (e) { return 'sencha' }
-  }
 }
 
 
+
+
+
+
+  // /**
+  //  * Returns the path to the sencha cmd executable
+  //  * @private
+  //  * @return {String}
+  //  */
+  // _getSenchCmdPath() {
+  //   try { return require('@sencha/cmd') } 
+  //   catch (e) { return 'sencha' }
+  // }
 
 
       // if (this.watch) {
