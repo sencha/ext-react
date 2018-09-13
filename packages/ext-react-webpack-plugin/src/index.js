@@ -4,17 +4,14 @@ import * as readline from 'readline'
 import { _getApp, _getVersions, _buildExtBundle } from './pluginUtil'
 import fs from 'fs'
 import path from 'path'
-
 import chalk from 'chalk'
-
 import { sync as mkdirp } from 'mkdirp'
-//import { _buildExtBundle } from './executeAsync'
-import extractFromJSX from './extractFromJSX'
 import { sync as rimraf } from 'rimraf'
-import { buildXML, createAppJson, createWorkspaceJson, createJSDOMEnvironment } from './artifacts'
 import { generate } from 'astring'
 import { sync as resolve } from 'resolve'
-//let watching = false
+
+import { buildXML, createAppJson, createWorkspaceJson, createJSDOMEnvironment } from './artifacts'
+import extractFromJSX from './extractFromJSX'
 
 const pluginName = 'ext-react-webpack-plugin'
 const app = _getApp(pluginName)
@@ -77,11 +74,10 @@ export default class ExtReactWebpackPlugin {
     var is16 = this.reactVersionFull.includes("16")
     if (is16) { this.reactVersion = 16 }
     else { this.reactVersion = 15 }
-    //this.reactVersion = reactVersion
-    //this.reactVersionFull = reactVersionFull
 
     const extReactRc = (fs.existsSync('.ext-reactrc') && JSON.parse(fs.readFileSync('.ext-reactrc', 'utf-8')) || {})
     this.options = { ...this.getDefaultOptions(), ...options, ...extReactRc }
+    
     const { builds } = this.options
     if (Object.keys(builds).length === 0) {
       const { builds, ...buildOptions } = this.options
@@ -95,15 +91,15 @@ export default class ExtReactWebpackPlugin {
     //   ...options
     // }
 
-    Object.assign(this, {
-      ...this.options
-    })
+    // Object.assign(this, {
+    //   ...this.options
+    // })
 
 
   }
 
   watchRun() {
-    this.watch = true
+    this.options.watch = true
   }
 
   apply(compiler) {
@@ -144,7 +140,7 @@ export default class ExtReactWebpackPlugin {
     const addToManifest = function(call) {
       try {
         const file = this.state.module.resource;
-        me.dependencies[file] = [ ...(me.dependencies[file] || []), generate(call) ];
+        me.options.dependencies[file] = [ ...(me.options.dependencies[file] || []), generate(call) ];
       } catch (e) {
         console.error(`Error processing ${file}`);
       }
@@ -296,24 +292,19 @@ export default class ExtReactWebpackPlugin {
 //     }
     //const build = this.builds[Object.keys(this.builds)[0]];
 
-    let outputPath = path.join(compiler.outputPath, this.output)
+    let outputPath = path.join(compiler.outputPath, this.options.output)
     // webpack-dev-server overwrites the outputPath to "/", so we need to prepend contentBase
     if (compiler.outputPath === '/' && compiler.options.devServer) {
       outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
     }
     this._buildExtFolder(outputPath)
-    // var parms = ['app', 'build', this.options.profile, this.options.environment]
-    // var verbose = 'no'
-    // if (this.options.verbose != undefined) {
-    //   verbose = this.options.verbose
-    // }
+    //var parms = ['app', 'build', this.options.profile, this.options.environment]
     var parms = ['app', 'build']
-    var verbose = 'no'
     var cmdErrors = []
-    await _buildExtBundle(compilation, cmdErrors, outputPath, parms, verbose)
+    await _buildExtBundle(compilation, cmdErrors, outputPath, parms, this.options.verbose)
  
-    if (this.watch && this.count == 0 && cmdErrors.length == 0) {
-      var url = 'http://localhost:' + this.port
+    if (this.options.watch && this.count == 0 && cmdErrors.length == 0) {
+      var url = 'http://localhost:' + this.options.port
       readline.cursorTo(process.stdout, 0);console.log(app + 'ext-react-emit - open browser at ' + url)
       this.count++
       const opn = require('opn')
@@ -341,7 +332,7 @@ export default class ExtReactWebpackPlugin {
     let js
     js = 'Ext.require("Ext.*")'
 
-    // if (this.treeShaking) {
+    // if (this.options.treeShaking) {
     //   //let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
     //   let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
     //   // if (packages.indexOf('reacto') !== -1) {
@@ -357,9 +348,9 @@ export default class ExtReactWebpackPlugin {
     //   js = 'Ext.require("Ext.*")';
     // }
 
-    if (this.manifest === null || js !== this.manifest) {
-      this.manifest = js
-      //readline.cursorTo(process.stdout, 0);console.log(app + 'tree shaking: ' + this.treeShaking)
+    if (this.options.manifest === null || js !== this.options.manifest) {
+      this.options.manifest = js
+      //readline.cursorTo(process.stdout, 0);console.log(app + 'tree shaking: ' + this.options.treeShaking)
       const manifest = path.join(output, 'manifest.js')
       fs.writeFileSync(manifest, js, 'utf8')
       readline.cursorTo(process.stdout, 0);console.log(app + `building ExtReact bundle at: ${output}`)
@@ -417,7 +408,7 @@ export default class ExtReactWebpackPlugin {
   //     let js
   //     js = 'Ext.require("Ext.*")'
 
-  //     // if (this.treeShaking) {
+  //     // if (this.options.treeShaking) {
   //     //   //let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition", "Ext.react.RendererCell"])']; // for some reason command doesn't load component when only panel is required
   //     //   let statements = ['Ext.require(["Ext.app.Application", "Ext.Component", "Ext.Widget", "Ext.layout.Fit", "Ext.react.Transition"])']; // for some reason command doesn't load component when only panel is required
   //     //   // if (packages.indexOf('reacto') !== -1) {
@@ -501,20 +492,20 @@ export default class ExtReactWebpackPlugin {
 
 
   succeedModule(compilation, module) {
-    this.currentFile = module.resource;
-    if (module.resource && module.resource.match(this.test) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-react${this.reactVersion}/`)) {
+    this.options.currentFile = module.resource;
+    if (module.resource && module.resource.match(this.options.test) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-react${this.reactVersion}/`)) {
       const doParse = () => {
-        this.dependencies[this.currentFile] = [
-          ...(this.dependencies[this.currentFile] || []),
-          ...this.manifestExtractor(module._source._value, compilation, module, this.reactVersion)
+        this.options.dependencies[this.options.currentFile] = [
+          ...(this.options.dependencies[this.options.currentFile] || []),
+          ...this.options.manifestExtractor(module._source._value, compilation, module, this.reactVersion)
         ]
       }
-      if (this.debug) {
+      if (this.options.debug) {
         doParse();
       } else {
         try { doParse(); } catch (e) 
         { 
-          console.error('\nerror parsing ' + this.currentFile); 
+          console.error('\nerror parsing ' + this.options.currentFile); 
           console.error(e); 
         }
       }
