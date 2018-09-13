@@ -238,21 +238,21 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
   //var senchaPath = '/Users/marcgusmano/_git/sencha/ext-react/packages/ext-react-boilerplate17/node_modules/@sencha'
   //packageDirs.push(senchaPath)
   const config = {
-        framework: "ext",
-        toolkit,
-        requires: packages,
-        overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
-        packages: {
-            dir: packageDirs.map(dir => path.resolve(dir))
-        },
-        output: {
-            base: '.',
-            resources: {
-                path: './resources',
-                shared: "./resources"
-            }
-        }
-    };
+    framework: "ext",
+    toolkit,
+    requires: packages,
+    overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
+    packages: {
+      dir: packageDirs.map(dir => path.resolve(dir))
+    },
+    output: {
+      base: '.',
+      resources: {
+        path: './resources',
+        shared: "./resources"
+      }
+    }
+  }
 
     // if theme is local add it as an additional package dir
     if (fs.existsSync(theme)) {
@@ -262,33 +262,21 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
     } else {
         config.theme = theme;
     }
-
-    return JSON.stringify(config, null, 4);
+    return JSON.stringify(config, null, 2);
 }
 
-/**
- * Creates a js file containing code to make Ext JS load properly in jsdom
- * @param {String} targetDir 
- */
 export function createJSDOMEnvironment(targetDir) {
   return 'window.Ext = Ext;';
-
-  //return 'window.Ext = Ext;Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
-  //return 'window.Ext = Ext;Ext.require("Ext.react.RendererCell");Ext.require("Ext.data.TreeStore");Ext.require("Ext.grid.Grid");Ext.require("Ext.plugin.Responsive");';
 }
 
-/**
- * Creates the workspace.json file
- * @param {String} sdk The path to the sdk
- */
 export function createWorkspaceJson(sdk, packages, output) {
-    return JSON.stringify({
-        "frameworks": {
-            "ext": path.relative(output, sdk)
-        },
-        "packages": {
-            "dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
-            "extract": "${workspace.dir}/packages/remote"
-        }
-    }, null, 4);
+  return JSON.stringify({
+    "frameworks": {
+      "ext": path.relative(output, sdk)
+    },
+    "packages": {
+      "dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
+      "extract": "${workspace.dir}/packages/remote"
+    }
+  }, null, 2);
 }

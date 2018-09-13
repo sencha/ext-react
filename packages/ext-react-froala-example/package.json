@@ -1,7 +1,7 @@
 {
-  "name": "ext-react-froala",
+  "name": "ext-react-froala-example",
   "version": "6.6.1",
-  "description": "ExtReact example using the Frolia HTML Editor",
+  "description": "ExtReact example using the Froala HTML Editor",
   "keywords": [
     "ExtReact"
   ],
