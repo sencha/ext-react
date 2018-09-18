@@ -2,14 +2,14 @@
 
 This project demonstrates the use of the Froala Editor inside an ExtReact app.
 
-<img src='app-preview.png' style='height: 150px;'/>
+<img src='app-preview.jpg' />
 
 ## Froala
-Froala is a WYSIWYG HTML Editor. https://www.froala.com/wysiwyg-editor
+Froala is a WYSIWYG HTML Editor. [https://www.froala.com/wysiwyg-editor](https://www.froala.com/wysiwyg-editor?utm_source=sencha-ext-react-froala-example&utm_medium=referral)
 
 It's a beautiful Javascript web editor that's easy to integrate for developers and your users will simply fall in love with its clean design.
 
-Find more on the [Froala React integration here](https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react).
+Find more on the [Froala React integration here](https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react?utm_source=sencha-ext-react-froala-example&utm_medium=referral).
 
 ## Running this Example
 There are two steps to run this example. 
@@ -18,16 +18,19 @@ There are two steps to run this example.
 * Run `npm start` or start the VSCode launcher.
 
 
-## New projects
+## New Projects
 Follow these steps for integrating Froala into your new project.   
 
-### NPM dependencies
-Add the dependencies to your project. 
+### Create a ExtReact Project
+Use this [guide to create](https://docs.sencha.com/extreact/6.6.0/guides/getting_started.html) an ExtReact project.
+
+### NPM Dependencies
+Add the Froala and ancilary dependencies to your project. 
 
 Run `npm install -g react-froala-wysiwyg css-loader url-loader file-loader --save` to add the depencencies automatically.
 
 ### Configure Webpack
-Add the Jquery plugin and loaders to your webpack 4+ config. 
+Add the Jquery plugin and loaders to your webpack 4+ config for the Froala editor. 
 
 Step 1: Add the jquery plugin. [See ./webpack.config.js](./webpack.config.js)
 ```
