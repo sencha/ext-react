@@ -6,9 +6,9 @@
     "clean": "lerna clean",
     "install:clean": "npm cache clear --force && lerna clean && npm install",
     "kitchensink": "cd packages/ext-react-kitchensink && npm start",
-    "boilerplate": "cd packages/ext-react-boilerplate && npm start"
+    "boilerplate": "cd packages/ext-react-modern-boilerplate && npm start"
   },
   "devDependencies": {
-    "lerna": "~3.3.0"
+    "lerna": "~3.4.0"
   }
 }

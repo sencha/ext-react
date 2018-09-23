@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "port":        {"type": [ "integer" ]},
+    "profile":     {"type": [ "string" ]},
+    "environment": {"type": [ "string" ]},
+    "framework":   {"type": [ "string" ]},
+    "verbose":     {"type": [ "string" ]},
+    "theme":       {"type": [ "string" ]},
+    "toolkit":       {"type": [ "string" ]},
+    "packages":    {"type": [ "string", "array" ]}
+  },
+  "additionalProperties": false
+}

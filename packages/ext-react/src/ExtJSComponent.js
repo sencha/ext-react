@@ -7,7 +7,7 @@ import union from 'lodash.union';
 import isEqual from 'lodash.isequal';
 import capitalize from 'lodash.capitalize'
 import cloneDeepWith from 'lodash.clonedeepwith';
-import { renderWhenReady } from '..';
+//import { renderWhenReady } from '..';
 
 import { globalRoot } from './index'
 
@@ -43,9 +43,8 @@ export class ExtJSComponent extends Component {
   }
 
   componentDidMount() {
-    l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.createContainer`)
+    l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.createContainer (this.cmp)`, this.cmp)
     this._mountNode = EXTRenderer.createContainer(this.cmp)
-    //l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.updateContainer`)
     l(`ExtJSComponent: componentDidMount (reactChildren, _mountNode) call EXTRenderer.updateContainer`,this.reactChildren,this._mountNode)
     EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this)
   }
@@ -135,10 +134,15 @@ export class ExtJSComponent extends Component {
         }
       }
       if (Ext.isClassic) {
+        var root = document.getElementsByClassName('reactroot')[0]
+        if(root == undefined) {
+        root = globalRoot[count]
+        count++
+        }
         config['height'] = '100%'
         config['width'] = '100%'
-        var root = document.getElementsByClassName('reactroot')[0]
         config.renderTo = root
+
       }
       else {
         var root = document.getElementsByClassName('x-viewport-body-el')[0]
@@ -295,8 +299,6 @@ export class ExtJSComponent extends Component {
 
       return config;
   }
-
-
 
   /**
    * Cloning props rather than passing them directly on as configs fixes issues where Ext JS mutates configs during
@@ -607,8 +609,6 @@ export class ExtJSComponent extends Component {
       if (CLASS_CACHE.TabPanel && this.cmp instanceof CLASS_CACHE.TabPanel) return true;
   }
 }
-
-
 
 /**
  * Wraps a dom element in an Ext Component so it can be added as a child item to an Ext Container.  We attach

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Panel } from '@sencha/ext-modern';
+import { Button, Container } from '@sencha/ext-modern';
 
 export default class AppButton extends Component {
 

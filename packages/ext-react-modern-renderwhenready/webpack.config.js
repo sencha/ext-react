@@ -1,13 +1,19 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+//const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
 //const WebpackShellPlugin = require('webpack-shell-plugin');
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
 module.exports = function (env) {
+  var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
+  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
+  var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
+  if (buildprofile == 'all') { buildprofile = '' }
+  const isProd = buildenvironment === 'production'
+
   portfinder.basePort = (env && env.port) || 1962; // the default port to use
   return portfinder.getPortPromise().then(port => {
     const nodeEnv = env && env.prod ? 'production' : 'development';
@@ -18,14 +24,10 @@ module.exports = function (env) {
         template: 'index.html',
         hash: true
       }), 
-      new CopyWebpackPlugin([{
-        from: path.join(__dirname, 'resources'), 
-        to: 'resources'
-      }]),
       new ExtReactWebpackPlugin({
         port: port,
-        production: isProd,
-        treeShaking: false
+        toolkit: 'modern',
+        framework: 'react'
       })
       // new WebpackShellPlugin({
       //   dev: false,
@@ -43,9 +45,7 @@ module.exports = function (env) {
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
-        'vendor': ['react', 'prop-types', 'react-redux', 'react-dom', 'react-router-dom', 'history', 'redux'],
-        'ext-react': ['@sencha/ext-react'],
-        'app': ['babel-polyfill','./index.js']
+        'app': ['./index.js']
       },
       output: {
         path: path.resolve(__dirname, 'build'),

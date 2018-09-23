@@ -1,4 +1,4 @@
-import { transform } from 'babel-standalone';
+import { transform } from '@babel/standalone';
 import { toPropName, toComponentName } from './nameConverter';
 
 export default function transpile(source) {

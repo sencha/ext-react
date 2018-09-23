@@ -34,7 +34,7 @@ module.exports = function(babel) {
     reactVersionFull = pkg.dependencies.react
     var is16 = reactVersionFull.includes("16");
     if (is16) { reactVersion = 16 } else { reactVersion = 15 }
-    readline.cursorTo(process.stdout, 0);console.log('\n' + app + 'reactVersion: ' + reactVersionFull + '')
+    readline.cursorTo(process.stdout, 0);process.stdout.clearLine();console.log(app + 'reactVersion: ' + reactVersionFull + '')
   }
   else {
     reactVersion = 16
@@ -51,15 +51,14 @@ module.exports = function(babel) {
     visitor: {
       ImportDeclaration: function(path) {
         const { node } = path
-
-        if(prevFile != path.hub.file.opts.sourceFileName) {
-          //console.log(`\ndifferent ${path.hub.file.opts.sourceFileName}`)
+        var currFile = path.hub.file.opts.sourceFileName
+        if(prevFile != currFile) {
+          readline.cursorTo(process.stdout, 0);process.stdout.clearLine();process.stdout.write(`${app}Processing ${currFile.replace(process.cwd(), '')}`)
           sameFile = false
           importWritten = false
           shouldWrite = false
         }
         else {
-          //console.log(`\nsame ${path.hub.file.opts.sourceFileName}`)
           sameFile = true
         }
 

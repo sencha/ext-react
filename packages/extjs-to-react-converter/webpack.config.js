@@ -1,39 +1,32 @@
-
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-//const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-//const WebpackShellPlugin = require('webpack-shell-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
 const portfinder = require('portfinder')
-const sourcePath = path.join(__dirname, './src');
+const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
-  portfinder.basePort = (env && env.port) || 1962; // the default port to use
+  var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
+  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
+  var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
+  if (buildprofile == 'all') { buildprofile = '' }
+  const isProd = buildenvironment === 'production'
+
+  portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
-    const nodeEnv = env && env.prod ? 'production' : 'development';
-    const isProd = nodeEnv === 'production'
-    const local = env && env.local
     const plugins = [
       new HtmlWebpackPlugin({
         template: 'index.html',
         hash: true
       }), 
-      // new CopyWebpackPlugin([{
-      //   from: path.join(__dirname, 'resources'), 
-      //   to: 'resources'
-      // }]),
-      new ExtReactWebpackPlugin({
-        theme: 'custom-ext-react-theme',
-        overrides: ['ext-react/overrides'],
+      new ExtWebpackPlugin({
+        framework: 'react',
         port: port,
-        production: isProd,
-        treeShaking: false
+        profile: buildprofile, 
+        environment: buildenvironment, 
+        verbose: buildverbose,
+        theme: 'custom-ext-react-theme'
       })
-      // new WebpackShellPlugin({
-      //   dev: false,
-      //   onBuildEnd: ['node extract-code.js']
-      // })
     ]
     if (!isProd) {
       plugins.push(
@@ -42,13 +35,11 @@ module.exports = function (env) {
     }
     return {
       mode: 'development',
-      cache: true, //??
+      cache: true,
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {
-        'vendor': ['react', 'prop-types', 'react-dom', 'react-router-dom', 'history'],
-        'ext-react': ['@sencha/ext-react'],
-        'app': ['babel-polyfill','./index.js']
+        'app': ['./index.js']
       },
       output: {
         path: path.resolve(__dirname, 'build'),

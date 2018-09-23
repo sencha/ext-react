@@ -72,12 +72,10 @@ class Layout extends Component {
                         />
                     </Panel>
                 )}
-                <Transition type="fade">
-                <Switch>
+               <Switch>
                   <Route path="/" component={Home} exact/>
                   <Route path="/about" component={About}/>
                 </Switch>
-              </Transition>
             </Container>
         );
     }

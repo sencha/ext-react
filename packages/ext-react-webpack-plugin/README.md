@@ -7,7 +7,7 @@ The plugin crawls your React source code looking for JSX tags that match Ext JS 
 files into your index.html.
 
 ## Dependencies
-You must have Ext JS 6.2+ and Sencha Cmd 6.5+ to use this plugin.
+You must have Ext JS 6.6+ and Sencha Cmd 6.6+ to use this plugin.
 
 ## Plugin Order
 
@@ -15,9 +15,6 @@ The ExtReactWebpackPlugin adds assets to the webpack build (ext.js and ext.css).
 
 ## Options
 The ExtReactWebpackPlugin constructor takes an object with the following properties:
-
-### sdk [string]
-The path to the Ext JS SDK
 
 ### toolkit (optional) [string]
 "modern" or "classic".  Defaults to "modern".
@@ -72,7 +69,7 @@ module.exports = {
     plugins: [
         new ExtReactWebpackPlugin({
             toolkit: 'modern',
-            sdk: 'ext',
+            port: 1962,
             theme: 'theme-material',
             packages: ['ux', 'calendar']
         })

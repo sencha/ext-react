@@ -9,8 +9,8 @@ import EXTRenderer from './ExtRenderer.js';
 import union from 'lodash.union';
 import isEqual from 'lodash.isequal';
 import capitalize from 'lodash.capitalize';
-import cloneDeepWith from 'lodash.clonedeepwith';
-import { renderWhenReady } from '..';
+import cloneDeepWith from 'lodash.clonedeepwith'; //import { renderWhenReady } from '..';
+
 import { globalRoot } from './index';
 var count = 0;
 export var ExtJSComponent =
@@ -51,9 +51,8 @@ function (_Component) {
   };
 
   _proto.componentDidMount = function componentDidMount() {
-    l("ExtJSComponent: componentDidMount, element: " + this.target + ", call EXTRenderer.createContainer");
-    this._mountNode = EXTRenderer.createContainer(this.cmp); //l(`ExtJSComponent: componentDidMount, element: ${this.target}, call EXTRenderer.updateContainer`)
-
+    l("ExtJSComponent: componentDidMount, element: " + this.target + ", call EXTRenderer.createContainer (this.cmp)", this.cmp);
+    this._mountNode = EXTRenderer.createContainer(this.cmp);
     l("ExtJSComponent: componentDidMount (reactChildren, _mountNode) call EXTRenderer.updateContainer", this.reactChildren, this._mountNode);
     EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this);
   };
@@ -143,9 +142,15 @@ function (_Component) {
       }
 
       if (Ext.isClassic) {
+        var root = document.getElementsByClassName('reactroot')[0];
+
+        if (root == undefined) {
+          root = globalRoot[count];
+          count++;
+        }
+
         config['height'] = '100%';
         config['width'] = '100%';
-        var root = document.getElementsByClassName('reactroot')[0];
         config.renderTo = root;
       } else {
         var root = document.getElementsByClassName('x-viewport-body-el')[0];

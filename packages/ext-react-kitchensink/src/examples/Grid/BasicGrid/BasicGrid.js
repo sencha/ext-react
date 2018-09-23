@@ -4,7 +4,11 @@ import { Grid, Column } from '@sencha/ext-modern';
 import '../CompanyData';
 import model from '../CompanyModel';
 
+Ext.require({"xtype":"renderercell"})
+
 export default class BasicGridExample extends Component {
+
+
 
   store = Ext.create('Ext.data.Store', {
     model,

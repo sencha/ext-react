@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleSearch, filterByDay, toggleFavorite, filterByFavorites } from './actions';
-import { setTitle } from '../actions';
+//import { toggleSearch, filterByDay, toggleFavorite, filterByFavorites } from './actions';
+//import { setTitle } from '../actions';
 import { loadEvent } from '../event/actions';
 
-import { Container, Button, TabPanel, Panel, Toolbar, SearchField, List } from '@sencha/ext-modern';
+import { Container, TabPanel } from '@sencha/ext-modern';
 import ScheduleList from './ScheduleList';
 import Event from '../event/Event';
 
