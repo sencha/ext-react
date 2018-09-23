@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
 const WebpackShellPlugin = require('webpack-shell-plugin-next');
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
@@ -20,11 +20,12 @@ module.exports = function (env) {
         template: 'index.html',
         hash: true
       }), 
-      new ExtReactWebpackPlugin({
+      new ExtWebpackPlugin({
+        framework: 'react',
+        toolkit: 'modern',
         port: port,
         profile: buildprofile, 
         environment: buildenvironment,
-        framework: 'react',
         verbose: buildverbose,
         theme: 'theme-kitchensink',
         packages: [

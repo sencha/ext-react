@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-//const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-//const WebpackShellPlugin = require('webpack-shell-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
@@ -16,23 +14,19 @@ module.exports = function (env) {
 
   portfinder.basePort = (env && env.port) || 1962; // the default port to use
   return portfinder.getPortPromise().then(port => {
-    const nodeEnv = env && env.prod ? 'production' : 'development';
-    const isProd = nodeEnv === 'production'
-    const local = env && env.local
     const plugins = [
       new HtmlWebpackPlugin({
         template: 'index.html',
         hash: true
       }), 
-      new ExtReactWebpackPlugin({
-        port: port,
+      new ExtWebpackPlugin({
+        framework: 'react',
         toolkit: 'modern',
-        framework: 'react'
+        port: port,
+        profile: buildprofile, 
+        environment: buildenvironment,
+        verbose: buildverbose,
       })
-      // new WebpackShellPlugin({
-      //   dev: false,
-      //   onBuildEnd: ['node extract-code.js']
-      // })
     ]
     if (!isProd) {
       plugins.push(
@@ -41,7 +35,7 @@ module.exports = function (env) {
     }
     return {
       mode: 'development',
-      cache: true, //??
+      cache: true,
       devtool: isProd ? 'source-map' : 'cheap-module-source-map',
       context: sourcePath,
       entry: {

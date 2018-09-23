@@ -55,7 +55,7 @@ ExtReact components in the initial build and thus not requiring a rebuild after 
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -67,11 +67,12 @@ module.exports = {
         filename: 'index.js'
     },
     plugins: [
-        new ExtReactWebpackPlugin({
-            toolkit: 'modern',
-            port: 1962,
-            theme: 'theme-material',
-            packages: ['ux', 'calendar']
+        new ExtWebpackPlugin({
+          framework: 'react,
+          toolkit: 'modern',
+          port: 1962,
+          theme: 'theme-material',
+          packages: ['ux', 'calendar']
         })
     ],
     module: {

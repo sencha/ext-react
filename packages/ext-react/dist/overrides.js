@@ -25,10 +25,13 @@ Ext.dom.Element.prototype.ripple = function (event) {
 }; // enable component query by component name in Sencha Test
 
 
-var originalWidgetIsXtype = Ext.Widget.prototype.isXType;
+var originalWidgetIsXtype = Ext.Widget.prototype.isXType; // https://github.com/sencha/ext-react/issues/92
+// Ext.Widget.prototype.isXType = function(xtype, shallow) {
+//     return originalWidgetIsXtype.call(this, xtype.toLowerCase().replace(/_/g, '-'), shallow);
+// }
 
 Ext.Widget.prototype.isXType = function (xtype, shallow) {
-  return originalWidgetIsXtype.call(this, xtype.toLowerCase().replace(/_/g, '-'), shallow);
+  return originalWidgetIsXtype.call(this, xtype.replace(/_/g, '-'), shallow) || originalWidgetIsXtype.call(this, xtype.toLowerCase().replace(/_/g, '-'), shallow);
 }; // needed for classic
 
 
