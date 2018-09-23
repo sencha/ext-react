@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-renderercell",
-  "version": "6.6.1",
+  "version": "6.6.2",
   "description": "ext-react-renderercell",
   "main": "index.js",
   "author": "Sencha, Inc.",
@@ -11,10 +11,10 @@
     "url": "git+https://github.com/sencha/ext-react.git"
   },
   "sencha": {
-    "name": "ext-react-renderercell",
-    "version": "6.6.1",
+    "name": "renderercell",
+    "version": "6.6.2",
     "compatVersion": "6.6.0",
-    "namespace": "Ext.react",
+    "namespace": "Ext",
     "type": "code",
     "framework": "ext",
     "creator": "Sencha",
@@ -23,6 +23,7 @@
     "format": "1",
     "local": true,
     "classpath": "${package.dir}/src",
-    "overrides": "${package.dir}/overrides"
+    "overrides": "${package.dir}/overrides",
+    "extTier": "standard"
   }
 }

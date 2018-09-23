@@ -3,125 +3,19 @@ import path from 'path';
 import fs from 'fs';
 import cjson from 'cjson';
 
-export const buildXML2 = function({ compress }) {
-  return `
-  <project name="simple-build" basedir=".">
-
-  <!-- Find and load Sencha Cmd ant tasks -->
-  <script language="javascript">
-      <![CDATA[
-          var dir = project.getProperty("basedir"),
-              cmdDir = project.getProperty("cmd.dir"),
-              cmdLoaded = project.getReference("senchaloader");
-
-          if (!cmdLoaded) {
-              function echo(message, file) {
-                  var e = project.createTask("echo");
-                  e.setMessage(message);
-                  if (file) {
-                      e.setFile(file);
-                  }
-                  e.execute();
-              };
-
-              if (!cmdDir) {
-
-                  function exec(args) {
-                      var process = java.lang.Runtime.getRuntime().exec(args),
-                          input = new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream())),
-                          headerFound = false,
-                          line;
-
-                      while (line = input.readLine()) {
-                          line = line + '';
-                          java.lang.System.out.println(line);
-                          if (line.indexOf("Sencha Cmd") > -1) {
-                              headerFound = true;
-                          }
-                          else if (headerFound && !cmdDir) {
-                              cmdDir = line;
-                              project.setProperty("cmd.dir", cmdDir);
-                          }
-                      }
-                      process.waitFor();
-                      return !!cmdDir;
-                  }
-
-                  if (!exec(["sencha", "which"])) {
-                      var tmpFile = "tmp.sh";
-                      echo("source ~/.bash_profile; sencha " + whichArgs.join(" "), tmpFile);
-                      exec(["/bin/sh", tmpFile]);
-                      new java.io.File(tmpFile)['delete'](); 
-                  }
-              }
-          }
-
-          if (cmdDir && !project.getTargets().containsKey("init-cmd")) {
-              var importDir = project.getProperty("build-impl.dir") || 
-                              (cmdDir + "/ant/build/app/build-impl.xml");
-              var importTask = project.createTask("import");
-
-              importTask.setOwningTarget(self.getOwningTarget());
-              importTask.setLocation(self.getLocation());
-              importTask.setFile(importDir);
-              importTask.execute();
-          }
-      ]]>
-  </script>
-
-  <!--
-  The following targets can be provided to inject logic before and/or after key steps
-  of the build process:
-
-      The "init-local" target is used to initialize properties that may be personalized
-      for the local machine.
-
-          <target name="-before-init-local"/>
-          <target name="-after-init-local"/>
-
-      The "clean" target is used to clean build output from the build.dir.
-
-          <target name="-before-clean"/>
-          <target name="-after-clean"/>
-
-      The general "init" target is used to initialize all other properties, including
-      those provided by Sencha Cmd.
-
-          <target name="-before-init"/>
-          <target name="-after-init"/>
-
-      The "page" target performs the call to Sencha Cmd to build the 'all-classes.js' file.
-
-          <target name="-before-page"/>
-          <target name="-after-page"/>
-
-      The "build" target performs the call to Sencha Cmd to build the application.
-
-          <target name="-before-build"/>
-          <target name="-after-build"/>
-  -->
-
-</project>
-
-
-
-  `
-}
-
-
 export const buildXML = function({ compress }) {
-    let compression = '';
+  let compression = '';
 
-    if (compress) {
-        compression = `
-            then 
-            fs 
-            minify 
-                -yui 
-                -from=ext.js 
-                -to=ext.js
-        `;
-    }
+  if (compress) {
+    compression = `
+      then 
+      fs 
+      minify 
+        -yui 
+        -from=ext.js 
+        -to=ext.js
+    `;
+  }
 
     return `<project name="simple-build" basedir=".">
   <!--  internally, watch calls the init target, so need to have one here -->
@@ -233,17 +127,25 @@ export const buildXML = function({ compress }) {
  * @param {String} theme The name of the theme to use.
  * @param {String[]} packages The names of packages to include in the build
  */
-export function createAppJson({ theme, packages, toolkit, overrides=[], packageDirs=[] }) {
+export function createAppJson( theme, packages, toolkit ) {
+  // overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
+  // packages: {
+  //   dir: packageDirs.map(dir => path.resolve(dir))
+  // },
 
-  //var senchaPath = '/Users/marcgusmano/_git/sencha/ext-react/packages/ext-react-boilerplate17/node_modules/@sencha'
-  //packageDirs.push(senchaPath)
   const config = {
     framework: "ext",
     toolkit,
     requires: packages,
-    overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
-    packages: {
-      dir: packageDirs.map(dir => path.resolve(dir))
+    "overrides": [
+      "overrides",
+      "jsdom-environment.js"
+    ],
+    "packages": {
+      "dir": [
+        "../../node_modules/@sencha",
+        "packages"
+      ]
     },
     output: {
       base: '.',
@@ -254,29 +156,67 @@ export function createAppJson({ theme, packages, toolkit, overrides=[], packageD
     }
   }
 
-    // if theme is local add it as an additional package dir
-    if (fs.existsSync(theme)) {
-        const packageInfo = cjson.load(path.join(theme, 'package.json'));
-        config.theme = packageInfo.name;
-        config.packages.dir.push(path.resolve(theme));
-    } else {
-        config.theme = theme;
-    }
-    return JSON.stringify(config, null, 2);
+  // if theme is local add it as an additional package dir
+  if (fs.existsSync(theme)) {
+      const packageInfo = cjson.load(path.join(theme, 'package.json'));
+      config.theme = packageInfo.name;
+      config.packages.dir.push(path.resolve(theme));
+  } else {
+      config.theme = theme;
+  }
+  return JSON.stringify(config, null, 2)
 }
 
-export function createJSDOMEnvironment(targetDir) {
+export function createJSDOMEnvironment() {
   return 'window.Ext = Ext;';
 }
 
-export function createWorkspaceJson(sdk, packages, output) {
-  return JSON.stringify({
+export function createWorkspaceJson() {
+  //"dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
+
+  const config = {
     "frameworks": {
-      "ext": path.relative(output, sdk)
+      "ext": "../../node_modules/@sencha/ext"
     },
     "packages": {
-      "dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
+      "dir": [
+        "${workspace.dir}/packages",
+        "${workspace.dir}/../../node_modules/@esencha"
+      ],
       "extract": "${workspace.dir}/packages/remote"
     }
-  }, null, 2);
+  }
+  return JSON.stringify(config, null, 2);
+
+  // return JSON.stringify(
+  // {
+  //   "frameworks": {
+  //     "ext": "../../node_modules/@sencha/ext"
+  //   },
+  //   "packages": {
+  //     "dir": [
+  //       "${workspace.dir}/packages/local",
+  //       "${workspace.dir}/packages",
+  //       "../../node_modules/@esencha"
+  //     ],
+  //     "extract": "${workspace.dir}/packages/remote"
+  //   }
+  // }
+  // , null, 2);
+
+
+  // return JSON.stringify({
+  //   "frameworks": {
+  //     "ext": path.relative(output, sdk)
+  //   },
+  //   "packages": {
+  //     "dir": [
+  //       '${workspace.dir}/packages/local',
+  //       '${workspace.dir}/packages',
+  //       '../../node_modules/@sencha'
+  //     ],
+  //     "extract": "${workspace.dir}/packages/remote"
+  //   }
+  // }
+  // , null, 2);
 }

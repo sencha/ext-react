@@ -5,12 +5,12 @@ const path = require('path')
 const app = express()
 const db = require('./db');
 
-require('../webpack.config.js')().then(config => {
+require('../webpack.config.js')(process.env).then(config => {
   var port = config.devServer.port
   app.use(webpackDevMiddleware(webpack(config)));
   app.use(express.static(path.join(__dirname, '..', 'build')));
   app.listen(port, function () {
-    console.log(`*******Example app listening on port ${port}!\n`);
+    console.log(`ℹ ｢ext｣: Example app listening on port ${port}`);
   })
   app.get('/employees', (req, res) => {
     db.serialize(() => {

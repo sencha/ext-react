@@ -1,5 +1,19 @@
 # Release Notes
 
+## v6.6.2
+
+* Support for React 16.5.2
+* Simplified default build output
+* added 'verbose' option
+* refactored ext-webpack-plugin for reuse with ExtAngular and Open Tooling
+* added 'framework' parameter ext-webpack-plugin option
+* eliminated need for 'copy-webpack-plugin'
+* added more robust checking for valid ext-webpack-plugin parameters
+* addressed issue for 'renderwhenready' for classic toolkit
+* added defaults for profile, environment and verbose to package.json
+* utilize 'env.' variables in package.json
+* fixed issue with compress of bundles for production builds
+
 ## v6.6.1
 
 * Support for React 16.5

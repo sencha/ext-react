@@ -291,6 +291,7 @@ var ExtRenderer = Reconciler({
       if (childInstance.createElement) {
         console.log(childInstance);
         console.log(childInstance.createElement);
+        console.log(childInstance.cmp.getEl().dom);
         ReactDOM.render(childInstance.createElement, childInstance.cmp.getEl().dom);
       }
     }

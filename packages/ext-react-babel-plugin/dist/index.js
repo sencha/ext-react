@@ -52,7 +52,8 @@ module.exports = function (babel) {
     }
 
     readline.cursorTo(process.stdout, 0);
-    console.log('\n' + app + 'reactVersion: ' + reactVersionFull + '');
+    process.stdout.clearLine();
+    console.log(app + 'reactVersion: ' + reactVersionFull + '');
   } else {
     reactVersion = 16;
   }
@@ -66,14 +67,16 @@ module.exports = function (babel) {
     visitor: {
       ImportDeclaration: function ImportDeclaration(path) {
         var node = path.node;
+        var currFile = path.hub.file.opts.sourceFileName;
 
-        if (prevFile != path.hub.file.opts.sourceFileName) {
-          //console.log(`\ndifferent ${path.hub.file.opts.sourceFileName}`)
+        if (prevFile != currFile) {
+          readline.cursorTo(process.stdout, 0);
+          process.stdout.clearLine();
+          process.stdout.write("".concat(app, "Processing ").concat(currFile.replace(process.cwd(), '')));
           sameFile = false;
           importWritten = false;
           shouldWrite = false;
         } else {
-          //console.log(`\nsame ${path.hub.file.opts.sourceFileName}`)
           sameFile = true;
         }
 
