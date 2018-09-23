@@ -446,15 +446,16 @@ function MyComponent() {
 Select your toolkit, theme, and packages using [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
 
 ```JavaScript
-const ExtReactWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
 
 module.exports = {
   ...
   plugins: [
-    new ExtReactWebpackPlugin({
+    new ExtWebpackPlugin({
+      framework: 'react',
+      toolkit: 'classic',
       port: '1962',
       theme: 'theme-material', // the name of an Ext JS theme or a relative path to a custom theme
-      toolkit: 'classic',
       packages: ['charts']
     })
   ]
@@ -467,14 +468,60 @@ If you're using Babel, we recommend adding `@sencha/ext-react-babel-plugin` to y
 ```javascript
 {
   "presets": [
-    [ "es2015", { "modules": false } ],
-    "stage-2",
-    "react"
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
   ],
   "plugins": [
+    "react-hot-loader/babel",
     "@sencha/ext-react-babel-plugin",
-    "transform-runtime"
-  ]
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-json-strings",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions"
+  ],
+  "ignore": [
+    "build"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-json-strings",
+        [
+          "@babel/plugin-proposal-decorators",
+          {
+            "legacy": true
+          }
+        ],
+        "@babel/plugin-proposal-function-sent",
+        "@babel/plugin-proposal-export-namespace-from",
+        "@babel/plugin-proposal-numeric-separator",
+        "@babel/plugin-proposal-throw-expressions"
+      ]
+    }
+  }
 }
 ```
 
