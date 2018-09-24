@@ -18,7 +18,9 @@ export default class ExtWebpackPlugin {
         })
       }
       else {
-        require(`./pluginUtil`)._compile(compiler, this.plugin.vars)
+        compiler.hooks.compilation.tap(`ext-compilation`, (compilation) => {
+          require(`./pluginUtil`)._compile(compilation, this.plugin.vars, this.plugin.options)
+        })
       }
 
       if (this.plugin.vars.pluginErrors.length == 0) {
