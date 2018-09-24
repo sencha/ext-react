@@ -260,10 +260,17 @@ export function _prepareForBuild(app, vars, options, output) {
 }
 
 export function _buildExtBundle(app, compilation, outputPath, parms, options) {
+  const fs = require('fs')
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION _buildExtBundle')
 
   let sencha; try { sencha = require('@sencha/cmd') } catch (e) { sencha = 'sencha' }
+  if (fs.existsSync(sencha)) {
+    logv(options,'sencha folder exists')
+  }
+  else {
+    logv(options,'sencha folder DOES NOT exist')
+  }
 
   return new Promise((resolve, reject) => {
    const onBuildDone = () => {
