@@ -6,6 +6,12 @@ git tag v6.6.0 v6.6.0^{} -f -m "ExtReact v6.6.0"
 
 git tag -a v6.6.1 7992650 -m "ExtReact v6.6.1"
 
+git push upstream --tags
+
+git checkout v6.6.0
+
+
+
 git fetch upstream
 git merge upstream/master
 
