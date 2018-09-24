@@ -5,11 +5,11 @@ export function log(s) {
   process.stdout.write('\n')
 }
 
-export function logv(verbose, s) {
-  if (verbose == 'yes') {
+export function logv(options, s) {
+  if (options.verbose == 'yes') {
     require('readline').cursorTo(process.stdout, 0)
     process.stdout.clearLine()
-    process.stdout.write('-v-' + s)
+    process.stdout.write(`-verbose: ${s}`)
     process.stdout.write('\n')
   }
 }
@@ -29,6 +29,7 @@ export function _constructor(options) {
       var data = {}
       data.plugin = {}
       data.plugin.vars = thisVars
+      console.log(data)
       return data
     }
   if (options.framework == 'extjs') 
@@ -44,8 +45,8 @@ export function _constructor(options) {
   thisVars = require(`./${framework}Util`).getDefaultVars()
   thisVars.framework = framework
   thisVars.app = require('./pluginUtil')._getApp()
-  logv(options.verbose, ` pluginName - ${pluginName}`)
-  logv(options.verbose, ` thisVars.app - ${thisVars.app}`)
+  logv(options, `pluginName - ${pluginName}`)
+  logv(options, `thisVars.app - ${thisVars.app}`)
   const rc = (fs.existsSync(`.ext-${thisVars.framework}rc`) && JSON.parse(fs.readFileSync(`.ext-${thisVars.framework}rc`, 'utf-8')) || {})
   thisOptions = { ...require(`./${thisVars.framework}Util`).getDefaultOptions(), ...options, ...rc }
   if (thisOptions.environment == 'production') 
@@ -105,47 +106,45 @@ export function _getVersions(app, pluginName, frameworkName) {
   return app + 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ', Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo
 }
 
-export function _compile(compiler, vars) {
-  compiler.hooks.compilation.tap(`ext-compilation`, (compilation) => {
-    if (vars.pluginErrors.length > 0) {
-      compilation.errors.push( new Error(vars.pluginErrors.join("")) )
-      return
-    }
-    const log = require('./pluginUtil').log
-    const logv = require('./pluginUtil').logv
-    if (vars.production) {
-      logv(vars.verbose, vars.app + `ext-compilation-production`)
-      compilation.hooks.succeedModule.tap(`ext-succeed-module`, (module) => {
-        if (module.resource && module.resource.match(/\.(j|t)sx?$/) && !module.resource.match(/node_modules/) && !module.resource.match('/ext-react/dist/')) {
-          vars.deps = [ 
-            ...(vars.deps || []), 
-            ...require(`./${vars.framework}Util`).extractFromSource(module._source._value) 
-          ]
-        }
-      })
-    }
-    else {
-      logv(vars.verbose, vars.app + `ext-compilation`)
-    }
-    if (vars.pluginErrors.length == 0) {
-      compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
-        const logv = require('./pluginUtil').logv
-        logv(vars.verbose, vars.app + 'FUNCTION ext-html-generation')
-      
-        const path = require('path')
-        var publicPath = ''
-        if (compilation.outputOptions.publicPath != undefined) {
-          publicPath = compilation.outputOptions.publicPath
-        }
-        var jsPath = path.join(publicPath,vars.extPath + '/ext.js')
-        var cssPath = path.join(publicPath,vars.extPath + '/ext.css')
-        data.assets.js.unshift(jsPath)
-        data.assets.css.unshift(cssPath)
-        log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
+export function _compile(compilation, vars, options) {
+  if (vars.pluginErrors.length > 0) {
+    compilation.errors.push( new Error(vars.pluginErrors.join("")) )
+    return
+  }
+  const log = require('./pluginUtil').log
+  const logv = require('./pluginUtil').logv
+  if (vars.production) {
+    logv(options,`ext-compilation-production`)
+    compilation.hooks.succeedModule.tap(`ext-succeed-module`, (module) => {
+      if (module.resource && module.resource.match(/\.(j|t)sx?$/) && !module.resource.match(/node_modules/) && !module.resource.match('/ext-react/dist/')) {
+        vars.deps = [ 
+          ...(vars.deps || []), 
+          ...require(`./${vars.framework}Util`).extractFromSource(module._source._value) 
+        ]
+      }
+    })
+  }
+  else {
+    logv(options, `ext-compilation`)
+  }
+  if (vars.pluginErrors.length == 0) {
+    compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
+      //const logv = require('./pluginUtil').logv
+      logv(options,'FUNCTION ext-html-generation')
+    
+      const path = require('path')
+      var publicPath = ''
+      if (compilation.outputOptions.publicPath != undefined) {
+        publicPath = compilation.outputOptions.publicPath
+      }
+      var jsPath = path.join(publicPath,vars.extPath + '/ext.js')
+      var cssPath = path.join(publicPath,vars.extPath + '/ext.css')
+      data.assets.js.unshift(jsPath)
+      data.assets.css.unshift(cssPath)
+      log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
 
-      })
-    }
-  })
+    })
+  }
 }
 
 export async function emit(compiler, compilation, vars, options, callback) {
@@ -153,17 +152,15 @@ export async function emit(compiler, compilation, vars, options, callback) {
   var framework = vars.framework
   const log = require('./pluginUtil').log
   const logv = require('./pluginUtil').logv
-  logv(vars.verbose, app + 'FUNCTION ext-emit')
+  logv(options,'FUNCTION ext-emit')
   const path = require('path')
   const _buildExtBundle = require('./pluginUtil')._buildExtBundle
-
   let outputPath = path.join(compiler.outputPath,vars.extPath)
   if (compiler.outputPath === '/' && compiler.options.devServer) {
     outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
   }
-  if(options.verbose == 'yes') {log('-v-' + app + 'outputPath: ' + outputPath)}
-  if(options.verbose == 'yes') {log('-v-' + app + 'framework: ' + framework)}
-
+  logv(options,'outputPath: ' + outputPath)
+  logv(options,'framework: ' + framework)
   if (framework != 'extjs') {
     require(`./pluginUtil`)._prepareForBuild(app, vars, options, outputPath)
   }
@@ -172,9 +169,8 @@ export async function emit(compiler, compilation, vars, options, callback) {
   }
   if (vars.rebuild == true) {
     var parms = ['app', 'build', options.profile, options.environment]
-    var cmdErrors = []
-    await _buildExtBundle(app, compilation, cmdErrors, outputPath, parms, options)
-    if (vars.browserCount == 0 && cmdErrors.length == 0) {
+    await _buildExtBundle(app, compilation, outputPath, parms, options)
+    if (vars.browserCount == 0 && compilation.errors.length == 0) {
       var url = 'http://localhost:' + options.port
       log(app + `Opening browser at ${url}`)
       vars.browserCount++
@@ -263,58 +259,54 @@ export function _prepareForBuild(app, vars, options, output) {
   }
 }
 
-
-
-export function _buildExtBundle(app, compilation, cmdErrors, output, parms, options) {
+export function _buildExtBundle(app, compilation, outputPath, parms, options) {
   const logv = require('./pluginUtil').logv
-  logv(options.verbose, app + 'FUNCTION _buildExtBundle')
+  logv(options,'FUNCTION _buildExtBundle')
 
   let sencha; try { sencha = require('@sencha/cmd') } catch (e) { sencha = 'sencha' }
 
   return new Promise((resolve, reject) => {
    const onBuildDone = () => {
-    logv(options.verbose, app + 'onBuildDone')
-    if (cmdErrors.length) {
-      reject(new Error(cmdErrors.join("")))
-    } else {
-      resolve()
-    }
+    logv(options,'onBuildDone')
+    resolve()
    }
 
-   var opts = { cwd: output, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-   executeAsync(app, sencha, parms, opts, compilation, cmdErrors, options).then (
+   var opts = { cwd: outputPath, silent: true, stdio: 'pipe', encoding: 'utf-8'}
+
+   executeAsync(app, sencha, parms, opts, compilation, options).then (
      function() { onBuildDone() }, 
-     function(reason) { resolve(reason) }
+     function(reason) { reject(reason) }
    )
  })
 }
 
-export async function executeAsync (app, command, parms, opts, compilation, cmdErrors, options) {
+export async function executeAsync (app, command, parms, opts, compilation, options) {
   //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
   const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
   var substrings = DEFAULT_SUBSTRS 
   var chalk = require('chalk')
   const crossSpawn = require('cross-spawn')
   const log = require('./pluginUtil').log
-  logv(options.verbose, app + 'FUNCTION executeAsync')
+  logv(options, 'FUNCTION executeAsync')
   await new Promise((resolve, reject) => {
-    logv(options.verbose, `${app} command - ${command}`)
-    logv(options.verbose, `${app} parms - ${parms}`)
-    logv(options.verbose, `${app} opts - ${JSON.stringify(opts)}`)
+    logv(options,`command - ${command}`)
+    logv(options, `parms - ${parms}`)
+    logv(options, `opts - ${JSON.stringify(opts)}`)
     let child = crossSpawn(command, parms, opts)
     child.on('close', (code, signal) => {
-      //log(`-v-${app}`) 
+      logv(options, `on close`) 
       if(code === 0) { resolve(0) }
-      else { compilation.errors.push( new Error(cmdErrors.join("")) ); reject(0) }
+      else { compilation.errors.push( new Error(code) ); resolve(0) }
     })
     child.on('error', (error) => { 
-      //log(`-v-${app}0`) 
-      cmdErrors.push(error)
-      reject(error) 
+      logv(options, `on error`) 
+      compilation.errors.push(error)
+      resolve(0)
     })
     child.stdout.on('data', (data) => {
+      logv(options, `on data`) 
       var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
-      logv(options.verbose, `${app} ${str}`)
+      logv(options, `${str}`)
       if (data && data.toString().match(/Waiting for changes\.\.\./)) {
         resolve(0)
       }
@@ -324,7 +316,7 @@ export async function executeAsync (app, command, parms, opts, compilation, cmdE
           str = str.replace("[LOG]", "")
           str = str.replace(process.cwd(), '').trim()
           if (str.includes("[ERR]")) {
-            cmdErrors.push(app + str.replace(/^\[ERR\] /gi, ''));
+            compilation.errors.push(app + str.replace(/^\[ERR\] /gi, ''));
             str = str.replace("[ERR]", `${chalk.red("[ERR]")}`)
           }
           log(`${app}${str}`) 
@@ -332,7 +324,7 @@ export async function executeAsync (app, command, parms, opts, compilation, cmdE
       }
     })
     child.stderr.on('data', (data) => {
-      //log(`-v-${app}4`) 
+      logv(options, `error on close`) 
       var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
       var strJavaOpts = "Picked up _JAVA_OPTIONS";
       var includes = str.includes(strJavaOpts)
