@@ -18,9 +18,9 @@ class App1 extends Component {
           {
             text: 'Stock Price',
             columns: [
-              {text:'Price',dataIndex:'price',width:75,sortable:true,formatter:'usMoney',summaryType:'sum',summaryFormatter:'usMoney'}, 
-              {text:'Change',dataIndex:'priceChange',width:80,sortable:true}, 
-              {text:'% Change',dataIndex:'priceChangePct',width:100,sortable:true}
+              {text:'Price',dataIndex:'price',width:75,formatter:'usMoney',summaryType:'sum',summaryFormatter:'usMoney'}, 
+              {text:'Change',dataIndex:'priceChange',width:80}, 
+              {text:'% Change',dataIndex:'priceChangePct',width:100}
             ]
           },
           {text:'Email',dataIndex:'email',width:200}
