@@ -8,13 +8,13 @@ class App1 extends Component {
   render() {
     return (
       <Grid 
-        height={600} 
+        height={500} 
         width={500} 
         title="Classic Toolkit Grid"
         store={this.store}
         features= {[{ftype: 'summary',dock: 'bottom'}]}
         columns={[
-          { text: 'Name', dataIndex: 'name', width:250,  locked: true},
+          {text:'Name',dataIndex:'name',width:250,locked:true},
           {
             text: 'Stock Price',
             columns: [
@@ -23,7 +23,7 @@ class App1 extends Component {
               {text:'% Change',dataIndex:'priceChangePct',width:100,sortable:true}
             ]
           },
-          { text: 'Email', dataIndex: 'email', flex: 1 }
+          {text:'Email',dataIndex:'email',width:200}
         ]}
       />
     )
