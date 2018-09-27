@@ -26,8 +26,6 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "@sencha/ext": "~6.6.0",
-    "@sencha/ext-charts": "~6.6.0",
-    "@sencha/ext-d3": "~6.6.0",
     "@sencha/ext-modern": "~6.6.0",
     "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-modern-treegrid": "~6.6.0",
