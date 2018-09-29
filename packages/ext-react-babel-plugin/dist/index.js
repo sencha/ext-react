@@ -8,7 +8,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var reactVersion = 0;
+//var reactVersion = 0 
 var reactVersionFull = '';
 var app = "".concat(_chalk.default.green('ℹ ｢ext｣:'), " ext-react-babel-plugin: ");
 var fs;
@@ -52,7 +52,11 @@ module.exports = function (babel) {
     }
 
     readline.cursorTo(process.stdout, 0);
-    process.stdout.clearLine();
+
+    try {
+      process.stdout.clearLine();
+    } catch (e) {}
+
     console.log(app + 'reactVersion: ' + reactVersionFull + '');
   } else {
     reactVersion = 16;
@@ -71,7 +75,11 @@ module.exports = function (babel) {
 
         if (prevFile != currFile) {
           readline.cursorTo(process.stdout, 0);
-          process.stdout.clearLine();
+
+          try {
+            process.stdout.clearLine();
+          } catch (e) {}
+
           process.stdout.write("".concat(app, "Processing ").concat(currFile.replace(process.cwd(), '')));
           sameFile = false;
           importWritten = false;
