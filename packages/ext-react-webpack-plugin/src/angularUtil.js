@@ -18,7 +18,7 @@ export function getDefaultVars() {
     firstCompile: true,
     browserCount : 0,
     manifest: null,
-    extPath: 'ext-react',
+    extPath: 'ext-angular',
     pluginErrors: [],
     deps: [],
     rebuild: true
@@ -37,6 +37,7 @@ export function extractFromSource(js) {
   var parse = require("babylon").parse
   var traverse = require("ast-traverse")
   const statements = []
+  return statements  //temporary until angular parse is written
   
   const ast = parse(js, {
     plugins: [

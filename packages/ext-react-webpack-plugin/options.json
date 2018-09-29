@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "port":        {"type": [ "integer" ]},
+    "emit":        {"type": [ "boolean" ]},
     "profile":     {"type": [ "string" ]},
     "environment": {"type": [ "string" ]},
     "framework":   {"type": [ "string" ]},
