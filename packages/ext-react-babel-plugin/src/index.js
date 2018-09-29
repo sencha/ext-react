@@ -1,4 +1,4 @@
-var reactVersion = 0 
+//var reactVersion = 0 
 var reactVersionFull = ''
 import chalk from 'chalk'
 const app = `${chalk.green('ℹ ｢ext｣:')} ext-react-babel-plugin: `
@@ -34,7 +34,12 @@ module.exports = function(babel) {
     reactVersionFull = pkg.dependencies.react
     var is16 = reactVersionFull.includes("16");
     if (is16) { reactVersion = 16 } else { reactVersion = 15 }
-    readline.cursorTo(process.stdout, 0);process.stdout.clearLine();console.log(app + 'reactVersion: ' + reactVersionFull + '')
+    readline.cursorTo(process.stdout, 0);
+    try {
+      process.stdout.clearLine()
+    }
+    catch(e) {}
+    console.log(app + 'reactVersion: ' + reactVersionFull + '')
   }
   else {
     reactVersion = 16
@@ -53,7 +58,12 @@ module.exports = function(babel) {
         const { node } = path
         var currFile = path.hub.file.opts.sourceFileName
         if(prevFile != currFile) {
-          readline.cursorTo(process.stdout, 0);process.stdout.clearLine();process.stdout.write(`${app}Processing ${currFile.replace(process.cwd(), '')}`)
+          readline.cursorTo(process.stdout, 0);
+          try {
+            process.stdout.clearLine()
+          }
+          catch(e) {}
+          process.stdout.write(`${app}Processing ${currFile.replace(process.cwd(), '')}`)
           sameFile = false
           importWritten = false
           shouldWrite = false
