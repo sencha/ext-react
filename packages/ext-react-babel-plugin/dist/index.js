@@ -8,7 +8,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//var reactVersion = 0 
+var reactVersion = 0;
 var reactVersionFull = '';
 var app = "".concat(_chalk.default.green('ℹ ｢ext｣:'), " ext-react-babel-plugin: ");
 var fs;
