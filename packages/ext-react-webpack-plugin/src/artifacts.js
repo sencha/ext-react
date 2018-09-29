@@ -1,10 +1,8 @@
-"use strict";
-import path from 'path';
-import fs from 'fs';
-import cjson from 'cjson';
+export const buildXML = function(compress, options) {
+  const logv = require('./pluginUtil').logv
+  logv(options,'FUNCTION buildXML')
 
-export const buildXML = function({ compress }) {
-  let compression = '';
+  let compression = ''
 
   if (compress) {
     compression = `
@@ -119,15 +117,18 @@ export const buildXML = function({ compress }) {
     <x-watch compilerRef="theCompiler" targets="rebuild"/>
   </target>
 </project>
-`.trim();
-};
+`.trim()
+}
 
-/**
- * Creates the app.json file
- * @param {String} theme The name of the theme to use.
- * @param {String[]} packages The names of packages to include in the build
- */
-export function createAppJson( theme, packages, toolkit ) {
+export function createAppJson( theme, packages, toolkit, options ) {
+  const logv = require('./pluginUtil').logv
+  logv(options,'FUNCTION createAppJson')
+
+  const fs = require('fs')
+  //const path = require('path')
+  //const cjson = require('cjson')
+
+
   // overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
   // packages: {
   //   dir: packageDirs.map(dir => path.resolve(dir))
@@ -167,11 +168,17 @@ export function createAppJson( theme, packages, toolkit ) {
   return JSON.stringify(config, null, 2)
 }
 
-export function createJSDOMEnvironment() {
-  return 'window.Ext = Ext;';
+export function createJSDOMEnvironment(options) {
+  const logv = require('./pluginUtil').logv
+  logv(options,'FUNCTION createJSDOMEnvironment')
+
+  return 'window.Ext = Ext;'
 }
 
-export function createWorkspaceJson() {
+export function createWorkspaceJson(options) {
+  const logv = require('./pluginUtil').logv
+  logv(options,'FUNCTION createWorkspaceJson')
+
   //"dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
 
   const config = {
@@ -186,37 +193,5 @@ export function createWorkspaceJson() {
       "extract": "${workspace.dir}/packages/remote"
     }
   }
-  return JSON.stringify(config, null, 2);
-
-  // return JSON.stringify(
-  // {
-  //   "frameworks": {
-  //     "ext": "../../node_modules/@sencha/ext"
-  //   },
-  //   "packages": {
-  //     "dir": [
-  //       "${workspace.dir}/packages/local",
-  //       "${workspace.dir}/packages",
-  //       "../../node_modules/@esencha"
-  //     ],
-  //     "extract": "${workspace.dir}/packages/remote"
-  //   }
-  // }
-  // , null, 2);
-
-
-  // return JSON.stringify({
-  //   "frameworks": {
-  //     "ext": path.relative(output, sdk)
-  //   },
-  //   "packages": {
-  //     "dir": [
-  //       '${workspace.dir}/packages/local',
-  //       '${workspace.dir}/packages',
-  //       '../../node_modules/@sencha'
-  //     ],
-  //     "extract": "${workspace.dir}/packages/remote"
-  //   }
-  // }
-  // , null, 2);
+  return JSON.stringify(config, null, 2)
 }

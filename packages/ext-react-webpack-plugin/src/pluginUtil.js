@@ -1,51 +1,34 @@
-export function log(s) {
-  require('readline').cursorTo(process.stdout, 0)
-  process.stdout.clearLine()
-  process.stdout.write(s)
-  process.stdout.write('\n')
-}
-
-export function logv(options, s) {
-  if (options.verbose == 'yes') {
-    require('readline').cursorTo(process.stdout, 0)
-    process.stdout.clearLine()
-    process.stdout.write(`-verbose: ${s}`)
-    process.stdout.write('\n')
-  }
-}
-
+//**********
 export function _constructor(options) {
-  var framework = ''
   var thisVars = {}
   var thisOptions = {}
-  var pluginName = ''
   const fs = require('fs')
   const validateOptions = require('schema-utils')
   validateOptions(require('../options.json'), options, '')
-  if (options.framework == undefined) 
-    {
-      thisVars.pluginErrors = []
-      thisVars.pluginErrors.push('webpack config: framework parameter on ext-webpack-plugin is not defined - values: react, angular, extjs')
-      var data = {}
-      data.plugin = {}
-      data.plugin.vars = thisVars
-      console.log(data)
-      return data
-    }
-  if (options.framework == 'extjs') 
-    {
-      framework = 'extjs'
-      pluginName = `ext-webpack-plugin`
-    }
-  else 
-    {
-      framework = options.framework
-      pluginName = `ext-${framework}-webpack-plugin`
-    }
-  thisVars = require(`./${framework}Util`).getDefaultVars()
-  thisVars.framework = framework
+  if (options.framework == undefined) {
+    thisVars.pluginErrors = []
+    thisVars.pluginErrors.push('webpack config: framework parameter on ext-webpack-plugin is not defined - values: react, angular, extjs')
+    var plugin = {}
+    plugin.vars = thisVars
+    return plugin
+  }
+  thisVars = require(`./${options.framework}Util`).getDefaultVars()
+  thisVars.framework = options.framework
+  switch(thisVars.framework) {
+    case 'extjs':
+      thisVars.pluginName = 'ext-webpack-plugin'
+      break;
+    case 'react':
+      thisVars.pluginName = 'ext-react-webpack-plugin'
+      break;
+    case 'angular':
+      thisVars.pluginName = 'ext-angular-webpack-plugin'
+      break;
+    default:
+      thisVars.pluginName = 'ext-webpack-plugin'
+  }
   thisVars.app = require('./pluginUtil')._getApp()
-  logv(options, `pluginName - ${pluginName}`)
+  logv(options, `pluginName - ${thisVars.pluginName}`)
   logv(options, `thisVars.app - ${thisVars.app}`)
   const rc = (fs.existsSync(`.ext-${thisVars.framework}rc`) && JSON.parse(fs.readFileSync(`.ext-${thisVars.framework}rc`, 'utf-8')) || {})
   thisOptions = { ...require(`./${thisVars.framework}Util`).getDefaultOptions(), ...options, ...rc }
@@ -53,66 +36,17 @@ export function _constructor(options) {
     {thisVars.production = true}
   else 
     {thisVars.production = false}
-  log(require('./pluginUtil')._getVersions(thisVars.app, pluginName, thisVars.framework))
+  log(require('./pluginUtil')._getVersions(thisVars.app, thisVars.pluginName, thisVars.framework))
   log(thisVars.app + 'Building for ' + thisOptions.environment)
 
-  var data = {}
-  data.plugin = {}
-  data.plugin.app = thisVars.app
-  data.plugin.framework = thisVars.framework
-  data.plugin.vars = thisVars
-  data.plugin.options = thisOptions
-  return data
+  var plugin = {}
+  plugin.vars = thisVars
+  plugin.options = thisOptions
+  return plugin
 }
 
-export function _getApp() {
-  var chalk = require('chalk')
-  var prefix = ``
-  const platform = require('os').platform()
-  if (platform == 'darwin') { prefix = `ℹ ｢ext｣:` }
-  else { prefix = `i [ext]:` }
-  return `${chalk.green(prefix)} `
-}
-
-export function _getVersions(app, pluginName, frameworkName) {
-  const path = require('path')
-  const fs = require('fs')
-
-  var v = {}
-  var pluginPath = path.resolve(process.cwd(),'node_modules/@sencha', pluginName)
-  var pluginPkg = (fs.existsSync(pluginPath+'/package.json') && JSON.parse(fs.readFileSync(pluginPath+'/package.json', 'utf-8')) || {});
-  v.pluginVersion = pluginPkg.version
-
-  var webpackPath = path.resolve(process.cwd(),'node_modules/webpack')
-  var webpackPkg = (fs.existsSync(webpackPath+'/package.json') && JSON.parse(fs.readFileSync(webpackPath+'/package.json', 'utf-8')) || {});
-  v.webpackVersion = webpackPkg.version
-
-  var extPath = path.resolve(process.cwd(),'node_modules/@sencha/ext')
-  var extPkg = (fs.existsSync(extPath+'/package.json') && JSON.parse(fs.readFileSync(extPath+'/package.json', 'utf-8')) || {});
-  v.extVersion = extPkg.sencha.version
-
-  var cmdPath = path.resolve(pluginPath,'node_modules/@sencha/cmd')
-  var cmdPkg = (fs.existsSync(cmdPath+'/package.json') && JSON.parse(fs.readFileSync(cmdPath+'/package.json', 'utf-8')) || {});
-  v.cmdVersion = cmdPkg.version_full
-
-  var frameworkInfo = ''
-  if (frameworkName != undefined && frameworkName != 'extjs') {
-    var frameworkPath = path.resolve(process.cwd(),'node_modules', frameworkName)
-    var frameworkPkg = (fs.existsSync(frameworkPath+'/package.json') && JSON.parse(fs.readFileSync(frameworkPath+'/package.json', 'utf-8')) || {});
-    v.frameworkVersion = frameworkPkg.version
-    frameworkInfo = ', ' + frameworkName + ' v' + v.frameworkVersion
-  }
-
-  return app + 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ', Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo
-}
-
-export function _compile(compilation, vars, options) {
-  if (vars.pluginErrors.length > 0) {
-    compilation.errors.push( new Error(vars.pluginErrors.join("")) )
-    return
-  }
-  const log = require('./pluginUtil').log
-  const logv = require('./pluginUtil').logv
+//**********
+export function _compilation(compilation, vars, options) {
   if (vars.production) {
     logv(options,`ext-compilation-production`)
     compilation.hooks.succeedModule.tap(`ext-succeed-module`, (module) => {
@@ -127,11 +61,9 @@ export function _compile(compilation, vars, options) {
   else {
     logv(options, `ext-compilation`)
   }
-  if (vars.pluginErrors.length == 0) {
+  //if (vars.pluginErrors.length == 0) {
     compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
-      //const logv = require('./pluginUtil').logv
       logv(options,'FUNCTION ext-html-generation')
-    
       const path = require('path')
       var publicPath = ''
       if (compilation.outputOptions.publicPath != undefined) {
@@ -142,11 +74,11 @@ export function _compile(compilation, vars, options) {
       data.assets.js.unshift(jsPath)
       data.assets.css.unshift(cssPath)
       log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
-
     })
-  }
+  //}
 }
 
+//**********
 export async function emit(compiler, compilation, vars, options, callback) {
   var app = vars.app
   var framework = vars.framework
@@ -162,13 +94,19 @@ export async function emit(compiler, compilation, vars, options, callback) {
   logv(options,'outputPath: ' + outputPath)
   logv(options,'framework: ' + framework)
   if (framework != 'extjs') {
-    require(`./pluginUtil`)._prepareForBuild(app, vars, options, outputPath)
+    _prepareForBuild(app, vars, options, outputPath)
   }
   else {
     require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
   }
   if (vars.rebuild == true) {
-    var parms = ['app', 'build', options.profile, options.environment]
+    var parms = []
+    if (options.profile == undefined || options.profile == '' || options.profile == null) {
+      parms = ['app', 'build', options.environment]
+    }
+    else {
+      parms = ['app', 'build', options.profile, options.environment]
+    }
     await _buildExtBundle(app, compilation, outputPath, parms, options)
     if (vars.browserCount == 0 && compilation.errors.length == 0) {
       var url = 'http://localhost:' + options.port
@@ -184,8 +122,9 @@ export async function emit(compiler, compilation, vars, options, callback) {
   }
 }
 
+//**********
 export function _prepareForBuild(app, vars, options, output) {
-  const log = require('./pluginUtil').log
+  logv(options,'_prepareForBuild')
   const rimraf = require('rimraf')
   const mkdirp = require('mkdirp')
   const fsx = require('fs-extra')
@@ -197,17 +136,21 @@ export function _prepareForBuild(app, vars, options, output) {
   var theme = options.theme
 
   theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
+  logv(options,vars.firstTime)
   if (vars.firstTime) {
+    logv(options,output)
     rimraf.sync(output)
     mkdirp.sync(output)
+    logv(options,require('./artifacts'))
     const buildXML = require('./artifacts').buildXML
     const createAppJson = require('./artifacts').createAppJson
     const createWorkspaceJson = require('./artifacts').createWorkspaceJson
     const createJSDOMEnvironment = require('./artifacts').createJSDOMEnvironment
-    fs.writeFileSync(path.join(output, 'build.xml'), buildXML({ compress: vars.production }), 'utf8')
-    fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(), 'utf8')
-    fs.writeFileSync(path.join(output, 'app.json'), createAppJson( theme, packages, toolkit ), 'utf8')
-    fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(), 'utf8')
+
+    fs.writeFileSync(path.join(output, 'build.xml'), buildXML(vars.production, options), 'utf8')
+    fs.writeFileSync(path.join(output, 'app.json'), createAppJson(theme, packages, toolkit, options), 'utf8')
+    fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options), 'utf8')
+    fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options), 'utf8')
 
     if (fs.existsSync(path.join(process.cwd(), 'resources/'))) {
       var fromResources = path.join(process.cwd(), 'resources/')
@@ -259,6 +202,7 @@ export function _prepareForBuild(app, vars, options, output) {
   }
 }
 
+//**********
 export function _buildExtBundle(app, compilation, outputPath, parms, options) {
   const fs = require('fs')
   const logv = require('./pluginUtil').logv
@@ -279,7 +223,6 @@ export function _buildExtBundle(app, compilation, outputPath, parms, options) {
    }
 
    var opts = { cwd: outputPath, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-
    executeAsync(app, sencha, parms, opts, compilation, options).then (
      function() { onBuildDone() }, 
      function(reason) { reject(reason) }
@@ -287,6 +230,7 @@ export function _buildExtBundle(app, compilation, outputPath, parms, options) {
  })
 }
 
+//**********
 export async function executeAsync (app, command, parms, opts, compilation, options) {
   //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
   const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
@@ -311,7 +255,6 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
       resolve(0)
     })
     child.stdout.on('data', (data) => {
-      logv(options, `on data`) 
       var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
       logv(options, `${str}`)
       if (data && data.toString().match(/Waiting for changes\.\.\./)) {
@@ -340,4 +283,68 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
       }
     })
   })
+}
+
+
+export function log(s) {
+  require('readline').cursorTo(process.stdout, 0)
+  process.stdout.clearLine()
+  process.stdout.write(s)
+  process.stdout.write('\n')
+}
+
+export function logv(options, s) {
+  if (options.verbose == 'yes') {
+    require('readline').cursorTo(process.stdout, 0)
+    process.stdout.clearLine()
+    process.stdout.write(`-verbose: ${s}`)
+    process.stdout.write('\n')
+  }
+}
+
+export function _getApp() {
+  var chalk = require('chalk')
+  var prefix = ``
+  const platform = require('os').platform()
+  if (platform == 'darwin') { prefix = `ℹ ｢ext｣:` }
+  else { prefix = `i [ext]:` }
+  return `${chalk.green(prefix)} `
+}
+
+export function _getVersions(app, pluginName, frameworkName) {
+  const path = require('path')
+  const fs = require('fs')
+
+  var v = {}
+  var pluginPath = path.resolve(process.cwd(),'node_modules/@sencha', pluginName)
+  var pluginPkg = (fs.existsSync(pluginPath+'/package.json') && JSON.parse(fs.readFileSync(pluginPath+'/package.json', 'utf-8')) || {});
+  v.pluginVersion = pluginPkg.version
+
+  var webpackPath = path.resolve(process.cwd(),'node_modules/webpack')
+  var webpackPkg = (fs.existsSync(webpackPath+'/package.json') && JSON.parse(fs.readFileSync(webpackPath+'/package.json', 'utf-8')) || {});
+  v.webpackVersion = webpackPkg.version
+
+  var extPath = path.resolve(process.cwd(),'node_modules/@sencha/ext')
+  var extPkg = (fs.existsSync(extPath+'/package.json') && JSON.parse(fs.readFileSync(extPath+'/package.json', 'utf-8')) || {});
+  v.extVersion = extPkg.sencha.version
+
+  var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/${pluginName}/node_modules/@sencha/cmd`)
+  var cmdPkg = (fs.existsSync(cmdPath+'/package.json') && JSON.parse(fs.readFileSync(cmdPath+'/package.json', 'utf-8')) || {});
+  v.cmdVersion = cmdPkg.version_full
+
+  var frameworkInfo = ''
+   if (frameworkName != undefined && frameworkName != 'extjs') {
+    var frameworkPath = ''
+    if (frameworkName == 'react') {
+      frameworkPath = path.resolve(process.cwd(),'node_modules/react')
+    }
+    if (frameworkName == 'angular') {
+      frameworkPath = path.resolve(process.cwd(),'node_modules/@angular/core')
+    }
+    var frameworkPkg = (fs.existsSync(frameworkPath+'/package.json') && JSON.parse(fs.readFileSync(frameworkPath+'/package.json', 'utf-8')) || {});
+    v.frameworkVersion = frameworkPkg.version
+    frameworkInfo = ', ' + frameworkName + ' v' + v.frameworkVersion
+  }
+
+  return app + 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ', Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo
 }
