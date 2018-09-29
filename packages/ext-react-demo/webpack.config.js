@@ -22,7 +22,7 @@ module.exports = function (env) {
       new ExtWebpackPlugin({
         framework: 'react',
         port: port,
-        emit: false,
+        emit: true,
         profile: buildprofile, 
         environment: buildenvironment, 
         verbose: buildverbose,
