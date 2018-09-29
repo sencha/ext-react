@@ -1,4 +1,4 @@
-//var reactVersion = 0 
+var reactVersion = 0 
 var reactVersionFull = ''
 import chalk from 'chalk'
 const app = `${chalk.green('ℹ ｢ext｣:')} ext-react-babel-plugin: `
