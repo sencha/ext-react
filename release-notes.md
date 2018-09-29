@@ -13,6 +13,7 @@
 * added defaults for profile, environment and verbose to package.json
 * utilize 'env.' variables in package.json
 * fixed issue with compress of bundles for production builds
+* added 'emit' parameter ext-webpack option
 
 ## v6.6.1
 
