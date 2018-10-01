@@ -25,18 +25,22 @@ export default class ExtWebpackPlugin {
       }
       else {
         compiler.hooks.compilation.tap(`ext-compilation`, (compilation) => {
-          require(`./pluginUtil`)._compilation(compilation, this.plugin.vars, this.plugin.options)
+          require(`./pluginUtil`)._compilation(compiler, compilation, this.plugin.vars, this.plugin.options)
         })
       }
 
-      if (this.plugin.options.emit == true) {
-        compiler.hooks.emit.tapAsync(`ext-emit`, (compilation, callback) => {
-          require(`./pluginUtil`).emit(compiler, compilation, this.plugin.vars, this.plugin.options, callback)
-        })
-      }
-      else {
-        require('./pluginUtil').log(`${this.plugin.vars.app}Emit not run`)
-      }
+      compiler.hooks.emit.tapAsync(`ext-emit`, (compilation, callback) => {
+        require(`./pluginUtil`).emit(compiler, compilation, this.plugin.vars, this.plugin.options, callback)
+      })
+
+      //if (this.plugin.options.emit == true) {
+      //  compiler.hooks.emit.tapAsync(`ext-emit`, (compilation, callback) => {
+      //    require(`./pluginUtil`).emit2(compiler, compilation, this.plugin.vars, this.plugin.options, callback)
+      //  })
+      // }
+      // else {
+      //   require('./pluginUtil').log(`${this.plugin.vars.app}Emit not run`)
+      // }
 
       compiler.hooks.done.tap(`ext-done`, () => {
         require('./pluginUtil').log(this.plugin.vars.app + `Completed ext-webpack-plugin processing`)

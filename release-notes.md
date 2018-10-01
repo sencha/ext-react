@@ -4,7 +4,7 @@
 
 * Support for React 16.5.2
 * Simplified default build output
-* added 'verbose' option
+* added 'verbose' parameter ext-webpack-plugin option
 * refactored ext-webpack-plugin for reuse with ExtAngular and Open Tooling
 * added 'framework' parameter ext-webpack-plugin option
 * eliminated need for 'copy-webpack-plugin'
@@ -14,6 +14,7 @@
 * utilize 'env.' variables in package.json
 * fixed issue with compress of bundles for production builds
 * added 'emit' parameter ext-webpack option
+* added 'browser' parameter ext-webpack option
 
 ## v6.6.1
 
