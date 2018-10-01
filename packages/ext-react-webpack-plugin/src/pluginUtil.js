@@ -326,7 +326,10 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
 
 export function log(s) {
   require('readline').cursorTo(process.stdout, 0)
-  process.stdout.clearLine()
+  try {
+    process.stdout.clearLine()
+  }
+  catch(e) {}
   process.stdout.write(s)
   process.stdout.write('\n')
 }
@@ -334,7 +337,10 @@ export function log(s) {
 export function logv(options, s) {
   if (options.verbose == 'yes') {
     require('readline').cursorTo(process.stdout, 0)
-    process.stdout.clearLine()
+    try {
+      process.stdout.clearLine()
+    }
+    catch(e) {}
     process.stdout.write(`-verbose: ${s}`)
     process.stdout.write('\n')
   }
