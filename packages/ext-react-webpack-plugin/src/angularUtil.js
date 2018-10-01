@@ -1,9 +1,32 @@
 "use strict"
 
+export function getValidateOptions() {
+  return {
+    "type": "object",
+    "properties": {
+      "framework":   {"type": [ "string" ]},
+      "port":        {"type": [ "integer" ]},
+      "emit":        {"type": [ "boolean" ]},
+      "browser":     {"type": [ "boolean" ]},
+      "profile":     {"type": [ "string" ]},
+      "environment": {"type": [ "string" ]},
+      "verbose":     {"type": [ "string" ]},
+      "theme":       {"type": [ "string" ]},
+      "toolkit":     {"type": [ "string" ]},
+      "packages":    {"type": [ "string", "array" ]}
+    },
+    "additionalProperties": false
+    // "errorMessage": {
+    //   "option": "should be {Boolean} (https:/github.com/org/repo#anchor)"
+    // }
+  }
+}
+
 export function getDefaultOptions() {
   return {
     port: 1962,
     emit: true,
+    browser: true,
     profile: '', 
     environment: 'development', 
     verbose: 'no',

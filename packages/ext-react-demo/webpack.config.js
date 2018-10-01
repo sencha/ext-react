@@ -23,6 +23,7 @@ module.exports = function (env) {
         framework: 'react',
         port: port,
         emit: true,
+        browser: true,
         profile: buildprofile, 
         environment: buildenvironment, 
         verbose: buildverbose,
