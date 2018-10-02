@@ -1,20 +1,14 @@
 {
-  "name": "@sencha/ext-react-rest-example",
-  "private": true,
+  "name": "@sencha/ext-react-classic-renderwhenready-no-plugin",
   "version": "6.6.2",
-  "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
+  "description": "A Demo",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
-    "start": "node server",
-    "debug": "node --nolazy --debug-brk=5858 server",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production",
-    "prod": "cross-env NODE_ENV=production node server"
-  },
-  "extbuild": {
-    "defaultprofile": "",
-    "defaultenvironment": "development",
-    "defaultverbose": "no"
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --env.environment=development",
+    "prod": "webpack-dev-server --env.environment=production",
+    "build": "npm run clean && cross-env webpack --env.environment=production"
   },
   "repository": {
     "type": "git",
@@ -29,20 +23,14 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
-    "@sencha/ext": "~6.6.0",
-    "@sencha/ext-modern": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
-    "@sencha/ext-modern-treegrid": "~6.6.0",
     "@sencha/ext-react": "~6.6.2",
-    "@sencha/ext-react-renderercell": "~6.6.2",
-    "@sencha/ext-react-transition": "~6.6.2",
-    "express": "^4.16.3",
+
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "sqlite3": "^4.0.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -59,17 +47,13 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@sencha/ext-react-babel-plugin": "~6.6.2",
-    "@sencha/ext-react-webpack-plugin": "~6.6.2",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^8.0.0",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "portfinder": "^1.0.16",
     "react-hot-loader": "^4.3.4",
-    "react-test-renderer": "^16.4.1",
-    "rimraf": "^2.6.2",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^3.1.8",
     "webpack-shell-plugin": "^0.5.0"
   }
