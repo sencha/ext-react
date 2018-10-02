@@ -5,20 +5,15 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
 module.exports = function (env) {
-  //var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
-  //var buildenvironment = env.environment
-  //var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
-  //if (buildprofile == 'all') { buildprofile = '' }
   const isProd = env.environment === 'production'
-
-  portfinder.basePort = (env && env.port) || 1962; // the default port to use
+  portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
       new HtmlWebpackPlugin({
         template: 'index.html',
         hash: true
-      }), 
-    ]
+      })
+     ]
     if (!isProd) {
       plugins.push(
         new webpack.HotModuleReplacementPlugin()
@@ -54,16 +49,9 @@ module.exports = function (env) {
           }
         ]
       },
-      resolve: {
-        // The following is only needed when running this boilerplate within the ext-react repo.  You can remove this from your own projects.
-        alias: {
-          "react-dom": path.resolve('./node_modules/react-dom'),
-          "react": path.resolve('./node_modules/react')
-        }
-      },
       plugins,
       devServer: {
-        contentBase: './build',
+        contentBase: './',
         historyApiFallback: true,
         hot: false,
         host: '0.0.0.0',
