@@ -1,1 +1,1 @@
-ext-react-renderwhenready
+ext-react-renderwhenready-no-plugin
