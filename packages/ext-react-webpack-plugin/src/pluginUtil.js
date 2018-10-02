@@ -97,36 +97,54 @@ export function _compilation(compiler, compilation, vars, options) {
 
 //**********
 export async function emit(compiler, compilation, vars, options, callback) {
-  var app = vars.app
-  var framework = vars.framework
-  const log = require('./pluginUtil').log
-  const logv = require('./pluginUtil').logv
-  logv(options,'FUNCTION ext-emit')
-  const path = require('path')
-  const _buildExtBundle = require('./pluginUtil')._buildExtBundle
-  let outputPath = path.join(compiler.outputPath,vars.extPath)
-  if (compiler.outputPath === '/' && compiler.options.devServer) {
-    outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
-  }
-  logv(options,'outputPath: ' + outputPath)
-  logv(options,'framework: ' + framework)
-  if (options.emit == true) {
-    if (framework != 'extjs') {
-      _prepareForBuild(app, vars, options, outputPath)
+  try {
+    var app = vars.app
+    var framework = vars.framework
+    const log = require('./pluginUtil').log
+    const logv = require('./pluginUtil').logv
+    logv(options,'FUNCTION ext-emit')
+    const path = require('path')
+    const _buildExtBundle = require('./pluginUtil')._buildExtBundle
+    let outputPath = path.join(compiler.outputPath,vars.extPath)
+    if (compiler.outputPath === '/' && compiler.options.devServer) {
+      outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
     }
-    else {
-      require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
-    }
-    if (vars.rebuild == true) {
-      var parms = []
-      if (options.profile == undefined || options.profile == '' || options.profile == null) {
-        parms = ['app', 'build', options.environment]
+    logv(options,'outputPath: ' + outputPath)
+    logv(options,'framework: ' + framework)
+    if (options.emit == true) {
+      if (framework != 'extjs') {
+        _prepareForBuild(app, vars, options, outputPath)
       }
       else {
-        parms = ['app', 'build', options.profile, options.environment]
+        require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
       }
-      await _buildExtBundle(app, compilation, outputPath, parms, options)
-      
+      if (vars.rebuild == true) {
+        var parms = []
+        if (options.profile == undefined || options.profile == '' || options.profile == null) {
+          parms = ['app', 'build', options.environment]
+        }
+        else {
+          parms = ['app', 'build', options.profile, options.environment]
+        }
+        await _buildExtBundle(app, compilation, outputPath, parms, options)
+        
+        if(options.browser == true) {
+          if (vars.browserCount == 0 && compilation.errors.length == 0) {
+            var url = 'http://localhost:' + options.port
+            log(app + `Opening browser at ${url}`)
+            vars.browserCount++
+            const opn = require('opn')
+            opn(url)
+          }
+        }
+        else {
+          logv(options,'browser NOT opened')
+        }
+        callback()
+      }
+    }
+    else {
+      log(`${vars.app}Emit not run`)
       if(options.browser == true) {
         if (vars.browserCount == 0 && compilation.errors.length == 0) {
           var url = 'http://localhost:' + options.port
@@ -142,20 +160,8 @@ export async function emit(compiler, compilation, vars, options, callback) {
       callback()
     }
   }
-  else {
-    log(`${vars.app}Emit not run`)
-    if(options.browser == true) {
-      if (vars.browserCount == 0 && compilation.errors.length == 0) {
-        var url = 'http://localhost:' + options.port
-        log(app + `Opening browser at ${url}`)
-        vars.browserCount++
-        const opn = require('opn')
-        opn(url)
-      }
-    }
-    else {
-      logv(options,'browser NOT opened')
-    }
+  catch(e) {
+    compilation.errors.push('emit: ' + e)
     callback()
   }
 }
