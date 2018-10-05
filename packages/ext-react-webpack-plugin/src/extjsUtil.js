@@ -56,7 +56,7 @@ export function _afterCompile(compilation, vars, options) {
     const {
       fileDependencies,
       contextDependencies,
-    } = _getFileAndContextDeps(compilation, files, dirs, cwd);
+    } = _getFileAndContextDeps(compilation, files, dirs, cwd, options);
     if (files.length > 0) {
       fileDependencies.forEach((file) => {
         compilation.fileDependencies.add(path.resolve(file));
@@ -69,12 +69,12 @@ export function _afterCompile(compilation, vars, options) {
     }
   }
   catch(e) {
-    require('./pluginUtil').logv(options,e)
+    console.log(e)
     compilation.errors.push('_afterCompile: ' + e)
   }
 }
 
-function _getFileAndContextDeps(compilation, files, dirs, cwd) {
+function _getFileAndContextDeps(compilation, files, dirs, cwd, options) {
   require('./pluginUtil').logv(options,'FUNCTION _getFileAndContextDeps')
   const uniq = require('lodash.uniq')
   const isGlob = require('is-glob')
@@ -143,7 +143,7 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
     vars.lastNumFiles = currentNumFiles
   }
   catch(e) {
-    require('./pluginUtil').logv(options,e)
+    console.log(e)
     compilation.errors.push('_prepareForBuild: ' + e)
   }
 }
