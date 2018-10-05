@@ -144,7 +144,7 @@ export function createAppJson( theme, packages, toolkit, options ) {
     ],
     "packages": {
       "dir": [
-        options.extFolder,
+        "../../node_modules/@sencha",
         "packages"
       ]
     },
@@ -176,21 +176,19 @@ export function createJSDOMEnvironment(options) {
 }
 
 export function createWorkspaceJson(options) {
-  const path = require('path')
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createWorkspaceJson')
 
   //"dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
-  //"ext": `${options.extFolder}/ext`
 
-   const config = {
+  const config = {
     "frameworks": {
-      "ext": path.join(options.extFolder, options.extRoot)
+      "ext": "../../node_modules/@sencha/ext"
     },
     "packages": {
       "dir": [
         "${workspace.dir}/packages",
-        "${workspace.dir}" + options.extFolder
+        "${workspace.dir}/../../node_modules/@esencha"
       ],
       "extract": "${workspace.dir}/packages/remote"
     }

@@ -50,59 +50,69 @@ export function _constructor(options) {
 
 //**********
 export function _compilation(compiler, compilation, vars, options) {
-  if (vars.production) {
-    logv(options,`ext-compilation-production`)
-    compilation.hooks.succeedModule.tap(`ext-succeed-module`, (module) => {
-      if (module.resource && module.resource.match(/\.(j|t)sx?$/) && !module.resource.match(/node_modules/) && !module.resource.match('/ext-react/dist/')) {
-        vars.deps = [ 
-          ...(vars.deps || []), 
-          ...require(`./${vars.framework}Util`).extractFromSource(module._source._value) 
-        ]
-      }
-    })
-  }
-  else {
-    logv(options, `ext-compilation`)
-  }
-  if (options.framework != 'angular') {
-    compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
-      logv(options,'FUNCTION ext-html-generation')
-      const path = require('path')
-      var outputPath = ''
-      if (compiler.options.devServer) {
-        if (compiler.outputPath === '/') {
-          outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
+  try {
+    require('./pluginUtil').logv(options,'FUNCTION _compilation')
+    if (vars.production) {
+      logv(options,`ext-compilation: production is ` +  vars.production)
+      compilation.hooks.succeedModule.tap(`ext-succeed-module`, (module) => {
+        if (module.resource && module.resource.match(/\.(j|t)sx?$/) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-{$options.framework}/dist/`) && !module.resource.match(`/ext-${options.framework}-${options.toolkit}/`)) {
+          vars.deps = [ 
+            ...(vars.deps || []), 
+            ...require(`./${vars.framework}Util`).extractFromSource(module, vars, options, compilation) 
+          ]
         }
-        else {
-          if (compiler.options.devServer.contentBase == undefined) {
-            outputPath = 'build'
+      })
+    }
+    else {
+      logv(options,`ext-compilation: production is ` +  vars.production)
+    }
+    if (options.framework != 'angular') {
+      compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
+        logv(options,'HOOK ext-html-generation')
+        const path = require('path')
+        var outputPath = ''
+        if (compiler.options.devServer) {
+          if (compiler.outputPath === '/') {
+            outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
           }
           else {
-            outputPath = ''
+            if (compiler.options.devServer.contentBase == undefined) {
+              outputPath = 'build'
+            }
+            else {
+              outputPath = ''
+            }
           }
         }
-      }
-      else {
-        outputPath = 'build'
-      }
-      outputPath = outputPath.replace(process.cwd(), '').trim()
-      var jsPath = path.join(outputPath, vars.extPath, 'ext.js')
-      var cssPath = path.join(outputPath, vars.extPath, 'ext.css')
-      data.assets.js.unshift(jsPath)
-      data.assets.css.unshift(cssPath)
-      log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
-    })
+        else {
+          outputPath = 'build'
+        }
+        outputPath = outputPath.replace(process.cwd(), '').trim()
+        var jsPath = path.join(outputPath, vars.extPath, 'ext.js')
+        var cssPath = path.join(outputPath, vars.extPath, 'ext.css')
+        data.assets.js.unshift(jsPath)
+        data.assets.css.unshift(cssPath)
+        log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
+      })
+    }
+    else {
+      logv(options,'skipped HOOK ext-html-generation')
+    }
+  }
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('_compilation: ' + e)
   }
 }
 
 //**********
 export async function emit(compiler, compilation, vars, options, callback) {
   try {
-    var app = vars.app
-    var framework = vars.framework
     const log = require('./pluginUtil').log
     const logv = require('./pluginUtil').logv
-    logv(options,'FUNCTION ext-emit')
+    logv(options,'FUNCTION emit')
+    var app = vars.app
+    var framework = vars.framework
     const path = require('path')
     const _buildExtBundle = require('./pluginUtil')._buildExtBundle
     let outputPath = path.join(compiler.outputPath,vars.extPath)
@@ -127,7 +137,13 @@ export async function emit(compiler, compilation, vars, options, callback) {
           parms = ['app', 'build', options.profile, options.environment]
         }
         await _buildExtBundle(app, compilation, outputPath, parms, options)
-        
+
+        //const jsChunk = compilation.addChunk(`ext-angular-js`)
+        //jsChunk.hasRuntime = jsChunk.isInitial = () => true;
+        //jsChunk.files.push(path.join('build', 'ext-angular', 'ext.js'));
+        //jsChunk.files.push(path.join('build', 'ext-angular',  'ext.css'));
+        //jsChunk.id = -2; // this forces html-webpack-plugin to include ext.js first
+
         if(options.browser == true) {
           if (vars.browserCount == 0 && compilation.errors.length == 0) {
             var url = 'http://localhost:' + options.port
@@ -144,7 +160,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
       }
     }
     else {
-      log(`${vars.app}Emit not run`)
+      log(`${vars.app}FUNCTION emit not run`)
       if(options.browser == true) {
         if (vars.browserCount == 0 && compilation.errors.length == 0) {
           var url = 'http://localhost:' + options.port
@@ -161,6 +177,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
     }
   }
   catch(e) {
+    require('./pluginUtil').logv(options,e)
     compilation.errors.push('emit: ' + e)
     callback()
   }
@@ -168,165 +185,184 @@ export async function emit(compiler, compilation, vars, options, callback) {
 
 //**********
 export function _prepareForBuild(app, vars, options, output) {
-  logv(options,'_prepareForBuild')
-  const rimraf = require('rimraf')
-  const mkdirp = require('mkdirp')
-  const fsx = require('fs-extra')
-  const fs = require('fs')
-  const path = require('path')
+  try {
+    logv(options,'FUNCTION _prepareForBuild')
+    const rimraf = require('rimraf')
+    const mkdirp = require('mkdirp')
+    const fsx = require('fs-extra')
+    const fs = require('fs')
+    const path = require('path')
 
-  var packages = options.packages
-  var toolkit = options.toolkit
-  var theme = options.theme
+    var packages = options.packages
+    var toolkit = options.toolkit
+    var theme = options.theme
 
-  theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
-  logv(options,vars.firstTime)
-  if (vars.firstTime) {
-    logv(options,output)
-    rimraf.sync(output)
-    mkdirp.sync(output)
-    logv(options,require('./artifacts'))
-    const buildXML = require('./artifacts').buildXML
-    const createAppJson = require('./artifacts').createAppJson
-    const createWorkspaceJson = require('./artifacts').createWorkspaceJson
-    const createJSDOMEnvironment = require('./artifacts').createJSDOMEnvironment
+    theme = theme || (toolkit === 'classic' ? 'theme-triton' : 'theme-material')
+    logv(options,'firstTime: ' + vars.firstTime)
+    if (vars.firstTime) {
+      rimraf.sync(output)
+      mkdirp.sync(output)
+      const buildXML = require('./artifacts').buildXML
+      const createAppJson = require('./artifacts').createAppJson
+      const createWorkspaceJson = require('./artifacts').createWorkspaceJson
+      const createJSDOMEnvironment = require('./artifacts').createJSDOMEnvironment
 
-    fs.writeFileSync(path.join(output, 'build.xml'), buildXML(vars.production, options), 'utf8')
-    fs.writeFileSync(path.join(output, 'app.json'), createAppJson(theme, packages, toolkit, options), 'utf8')
-    fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options), 'utf8')
-    fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options), 'utf8')
+      fs.writeFileSync(path.join(output, 'build.xml'), buildXML(vars.production, options), 'utf8')
+      fs.writeFileSync(path.join(output, 'app.json'), createAppJson(theme, packages, toolkit, options), 'utf8')
+      fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options), 'utf8')
+      fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options), 'utf8')
 
-    if (fs.existsSync(path.join(process.cwd(), 'resources/'))) {
-      var fromResources = path.join(process.cwd(), 'resources/')
-      var toResources = path.join(output, '../resources')
-      fsx.copySync(fromResources, toResources)
-      log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
+      if (fs.existsSync(path.join(process.cwd(), 'resources/'))) {
+        var fromResources = path.join(process.cwd(), 'resources/')
+        var toResources = path.join(output, '../resources')
+        fsx.copySync(fromResources, toResources)
+        log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
+      }
+
+      if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
+        var fromResources = path.join(process.cwd(), 'resources/')
+        var toResources = path.join(output, 'resources')
+        fsx.copySync(fromResources, toResources)
+        log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
+      }
+
+      if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/packages/'))) {
+        var fromPackages = path.join(process.cwd(),vars.extPath + '/packages/')
+        var toPackages = path.join(output, 'packages/')
+        fsx.copySync(fromPackages, toPackages)
+        log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
+      }
+
+      if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/overrides/'))) {
+        var fromOverrides = path.join(process.cwd(),vars.extPath + '/overrides/')
+        var toOverrides = path.join(output, 'overrides/')
+        fsx.copySync(fromOverrides, toOverrides)
+        log(app + 'Copying ' + fromOverrides.replace(process.cwd(), '') + ' to: ' + toOverrides.replace(process.cwd(), ''))
+      }
     }
-
-    if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
-      var fromResources = path.join(process.cwd(), 'resources/')
-      var toResources = path.join(output, 'resources')
-      fsx.copySync(fromResources, toResources)
-      log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
+    vars.firstTime = false
+    var js = ''
+    if (vars.production) {
+      vars.deps.push('Ext.require("Ext.layout.*");\n')
+      js = vars.deps.join(';\n');
     }
-
-    if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/packages/'))) {
-      var fromPackages = path.join(process.cwd(),vars.extPath + '/packages/')
-      var toPackages = path.join(output, 'packages/')
-      fsx.copySync(fromPackages, toPackages)
-      log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
+    else {
+      js = 'Ext.require("Ext.*")'
     }
-
-    if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/overrides/'))) {
-      var fromOverrides = path.join(process.cwd(),vars.extPath + '/overrides/')
-      var toOverrides = path.join(output, 'overrides/')
-      fsx.copySync(fromOverrides, toOverrides)
-      log(app + 'Copying ' + fromOverrides.replace(process.cwd(), '') + ' to: ' + toOverrides.replace(process.cwd(), ''))
+    if (vars.manifest === null || js !== vars.manifest) {
+      vars.manifest = js
+      const manifest = path.join(output, 'manifest.js')
+      fs.writeFileSync(manifest, js, 'utf8')
+      vars.rebuild = true
+      log(app + 'Building Ext bundle at: ' + output.replace(process.cwd(), ''))
+    }
+    else {
+      vars.rebuild = false
+      log(app + 'ExtReact rebuild NOT needed')
     }
   }
-  vars.firstTime = false
-  let js
-  if (vars.production) {
-    vars.deps.push('Ext.require("Ext.layout.*");\n')
-    js = vars.deps.join(';\n');
-  }
-  else {
-    js = 'Ext.require("Ext.*")'
-  }
-  if (vars.manifest === null || js !== vars.manifest) {
-    vars.manifest = js
-    const manifest = path.join(output, 'manifest.js')
-    fs.writeFileSync(manifest, js, 'utf8')
-    vars.rebuild = true
-    log(app + 'Building Ext bundle at: ' + output.replace(process.cwd(), ''))
-  }
-  else {
-    vars.rebuild = false
-    log(app + 'ExtReact rebuild NOT needed')
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('_prepareForBuild: ' + e)
+    callback()
   }
 }
 
 //**********
 export function _buildExtBundle(app, compilation, outputPath, parms, options) {
-  const fs = require('fs')
-  const logv = require('./pluginUtil').logv
-  logv(options,'FUNCTION _buildExtBundle')
+  try {
+    const fs = require('fs')
+    const logv = require('./pluginUtil').logv
+    logv(options,'FUNCTION _buildExtBundle')
 
-  let sencha; try { sencha = require('@sencha/cmd') } catch (e) { sencha = 'sencha' }
-  if (fs.existsSync(sencha)) {
-    logv(options,'sencha folder exists')
+    let sencha; try { sencha = require('@sencha/cmd') } catch (e) { sencha = 'sencha' }
+    if (fs.existsSync(sencha)) {
+      logv(options,'sencha folder exists')
+    }
+    else {
+      logv(options,'sencha folder DOES NOT exist')
+    }
+
+    return new Promise((resolve, reject) => {
+      const onBuildDone = () => {
+        logv(options,'onBuildDone')
+        resolve()
+      }
+
+      var opts = { cwd: outputPath, silent: true, stdio: 'pipe', encoding: 'utf-8'}
+      executeAsync(app, sencha, parms, opts, compilation, options).then (
+        function() { onBuildDone() }, 
+        function(reason) { reject(reason) }
+      )
+    })
   }
-  else {
-    logv(options,'sencha folder DOES NOT exist')
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('_buildExtBundle: ' + e)
+    callback()
   }
-
-  return new Promise((resolve, reject) => {
-   const onBuildDone = () => {
-    logv(options,'onBuildDone')
-    resolve()
-   }
-
-   var opts = { cwd: outputPath, silent: true, stdio: 'pipe', encoding: 'utf-8'}
-   executeAsync(app, sencha, parms, opts, compilation, options).then (
-     function() { onBuildDone() }, 
-     function(reason) { reject(reason) }
-   )
- })
 }
 
 //**********
 export async function executeAsync (app, command, parms, opts, compilation, options) {
-  //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
-  const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
-  var substrings = DEFAULT_SUBSTRS 
-  var chalk = require('chalk')
-  const crossSpawn = require('cross-spawn')
-  const log = require('./pluginUtil').log
-  logv(options, 'FUNCTION executeAsync')
-  await new Promise((resolve, reject) => {
-    logv(options,`command - ${command}`)
-    logv(options, `parms - ${parms}`)
-    logv(options, `opts - ${JSON.stringify(opts)}`)
-    let child = crossSpawn(command, parms, opts)
-    child.on('close', (code, signal) => {
-      logv(options, `on close`) 
-      if(code === 0) { resolve(0) }
-      else { compilation.errors.push( new Error(code) ); resolve(0) }
-    })
-    child.on('error', (error) => { 
-      logv(options, `on error`) 
-      compilation.errors.push(error)
-      resolve(0)
-    })
-    child.stdout.on('data', (data) => {
-      var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
-      logv(options, `${str}`)
-      if (data && data.toString().match(/Waiting for changes\.\.\./)) {
+  try {
+    //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
+    const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
+    var substrings = DEFAULT_SUBSTRS 
+    var chalk = require('chalk')
+    const crossSpawn = require('cross-spawn')
+    const log = require('./pluginUtil').log
+    logv(options, 'FUNCTION executeAsync')
+    await new Promise((resolve, reject) => {
+      logv(options,`command - ${command}`)
+      logv(options, `parms - ${parms}`)
+      logv(options, `opts - ${JSON.stringify(opts)}`)
+      let child = crossSpawn(command, parms, opts)
+      child.on('close', (code, signal) => {
+        logv(options, `on close: ` + code) 
+        if(code === 0) { resolve(0) }
+        else { compilation.errors.push( new Error(code) ); resolve(0) }
+      })
+      child.on('error', (error) => { 
+        logv(options, `on error`) 
+        compilation.errors.push(error)
         resolve(0)
-      }
-      else {
-        if (substrings.some(function(v) { return data.indexOf(v) >= 0; })) { 
-          str = str.replace("[INF]", "")
-          str = str.replace("[LOG]", "")
-          str = str.replace(process.cwd(), '').trim()
-          if (str.includes("[ERR]")) {
-            compilation.errors.push(app + str.replace(/^\[ERR\] /gi, ''));
-            str = str.replace("[ERR]", `${chalk.red("[ERR]")}`)
-          }
-          log(`${app}${str}`) 
+      })
+      child.stdout.on('data', (data) => {
+        var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
+        logv(options, `${str}`)
+        if (data && data.toString().match(/Waiting for changes\.\.\./)) {
+          resolve(0)
         }
-      }
+        else {
+          if (substrings.some(function(v) { return data.indexOf(v) >= 0; })) { 
+            str = str.replace("[INF]", "")
+            str = str.replace("[LOG]", "")
+            str = str.replace(process.cwd(), '').trim()
+            if (str.includes("[ERR]")) {
+              compilation.errors.push(app + str.replace(/^\[ERR\] /gi, ''));
+              str = str.replace("[ERR]", `${chalk.red("[ERR]")}`)
+            }
+            log(`${app}${str}`) 
+          }
+        }
+      })
+      child.stderr.on('data', (data) => {
+        logv(options, `error on close: ` + data) 
+        var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
+        var strJavaOpts = "Picked up _JAVA_OPTIONS";
+        var includes = str.includes(strJavaOpts)
+        if (!includes) {
+          console.log(`${app} ${chalk.red("[ERR]")} ${str}`)
+        }
+      })
     })
-    child.stderr.on('data', (data) => {
-      logv(options, `error on close`) 
-      var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
-      var strJavaOpts = "Picked up _JAVA_OPTIONS";
-      var includes = str.includes(strJavaOpts)
-      if (!includes) {
-        console.log(`${app} ${chalk.red("[ERR]")} ${str}`)
-      }
-    })
-  })
+  }
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('executeAsync: ' + e)
+    callback()
+  } 
 }
 
 
