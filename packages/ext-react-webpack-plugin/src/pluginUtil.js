@@ -158,6 +158,9 @@ export async function emit(compiler, compilation, vars, options, callback) {
         }
         callback()
       }
+      else {
+        callback()
+      }
     }
     else {
       log(`${vars.app}FUNCTION emit not run`)
