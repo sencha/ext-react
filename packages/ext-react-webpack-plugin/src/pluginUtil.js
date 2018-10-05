@@ -153,7 +153,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
         //jsChunk.files.push(path.join('build', 'ext-angular',  'ext.css'));
         //jsChunk.id = -2; // this forces html-webpack-plugin to include ext.js first
 
-        if(options.browser == true) {
+        if(options.browser == true && options.watch == 'yes') {
           if (vars.browserCount == 0 && compilation.errors.length == 0) {
             var url = 'http://localhost:' + options.port
             log(app + `Opening browser at ${url}`)
@@ -224,33 +224,12 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options), 'utf8')
       fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options), 'utf8')
 
-      // if (fs.existsSync(path.join(process.cwd(), 'resources/'))) {
-      //   var fromResources = path.join(process.cwd(), 'resources/')
-      //   var toResources = path.join(output, '../resources')
-      //   fsx.copySync(fromResources, toResources)
-      //   log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
-      // }
-
       if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
         var fromResources = path.join(process.cwd(), 'resources/')
         var toResources = path.join(output, 'resources')
         fsx.copySync(fromResources, toResources)
         log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
       }
-
-      // if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/packages/'))) {
-      //   var fromPackages = path.join(process.cwd(),vars.extPath + '/packages/')
-      //   var toPackages = path.join(output, 'packages/')
-      //   fsx.copySync(fromPackages, toPackages)
-      //   log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
-      // }
-
-      // if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/overrides/'))) {
-      //   var fromOverrides = path.join(process.cwd(),vars.extPath + '/overrides/')
-      //   var toOverrides = path.join(output, 'overrides/')
-      //   fsx.copySync(fromOverrides, toOverrides)
-      //   log(app + 'Copying ' + fromOverrides.replace(process.cwd(), '') + ' to: ' + toOverrides.replace(process.cwd(), ''))
-      //}
     }
     vars.firstTime = false
     var js = ''
@@ -425,10 +404,15 @@ export function _getVersions(app, pluginName, frameworkName) {
   var extPkg = (fs.existsSync(extPath+'/package.json') && JSON.parse(fs.readFileSync(extPath+'/package.json', 'utf-8')) || {});
   v.extVersion = extPkg.sencha.version
 
-  //var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/${pluginName}/node_modules/@sencha/cmd`)
   var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/cmd`)
   var cmdPkg = (fs.existsSync(cmdPath+'/package.json') && JSON.parse(fs.readFileSync(cmdPath+'/package.json', 'utf-8')) || {});
   v.cmdVersion = cmdPkg.version_full
+
+  if (v.cmdVersion == undefined) {
+    var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/${pluginName}/node_modules/@sencha/cmd`)
+    var cmdPkg = (fs.existsSync(cmdPath+'/package.json') && JSON.parse(fs.readFileSync(cmdPath+'/package.json', 'utf-8')) || {});
+    v.cmdVersion = cmdPkg.version_full
+  }
 
   var frameworkInfo = ''
    if (frameworkName != undefined && frameworkName != 'extjs') {
