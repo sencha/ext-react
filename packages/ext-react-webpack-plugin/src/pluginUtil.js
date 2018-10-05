@@ -226,6 +226,13 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
 
       if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
         var fromResources = path.join(process.cwd(), 'resources/')
+        var toResources = path.join(output, '../resources')
+        fsx.copySync(fromResources, toResources)
+        log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
+      }
+
+      if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
+        var fromResources = path.join(process.cwd(), 'resources/')
         var toResources = path.join(output, 'resources')
         fsx.copySync(fromResources, toResources)
         log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
