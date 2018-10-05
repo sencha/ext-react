@@ -6,6 +6,7 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
+  var watchprofile = env.watch || true
   var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
@@ -24,6 +25,7 @@ module.exports = function (env) {
         port: port,
         emit: true,
         browser: true,
+        watch: watchprofile,
         profile: buildprofile, 
         environment: buildenvironment, 
         verbose: buildverbose,

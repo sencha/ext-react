@@ -128,13 +128,22 @@ export async function emit(compiler, compilation, vars, options, callback) {
       else {
         require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
       }
+
+      var command = ''
+      if (options.watch == true) {
+        command = 'watch'
+      }
+      else {
+        command = 'build'
+      }
+
       if (vars.rebuild == true) {
         var parms = []
         if (options.profile == undefined || options.profile == '' || options.profile == null) {
-          parms = ['app', 'watch', options.environment]
+          parms = ['app', command, options.environment]
         }
         else {
-          parms = ['app', 'watch', options.profile, options.environment]
+          parms = ['app', command, options.profile, options.environment]
         }
         await _buildExtBundle(app, compilation, outputPath, parms, options)
 

@@ -1,93 +1,76 @@
 {
-  "name": "@sencha/ext-react-modern-boilerplate",
-  "product": "ext-react",
-  "version": "6.6.2",
-  "description": "A foundation for React 16 apps built with ExtReact components.",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf build",
-    "start": "npm run dev",
-    "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
-    "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production",
-    "prod2": "cd build && static-server --port 8080",
-    "test": "jest",
-    "update-snapshots": "jest -u",
-    "pretest": "webpack --progress",
-    "preupdate-snapshots": "webpack --progress"
-  },
-  "extbuild": {
-    "defaultprofile": "",
-    "defaultenvironment": "development",
-    "defaultverbose": "no"
-  },
-  "author": "Sencha, Inc.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sencha/ext-react.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sencha/ext-react/issues"
-  },
-  "homepage": "https://github.com/sencha/ext-react#readme",
-  "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@sencha/ext": "~6.6.0",
-    "@sencha/ext-modern": "~6.6.0",
-    "@sencha/ext-modern-treegrid": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
-    "@sencha/ext-react": "~6.6.2",
-    "@sencha/ext-react-transition": "~6.6.2",
-    "@sencha/ext-react-renderercell": "~6.6.2",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-router-dom": "^4.3.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@sencha/ext-react-babel-plugin": "~6.6.2",
-    "@sencha/ext-react-webpack-plugin": "~6.6.2",
-    "babel-loader": "^8.0.2",
-    "cross-env": "^5.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "portfinder": "^1.0.17",
-    "react-hot-loader": "^4.3.11",
-    "rimraf": "^2.6.2",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "setupFiles": [
-      "./node_modules/@sencha/ext-react/jest/setup.js",
-      "./build/ext-react/ext.js"
-    ],
-    "unmockedModulePathPatterns": [
-      "react",
-      "react-dom",
-      "react-addons-test-utils",
-      "enzyme"
-    ]
-  }
+	"name": "@sencha/ext-react-modern-boilerplate",
+	"product": "ext-react",
+	"version": "6.6.2",
+	"description": "A foundation for React 16 apps built with ExtReact components.",
+	"main": "index.js",
+	"extbuild": {
+		"defaultprofile": "",
+		"defaultenvironment": "development",
+		"defaultverbose": "no"
+	},
+	"author": "Sencha, Inc.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sencha/ext-react.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/sencha/ext-react/issues"
+	},
+	"homepage": "https://github.com/sencha/ext-react#readme",
+	"dependencies": {
+		"@babel/polyfill": "^7.0.0",
+		"@babel/runtime": "^7.0.0",
+		"@sencha/ext": "~6.6.0",
+		"@sencha/ext-modern": "~6.6.0",
+		"@sencha/ext-modern-theme-material": "~6.6.0",
+		"@sencha/ext-modern-treegrid": "~6.6.0",
+		"prop-types": "^15.6.2",
+		"react": "^16.5.2",
+		"react-dom": "^16.5.2",
+		"react-router-dom": "^4.3.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0",
+		"@babel/plugin-proposal-class-properties": "^7.0.0",
+		"@babel/plugin-proposal-decorators": "^7.0.0",
+		"@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+		"@babel/plugin-proposal-function-sent": "^7.0.0",
+		"@babel/plugin-proposal-json-strings": "^7.0.0",
+		"@babel/plugin-proposal-numeric-separator": "^7.0.0",
+		"@babel/plugin-proposal-throw-expressions": "^7.0.0",
+		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
+		"@babel/plugin-syntax-import-meta": "^7.0.0",
+		"@babel/plugin-transform-runtime": "^7.0.0",
+		"@babel/preset-env": "^7.0.0",
+		"@babel/preset-react": "^7.0.0",
+		"babel-loader": "^8.0.2",
+		"cross-env": "^5.2.0",
+		"html-webpack-plugin": "^3.2.0",
+		"portfinder": "^1.0.17",
+		"react-hot-loader": "^4.3.11",
+		"rimraf": "^2.6.2",
+		"webpack": "^4.19.1",
+		"webpack-cli": "^3.1.0",
+		"webpack-dev-server": "^3.1.8"
+	},
+	"jest": {
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx}"
+		],
+		"transform": {
+			"^.+\\.jsx?$": "babel-jest"
+		},
+		"setupFiles": [
+			"./node_modules/@sencha/ext-react/jest/setup.js",
+			"./build/ext-react/ext.js"
+		],
+		"unmockedModulePathPatterns": [
+			"react",
+			"react-dom",
+			"react-addons-test-utils",
+			"enzyme"
+		]
+	}
 }
