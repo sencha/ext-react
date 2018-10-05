@@ -8,7 +8,7 @@
     "clean": "rimraf build",
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
-    "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
+    "prod": "webpack-dev-server --env.verbose=yes --env.environment=production",
     "build": "npm run clean && cross-env webpack --env.environment=production"
   },
   "extbuild": {

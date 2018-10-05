@@ -46,31 +46,36 @@ export function getDefaultVars() {
 }
 
 export function _afterCompile(compilation, vars, options) {
-  const logv = require('./pluginUtil').logv
-  logv(options,'FUNCTION ext-after-compile')
-  const path = require('path')
-  let { files, dirs } = vars
-  const { cwd } = vars
-  files = typeof files === 'string' ? [files] : files
-  dirs = typeof dirs === 'string' ? [dirs] : dirs
-  const {
-    fileDependencies,
-    contextDependencies,
-  } = _getFileAndContextDeps(compilation, files, dirs, cwd);
-  if (files.length > 0) {
-    fileDependencies.forEach((file) => {
-      compilation.fileDependencies.add(path.resolve(file));
-    })
+  try {
+    require('./pluginUtil').logv(options,'FUNCTION ext-after-compile')
+    const path = require('path')
+    let { files, dirs } = vars
+    const { cwd } = vars
+    files = typeof files === 'string' ? [files] : files
+    dirs = typeof dirs === 'string' ? [dirs] : dirs
+    const {
+      fileDependencies,
+      contextDependencies,
+    } = _getFileAndContextDeps(compilation, files, dirs, cwd);
+    if (files.length > 0) {
+      fileDependencies.forEach((file) => {
+        compilation.fileDependencies.add(path.resolve(file));
+      })
+    }
+    if (dirs.length > 0) {
+      contextDependencies.forEach((context) => {
+        compilation.contextDependencies.add(context);
+      })
+    }
   }
-  if (dirs.length > 0) {
-    contextDependencies.forEach((context) => {
-      compilation.contextDependencies.add(context);
-    })
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('_afterCompile: ' + e)
   }
 }
 
 function _getFileAndContextDeps(compilation, files, dirs, cwd) {
-  //const log = require('./pluginUtil').log
+  require('./pluginUtil').logv(options,'FUNCTION _getFileAndContextDeps')
   const uniq = require('lodash.uniq')
   const isGlob = require('is-glob')
 
@@ -95,44 +100,50 @@ function _getFileAndContextDeps(compilation, files, dirs, cwd) {
 }
 
 export function _prepareForBuild(app, vars, options, output, compilation) {
-  const log = require('./pluginUtil').log
-  const logv = require('./pluginUtil').logv
-  logv(options,'_prepareForBuild')
-  const fs = require('fs')
-  const recursiveReadSync = require('recursive-readdir-sync')
-  var watchedFiles=[]
-  try {watchedFiles = recursiveReadSync('./app').concat(recursiveReadSync('./packages'))}
-  catch(err) {if(err.errno === 34){console.log('Path does not exist');} else {throw err;}}
-  var currentNumFiles = watchedFiles.length
-  logv(options,'watchedFiles: ' + currentNumFiles)
-  var doBuild = false
-  for (var file in watchedFiles) {
-    if (vars.lastMilliseconds < fs.statSync(watchedFiles[file]).mtimeMs) {
-      if (watchedFiles[file].indexOf("scss") != -1) {doBuild=true;break;}
+  try {
+    const log = require('./pluginUtil').log
+    const logv = require('./pluginUtil').logv
+    logv(options,'_prepareForBuild')
+    const fs = require('fs')
+    const recursiveReadSync = require('recursive-readdir-sync')
+    var watchedFiles=[]
+    try {watchedFiles = recursiveReadSync('./app').concat(recursiveReadSync('./packages'))}
+    catch(err) {if(err.errno === 34){console.log('Path does not exist');} else {throw err;}}
+    var currentNumFiles = watchedFiles.length
+    logv(options,'watchedFiles: ' + currentNumFiles)
+    var doBuild = false
+    for (var file in watchedFiles) {
+      if (vars.lastMilliseconds < fs.statSync(watchedFiles[file]).mtimeMs) {
+        if (watchedFiles[file].indexOf("scss") != -1) {doBuild=true;break;}
+      }
     }
-  }
-  if (vars.lastMilliseconds < fs.statSync('./app.json').mtimeMs) {
-    doBuild=true
-  }
-  logv(options,'doBuild: ' + doBuild)
+    if (vars.lastMilliseconds < fs.statSync('./app.json').mtimeMs) {
+      doBuild=true
+    }
+    logv(options,'doBuild: ' + doBuild)
 
-  vars.lastMilliseconds = (new Date).getTime()
-  var filesource = 'this file enables client reload'
-  compilation.assets[currentNumFiles + 'FilesUnderAppFolder.md'] = {
-    source: function() {return filesource},
-    size: function() {return filesource.length}
-  }
+    vars.lastMilliseconds = (new Date).getTime()
+    var filesource = 'this file enables client reload'
+    compilation.assets[currentNumFiles + 'FilesUnderAppFolder.md'] = {
+      source: function() {return filesource},
+      size: function() {return filesource.length}
+    }
 
-  //if(options.verbose == 'yes') {log('-v-' + app + 'currentNumFiles: ' + currentNumFiles)}
-  //if(options.verbose == 'yes') {log('-v-' + app + 'vars.lastNumFiles: ' + vars.lastNumFiles)}
-  //if(options.verbose == 'yes') {log('-v-' + app + 'doBuild: ' + doBuild)}
+    logv(options,'currentNumFiles: ' + currentNumFiles)
+    logv(options,'vars.lastNumFiles: ' + vars.lastNumFiles)
+    logv(options,'doBuild: ' + doBuild)
 
-  if (currentNumFiles != vars.lastNumFiles || doBuild) {
-    vars.rebuild = true
-    log(app + 'building Ext bundle at: ' + output.replace(process.cwd(), ''))
+    if (currentNumFiles != vars.lastNumFiles || doBuild) {
+      vars.rebuild = true
+      log(app + 'building Ext bundle at: ' + output.replace(process.cwd(), ''))
+    }
+    else {
+      vars.rebuild = false
+    }
+    vars.lastNumFiles = currentNumFiles
   }
-  else {
-    vars.rebuild = false
+  catch(e) {
+    require('./pluginUtil').logv(options,e)
+    compilation.errors.push('_prepareForBuild: ' + e)
   }
-  vars.lastNumFiles = currentNumFiles
 }
