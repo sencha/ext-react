@@ -58,7 +58,7 @@ export function _compilation(compiler, compilation, vars, options) {
         if (module.resource && module.resource.match(/\.(j|t)sx?$/) && !module.resource.match(/node_modules/) && !module.resource.match(`/ext-{$options.framework}/dist/`) && !module.resource.match(`/ext-${options.framework}-${options.toolkit}/`)) {
           vars.deps = [ 
             ...(vars.deps || []), 
-            ...require(`./${vars.framework}Util`).extractFromSource(module, vars, options, compilation) 
+            ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation) 
           ]
         }
       })
@@ -414,7 +414,8 @@ export function _getVersions(app, pluginName, frameworkName) {
   var extPkg = (fs.existsSync(extPath+'/package.json') && JSON.parse(fs.readFileSync(extPath+'/package.json', 'utf-8')) || {});
   v.extVersion = extPkg.sencha.version
 
-  var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/${pluginName}/node_modules/@sencha/cmd`)
+  //var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/${pluginName}/node_modules/@sencha/cmd`)
+  var cmdPath = path.resolve(process.cwd(),`node_modules/@sencha/cmd`)
   var cmdPkg = (fs.existsSync(cmdPath+'/package.json') && JSON.parse(fs.readFileSync(cmdPath+'/package.json', 'utf-8')) || {});
   v.cmdVersion = cmdPkg.version_full
 

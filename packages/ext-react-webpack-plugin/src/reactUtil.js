@@ -52,11 +52,11 @@ function toXtype(str) {
   return str.toLowerCase().replace(/_/g, '-')
 }
 
-export function extractFromSource(module, vars, options, compilation) {
+export function extractFromSource(module, options, compilation) {
   try {
     var js = module._source._value
     const logv = require('./pluginUtil').logv
-    logv(options,'FUNCTION extractFromSource: ' + vars.framework)
+    logv(options,'FUNCTION extractFromSource')
     var generate = require("@babel/generator").default
     var parse = require("babylon").parse
     var traverse = require("ast-traverse")
@@ -138,7 +138,7 @@ export function extractFromSource(module, vars, options, compilation) {
     return statements
   }
   catch(e) {
-    require('./pluginUtil').logv(options,e)
+    console.log(e)
     compilation.errors.push('extractFromSource: ' + e)
     return []
   }
