@@ -8,6 +8,7 @@ export function getValidateOptions() {
       "port":        {"type": [ "integer" ]},
       "emit":        {"type": [ "boolean" ]},
       "browser":     {"type": [ "boolean" ]},
+      "watch":       {"type": [ "string" ]},
       "profile":     {"type": [ "string" ]},
       "environment": {"type": [ "string" ]},
       "verbose":     {"type": [ "string" ]}
@@ -24,6 +25,7 @@ export function getDefaultOptions() {
     port: 1962,
     emit: true,
     browser: true,
+    watch: 'yes',
     profile: 'desktop', 
     environment: 'development', 
     verbose: 'no'
