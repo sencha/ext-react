@@ -111,15 +111,18 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
     catch(err) {if(err.errno === 34){console.log('Path does not exist');} else {throw err;}}
     var currentNumFiles = watchedFiles.length
     logv(options,'watchedFiles: ' + currentNumFiles)
-    var doBuild = false
-    for (var file in watchedFiles) {
-      if (vars.lastMilliseconds < fs.statSync(watchedFiles[file]).mtimeMs) {
-        if (watchedFiles[file].indexOf("scss") != -1) {doBuild=true;break;}
-      }
-    }
-    if (vars.lastMilliseconds < fs.statSync('./app.json').mtimeMs) {
-      doBuild=true
-    }
+    var doBuild = true
+
+    // var doBuild = false
+    // for (var file in watchedFiles) {
+    //   if (vars.lastMilliseconds < fs.statSync(watchedFiles[file]).mtimeMs) {
+    //     if (watchedFiles[file].indexOf("scss") != -1) {doBuild=true;break;}
+    //   }
+    // }
+    // if (vars.lastMilliseconds < fs.statSync('./app.json').mtimeMs) {
+    //   doBuild=true
+    // }
+    
     logv(options,'doBuild: ' + doBuild)
 
     vars.lastMilliseconds = (new Date).getTime()
