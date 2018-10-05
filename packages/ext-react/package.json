@@ -30,7 +30,7 @@
   "peerDependencies": {
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "react-reconciler": "^0.13.0"
+    "react-reconciler": "^0.15.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
