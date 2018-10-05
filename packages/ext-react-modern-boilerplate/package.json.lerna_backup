@@ -1,25 +1,31 @@
 {
-  "name": "@sencha/ext-react-conference-app",
+  "name": "@sencha/ext-react-modern-boilerplate",
+  "product": "ext-react",
   "version": "6.6.2",
-  "description": "A full example app using ExtReact and Redux.",
+  "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
     "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.watch=false"
+    "build": "npm run clean && cross-env webpack --env.environment=production",
+    "prod2": "cd build && static-server --port 8080",
+    "test": "jest",
+    "update-snapshots": "jest -u",
+    "pretest": "webpack --progress",
+    "preupdate-snapshots": "webpack --progress"
   },
   "extbuild": {
     "defaultprofile": "",
     "defaultenvironment": "development",
     "defaultverbose": "no"
   },
+  "author": "Sencha, Inc.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sencha/ext-react.git"
   },
-  "author": "Sencha, Inc.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sencha/ext-react/issues"
@@ -29,25 +35,16 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "@sencha/ext": "~6.6.0",
-    "@sencha/ext-calendar": "~6.6.0",
-    "@sencha/ext-d3": "~6.6.0",
     "@sencha/ext-modern": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-modern-treegrid": "~6.6.0",
+    "@sencha/ext-modern-theme-material": "~6.6.0",
     "@sencha/ext-react": "~6.6.2",
-    "@sencha/ext-react-renderercell": "~6.6.2",
     "@sencha/ext-react-transition": "~6.6.2",
-    "d3": "^5.4.0",
-    "history": "^4.7.2",
+    "@sencha/ext-react-renderercell": "~6.6.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-router-redux": "^5.0.0-alpha.6",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "topojson-client": "^3.0.0"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -66,16 +63,31 @@
     "@sencha/ext-react-babel-plugin": "~6.6.2",
     "@sencha/ext-react-webpack-plugin": "~6.6.2",
     "babel-loader": "^8.0.2",
-    "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "portfinder": "^1.0.17",
     "react-hot-loader": "^4.3.11",
     "rimraf": "^2.6.2",
     "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8",
-    "webpack-shell-plugin": "^0.5.0",
-    "static-server": "~2.2.1"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+      "./node_modules/@sencha/ext-react/jest/setup.js",
+      "./build/ext-react/ext.js"
+    ],
+    "unmockedModulePathPatterns": [
+      "react",
+      "react-dom",
+      "react-addons-test-utils",
+      "enzyme"
+    ]
   }
 }
