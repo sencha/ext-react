@@ -123,7 +123,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
     logv(options,'framework: ' + framework)
     if (options.emit == true) {
       if (framework != 'extjs') {
-        _prepareForBuild(app, vars, options, outputPath)
+        _prepareForBuild(app, vars, options, outputPath, compilation)
       }
       else {
         require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
@@ -131,10 +131,10 @@ export async function emit(compiler, compilation, vars, options, callback) {
       if (vars.rebuild == true) {
         var parms = []
         if (options.profile == undefined || options.profile == '' || options.profile == null) {
-          parms = ['app', 'build', options.environment]
+          parms = ['app', 'watch', options.environment]
         }
         else {
-          parms = ['app', 'build', options.profile, options.environment]
+          parms = ['app', 'watch', options.profile, options.environment]
         }
         await _buildExtBundle(app, compilation, outputPath, parms, options)
 
@@ -184,7 +184,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
 }
 
 //**********
-export function _prepareForBuild(app, vars, options, output) {
+export function _prepareForBuild(app, vars, options, output, compilation) {
   try {
     logv(options,'FUNCTION _prepareForBuild')
     const rimraf = require('rimraf')
@@ -226,19 +226,19 @@ export function _prepareForBuild(app, vars, options, output) {
         log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
       }
 
-      if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/packages/'))) {
-        var fromPackages = path.join(process.cwd(),vars.extPath + '/packages/')
-        var toPackages = path.join(output, 'packages/')
-        fsx.copySync(fromPackages, toPackages)
-        log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
-      }
+      // if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/packages/'))) {
+      //   var fromPackages = path.join(process.cwd(),vars.extPath + '/packages/')
+      //   var toPackages = path.join(output, 'packages/')
+      //   fsx.copySync(fromPackages, toPackages)
+      //   log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
+      // }
 
-      if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/overrides/'))) {
-        var fromOverrides = path.join(process.cwd(),vars.extPath + '/overrides/')
-        var toOverrides = path.join(output, 'overrides/')
-        fsx.copySync(fromOverrides, toOverrides)
-        log(app + 'Copying ' + fromOverrides.replace(process.cwd(), '') + ' to: ' + toOverrides.replace(process.cwd(), ''))
-      }
+      // if (fs.existsSync(path.join(process.cwd(),vars.extPath + '/overrides/'))) {
+      //   var fromOverrides = path.join(process.cwd(),vars.extPath + '/overrides/')
+      //   var toOverrides = path.join(output, 'overrides/')
+      //   fsx.copySync(fromOverrides, toOverrides)
+      //   log(app + 'Copying ' + fromOverrides.replace(process.cwd(), '') + ' to: ' + toOverrides.replace(process.cwd(), ''))
+      //}
     }
     vars.firstTime = false
     var js = ''
@@ -264,7 +264,6 @@ export function _prepareForBuild(app, vars, options, output) {
   catch(e) {
     require('./pluginUtil').logv(options,e)
     compilation.errors.push('_prepareForBuild: ' + e)
-    callback()
   }
 }
 
@@ -331,7 +330,7 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
       child.stdout.on('data', (data) => {
         var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
         logv(options, `${str}`)
-        if (data && data.toString().match(/Waiting for changes\.\.\./)) {
+        if (data && data.toString().match(/waiting for changes\.\.\./)) {
           resolve(0)
         }
         else {
