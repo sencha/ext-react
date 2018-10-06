@@ -26,6 +26,7 @@ module.exports = function (env) {
         toolkit: 'modern',
         port: port,
         profile: buildprofile, 
+        watch: watchprofile,
         environment: buildenvironment,
         verbose: buildverbose,
         theme: 'theme-kitchensink',
