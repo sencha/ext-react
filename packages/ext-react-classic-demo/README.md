@@ -1,6 +1,6 @@
-# ExtReact Classic Boilerplate
+# ExtReact Classic Demo
 
-A foundation for React apps that use the Ext JS modern toolkit.
+A demo for React apps that use the Ext JS classic toolkit.
 
 ## Requirements
 
@@ -8,12 +8,10 @@ A foundation for React apps that use the Ext JS modern toolkit.
 
 ## Quick Start
 
-If you haven't already, download Ext JS 6.6+.
-
-Then, run the following to clone and build the project:
+Run the following to clone and build the project:
 
     git clone https://github.com/sencha/ext-react.git
-    cd ext-react/packages/ext-react-classic-boilerplate
+    cd ext-react/packages/ext-react-classic-demo
     npm install
 
 Then run:
