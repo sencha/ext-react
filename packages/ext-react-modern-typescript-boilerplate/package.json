@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-modern-typescript-boilerplate",
   "product": "ext-react",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "A foundation for React apps built with ExtReact modern toolkit components and TypeScript.",
   "main": "index.js",
   "scripts": {

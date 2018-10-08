@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-conference-app",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "A full example app using ExtReact and Redux.",
   "main": "index.js",
   "scripts": {

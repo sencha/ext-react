@@ -174,7 +174,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
     else {
       log(`${vars.app}FUNCTION emit not run`)
       if(options.browser == true) {
-        if (vars.browserCount == 0 && compilation.errors.length == 0) {
+        if (vars.browserCount == 0 && options.watch == 'yes') {
           var url = 'http://localhost:' + options.port
           log(app + `Opening browser at ${url}`)
           vars.browserCount++

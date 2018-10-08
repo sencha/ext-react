@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-classic-renderwhenready-no-plugin",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "A Demo",
   "main": "index.js",
   "scripts": {

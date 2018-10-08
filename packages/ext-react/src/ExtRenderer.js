@@ -118,7 +118,6 @@ const ExtRenderer = Reconciler({
 
   finalizeInitialChildren(ExtJSComponent, type, props) {
     l(`ExtRenderer: finalizeInitialChildren`)
-    //console.log(ExtJSComponent.extJSClass)
     //console.log('setting collection configs and creating EXT component here')
     const xtype = type.toLowerCase().replace(/_/g, '-')
     if (ExtJSComponent.extJSClass != null) {
@@ -187,10 +186,13 @@ const ExtRenderer = Reconciler({
     }
     else {
       //SK : HTML Rendering - STEP 2  : Create component and render HTML in its DOM
-      var cmp = Ext.create({xtype:'component', cls: 'x-react-element'})
+      var cmp = Ext.create({xtype:'container', cls: 'x-react-element'})
       if (Ext.isClassic) {
-        console.log(type)
-        ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+       // ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+
+        //console.log(type)
+        //ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+        //console.log(ExtJSComponent)
       }
       else {
         ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
@@ -270,7 +272,16 @@ const ExtRenderer = Reconciler({
       //this section replaces all of doAdd!!!
       var parentCmp = parentInstance
       var childCmp = childInstance.cmp
+
+ 
+
+
+
       if (parentCmp.ExtReactRoot != true) {
+        //console.log('not root')
+        //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
+
+
         console.log('appendChildToContainer ERROR ExtReactRoot is the only one to be in do Add')
         throw error
       }
@@ -282,6 +293,42 @@ const ExtRenderer = Reconciler({
           l("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child")
         }
       }
+
+//       if (parentInstance.mjgInstance) {
+//         console.log('yes!')
+//         console.log(parentInstance.mjgInstance)
+//         console.log(childCmp.el)
+//         console.log(childCmp.$createdByExtReact)
+
+//         var cmp = Ext.create({xtype:'container', cls: 'x-react-element2', html: 'gg'})
+//         console.log(parentCmp)
+//         //parentCmp.add(childCmp)
+//         console.log('1')
+// //console.log(cmp.el.dom)
+
+//         //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
+
+
+//         // if (Ext.isClassic) {
+//         //   console.log(type)
+//         //   ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+//         //   console.log(ExtJSComponent)
+//         // }
+//         // else {
+//         //   ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+//         // }
+
+
+
+
+//         console.log(childCmp)
+//         //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
+
+//         //ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+//       }
+
+
+
     }
     else {
       l('appendChildToContainer (null) parentInstance', parentInstance)
@@ -289,14 +336,14 @@ const ExtRenderer = Reconciler({
     }
 
 //mjg
-    if (Ext.isClassic) {
-      if(childInstance.createElement) {
-        console.log(childInstance)
-        console.log(childInstance.createElement)
-        console.log(childInstance.cmp.getEl().dom)
-        ReactDOM.render(childInstance.createElement,childInstance.cmp.getEl().dom)
-      }
-    }
+    // if (Ext.isClassic) {
+    //   if(childInstance.createElement) {
+    //     console.log(childInstance)
+    //     console.log(childInstance.createElement)
+    //     console.log(childInstance.cmp.getEl().dom)
+    //     ReactDOM.render(childInstance.createElement,childInstance.cmp.getEl().dom)
+    //   }
+    // }
   },
 
   removeChildFromContainer(parentInstance, child) {
@@ -311,7 +358,12 @@ const ExtRenderer = Reconciler({
   },
 
   commitMount(instance, type, newProps) {
-    l(`commitMount**********`)
+    l(`commitMount********** (instance, type, newProps)`,instance, type, newProps)
+    const xtype = type.toLowerCase().replace(/_/g, '-')
+    var extJSClass = Ext.ClassManager.getByAlias(`widget.${xtype}`);
+    if (!extJSClass) {
+      instance._applyProps(null, newProps, instance, type);
+    }
   },
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {

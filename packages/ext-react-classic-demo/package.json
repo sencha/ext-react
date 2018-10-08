@@ -1,15 +1,19 @@
 {
-  "name": "@sencha/ext-react-demo",
+  "name": "@sencha/ext-react-classic-demo",
   "product": "ext-react",
-  "version": "6.6.2",
-  "description": "A Demo",
+  "version": "6.6.3",
+  "description": "ext-react-classic-demo",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
-    "prod": "webpack-dev-server --env.verbose=yes --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.watch=false"
+    "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
+    "build": "npm run clean && cross-env webpack --env.environment=production",
+    "test": "jest",
+    "update-snapshots": "jest -u",
+    "pretest": "webpack --progress",
+    "preupdate-snapshots": "webpack --progress"
   },
   "extbuild": {
     "defaultprofile": "",
@@ -17,34 +21,24 @@
     "defaultverbose": "no"
   },
   "author": "Sencha, Inc.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sencha/ext-react.git"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sencha/ext-react/issues"
-  },
-  "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "@sencha/ext": "~6.6.0",
-    "@sencha/ext-modern": "~6.6.0",
-    "@sencha/ext-modern-treegrid": "~6.6.0",
+    "@sencha/ext-classic": "~6.6.0",
     "@sencha/ext-react": "~6.6.2",
-    "@sencha/ext-charts": "~6.6.0",
-    "@sencha/ext-d3": "~6.6.0",
+    "@sencha/ext-react-transition": "~6.6.2",
     "@sencha/ext-react-renderercell": "~6.6.2",
-    "@sencha/ext-ux": "~6.6.0",
-    "@sencha/ext-modern-theme-material": "~6.6.0",
-    "d3": "4.5.0",
+    "@sencha/ext-classic-theme-triton": "~6.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -63,13 +57,15 @@
     "@sencha/ext-react-babel-plugin": "~6.6.2",
     "@sencha/ext-react-webpack-plugin": "~6.6.2",
     "babel-loader": "^8.0.2",
+    "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "portfinder": "^1.0.17",
-    "react-hot-loader": "^4.3.8",
+    "react-hot-loader": "^4.3.11",
     "rimraf": "^2.6.2",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }

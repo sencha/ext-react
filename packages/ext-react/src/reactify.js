@@ -10,8 +10,8 @@ export function configure(ExtReactSettings) {
 
 function getTheHtmlClass(htmltype) {
   // //clean up xtype stuff (have a method instead of a property) - ExtReactSettings does it correctly
-  // var extJSClass = Ext.ClassManager.getByAlias(`widget.${xtype}`);
-  // if (!extJSClass) throw new Error(`No Ext JS component with xtype "${xtype}" found.  Perhaps you're missing a package?`);
+//  var extJSClass = Ext.ClassManager.getByAlias(`widget.container`);
+//  if (!extJSClass) throw new Error(`No Ext JS component with xtype "${xtype}" found.  Perhaps you're missing a package?`);
   //what is target used for?? or, does it have 1 meaning here and another in ExtJSComponent.js?
   return class extends htmlComponent {
 //     //static get source() {return 'ExtJS'}

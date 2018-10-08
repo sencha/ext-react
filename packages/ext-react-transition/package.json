@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-transition",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "ext-react-transition",
   "main": "index.js",
   "author": "Sencha, Inc.",
@@ -12,7 +12,7 @@
   },
   "sencha": {
     "name": "transition",
-    "version": "6.6.2",
+    "version": "6.6.3",
     "compatVersion": "6.6.0",
     "namespace": "Ext",
     "type": "code",
