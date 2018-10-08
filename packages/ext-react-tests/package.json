@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-tests",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "Sencha Test suite for the ExtReact library.",
   "main": "index.js",
   "private": true,

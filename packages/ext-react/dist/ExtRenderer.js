@@ -112,8 +112,7 @@ var ExtRenderer = Reconciler({
     }
   },
   finalizeInitialChildren: function finalizeInitialChildren(ExtJSComponent, type, props) {
-    l("ExtRenderer: finalizeInitialChildren"); //console.log(ExtJSComponent.extJSClass)
-    //console.log('setting collection configs and creating EXT component here')
+    l("ExtRenderer: finalizeInitialChildren"); //console.log('setting collection configs and creating EXT component here')
 
     var xtype = type.toLowerCase().replace(/_/g, '-');
 
@@ -197,13 +196,14 @@ var ExtRenderer = Reconciler({
     } else {
       //SK : HTML Rendering - STEP 2  : Create component and render HTML in its DOM
       var cmp = Ext.create({
-        xtype: 'component',
+        xtype: 'container',
         cls: 'x-react-element'
       });
 
-      if (Ext.isClassic) {
-        console.log(type);
-        ExtJSComponent.createElement = React.createElement(type, props, props.children);
+      if (Ext.isClassic) {// ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+        //console.log(type)
+        //ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+        //console.log(ExtJSComponent)
       } else {
         ReactDOM.render(React.createElement(type, props, props.children), cmp.el.dom);
       }
@@ -270,6 +270,8 @@ var ExtRenderer = Reconciler({
       var childCmp = childInstance.cmp;
 
       if (parentCmp.ExtReactRoot != true) {
+        //console.log('not root')
+        //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
         console.log('appendChildToContainer ERROR ExtReactRoot is the only one to be in do Add');
         throw error;
       } else {
@@ -280,21 +282,43 @@ var ExtRenderer = Reconciler({
         } else {
           l("appendChildToContainer This is ExtReactRoot but with string/non ExtJS child");
         }
-      }
+      } //       if (parentInstance.mjgInstance) {
+      //         console.log('yes!')
+      //         console.log(parentInstance.mjgInstance)
+      //         console.log(childCmp.el)
+      //         console.log(childCmp.$createdByExtReact)
+      //         var cmp = Ext.create({xtype:'container', cls: 'x-react-element2', html: 'gg'})
+      //         console.log(parentCmp)
+      //         //parentCmp.add(childCmp)
+      //         console.log('1')
+      // //console.log(cmp.el.dom)
+      //         //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
+      //         // if (Ext.isClassic) {
+      //         //   console.log(type)
+      //         //   ExtJSComponent.createElement =  React.createElement(type, props, props.children)
+      //         //   console.log(ExtJSComponent)
+      //         // }
+      //         // else {
+      //         //   ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+      //         // }
+      //         console.log(childCmp)
+      //         //ReactDOM.render(parentInstance.mjgInstance.createElement,childCmp.el.dom)
+      //         //ReactDOM.render(React.createElement(type, props, props.children),cmp.el.dom)
+      //       }
+
     } else {
       l('appendChildToContainer (null) parentInstance', parentInstance);
       l('appendChildToContainer (null) childInstance', childInstance);
     } //mjg
+    // if (Ext.isClassic) {
+    //   if(childInstance.createElement) {
+    //     console.log(childInstance)
+    //     console.log(childInstance.createElement)
+    //     console.log(childInstance.cmp.getEl().dom)
+    //     ReactDOM.render(childInstance.createElement,childInstance.cmp.getEl().dom)
+    //   }
+    // }
 
-
-    if (Ext.isClassic) {
-      if (childInstance.createElement) {
-        console.log(childInstance);
-        console.log(childInstance.createElement);
-        console.log(childInstance.cmp.getEl().dom);
-        ReactDOM.render(childInstance.createElement, childInstance.cmp.getEl().dom);
-      }
-    }
   },
   removeChildFromContainer: function removeChildFromContainer(parentInstance, child) {
     l("removeChildFromContainer (parentInstance, child)", parentInstance, child);
@@ -308,7 +332,13 @@ var ExtRenderer = Reconciler({
     }
   },
   commitMount: function commitMount(instance, type, newProps) {
-    l("commitMount**********");
+    l("commitMount********** (instance, type, newProps)", instance, type, newProps);
+    var xtype = type.toLowerCase().replace(/_/g, '-');
+    var extJSClass = Ext.ClassManager.getByAlias("widget." + xtype);
+
+    if (!extJSClass) {
+      instance._applyProps(null, newProps, instance, type);
+    }
   },
   commitUpdate: function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     l("commitUpdate " + type + " (instance, updatePayload, oldProps, newProps)", instance, updatePayload, oldProps, newProps);
