@@ -1,6 +1,12 @@
 {
-    "apps": [],
+    "apps": [
+        "packages/theme-conference-app/.sencha/temp/Themer"
+    ],
     "frameworks": {
+        "ext66": {
+            "path":"ext66",
+            "version":"6.6.0.258"
+        },
         "ext": "../node_modules/@sencha/ext"
     },
     "build": {
