@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-
 //import { Panel } from '@sencha/ext-classic'
 //import { ExtReact } from '@sencha/ext-react'
 import { reactify } from '@sencha/ext-react'
 const Panel = reactify('Panel')
 const ExtReact = reactify('ExtReact')
-
 
 import { renderWhenReady } from '@sencha/ext-react'
 
