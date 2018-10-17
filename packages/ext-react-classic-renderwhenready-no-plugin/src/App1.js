@@ -8,6 +8,18 @@ import { renderWhenReady } from '@sencha/ext-react'
 import data from './data';
 
 class App1 extends Component {
+
+  onButtonWidgetClick = (button) => {
+    Ext.create('Ext.window.Window', {
+      title: 'Hello ' + button.text,
+      height: 200,
+      width: 400,
+      modal: true,
+      padding: '20px',
+      html: 'Hello ' + button.text
+    }).show()
+  }
+
   store = Ext.create('Ext.data.Store', {data})
   render() {
     return (
@@ -18,6 +30,17 @@ class App1 extends Component {
         store={this.store}
         features= {[{ftype: 'summary',dock: 'bottom'}]}
         columns={[
+          {
+            text: 'Button',
+            width: 150,
+            xtype: 'widgetcolumn',
+            widget: {
+              textAlign: 'center',
+              bind: '{record.name}',
+              xtype: 'button',
+              handler: this.onButtonWidgetClick
+            }
+          },
           {text:'Name',dataIndex:'name',width:250,locked:true},
           {
             text: 'Stock Price',
@@ -27,7 +50,7 @@ class App1 extends Component {
               {text:'% Change',dataIndex:'priceChangePct',width:100}
             ]
           },
-          {text:'Email',dataIndex:'email',width:200}
+          {text:'Email',dataIndex:'email',width:200},
         ]}
       />
     )
