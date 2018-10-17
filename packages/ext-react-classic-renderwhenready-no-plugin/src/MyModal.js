@@ -8,15 +8,15 @@ class MyModal extends Component{
       <Modal
         onRequestClose={onRequestClose}
         effect={Effect.ScaleUp}>
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Sample Modal Dialog</h5>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Sample Modal Dialog</h5>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <p>What you input : {text}</p>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={ModalManager.close}>Close</button>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={ModalManager.close}>Close</button>
             </div>
           </div>
       </Modal>
