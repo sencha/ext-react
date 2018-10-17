@@ -26,6 +26,8 @@
 
     "@sencha/ext-react": "~6.6.2",
 
+    "react-dynamic-modal":"^1.1.1",
+
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",

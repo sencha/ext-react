@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ModalManager} from 'react-dynamic-modal'
 
 //import { Grid } from '@sencha/ext-classic'
 import { reactify } from '@sencha/ext-react'
@@ -6,18 +7,12 @@ const Grid = reactify('Grid')
 
 import { renderWhenReady } from '@sencha/ext-react'
 import data from './data';
+import MyModal from './MyModal'
 
 class App1 extends Component {
 
   onButtonWidgetClick = (button) => {
-    Ext.create('Ext.window.Window', {
-      title: 'Hello ' + button.text,
-      height: 200,
-      width: 400,
-      modal: true,
-      padding: '20px',
-      html: 'Hello ' + button.text
-    }).show()
+    ModalManager.open(<MyModal text={button.text} onRequestClose={() => true}/>);
   }
 
   store = Ext.create('Ext.data.Store', {data})
@@ -53,8 +48,22 @@ class App1 extends Component {
           {text:'Email',dataIndex:'email',width:200},
         ]}
       />
+
     )
  }
 }
 
 export default renderWhenReady(App1)
+
+
+
+
+
+    // Ext.create('Ext.window.Window', {
+    //   title: 'Hello ' + button.text,
+    //   height: 200,
+    //   width: 400,
+    //   modal: true,
+    //   padding: '20px',
+    //   html: 'Hello ' + button.text
+    // }).show()
