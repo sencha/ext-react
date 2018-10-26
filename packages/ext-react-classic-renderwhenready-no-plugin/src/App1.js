@@ -6,13 +6,13 @@ import { reactify } from '@sencha/ext-react'
 const Grid = reactify('Grid')
 
 import { renderWhenReady } from '@sencha/ext-react'
-import data from './data';
+import data from './data'
 import MyModal from './MyModal'
 
 class App1 extends Component {
 
   onButtonWidgetClick = (button) => {
-    ModalManager.open(<MyModal text={button.text} onRequestClose={() => true}/>);
+    ModalManager.open(<MyModal text={button.text} onRequestClose={() => true}/>)
   }
 
   store = Ext.create('Ext.data.Store', {data})
@@ -45,7 +45,7 @@ class App1 extends Component {
               {text:'% Change',dataIndex:'priceChangePct',width:100}
             ]
           },
-          {text:'Email',dataIndex:'email',width:200},
+          {text:'Email',dataIndex:'email',width:200}
         ]}
       />
 

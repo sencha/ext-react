@@ -1,8 +1,5 @@
 //**********
 export function _constructor(options) {
-  const path = require('path')
-  const fs = require('fs')
-
   var thisVars = {}
   var thisOptions = {}
   var plugin = {}
@@ -16,14 +13,6 @@ export function _constructor(options) {
 
   const validateOptions = require('schema-utils')
   validateOptions(require(`./${options.framework}Util`).getValidateOptions(), options, '')
-
-  //fix sencha cmd no jetty server problem
-  // var watchFile = path.resolve(process.cwd(),`node_modules/@sencha/cmd/dist/ant/build/app/watch-impl.xml`)
-  // logv(options, `modify ${watchFile}`)
-  // var data = fs.readFileSync(watchFile, 'utf-8');
-  // var ip = 'webServerRefId="app.web.server"';
-  // var newValue = data.replace(new RegExp(ip), '');
-  // fs.writeFileSync(watchFile, newValue, 'utf-8');
 
   thisVars = require(`./${options.framework}Util`).getDefaultVars()
   thisVars.framework = options.framework
@@ -40,24 +29,10 @@ export function _constructor(options) {
     default:
       thisVars.pluginName = 'ext-webpack-plugin'
   }
-
-  //fix fashion dist problem
-  const fsx = require('fs-extra')
-  var toFashionDist = path.resolve(process.cwd(),`node_modules/@sencha/cmd/dist/js/node_modules/fashion/dist`)
-  logv(options, `toFashionDist ${toFashionDist}`)
-  if (!fs.existsSync(toFashionDist)) {
-    logv(options, `copy`)
-    var fromFashionDist = path.join(process.cwd(), 'node_modules/@sencha/' + thisVars.pluginName + '/fashion/dist/')
-    fsx.copySync(fromFashionDist, toFashionDist)
-  }
-  else {
-    logv(options, `no copy`)
-  }
-
   thisVars.app = require('./pluginUtil')._getApp()
   logv(options, `pluginName - ${thisVars.pluginName}`)
   logv(options, `thisVars.app - ${thisVars.app}`)
-
+  const fs = require('fs')
   const rc = (fs.existsSync(`.ext-${thisVars.framework}rc`) && JSON.parse(fs.readFileSync(`.ext-${thisVars.framework}rc`, 'utf-8')) || {})
   thisOptions = { ...require(`./${thisVars.framework}Util`).getDefaultOptions(), ...options, ...rc }
   logv(options, `thisOptions - ${JSON.stringify(thisOptions)}`)
@@ -165,17 +140,12 @@ export async function emit(compiler, compilation, vars, options, callback) {
       if (vars.rebuild == true) {
         var parms = []
         if (options.profile == undefined || options.profile == '' || options.profile == null) {
-          parms = ['app', command, '--web-server', 'false', options.environment]
-
+          parms = ['app', command, options.environment]
         }
         else {
-          parms = ['app', command, '--web-server', 'false', options.profile, options.environment]
-
+          parms = ['app', command, options.profile, options.environment]
         }
-        if (vars.watchStarted == false) {
-          await _buildExtBundle(app, compilation, outputPath, parms, options)
-          vars.watchStarted = true
-        }
+        await _buildExtBundle(app, compilation, outputPath, parms, options)
 
         //const jsChunk = compilation.addChunk(`ext-angular-js`)
         //jsChunk.hasRuntime = jsChunk.isInitial = () => true;
@@ -282,13 +252,11 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       const manifest = path.join(output, 'manifest.js')
       fs.writeFileSync(manifest, js, 'utf8')
       vars.rebuild = true
-      var bundleDir = output.replace(process.cwd(), '')
-      if (bundleDir.trim() == '') {bundleDir = './'}
-      log(app + 'Building Ext bundle at: ' + bundleDir)
+      log(app + 'Building Ext bundle at: ' + output.replace(process.cwd(), ''))
     }
     else {
       vars.rebuild = false
-      log(app + 'Ext rebuild NOT needed')
+      log(app + 'ExtReact rebuild NOT needed')
     }
   }
   catch(e) {
@@ -336,7 +304,7 @@ export function _buildExtBundle(app, compilation, outputPath, parms, options) {
 export async function executeAsync (app, command, parms, opts, compilation, options) {
   try {
     //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
-    const DEFAULT_SUBSTRS = ["[INF] xServer", '[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
+    const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
     var substrings = DEFAULT_SUBSTRS 
     var chalk = require('chalk')
     const crossSpawn = require('cross-spawn')
@@ -434,18 +402,6 @@ export function _getVersions(app, pluginName, frameworkName) {
   var pluginPath = path.resolve(process.cwd(),'node_modules/@sencha', pluginName)
   var pluginPkg = (fs.existsSync(pluginPath+'/package.json') && JSON.parse(fs.readFileSync(pluginPath+'/package.json', 'utf-8')) || {});
   v.pluginVersion = pluginPkg.version
-  v._resolved = pluginPkg._resolved
-  if (v._resolved == undefined) {
-    v.edition = `Commercial`
-  }
-  else {
-    if (-1 == v._resolved.indexOf('community')) {
-      v.edition = `Commercial`
-    }
-    else {
-      v.edition = `Community`
-    }
-  }
 
   var webpackPath = path.resolve(process.cwd(),'node_modules/webpack')
   var webpackPkg = (fs.existsSync(webpackPath+'/package.json') && JSON.parse(fs.readFileSync(webpackPath+'/package.json', 'utf-8')) || {});
@@ -478,5 +434,6 @@ export function _getVersions(app, pluginName, frameworkName) {
     v.frameworkVersion = frameworkPkg.version
     frameworkInfo = ', ' + frameworkName + ' v' + v.frameworkVersion
   }
-  return app + 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ' ' + v.edition + ' Edition, Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo
- }
+
+  return app + 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ', Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo
+}

@@ -34,7 +34,6 @@ export function getDefaultOptions() {
 
 export function getDefaultVars() {
   return {
-    watchStarted : false,
     firstTime : true,
     browserCount : 0,
     cwd: process.cwd(),
@@ -141,9 +140,7 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
 
     if (currentNumFiles != vars.lastNumFiles || doBuild) {
       vars.rebuild = true
-      var bundleDir = output.replace(process.cwd(), '')
-      if (bundleDir.trim() == '') {bundleDir = './'}
-      log(app + 'Building Ext bundle at: ' + bundleDir)
+      log(app + 'building Ext bundle at: ' + output.replace(process.cwd(), ''))
     }
     else {
       vars.rebuild = false

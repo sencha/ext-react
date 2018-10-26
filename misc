@@ -1,3 +1,7 @@
+rm ~/.npmrc
+npm login --registry=https://npm.sencha.com/ --scope=@sencha
+
+
 git remote add upstream https://github.com/sencha/ext-react.git
 git remote -v
 
