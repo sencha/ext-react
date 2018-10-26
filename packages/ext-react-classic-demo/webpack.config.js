@@ -19,7 +19,9 @@ module.exports = function (env) {
         template: 'index.html',
         hash: true
       }), 
-
+      // new webpack.DefinePlugin({
+      //   __API__: JSON.stringify('http://example.com/api')
+      // }),
       new ExtWebpackPlugin({
         framework: 'react',
         toolkit: 'classic',

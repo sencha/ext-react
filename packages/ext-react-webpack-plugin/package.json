@@ -10,7 +10,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "switchit":"^1.0.8",
+    "switchit": "^1.0.8",
     "@babel/generator": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@sencha/cmd": "~6.6.0",
@@ -20,7 +20,7 @@
     "schema-utils": "^1.0.0",
     "chalk": "^2.4.1",
     "cjson": "^0.5.0",
-    "fs-extra":"^7.0.0",
+    "fs-extra": "^7.0.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "opn": "^5.3.0",

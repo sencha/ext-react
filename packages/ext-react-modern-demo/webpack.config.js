@@ -20,6 +20,9 @@ module.exports = function (env) {
         template: 'index.html',
         hash: true
       }), 
+      new webpack.DefinePlugin({
+        MESSAGE: JSON.stringify('Message from Define Plugin')
+      }),
       new ExtWebpackPlugin({
         framework: 'react',
         port: port,

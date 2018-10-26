@@ -36,8 +36,8 @@
     "@sencha/ext-react-renderercell": "~6.6.2",
     "@sencha/ext-classic-theme-triton": "~6.6.0",
     "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {

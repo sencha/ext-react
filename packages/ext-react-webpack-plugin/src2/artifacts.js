@@ -187,7 +187,7 @@ export function createWorkspaceJson(options) {
     },
     "packages": {
       "dir": [
-        "${workspace.dir}/../../ext-" + options.framework + "/packages",
+        "${workspace.dir}/../../ext-react/packages",
         "${workspace.dir}/../../node_modules/@sencha"
       ],
       "extract": "${workspace.dir}/packages/remote"

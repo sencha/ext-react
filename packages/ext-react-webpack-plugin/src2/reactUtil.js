@@ -39,7 +39,6 @@ export function getDefaultOptions() {
 
 export function getDefaultVars() {
   return {
-    watchStarted : false,
     firstTime : true,
     firstCompile: true,
     browserCount : 0,

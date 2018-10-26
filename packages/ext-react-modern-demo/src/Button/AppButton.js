@@ -25,7 +25,9 @@ export default class AppButton extends Component {
   }
 
   sayHello = () => {
-    this.setState({ message: 'Hello world!' });
+    this.setState({ message: MESSAGE });
+    //this.setState({ message: 'Hello world!' });
+
   }
 
   sayGoodbye = () => {
