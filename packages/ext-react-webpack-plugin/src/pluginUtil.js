@@ -165,13 +165,23 @@ export async function emit(compiler, compilation, vars, options, callback) {
       if (vars.rebuild == true) {
         var parms = []
         if (options.profile == undefined || options.profile == '' || options.profile == null) {
-          parms = ['app', command, '--web-server', 'false', options.environment]
+          if (command == 'build') {
+            parms = ['app', command, options.environment]
+          }
+          else {
+            parms = ['app', command, '--web-server', 'false', options.environment]
+          }
 
         }
         else {
-          parms = ['app', command, '--web-server', 'false', options.profile, options.environment]
-
+          if (command == 'build') {
+            parms = ['app', command, options.profile, options.environment]
+          }
+          else {
+            parms = ['app', command, '--web-server', 'false', options.profile, options.environment]
+          }
         }
+        
         if (vars.watchStarted == false) {
           await _buildExtBundle(app, compilation, outputPath, parms, options)
           vars.watchStarted = true
