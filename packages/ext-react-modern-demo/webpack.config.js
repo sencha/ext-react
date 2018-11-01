@@ -6,6 +6,7 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
+  var browserprofile = JSON.parse(env.browser) || true
   var watchprofile = env.watch || 'yes'
   var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
@@ -17,7 +18,7 @@ module.exports = function (env) {
   return portfinder.getPortPromise().then(port => {
     const plugins = [
       new HtmlWebpackPlugin({
-        template: 'index.html',
+        template: './index.html',
         hash: true
       }), 
       new webpack.DefinePlugin({
@@ -27,7 +28,7 @@ module.exports = function (env) {
         framework: 'react',
         port: port,
         emit: true,
-        browser: true,
+        browser: browserprofile,
         watch: watchprofile,
         profile: buildprofile, 
         environment: buildenvironment, 
