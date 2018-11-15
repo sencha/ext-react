@@ -1,4 +1,4 @@
-export const buildXML = function(compress, options) {
+export const buildXML = function(compress, options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION buildXML')
 
@@ -120,19 +120,23 @@ export const buildXML = function(compress, options) {
 `.trim()
 }
 
-export function createAppJson( theme, packages, toolkit, options ) {
+export function createAppJson( theme, packages, toolkit, options, output ) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createAppJson')
 
   const fs = require('fs')
-  //const path = require('path')
-  //const cjson = require('cjson')
-
 
   // overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
   // packages: {
   //   dir: packageDirs.map(dir => path.resolve(dir))
   // },
+
+  var pathDifference = output.substring(process.cwd().length)
+  var numberOfPaths = (pathDifference.split("/").length - 1)
+  var nodeModulePath = ''
+  for (var i = 0; i < numberOfPaths; i++) { 
+    nodeModulePath += "../"
+  }
 
   const config = {
     framework: "ext",
@@ -144,7 +148,7 @@ export function createAppJson( theme, packages, toolkit, options ) {
     ],
     "packages": {
       "dir": [
-        "../../node_modules/@sencha",
+        nodeModulePath + "node_modules/@sencha",
         "packages"
       ]
     },
@@ -168,27 +172,32 @@ export function createAppJson( theme, packages, toolkit, options ) {
   return JSON.stringify(config, null, 2)
 }
 
-export function createJSDOMEnvironment(options) {
+export function createJSDOMEnvironment(options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createJSDOMEnvironment')
 
   return 'window.Ext = Ext;'
 }
 
-export function createWorkspaceJson(options) {
+export function createWorkspaceJson(options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createWorkspaceJson')
 
-  //"dir": ['${workspace.dir}/packages/local','${workspace.dir}/packages'].concat(packages).join(','),
+  var pathDifference = output.substring(process.cwd().length)
+  var numberOfPaths = (pathDifference.split("/").length - 1)
+  var nodeModulePath = ''
+  for (var i = 0; i < numberOfPaths; i++) { 
+    nodeModulePath += "../"
+  }
 
   const config = {
     "frameworks": {
-      "ext": "../../node_modules/@sencha/ext"
+      "ext": nodeModulePath + "node_modules/@sencha/ext"
     },
     "packages": {
       "dir": [
-        "${workspace.dir}/../../ext-" + options.framework + "/packages",
-        "${workspace.dir}/../../node_modules/@sencha"
+        "${workspace.dir}" + nodeModulePath + "ext-" + options.framework + "/packages",
+        "${workspace.dir}" + nodeModulePath + "node_modules/@sencha"
       ],
       "extract": "${workspace.dir}/packages/remote"
     }

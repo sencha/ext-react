@@ -181,7 +181,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
             parms = ['app', command, '--web-server', 'false', options.profile, options.environment]
           }
         }
-        
+
         if (vars.watchStarted == false) {
           await _buildExtBundle(app, compilation, outputPath, parms, options)
           vars.watchStarted = true
