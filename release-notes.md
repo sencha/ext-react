@@ -3,6 +3,7 @@
 ## v6.6.3
 
 * Support for React 16.6.0
+* Support for common plugin across ExtJS, ExtReact and ExtAngular
 
 ## v6.6.2
 
