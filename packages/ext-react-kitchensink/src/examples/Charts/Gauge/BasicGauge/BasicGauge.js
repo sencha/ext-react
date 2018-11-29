@@ -33,7 +33,7 @@ export default class BasicGaugeChartExample extends Component {
                     innerPadding={20}
                     store={this.store}
                     flex={1}
-                    animate={{
+                    animation={{
                         easing: 'elasticIn',
                         duration: 1000
                     }}
@@ -50,7 +50,7 @@ export default class BasicGaugeChartExample extends Component {
                     innerPadding={20}
                     store={this.store}
                     flex={1}
-                    animate={{
+                    animation={{
                         easing: 'elasticIn',
                         duration: 1000
                     }}
