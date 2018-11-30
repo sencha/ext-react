@@ -41,7 +41,7 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.6",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.1.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-proposal-numeric-separator": "^7.0.0",
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
@@ -62,7 +62,7 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-shell-plugin": "^0.5.0",
-    "@types/react": "^16.7.8",
+    "@types/react": "^16.7.9",
     "@types/react-dom": "^16.0.11",
     "awesome-typescript-loader": "^5.2.1",
     "typescript": "^3.2.1"
