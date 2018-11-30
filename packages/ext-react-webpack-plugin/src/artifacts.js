@@ -22,6 +22,9 @@ export const buildXML = function(compress, options, output) {
     <taskdef  resource="com/sencha/ant/antlib.xml"
               classpath="\${cmd.dir}/sencha.jar"
               loaderref="senchaloader"/>
+    <x-extend-classpath>
+        <jar path="\${cmd.dir}/sencha.jar"/>
+    </x-extend-classpath>
     <x-sencha-init prefix=""/>
     <x-compile refid="theCompiler"
                       dir="\${basedir}"
