@@ -1,0 +1,3 @@
+/**
+ * @class Ext.util.SizeMonitor
+ */
