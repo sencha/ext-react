@@ -6,6 +6,7 @@ import XMLGrid from './Grid/XMLGrid/XMLGrid';
 import BigDataGrid from './Grid/AdvancedFeatures/BigData/BigData';
 import ReconfigureGrid from './Grid/AdvancedFeatures/ReconfigureGrid/ReconfigureGrid';
 import SummaryRowGrid from './Grid/AddonsDecorations/SummaryRow/SummaryRow';
+import GridFiltering from './Grid/AddonsDecorations/GridFiltering/GridFiltering';
 import ViewOptionsGrid from './Grid/AddonsDecorations/ViewOptions/ViewOptions';
 import RowExpanderGrid from './Grid/AddonsDecorations/RowExpander/RowExpander';
 import ToolGrid from './Grid/AddonsDecorations/GridTools/GridTools';
@@ -368,6 +369,7 @@ const root = {
                 { text: 'Row Expander', component: RowExpanderGrid, navIcon: 'icon-row-expander-grid'},
                 { text: 'Row Body', component: RowBodyGrid, navIcon: 'icon-row-body-grid'},
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
+                { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
                 { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
