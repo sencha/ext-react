@@ -444,24 +444,40 @@ function isAssignableFrom(subClass, parentClass) {
 function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (parentCmp, childCmp, childPropsChildern)`, parentCmp, childCmp, childPropsChildren)
 
-  if(parentCmp.xtype == 'grid') {
-    if (childXtype == 'column' || 
-    childXtype == 'treecolumn' || 
-    childXtype == 'textcolumn' || 
-    childXtype == 'checkcolumn' || 
-    childXtype == 'datecolumn' || 
-    childXtype == 'rownumberer' ||
-    childXtype == 'numbercolumn' ) {
-    parentCmp.addColumn(childCmp);
+  var parentXtype = parentCmp.xtype
+
+
+  if(parentXtype == 'grid') {
+    // if (childXtype == 'column' || 
+    // childXtype == 'treecolumn' || 
+    // childXtype == 'textcolumn' || 
+    // childXtype == 'checkcolumn' || 
+    // childXtype == 'datecolumn' || 
+    // childXtype == 'rownumberer' ||
+    // childXtype == 'numbercolumn' ) {
+    if (childxtype === 'column' || childxtype === 'treecolumn' || childxtype === 'textcolumn' || childxtype === 'checkcolumn' || childxtype === 'datecolumn' || childxtype === 'rownumberer' || childxtype === 'numbercolumn') {
+      parentCmp.addColumn(childCmp);
+    }
+    else if ((childxtype === 'toolbar' || childxtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
+      if (parentCmp.getHideHeaders() === false) {
+        //var j = parentCmp.items.items.length;
+        parentCmp.insert(1, childCmp);
+      }
+      else {
+        parentCmp.add(childCmp);
+      }
+    }
+    else {
+      console.log('??')
     }
   }
-  else if (parentCmp.xtype == 'tooltip') {
+  else if (parentXtype == 'tooltip') {
     parentCmp.setTooltip(childCmp)
   }
-  else if (parentCmp.xtype == 'plugin') {
+  else if (parentXtype == 'plugin') {
     parentCmp.setPlugin(childCmp)
   }
-  else if (parentCmp.xtype == 'button') {
+  else if (parentXtype == 'button') {
     if (childXtype == 'menu') {
 //      l(`doAdd button/menu`)
       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, button/menu setMenu`)
@@ -502,7 +518,9 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 
   }
 
- 
+}
+
+
 //we return if we handle html children correctly
 //return
 
@@ -591,4 +609,4 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //     }
 
 //   }
-}
+

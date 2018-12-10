@@ -1,5 +1,10 @@
 # Release Notes
 
+## v6.6.4
+
+* Support for React 16.6.3
+* Support for Lerna  3.6.0
+
 ## v6.6.3
 
 * Support for React 16.6.0
