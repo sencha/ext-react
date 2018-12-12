@@ -3,7 +3,7 @@ import { Grid, Column } from '@sencha/ext-modern';
 import model from '../../CompanyModel';
 
 Ext.require([
-    'Ext.grid.filters.Plugin',
+    'Ext.grid.filters.*',
     'Ext.grid.plugin.SummaryRow',
     'Ext.data.summary.Average',
     'Ext.data.summary.Max',
@@ -28,7 +28,8 @@ export default class RowBodyGridExample extends Component {
           store={this.store}
           shadow
           plugins={{
-              gridsummaryrow: true
+              gridsummaryrow: true,
+              gridfilters: true
           }}
       >
         <Column 
