@@ -78,6 +78,7 @@ import UndoableStepSwiper from './Lists/UndoableStepSwiper/UndoableStepSwiper';
 // Form Fields
 
 import ComboBoxField from './FormFields/ComboBoxField/ComboBoxField';
+import MultiSelectComboBoxField from './FormFields/MultiSelectComboBoxField/MultiSelectComboBoxField';
 import TextField from './FormFields/TextField/TextField';
 import FieldSet from './FormFields/FieldSet/FieldSet';
 import EmailField from './FormFields/EmailField/EmailField';
@@ -275,6 +276,7 @@ const root = {
             { text: 'Forms', navIcon: 'icon-forms', children: [
                 { text: 'CheckBoxField', component: CheckBoxField, layout: 'center', navIcon: 'icon-Forms-CheckBoxField'  },
                 { text: 'ComboBoxField', component: ComboBoxField, layout: 'center', navIcon: 'icon-Forms-ComboBoxField'  },
+                { text: 'MultiSelect ComboBoxField', component: MultiSelectComboBoxField, layout: 'center', navIcon: 'icon-Forms-ComboBoxField'  },
                 { text: 'ContainerField', component: ContainerField, layout: Ext.os.is.Phone ? 'auto' : 'center', navIcon: 'icon-Forms-ContainerField'  },
                 { text: 'DatePickerField', component: DatePickerField, layout: 'center', navIcon: 'icon-Forms-DatePickerField'  },
                 { text: 'EmailField', component: EmailField , layout: 'center', navIcon: 'icon-Forms-EmailField' },
