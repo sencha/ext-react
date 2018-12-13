@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
-import model from '../../CompanyModel';
+import { LockedGrid, Column } from '@sencha/ext-modern';
+import model from '../CompanyModel';
 
 Ext.require([
-    'Ext.grid.filters.*',
-    'Ext.grid.plugin.SummaryRow',
     'Ext.data.summary.Average',
     'Ext.data.summary.Max',
 ]);
 
-export default class GridFilteringExample extends Component {
+export default class LockingGridExample extends Component {
 
   store = Ext.create('Ext.data.Store', {
     model,
@@ -23,20 +21,17 @@ export default class GridFilteringExample extends Component {
 
   render() {
     return (
-      <Grid
-          title="Grid Filters"
+      <LockedGrid
+          title="Locking Grid"
           store={this.store}
           shadow
-          plugins={{
-              gridsummaryrow: true,
-              gridfilters: true
-          }}
       >
         <Column 
           text="Company" 
           dataIndex="name" 
           width="150"
           summaryRenderer={this.summarizeCompanies}
+          locked
         />
         <Column 
           text="Price" 
@@ -44,13 +39,31 @@ export default class GridFilteringExample extends Component {
           dataIndex="price" 
           formatter="usMoney" 
           summary="average"
+          locked
         />
+        <Column
+          locked="left"
+          cell={{
+            tools: {
+                approve: {
+                    iconCls: 'x-fa fa-check green',
+                    handler: this.onApprove
+                },
+                decline: {
+                    iconCls: 'x-fa fa-ban red',
+                    handler: this.onDecline,
+                    weight: 1
+                }
+            }
+        }}
+        /> 
         <Column 
           text="Change" 
           width="90" 
           dataIndex="priceChange" 
           renderer={this.renderSign.bind(this, '0.00')}
-          summary="max" 
+          summary="max"
+          locked="right"
         />
         <Column 
           text="% Change" 
@@ -66,10 +79,17 @@ export default class GridFilteringExample extends Component {
           formatter="date('m/d/Y')" 
           summary="max"
         />
-      </Grid>
+      </LockedGrid>
     )
   }
   
+  onApprove = (grid, info) => {
+    Ext.Msg.alert('Approve', info.record.get('name'));
+  }
+
+  onDecline = (grid, info) => {
+    Ext.Msg.alert('Decline', info.record.get('name'));
+  }
 
   renderSign = (format, value) => (
       <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
