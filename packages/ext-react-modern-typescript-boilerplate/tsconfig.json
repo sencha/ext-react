@@ -19,6 +19,9 @@
       "es6",
       "es7",
       "dom"
+    ],
+    "types": [
+      "node"
     ]
   },
   "include": [
