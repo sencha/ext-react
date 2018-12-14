@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Column, Grid } from '@sencha/ext-modern';
 import model from '../../CompanyModel';
 
 Ext.require([
-    'Ext.grid.filters.*',
-    'Ext.grid.plugin.SummaryRow',
-    'Ext.data.summary.Average',
-    'Ext.data.summary.Max',
+    'Ext.grid.filters.*'
 ]);
 
 export default class GridFilteringExample extends Component {
@@ -17,65 +14,99 @@ export default class GridFilteringExample extends Component {
     pageSize: 0,
     proxy: {
       type: 'ajax',
-      url: 'resources/data/CompanyData.json'
+      url: '/KitchenSink/BigData'
     } 
   });
+
+  nameSorter = (rec1, rec2) => {
+    // Sort prioritizing surname over forename as would be expected.
+    var rec1Name = rec1.get('surname') + rec1.get('forename'),
+        rec2Name = rec2.get('surname') + rec2.get('forename');
+
+    if (rec1Name > rec2Name) {
+        return 1;
+    }
+
+    if (rec1Name < rec2Name) {
+        return -1;
+    }
+
+    return 0;
+  }
 
   render() {
     return (
       <Grid
-          title="Grid Filters"
-          store={this.store}
-          shadow
-          plugins={{
-              gridsummaryrow: true,
-              gridfilters: true
-          }}
+        plugins={{
+            gridfilters: true
+        }}
+        rowNumbers
+        shadow
+        store={this.store}
+        title='Grid Filters'
       >
         <Column 
-          text="Company" 
-          dataIndex="name" 
-          width="150"
-          summaryRenderer={this.summarizeCompanies}
+          dataIndex='employeeNo'
+          filter='number'
+          flex={1}
+          minWidth={100}
+          text='Id'
         />
         <Column 
-          text="Price" 
-          width="75" 
-          dataIndex="price" 
-          formatter="usMoney" 
-          summary="average"
+          dataIndex='fullName'
+          filter='string'
+          minWidth={150}
+          sorter={{
+              sorterFn: this.nameSorter
+          }}
+          text='Name'
         />
-        <Column 
-          text="Change" 
-          width="90" 
-          dataIndex="priceChange" 
-          renderer={this.renderSign.bind(this, '0.00')}
-          summary="max" 
+        <Column
+          dataIndex='dob'
+          editable
+          format='d-m-Y'
+          text='Date of Birth'
+          width={115}
+          xtype='datecolumn'
         />
-        <Column 
-          text="% Change" 
-          width="100"
-          dataIndex="priceChangePct" 
-          renderer={this.renderSign.bind(this, '0.00')}
-          summary="average" 
+        <Column
+          dataIndex='noticePeriod'
+          editable
+          filter='string'
+          text='Notice Period'
         />
-        <Column 
-          text="Last Updated" 
-          width="125" 
-          dataIndex="priceLastChange" 
-          formatter="date('m/d/Y')" 
-          summary="max"
+        <Column
+          align='center'
+          dataIndex='holidayDays'
+          format='0'
+          text='Holidays'
+          xtype='numbercolumn'
+        />
+        <Column
+          align='center'
+          dataIndex='verified'
+          text='Visible'
+          width={150}
+          xtype='booleancolumn'
+        />
+        <Column
+          align='right'
+          dataIndex='salary'
+          editable
+          formatter='usMoney'
+          text='Salary'
+          width={150}
+        />
+        <Column
+          dataIndex='email'
+          editable
+          editor={{
+              xtype: 'emailfield'
+          }}
+          text='Email'
+          width={250}
         />
       </Grid>
     )
   }
-  
-
-  renderSign = (format, value) => (
-      <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-          {Ext.util.Format.number(value, format)}
-      </span>
-  )
-
-  summarizeCompanies = (grid, context) => context.records.length + ' Companies';
 }

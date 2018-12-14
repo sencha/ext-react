@@ -1,10 +1,11 @@
 function process (data) {
-    for (var i = 0; i < data.length; ++i) {
-        var d = data[i];
+    return data.map((d) => {
         d.ratingLastYear = Math.max(Math.round(d.rating[0] / 2), 1);
         d.ratingThisYear = Math.max(Math.round(d.rating[d.rating.length - 1] / 2), 1);
-    }
-    return data;
+        d.fullName = d.forename + " " + d.surname;
+
+        return d;
+    });
 }
 
 Ext.ux.ajax.SimManager.register({
@@ -12,11 +13,11 @@ Ext.ux.ajax.SimManager.register({
         type: 'json',
         data: process([{
             employeeNo: "455476",
-            rating: [9,1,2,2,0,3,7,7,7,0],
+            rating: [9, 1, 2, 2, 0, 3, 7, 7, 7, 0],
             salary: 100,
-            forename: "Abe",
-            surname: "Maintz",
-            email: "abe.maintz@sentcha.com",
+            forename: "Don",
+            surname: "Griffin",
+            email: "don.griffin@sentcha.com",
             department: "Sales",
             dob: "19680309",
             joinDate: "20080612",
@@ -24,26 +25,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "140115",
-            rating: [
-                0,
-                4,
-                5,
-                6,
-                7,
-                6,
-                4,
-                5,
-                7,
-                2
-            ],
+            rating: [0, 4, 5, 6, 7, 6, 4, 5, 7, 2],
             salary: 400,
-            forename: "David",
-            surname: "Elias",
-            email: "david.elias@sentcha.com",
+            forename: "Mark",
+            surname: "Guerrant",
+            email: "mark.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19840318",
             joinDate: "20071112",
@@ -51,26 +41,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "647265",
-            rating: [
-                6,
-                10,
-                1,
-                8,
-                8,
-                2,
-                10,
-                7,
-                7,
-                2
-            ],
+            rating: [6, 10, 1, 8, 8, 2, 10, 7, 7, 2],
             salary: 400,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "Sales",
             dob: "19880806",
             joinDate: "20121108",
@@ -78,26 +57,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "700103",
-            rating: [
-                8,
-                8,
-                5,
-                8,
-                10,
-                4,
-                2,
-                6,
-                10,
-                10
-            ],
+            rating: [8, 8, 5, 8, 10, 4, 2, 6, 10, 10],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Support",
             dob: "19890316",
             joinDate: "20080815",
@@ -105,26 +73,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 21,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "031710",
-            rating: [
-                7,
-                3,
-                1,
-                10,
-                5,
-                9,
-                5,
-                10,
-                10,
-                8
-            ],
+            rating: [7, 3, 1, 10, 5, 9, 5, 10, 10, 8],
             salary: 1500,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Sales",
             dob: "19700407",
             joinDate: "20120626",
@@ -132,26 +89,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "201300",
-            rating: [
-                0,
-                8,
-                0,
-                4,
-                4,
-                1,
-                3,
-                3,
-                5,
-                4
-            ],
+            rating: [0, 8, 0, 4, 4, 1, 3, 3, 5, 4],
             salary: 400,
-            forename: "Tommy",
-            surname: "Maintz",
-            email: "tommy.maintz@sentcha.com",
+            forename: "Phil",
+            surname: "Griffin",
+            email: "phil.griffin@sentcha.com",
             department: "Marketing",
             dob: "19770115",
             joinDate: "20071018",
@@ -159,26 +105,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "335141",
-            rating: [
-                8,
-                1,
-                8,
-                3,
-                7,
-                7,
-                5,
-                2,
-                2,
-                5
-            ],
+            rating: [8, 1, 8, 3, 7, 7, 5, 2, 2, 5],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Ferrero",
-            email: "nicolas.ferrero@sentcha.com",
+            forename: "Alex",
+            surname: "Tokarev",
+            email: "alex.tokarev@sentcha.com",
             department: "Administration",
             dob: "19830228",
             joinDate: "20120802",
@@ -186,26 +121,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "247614",
-            rating: [
-                10,
-                4,
-                10,
-                6,
-                4,
-                7,
-                10,
-                1,
-                4,
-                0
-            ],
+            rating: [10, 4, 10, 6, 4, 7, 10, 1, 4, 0],
             salary: 1500,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Support",
             dob: "19600425",
             joinDate: "20110219",
@@ -213,26 +137,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "662167",
-            rating: [
-                8,
-                6,
-                0,
-                7,
-                2,
-                0,
-                6,
-                10,
-                5,
-                1
-            ],
+            rating: [8, 6, 0, 7, 2, 0, 6, 10, 5, 1],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Ferrero",
-            email: "nicolas.ferrero@sentcha.com",
+            forename: "Alex",
+            surname: "Tokarev",
+            email: "alex.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19650424",
             joinDate: "20120910",
@@ -240,26 +153,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "721372",
-            rating: [
-                9,
-                6,
-                10,
-                2,
-                8,
-                3,
-                0,
-                10,
-                7,
-                9
-            ],
+            rating: [9, 6, 10, 2, 8, 3, 0, 10, 7, 9],
             salary: 1500,
-            forename: "Abe",
-            surname: "Maintz",
-            email: "abe.maintz@sentcha.com",
+            forename: "Don",
+            surname: "Griffin",
+            email: "don.griffin@sentcha.com",
             department: "QA",
             dob: "19800517",
             joinDate: "20091028",
@@ -267,26 +169,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "052727",
-            rating: [
-                9,
-                7,
-                3,
-                4,
-                0,
-                0,
-                1,
-                9,
-                6,
-                6
-            ],
+            rating: [9, 7, 3, 4, 0, 0, 1, 9, 6, 6],
             salary: 900,
-            forename: "Tommy",
-            surname: "Ferrero",
-            email: "tommy.ferrero@sentcha.com",
+            forename: "Phil",
+            surname: "Tokarev",
+            email: "phil.tokarev@sentcha.com",
             department: "Engineering",
             dob: "19811112",
             joinDate: "20100508",
@@ -294,26 +185,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "766305",
-            rating: [
-                1,
-                4,
-                0,
-                3,
-                6,
-                9,
-                10,
-                0,
-                8,
-                6
-            ],
+            rating: [1, 4, 0, 3, 6, 9, 10, 0, 8, 6],
             salary: 900,
-            forename: "Abe",
-            surname: "Kaneda",
-            email: "abe.kaneda@sentcha.com",
+            forename: "Don",
+            surname: "Krohe",
+            email: "don.krohe@sentcha.com",
             department: "Managment",
             dob: "19900325",
             joinDate: "20090816",
@@ -321,26 +201,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "632255",
-            rating: [
-                1,
-                8,
-                2,
-                10,
-                7,
-                7,
-                10,
-                10,
-                9,
-                2
-            ],
+            rating: [1, 8, 2, 10, 7, 7, 10, 10, 9, 2],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Sales",
             dob: "19880629",
             joinDate: "20090927",
@@ -348,26 +217,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "466044",
-            rating: [
-                9,
-                6,
-                4,
-                7,
-                10,
-                10,
-                0,
-                2,
-                3,
-                7
-            ],
+            rating: [9, 6, 4, 7, 10, 10, 0, 2, 3, 7],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19850203",
             joinDate: "20090312",
@@ -375,26 +233,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "637555",
-            rating: [
-                4,
-                3,
-                5,
-                5,
-                8,
-                5,
-                9,
-                3,
-                8,
-                1
-            ],
+            rating: [4, 3, 5, 5, 8, 5, 9, 3, 8, 1],
             salary: 100,
-            forename: "David",
+            forename: "Mark",
             surname: "White",
-            email: "david.white@sentcha.com",
+            email: "mark.white@sentcha.com",
             department: "Support",
             dob: "19670126",
             joinDate: "20121021",
@@ -402,26 +249,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "220170",
-            rating: [
-                4,
-                3,
-                9,
-                10,
-                3,
-                5,
-                5,
-                9,
-                7,
-                3
-            ],
+            rating: [4, 3, 9, 10, 3, 5, 5, 9, 7, 3],
             salary: 1000000,
-            forename: "Adam",
+            forename: "Nige",
             surname: "White",
-            email: "adam.white@sentcha.com",
+            email: "nige.white@sentcha.com",
             department: "Engineering",
             dob: "19630831",
             joinDate: "20100424",
@@ -429,26 +265,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 24,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "032470",
-            rating: [
-                8,
-                6,
-                3,
-                10,
-                10,
-                10,
-                3,
-                0,
-                2,
-                9
-            ],
+            rating: [8, 6, 3, 10, 10, 10, 3, 0, 2, 9],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Robinson",
-            email: "dave.robinson@sentcha.com",
+            forename: "Kevin",
+            surname: "Kravchenko",
+            email: "kevin.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19600420",
             joinDate: "20100929",
@@ -456,26 +281,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "663655",
-            rating: [
-                9,
-                1,
-                0,
-                9,
-                6,
-                5,
-                6,
-                4,
-                3,
-                3
-            ],
+            rating: [9, 1, 0, 9, 6, 5, 6, 4, 3, 3],
             salary: 900,
-            forename: "Jamie",
-            surname: "Spencer",
-            email: "jamie.spencer@sentcha.com",
+            forename: "Ross",
+            surname: "Teodorescu",
+            email: "ross.teodorescu@sentcha.com",
             department: "Marketing",
             dob: "19750303",
             joinDate: "20110724",
@@ -483,26 +297,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "327550",
-            rating: [
-                7,
-                4,
-                3,
-                7,
-                7,
-                2,
-                7,
-                5,
-                8,
-                1
-            ],
+            rating: [7, 4, 3, 7, 7, 2, 7, 5, 8, 1],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Conran",
-            email: "aaron.conran@sentcha.com",
+            forename: "Evan",
+            surname: "Trimboli",
+            email: "evan.trimboli@sentcha.com",
             department: "Support",
             dob: "19760820",
             joinDate: "20121011",
@@ -510,26 +313,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "207676",
-            rating: [
-                9,
-                0,
-                6,
-                0,
-                6,
-                7,
-                5,
-                3,
-                10,
-                10
-            ],
+            rating: [9, 0, 6, 0, 6, 7, 5, 3, 10, 10],
             salary: 1500,
-            forename: "Adam",
-            surname: "Kaneda",
-            email: "adam.kaneda@sentcha.com",
+            forename: "Nige",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Marketing",
             dob: "19730625",
             joinDate: "20080810",
@@ -537,26 +329,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "137555",
-            rating: [
-                8,
-                4,
-                6,
-                7,
-                0,
-                4,
-                7,
-                4,
-                3,
-                3
-            ],
+            rating: [8, 4, 6, 7, 0, 4, 7, 4, 3, 3],
             salary: 900,
             forename: "Nige",
-            surname: "Mishcon",
-            email: "nige.mishcon@sentcha.com",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Accounting",
             dob: "19680120",
             joinDate: "20120421",
@@ -564,26 +345,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "171633",
-            rating: [
-                5,
-                9,
-                7,
-                0,
-                1,
-                0,
-                9,
-                7,
-                4,
-                4
-            ],
+            rating: [5, 9, 7, 0, 1, 0, 9, 7, 4, 4],
             salary: 400,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Administration",
             dob: "19580721",
             joinDate: "20120202",
@@ -591,26 +361,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "322626",
-            rating: [
-                8,
-                1,
-                4,
-                9,
-                4,
-                7,
-                8,
-                3,
-                9,
-                5
-            ],
+            rating: [8, 1, 4, 9, 4, 7, 8, 3, 9, 5],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Engineering",
             dob: "19861108",
             joinDate: "20090320",
@@ -618,26 +377,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "770013",
-            rating: [
-                7,
-                2,
-                2,
-                8,
-                9,
-                10,
-                1,
-                4,
-                6,
-                8
-            ],
+            rating: [7, 2, 2, 8, 9, 10, 1, 4, 6, 8],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19880709",
             joinDate: "20100806",
@@ -645,26 +393,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "343400",
-            rating: [
-                1,
-                1,
-                3,
-                4,
-                0,
-                8,
-                3,
-                2,
-                5,
-                10
-            ],
+            rating: [1, 1, 3, 4, 0, 8, 3, 2, 5, 10],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Elias",
-            email: "jamie.elias@sentcha.com",
+            forename: "Ross",
+            surname: "Guerrant",
+            email: "ross.guerrant@sentcha.com",
             department: "Administration",
             dob: "19660131",
             joinDate: "20080729",
@@ -672,26 +409,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "152604",
-            rating: [
-                7,
-                3,
-                9,
-                1,
-                4,
-                1,
-                9,
-                8,
-                2,
-                5
-            ],
+            rating: [7, 3, 9, 1, 4, 1, 9, 8, 2, 5],
             salary: 900,
             forename: "Nige",
-            surname: "Ferrero",
-            email: "nige.ferrero@sentcha.com",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Sales",
             dob: "19760816",
             joinDate: "20110927",
@@ -699,26 +425,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "121274",
-            rating: [
-                1,
-                3,
-                4,
-                5,
-                1,
-                6,
-                6,
-                4,
-                7,
-                10
-            ],
+            rating: [1, 3, 4, 5, 1, 6, 6, 4, 7, 10],
             salary: 400,
-            forename: "David",
-            surname: "Conran",
-            email: "david.conran@sentcha.com",
+            forename: "Mark",
+            surname: "Trimboli",
+            email: "mark.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19611123",
             joinDate: "20100304",
@@ -726,26 +441,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "217706",
-            rating: [
-                4,
-                8,
-                2,
-                6,
-                6,
-                4,
-                0,
-                10,
-                4,
-                1
-            ],
+            rating: [4, 8, 2, 6, 6, 4, 0, 10, 4, 1],
             salary: 1500,
-            forename: "David",
-            surname: "Robinson",
-            email: "david.robinson@sentcha.com",
+            forename: "Mark",
+            surname: "Kravchenko",
+            email: "mark.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19770526",
             joinDate: "20090509",
@@ -753,26 +457,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "476050",
-            rating: [
-                1,
-                4,
-                6,
-                10,
-                5,
-                10,
-                0,
-                3,
-                8,
-                0
-            ],
+            rating: [1, 4, 6, 10, 5, 10, 0, 3, 8, 0],
             salary: 900,
-            forename: "Jay",
-            surname: "Conran",
-            email: "jay.conran@sentcha.com",
+            forename: "Vitaly",
+            surname: "Trimboli",
+            email: "vitaly.trimboli@sentcha.com",
             department: "Sales",
             dob: "19720504",
             joinDate: "20101005",
@@ -780,26 +473,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "707021",
-            rating: [
-                5,
-                0,
-                1,
-                2,
-                5,
-                0,
-                8,
-                0,
-                3,
-                6
-            ],
+            rating: [5, 0, 1, 2, 5, 0, 8, 0, 3, 6],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Marketing",
             dob: "19820815",
             joinDate: "20100430",
@@ -807,26 +489,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "775236",
-            rating: [
-                8,
-                8,
-                3,
-                9,
-                0,
-                9,
-                7,
-                4,
-                1,
-                2
-            ],
+            rating: [8, 8, 3, 9, 0, 9, 7, 4, 1, 2],
             salary: 400,
-            forename: "Tommy",
-            surname: "Ferrero",
-            email: "tommy.ferrero@sentcha.com",
+            forename: "Phil",
+            surname: "Tokarev",
+            email: "phil.tokarev@sentcha.com",
             department: "QA",
             dob: "19600824",
             joinDate: "20080929",
@@ -834,26 +505,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "522322",
-            rating: [
-                8,
-                3,
-                4,
-                3,
-                6,
-                3,
-                0,
-                8,
-                3,
-                6
-            ],
+            rating: [8, 3, 4, 3, 6, 3, 0, 8, 3, 6],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Spencer",
-            email: "aaron.spencer@sentcha.com",
+            forename: "Evan",
+            surname: "Teodorescu",
+            email: "evan.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19610122",
             joinDate: "20120731",
@@ -861,26 +521,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "067376",
-            rating: [
-                8,
-                4,
-                7,
-                10,
-                10,
-                8,
-                5,
-                8,
-                9,
-                7
-            ],
+            rating: [8, 4, 7, 10, 10, 8, 5, 8, 9, 7],
             salary: 900,
-            forename: "Jay",
-            surname: "Ferrero",
-            email: "jay.ferrero@sentcha.com",
+            forename: "Vitaly",
+            surname: "Tokarev",
+            email: "vitaly.tokarev@sentcha.com",
             department: "Engineering",
             dob: "19801214",
             joinDate: "20120215",
@@ -888,26 +537,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "572562",
-            rating: [
-                8,
-                6,
-                0,
-                1,
-                4,
-                8,
-                9,
-                10,
-                1,
-                2
-            ],
+            rating: [8, 6, 0, 1, 4, 8, 9, 10, 1, 2],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Spencer",
-            email: "nicolas.spencer@sentcha.com",
+            forename: "Alex",
+            surname: "Teodorescu",
+            email: "alex.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19780330",
             joinDate: "20081118",
@@ -915,26 +553,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "773461",
-            rating: [
-                2,
-                1,
-                2,
-                3,
-                1,
-                1,
-                2,
-                1,
-                0,
-                10
-            ],
+            rating: [2, 1, 2, 3, 1, 1, 2, 1, 0, 10],
             salary: 900,
-            forename: "Abe",
-            surname: "Robinson",
-            email: "abe.robinson@sentcha.com",
+            forename: "Don",
+            surname: "Kravchenko",
+            email: "don.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19800522",
             joinDate: "20100801",
@@ -942,26 +569,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "442314",
-            rating: [
-                9,
-                9,
-                4,
-                10,
-                8,
-                1,
-                8,
-                0,
-                7,
-                7
-            ],
+            rating: [9, 9, 4, 10, 8, 1, 8, 0, 7, 7],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Davis",
-            email: "aaron.davis@sentcha.com",
+            forename: "Evan",
+            surname: "Brocato",
+            email: "evan.brocato@sentcha.com",
             department: "QA",
             dob: "19700501",
             joinDate: "20120212",
@@ -969,26 +585,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "432773",
-            rating: [
-                3,
-                8,
-                1,
-                6,
-                4,
-                9,
-                6,
-                7,
-                0,
-                1
-            ],
+            rating: [3, 8, 1, 6, 4, 9, 6, 7, 0, 1],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Mishcon",
-            email: "tommy.mishcon@sentcha.com",
+            forename: "Phil",
+            surname: "White",
+            email: "phil.white@sentcha.com",
             department: "Managment",
             dob: "19820701",
             joinDate: "20120915",
@@ -996,26 +601,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "201416",
-            rating: [
-                3,
-                10,
-                8,
-                5,
-                6,
-                8,
-                7,
-                7,
-                7,
-                7
-            ],
+            rating: [3, 10, 8, 5, 6, 8, 7, 7, 7, 7],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Elias",
-            email: "nicolas.elias@sentcha.com",
+            forename: "Alex",
+            surname: "Guerrant",
+            email: "alex.guerrant@sentcha.com",
             department: "Administration",
             dob: "19710917",
             joinDate: "20100615",
@@ -1023,26 +617,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "322300",
-            rating: [
-                0,
-                4,
-                7,
-                1,
-                10,
-                7,
-                0,
-                10,
-                5,
-                10
-            ],
+            rating: [0, 4, 7, 1, 10, 7, 0, 10, 5, 10],
             salary: 400,
-            forename: "Abe",
-            surname: "Spencer",
-            email: "abe.spencer@sentcha.com",
+            forename: "Don",
+            surname: "Teodorescu",
+            email: "don.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19840122",
             joinDate: "20090925",
@@ -1050,26 +633,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "237144",
-            rating: [
-                4,
-                10,
-                5,
-                2,
-                0,
-                0,
-                7,
-                8,
-                4,
-                5
-            ],
+            rating: [4, 10, 5, 2, 0, 0, 7, 8, 4, 5],
             salary: 900,
-            forename: "Dave",
+            forename: "Kevin",
             surname: "White",
-            email: "dave.white@sentcha.com",
+            email: "kevin.white@sentcha.com",
             department: "Support",
             dob: "19820814",
             joinDate: "20100423",
@@ -1077,26 +649,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "576347",
-            rating: [
-                4,
-                9,
-                8,
-                0,
-                5,
-                9,
-                5,
-                7,
-                10,
-                5
-            ],
+            rating: [4, 9, 8, 0, 5, 9, 5, 7, 10, 5],
             salary: 100,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "QA",
             dob: "19810117",
             joinDate: "20080104",
@@ -1104,26 +665,14 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 21,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "014607",
-            rating: [
-                10,
-                5,
-                0,
-                4,
-                8,
-                0,
-                3,
-                5,
-                4,
-                0
-            ],
+            rating: [10, 5, 0, 4, 8, 0, 3, 5, 4, 0],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
-            verified: true,
             email: "nige.white@sentcha.com",
             department: "Accounting",
             dob: "19580226",
@@ -1132,26 +681,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "361321",
-            rating: [
-                2,
-                3,
-                9,
-                0,
-                4,
-                4,
-                8,
-                2,
-                0,
-                9
-            ],
+            rating: [2, 3, 9, 0, 4, 4, 8, 2, 0, 9],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Davis",
-            email: "jamie.davis@sentcha.com",
+            forename: "Ross",
+            surname: "Brocato",
+            email: "ross.brocato@sentcha.com",
             department: "Accounting",
             dob: "19620104",
             joinDate: "20080706",
@@ -1159,26 +697,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "412312",
-            rating: [
-                1,
-                9,
-                2,
-                6,
-                10,
-                8,
-                10,
-                6,
-                5,
-                7
-            ],
+            rating: [1, 9, 2, 6, 10, 8, 10, 6, 5, 7],
             salary: 100,
             forename: "Nige",
-            surname: "Ferrero",
-            email: "nige.ferrero@sentcha.com",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "QA",
             dob: "19661016",
             joinDate: "20100912",
@@ -1186,26 +713,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 39,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "650414",
-            rating: [
-                4,
-                9,
-                7,
-                0,
-                9,
-                0,
-                2,
-                1,
-                2,
-                7
-            ],
+            rating: [4, 9, 7, 0, 9, 0, 2, 1, 2, 7],
             salary: 100,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19790520",
             joinDate: "20090419",
@@ -1213,26 +729,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "443136",
-            rating: [
-                1,
-                6,
-                6,
-                7,
-                10,
-                7,
-                6,
-                0,
-                9,
-                5
-            ],
+            rating: [1, 6, 6, 7, 10, 7, 6, 0, 9, 5],
             salary: 100,
-            forename: "David",
-            surname: "Mishcon",
-            email: "david.mishcon@sentcha.com",
+            forename: "Mark",
+            surname: "White",
+            email: "mark.white@sentcha.com",
             department: "QA",
             dob: "19880426",
             joinDate: "20080617",
@@ -1240,26 +745,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 36,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "564276",
-            rating: [
-                0,
-                5,
-                0,
-                9,
-                1,
-                7,
-                2,
-                3,
-                6,
-                6
-            ],
+            rating: [0, 5, 0, 9, 1, 7, 2, 3, 6, 6],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Robinson",
-            email: "aaron.robinson@sentcha.com",
+            forename: "Evan",
+            surname: "Kravchenko",
+            email: "evan.kravchenko@sentcha.com",
             department: "Sales",
             dob: "19651228",
             joinDate: "20110901",
@@ -1267,26 +761,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "670147",
-            rating: [
-                7,
-                0,
-                3,
-                7,
-                7,
-                5,
-                9,
-                4,
-                6,
-                6
-            ],
+            rating: [7, 0, 3, 7, 7, 5, 9, 4, 6, 6],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19620606",
             joinDate: "20090527",
@@ -1294,26 +777,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "424527",
-            rating: [
-                10,
-                10,
-                6,
-                8,
-                2,
-                7,
-                3,
-                9,
-                8,
-                2
-            ],
+            rating: [10, 10, 6, 8, 2, 7, 3, 9, 8, 2],
             salary: 1500,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "QA",
             dob: "19821203",
             joinDate: "20120708",
@@ -1321,26 +793,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "525730",
-            rating: [
-                3,
-                4,
-                4,
-                5,
-                5,
-                1,
-                0,
-                4,
-                2,
-                4
-            ],
+            rating: [3, 4, 4, 5, 5, 1, 0, 4, 2, 4],
             salary: 900,
-            forename: "Aaron",
+            forename: "Evan",
             surname: "White",
-            email: "aaron.white@sentcha.com",
+            email: "evan.white@sentcha.com",
             department: "Administration",
             dob: "19730303",
             joinDate: "20110714",
@@ -1348,26 +809,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "432467",
-            rating: [
-                10,
-                9,
-                8,
-                10,
-                0,
-                7,
-                6,
-                4,
-                8,
-                0
-            ],
+            rating: [10, 9, 8, 10, 0, 7, 6, 4, 8, 0],
             salary: 1500,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Accounting",
             dob: "19751016",
             joinDate: "20110822",
@@ -1375,26 +825,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "656526",
-            rating: [
-                0,
-                0,
-                1,
-                9,
-                8,
-                7,
-                9,
-                7,
-                10,
-                8
-            ],
+            rating: [0, 0, 1, 9, 8, 7, 9, 7, 10, 8],
             salary: 900,
-            forename: "Dave",
-            surname: "Mishcon",
-            email: "dave.mishcon@sentcha.com",
+            forename: "Kevin",
+            surname: "White",
+            email: "kevin.white@sentcha.com",
             department: "Administration",
             dob: "19870827",
             joinDate: "20100709",
@@ -1402,26 +841,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "460001",
-            rating: [
-                7,
-                9,
-                10,
-                1,
-                1,
-                4,
-                10,
-                5,
-                4,
-                7
-            ],
+            rating: [7, 9, 10, 1, 1, 4, 10, 5, 4, 7],
             salary: 1000000,
-            forename: "Abe",
+            forename: "Don",
             surname: "White",
-            email: "abe.white@sentcha.com",
+            email: "don.white@sentcha.com",
             department: "Managment",
             dob: "19900417",
             joinDate: "20120328",
@@ -1429,26 +857,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "503226",
-            rating: [
-                4,
-                9,
-                0,
-                1,
-                9,
-                5,
-                7,
-                6,
-                1,
-                9
-            ],
+            rating: [4, 9, 0, 1, 9, 5, 7, 6, 1, 9],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Spencer",
-            email: "tommy.spencer@sentcha.com",
+            forename: "Phil",
+            surname: "Teodorescu",
+            email: "phil.teodorescu@sentcha.com",
             department: "Engineering",
             dob: "19650529",
             joinDate: "20080601",
@@ -1456,26 +873,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "144031",
-            rating: [
-                2,
-                3,
-                0,
-                3,
-                2,
-                5,
-                6,
-                10,
-                5,
-                2
-            ],
+            rating: [2, 3, 0, 3, 2, 5, 6, 10, 5, 2],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Davis",
-            email: "nicolas.davis@sentcha.com",
+            forename: "Alex",
+            surname: "Brocato",
+            email: "alex.brocato@sentcha.com",
             department: "Accounting",
             dob: "19860821",
             joinDate: "20091212",
@@ -1483,26 +889,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "767525",
-            rating: [
-                7,
-                2,
-                8,
-                3,
-                10,
-                5,
-                6,
-                1,
-                0,
-                2
-            ],
+            rating: [7, 2, 8, 3, 10, 5, 6, 1, 0, 2],
             salary: 400,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Engineering",
             dob: "19761026",
             joinDate: "20080217",
@@ -1510,26 +905,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "473006",
-            rating: [
-                8,
-                8,
-                7,
-                3,
-                10,
-                10,
-                4,
-                10,
-                6,
-                5
-            ],
+            rating: [8, 8, 7, 3, 10, 10, 4, 10, 6, 5],
             salary: 400,
-            forename: "Aaron",
-            surname: "Conran",
-            email: "aaron.conran@sentcha.com",
+            forename: "Evan",
+            surname: "Trimboli",
+            email: "evan.trimboli@sentcha.com",
             department: "Support",
             dob: "19840413",
             joinDate: "20121215",
@@ -1537,26 +921,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "641444",
-            rating: [
-                6,
-                5,
-                9,
-                2,
-                3,
-                0,
-                5,
-                9,
-                2,
-                6
-            ],
+            rating: [6, 5, 9, 2, 3, 0, 5, 9, 2, 6],
             salary: 1500,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Managment",
             dob: "19630625",
             joinDate: "20071203",
@@ -1564,26 +937,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "054441",
-            rating: [
-                1,
-                10,
-                9,
-                0,
-                8,
-                6,
-                3,
-                3,
-                10,
-                3
-            ],
+            rating: [1, 10, 9, 0, 8, 6, 3, 3, 10, 3],
             salary: 400,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Administration",
             dob: "19760608",
             joinDate: "20121112",
@@ -1591,26 +953,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "076103",
-            rating: [
-                1,
-                5,
-                9,
-                5,
-                5,
-                3,
-                10,
-                8,
-                10,
-                0
-            ],
+            rating: [1, 5, 9, 5, 5, 3, 10, 8, 10, 0],
             salary: 100,
-            forename: "Aaron",
-            surname: "Davis",
-            email: "aaron.davis@sentcha.com",
+            forename: "Evan",
+            surname: "Brocato",
+            email: "evan.brocato@sentcha.com",
             department: "QA",
             dob: "19600810",
             joinDate: "20111105",
@@ -1618,22 +969,11 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "731316",
-            rating: [
-                1,
-                4,
-                10,
-                9,
-                8,
-                5,
-                0,
-                7,
-                1,
-                9
-            ],
+            rating: [1, 4, 10, 9, 8, 5, 0, 7, 1, 9],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
@@ -1645,26 +985,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "171415",
-            rating: [
-                5,
-                8,
-                1,
-                6,
-                4,
-                0,
-                3,
-                8,
-                7,
-                10
-            ],
+            rating: [5, 8, 1, 6, 4, 0, 3, 8, 7, 10],
             salary: 1500,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19700512",
             joinDate: "20091201",
@@ -1672,26 +1001,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "774543",
-            rating: [
-                7,
-                2,
-                10,
-                4,
-                4,
-                9,
-                1,
-                8,
-                7,
-                7
-            ],
+            rating: [7, 2, 10, 4, 4, 9, 1, 8, 7, 7],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Engineering",
             dob: "19590608",
             joinDate: "20090325",
@@ -1699,26 +1017,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "522571",
-            rating: [
-                7,
-                2,
-                5,
-                10,
-                10,
-                7,
-                0,
-                6,
-                2,
-                10
-            ],
+            rating: [7, 2, 5, 10, 10, 7, 0, 6, 2, 10],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Kaneda",
-            email: "aaron.kaneda@sentcha.com",
+            forename: "Evan",
+            surname: "Krohe",
+            email: "evan.krohe@sentcha.com",
             department: "Managment",
             dob: "19770309",
             joinDate: "20091113",
@@ -1726,26 +1033,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "437323",
-            rating: [
-                10,
-                8,
-                0,
-                8,
-                6,
-                7,
-                7,
-                7,
-                2,
-                5
-            ],
+            rating: [10, 8, 0, 8, 6, 7, 7, 7, 2, 5],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Kaneda",
-            email: "nicolas.kaneda@sentcha.com",
+            forename: "Alex",
+            surname: "Krohe",
+            email: "alex.krohe@sentcha.com",
             department: "Accounting",
             dob: "19680807",
             joinDate: "20090402",
@@ -1753,26 +1049,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "446021",
-            rating: [
-                4,
-                0,
-                7,
-                5,
-                4,
-                6,
-                10,
-                4,
-                2,
-                1
-            ],
+            rating: [4, 0, 7, 5, 4, 6, 10, 4, 2, 1],
             salary: 400,
-            forename: "Jay",
-            surname: "Avins",
-            email: "jay.avins@sentcha.com",
+            forename: "Vitaly",
+            surname: "Gerbasi",
+            email: "vitaly.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19720406",
             joinDate: "20120630",
@@ -1780,26 +1065,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 28,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "331770",
-            rating: [
-                8,
-                2,
-                6,
-                2,
-                6,
-                9,
-                2,
-                10,
-                10,
-                6
-            ],
+            rating: [8, 2, 6, 2, 6, 9, 2, 10, 10, 6],
             salary: 900,
-            forename: "Dave",
-            surname: "Spencer",
-            email: "dave.spencer@sentcha.com",
+            forename: "Kevin",
+            surname: "Teodorescu",
+            email: "kevin.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19710510",
             joinDate: "20080301",
@@ -1807,26 +1081,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "731265",
-            rating: [
-                2,
-                2,
-                1,
-                10,
-                1,
-                8,
-                6,
-                10,
-                3,
-                5
-            ],
+            rating: [2, 2, 1, 10, 1, 8, 6, 10, 3, 5],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Engineering",
             dob: "19641102",
             joinDate: "20110617",
@@ -1834,26 +1097,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 28,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "222335",
-            rating: [
-                9,
-                5,
-                5,
-                6,
-                0,
-                3,
-                4,
-                1,
-                5,
-                0
-            ],
+            rating: [9, 5, 5, 6, 0, 3, 4, 1, 5, 0],
             salary: 1500,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Sales",
             dob: "19861126",
             joinDate: "20120118",
@@ -1861,26 +1113,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "257410",
-            rating: [
-                5,
-                8,
-                10,
-                2,
-                0,
-                7,
-                3,
-                7,
-                8,
-                0
-            ],
+            rating: [5, 8, 10, 2, 0, 7, 3, 7, 8, 0],
             salary: 100,
-            forename: "David",
-            surname: "Avins",
-            email: "david.avins@sentcha.com",
+            forename: "Mark",
+            surname: "Gerbasi",
+            email: "mark.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19700127",
             joinDate: "20100222",
@@ -1888,26 +1129,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "324315",
-            rating: [
-                3,
-                6,
-                4,
-                4,
-                6,
-                5,
-                4,
-                10,
-                0,
-                9
-            ],
+            rating: [3, 6, 4, 4, 6, 5, 4, 10, 0, 9],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Conran",
-            email: "jay.conran@sentcha.com",
+            forename: "Vitaly",
+            surname: "Trimboli",
+            email: "vitaly.trimboli@sentcha.com",
             department: "Administration",
             dob: "19580603",
             joinDate: "20130115",
@@ -1915,26 +1145,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "157675",
-            rating: [
-                10,
-                9,
-                7,
-                6,
-                4,
-                7,
-                7,
-                1,
-                6,
-                7
-            ],
+            rating: [10, 9, 7, 6, 4, 7, 7, 1, 6, 7],
             salary: 100,
-            forename: "Tommy",
-            surname: "Mishcon",
-            email: "tommy.mishcon@sentcha.com",
+            forename: "Phil",
+            surname: "White",
+            email: "phil.white@sentcha.com",
             department: "Accounting",
             dob: "19720608",
             joinDate: "20120425",
@@ -1942,26 +1161,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "446403",
-            rating: [
-                3,
-                5,
-                5,
-                3,
-                5,
-                7,
-                4,
-                9,
-                0,
-                0
-            ],
+            rating: [3, 5, 5, 3, 5, 7, 4, 9, 0, 0],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "QA",
             dob: "19580205",
             joinDate: "20110426",
@@ -1969,26 +1177,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "261547",
-            rating: [
-                10,
-                9,
-                0,
-                8,
-                5,
-                2,
-                6,
-                10,
-                7,
-                1
-            ],
+            rating: [10, 9, 0, 8, 5, 2, 6, 10, 7, 1],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Ferrero",
-            email: "jamie.ferrero@sentcha.com",
+            forename: "Ross",
+            surname: "Tokarev",
+            email: "ross.tokarev@sentcha.com",
             department: "Administration",
             dob: "19770223",
             joinDate: "20101119",
@@ -1996,26 +1193,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "253551",
-            rating: [
-                8,
-                9,
-                1,
-                3,
-                6,
-                1,
-                4,
-                0,
-                8,
-                8
-            ],
+            rating: [8, 9, 1, 3, 6, 1, 4, 0, 8, 8],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Maintz",
-            email: "jay.maintz@sentcha.com",
+            forename: "Vitaly",
+            surname: "Griffin",
+            email: "vitaly.griffin@sentcha.com",
             department: "Sales",
             dob: "19890514",
             joinDate: "20110117",
@@ -2023,26 +1209,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "736453",
-            rating: [
-                8,
-                5,
-                3,
-                1,
-                0,
-                7,
-                4,
-                2,
-                1,
-                6
-            ],
+            rating: [8, 5, 3, 1, 0, 7, 4, 2, 1, 6],
             salary: 1000000,
-            forename: "David",
-            surname: "Kaneda",
-            email: "david.kaneda@sentcha.com",
+            forename: "Mark",
+            surname: "Krohe",
+            email: "mark.krohe@sentcha.com",
             department: "Administration",
             dob: "19710507",
             joinDate: "20080401",
@@ -2050,26 +1225,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "232770",
-            rating: [
-                5,
-                10,
-                9,
-                9,
-                1,
-                2,
-                3,
-                1,
-                4,
-                2
-            ],
+            rating: [5, 10, 9, 9, 1, 2, 3, 1, 4, 2],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19731024",
             joinDate: "20100715",
@@ -2077,26 +1241,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "414402",
-            rating: [
-                1,
-                1,
-                3,
-                6,
-                3,
-                0,
-                2,
-                2,
-                4,
-                4
-            ],
+            rating: [1, 1, 3, 6, 3, 0, 2, 2, 4, 4],
             salary: 100,
             forename: "Nige",
-            surname: "Mishcon",
-            email: "nige.mishcon@sentcha.com",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Administration",
             dob: "19640808",
             joinDate: "20081004",
@@ -2104,26 +1257,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "663270",
-            rating: [
-                0,
-                2,
-                4,
-                9,
-                8,
-                0,
-                1,
-                5,
-                0,
-                1
-            ],
+            rating: [0, 2, 4, 9, 8, 0, 1, 5, 0, 1],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Ferrero",
-            email: "adam.ferrero@sentcha.com",
+            forename: "Nige",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19621024",
             joinDate: "20101215",
@@ -2131,26 +1273,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "643211",
-            rating: [
-                7,
-                2,
-                10,
-                2,
-                4,
-                6,
-                1,
-                3,
-                5,
-                6
-            ],
+            rating: [7, 2, 10, 2, 4, 6, 1, 3, 5, 6],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Support",
             dob: "19810715",
             joinDate: "20080905",
@@ -2158,26 +1289,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "356411",
-            rating: [
-                9,
-                7,
-                1,
-                7,
-                6,
-                0,
-                3,
-                1,
-                3,
-                8
-            ],
+            rating: [9, 7, 1, 7, 6, 0, 3, 1, 3, 8],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "QA",
             dob: "19820401",
             joinDate: "20100325",
@@ -2185,26 +1305,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "520444",
-            rating: [
-                2,
-                6,
-                5,
-                5,
-                8,
-                0,
-                7,
-                10,
-                3,
-                1
-            ],
+            rating: [2, 6, 5, 5, 8, 0, 7, 10, 3, 1],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Accounting",
             dob: "19700607",
             joinDate: "20130122",
@@ -2212,26 +1321,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "425135",
-            rating: [
-                8,
-                8,
-                3,
-                0,
-                0,
-                6,
-                7,
-                9,
-                3,
-                2
-            ],
+            rating: [8, 8, 3, 0, 0, 6, 7, 9, 3, 2],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Elias",
-            email: "tommy.elias@sentcha.com",
+            forename: "Phil",
+            surname: "Guerrant",
+            email: "phil.guerrant@sentcha.com",
             department: "Marketing",
             dob: "19721202",
             joinDate: "20110530",
@@ -2239,26 +1337,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "235407",
-            rating: [
-                8,
-                9,
-                7,
-                8,
-                0,
-                2,
-                7,
-                5,
-                1,
-                4
-            ],
+            rating: [8, 9, 7, 8, 0, 2, 7, 5, 1, 4],
             salary: 1500,
-            forename: "Jay",
+            forename: "Vitaly",
             surname: "White",
-            email: "jay.white@sentcha.com",
+            email: "vitaly.white@sentcha.com",
             department: "Support",
             dob: "19770207",
             joinDate: "20120411",
@@ -2266,26 +1353,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "541014",
-            rating: [
-                9,
-                9,
-                0,
-                8,
-                0,
-                3,
-                1,
-                1,
-                3,
-                2
-            ],
+            rating: [9, 9, 0, 8, 0, 3, 1, 1, 3, 2],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Robinson",
-            email: "jamie.robinson@sentcha.com",
+            forename: "Ross",
+            surname: "Kravchenko",
+            email: "ross.kravchenko@sentcha.com",
             department: "Support",
             dob: "19770305",
             joinDate: "20111120",
@@ -2293,26 +1369,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 21,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "052142",
-            rating: [
-                4,
-                1,
-                5,
-                6,
-                10,
-                7,
-                6,
-                2,
-                6,
-                9
-            ],
+            rating: [4, 1, 5, 6, 10, 7, 6, 2, 6, 9],
             salary: 900,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Support",
             dob: "19670319",
             joinDate: "20100423",
@@ -2320,26 +1385,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "726632",
-            rating: [
-                8,
-                0,
-                6,
-                10,
-                2,
-                10,
-                9,
-                8,
-                5,
-                0
-            ],
+            rating: [8, 0, 6, 10, 2, 10, 9, 8, 5, 0],
             salary: 1000000,
             forename: "Nige",
-            surname: "Davis",
-            email: "nige.davis@sentcha.com",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Engineering",
             dob: "19590904",
             joinDate: "20100904",
@@ -2347,26 +1401,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "252773",
-            rating: [
-                9,
-                9,
-                8,
-                2,
-                9,
-                3,
-                4,
-                10,
-                10,
-                1
-            ],
+            rating: [9, 9, 8, 2, 9, 3, 4, 10, 10, 1],
             salary: 100,
-            forename: "Jay",
-            surname: "Mishcon",
-            email: "jay.mishcon@sentcha.com",
+            forename: "Vitaly",
+            surname: "White",
+            email: "vitaly.white@sentcha.com",
             department: "Engineering",
             dob: "19670807",
             joinDate: "20080229",
@@ -2374,26 +1417,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "577303",
-            rating: [
-                1,
-                8,
-                6,
-                5,
-                8,
-                1,
-                1,
-                6,
-                8,
-                0
-            ],
+            rating: [1, 8, 6, 5, 8, 1, 1, 6, 8, 0],
             salary: 100,
-            forename: "Tommy",
-            surname: "Davis",
-            email: "tommy.davis@sentcha.com",
+            forename: "Phil",
+            surname: "Brocato",
+            email: "phil.brocato@sentcha.com",
             department: "Accounting",
             dob: "19760130",
             joinDate: "20121023",
@@ -2401,26 +1433,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "127404",
-            rating: [
-                1,
-                2,
-                8,
-                9,
-                2,
-                9,
-                5,
-                4,
-                8,
-                2
-            ],
+            rating: [1, 2, 8, 9, 2, 9, 5, 4, 8, 2],
             salary: 400,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Administration",
             dob: "19580707",
             joinDate: "20090629",
@@ -2428,26 +1449,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "320645",
-            rating: [
-                6,
-                9,
-                3,
-                6,
-                9,
-                7,
-                8,
-                1,
-                4,
-                8
-            ],
+            rating: [6, 9, 3, 6, 9, 7, 8, 1, 4, 8],
             salary: 400,
-            forename: "Tommy",
+            forename: "Phil",
             surname: "White",
-            email: "tommy.white@sentcha.com",
+            email: "phil.white@sentcha.com",
             department: "QA",
             dob: "19850727",
             joinDate: "20091028",
@@ -2455,26 +1465,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 36,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "732067",
-            rating: [
-                2,
-                10,
-                2,
-                7,
-                0,
-                7,
-                10,
-                7,
-                7,
-                5
-            ],
+            rating: [2, 10, 2, 7, 0, 7, 10, 7, 7, 5],
             salary: 1000000,
-            forename: "David",
-            surname: "Davis",
-            email: "david.davis@sentcha.com",
+            forename: "Mark",
+            surname: "Brocato",
+            email: "mark.brocato@sentcha.com",
             department: "Marketing",
             dob: "19840827",
             joinDate: "20120805",
@@ -2482,26 +1481,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "253753",
-            rating: [
-                2,
-                10,
-                7,
-                9,
-                7,
-                3,
-                7,
-                4,
-                4,
-                5
-            ],
+            rating: [2, 10, 7, 9, 7, 3, 7, 4, 4, 5],
             salary: 900,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Administration",
             dob: "19850623",
             joinDate: "20071209",
@@ -2509,26 +1497,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "603233",
-            rating: [
-                7,
-                10,
-                2,
-                6,
-                10,
-                0,
-                4,
-                8,
-                0,
-                8
-            ],
+            rating: [7, 10, 2, 6, 10, 0, 4, 8, 0, 8],
             salary: 100,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19820713",
             joinDate: "20100719",
@@ -2536,26 +1513,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "447714",
-            rating: [
-                10,
-                7,
-                2,
-                7,
-                0,
-                0,
-                1,
-                1,
-                10,
-                2
-            ],
+            rating: [10, 7, 2, 7, 0, 0, 1, 1, 10, 2],
             salary: 1500,
-            forename: "David",
-            surname: "Robinson",
-            email: "david.robinson@sentcha.com",
+            forename: "Mark",
+            surname: "Kravchenko",
+            email: "mark.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19770818",
             joinDate: "20071027",
@@ -2563,26 +1529,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "111066",
-            rating: [
-                4,
-                2,
-                0,
-                2,
-                1,
-                2,
-                4,
-                6,
-                7,
-                8
-            ],
+            rating: [4, 2, 0, 2, 1, 2, 4, 6, 7, 8],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Kaneda",
-            email: "ed.kaneda@sentcha.com",
+            forename: "Adrian",
+            surname: "Krohe",
+            email: "adrian.krohe@sentcha.com",
             department: "Support",
             dob: "19750923",
             joinDate: "20091014",
@@ -2590,26 +1545,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "603326",
-            rating: [
-                0,
-                7,
-                2,
-                3,
-                6,
-                0,
-                7,
-                2,
-                10,
-                7
-            ],
+            rating: [0, 7, 2, 3, 6, 0, 7, 2, 10, 7],
             salary: 900,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Managment",
             dob: "19601006",
             joinDate: "20090128",
@@ -2617,26 +1561,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "542622",
-            rating: [
-                10,
-                0,
-                2,
-                8,
-                5,
-                6,
-                10,
-                4,
-                10,
-                9
-            ],
+            rating: [10, 0, 2, 8, 5, 6, 10, 4, 10, 9],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19680330",
             joinDate: "20120618",
@@ -2644,26 +1577,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 37,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "132702",
-            rating: [
-                5,
-                1,
-                8,
-                6,
-                10,
-                10,
-                2,
-                1,
-                4,
-                9
-            ],
+            rating: [5, 1, 8, 6, 10, 10, 2, 1, 4, 9],
             salary: 900,
-            forename: "Aaron",
-            surname: "Avins",
-            email: "aaron.avins@sentcha.com",
+            forename: "Evan",
+            surname: "Gerbasi",
+            email: "evan.gerbasi@sentcha.com",
             department: "Managment",
             dob: "19881020",
             joinDate: "20080115",
@@ -2671,26 +1593,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "402176",
-            rating: [
-                9,
-                0,
-                7,
-                9,
-                9,
-                0,
-                1,
-                10,
-                1,
-                6
-            ],
+            rating: [9, 0, 7, 9, 9, 0, 1, 10, 1, 6],
             salary: 900,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Sales",
             dob: "19780224",
             joinDate: "20120804",
@@ -2698,26 +1609,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "514330",
-            rating: [
-                10,
-                3,
-                7,
-                7,
-                1,
-                0,
-                6,
-                6,
-                6,
-                3
-            ],
+            rating: [10, 3, 7, 7, 1, 0, 6, 6, 6, 3],
             salary: 900,
-            forename: "David",
+            forename: "Mark",
             surname: "White",
-            email: "david.white@sentcha.com",
+            email: "mark.white@sentcha.com",
             department: "QA",
             dob: "19600611",
             joinDate: "20100731",
@@ -2725,26 +1625,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "477362",
-            rating: [
-                8,
-                7,
-                6,
-                5,
-                2,
-                4,
-                2,
-                6,
-                10,
-                7
-            ],
+            rating: [8, 7, 6, 5, 2, 4, 2, 6, 10, 7],
             salary: 900,
-            forename: "Jamie",
-            surname: "Davis",
-            email: "jamie.davis@sentcha.com",
+            forename: "Ross",
+            surname: "Brocato",
+            email: "ross.brocato@sentcha.com",
             department: "Engineering",
             dob: "19610108",
             joinDate: "20090512",
@@ -2752,26 +1641,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "072165",
-            rating: [
-                8,
-                9,
-                9,
-                2,
-                0,
-                6,
-                10,
-                4,
-                0,
-                0
-            ],
+            rating: [8, 9, 9, 2, 0, 6, 10, 4, 0, 0],
             salary: 100,
-            forename: "Jamie",
-            surname: "Kaneda",
-            email: "jamie.kaneda@sentcha.com",
+            forename: "Ross",
+            surname: "Krohe",
+            email: "ross.krohe@sentcha.com",
             department: "Engineering",
             dob: "19780330",
             joinDate: "20080414",
@@ -2779,26 +1657,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "775617",
-            rating: [
-                2,
-                3,
-                8,
-                5,
-                5,
-                7,
-                9,
-                10,
-                2,
-                9
-            ],
+            rating: [2, 3, 8, 5, 5, 7, 9, 10, 2, 9],
             salary: 400,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19580626",
             joinDate: "20080511",
@@ -2806,26 +1673,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "143102",
-            rating: [
-                6,
-                9,
-                10,
-                1,
-                3,
-                6,
-                10,
-                9,
-                8,
-                9
-            ],
+            rating: [6, 9, 10, 1, 3, 6, 10, 9, 8, 9],
             salary: 100,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Sales",
             dob: "19860109",
             joinDate: "20120814",
@@ -2833,26 +1689,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "350763",
-            rating: [
-                0,
-                5,
-                1,
-                3,
-                7,
-                4,
-                10,
-                3,
-                2,
-                3
-            ],
+            rating: [0, 5, 1, 3, 7, 4, 10, 3, 2, 3],
             salary: 900,
-            forename: "Tommy",
-            surname: "Avins",
-            email: "tommy.avins@sentcha.com",
+            forename: "Phil",
+            surname: "Gerbasi",
+            email: "phil.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19870624",
             joinDate: "20120403",
@@ -2860,26 +1705,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "215510",
-            rating: [
-                7,
-                0,
-                7,
-                10,
-                5,
-                1,
-                7,
-                8,
-                1,
-                7
-            ],
+            rating: [7, 0, 7, 10, 5, 1, 7, 8, 1, 7],
             salary: 1500,
-            forename: "Adam",
-            surname: "Davis",
-            email: "adam.davis@sentcha.com",
+            forename: "Nige",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Engineering",
             dob: "19881204",
             joinDate: "20110731",
@@ -2887,26 +1721,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "376521",
-            rating: [
-                1,
-                9,
-                6,
-                7,
-                0,
-                1,
-                10,
-                2,
-                4,
-                5
-            ],
+            rating: [1, 9, 6, 7, 0, 1, 10, 2, 4, 5],
             salary: 100,
             forename: "Nige",
-            surname: "Ferrero",
-            email: "nige.ferrero@sentcha.com",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Sales",
             dob: "19710926",
             joinDate: "20121114",
@@ -2914,26 +1737,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "762433",
-            rating: [
-                0,
-                9,
-                2,
-                10,
-                7,
-                0,
-                1,
-                2,
-                8,
-                5
-            ],
+            rating: [0, 9, 2, 10, 7, 0, 1, 2, 8, 5],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Conran",
-            email: "nicolas.conran@sentcha.com",
+            forename: "Alex",
+            surname: "Trimboli",
+            email: "alex.trimboli@sentcha.com",
             department: "QA",
             dob: "19731113",
             joinDate: "20110114",
@@ -2941,26 +1753,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "460672",
-            rating: [
-                5,
-                5,
-                0,
-                0,
-                7,
-                5,
-                9,
-                3,
-                7,
-                5
-            ],
+            rating: [5, 5, 0, 0, 7, 5, 9, 3, 7, 5],
             salary: 400,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Sales",
             dob: "19741213",
             joinDate: "20130122",
@@ -2968,26 +1769,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "320371",
-            rating: [
-                2,
-                7,
-                9,
-                10,
-                2,
-                8,
-                7,
-                9,
-                5,
-                9
-            ],
+            rating: [2, 7, 9, 10, 2, 8, 7, 9, 5, 9],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Kaneda",
-            email: "nicolas.kaneda@sentcha.com",
+            forename: "Alex",
+            surname: "Krohe",
+            email: "alex.krohe@sentcha.com",
             department: "Managment",
             dob: "19810323",
             joinDate: "20120112",
@@ -2995,26 +1785,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "366236",
-            rating: [
-                0,
-                3,
-                2,
-                8,
-                1,
-                8,
-                9,
-                8,
-                5,
-                5
-            ],
+            rating: [0, 3, 2, 8, 1, 8, 9, 8, 5, 5],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Spencer",
-            email: "jamie.spencer@sentcha.com",
+            forename: "Ross",
+            surname: "Teodorescu",
+            email: "ross.teodorescu@sentcha.com",
             department: "Managment",
             dob: "19661007",
             joinDate: "20090314",
@@ -3022,26 +1801,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "070331",
-            rating: [
-                4,
-                4,
-                5,
-                10,
-                7,
-                0,
-                7,
-                10,
-                3,
-                4
-            ],
+            rating: [4, 4, 5, 10, 7, 0, 7, 10, 3, 4],
             salary: 400,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "Sales",
             dob: "19860119",
             joinDate: "20090704",
@@ -3049,26 +1817,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "412331",
-            rating: [
-                5,
-                2,
-                3,
-                2,
-                2,
-                1,
-                8,
-                3,
-                0,
-                0
-            ],
+            rating: [5, 2, 3, 2, 2, 1, 8, 3, 0, 0],
             salary: 400,
-            forename: "Tommy",
+            forename: "Phil",
             surname: "White",
-            email: "tommy.white@sentcha.com",
+            email: "phil.white@sentcha.com",
             department: "Marketing",
             dob: "19780217",
             joinDate: "20120817",
@@ -3076,26 +1833,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "421131",
-            rating: [
-                3,
-                8,
-                10,
-                10,
-                7,
-                7,
-                7,
-                10,
-                7,
-                7
-            ],
+            rating: [3, 8, 10, 10, 7, 7, 7, 10, 7, 7],
             salary: 900,
-            forename: "Jamie",
-            surname: "Ferrero",
-            email: "jamie.ferrero@sentcha.com",
+            forename: "Ross",
+            surname: "Tokarev",
+            email: "ross.tokarev@sentcha.com",
             department: "Administration",
             dob: "19680312",
             joinDate: "20081020",
@@ -3103,26 +1849,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "367677",
-            rating: [
-                4,
-                4,
-                4,
-                3,
-                4,
-                3,
-                8,
-                7,
-                7,
-                4
-            ],
+            rating: [4, 4, 4, 3, 4, 3, 8, 7, 7, 4],
             salary: 100,
-            forename: "Jay",
-            surname: "Robinson",
-            email: "jay.robinson@sentcha.com",
+            forename: "Vitaly",
+            surname: "Kravchenko",
+            email: "vitaly.kravchenko@sentcha.com",
             department: "Marketing",
             dob: "19890610",
             joinDate: "20100412",
@@ -3130,26 +1865,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "534070",
-            rating: [
-                9,
-                9,
-                1,
-                4,
-                5,
-                10,
-                9,
-                1,
-                0,
-                5
-            ],
+            rating: [9, 9, 1, 4, 5, 10, 9, 1, 0, 5],
             salary: 100,
-            forename: "Dave",
-            surname: "Kaneda",
-            email: "dave.kaneda@sentcha.com",
+            forename: "Kevin",
+            surname: "Krohe",
+            email: "kevin.krohe@sentcha.com",
             department: "Engineering",
             dob: "19880211",
             joinDate: "20100214",
@@ -3157,26 +1881,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "454127",
-            rating: [
-                6,
-                7,
-                2,
-                7,
-                9,
-                3,
-                3,
-                0,
-                8,
-                5
-            ],
+            rating: [6, 7, 2, 7, 9, 3, 3, 0, 8, 5],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Mishcon",
-            email: "abe.mishcon@sentcha.com",
+            forename: "Don",
+            surname: "White",
+            email: "don.white@sentcha.com",
             department: "QA",
             dob: "19580930",
             joinDate: "20110718",
@@ -3184,26 +1897,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "016413",
-            rating: [
-                6,
-                8,
-                9,
-                5,
-                9,
-                7,
-                0,
-                6,
-                5,
-                7
-            ],
+            rating: [6, 8, 9, 5, 9, 7, 0, 6, 5, 7],
             salary: 100,
-            forename: "David",
-            surname: "Conran",
-            email: "david.conran@sentcha.com",
+            forename: "Mark",
+            surname: "Trimboli",
+            email: "mark.trimboli@sentcha.com",
             department: "QA",
             dob: "19721130",
             joinDate: "20090427",
@@ -3211,26 +1913,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "234124",
-            rating: [
-                5,
-                3,
-                3,
-                9,
-                6,
-                8,
-                6,
-                6,
-                1,
-                4
-            ],
+            rating: [5, 3, 3, 9, 6, 8, 6, 6, 1, 4],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Ferrero",
-            email: "aaron.ferrero@sentcha.com",
+            forename: "Evan",
+            surname: "Tokarev",
+            email: "evan.tokarev@sentcha.com",
             department: "Administration",
             dob: "19580119",
             joinDate: "20100403",
@@ -3238,26 +1929,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "324130",
-            rating: [
-                7,
-                4,
-                9,
-                10,
-                2,
-                10,
-                3,
-                1,
-                10,
-                10
-            ],
+            rating: [7, 4, 9, 10, 2, 10, 3, 1, 10, 10],
             salary: 1500,
-            forename: "Dave",
-            surname: "Maintz",
-            email: "dave.maintz@sentcha.com",
+            forename: "Kevin",
+            surname: "Griffin",
+            email: "kevin.griffin@sentcha.com",
             department: "Managment",
             dob: "19781109",
             joinDate: "20120807",
@@ -3265,26 +1945,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "650002",
-            rating: [
-                0,
-                0,
-                4,
-                1,
-                5,
-                5,
-                1,
-                0,
-                7,
-                10
-            ],
+            rating: [0, 0, 4, 1, 5, 5, 1, 0, 7, 10],
             salary: 1500,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19891021",
             joinDate: "20080223",
@@ -3292,26 +1961,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "404052",
-            rating: [
-                4,
-                9,
-                9,
-                5,
-                1,
-                9,
-                0,
-                0,
-                6,
-                4
-            ],
+            rating: [4, 9, 9, 5, 1, 9, 0, 0, 6, 4],
             salary: 900,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Administration",
             dob: "19650428",
             joinDate: "20080928",
@@ -3319,26 +1977,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "013016",
-            rating: [
-                7,
-                0,
-                4,
-                6,
-                7,
-                5,
-                8,
-                8,
-                2,
-                1
-            ],
+            rating: [7, 0, 4, 6, 7, 5, 8, 8, 2, 1],
             salary: 400,
-            forename: "David",
+            forename: "Mark",
             surname: "White",
-            email: "david.white@sentcha.com",
+            email: "mark.white@sentcha.com",
             department: "Engineering",
             dob: "19660724",
             joinDate: "20080323",
@@ -3346,26 +1993,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "607142",
-            rating: [
-                0,
-                4,
-                2,
-                7,
-                6,
-                8,
-                0,
-                8,
-                4,
-                3
-            ],
+            rating: [0, 4, 2, 7, 6, 8, 0, 8, 4, 3],
             salary: 400,
-            forename: "Dave",
-            surname: "Mishcon",
-            email: "dave.mishcon@sentcha.com",
+            forename: "Kevin",
+            surname: "White",
+            email: "kevin.white@sentcha.com",
             department: "QA",
             dob: "19681117",
             joinDate: "20120905",
@@ -3373,26 +2009,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "672160",
-            rating: [
-                7,
-                4,
-                4,
-                9,
-                4,
-                9,
-                9,
-                6,
-                6,
-                0
-            ],
+            rating: [7, 4, 4, 9, 4, 9, 9, 6, 6, 0],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19640526",
             joinDate: "20100224",
@@ -3400,26 +2025,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "730312",
-            rating: [
-                10,
-                4,
-                0,
-                3,
-                10,
-                8,
-                10,
-                8,
-                1,
-                9
-            ],
+            rating: [10, 4, 0, 3, 10, 8, 10, 8, 1, 9],
             salary: 900,
-            forename: "Jay",
-            surname: "Mishcon",
-            email: "jay.mishcon@sentcha.com",
+            forename: "Vitaly",
+            surname: "White",
+            email: "vitaly.white@sentcha.com",
             department: "Managment",
             dob: "19810216",
             joinDate: "20120828",
@@ -3427,26 +2041,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "472351",
-            rating: [
-                10,
-                4,
-                5,
-                6,
-                9,
-                7,
-                4,
-                9,
-                6,
-                9
-            ],
+            rating: [10, 4, 5, 6, 9, 7, 4, 9, 6, 9],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Mishcon",
-            email: "nicolas.mishcon@sentcha.com",
+            forename: "Alex",
+            surname: "White",
+            email: "alex.white@sentcha.com",
             department: "Administration",
             dob: "19620407",
             joinDate: "20091029",
@@ -3454,26 +2057,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "566266",
-            rating: [
-                2,
-                9,
-                7,
-                7,
-                4,
-                2,
-                9,
-                0,
-                5,
-                0
-            ],
+            rating: [2, 9, 7, 7, 4, 2, 9, 0, 5, 0],
             salary: 900,
             forename: "Nige",
-            surname: "Conran",
-            email: "nige.conran@sentcha.com",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19901007",
             joinDate: "20121231",
@@ -3481,26 +2073,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "112501",
-            rating: [
-                10,
-                1,
-                2,
-                8,
-                10,
-                5,
-                7,
-                6,
-                7,
-                0
-            ],
+            rating: [10, 1, 2, 8, 10, 5, 7, 6, 7, 0],
             salary: 1500,
-            forename: "Ed",
-            surname: "Davis",
-            email: "ed.davis@sentcha.com",
+            forename: "Adrian",
+            surname: "Brocato",
+            email: "adrian.brocato@sentcha.com",
             department: "Marketing",
             dob: "19770704",
             joinDate: "20090217",
@@ -3508,26 +2089,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "051455",
-            rating: [
-                5,
-                10,
-                5,
-                10,
-                3,
-                8,
-                7,
-                6,
-                1,
-                0
-            ],
+            rating: [5, 10, 5, 10, 3, 8, 7, 6, 1, 0],
             salary: 100,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Marketing",
             dob: "19840429",
             joinDate: "20110621",
@@ -3535,26 +2105,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "753162",
-            rating: [
-                7,
-                2,
-                4,
-                9,
-                8,
-                7,
-                3,
-                5,
-                9,
-                8
-            ],
+            rating: [7, 2, 4, 9, 8, 7, 3, 5, 9, 8],
             salary: 1500,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Accounting",
             dob: "19620205",
             joinDate: "20101020",
@@ -3562,26 +2121,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "276453",
-            rating: [
-                2,
-                0,
-                5,
-                4,
-                10,
-                5,
-                8,
-                3,
-                1,
-                3
-            ],
+            rating: [2, 0, 5, 4, 10, 5, 8, 3, 1, 3],
             salary: 900,
-            forename: "Jay",
-            surname: "Davis",
-            email: "jay.davis@sentcha.com",
+            forename: "Vitaly",
+            surname: "Brocato",
+            email: "vitaly.brocato@sentcha.com",
             department: "Accounting",
             dob: "19890331",
             joinDate: "20110218",
@@ -3589,26 +2137,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "075263",
-            rating: [
-                2,
-                8,
-                6,
-                6,
-                1,
-                5,
-                0,
-                9,
-                3,
-                9
-            ],
+            rating: [2, 8, 6, 6, 1, 5, 0, 9, 3, 9],
             salary: 100,
-            forename: "Jay",
-            surname: "Maintz",
-            email: "jay.maintz@sentcha.com",
+            forename: "Vitaly",
+            surname: "Griffin",
+            email: "vitaly.griffin@sentcha.com",
             department: "QA",
             dob: "19850612",
             joinDate: "20080902",
@@ -3616,26 +2153,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "452461",
-            rating: [
-                1,
-                4,
-                9,
-                1,
-                7,
-                6,
-                1,
-                6,
-                6,
-                2
-            ],
+            rating: [1, 4, 9, 1, 7, 6, 1, 6, 6, 2],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Elias",
-            email: "jay.elias@sentcha.com",
+            forename: "Vitaly",
+            surname: "Guerrant",
+            email: "vitaly.guerrant@sentcha.com",
             department: "Managment",
             dob: "19720222",
             joinDate: "20080128",
@@ -3643,26 +2169,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "010520",
-            rating: [
-                10,
-                4,
-                3,
-                8,
-                7,
-                1,
-                6,
-                9,
-                6,
-                0
-            ],
+            rating: [10, 4, 3, 8, 7, 1, 6, 9, 6, 0],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Spencer",
-            email: "tommy.spencer@sentcha.com",
+            forename: "Phil",
+            surname: "Teodorescu",
+            email: "phil.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19790501",
             joinDate: "20111008",
@@ -3670,26 +2185,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "735212",
-            rating: [
-                10,
-                2,
-                7,
-                2,
-                6,
-                9,
-                6,
-                5,
-                9,
-                0
-            ],
+            rating: [10, 2, 7, 2, 6, 9, 6, 5, 9, 0],
             salary: 1500,
-            forename: "Tommy",
+            forename: "Phil",
             surname: "White",
-            email: "tommy.white@sentcha.com",
+            email: "phil.white@sentcha.com",
             department: "Managment",
             dob: "19861205",
             joinDate: "20120313",
@@ -3697,26 +2201,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "256576",
-            rating: [
-                7,
-                1,
-                7,
-                7,
-                8,
-                9,
-                7,
-                1,
-                4,
-                7
-            ],
+            rating: [7, 1, 7, 7, 8, 9, 7, 1, 4, 7],
             salary: 100,
-            forename: "Jay",
-            surname: "Davis",
-            email: "jay.davis@sentcha.com",
+            forename: "Vitaly",
+            surname: "Brocato",
+            email: "vitaly.brocato@sentcha.com",
             department: "QA",
             dob: "19820411",
             joinDate: "20110425",
@@ -3724,26 +2217,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "007242",
-            rating: [
-                7,
-                9,
-                3,
-                9,
-                7,
-                6,
-                6,
-                1,
-                7,
-                10
-            ],
+            rating: [7, 9, 3, 9, 7, 6, 6, 1, 7, 10],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Mishcon",
-            email: "tommy.mishcon@sentcha.com",
+            forename: "Phil",
+            surname: "White",
+            email: "phil.white@sentcha.com",
             department: "Engineering",
             dob: "19800607",
             joinDate: "20111111",
@@ -3751,26 +2233,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "764003",
-            rating: [
-                6,
-                3,
-                4,
-                9,
-                2,
-                9,
-                8,
-                3,
-                7,
-                2
-            ],
+            rating: [6, 3, 4, 9, 2, 9, 8, 3, 7, 2],
             salary: 400,
-            forename: "Ed",
-            surname: "Kaneda",
-            email: "ed.kaneda@sentcha.com",
+            forename: "Adrian",
+            surname: "Krohe",
+            email: "adrian.krohe@sentcha.com",
             department: "Engineering",
             dob: "19670831",
             joinDate: "20090205",
@@ -3778,26 +2249,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "532055",
-            rating: [
-                5,
-                1,
-                3,
-                7,
-                0,
-                10,
-                8,
-                9,
-                9,
-                2
-            ],
+            rating: [5, 1, 3, 7, 0, 10, 8, 9, 9, 2],
             salary: 900,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19881212",
             joinDate: "20080316",
@@ -3805,26 +2265,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "614012",
-            rating: [
-                0,
-                2,
-                8,
-                3,
-                10,
-                8,
-                4,
-                1,
-                3,
-                7
-            ],
+            rating: [0, 2, 8, 3, 10, 8, 4, 1, 3, 7],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Robinson",
-            email: "nicolas.robinson@sentcha.com",
+            forename: "Alex",
+            surname: "Kravchenko",
+            email: "alex.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19790921",
             joinDate: "20100110",
@@ -3832,26 +2281,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "175725",
-            rating: [
-                7,
-                0,
-                7,
-                7,
-                5,
-                6,
-                5,
-                8,
-                10,
-                2
-            ],
+            rating: [7, 0, 7, 7, 5, 6, 5, 8, 10, 2],
             salary: 400,
-            forename: "Aaron",
-            surname: "Kaneda",
-            email: "aaron.kaneda@sentcha.com",
+            forename: "Evan",
+            surname: "Krohe",
+            email: "evan.krohe@sentcha.com",
             department: "Support",
             dob: "19781008",
             joinDate: "20110113",
@@ -3859,26 +2297,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "402056",
-            rating: [
-                1,
-                4,
-                0,
-                1,
-                9,
-                2,
-                1,
-                7,
-                6,
-                10
-            ],
+            rating: [1, 4, 0, 1, 9, 2, 1, 7, 6, 10],
             salary: 100,
-            forename: "Ed",
-            surname: "Mishcon",
-            email: "ed.mishcon@sentcha.com",
+            forename: "Adrian",
+            surname: "White",
+            email: "adrian.white@sentcha.com",
             department: "QA",
             dob: "19720226",
             joinDate: "20090502",
@@ -3886,26 +2313,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "466553",
-            rating: [
-                4,
-                0,
-                5,
-                6,
-                9,
-                2,
-                7,
-                8,
-                1,
-                5
-            ],
+            rating: [4, 0, 5, 6, 9, 2, 7, 8, 1, 5],
             salary: 400,
-            forename: "Abe",
-            surname: "Mishcon",
-            email: "abe.mishcon@sentcha.com",
+            forename: "Don",
+            surname: "White",
+            email: "don.white@sentcha.com",
             department: "Marketing",
             dob: "19830825",
             joinDate: "20090107",
@@ -3913,26 +2329,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "463345",
-            rating: [
-                9,
-                9,
-                1,
-                4,
-                10,
-                0,
-                5,
-                7,
-                10,
-                5
-            ],
+            rating: [9, 9, 1, 4, 10, 0, 5, 7, 10, 5],
             salary: 1000000,
             forename: "Nige",
-            surname: "Elias",
-            email: "nige.elias@sentcha.com",
+            surname: "Guerrant",
+            email: "nige.guerrant@sentcha.com",
             department: "Administration",
             dob: "19670225",
             joinDate: "20071230",
@@ -3940,26 +2345,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 28,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "271461",
-            rating: [
-                9,
-                4,
-                0,
-                0,
-                10,
-                7,
-                3,
-                1,
-                9,
-                9
-            ],
+            rating: [9, 4, 0, 0, 10, 7, 3, 1, 9, 9],
             salary: 1500,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19811013",
             joinDate: "20081104",
@@ -3967,26 +2361,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "253177",
-            rating: [
-                1,
-                0,
-                4,
-                5,
-                3,
-                5,
-                9,
-                10,
-                5,
-                4
-            ],
+            rating: [1, 0, 4, 5, 3, 5, 9, 10, 5, 4],
             salary: 400,
             forename: "Nige",
-            surname: "Robinson",
-            email: "nige.robinson@sentcha.com",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "QA",
             dob: "19620813",
             joinDate: "20090511",
@@ -3994,26 +2377,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "213735",
-            rating: [
-                2,
-                8,
-                6,
-                8,
-                2,
-                6,
-                9,
-                5,
-                7,
-                0
-            ],
+            rating: [2, 8, 6, 8, 2, 6, 9, 5, 7, 0],
             salary: 400,
-            forename: "Jamie",
-            surname: "Spencer",
-            email: "jamie.spencer@sentcha.com",
+            forename: "Ross",
+            surname: "Teodorescu",
+            email: "ross.teodorescu@sentcha.com",
             department: "Managment",
             dob: "19600905",
             joinDate: "20100829",
@@ -4021,26 +2393,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "463770",
-            rating: [
-                5,
-                1,
-                6,
-                0,
-                6,
-                8,
-                9,
-                1,
-                3,
-                8
-            ],
+            rating: [5, 1, 6, 0, 6, 8, 9, 1, 3, 8],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Mishcon",
-            email: "dave.mishcon@sentcha.com",
+            forename: "Kevin",
+            surname: "White",
+            email: "kevin.white@sentcha.com",
             department: "Marketing",
             dob: "19590330",
             joinDate: "20120307",
@@ -4048,26 +2409,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "154245",
-            rating: [
-                8,
-                5,
-                7,
-                9,
-                5,
-                3,
-                9,
-                5,
-                0,
-                2
-            ],
+            rating: [8, 5, 7, 9, 5, 3, 9, 5, 0, 2],
             salary: 400,
-            forename: "Abe",
-            surname: "Robinson",
-            email: "abe.robinson@sentcha.com",
+            forename: "Don",
+            surname: "Kravchenko",
+            email: "don.kravchenko@sentcha.com",
             department: "Support",
             dob: "19800809",
             joinDate: "20120514",
@@ -4075,26 +2425,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "511765",
-            rating: [
-                3,
-                2,
-                9,
-                10,
-                4,
-                6,
-                2,
-                5,
-                10,
-                0
-            ],
+            rating: [3, 2, 9, 10, 4, 6, 2, 5, 10, 0],
             salary: 1000000,
             forename: "Nige",
-            surname: "Maintz",
-            email: "nige.maintz@sentcha.com",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "Marketing",
             dob: "19700319",
             joinDate: "20120717",
@@ -4102,26 +2441,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "262440",
-            rating: [
-                2,
-                2,
-                3,
-                5,
-                1,
-                1,
-                3,
-                6,
-                6,
-                4
-            ],
+            rating: [2, 2, 3, 5, 1, 1, 3, 6, 6, 4],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Avins",
-            email: "tommy.avins@sentcha.com",
+            forename: "Phil",
+            surname: "Gerbasi",
+            email: "phil.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19680624",
             joinDate: "20100911",
@@ -4129,26 +2457,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "055514",
-            rating: [
-                3,
-                7,
-                0,
-                10,
-                8,
-                9,
-                2,
-                7,
-                3,
-                1
-            ],
+            rating: [3, 7, 0, 10, 8, 9, 2, 7, 3, 1],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "QA",
             dob: "19701006",
             joinDate: "20080408",
@@ -4156,26 +2473,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "311765",
-            rating: [
-                2,
-                3,
-                2,
-                9,
-                7,
-                3,
-                3,
-                10,
-                8,
-                10
-            ],
+            rating: [2, 3, 2, 9, 7, 3, 3, 10, 8, 10],
             salary: 400,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19600815",
             joinDate: "20120114",
@@ -4183,26 +2489,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "422406",
-            rating: [
-                1,
-                7,
-                4,
-                1,
-                9,
-                8,
-                3,
-                3,
-                6,
-                4
-            ],
+            rating: [1, 7, 4, 1, 9, 8, 3, 3, 6, 4],
             salary: 900,
             forename: "Nige",
-            surname: "Davis",
-            email: "nige.davis@sentcha.com",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Marketing",
             dob: "19900307",
             joinDate: "20130106",
@@ -4210,26 +2505,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "032135",
-            rating: [
-                1,
-                3,
-                8,
-                10,
-                5,
-                4,
-                3,
-                8,
-                0,
-                3
-            ],
+            rating: [1, 3, 8, 10, 5, 4, 3, 8, 0, 3],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Accounting",
             dob: "19850803",
             joinDate: "20090809",
@@ -4237,26 +2521,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "113540",
-            rating: [
-                1,
-                10,
-                0,
-                8,
-                3,
-                3,
-                1,
-                3,
-                10,
-                9
-            ],
+            rating: [1, 10, 0, 8, 3, 3, 1, 3, 10, 9],
             salary: 1500,
-            forename: "Adam",
-            surname: "Maintz",
-            email: "adam.maintz@sentcha.com",
+            forename: "Nige",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "QA",
             dob: "19820930",
             joinDate: "20091231",
@@ -4264,26 +2537,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "567434",
-            rating: [
-                2,
-                6,
-                6,
-                7,
-                0,
-                4,
-                0,
-                0,
-                10,
-                5
-            ],
+            rating: [2, 6, 6, 7, 0, 4, 0, 0, 10, 5],
             salary: 1500,
-            forename: "Jay",
-            surname: "Robinson",
-            email: "jay.robinson@sentcha.com",
+            forename: "Vitaly",
+            surname: "Kravchenko",
+            email: "vitaly.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19660825",
             joinDate: "20121005",
@@ -4291,26 +2553,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "175616",
-            rating: [
-                4,
-                5,
-                2,
-                4,
-                9,
-                10,
-                9,
-                7,
-                0,
-                2
-            ],
+            rating: [4, 5, 2, 4, 9, 10, 9, 7, 0, 2],
             salary: 1500,
-            forename: "Jay",
-            surname: "Conran",
-            email: "jay.conran@sentcha.com",
+            forename: "Vitaly",
+            surname: "Trimboli",
+            email: "vitaly.trimboli@sentcha.com",
             department: "Sales",
             dob: "19730131",
             joinDate: "20120726",
@@ -4318,26 +2569,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "041425",
-            rating: [
-                6,
-                1,
-                2,
-                5,
-                2,
-                9,
-                8,
-                7,
-                9,
-                4
-            ],
+            rating: [6, 1, 2, 5, 2, 9, 8, 7, 9, 4],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Accounting",
             dob: "19620929",
             joinDate: "20080719",
@@ -4345,26 +2585,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "630620",
-            rating: [
-                2,
-                8,
-                5,
-                7,
-                5,
-                1,
-                9,
-                3,
-                1,
-                6
-            ],
+            rating: [2, 8, 5, 7, 5, 1, 9, 3, 1, 6],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19900804",
             joinDate: "20121118",
@@ -4372,26 +2601,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "666465",
-            rating: [
-                9,
-                7,
-                2,
-                9,
-                5,
-                7,
-                8,
-                8,
-                1,
-                9
-            ],
+            rating: [9, 7, 2, 9, 5, 7, 8, 8, 1, 9],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Support",
             dob: "19850708",
             joinDate: "20091125",
@@ -4399,26 +2617,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "027342",
-            rating: [
-                0,
-                8,
-                9,
-                7,
-                2,
-                8,
-                0,
-                6,
-                8,
-                2
-            ],
+            rating: [0, 8, 9, 7, 2, 8, 0, 6, 8, 2],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Kaneda",
-            email: "nicolas.kaneda@sentcha.com",
+            forename: "Alex",
+            surname: "Krohe",
+            email: "alex.krohe@sentcha.com",
             department: "Accounting",
             dob: "19871028",
             joinDate: "20110707",
@@ -4426,26 +2633,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "612130",
-            rating: [
-                1,
-                4,
-                4,
-                8,
-                8,
-                10,
-                0,
-                2,
-                1,
-                1
-            ],
+            rating: [1, 4, 4, 8, 8, 10, 0, 2, 1, 1],
             salary: 900,
-            forename: "Tommy",
-            surname: "Elias",
-            email: "tommy.elias@sentcha.com",
+            forename: "Phil",
+            surname: "Guerrant",
+            email: "phil.guerrant@sentcha.com",
             department: "Support",
             dob: "19850911",
             joinDate: "20090610",
@@ -4453,26 +2649,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "410226",
-            rating: [
-                1,
-                2,
-                4,
-                5,
-                9,
-                7,
-                10,
-                5,
-                9,
-                1
-            ],
+            rating: [1, 2, 4, 5, 9, 7, 10, 5, 9, 1],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Mishcon",
-            email: "ed.mishcon@sentcha.com",
+            forename: "Adrian",
+            surname: "White",
+            email: "adrian.white@sentcha.com",
             department: "Administration",
             dob: "19631021",
             joinDate: "20110208",
@@ -4480,26 +2665,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 21,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "443614",
-            rating: [
-                2,
-                3,
-                8,
-                9,
-                4,
-                3,
-                1,
-                2,
-                4,
-                8
-            ],
+            rating: [2, 3, 8, 9, 4, 3, 1, 2, 4, 8],
             salary: 100,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19620212",
             joinDate: "20080328",
@@ -4507,26 +2681,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 24,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "071443",
-            rating: [
-                6,
-                0,
-                9,
-                0,
-                5,
-                5,
-                4,
-                9,
-                6,
-                0
-            ],
+            rating: [6, 0, 9, 0, 5, 5, 4, 9, 6, 0],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Robinson",
-            email: "aaron.robinson@sentcha.com",
+            forename: "Evan",
+            surname: "Kravchenko",
+            email: "evan.kravchenko@sentcha.com",
             department: "Support",
             dob: "19740712",
             joinDate: "20090130",
@@ -4534,26 +2697,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "114143",
-            rating: [
-                10,
-                7,
-                8,
-                5,
-                2,
-                0,
-                3,
-                9,
-                5,
-                8
-            ],
+            rating: [10, 7, 8, 5, 2, 0, 3, 9, 5, 8],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Kaneda",
-            email: "dave.kaneda@sentcha.com",
+            forename: "Kevin",
+            surname: "Krohe",
+            email: "kevin.krohe@sentcha.com",
             department: "Support",
             dob: "19890610",
             joinDate: "20110802",
@@ -4561,26 +2713,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "730004",
-            rating: [
-                9,
-                0,
-                3,
-                9,
-                1,
-                0,
-                7,
-                1,
-                8,
-                10
-            ],
+            rating: [9, 0, 3, 9, 1, 0, 7, 1, 8, 10],
             salary: 100,
-            forename: "Adam",
-            surname: "Spencer",
-            email: "adam.spencer@sentcha.com",
+            forename: "Nige",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19670108",
             joinDate: "20090906",
@@ -4588,26 +2729,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 30,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "623202",
-            rating: [
-                9,
-                8,
-                0,
-                4,
-                7,
-                4,
-                0,
-                10,
-                9,
-                7
-            ],
+            rating: [9, 8, 0, 4, 7, 4, 0, 10, 9, 7],
             salary: 400,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19680831",
             joinDate: "20101201",
@@ -4615,26 +2745,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 37,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "463556",
-            rating: [
-                3,
-                5,
-                10,
-                1,
-                3,
-                3,
-                1,
-                7,
-                1,
-                5
-            ],
+            rating: [3, 5, 10, 1, 3, 3, 1, 7, 1, 5],
             salary: 1000000,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19660630",
             joinDate: "20090818",
@@ -4642,26 +2761,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "011531",
-            rating: [
-                8,
-                3,
-                2,
-                0,
-                0,
-                6,
-                9,
-                8,
-                0,
-                3
-            ],
+            rating: [8, 3, 2, 0, 0, 6, 9, 8, 0, 3],
             salary: 1500,
             forename: "Nige",
-            surname: "Robinson",
-            email: "nige.robinson@sentcha.com",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Support",
             dob: "19850829",
             joinDate: "20111231",
@@ -4669,26 +2777,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "622034",
-            rating: [
-                4,
-                0,
-                4,
-                5,
-                6,
-                10,
-                7,
-                8,
-                1,
-                2
-            ],
+            rating: [4, 0, 4, 5, 6, 10, 7, 8, 1, 2],
             salary: 100,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Administration",
             dob: "19841202",
             joinDate: "20100126",
@@ -4696,26 +2793,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "773375",
-            rating: [
-                6,
-                5,
-                10,
-                10,
-                10,
-                0,
-                9,
-                2,
-                4,
-                6
-            ],
+            rating: [6, 5, 10, 10, 10, 0, 9, 2, 4, 6],
             salary: 400,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Administration",
             dob: "19611004",
             joinDate: "20101208",
@@ -4723,26 +2809,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "330740",
-            rating: [
-                9,
-                6,
-                8,
-                2,
-                7,
-                7,
-                9,
-                9,
-                3,
-                6
-            ],
+            rating: [9, 6, 8, 2, 7, 7, 9, 9, 3, 6],
             salary: 400,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19840714",
             joinDate: "20120925",
@@ -4750,26 +2825,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "767045",
-            rating: [
-                2,
-                9,
-                5,
-                9,
-                3,
-                10,
-                5,
-                2,
-                6,
-                5
-            ],
+            rating: [2, 9, 5, 9, 3, 10, 5, 2, 6, 5],
             salary: 400,
-            forename: "David",
-            surname: "Spencer",
-            email: "david.spencer@sentcha.com",
+            forename: "Mark",
+            surname: "Teodorescu",
+            email: "mark.teodorescu@sentcha.com",
             department: "Engineering",
             dob: "19611012",
             joinDate: "20120103",
@@ -4777,26 +2841,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "736270",
-            rating: [
-                9,
-                3,
-                3,
-                3,
-                1,
-                8,
-                9,
-                6,
-                1,
-                1
-            ],
+            rating: [9, 3, 3, 3, 1, 8, 9, 6, 1, 1],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Mishcon",
-            email: "nicolas.mishcon@sentcha.com",
+            forename: "Alex",
+            surname: "White",
+            email: "alex.white@sentcha.com",
             department: "Accounting",
             dob: "19810413",
             joinDate: "20111208",
@@ -4804,26 +2857,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "554374",
-            rating: [
-                1,
-                8,
-                2,
-                5,
-                5,
-                10,
-                0,
-                10,
-                2,
-                4
-            ],
+            rating: [1, 8, 2, 5, 5, 10, 0, 10, 2, 4],
             salary: 900,
-            forename: "Jamie",
-            surname: "Elias",
-            email: "jamie.elias@sentcha.com",
+            forename: "Ross",
+            surname: "Guerrant",
+            email: "ross.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19601205",
             joinDate: "20121121",
@@ -4831,26 +2873,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "641374",
-            rating: [
-                8,
-                1,
-                4,
-                10,
-                9,
-                0,
-                8,
-                2,
-                10,
-                4
-            ],
+            rating: [8, 1, 4, 10, 9, 0, 8, 2, 10, 4],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Ferrero",
-            email: "aaron.ferrero@sentcha.com",
+            forename: "Evan",
+            surname: "Tokarev",
+            email: "evan.tokarev@sentcha.com",
             department: "Sales",
             dob: "19691201",
             joinDate: "20091222",
@@ -4858,26 +2889,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "021543",
-            rating: [
-                1,
-                7,
-                7,
-                2,
-                7,
-                3,
-                0,
-                4,
-                10,
-                7
-            ],
+            rating: [1, 7, 7, 2, 7, 3, 0, 4, 10, 7],
             salary: 900,
-            forename: "Adam",
-            surname: "Kaneda",
-            email: "adam.kaneda@sentcha.com",
+            forename: "Nige",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Managment",
             dob: "19611130",
             joinDate: "20100103",
@@ -4885,26 +2905,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "301400",
-            rating: [
-                8,
-                3,
-                3,
-                3,
-                1,
-                0,
-                0,
-                8,
-                6,
-                0
-            ],
+            rating: [8, 3, 3, 3, 1, 0, 0, 8, 6, 0],
             salary: 400,
-            forename: "Abe",
+            forename: "Don",
             surname: "White",
-            email: "abe.white@sentcha.com",
+            email: "don.white@sentcha.com",
             department: "Sales",
             dob: "19861215",
             joinDate: "20120915",
@@ -4912,26 +2921,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "437177",
-            rating: [
-                6,
-                1,
-                3,
-                7,
-                3,
-                5,
-                0,
-                6,
-                10,
-                0
-            ],
+            rating: [6, 1, 3, 7, 3, 5, 0, 6, 10, 0],
             salary: 400,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Marketing",
             dob: "19701231",
             joinDate: "20121018",
@@ -4939,26 +2937,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "124356",
-            rating: [
-                3,
-                9,
-                9,
-                7,
-                10,
-                6,
-                9,
-                7,
-                9,
-                2
-            ],
+            rating: [3, 9, 9, 7, 10, 6, 9, 7, 9, 2],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Accounting",
             dob: "19610913",
             joinDate: "20071022",
@@ -4966,26 +2953,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "574061",
-            rating: [
-                0,
-                3,
-                7,
-                5,
-                4,
-                0,
-                6,
-                8,
-                8,
-                9
-            ],
+            rating: [0, 3, 7, 5, 4, 0, 6, 8, 8, 9],
             salary: 1500,
             forename: "Nige",
-            surname: "Elias",
-            email: "nige.elias@sentcha.com",
+            surname: "Guerrant",
+            email: "nige.guerrant@sentcha.com",
             department: "Sales",
             dob: "19751222",
             joinDate: "20100702",
@@ -4993,26 +2969,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "441337",
-            rating: [
-                7,
-                5,
-                6,
-                5,
-                4,
-                10,
-                2,
-                0,
-                4,
-                6
-            ],
+            rating: [7, 5, 6, 5, 4, 10, 2, 0, 4, 6],
             salary: 400,
             forename: "Nige",
-            surname: "Robinson",
-            email: "nige.robinson@sentcha.com",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Managment",
             dob: "19660108",
             joinDate: "20121019",
@@ -5020,26 +2985,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "663325",
-            rating: [
-                6,
-                6,
-                9,
-                1,
-                7,
-                5,
-                8,
-                4,
-                9,
-                3
-            ],
+            rating: [6, 6, 9, 1, 7, 5, 8, 4, 9, 3],
             salary: 400,
-            forename: "Aaron",
-            surname: "Maintz",
-            email: "aaron.maintz@sentcha.com",
+            forename: "Evan",
+            surname: "Griffin",
+            email: "evan.griffin@sentcha.com",
             department: "Marketing",
             dob: "19660803",
             joinDate: "20090429",
@@ -5047,26 +3001,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "066620",
-            rating: [
-                7,
-                5,
-                6,
-                4,
-                5,
-                1,
-                5,
-                7,
-                4,
-                3
-            ],
+            rating: [7, 5, 6, 4, 5, 1, 5, 7, 4, 3],
             salary: 100,
-            forename: "David",
-            surname: "Davis",
-            email: "david.davis@sentcha.com",
+            forename: "Mark",
+            surname: "Brocato",
+            email: "mark.brocato@sentcha.com",
             department: "Support",
             dob: "19650116",
             joinDate: "20120407",
@@ -5074,26 +3017,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "772350",
-            rating: [
-                7,
-                4,
-                0,
-                10,
-                5,
-                9,
-                10,
-                7,
-                3,
-                2
-            ],
+            rating: [7, 4, 0, 10, 5, 9, 10, 7, 3, 2],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Elias",
-            email: "nicolas.elias@sentcha.com",
+            forename: "Alex",
+            surname: "Guerrant",
+            email: "alex.guerrant@sentcha.com",
             department: "Sales",
             dob: "19860224",
             joinDate: "20100921",
@@ -5101,26 +3033,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "316050",
-            rating: [
-                6,
-                7,
-                7,
-                7,
-                2,
-                6,
-                0,
-                9,
-                7,
-                8
-            ],
+            rating: [6, 7, 7, 7, 2, 6, 0, 9, 7, 8],
             salary: 1500,
-            forename: "Dave",
-            surname: "Conran",
-            email: "dave.conran@sentcha.com",
+            forename: "Kevin",
+            surname: "Trimboli",
+            email: "kevin.trimboli@sentcha.com",
             department: "Administration",
             dob: "19600917",
             joinDate: "20090725",
@@ -5128,26 +3049,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "161624",
-            rating: [
-                0,
-                5,
-                5,
-                6,
-                3,
-                3,
-                9,
-                6,
-                1,
-                10
-            ],
+            rating: [0, 5, 5, 6, 3, 3, 9, 6, 1, 10],
             salary: 900,
             forename: "Nige",
-            surname: "Ferrero",
-            email: "nige.ferrero@sentcha.com",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "QA",
             dob: "19790504",
             joinDate: "20101228",
@@ -5155,26 +3065,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "565605",
-            rating: [
-                0,
-                7,
-                2,
-                4,
-                10,
-                5,
-                10,
-                8,
-                0,
-                1
-            ],
+            rating: [0, 7, 2, 4, 10, 5, 10, 8, 0, 1],
             salary: 1500,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19720120",
             joinDate: "20071011",
@@ -5182,26 +3081,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "310265",
-            rating: [
-                1,
-                0,
-                4,
-                10,
-                10,
-                10,
-                3,
-                7,
-                3,
-                9
-            ],
+            rating: [1, 0, 4, 10, 10, 10, 3, 7, 3, 9],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Marketing",
             dob: "19861111",
             joinDate: "20091114",
@@ -5209,26 +3097,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "025235",
-            rating: [
-                6,
-                8,
-                9,
-                1,
-                7,
-                6,
-                8,
-                0,
-                5,
-                3
-            ],
+            rating: [6, 8, 9, 1, 7, 6, 8, 0, 5, 3],
             salary: 400,
-            forename: "Jay",
-            surname: "Ferrero",
-            email: "jay.ferrero@sentcha.com",
+            forename: "Vitaly",
+            surname: "Tokarev",
+            email: "vitaly.tokarev@sentcha.com",
             department: "Support",
             dob: "19710918",
             joinDate: "20090616",
@@ -5236,26 +3113,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "774034",
-            rating: [
-                1,
-                2,
-                5,
-                3,
-                3,
-                9,
-                2,
-                10,
-                8,
-                6
-            ],
+            rating: [1, 2, 5, 3, 3, 9, 2, 10, 8, 6],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Maintz",
-            email: "nicolas.maintz@sentcha.com",
+            forename: "Alex",
+            surname: "Griffin",
+            email: "alex.griffin@sentcha.com",
             department: "Administration",
             dob: "19650913",
             joinDate: "20121018",
@@ -5263,26 +3129,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "343746",
-            rating: [
-                7,
-                2,
-                9,
-                4,
-                6,
-                1,
-                10,
-                4,
-                3,
-                6
-            ],
+            rating: [7, 2, 9, 4, 6, 1, 10, 4, 3, 6],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Elias",
-            email: "nicolas.elias@sentcha.com",
+            forename: "Alex",
+            surname: "Guerrant",
+            email: "alex.guerrant@sentcha.com",
             department: "Support",
             dob: "19670220",
             joinDate: "20100702",
@@ -5290,26 +3145,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "320444",
-            rating: [
-                6,
-                7,
-                6,
-                6,
-                9,
-                4,
-                0,
-                8,
-                2,
-                1
-            ],
+            rating: [6, 7, 6, 6, 9, 4, 0, 8, 2, 1],
             salary: 100,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "Marketing",
             dob: "19811026",
             joinDate: "20080408",
@@ -5317,26 +3161,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "267746",
-            rating: [
-                8,
-                4,
-                4,
-                2,
-                0,
-                7,
-                7,
-                10,
-                4,
-                10
-            ],
+            rating: [8, 4, 4, 2, 0, 7, 7, 10, 4, 10],
             salary: 100,
-            forename: "Dave",
+            forename: "Kevin",
             surname: "White",
-            email: "dave.white@sentcha.com",
+            email: "kevin.white@sentcha.com",
             department: "Support",
             dob: "19680202",
             joinDate: "20090121",
@@ -5344,26 +3177,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "315611",
-            rating: [
-                8,
-                5,
-                3,
-                0,
-                10,
-                4,
-                1,
-                4,
-                5,
-                4
-            ],
+            rating: [8, 5, 3, 0, 10, 4, 1, 4, 5, 4],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Davis",
-            email: "dave.davis@sentcha.com",
+            forename: "Kevin",
+            surname: "Brocato",
+            email: "kevin.brocato@sentcha.com",
             department: "Administration",
             dob: "19581231",
             joinDate: "20100827",
@@ -5371,26 +3193,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "644137",
-            rating: [
-                3,
-                9,
-                6,
-                7,
-                10,
-                3,
-                9,
-                8,
-                6,
-                4
-            ],
+            rating: [3, 9, 6, 7, 10, 3, 9, 8, 6, 4],
             salary: 1500,
             forename: "Nige",
-            surname: "Maintz",
-            email: "nige.maintz@sentcha.com",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "Managment",
             dob: "19741217",
             joinDate: "20101109",
@@ -5398,26 +3209,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "416454",
-            rating: [
-                2,
-                8,
-                1,
-                0,
-                8,
-                6,
-                0,
-                9,
-                9,
-                10
-            ],
+            rating: [2, 8, 1, 0, 8, 6, 0, 9, 9, 10],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Managment",
             dob: "19701205",
             joinDate: "20111105",
@@ -5425,26 +3225,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "101234",
-            rating: [
-                2,
-                0,
-                4,
-                10,
-                0,
-                10,
-                8,
-                10,
-                1,
-                5
-            ],
+            rating: [2, 0, 4, 10, 0, 10, 8, 10, 1, 5],
             salary: 400,
-            forename: "Aaron",
-            surname: "Robinson",
-            email: "aaron.robinson@sentcha.com",
+            forename: "Evan",
+            surname: "Kravchenko",
+            email: "evan.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19740331",
             joinDate: "20100109",
@@ -5452,26 +3241,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "416177",
-            rating: [
-                9,
-                2,
-                2,
-                3,
-                5,
-                0,
-                3,
-                8,
-                1,
-                0
-            ],
+            rating: [9, 2, 2, 3, 5, 0, 3, 8, 1, 0],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Sales",
             dob: "19830930",
             joinDate: "20100423",
@@ -5479,26 +3257,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "513524",
-            rating: [
-                10,
-                9,
-                8,
-                0,
-                0,
-                6,
-                3,
-                5,
-                5,
-                6
-            ],
+            rating: [10, 9, 8, 0, 0, 6, 3, 5, 5, 6],
             salary: 400,
-            forename: "Abe",
-            surname: "Avins",
-            email: "abe.avins@sentcha.com",
+            forename: "Don",
+            surname: "Gerbasi",
+            email: "don.gerbasi@sentcha.com",
             department: "Accounting",
             dob: "19590506",
             joinDate: "20120606",
@@ -5506,26 +3273,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 27,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "332167",
-            rating: [
-                4,
-                2,
-                0,
-                8,
-                3,
-                6,
-                1,
-                4,
-                6,
-                3
-            ],
+            rating: [4, 2, 0, 8, 3, 6, 1, 4, 6, 3],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Mishcon",
-            email: "nicolas.mishcon@sentcha.com",
+            forename: "Alex",
+            surname: "White",
+            email: "alex.white@sentcha.com",
             department: "Sales",
             dob: "19850511",
             joinDate: "20071219",
@@ -5533,26 +3289,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "137166",
-            rating: [
-                3,
-                1,
-                0,
-                4,
-                8,
-                4,
-                6,
-                4,
-                7,
-                9
-            ],
+            rating: [3, 1, 0, 4, 8, 4, 6, 4, 7, 9],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Administration",
             dob: "19791128",
             joinDate: "20100915",
@@ -5560,26 +3305,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "605343",
-            rating: [
-                9,
-                9,
-                1,
-                10,
-                6,
-                5,
-                8,
-                4,
-                6,
-                9
-            ],
+            rating: [9, 9, 1, 10, 6, 5, 8, 4, 6, 9],
             salary: 400,
-            forename: "Ed",
-            surname: "Conran",
-            email: "ed.conran@sentcha.com",
+            forename: "Adrian",
+            surname: "Trimboli",
+            email: "adrian.trimboli@sentcha.com",
             department: "Sales",
             dob: "19641230",
             joinDate: "20090720",
@@ -5587,26 +3321,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "651432",
-            rating: [
-                10,
-                8,
-                7,
-                3,
-                2,
-                2,
-                6,
-                1,
-                10,
-                9
-            ],
+            rating: [10, 8, 7, 3, 2, 2, 6, 1, 10, 9],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Support",
             dob: "19610814",
             joinDate: "20120124",
@@ -5614,26 +3337,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "767131",
-            rating: [
-                9,
-                3,
-                2,
-                2,
-                9,
-                1,
-                0,
-                0,
-                0,
-                1
-            ],
+            rating: [9, 3, 2, 2, 9, 1, 0, 0, 0, 1],
             salary: 1500,
-            forename: "Ed",
-            surname: "Conran",
-            email: "ed.conran@sentcha.com",
+            forename: "Adrian",
+            surname: "Trimboli",
+            email: "adrian.trimboli@sentcha.com",
             department: "Support",
             dob: "19630405",
             joinDate: "20080107",
@@ -5641,26 +3353,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "446274",
-            rating: [
-                7,
-                5,
-                7,
-                3,
-                0,
-                0,
-                2,
-                3,
-                9,
-                0
-            ],
+            rating: [7, 5, 7, 3, 0, 0, 2, 3, 9, 0],
             salary: 1500,
-            forename: "Dave",
-            surname: "Davis",
-            email: "dave.davis@sentcha.com",
+            forename: "Kevin",
+            surname: "Brocato",
+            email: "kevin.brocato@sentcha.com",
             department: "Marketing",
             dob: "19741122",
             joinDate: "20090517",
@@ -5668,26 +3369,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 37,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "235167",
-            rating: [
-                10,
-                0,
-                7,
-                5,
-                0,
-                2,
-                3,
-                8,
-                6,
-                3
-            ],
+            rating: [10, 0, 7, 5, 0, 2, 3, 8, 6, 3],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Support",
             dob: "19901026",
             joinDate: "20080812",
@@ -5695,26 +3385,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "667156",
-            rating: [
-                4,
-                0,
-                9,
-                10,
-                7,
-                6,
-                4,
-                7,
-                4,
-                7
-            ],
+            rating: [4, 0, 9, 10, 7, 6, 4, 7, 4, 7],
             salary: 400,
-            forename: "David",
-            surname: "Conran",
-            email: "david.conran@sentcha.com",
+            forename: "Mark",
+            surname: "Trimboli",
+            email: "mark.trimboli@sentcha.com",
             department: "Administration",
             dob: "19840307",
             joinDate: "20080823",
@@ -5722,26 +3401,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "657154",
-            rating: [
-                4,
-                8,
-                2,
-                10,
-                3,
-                8,
-                0,
-                9,
-                1,
-                2
-            ],
+            rating: [4, 8, 2, 10, 3, 8, 0, 9, 1, 2],
             salary: 100,
-            forename: "Jay",
-            surname: "Mishcon",
-            email: "jay.mishcon@sentcha.com",
+            forename: "Vitaly",
+            surname: "White",
+            email: "vitaly.white@sentcha.com",
             department: "Administration",
             dob: "19600125",
             joinDate: "20071112",
@@ -5749,26 +3417,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "660526",
-            rating: [
-                1,
-                9,
-                1,
-                10,
-                9,
-                8,
-                9,
-                3,
-                3,
-                8
-            ],
+            rating: [1, 9, 1, 10, 9, 8, 9, 3, 3, 8],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Ferrero",
-            email: "adam.ferrero@sentcha.com",
+            forename: "Nige",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Support",
             dob: "19750310",
             joinDate: "20100426",
@@ -5776,26 +3433,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "042145",
-            rating: [
-                9,
-                9,
-                9,
-                7,
-                4,
-                6,
-                5,
-                8,
-                2,
-                0
-            ],
+            rating: [9, 9, 9, 7, 4, 6, 5, 8, 2, 0],
             salary: 100,
-            forename: "David",
-            surname: "Maintz",
-            email: "david.maintz@sentcha.com",
+            forename: "Mark",
+            surname: "Griffin",
+            email: "mark.griffin@sentcha.com",
             department: "QA",
             dob: "19790116",
             joinDate: "20100523",
@@ -5803,26 +3449,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 39,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "657171",
-            rating: [
-                10,
-                8,
-                5,
-                2,
-                2,
-                7,
-                6,
-                2,
-                2,
-                1
-            ],
+            rating: [10, 8, 5, 2, 2, 7, 6, 2, 2, 1],
             salary: 100,
-            forename: "Dave",
-            surname: "Conran",
-            email: "dave.conran@sentcha.com",
+            forename: "Kevin",
+            surname: "Trimboli",
+            email: "kevin.trimboli@sentcha.com",
             department: "Engineering",
             dob: "19811117",
             joinDate: "20090305",
@@ -5830,26 +3465,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "364031",
-            rating: [
-                8,
-                10,
-                7,
-                9,
-                7,
-                6,
-                7,
-                6,
-                6,
-                9
-            ],
+            rating: [8, 10, 7, 9, 7, 6, 7, 6, 6, 9],
             salary: 900,
-            forename: "Tommy",
-            surname: "Kaneda",
-            email: "tommy.kaneda@sentcha.com",
+            forename: "Phil",
+            surname: "Krohe",
+            email: "phil.krohe@sentcha.com",
             department: "Sales",
             dob: "19610812",
             joinDate: "20130107",
@@ -5857,26 +3481,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "203424",
-            rating: [
-                3,
-                7,
-                4,
-                0,
-                0,
-                3,
-                3,
-                6,
-                3,
-                3
-            ],
+            rating: [3, 7, 4, 0, 0, 3, 3, 6, 3, 3],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Mishcon",
-            email: "nicolas.mishcon@sentcha.com",
+            forename: "Alex",
+            surname: "White",
+            email: "alex.white@sentcha.com",
             department: "Support",
             dob: "19880801",
             joinDate: "20090125",
@@ -5884,26 +3497,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "404727",
-            rating: [
-                6,
-                0,
-                0,
-                3,
-                3,
-                4,
-                9,
-                2,
-                4,
-                10
-            ],
+            rating: [6, 0, 0, 3, 3, 4, 9, 2, 4, 10],
             salary: 1500,
-            forename: "Abe",
-            surname: "Robinson",
-            email: "abe.robinson@sentcha.com",
+            forename: "Don",
+            surname: "Kravchenko",
+            email: "don.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19760930",
             joinDate: "20120914",
@@ -5911,26 +3513,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "771254",
-            rating: [
-                8,
-                6,
-                3,
-                7,
-                2,
-                8,
-                5,
-                9,
-                2,
-                5
-            ],
+            rating: [8, 6, 3, 7, 2, 8, 5, 9, 2, 5],
             salary: 900,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19730730",
             joinDate: "20080901",
@@ -5938,26 +3529,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "255145",
-            rating: [
-                8,
-                8,
-                4,
-                0,
-                5,
-                8,
-                9,
-                3,
-                1,
-                5
-            ],
+            rating: [8, 8, 4, 0, 5, 8, 9, 3, 1, 5],
             salary: 900,
-            forename: "David",
-            surname: "Avins",
-            email: "david.avins@sentcha.com",
+            forename: "Mark",
+            surname: "Gerbasi",
+            email: "mark.gerbasi@sentcha.com",
             department: "Marketing",
             dob: "19890814",
             joinDate: "20110723",
@@ -5965,26 +3545,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "652177",
-            rating: [
-                0,
-                3,
-                3,
-                6,
-                6,
-                10,
-                0,
-                1,
-                1,
-                7
-            ],
+            rating: [0, 3, 3, 6, 6, 10, 0, 1, 1, 7],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Robinson",
-            email: "nicolas.robinson@sentcha.com",
+            forename: "Alex",
+            surname: "Kravchenko",
+            email: "alex.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19800916",
             joinDate: "20100726",
@@ -5992,26 +3561,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "504304",
-            rating: [
-                5,
-                3,
-                8,
-                7,
-                1,
-                9,
-                10,
-                2,
-                5,
-                8
-            ],
+            rating: [5, 3, 8, 7, 1, 9, 10, 2, 5, 8],
             salary: 900,
-            forename: "Aaron",
-            surname: "Maintz",
-            email: "aaron.maintz@sentcha.com",
+            forename: "Evan",
+            surname: "Griffin",
+            email: "evan.griffin@sentcha.com",
             department: "Administration",
             dob: "19700127",
             joinDate: "20090816",
@@ -6019,26 +3577,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "507740",
-            rating: [
-                5,
-                4,
-                5,
-                5,
-                3,
-                6,
-                9,
-                6,
-                4,
-                10
-            ],
+            rating: [5, 4, 5, 5, 3, 6, 9, 6, 4, 10],
             salary: 1000000,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19831206",
             joinDate: "20121206",
@@ -6046,26 +3593,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "176603",
-            rating: [
-                5,
-                3,
-                10,
-                4,
-                9,
-                3,
-                2,
-                8,
-                4,
-                9
-            ],
+            rating: [5, 3, 10, 4, 9, 3, 2, 8, 4, 9],
             salary: 900,
-            forename: "Aaron",
-            surname: "Kaneda",
-            email: "aaron.kaneda@sentcha.com",
+            forename: "Evan",
+            surname: "Krohe",
+            email: "evan.krohe@sentcha.com",
             department: "Sales",
             dob: "19870901",
             joinDate: "20110508",
@@ -6073,26 +3609,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "007666",
-            rating: [
-                1,
-                10,
-                4,
-                0,
-                5,
-                10,
-                3,
-                6,
-                6,
-                9
-            ],
+            rating: [1, 10, 4, 0, 5, 10, 3, 6, 6, 9],
             salary: 100,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Administration",
             dob: "19801109",
             joinDate: "20110904",
@@ -6100,26 +3625,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "603512",
-            rating: [
-                1,
-                6,
-                1,
-                9,
-                2,
-                1,
-                0,
-                4,
-                5,
-                2
-            ],
+            rating: [1, 6, 1, 9, 2, 1, 0, 4, 5, 2],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Maintz",
-            email: "aaron.maintz@sentcha.com",
+            forename: "Evan",
+            surname: "Griffin",
+            email: "evan.griffin@sentcha.com",
             department: "Sales",
             dob: "19900725",
             joinDate: "20071016",
@@ -6127,26 +3641,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "765166",
-            rating: [
-                7,
-                7,
-                5,
-                8,
-                9,
-                10,
-                4,
-                1,
-                0,
-                10
-            ],
+            rating: [7, 7, 5, 8, 9, 10, 4, 1, 0, 10],
             salary: 400,
             forename: "Nige",
-            surname: "Elias",
-            email: "nige.elias@sentcha.com",
+            surname: "Guerrant",
+            email: "nige.guerrant@sentcha.com",
             department: "Sales",
             dob: "19840915",
             joinDate: "20100418",
@@ -6154,26 +3657,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "304312",
-            rating: [
-                3,
-                10,
-                1,
-                1,
-                6,
-                3,
-                6,
-                5,
-                6,
-                3
-            ],
+            rating: [3, 10, 1, 1, 6, 3, 6, 5, 6, 3],
             salary: 900,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19851216",
             joinDate: "20120113",
@@ -6181,26 +3673,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 28,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "420564",
-            rating: [
-                0,
-                4,
-                6,
-                8,
-                5,
-                3,
-                10,
-                5,
-                3,
-                6
-            ],
+            rating: [0, 4, 6, 8, 5, 3, 10, 5, 3, 6],
             salary: 900,
-            forename: "Aaron",
-            surname: "Ferrero",
-            email: "aaron.ferrero@sentcha.com",
+            forename: "Evan",
+            surname: "Tokarev",
+            email: "evan.tokarev@sentcha.com",
             department: "Administration",
             dob: "19800903",
             joinDate: "20090410",
@@ -6208,26 +3689,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "254416",
-            rating: [
-                2,
-                3,
-                0,
-                2,
-                2,
-                4,
-                10,
-                10,
-                4,
-                8
-            ],
+            rating: [2, 3, 0, 2, 2, 4, 10, 10, 4, 8],
             salary: 400,
-            forename: "Aaron",
-            surname: "Kaneda",
-            email: "aaron.kaneda@sentcha.com",
+            forename: "Evan",
+            surname: "Krohe",
+            email: "evan.krohe@sentcha.com",
             department: "QA",
             dob: "19651029",
             joinDate: "20110225",
@@ -6235,26 +3705,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "225074",
-            rating: [
-                10,
-                8,
-                5,
-                0,
-                1,
-                4,
-                5,
-                4,
-                3,
-                4
-            ],
+            rating: [10, 8, 5, 0, 1, 4, 5, 4, 3, 4],
             salary: 100,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Managment",
             dob: "19820609",
             joinDate: "20120214",
@@ -6262,26 +3721,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "213057",
-            rating: [
-                10,
-                5,
-                5,
-                6,
-                3,
-                0,
-                3,
-                4,
-                10,
-                8
-            ],
+            rating: [10, 5, 5, 6, 3, 0, 3, 4, 10, 8],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Conran",
-            email: "aaron.conran@sentcha.com",
+            forename: "Evan",
+            surname: "Trimboli",
+            email: "evan.trimboli@sentcha.com",
             department: "QA",
             dob: "19821003",
             joinDate: "20120115",
@@ -6289,26 +3737,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "320127",
-            rating: [
-                1,
-                1,
-                2,
-                8,
-                0,
-                6,
-                5,
-                1,
-                1,
-                8
-            ],
+            rating: [1, 1, 2, 8, 0, 6, 5, 1, 1, 8],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Conran",
-            email: "aaron.conran@sentcha.com",
+            forename: "Evan",
+            surname: "Trimboli",
+            email: "evan.trimboli@sentcha.com",
             department: "QA",
             dob: "19760909",
             joinDate: "20081216",
@@ -6316,26 +3753,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "331525",
-            rating: [
-                8,
-                5,
-                6,
-                9,
-                9,
-                7,
-                3,
-                7,
-                0,
-                7
-            ],
+            rating: [8, 5, 6, 9, 9, 7, 3, 7, 0, 7],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Ferrero",
-            email: "adam.ferrero@sentcha.com",
+            forename: "Nige",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Sales",
             dob: "19610425",
             joinDate: "20080704",
@@ -6343,26 +3769,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "565001",
-            rating: [
-                6,
-                3,
-                3,
-                7,
-                1,
-                8,
-                10,
-                10,
-                0,
-                1
-            ],
+            rating: [6, 3, 3, 7, 1, 8, 10, 10, 0, 1],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Avins",
-            email: "tommy.avins@sentcha.com",
+            forename: "Phil",
+            surname: "Gerbasi",
+            email: "phil.gerbasi@sentcha.com",
             department: "QA",
             dob: "19780722",
             joinDate: "20110707",
@@ -6370,26 +3785,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "131406",
-            rating: [
-                6,
-                0,
-                8,
-                3,
-                1,
-                2,
-                6,
-                10,
-                6,
-                7
-            ],
+            rating: [6, 0, 8, 3, 1, 2, 6, 10, 6, 7],
             salary: 400,
-            forename: "Jay",
-            surname: "Avins",
-            email: "jay.avins@sentcha.com",
+            forename: "Vitaly",
+            surname: "Gerbasi",
+            email: "vitaly.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19600611",
             joinDate: "20120824",
@@ -6397,26 +3801,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 21,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "613511",
-            rating: [
-                1,
-                7,
-                6,
-                5,
-                10,
-                3,
-                3,
-                3,
-                3,
-                7
-            ],
+            rating: [1, 7, 6, 5, 10, 3, 3, 3, 3, 7],
             salary: 400,
-            forename: "Abe",
-            surname: "Ferrero",
-            email: "abe.ferrero@sentcha.com",
+            forename: "Don",
+            surname: "Tokarev",
+            email: "don.tokarev@sentcha.com",
             department: "Administration",
             dob: "19770522",
             joinDate: "20100727",
@@ -6424,26 +3817,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "376012",
-            rating: [
-                5,
-                9,
-                0,
-                9,
-                8,
-                6,
-                9,
-                7,
-                10,
-                5
-            ],
+            rating: [5, 9, 0, 9, 8, 6, 9, 7, 10, 5],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19590823",
             joinDate: "20110109",
@@ -6451,26 +3833,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "755040",
-            rating: [
-                3,
-                5,
-                0,
-                3,
-                1,
-                3,
-                9,
-                9,
-                0,
-                6
-            ],
+            rating: [3, 5, 0, 3, 1, 3, 9, 9, 0, 6],
             salary: 100,
-            forename: "Ed",
-            surname: "Maintz",
-            email: "ed.maintz@sentcha.com",
+            forename: "Adrian",
+            surname: "Griffin",
+            email: "adrian.griffin@sentcha.com",
             department: "Marketing",
             dob: "19900108",
             joinDate: "20121124",
@@ -6478,26 +3849,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "767742",
-            rating: [
-                2,
-                3,
-                9,
-                5,
-                5,
-                5,
-                10,
-                0,
-                5,
-                10
-            ],
+            rating: [2, 3, 9, 5, 5, 5, 10, 0, 5, 10],
             salary: 100,
-            forename: "Jamie",
-            surname: "Ferrero",
-            email: "jamie.ferrero@sentcha.com",
+            forename: "Ross",
+            surname: "Tokarev",
+            email: "ross.tokarev@sentcha.com",
             department: "Administration",
             dob: "19670302",
             joinDate: "20101125",
@@ -6505,26 +3865,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "547672",
-            rating: [
-                0,
-                6,
-                4,
-                1,
-                8,
-                7,
-                5,
-                7,
-                9,
-                0
-            ],
+            rating: [0, 6, 4, 1, 8, 7, 5, 7, 9, 0],
             salary: 1000000,
-            forename: "Jay",
+            forename: "Vitaly",
             surname: "White",
-            email: "jay.white@sentcha.com",
+            email: "vitaly.white@sentcha.com",
             department: "Engineering",
             dob: "19691103",
             joinDate: "20080612",
@@ -6532,26 +3881,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "333150",
-            rating: [
-                1,
-                6,
-                8,
-                2,
-                8,
-                7,
-                4,
-                4,
-                4,
-                2
-            ],
+            rating: [1, 6, 8, 2, 8, 7, 4, 4, 4, 2],
             salary: 400,
-            forename: "Tommy",
-            surname: "Elias",
-            email: "tommy.elias@sentcha.com",
+            forename: "Phil",
+            surname: "Guerrant",
+            email: "phil.guerrant@sentcha.com",
             department: "QA",
             dob: "19670331",
             joinDate: "20090315",
@@ -6559,26 +3897,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "213305",
-            rating: [
-                8,
-                6,
-                7,
-                7,
-                4,
-                3,
-                1,
-                2,
-                10,
-                7
-            ],
+            rating: [8, 6, 7, 7, 4, 3, 1, 2, 10, 7],
             salary: 100,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Sales",
             dob: "19790717",
             joinDate: "20080522",
@@ -6586,26 +3913,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "443544",
-            rating: [
-                0,
-                10,
-                2,
-                8,
-                0,
-                7,
-                9,
-                9,
-                7,
-                4
-            ],
+            rating: [0, 10, 2, 8, 0, 7, 9, 9, 7, 4],
             salary: 100,
-            forename: "Dave",
-            surname: "Maintz",
-            email: "dave.maintz@sentcha.com",
+            forename: "Kevin",
+            surname: "Griffin",
+            email: "kevin.griffin@sentcha.com",
             department: "Marketing",
             dob: "19751225",
             joinDate: "20110911",
@@ -6613,26 +3929,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "477224",
-            rating: [
-                5,
-                10,
-                5,
-                6,
-                9,
-                2,
-                9,
-                5,
-                2,
-                0
-            ],
+            rating: [5, 10, 5, 6, 9, 2, 9, 5, 2, 0],
             salary: 1500,
-            forename: "Jamie",
+            forename: "Ross",
             surname: "White",
-            email: "jamie.white@sentcha.com",
+            email: "ross.white@sentcha.com",
             department: "Administration",
             dob: "19710328",
             joinDate: "20120808",
@@ -6640,26 +3945,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "275612",
-            rating: [
-                6,
-                9,
-                10,
-                3,
-                9,
-                8,
-                7,
-                8,
-                6,
-                0
-            ],
+            rating: [6, 9, 10, 3, 9, 8, 7, 8, 6, 0],
             salary: 900,
-            forename: "Dave",
-            surname: "Davis",
-            email: "dave.davis@sentcha.com",
+            forename: "Kevin",
+            surname: "Brocato",
+            email: "kevin.brocato@sentcha.com",
             department: "Managment",
             dob: "19841023",
             joinDate: "20090808",
@@ -6667,26 +3961,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 30,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "356044",
-            rating: [
-                8,
-                1,
-                8,
-                6,
-                2,
-                8,
-                1,
-                6,
-                5,
-                3
-            ],
+            rating: [8, 1, 8, 6, 2, 8, 1, 6, 5, 3],
             salary: 900,
-            forename: "Tommy",
-            surname: "Maintz",
-            email: "tommy.maintz@sentcha.com",
+            forename: "Phil",
+            surname: "Griffin",
+            email: "phil.griffin@sentcha.com",
             department: "Administration",
             dob: "19801107",
             joinDate: "20091209",
@@ -6694,26 +3977,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "227171",
-            rating: [
-                4,
-                4,
-                10,
-                1,
-                7,
-                8,
-                7,
-                8,
-                3,
-                3
-            ],
+            rating: [4, 4, 10, 1, 7, 8, 7, 8, 3, 3],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Spencer",
-            email: "aaron.spencer@sentcha.com",
+            forename: "Evan",
+            surname: "Teodorescu",
+            email: "evan.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19800503",
             joinDate: "20090430",
@@ -6721,26 +3993,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "514235",
-            rating: [
-                2,
-                3,
-                3,
-                0,
-                10,
-                5,
-                2,
-                4,
-                7,
-                3
-            ],
+            rating: [2, 3, 3, 0, 10, 5, 2, 4, 7, 3],
             salary: 100,
             forename: "Nige",
-            surname: "Maintz",
-            email: "nige.maintz@sentcha.com",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "Administration",
             dob: "19640308",
             joinDate: "20081110",
@@ -6748,26 +4009,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "314527",
-            rating: [
-                9,
-                2,
-                9,
-                4,
-                9,
-                10,
-                5,
-                5,
-                4,
-                2
-            ],
+            rating: [9, 2, 9, 4, 9, 10, 5, 5, 4, 2],
             salary: 400,
             forename: "Nige",
-            surname: "Davis",
-            email: "nige.davis@sentcha.com",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Administration",
             dob: "19630206",
             joinDate: "20071212",
@@ -6775,26 +4025,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "470501",
-            rating: [
-                9,
-                10,
-                8,
-                1,
-                2,
-                10,
-                8,
-                0,
-                7,
-                10
-            ],
+            rating: [9, 10, 8, 1, 2, 10, 8, 0, 7, 10],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Kaneda",
-            email: "tommy.kaneda@sentcha.com",
+            forename: "Phil",
+            surname: "Krohe",
+            email: "phil.krohe@sentcha.com",
             department: "QA",
             dob: "19800126",
             joinDate: "20110307",
@@ -6802,26 +4041,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "604316",
-            rating: [
-                3,
-                3,
-                9,
-                0,
-                0,
-                3,
-                10,
-                1,
-                10,
-                1
-            ],
+            rating: [3, 3, 9, 0, 0, 3, 10, 1, 10, 1],
             salary: 400,
-            forename: "Jay",
-            surname: "Robinson",
-            email: "jay.robinson@sentcha.com",
+            forename: "Vitaly",
+            surname: "Kravchenko",
+            email: "vitaly.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19710102",
             joinDate: "20080918",
@@ -6829,26 +4057,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "142606",
-            rating: [
-                3,
-                2,
-                7,
-                0,
-                1,
-                3,
-                10,
-                5,
-                8,
-                10
-            ],
+            rating: [3, 2, 7, 0, 1, 3, 10, 5, 8, 10],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Sales",
             dob: "19880502",
             joinDate: "20090125",
@@ -6856,26 +4073,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 28,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "113236",
-            rating: [
-                3,
-                3,
-                10,
-                1,
-                0,
-                10,
-                0,
-                4,
-                10,
-                0
-            ],
+            rating: [3, 3, 10, 1, 0, 10, 0, 4, 10, 0],
             salary: 100,
-            forename: "David",
-            surname: "Maintz",
-            email: "david.maintz@sentcha.com",
+            forename: "Mark",
+            surname: "Griffin",
+            email: "mark.griffin@sentcha.com",
             department: "Managment",
             dob: "19900623",
             joinDate: "20100726",
@@ -6883,26 +4089,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "741736",
-            rating: [
-                6,
-                1,
-                1,
-                3,
-                0,
-                4,
-                0,
-                8,
-                1,
-                9
-            ],
+            rating: [6, 1, 1, 3, 0, 4, 0, 8, 1, 9],
             salary: 400,
-            forename: "Adam",
-            surname: "Spencer",
-            email: "adam.spencer@sentcha.com",
+            forename: "Nige",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Marketing",
             dob: "19780430",
             joinDate: "20110531",
@@ -6910,26 +4105,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "065312",
-            rating: [
-                8,
-                7,
-                8,
-                9,
-                4,
-                7,
-                3,
-                7,
-                10,
-                10
-            ],
+            rating: [8, 7, 8, 9, 4, 7, 3, 7, 10, 10],
             salary: 400,
-            forename: "Dave",
-            surname: "Spencer",
-            email: "dave.spencer@sentcha.com",
+            forename: "Kevin",
+            surname: "Teodorescu",
+            email: "kevin.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19670412",
             joinDate: "20081215",
@@ -6937,26 +4121,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 36,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "203626",
-            rating: [
-                1,
-                4,
-                0,
-                0,
-                10,
-                6,
-                2,
-                0,
-                5,
-                0
-            ],
+            rating: [1, 4, 0, 0, 10, 6, 2, 0, 5, 0],
             salary: 1500,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Accounting",
             dob: "19660523",
             joinDate: "20081104",
@@ -6964,26 +4137,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "455535",
-            rating: [
-                6,
-                5,
-                6,
-                8,
-                7,
-                10,
-                5,
-                9,
-                0,
-                4
-            ],
+            rating: [6, 5, 6, 8, 7, 10, 5, 9, 0, 4],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19860702",
             joinDate: "20091119",
@@ -6991,26 +4153,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "365413",
-            rating: [
-                5,
-                9,
-                0,
-                1,
-                6,
-                1,
-                2,
-                0,
-                7,
-                1
-            ],
+            rating: [5, 9, 0, 1, 6, 1, 2, 0, 7, 1],
             salary: 100,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19630729",
             joinDate: "20080920",
@@ -7018,26 +4169,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "324513",
-            rating: [
-                10,
-                9,
-                5,
-                0,
-                10,
-                6,
-                2,
-                2,
-                1,
-                3
-            ],
+            rating: [10, 9, 5, 0, 10, 6, 2, 2, 1, 3],
             salary: 400,
-            forename: "Jamie",
-            surname: "Ferrero",
-            email: "jamie.ferrero@sentcha.com",
+            forename: "Ross",
+            surname: "Tokarev",
+            email: "ross.tokarev@sentcha.com",
             department: "Engineering",
             dob: "19630223",
             joinDate: "20090627",
@@ -7045,26 +4185,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "227362",
-            rating: [
-                2,
-                10,
-                5,
-                10,
-                1,
-                8,
-                7,
-                1,
-                1,
-                6
-            ],
+            rating: [2, 10, 5, 10, 1, 8, 7, 1, 1, 6],
             salary: 400,
-            forename: "Adam",
-            surname: "Avins",
-            email: "adam.avins@sentcha.com",
+            forename: "Nige",
+            surname: "Gerbasi",
+            email: "nige.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19660520",
             joinDate: "20080902",
@@ -7072,26 +4201,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "063622",
-            rating: [
-                2,
-                7,
-                6,
-                7,
-                4,
-                9,
-                5,
-                5,
-                3,
-                10
-            ],
+            rating: [2, 7, 6, 7, 4, 9, 5, 5, 3, 10],
             salary: 400,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Administration",
             dob: "19580803",
             joinDate: "20120825",
@@ -7099,26 +4217,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "105724",
-            rating: [
-                10,
-                0,
-                5,
-                8,
-                3,
-                8,
-                10,
-                9,
-                1,
-                0
-            ],
+            rating: [10, 0, 5, 8, 3, 8, 10, 9, 1, 0],
             salary: 900,
-            forename: "Aaron",
-            surname: "Avins",
-            email: "aaron.avins@sentcha.com",
+            forename: "Evan",
+            surname: "Gerbasi",
+            email: "evan.gerbasi@sentcha.com",
             department: "Support",
             dob: "19770305",
             joinDate: "20091223",
@@ -7126,26 +4233,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 21,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "754016",
-            rating: [
-                3,
-                5,
-                10,
-                0,
-                3,
-                9,
-                3,
-                3,
-                10,
-                2
-            ],
+            rating: [3, 5, 10, 0, 3, 9, 3, 3, 10, 2],
             salary: 900,
             forename: "Nige",
-            surname: "Conran",
-            email: "nige.conran@sentcha.com",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Sales",
             dob: "19590923",
             joinDate: "20110822",
@@ -7153,26 +4249,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "166771",
-            rating: [
-                1,
-                2,
-                7,
-                9,
-                5,
-                4,
-                5,
-                5,
-                6,
-                6
-            ],
+            rating: [1, 2, 7, 9, 5, 4, 5, 5, 6, 6],
             salary: 1000000,
-            forename: "David",
-            surname: "Robinson",
-            email: "david.robinson@sentcha.com",
+            forename: "Mark",
+            surname: "Kravchenko",
+            email: "mark.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19900710",
             joinDate: "20091205",
@@ -7180,26 +4265,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "720355",
-            rating: [
-                4,
-                10,
-                4,
-                8,
-                10,
-                4,
-                9,
-                5,
-                10,
-                9
-            ],
+            rating: [4, 10, 4, 8, 10, 4, 9, 5, 10, 9],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Elias",
-            email: "abe.elias@sentcha.com",
+            forename: "Don",
+            surname: "Guerrant",
+            email: "don.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19800105",
             joinDate: "20091122",
@@ -7207,26 +4281,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "175663",
-            rating: [
-                5,
-                4,
-                10,
-                2,
-                4,
-                5,
-                3,
-                8,
-                4,
-                5
-            ],
+            rating: [5, 4, 10, 2, 4, 5, 3, 8, 4, 5],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Davis",
-            email: "nicolas.davis@sentcha.com",
+            forename: "Alex",
+            surname: "Brocato",
+            email: "alex.brocato@sentcha.com",
             department: "Administration",
             dob: "19710203",
             joinDate: "20110916",
@@ -7234,26 +4297,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "311171",
-            rating: [
-                9,
-                8,
-                1,
-                1,
-                8,
-                9,
-                2,
-                8,
-                8,
-                1
-            ],
+            rating: [9, 8, 1, 1, 8, 9, 2, 8, 8, 1],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Spencer",
-            email: "aaron.spencer@sentcha.com",
+            forename: "Evan",
+            surname: "Teodorescu",
+            email: "evan.teodorescu@sentcha.com",
             department: "Support",
             dob: "19730607",
             joinDate: "20101003",
@@ -7261,26 +4313,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "771237",
-            rating: [
-                0,
-                3,
-                10,
-                6,
-                3,
-                10,
-                2,
-                0,
-                3,
-                10
-            ],
+            rating: [0, 3, 10, 6, 3, 10, 2, 0, 3, 10],
             salary: 1500,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Managment",
             dob: "19690908",
             joinDate: "20110624",
@@ -7288,26 +4329,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 30,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "104342",
-            rating: [
-                6,
-                10,
-                10,
-                7,
-                4,
-                7,
-                8,
-                7,
-                3,
-                3
-            ],
+            rating: [6, 10, 10, 7, 4, 7, 8, 7, 3, 3],
             salary: 1500,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "QA",
             dob: "19881130",
             joinDate: "20090528",
@@ -7315,26 +4345,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "651126",
-            rating: [
-                0,
-                6,
-                7,
-                3,
-                3,
-                0,
-                10,
-                3,
-                7,
-                9
-            ],
+            rating: [0, 6, 7, 3, 3, 0, 10, 3, 7, 9],
             salary: 100,
-            forename: "Jamie",
+            forename: "Ross",
             surname: "White",
-            email: "jamie.white@sentcha.com",
+            email: "ross.white@sentcha.com",
             department: "Accounting",
             dob: "19720214",
             joinDate: "20080622",
@@ -7342,26 +4361,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "710275",
-            rating: [
-                0,
-                9,
-                7,
-                4,
-                8,
-                6,
-                5,
-                9,
-                7,
-                7
-            ],
+            rating: [0, 9, 7, 4, 8, 6, 5, 9, 7, 7],
             salary: 400,
-            forename: "Ed",
-            surname: "Avins",
-            email: "ed.avins@sentcha.com",
+            forename: "Adrian",
+            surname: "Gerbasi",
+            email: "adrian.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19750818",
             joinDate: "20100601",
@@ -7369,26 +4377,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "652315",
-            rating: [
-                2,
-                10,
-                7,
-                8,
-                0,
-                10,
-                9,
-                4,
-                10,
-                2
-            ],
+            rating: [2, 10, 7, 8, 0, 10, 9, 4, 10, 2],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "Support",
             dob: "19770620",
             joinDate: "20100702",
@@ -7396,26 +4393,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "350531",
-            rating: [
-                9,
-                7,
-                5,
-                4,
-                10,
-                1,
-                2,
-                7,
-                5,
-                6
-            ],
+            rating: [9, 7, 5, 4, 10, 1, 2, 7, 5, 6],
             salary: 900,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19650808",
             joinDate: "20110718",
@@ -7423,26 +4409,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "462745",
-            rating: [
-                4,
-                1,
-                1,
-                0,
-                7,
-                1,
-                10,
-                5,
-                8,
-                9
-            ],
+            rating: [4, 1, 1, 0, 7, 1, 10, 5, 8, 9],
             salary: 1500,
-            forename: "Aaron",
+            forename: "Evan",
             surname: "White",
-            email: "aaron.white@sentcha.com",
+            email: "evan.white@sentcha.com",
             department: "QA",
             dob: "19830718",
             joinDate: "20111202",
@@ -7450,26 +4425,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "447524",
-            rating: [
-                4,
-                7,
-                9,
-                1,
-                1,
-                7,
-                1,
-                6,
-                6,
-                0
-            ],
+            rating: [4, 7, 9, 1, 1, 7, 1, 6, 6, 0],
             salary: 400,
-            forename: "Jay",
-            surname: "Spencer",
-            email: "jay.spencer@sentcha.com",
+            forename: "Vitaly",
+            surname: "Teodorescu",
+            email: "vitaly.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19880311",
             joinDate: "20080215",
@@ -7477,26 +4441,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 21,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "344354",
-            rating: [
-                3,
-                1,
-                3,
-                8,
-                2,
-                2,
-                7,
-                4,
-                5,
-                9
-            ],
+            rating: [3, 1, 3, 8, 2, 2, 7, 4, 5, 9],
             salary: 900,
-            forename: "Abe",
-            surname: "Davis",
-            email: "abe.davis@sentcha.com",
+            forename: "Don",
+            surname: "Brocato",
+            email: "don.brocato@sentcha.com",
             department: "Accounting",
             dob: "19610513",
             joinDate: "20120917",
@@ -7504,26 +4457,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "037227",
-            rating: [
-                1,
-                0,
-                9,
-                1,
-                3,
-                6,
-                2,
-                4,
-                4,
-                0
-            ],
+            rating: [1, 0, 9, 1, 3, 6, 2, 4, 4, 0],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Maintz",
-            email: "adam.maintz@sentcha.com",
+            forename: "Nige",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "QA",
             dob: "19840707",
             joinDate: "20101017",
@@ -7531,26 +4473,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "326003",
-            rating: [
-                5,
-                1,
-                0,
-                6,
-                5,
-                10,
-                8,
-                1,
-                4,
-                8
-            ],
+            rating: [5, 1, 0, 6, 5, 10, 8, 1, 4, 8],
             salary: 100,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Managment",
             dob: "19710604",
             joinDate: "20110201",
@@ -7558,26 +4489,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "450651",
-            rating: [
-                9,
-                4,
-                5,
-                9,
-                5,
-                4,
-                9,
-                0,
-                0,
-                10
-            ],
+            rating: [9, 4, 5, 9, 5, 4, 9, 0, 0, 10],
             salary: 100,
-            forename: "Aaron",
-            surname: "Davis",
-            email: "aaron.davis@sentcha.com",
+            forename: "Evan",
+            surname: "Brocato",
+            email: "evan.brocato@sentcha.com",
             department: "Marketing",
             dob: "19820924",
             joinDate: "20081126",
@@ -7585,26 +4505,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "605252",
-            rating: [
-                8,
-                3,
-                4,
-                8,
-                2,
-                7,
-                2,
-                7,
-                5,
-                0
-            ],
+            rating: [8, 3, 4, 8, 2, 7, 2, 7, 5, 0],
             salary: 900,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Sales",
             dob: "19720603",
             joinDate: "20121020",
@@ -7612,26 +4521,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "111411",
-            rating: [
-                0,
-                0,
-                7,
-                1,
-                5,
-                0,
-                9,
-                1,
-                9,
-                8
-            ],
+            rating: [0, 0, 7, 1, 5, 0, 9, 1, 9, 8],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Conran",
-            email: "nicolas.conran@sentcha.com",
+            forename: "Alex",
+            surname: "Trimboli",
+            email: "alex.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19670126",
             joinDate: "20100823",
@@ -7639,26 +4537,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "165502",
-            rating: [
-                10,
-                5,
-                4,
-                3,
-                8,
-                3,
-                6,
-                4,
-                1,
-                3
-            ],
+            rating: [10, 5, 4, 3, 8, 3, 6, 4, 1, 3],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Managment",
             dob: "19810507",
             joinDate: "20111127",
@@ -7666,26 +4553,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "766040",
-            rating: [
-                4,
-                5,
-                5,
-                3,
-                0,
-                10,
-                4,
-                6,
-                8,
-                1
-            ],
+            rating: [4, 5, 5, 3, 0, 10, 4, 6, 8, 1],
             salary: 1500,
-            forename: "Aaron",
+            forename: "Evan",
             surname: "White",
-            email: "aaron.white@sentcha.com",
+            email: "evan.white@sentcha.com",
             department: "Administration",
             dob: "19681230",
             joinDate: "20101012",
@@ -7693,26 +4569,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "050663",
-            rating: [
-                4,
-                10,
-                1,
-                8,
-                10,
-                10,
-                4,
-                6,
-                1,
-                10
-            ],
+            rating: [4, 10, 1, 8, 10, 10, 4, 6, 1, 10],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Maintz",
-            email: "nicolas.maintz@sentcha.com",
+            forename: "Alex",
+            surname: "Griffin",
+            email: "alex.griffin@sentcha.com",
             department: "QA",
             dob: "19801101",
             joinDate: "20121028",
@@ -7720,26 +4585,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "537163",
-            rating: [
-                8,
-                7,
-                6,
-                3,
-                8,
-                1,
-                1,
-                4,
-                0,
-                2
-            ],
+            rating: [8, 7, 6, 3, 8, 1, 1, 4, 0, 2],
             salary: 100,
-            forename: "Ed",
+            forename: "Adrian",
             surname: "White",
-            email: "ed.white@sentcha.com",
+            email: "adrian.white@sentcha.com",
             department: "QA",
             dob: "19630406",
             joinDate: "20081115",
@@ -7747,26 +4601,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "312117",
-            rating: [
-                5,
-                0,
-                3,
-                8,
-                0,
-                3,
-                4,
-                9,
-                2,
-                7
-            ],
+            rating: [5, 0, 3, 8, 0, 3, 4, 9, 2, 7],
             salary: 1500,
-            forename: "David",
-            surname: "Spencer",
-            email: "david.spencer@sentcha.com",
+            forename: "Mark",
+            surname: "Teodorescu",
+            email: "mark.teodorescu@sentcha.com",
             department: "Support",
             dob: "19900131",
             joinDate: "20110812",
@@ -7774,26 +4617,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 36,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "713536",
-            rating: [
-                3,
-                10,
-                6,
-                6,
-                9,
-                4,
-                5,
-                0,
-                0,
-                6
-            ],
+            rating: [3, 10, 6, 6, 9, 4, 5, 0, 0, 6],
             salary: 400,
-            forename: "Tommy",
+            forename: "Phil",
             surname: "White",
-            email: "tommy.white@sentcha.com",
+            email: "phil.white@sentcha.com",
             department: "Marketing",
             dob: "19680904",
             joinDate: "20090903",
@@ -7801,26 +4633,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "702373",
-            rating: [
-                8,
-                7,
-                3,
-                10,
-                1,
-                5,
-                7,
-                9,
-                8,
-                3
-            ],
+            rating: [8, 7, 3, 10, 1, 5, 7, 9, 8, 3],
             salary: 900,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19760909",
             joinDate: "20100704",
@@ -7828,26 +4649,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "742015",
-            rating: [
-                10,
-                3,
-                9,
-                1,
-                8,
-                10,
-                6,
-                4,
-                4,
-                7
-            ],
+            rating: [10, 3, 9, 1, 8, 10, 6, 4, 4, 7],
             salary: 100,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "Support",
             dob: "19711124",
             joinDate: "20080427",
@@ -7855,26 +4665,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "500057",
-            rating: [
-                10,
-                0,
-                0,
-                2,
-                7,
-                2,
-                1,
-                6,
-                8,
-                3
-            ],
+            rating: [10, 0, 0, 2, 7, 2, 1, 6, 8, 3],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Spencer",
-            email: "dave.spencer@sentcha.com",
+            forename: "Kevin",
+            surname: "Teodorescu",
+            email: "kevin.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19840617",
             joinDate: "20120829",
@@ -7882,26 +4681,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "430334",
-            rating: [
-                0,
-                3,
-                7,
-                7,
-                10,
-                3,
-                7,
-                7,
-                5,
-                2
-            ],
+            rating: [0, 3, 7, 7, 10, 3, 7, 7, 5, 2],
             salary: 900,
-            forename: "Abe",
-            surname: "Elias",
-            email: "abe.elias@sentcha.com",
+            forename: "Don",
+            surname: "Guerrant",
+            email: "don.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19790118",
             joinDate: "20080308",
@@ -7909,26 +4697,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "425604",
-            rating: [
-                10,
-                9,
-                10,
-                1,
-                7,
-                5,
-                0,
-                3,
-                0,
-                6
-            ],
+            rating: [10, 9, 10, 1, 7, 5, 0, 3, 0, 6],
             salary: 100,
-            forename: "Abe",
+            forename: "Don",
             surname: "White",
-            email: "abe.white@sentcha.com",
+            email: "don.white@sentcha.com",
             department: "Accounting",
             dob: "19790212",
             joinDate: "20110505",
@@ -7936,26 +4713,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "067520",
-            rating: [
-                7,
-                9,
-                7,
-                8,
-                4,
-                0,
-                1,
-                7,
-                4,
-                7
-            ],
+            rating: [7, 9, 7, 8, 4, 0, 1, 7, 4, 7],
             salary: 1000000,
-            forename: "Jamie",
+            forename: "Ross",
             surname: "White",
-            email: "jamie.white@sentcha.com",
+            email: "ross.white@sentcha.com",
             department: "Support",
             dob: "19721209",
             joinDate: "20100531",
@@ -7963,26 +4729,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "466442",
-            rating: [
-                1,
-                3,
-                0,
-                8,
-                8,
-                0,
-                5,
-                10,
-                2,
-                7
-            ],
+            rating: [1, 3, 0, 8, 8, 0, 5, 10, 2, 7],
             salary: 100,
-            forename: "Jamie",
-            surname: "Maintz",
-            email: "jamie.maintz@sentcha.com",
+            forename: "Ross",
+            surname: "Griffin",
+            email: "ross.griffin@sentcha.com",
             department: "Administration",
             dob: "19740214",
             joinDate: "20090322",
@@ -7990,26 +4745,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "164130",
-            rating: [
-                5,
-                7,
-                1,
-                10,
-                4,
-                6,
-                10,
-                10,
-                9,
-                6
-            ],
+            rating: [5, 7, 1, 10, 4, 6, 10, 10, 9, 6],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Davis",
-            email: "jamie.davis@sentcha.com",
+            forename: "Ross",
+            surname: "Brocato",
+            email: "ross.brocato@sentcha.com",
             department: "Marketing",
             dob: "19660622",
             joinDate: "20110825",
@@ -8017,26 +4761,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "014133",
-            rating: [
-                5,
-                8,
-                3,
-                8,
-                3,
-                3,
-                7,
-                3,
-                9,
-                8
-            ],
+            rating: [5, 8, 3, 8, 3, 3, 7, 3, 9, 8],
             salary: 1000000,
-            forename: "Abe",
+            forename: "Don",
             surname: "White",
-            email: "abe.white@sentcha.com",
+            email: "don.white@sentcha.com",
             department: "Sales",
             dob: "19700412",
             joinDate: "20080220",
@@ -8044,26 +4777,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 20,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "062756",
-            rating: [
-                6,
-                3,
-                5,
-                6,
-                5,
-                3,
-                3,
-                5,
-                0,
-                2
-            ],
+            rating: [6, 3, 5, 6, 5, 3, 3, 5, 0, 2],
             salary: 100,
-            forename: "Aaron",
-            surname: "Ferrero",
-            email: "aaron.ferrero@sentcha.com",
+            forename: "Evan",
+            surname: "Tokarev",
+            email: "evan.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19850207",
             joinDate: "20110224",
@@ -8071,26 +4793,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "270145",
-            rating: [
-                9,
-                3,
-                0,
-                1,
-                8,
-                10,
-                4,
-                6,
-                9,
-                10
-            ],
+            rating: [9, 3, 0, 1, 8, 10, 4, 6, 9, 10],
             salary: 100,
-            forename: "Jamie",
-            surname: "Spencer",
-            email: "jamie.spencer@sentcha.com",
+            forename: "Ross",
+            surname: "Teodorescu",
+            email: "ross.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19690325",
             joinDate: "20100317",
@@ -8098,26 +4809,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "061667",
-            rating: [
-                10,
-                6,
-                2,
-                5,
-                8,
-                0,
-                5,
-                5,
-                0,
-                0
-            ],
+            rating: [10, 6, 2, 5, 8, 0, 5, 5, 0, 0],
             salary: 100,
-            forename: "Aaron",
-            surname: "Ferrero",
-            email: "aaron.ferrero@sentcha.com",
+            forename: "Evan",
+            surname: "Tokarev",
+            email: "evan.tokarev@sentcha.com",
             department: "Sales",
             dob: "19881216",
             joinDate: "20071128",
@@ -8125,26 +4825,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "216736",
-            rating: [
-                8,
-                9,
-                6,
-                8,
-                2,
-                10,
-                7,
-                9,
-                3,
-                0
-            ],
+            rating: [8, 9, 6, 8, 2, 10, 7, 9, 3, 0],
             salary: 400,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Marketing",
             dob: "19810910",
             joinDate: "20080712",
@@ -8152,26 +4841,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "246643",
-            rating: [
-                0,
-                6,
-                10,
-                4,
-                6,
-                10,
-                6,
-                4,
-                2,
-                2
-            ],
+            rating: [0, 6, 10, 4, 6, 10, 6, 4, 2, 2],
             salary: 900,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Administration",
             dob: "19890307",
             joinDate: "20080215",
@@ -8179,26 +4857,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "327124",
-            rating: [
-                3,
-                9,
-                9,
-                3,
-                10,
-                0,
-                1,
-                0,
-                0,
-                9
-            ],
+            rating: [3, 9, 9, 3, 10, 0, 1, 0, 0, 9],
             salary: 100,
-            forename: "Abe",
-            surname: "Maintz",
-            email: "abe.maintz@sentcha.com",
+            forename: "Don",
+            surname: "Griffin",
+            email: "don.griffin@sentcha.com",
             department: "Marketing",
             dob: "19671205",
             joinDate: "20110721",
@@ -8206,26 +4873,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "255143",
-            rating: [
-                8,
-                6,
-                1,
-                8,
-                1,
-                10,
-                9,
-                5,
-                7,
-                4
-            ],
+            rating: [8, 6, 1, 8, 1, 10, 9, 5, 7, 4],
             salary: 400,
-            forename: "Jay",
-            surname: "Robinson",
-            email: "jay.robinson@sentcha.com",
+            forename: "Vitaly",
+            surname: "Kravchenko",
+            email: "vitaly.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19711112",
             joinDate: "20121108",
@@ -8233,26 +4889,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "363210",
-            rating: [
-                9,
-                5,
-                3,
-                0,
-                2,
-                0,
-                6,
-                7,
-                9,
-                6
-            ],
+            rating: [9, 5, 3, 0, 2, 0, 6, 7, 9, 6],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Conran",
-            email: "aaron.conran@sentcha.com",
+            forename: "Evan",
+            surname: "Trimboli",
+            email: "evan.trimboli@sentcha.com",
             department: "QA",
             dob: "19680112",
             joinDate: "20100831",
@@ -8260,26 +4905,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "205040",
-            rating: [
-                6,
-                9,
-                9,
-                6,
-                10,
-                5,
-                10,
-                6,
-                2,
-                10
-            ],
+            rating: [6, 9, 9, 6, 10, 5, 10, 6, 2, 10],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Kaneda",
-            email: "tommy.kaneda@sentcha.com",
+            forename: "Phil",
+            surname: "Krohe",
+            email: "phil.krohe@sentcha.com",
             department: "QA",
             dob: "19580702",
             joinDate: "20110713",
@@ -8287,26 +4921,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "740502",
-            rating: [
-                8,
-                0,
-                4,
-                4,
-                3,
-                10,
-                1,
-                0,
-                0,
-                2
-            ],
+            rating: [8, 0, 4, 4, 3, 10, 1, 0, 0, 2],
             salary: 400,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Support",
             dob: "19650220",
             joinDate: "20080228",
@@ -8314,26 +4937,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "732263",
-            rating: [
-                7,
-                7,
-                4,
-                4,
-                9,
-                9,
-                6,
-                9,
-                1,
-                8
-            ],
+            rating: [7, 7, 4, 4, 9, 9, 6, 9, 1, 8],
             salary: 1000000,
             forename: "Nige",
-            surname: "Kaneda",
-            email: "nige.kaneda@sentcha.com",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Marketing",
             dob: "19800404",
             joinDate: "20120906",
@@ -8341,26 +4953,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "255777",
-            rating: [
-                4,
-                5,
-                4,
-                8,
-                8,
-                10,
-                3,
-                4,
-                10,
-                3
-            ],
+            rating: [4, 5, 4, 8, 8, 10, 3, 4, 10, 3],
             salary: 1500,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "QA",
             dob: "19830214",
             joinDate: "20110101",
@@ -8368,26 +4969,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "617521",
-            rating: [
-                2,
-                1,
-                7,
-                6,
-                6,
-                6,
-                7,
-                10,
-                3,
-                1
-            ],
+            rating: [2, 1, 7, 6, 6, 6, 7, 10, 3, 1],
             salary: 900,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "Support",
             dob: "19830415",
             joinDate: "20100926",
@@ -8395,26 +4985,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "173000",
-            rating: [
-                4,
-                5,
-                0,
-                4,
-                10,
-                1,
-                0,
-                0,
-                4,
-                8
-            ],
+            rating: [4, 5, 0, 4, 10, 1, 0, 0, 4, 8],
             salary: 1500,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "Sales",
             dob: "19610208",
             joinDate: "20100503",
@@ -8422,26 +5001,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "313745",
-            rating: [
-                10,
-                6,
-                0,
-                10,
-                6,
-                6,
-                5,
-                4,
-                9,
-                9
-            ],
+            rating: [10, 6, 0, 10, 6, 6, 5, 4, 9, 9],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Maintz",
-            email: "jay.maintz@sentcha.com",
+            forename: "Vitaly",
+            surname: "Griffin",
+            email: "vitaly.griffin@sentcha.com",
             department: "Sales",
             dob: "19881118",
             joinDate: "20080312",
@@ -8449,26 +5017,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 40,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "137370",
-            rating: [
-                2,
-                0,
-                2,
-                0,
-                5,
-                2,
-                5,
-                8,
-                3,
-                6
-            ],
+            rating: [2, 0, 2, 0, 5, 2, 5, 8, 3, 6],
             salary: 400,
-            forename: "David",
-            surname: "Mishcon",
-            email: "david.mishcon@sentcha.com",
+            forename: "Mark",
+            surname: "White",
+            email: "mark.white@sentcha.com",
             department: "Sales",
             dob: "19641012",
             joinDate: "20100801",
@@ -8476,26 +5033,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "740422",
-            rating: [
-                4,
-                5,
-                4,
-                0,
-                0,
-                0,
-                3,
-                10,
-                5,
-                8
-            ],
+            rating: [4, 5, 4, 0, 0, 0, 3, 10, 5, 8],
             salary: 400,
-            forename: "Jay",
-            surname: "Mishcon",
-            email: "jay.mishcon@sentcha.com",
+            forename: "Vitaly",
+            surname: "White",
+            email: "vitaly.white@sentcha.com",
             department: "Support",
             dob: "19900208",
             joinDate: "20090618",
@@ -8503,26 +5049,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "043042",
-            rating: [
-                10,
-                5,
-                8,
-                10,
-                6,
-                7,
-                4,
-                0,
-                5,
-                2
-            ],
+            rating: [10, 5, 8, 10, 6, 7, 4, 0, 5, 2],
             salary: 900,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Administration",
             dob: "19640308",
             joinDate: "20090704",
@@ -8530,26 +5065,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "734525",
-            rating: [
-                6,
-                9,
-                6,
-                0,
-                9,
-                5,
-                10,
-                6,
-                3,
-                0
-            ],
+            rating: [6, 9, 6, 0, 9, 5, 10, 6, 3, 0],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Spencer",
-            email: "jamie.spencer@sentcha.com",
+            forename: "Ross",
+            surname: "Teodorescu",
+            email: "ross.teodorescu@sentcha.com",
             department: "QA",
             dob: "19860920",
             joinDate: "20100908",
@@ -8557,26 +5081,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "302135",
-            rating: [
-                0,
-                9,
-                3,
-                0,
-                8,
-                8,
-                1,
-                4,
-                10,
-                4
-            ],
+            rating: [0, 9, 3, 0, 8, 8, 1, 4, 10, 4],
             salary: 400,
-            forename: "Ed",
-            surname: "Avins",
-            email: "ed.avins@sentcha.com",
+            forename: "Adrian",
+            surname: "Gerbasi",
+            email: "adrian.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19800531",
             joinDate: "20090613",
@@ -8584,26 +5097,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "511610",
-            rating: [
-                6,
-                9,
-                8,
-                6,
-                3,
-                6,
-                2,
-                5,
-                6,
-                5
-            ],
+            rating: [6, 9, 8, 6, 3, 6, 2, 5, 6, 5],
             salary: 900,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Managment",
             dob: "19630625",
             joinDate: "20110727",
@@ -8611,26 +5113,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "777665",
-            rating: [
-                2,
-                10,
-                0,
-                1,
-                2,
-                7,
-                4,
-                10,
-                7,
-                2
-            ],
+            rating: [2, 10, 0, 1, 2, 7, 4, 10, 7, 2],
             salary: 900,
-            forename: "Abe",
-            surname: "Kaneda",
-            email: "abe.kaneda@sentcha.com",
+            forename: "Don",
+            surname: "Krohe",
+            email: "don.krohe@sentcha.com",
             department: "Marketing",
             dob: "19890807",
             joinDate: "20090123",
@@ -8638,26 +5129,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "143215",
-            rating: [
-                9,
-                8,
-                5,
-                5,
-                5,
-                6,
-                2,
-                8,
-                0,
-                5
-            ],
+            rating: [9, 8, 5, 5, 5, 6, 2, 8, 0, 5],
             salary: 1000000,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Accounting",
             dob: "19840307",
             joinDate: "20121231",
@@ -8665,26 +5145,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "756073",
-            rating: [
-                2,
-                10,
-                0,
-                9,
-                7,
-                8,
-                10,
-                5,
-                2,
-                6
-            ],
+            rating: [2, 10, 0, 9, 7, 8, 10, 5, 2, 6],
             salary: 1500,
-            forename: "Adam",
-            surname: "Kaneda",
-            email: "adam.kaneda@sentcha.com",
+            forename: "Nige",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Managment",
             dob: "19651108",
             joinDate: "20090223",
@@ -8692,26 +5161,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 39,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "363550",
-            rating: [
-                7,
-                9,
-                5,
-                2,
-                10,
-                0,
-                4,
-                8,
-                7,
-                5
-            ],
+            rating: [7, 9, 5, 2, 10, 0, 4, 8, 7, 5],
             salary: 1000000,
             forename: "Nige",
-            surname: "Spencer",
-            email: "nige.spencer@sentcha.com",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "QA",
             dob: "19731006",
             joinDate: "20071022",
@@ -8719,26 +5177,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "126151",
-            rating: [
-                3,
-                7,
-                9,
-                10,
-                6,
-                6,
-                1,
-                10,
-                9,
-                4
-            ],
+            rating: [3, 7, 9, 10, 6, 6, 1, 10, 9, 4],
             salary: 400,
             forename: "Nige",
-            surname: "Avins",
-            email: "nige.avins@sentcha.com",
+            surname: "Gerbasi",
+            email: "nige.gerbasi@sentcha.com",
             department: "QA",
             dob: "19660925",
             joinDate: "20071225",
@@ -8746,26 +5193,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 21,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "303772",
-            rating: [
-                7,
-                1,
-                6,
-                6,
-                7,
-                4,
-                4,
-                1,
-                10,
-                9
-            ],
+            rating: [7, 1, 6, 6, 7, 4, 4, 1, 10, 9],
             salary: 1500,
-            forename: "Ed",
-            surname: "Maintz",
-            email: "ed.maintz@sentcha.com",
+            forename: "Adrian",
+            surname: "Griffin",
+            email: "adrian.griffin@sentcha.com",
             department: "QA",
             dob: "19641120",
             joinDate: "20090316",
@@ -8773,26 +5209,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "741043",
-            rating: [
-                6,
-                0,
-                10,
-                8,
-                2,
-                8,
-                9,
-                5,
-                8,
-                7
-            ],
+            rating: [6, 0, 10, 8, 2, 8, 9, 5, 8, 7],
             salary: 900,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Sales",
             dob: "19601111",
             joinDate: "20120504",
@@ -8800,26 +5225,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "276440",
-            rating: [
-                3,
-                2,
-                5,
-                7,
-                5,
-                5,
-                7,
-                3,
-                2,
-                9
-            ],
+            rating: [3, 2, 5, 7, 5, 5, 7, 3, 2, 9],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Robinson",
-            email: "aaron.robinson@sentcha.com",
+            forename: "Evan",
+            surname: "Kravchenko",
+            email: "evan.kravchenko@sentcha.com",
             department: "Support",
             dob: "19890511",
             joinDate: "20071105",
@@ -8827,26 +5241,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "633652",
-            rating: [
-                4,
-                8,
-                4,
-                10,
-                5,
-                5,
-                2,
-                6,
-                4,
-                4
-            ],
+            rating: [4, 8, 4, 10, 5, 5, 2, 6, 4, 4],
             salary: 100,
-            forename: "Abe",
-            surname: "Robinson",
-            email: "abe.robinson@sentcha.com",
+            forename: "Don",
+            surname: "Kravchenko",
+            email: "don.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19800331",
             joinDate: "20100915",
@@ -8854,26 +5257,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 24,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "616365",
-            rating: [
-                2,
-                5,
-                4,
-                9,
-                3,
-                5,
-                3,
-                9,
-                4,
-                3
-            ],
+            rating: [2, 5, 4, 9, 3, 5, 3, 9, 4, 3],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Mishcon",
-            email: "nicolas.mishcon@sentcha.com",
+            forename: "Alex",
+            surname: "White",
+            email: "alex.white@sentcha.com",
             department: "Sales",
             dob: "19860609",
             joinDate: "20090117",
@@ -8881,26 +5273,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "163673",
-            rating: [
-                0,
-                6,
-                6,
-                0,
-                7,
-                0,
-                6,
-                3,
-                10,
-                3
-            ],
+            rating: [0, 6, 6, 0, 7, 0, 6, 3, 10, 3],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Ferrero",
-            email: "abe.ferrero@sentcha.com",
+            forename: "Don",
+            surname: "Tokarev",
+            email: "don.tokarev@sentcha.com",
             department: "Administration",
             dob: "19600214",
             joinDate: "20110526",
@@ -8908,26 +5289,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "162522",
-            rating: [
-                5,
-                2,
-                2,
-                6,
-                2,
-                6,
-                10,
-                8,
-                2,
-                8
-            ],
+            rating: [5, 2, 2, 6, 2, 6, 10, 8, 2, 8],
             salary: 400,
             forename: "Nige",
-            surname: "Maintz",
-            email: "nige.maintz@sentcha.com",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "Engineering",
             dob: "19740323",
             joinDate: "20121205",
@@ -8935,26 +5305,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "366762",
-            rating: [
-                8,
-                6,
-                3,
-                5,
-                6,
-                4,
-                1,
-                9,
-                3,
-                5
-            ],
+            rating: [8, 6, 3, 5, 6, 4, 1, 9, 3, 5],
             salary: 900,
-            forename: "Tommy",
-            surname: "Ferrero",
-            email: "tommy.ferrero@sentcha.com",
+            forename: "Phil",
+            surname: "Tokarev",
+            email: "phil.tokarev@sentcha.com",
             department: "QA",
             dob: "19860901",
             joinDate: "20080904",
@@ -8962,26 +5321,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "277773",
-            rating: [
-                9,
-                0,
-                2,
-                6,
-                4,
-                4,
-                10,
-                7,
-                7,
-                5
-            ],
+            rating: [9, 0, 2, 6, 4, 4, 10, 7, 7, 5],
             salary: 1500,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Support",
             dob: "19661230",
             joinDate: "20121227",
@@ -8989,26 +5337,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "120466",
-            rating: [
-                0,
-                6,
-                3,
-                2,
-                1,
-                0,
-                0,
-                4,
-                4,
-                2
-            ],
+            rating: [0, 6, 3, 2, 1, 0, 0, 4, 4, 2],
             salary: 400,
-            forename: "Jay",
-            surname: "Maintz",
-            email: "jay.maintz@sentcha.com",
+            forename: "Vitaly",
+            surname: "Griffin",
+            email: "vitaly.griffin@sentcha.com",
             department: "Accounting",
             dob: "19800118",
             joinDate: "20101009",
@@ -9016,26 +5353,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "064116",
-            rating: [
-                1,
-                0,
-                3,
-                9,
-                3,
-                10,
-                3,
-                5,
-                9,
-                2
-            ],
+            rating: [1, 0, 3, 9, 3, 10, 3, 5, 9, 2],
             salary: 1500,
             forename: "Nige",
-            surname: "Davis",
-            email: "nige.davis@sentcha.com",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Accounting",
             dob: "19800504",
             joinDate: "20110713",
@@ -9043,26 +5369,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "246706",
-            rating: [
-                9,
-                9,
-                2,
-                1,
-                10,
-                3,
-                8,
-                2,
-                0,
-                1
-            ],
+            rating: [9, 9, 2, 1, 10, 3, 8, 2, 0, 1],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Davis",
-            email: "adam.davis@sentcha.com",
+            forename: "Nige",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Administration",
             dob: "19590625",
             joinDate: "20100720",
@@ -9070,26 +5385,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "216251",
-            rating: [
-                5,
-                5,
-                7,
-                3,
-                10,
-                9,
-                8,
-                0,
-                4,
-                9
-            ],
+            rating: [5, 5, 7, 3, 10, 9, 8, 0, 4, 9],
             salary: 1000000,
             forename: "Nige",
-            surname: "Mishcon",
-            email: "nige.mishcon@sentcha.com",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Accounting",
             dob: "19641112",
             joinDate: "20110411",
@@ -9097,26 +5401,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "332210",
-            rating: [
-                5,
-                2,
-                8,
-                9,
-                5,
-                8,
-                6,
-                3,
-                0,
-                0
-            ],
+            rating: [5, 2, 8, 9, 5, 8, 6, 3, 0, 0],
             salary: 900,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Support",
             dob: "19771017",
             joinDate: "20130111",
@@ -9124,26 +5417,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "210067",
-            rating: [
-                3,
-                7,
-                6,
-                7,
-                1,
-                8,
-                6,
-                10,
-                7,
-                6
-            ],
+            rating: [3, 7, 6, 7, 1, 8, 6, 10, 7, 6],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Davis",
-            email: "jamie.davis@sentcha.com",
+            forename: "Ross",
+            surname: "Brocato",
+            email: "ross.brocato@sentcha.com",
             department: "Marketing",
             dob: "19730421",
             joinDate: "20120919",
@@ -9151,26 +5433,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 39,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "101760",
-            rating: [
-                3,
-                10,
-                2,
-                6,
-                4,
-                8,
-                9,
-                9,
-                4,
-                5
-            ],
+            rating: [3, 10, 2, 6, 4, 8, 9, 9, 4, 5],
             salary: 1500,
-            forename: "Dave",
-            surname: "Conran",
-            email: "dave.conran@sentcha.com",
+            forename: "Kevin",
+            surname: "Trimboli",
+            email: "kevin.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19771217",
             joinDate: "20100806",
@@ -9178,26 +5449,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "700177",
-            rating: [
-                3,
-                10,
-                5,
-                9,
-                2,
-                5,
-                4,
-                0,
-                2,
-                8
-            ],
+            rating: [3, 10, 5, 9, 2, 5, 4, 0, 2, 8],
             salary: 1500,
-            forename: "Adam",
-            surname: "Robinson",
-            email: "adam.robinson@sentcha.com",
+            forename: "Nige",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19600823",
             joinDate: "20111223",
@@ -9205,26 +5465,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "167553",
-            rating: [
-                0,
-                8,
-                6,
-                8,
-                5,
-                10,
-                2,
-                1,
-                4,
-                5
-            ],
+            rating: [0, 8, 6, 8, 5, 10, 2, 1, 4, 5],
             salary: 100,
-            forename: "Aaron",
-            surname: "Kaneda",
-            email: "aaron.kaneda@sentcha.com",
+            forename: "Evan",
+            surname: "Krohe",
+            email: "evan.krohe@sentcha.com",
             department: "Support",
             dob: "19751014",
             joinDate: "20081016",
@@ -9232,26 +5481,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 35,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "545603",
-            rating: [
-                7,
-                9,
-                9,
-                4,
-                7,
-                4,
-                10,
-                7,
-                9,
-                8
-            ],
+            rating: [7, 9, 9, 4, 7, 4, 10, 7, 9, 8],
             salary: 400,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "Managment",
             dob: "19690714",
             joinDate: "20120614",
@@ -9259,26 +5497,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 36,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "346431",
-            rating: [
-                0,
-                5,
-                7,
-                0,
-                1,
-                0,
-                2,
-                5,
-                4,
-                5
-            ],
+            rating: [0, 5, 7, 0, 1, 0, 2, 5, 4, 5],
             salary: 400,
-            forename: "David",
+            forename: "Mark",
             surname: "White",
-            email: "david.white@sentcha.com",
+            email: "mark.white@sentcha.com",
             department: "Support",
             dob: "19590609",
             joinDate: "20110203",
@@ -9286,26 +5513,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "723707",
-            rating: [
-                10,
-                10,
-                0,
-                8,
-                9,
-                5,
-                5,
-                5,
-                2,
-                2
-            ],
+            rating: [10, 10, 0, 8, 9, 5, 5, 5, 2, 2],
             salary: 100,
-            forename: "Dave",
-            surname: "Elias",
-            email: "dave.elias@sentcha.com",
+            forename: "Kevin",
+            surname: "Guerrant",
+            email: "kevin.guerrant@sentcha.com",
             department: "Support",
             dob: "19771102",
             joinDate: "20101227",
@@ -9313,26 +5529,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "112151",
-            rating: [
-                3,
-                7,
-                10,
-                5,
-                0,
-                6,
-                4,
-                1,
-                1,
-                2
-            ],
+            rating: [3, 7, 10, 5, 0, 6, 4, 1, 1, 2],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Marketing",
             dob: "19790104",
             joinDate: "20110929",
@@ -9340,26 +5545,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 27,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "117315",
-            rating: [
-                2,
-                6,
-                7,
-                1,
-                6,
-                1,
-                4,
-                9,
-                8,
-                9
-            ],
+            rating: [2, 6, 7, 1, 6, 1, 4, 9, 8, 9],
             salary: 400,
-            forename: "David",
-            surname: "Conran",
-            email: "david.conran@sentcha.com",
+            forename: "Mark",
+            surname: "Trimboli",
+            email: "mark.trimboli@sentcha.com",
             department: "QA",
             dob: "19770720",
             joinDate: "20081230",
@@ -9367,26 +5561,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "676726",
-            rating: [
-                9,
-                7,
-                2,
-                7,
-                5,
-                6,
-                5,
-                5,
-                3,
-                7
-            ],
+            rating: [9, 7, 2, 7, 5, 6, 5, 5, 3, 7],
             salary: 100,
-            forename: "Tommy",
-            surname: "Maintz",
-            email: "tommy.maintz@sentcha.com",
+            forename: "Phil",
+            surname: "Griffin",
+            email: "phil.griffin@sentcha.com",
             department: "Support",
             dob: "19611020",
             joinDate: "20100107",
@@ -9394,26 +5577,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 32,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "107471",
-            rating: [
-                5,
-                9,
-                3,
-                7,
-                3,
-                2,
-                5,
-                3,
-                8,
-                1
-            ],
+            rating: [5, 9, 3, 7, 3, 2, 5, 3, 8, 1],
             salary: 100,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19880928",
             joinDate: "20091130",
@@ -9421,26 +5593,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "242445",
-            rating: [
-                1,
-                9,
-                7,
-                6,
-                9,
-                7,
-                5,
-                8,
-                4,
-                10
-            ],
+            rating: [1, 9, 7, 6, 9, 7, 5, 8, 4, 10],
             salary: 100,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Accounting",
             dob: "19820416",
             joinDate: "20121230",
@@ -9448,26 +5609,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "145003",
-            rating: [
-                3,
-                2,
-                5,
-                8,
-                1,
-                0,
-                2,
-                5,
-                7,
-                6
-            ],
+            rating: [3, 2, 5, 8, 1, 0, 2, 5, 7, 6],
             salary: 400,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Engineering",
             dob: "19680721",
             joinDate: "20120728",
@@ -9475,26 +5625,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "721475",
-            rating: [
-                3,
-                10,
-                2,
-                0,
-                4,
-                8,
-                7,
-                7,
-                1,
-                8
-            ],
+            rating: [3, 10, 2, 0, 4, 8, 7, 7, 1, 8],
             salary: 1500,
-            forename: "Nicolas",
+            forename: "Alex",
             surname: "White",
-            email: "nicolas.white@sentcha.com",
+            email: "alex.white@sentcha.com",
             department: "Managment",
             dob: "19721117",
             joinDate: "20101227",
@@ -9502,26 +5641,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "362161",
-            rating: [
-                6,
-                1,
-                0,
-                8,
-                0,
-                2,
-                10,
-                6,
-                1,
-                1
-            ],
+            rating: [6, 1, 0, 8, 0, 2, 10, 6, 1, 1],
             salary: 900,
-            forename: "Ed",
-            surname: "Kaneda",
-            email: "ed.kaneda@sentcha.com",
+            forename: "Adrian",
+            surname: "Krohe",
+            email: "adrian.krohe@sentcha.com",
             department: "Managment",
             dob: "19750923",
             joinDate: "20120519",
@@ -9529,26 +5657,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "652241",
-            rating: [
-                4,
-                3,
-                7,
-                8,
-                3,
-                7,
-                4,
-                5,
-                2,
-                2
-            ],
+            rating: [4, 3, 7, 8, 3, 7, 4, 5, 2, 2],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Elias",
-            email: "adam.elias@sentcha.com",
+            forename: "Nige",
+            surname: "Guerrant",
+            email: "nige.guerrant@sentcha.com",
             department: "Accounting",
             dob: "19851225",
             joinDate: "20100822",
@@ -9556,26 +5673,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "632526",
-            rating: [
-                4,
-                1,
-                9,
-                2,
-                8,
-                1,
-                9,
-                0,
-                4,
-                8
-            ],
+            rating: [4, 1, 9, 2, 8, 1, 9, 0, 4, 8],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Conran",
-            email: "nicolas.conran@sentcha.com",
+            forename: "Alex",
+            surname: "Trimboli",
+            email: "alex.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19770121",
             joinDate: "20091205",
@@ -9583,26 +5689,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "200074",
-            rating: [
-                7,
-                8,
-                7,
-                6,
-                8,
-                1,
-                4,
-                1,
-                4,
-                0
-            ],
+            rating: [7, 8, 7, 6, 8, 1, 4, 1, 4, 0],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19701031",
             joinDate: "20071104",
@@ -9610,26 +5705,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 26,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "171241",
-            rating: [
-                7,
-                4,
-                3,
-                10,
-                1,
-                3,
-                5,
-                8,
-                6,
-                1
-            ],
+            rating: [7, 4, 3, 10, 1, 3, 5, 8, 6, 1],
             salary: 1000000,
-            forename: "David",
-            surname: "Robinson",
-            email: "david.robinson@sentcha.com",
+            forename: "Mark",
+            surname: "Kravchenko",
+            email: "mark.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19680206",
             joinDate: "20120525",
@@ -9637,26 +5721,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "127017",
-            rating: [
-                7,
-                3,
-                7,
-                5,
-                8,
-                4,
-                4,
-                5,
-                4,
-                9
-            ],
+            rating: [7, 3, 7, 5, 8, 4, 4, 5, 4, 9],
             salary: 100,
-            forename: "Jamie",
-            surname: "Maintz",
-            email: "jamie.maintz@sentcha.com",
+            forename: "Ross",
+            surname: "Griffin",
+            email: "ross.griffin@sentcha.com",
             department: "Sales",
             dob: "19860323",
             joinDate: "20120120",
@@ -9664,26 +5737,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "521610",
-            rating: [
-                4,
-                9,
-                2,
-                3,
-                9,
-                1,
-                10,
-                2,
-                1,
-                3
-            ],
+            rating: [4, 9, 2, 3, 9, 1, 10, 2, 1, 3],
             salary: 1500,
-            forename: "Ed",
-            surname: "Kaneda",
-            email: "ed.kaneda@sentcha.com",
+            forename: "Adrian",
+            surname: "Krohe",
+            email: "adrian.krohe@sentcha.com",
             department: "QA",
             dob: "19820602",
             joinDate: "20090916",
@@ -9691,26 +5753,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "222176",
-            rating: [
-                9,
-                9,
-                4,
-                5,
-                2,
-                2,
-                10,
-                3,
-                4,
-                10
-            ],
+            rating: [9, 9, 4, 5, 2, 2, 10, 3, 4, 10],
             salary: 1000000,
-            forename: "Aaron",
-            surname: "Maintz",
-            email: "aaron.maintz@sentcha.com",
+            forename: "Evan",
+            surname: "Griffin",
+            email: "evan.griffin@sentcha.com",
             department: "Support",
             dob: "19680127",
             joinDate: "20081230",
@@ -9718,26 +5769,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 28,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "674317",
-            rating: [
-                0,
-                7,
-                0,
-                3,
-                2,
-                8,
-                3,
-                1,
-                2,
-                8
-            ],
+            rating: [0, 7, 0, 3, 2, 8, 3, 1, 2, 8],
             salary: 400,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "QA",
             dob: "19590525",
             joinDate: "20110317",
@@ -9745,26 +5785,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "756314",
-            rating: [
-                0,
-                8,
-                10,
-                10,
-                10,
-                7,
-                9,
-                5,
-                10,
-                7
-            ],
+            rating: [0, 8, 10, 10, 10, 7, 9, 5, 10, 7],
             salary: 400,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Support",
             dob: "19720122",
             joinDate: "20111013",
@@ -9772,26 +5801,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "624554",
-            rating: [
-                5,
-                7,
-                3,
-                0,
-                6,
-                5,
-                8,
-                6,
-                6,
-                9
-            ],
+            rating: [5, 7, 3, 0, 6, 5, 8, 6, 6, 9],
             salary: 900,
-            forename: "Adam",
-            surname: "Avins",
-            email: "adam.avins@sentcha.com",
+            forename: "Nige",
+            surname: "Gerbasi",
+            email: "nige.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19690710",
             joinDate: "20081130",
@@ -9799,26 +5817,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "355607",
-            rating: [
-                5,
-                4,
-                5,
-                8,
-                1,
-                10,
-                5,
-                2,
-                3,
-                4
-            ],
+            rating: [5, 4, 5, 8, 1, 10, 5, 2, 3, 4],
             salary: 900,
-            forename: "Jay",
-            surname: "Kaneda",
-            email: "jay.kaneda@sentcha.com",
+            forename: "Vitaly",
+            surname: "Krohe",
+            email: "vitaly.krohe@sentcha.com",
             department: "Marketing",
             dob: "19650301",
             joinDate: "20080201",
@@ -9826,26 +5833,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "226630",
-            rating: [
-                5,
-                2,
-                5,
-                7,
-                10,
-                7,
-                3,
-                7,
-                1,
-                1
-            ],
+            rating: [5, 2, 5, 7, 10, 7, 3, 7, 1, 1],
             salary: 400,
-            forename: "Jay",
-            surname: "Ferrero",
-            email: "jay.ferrero@sentcha.com",
+            forename: "Vitaly",
+            surname: "Tokarev",
+            email: "vitaly.tokarev@sentcha.com",
             department: "Engineering",
             dob: "19830121",
             joinDate: "20080707",
@@ -9853,26 +5849,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "144442",
-            rating: [
-                10,
-                10,
-                9,
-                5,
-                4,
-                8,
-                6,
-                3,
-                8,
-                4
-            ],
+            rating: [10, 10, 9, 5, 4, 8, 6, 3, 8, 4],
             salary: 1000000,
-            forename: "Nicolas",
+            forename: "Alex",
             surname: "White",
-            email: "nicolas.white@sentcha.com",
+            email: "alex.white@sentcha.com",
             department: "Managment",
             dob: "19800810",
             joinDate: "20120913",
@@ -9880,26 +5865,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "713742",
-            rating: [
-                4,
-                8,
-                8,
-                0,
-                10,
-                4,
-                4,
-                1,
-                6,
-                4
-            ],
+            rating: [4, 8, 8, 0, 10, 4, 4, 1, 6, 4],
             salary: 100,
-            forename: "Jamie",
-            surname: "Maintz",
-            email: "jamie.maintz@sentcha.com",
+            forename: "Ross",
+            surname: "Griffin",
+            email: "ross.griffin@sentcha.com",
             department: "Engineering",
             dob: "19670521",
             joinDate: "20091022",
@@ -9907,26 +5881,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "347702",
-            rating: [
-                9,
-                3,
-                9,
-                3,
-                0,
-                7,
-                4,
-                3,
-                0,
-                9
-            ],
+            rating: [9, 3, 9, 3, 0, 7, 4, 3, 0, 9],
             salary: 100,
-            forename: "Ed",
-            surname: "Maintz",
-            email: "ed.maintz@sentcha.com",
+            forename: "Adrian",
+            surname: "Griffin",
+            email: "adrian.griffin@sentcha.com",
             department: "Marketing",
             dob: "19841022",
             joinDate: "20090529",
@@ -9934,26 +5897,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "771406",
-            rating: [
-                10,
-                10,
-                0,
-                10,
-                3,
-                3,
-                1,
-                4,
-                5,
-                10
-            ],
+            rating: [10, 10, 0, 10, 3, 3, 1, 4, 5, 10],
             salary: 400,
-            forename: "David",
-            surname: "Davis",
-            email: "david.davis@sentcha.com",
+            forename: "Mark",
+            surname: "Brocato",
+            email: "mark.brocato@sentcha.com",
             department: "Accounting",
             dob: "19610224",
             joinDate: "20121030",
@@ -9961,26 +5913,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "004010",
-            rating: [
-                10,
-                5,
-                0,
-                8,
-                3,
-                5,
-                0,
-                3,
-                3,
-                9
-            ],
+            rating: [10, 5, 0, 8, 3, 5, 0, 3, 3, 9],
             salary: 900,
-            forename: "Tommy",
-            surname: "Davis",
-            email: "tommy.davis@sentcha.com",
+            forename: "Phil",
+            surname: "Brocato",
+            email: "phil.brocato@sentcha.com",
             department: "Accounting",
             dob: "19590417",
             joinDate: "20120812",
@@ -9988,26 +5929,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "152566",
-            rating: [
-                2,
-                1,
-                8,
-                2,
-                6,
-                8,
-                1,
-                6,
-                2,
-                9
-            ],
+            rating: [2, 1, 8, 2, 6, 8, 1, 6, 2, 9],
             salary: 400,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "Support",
             dob: "19620819",
             joinDate: "20120527",
@@ -10015,22 +5945,11 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 40,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "327155",
-            rating: [
-                8,
-                4,
-                3,
-                0,
-                1,
-                9,
-                8,
-                10,
-                5,
-                7
-            ],
+            rating: [8, 4, 3, 0, 1, 9, 8, 10, 5, 7],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
@@ -10042,26 +5961,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "247456",
-            rating: [
-                7,
-                9,
-                3,
-                3,
-                6,
-                9,
-                5,
-                5,
-                2,
-                2
-            ],
+            rating: [7, 9, 3, 3, 6, 9, 5, 5, 2, 2],
             salary: 900,
-            forename: "Tommy",
-            surname: "Avins",
-            email: "tommy.avins@sentcha.com",
+            forename: "Phil",
+            surname: "Gerbasi",
+            email: "phil.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19590107",
             joinDate: "20110717",
@@ -10069,26 +5977,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "543312",
-            rating: [
-                1,
-                2,
-                2,
-                1,
-                10,
-                6,
-                1,
-                9,
-                7,
-                1
-            ],
+            rating: [1, 2, 2, 1, 10, 6, 1, 9, 7, 1],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Engineering",
             dob: "19720223",
             joinDate: "20100110",
@@ -10096,26 +5993,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "656131",
-            rating: [
-                1,
-                7,
-                3,
-                1,
-                7,
-                8,
-                8,
-                1,
-                8,
-                4
-            ],
+            rating: [1, 7, 3, 1, 7, 8, 8, 1, 8, 4],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Administration",
             dob: "19590831",
             joinDate: "20110510",
@@ -10123,26 +6009,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "344161",
-            rating: [
-                7,
-                0,
-                10,
-                5,
-                10,
-                3,
-                0,
-                3,
-                1,
-                0
-            ],
+            rating: [7, 0, 10, 5, 10, 3, 0, 3, 1, 0],
             salary: 100,
-            forename: "David",
-            surname: "Elias",
-            email: "david.elias@sentcha.com",
+            forename: "Mark",
+            surname: "Guerrant",
+            email: "mark.guerrant@sentcha.com",
             department: "Marketing",
             dob: "19630303",
             joinDate: "20110328",
@@ -10150,26 +6025,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "254015",
-            rating: [
-                5,
-                9,
-                3,
-                2,
-                1,
-                1,
-                8,
-                4,
-                5,
-                7
-            ],
+            rating: [5, 9, 3, 2, 1, 1, 8, 4, 5, 7],
             salary: 900,
-            forename: "Dave",
-            surname: "Avins",
-            email: "dave.avins@sentcha.com",
+            forename: "Kevin",
+            surname: "Gerbasi",
+            email: "kevin.gerbasi@sentcha.com",
             department: "Accounting",
             dob: "19650712",
             joinDate: "20101106",
@@ -10177,26 +6041,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "363627",
-            rating: [
-                5,
-                7,
-                8,
-                6,
-                7,
-                7,
-                2,
-                8,
-                4,
-                3
-            ],
+            rating: [5, 7, 8, 6, 7, 7, 2, 8, 4, 3],
             salary: 1000000,
-            forename: "Jamie",
-            surname: "Conran",
-            email: "jamie.conran@sentcha.com",
+            forename: "Ross",
+            surname: "Trimboli",
+            email: "ross.trimboli@sentcha.com",
             department: "Managment",
             dob: "19740503",
             joinDate: "20080422",
@@ -10204,26 +6057,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 28,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "773635",
-            rating: [
-                3,
-                8,
-                9,
-                9,
-                3,
-                6,
-                7,
-                9,
-                5,
-                0
-            ],
+            rating: [3, 8, 9, 9, 3, 6, 7, 9, 5, 0],
             salary: 100,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "QA",
             dob: "19771206",
             joinDate: "20080128",
@@ -10231,26 +6073,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "300022",
-            rating: [
-                2,
-                10,
-                5,
-                9,
-                2,
-                0,
-                3,
-                6,
-                6,
-                10
-            ],
+            rating: [2, 10, 5, 9, 2, 0, 3, 6, 6, 10],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Davis",
-            email: "nicolas.davis@sentcha.com",
+            forename: "Alex",
+            surname: "Brocato",
+            email: "alex.brocato@sentcha.com",
             department: "Support",
             dob: "19760120",
             joinDate: "20110428",
@@ -10258,26 +6089,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "646405",
-            rating: [
-                1,
-                0,
-                10,
-                1,
-                4,
-                2,
-                5,
-                8,
-                9,
-                1
-            ],
+            rating: [1, 0, 10, 1, 4, 2, 5, 8, 9, 1],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Spencer",
-            email: "aaron.spencer@sentcha.com",
+            forename: "Evan",
+            surname: "Teodorescu",
+            email: "evan.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19730313",
             joinDate: "20100524",
@@ -10285,26 +6105,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "275007",
-            rating: [
-                1,
-                2,
-                6,
-                7,
-                1,
-                6,
-                4,
-                9,
-                7,
-                2
-            ],
+            rating: [1, 2, 6, 7, 1, 6, 4, 9, 7, 2],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Maintz",
-            email: "nicolas.maintz@sentcha.com",
+            forename: "Alex",
+            surname: "Griffin",
+            email: "alex.griffin@sentcha.com",
             department: "QA",
             dob: "19601007",
             joinDate: "20120622",
@@ -10312,26 +6121,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "177513",
-            rating: [
-                7,
-                8,
-                4,
-                6,
-                5,
-                0,
-                9,
-                10,
-                8,
-                8
-            ],
+            rating: [7, 8, 4, 6, 5, 0, 9, 10, 8, 8],
             salary: 400,
-            forename: "Abe",
-            surname: "Maintz",
-            email: "abe.maintz@sentcha.com",
+            forename: "Don",
+            surname: "Griffin",
+            email: "don.griffin@sentcha.com",
             department: "Support",
             dob: "19821227",
             joinDate: "20091115",
@@ -10339,26 +6137,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "266545",
-            rating: [
-                10,
-                7,
-                2,
-                2,
-                2,
-                3,
-                2,
-                3,
-                8,
-                5
-            ],
+            rating: [10, 7, 2, 2, 2, 3, 2, 3, 8, 5],
             salary: 400,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19590330",
             joinDate: "20080901",
@@ -10366,26 +6153,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "006133",
-            rating: [
-                10,
-                4,
-                2,
-                2,
-                6,
-                0,
-                1,
-                6,
-                9,
-                8
-            ],
+            rating: [10, 4, 2, 2, 6, 0, 1, 6, 9, 8],
             salary: 100,
-            forename: "Jay",
-            surname: "Maintz",
-            email: "jay.maintz@sentcha.com",
+            forename: "Vitaly",
+            surname: "Griffin",
+            email: "vitaly.griffin@sentcha.com",
             department: "Managment",
             dob: "19650529",
             joinDate: "20100121",
@@ -10393,26 +6169,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 27,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "533155",
-            rating: [
-                5,
-                2,
-                10,
-                7,
-                6,
-                3,
-                10,
-                3,
-                7,
-                2
-            ],
+            rating: [5, 2, 10, 7, 6, 3, 10, 3, 7, 2],
             salary: 900,
-            forename: "Abe",
-            surname: "Mishcon",
-            email: "abe.mishcon@sentcha.com",
+            forename: "Don",
+            surname: "White",
+            email: "don.white@sentcha.com",
             department: "Support",
             dob: "19780907",
             joinDate: "20090710",
@@ -10420,26 +6185,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "654377",
-            rating: [
-                8,
-                5,
-                1,
-                6,
-                9,
-                9,
-                3,
-                7,
-                9,
-                2
-            ],
+            rating: [8, 5, 1, 6, 9, 9, 3, 7, 9, 2],
             salary: 400,
-            forename: "Jay",
-            surname: "Avins",
-            email: "jay.avins@sentcha.com",
+            forename: "Vitaly",
+            surname: "Gerbasi",
+            email: "vitaly.gerbasi@sentcha.com",
             department: "Managment",
             dob: "19660302",
             joinDate: "20080624",
@@ -10447,26 +6201,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "702602",
-            rating: [
-                10,
-                4,
-                10,
-                0,
-                10,
-                9,
-                4,
-                8,
-                6,
-                0
-            ],
+            rating: [10, 4, 10, 0, 10, 9, 4, 8, 6, 0],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Mishcon",
-            email: "ed.mishcon@sentcha.com",
+            forename: "Adrian",
+            surname: "White",
+            email: "adrian.white@sentcha.com",
             department: "Sales",
             dob: "19581029",
             joinDate: "20090922",
@@ -10474,26 +6217,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "423137",
-            rating: [
-                1,
-                9,
-                0,
-                7,
-                5,
-                0,
-                10,
-                1,
-                1,
-                10
-            ],
+            rating: [1, 9, 0, 7, 5, 0, 10, 1, 1, 10],
             salary: 100,
-            forename: "Abe",
-            surname: "Ferrero",
-            email: "abe.ferrero@sentcha.com",
+            forename: "Don",
+            surname: "Tokarev",
+            email: "don.tokarev@sentcha.com",
             department: "Administration",
             dob: "19751112",
             joinDate: "20100413",
@@ -10501,26 +6233,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "544573",
-            rating: [
-                7,
-                2,
-                2,
-                8,
-                4,
-                0,
-                5,
-                0,
-                8,
-                10
-            ],
+            rating: [7, 2, 2, 8, 4, 0, 5, 0, 8, 10],
             salary: 900,
-            forename: "Jamie",
-            surname: "Maintz",
-            email: "jamie.maintz@sentcha.com",
+            forename: "Ross",
+            surname: "Griffin",
+            email: "ross.griffin@sentcha.com",
             department: "QA",
             dob: "19600803",
             joinDate: "20120704",
@@ -10528,26 +6249,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "405713",
-            rating: [
-                10,
-                3,
-                0,
-                4,
-                10,
-                10,
-                3,
-                8,
-                9,
-                8
-            ],
+            rating: [10, 3, 0, 4, 10, 10, 3, 8, 9, 8],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Avins",
-            email: "nicolas.avins@sentcha.com",
+            forename: "Alex",
+            surname: "Gerbasi",
+            email: "alex.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19860705",
             joinDate: "20090710",
@@ -10555,26 +6265,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "771330",
-            rating: [
-                9,
-                4,
-                3,
-                3,
-                5,
-                0,
-                9,
-                8,
-                6,
-                6
-            ],
+            rating: [9, 4, 3, 3, 5, 0, 9, 8, 6, 6],
             salary: 1500,
-            forename: "Nicolas",
-            surname: "Elias",
-            email: "nicolas.elias@sentcha.com",
+            forename: "Alex",
+            surname: "Guerrant",
+            email: "alex.guerrant@sentcha.com",
             department: "Managment",
             dob: "19820104",
             joinDate: "20120831",
@@ -10582,26 +6281,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "046743",
-            rating: [
-                7,
-                2,
-                9,
-                9,
-                4,
-                1,
-                1,
-                6,
-                9,
-                3
-            ],
+            rating: [7, 2, 9, 9, 4, 1, 1, 6, 9, 3],
             salary: 900,
-            forename: "Dave",
-            surname: "Robinson",
-            email: "dave.robinson@sentcha.com",
+            forename: "Kevin",
+            surname: "Kravchenko",
+            email: "kevin.kravchenko@sentcha.com",
             department: "Support",
             dob: "19730817",
             joinDate: "20120714",
@@ -10609,26 +6297,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 24,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "226310",
-            rating: [
-                3,
-                4,
-                7,
-                0,
-                3,
-                6,
-                0,
-                9,
-                9,
-                2
-            ],
+            rating: [3, 4, 7, 0, 3, 6, 0, 9, 9, 2],
             salary: 100,
-            forename: "Dave",
-            surname: "Avins",
-            email: "dave.avins@sentcha.com",
+            forename: "Kevin",
+            surname: "Gerbasi",
+            email: "kevin.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19700831",
             joinDate: "20111025",
@@ -10636,26 +6313,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "312110",
-            rating: [
-                9,
-                2,
-                10,
-                7,
-                2,
-                9,
-                9,
-                10,
-                8,
-                0
-            ],
+            rating: [9, 2, 10, 7, 2, 9, 9, 10, 8, 0],
             salary: 100,
-            forename: "Dave",
-            surname: "Spencer",
-            email: "dave.spencer@sentcha.com",
+            forename: "Kevin",
+            surname: "Teodorescu",
+            email: "kevin.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19880328",
             joinDate: "20110311",
@@ -10663,26 +6329,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "222766",
-            rating: [
-                6,
-                10,
-                9,
-                7,
-                10,
-                4,
-                9,
-                9,
-                6,
-                10
-            ],
+            rating: [6, 10, 9, 7, 10, 4, 9, 9, 6, 10],
             salary: 900,
-            forename: "Adam",
-            surname: "Mishcon",
-            email: "adam.mishcon@sentcha.com",
+            forename: "Nige",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "QA",
             dob: "19770731",
             joinDate: "20130120",
@@ -10690,26 +6345,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "072137",
-            rating: [
-                10,
-                7,
-                8,
-                10,
-                6,
-                5,
-                5,
-                8,
-                10,
-                6
-            ],
+            rating: [10, 7, 8, 10, 6, 5, 5, 8, 10, 6],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Maintz",
-            email: "tommy.maintz@sentcha.com",
+            forename: "Phil",
+            surname: "Griffin",
+            email: "phil.griffin@sentcha.com",
             department: "Support",
             dob: "19810208",
             joinDate: "20110925",
@@ -10717,26 +6361,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "425137",
-            rating: [
-                5,
-                10,
-                7,
-                7,
-                7,
-                6,
-                0,
-                5,
-                0,
-                3
-            ],
+            rating: [5, 10, 7, 7, 7, 6, 0, 5, 0, 3],
             salary: 400,
-            forename: "Jay",
-            surname: "Spencer",
-            email: "jay.spencer@sentcha.com",
+            forename: "Vitaly",
+            surname: "Teodorescu",
+            email: "vitaly.teodorescu@sentcha.com",
             department: "Managment",
             dob: "19820226",
             joinDate: "20071221",
@@ -10744,26 +6377,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "205462",
-            rating: [
-                8,
-                0,
-                7,
-                9,
-                4,
-                8,
-                4,
-                3,
-                6,
-                5
-            ],
+            rating: [8, 0, 7, 9, 4, 8, 4, 3, 6, 5],
             salary: 1500,
-            forename: "Adam",
-            surname: "Spencer",
-            email: "adam.spencer@sentcha.com",
+            forename: "Nige",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19640613",
             joinDate: "20080629",
@@ -10771,26 +6393,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "753357",
-            rating: [
-                1,
-                4,
-                9,
-                7,
-                4,
-                7,
-                6,
-                6,
-                1,
-                3
-            ],
+            rating: [1, 4, 9, 7, 4, 7, 6, 6, 1, 3],
             salary: 100,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Marketing",
             dob: "19711210",
             joinDate: "20110122",
@@ -10798,26 +6409,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "104020",
-            rating: [
-                5,
-                0,
-                5,
-                9,
-                2,
-                10,
-                10,
-                5,
-                7,
-                7
-            ],
+            rating: [5, 0, 5, 9, 2, 10, 10, 5, 7, 7],
             salary: 400,
             forename: "Nige",
-            surname: "Kaneda",
-            email: "nige.kaneda@sentcha.com",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Marketing",
             dob: "19890128",
             joinDate: "20071120",
@@ -10825,26 +6425,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 38,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "174422",
-            rating: [
-                9,
-                5,
-                9,
-                6,
-                6,
-                6,
-                10,
-                8,
-                3,
-                2
-            ],
+            rating: [9, 5, 9, 6, 6, 6, 10, 8, 3, 2],
             salary: 100,
-            forename: "Dave",
-            surname: "Ferrero",
-            email: "dave.ferrero@sentcha.com",
+            forename: "Kevin",
+            surname: "Tokarev",
+            email: "kevin.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19861215",
             joinDate: "20120109",
@@ -10852,26 +6441,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "343410",
-            rating: [
-                7,
-                8,
-                5,
-                5,
-                10,
-                4,
-                5,
-                10,
-                1,
-                6
-            ],
+            rating: [7, 8, 5, 5, 10, 4, 5, 10, 1, 6],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Kaneda",
-            email: "tommy.kaneda@sentcha.com",
+            forename: "Phil",
+            surname: "Krohe",
+            email: "phil.krohe@sentcha.com",
             department: "Administration",
             dob: "19670223",
             joinDate: "20080308",
@@ -10879,26 +6457,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "271624",
-            rating: [
-                5,
-                0,
-                1,
-                4,
-                10,
-                7,
-                7,
-                5,
-                10,
-                10
-            ],
+            rating: [5, 0, 1, 4, 10, 7, 7, 5, 10, 10],
             salary: 900,
-            forename: "David",
-            surname: "Robinson",
-            email: "david.robinson@sentcha.com",
+            forename: "Mark",
+            surname: "Kravchenko",
+            email: "mark.kravchenko@sentcha.com",
             department: "Support",
             dob: "19590217",
             joinDate: "20120909",
@@ -10906,26 +6473,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "202711",
-            rating: [
-                10,
-                10,
-                9,
-                7,
-                9,
-                8,
-                9,
-                10,
-                2,
-                7
-            ],
+            rating: [10, 10, 9, 7, 9, 8, 9, 10, 2, 7],
             salary: 400,
-            forename: "Dave",
-            surname: "Avins",
-            email: "dave.avins@sentcha.com",
+            forename: "Kevin",
+            surname: "Gerbasi",
+            email: "kevin.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19660328",
             joinDate: "20091208",
@@ -10933,26 +6489,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "526466",
-            rating: [
-                2,
-                9,
-                7,
-                1,
-                3,
-                10,
-                0,
-                6,
-                4,
-                5
-            ],
+            rating: [2, 9, 7, 1, 3, 10, 0, 6, 4, 5],
             salary: 100,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "Support",
             dob: "19890312",
             joinDate: "20080105",
@@ -10960,26 +6505,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "221623",
-            rating: [
-                4,
-                4,
-                8,
-                4,
-                9,
-                5,
-                3,
-                8,
-                9,
-                7
-            ],
+            rating: [4, 4, 8, 4, 9, 5, 3, 8, 9, 7],
             salary: 900,
-            forename: "Adam",
-            surname: "Conran",
-            email: "adam.conran@sentcha.com",
+            forename: "Nige",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Managment",
             dob: "19670731",
             joinDate: "20121001",
@@ -10987,26 +6521,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "242576",
-            rating: [
-                5,
-                3,
-                2,
-                1,
-                4,
-                6,
-                2,
-                3,
-                9,
-                8
-            ],
+            rating: [5, 3, 2, 1, 4, 6, 2, 3, 9, 8],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Spencer",
-            email: "tommy.spencer@sentcha.com",
+            forename: "Phil",
+            surname: "Teodorescu",
+            email: "phil.teodorescu@sentcha.com",
             department: "Support",
             dob: "19591108",
             joinDate: "20120311",
@@ -11014,26 +6537,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "420047",
-            rating: [
-                3,
-                3,
-                0,
-                5,
-                10,
-                4,
-                0,
-                1,
-                6,
-                0
-            ],
+            rating: [3, 3, 0, 5, 10, 4, 0, 1, 6, 0],
             salary: 400,
-            forename: "Ed",
-            surname: "Elias",
-            email: "ed.elias@sentcha.com",
+            forename: "Adrian",
+            surname: "Guerrant",
+            email: "adrian.guerrant@sentcha.com",
             department: "Managment",
             dob: "19750117",
             joinDate: "20090930",
@@ -11041,26 +6553,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "072024",
-            rating: [
-                6,
-                10,
-                8,
-                6,
-                6,
-                3,
-                7,
-                2,
-                5,
-                5
-            ],
+            rating: [6, 10, 8, 6, 6, 3, 7, 2, 5, 5],
             salary: 1000000,
-            forename: "Jay",
-            surname: "Spencer",
-            email: "jay.spencer@sentcha.com",
+            forename: "Vitaly",
+            surname: "Teodorescu",
+            email: "vitaly.teodorescu@sentcha.com",
             department: "Managment",
             dob: "19650507",
             joinDate: "20111205",
@@ -11068,26 +6569,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "223157",
-            rating: [
-                9,
-                3,
-                8,
-                9,
-                5,
-                5,
-                6,
-                5,
-                6,
-                8
-            ],
+            rating: [9, 3, 8, 9, 5, 5, 6, 5, 6, 8],
             salary: 100,
-            forename: "Jamie",
-            surname: "Kaneda",
-            email: "jamie.kaneda@sentcha.com",
+            forename: "Ross",
+            surname: "Krohe",
+            email: "ross.krohe@sentcha.com",
             department: "Marketing",
             dob: "19900611",
             joinDate: "20090914",
@@ -11095,26 +6585,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "070301",
-            rating: [
-                7,
-                10,
-                10,
-                2,
-                9,
-                9,
-                7,
-                10,
-                7,
-                1
-            ],
+            rating: [7, 10, 10, 2, 9, 9, 7, 10, 7, 1],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Robinson",
-            email: "nicolas.robinson@sentcha.com",
+            forename: "Alex",
+            surname: "Kravchenko",
+            email: "alex.kravchenko@sentcha.com",
             department: "Managment",
             dob: "19700301",
             joinDate: "20080806",
@@ -11122,26 +6601,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 34,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "427135",
-            rating: [
-                6,
-                3,
-                8,
-                8,
-                2,
-                8,
-                4,
-                2,
-                10,
-                9
-            ],
+            rating: [6, 3, 8, 8, 2, 8, 4, 2, 10, 9],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Conran",
-            email: "ed.conran@sentcha.com",
+            forename: "Adrian",
+            surname: "Trimboli",
+            email: "adrian.trimboli@sentcha.com",
             department: "QA",
             dob: "19610614",
             joinDate: "20101208",
@@ -11149,26 +6617,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "006352",
-            rating: [
-                8,
-                1,
-                6,
-                9,
-                4,
-                5,
-                1,
-                9,
-                10,
-                2
-            ],
+            rating: [8, 1, 6, 9, 4, 5, 1, 9, 10, 2],
             salary: 1500,
-            forename: "Adam",
-            surname: "Elias",
-            email: "adam.elias@sentcha.com",
+            forename: "Nige",
+            surname: "Guerrant",
+            email: "nige.guerrant@sentcha.com",
             department: "Marketing",
             dob: "19780424",
             joinDate: "20111229",
@@ -11176,26 +6633,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "130650",
-            rating: [
-                7,
-                10,
-                6,
-                6,
-                3,
-                4,
-                5,
-                2,
-                5,
-                7
-            ],
+            rating: [7, 10, 6, 6, 3, 4, 5, 2, 5, 7],
             salary: 900,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Support",
             dob: "19690722",
             joinDate: "20090406",
@@ -11203,26 +6649,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "732754",
-            rating: [
-                10,
-                2,
-                10,
-                5,
-                9,
-                7,
-                3,
-                2,
-                1,
-                3
-            ],
+            rating: [10, 2, 10, 5, 9, 7, 3, 2, 1, 3],
             salary: 400,
-            forename: "Nicolas",
+            forename: "Alex",
             surname: "White",
-            email: "nicolas.white@sentcha.com",
+            email: "alex.white@sentcha.com",
             department: "Marketing",
             dob: "19780422",
             joinDate: "20121009",
@@ -11230,26 +6665,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "723361",
-            rating: [
-                8,
-                0,
-                8,
-                2,
-                10,
-                5,
-                4,
-                5,
-                10,
-                0
-            ],
+            rating: [8, 0, 8, 2, 10, 5, 4, 5, 10, 0],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Kaneda",
-            email: "nicolas.kaneda@sentcha.com",
+            forename: "Alex",
+            surname: "Krohe",
+            email: "alex.krohe@sentcha.com",
             department: "Marketing",
             dob: "19720509",
             joinDate: "20120824",
@@ -11257,26 +6681,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "040437",
-            rating: [
-                6,
-                7,
-                6,
-                7,
-                1,
-                3,
-                0,
-                0,
-                2,
-                6
-            ],
+            rating: [6, 7, 6, 7, 1, 3, 0, 0, 2, 6],
             salary: 400,
-            forename: "Jamie",
-            surname: "Maintz",
-            email: "jamie.maintz@sentcha.com",
+            forename: "Ross",
+            surname: "Griffin",
+            email: "ross.griffin@sentcha.com",
             department: "Engineering",
             dob: "19670318",
             joinDate: "20110809",
@@ -11284,26 +6697,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 27,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "671147",
-            rating: [
-                0,
-                9,
-                7,
-                3,
-                3,
-                2,
-                2,
-                4,
-                10,
-                0
-            ],
+            rating: [0, 9, 7, 3, 3, 2, 2, 4, 10, 0],
             salary: 100,
             forename: "Nige",
-            surname: "Conran",
-            email: "nige.conran@sentcha.com",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Administration",
             dob: "19690505",
             joinDate: "20080704",
@@ -11311,26 +6713,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 33,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "612362",
-            rating: [
-                10,
-                2,
-                5,
-                2,
-                1,
-                9,
-                8,
-                0,
-                8,
-                6
-            ],
+            rating: [10, 2, 5, 2, 1, 9, 8, 0, 8, 6],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Avins",
-            email: "dave.avins@sentcha.com",
+            forename: "Kevin",
+            surname: "Gerbasi",
+            email: "kevin.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19710927",
             joinDate: "20121224",
@@ -11338,26 +6729,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 31,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "572756",
-            rating: [
-                6,
-                10,
-                2,
-                4,
-                8,
-                3,
-                6,
-                5,
-                9,
-                9
-            ],
+            rating: [6, 10, 2, 4, 8, 3, 6, 5, 9, 9],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Robinson",
-            email: "aaron.robinson@sentcha.com",
+            forename: "Evan",
+            surname: "Kravchenko",
+            email: "evan.kravchenko@sentcha.com",
             department: "Engineering",
             dob: "19690330",
             joinDate: "20091107",
@@ -11365,26 +6745,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "261350",
-            rating: [
-                3,
-                3,
-                2,
-                8,
-                3,
-                0,
-                6,
-                8,
-                10,
-                6
-            ],
+            rating: [3, 3, 2, 8, 3, 0, 6, 8, 10, 6],
             salary: 100,
-            forename: "Jay",
-            surname: "Avins",
-            email: "jay.avins@sentcha.com",
+            forename: "Vitaly",
+            surname: "Gerbasi",
+            email: "vitaly.gerbasi@sentcha.com",
             department: "QA",
             dob: "19630812",
             joinDate: "20080623",
@@ -11392,26 +6761,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "533244",
-            rating: [
-                7,
-                1,
-                10,
-                10,
-                6,
-                7,
-                2,
-                2,
-                9,
-                3
-            ],
+            rating: [7, 1, 10, 10, 6, 7, 2, 2, 9, 3],
             salary: 1500,
-            forename: "Tommy",
+            forename: "Phil",
             surname: "White",
-            email: "tommy.white@sentcha.com",
+            email: "phil.white@sentcha.com",
             department: "Engineering",
             dob: "19781105",
             joinDate: "20071108",
@@ -11419,26 +6777,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "360605",
-            rating: [
-                9,
-                10,
-                0,
-                10,
-                7,
-                10,
-                2,
-                1,
-                0,
-                3
-            ],
+            rating: [9, 10, 0, 10, 7, 10, 2, 1, 0, 3],
             salary: 100,
-            forename: "Adam",
-            surname: "Davis",
-            email: "adam.davis@sentcha.com",
+            forename: "Nige",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "QA",
             dob: "19620610",
             joinDate: "20080624",
@@ -11446,26 +6793,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 40,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "270200",
-            rating: [
-                1,
-                0,
-                0,
-                5,
-                7,
-                4,
-                5,
-                10,
-                7,
-                0
-            ],
+            rating: [1, 0, 0, 5, 7, 4, 5, 10, 7, 0],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Kaneda",
-            email: "dave.kaneda@sentcha.com",
+            forename: "Kevin",
+            surname: "Krohe",
+            email: "kevin.krohe@sentcha.com",
             department: "Managment",
             dob: "19710929",
             joinDate: "20110113",
@@ -11473,26 +6809,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "652473",
-            rating: [
-                3,
-                5,
-                3,
-                4,
-                1,
-                4,
-                1,
-                6,
-                0,
-                3
-            ],
+            rating: [3, 5, 3, 4, 1, 4, 1, 6, 0, 3],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Davis",
-            email: "adam.davis@sentcha.com",
+            forename: "Nige",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Sales",
             dob: "19621226",
             joinDate: "20090105",
@@ -11500,26 +6825,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 39,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "653057",
-            rating: [
-                8,
-                10,
-                7,
-                5,
-                5,
-                2,
-                1,
-                10,
-                0,
-                2
-            ],
+            rating: [8, 10, 7, 5, 5, 2, 1, 10, 0, 2],
             salary: 100,
-            forename: "Adam",
-            surname: "Avins",
-            email: "adam.avins@sentcha.com",
+            forename: "Nige",
+            surname: "Gerbasi",
+            email: "nige.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19860129",
             joinDate: "20100511",
@@ -11527,26 +6841,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 36,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "024501",
-            rating: [
-                4,
-                0,
-                2,
-                1,
-                10,
-                6,
-                5,
-                4,
-                5,
-                6
-            ],
+            rating: [4, 0, 2, 1, 10, 6, 5, 4, 5, 6],
             salary: 900,
             forename: "Nige",
-            surname: "Mishcon",
-            email: "nige.mishcon@sentcha.com",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Managment",
             dob: "19610303",
             joinDate: "20080319",
@@ -11554,26 +6857,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 25,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "213662",
-            rating: [
-                4,
-                2,
-                7,
-                7,
-                2,
-                6,
-                2,
-                4,
-                9,
-                3
-            ],
+            rating: [4, 2, 7, 7, 2, 6, 2, 4, 9, 3],
             salary: 1500,
-            forename: "Adam",
-            surname: "Spencer",
-            email: "adam.spencer@sentcha.com",
+            forename: "Nige",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Support",
             dob: "19831015",
             joinDate: "20081106",
@@ -11581,26 +6873,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "652003",
-            rating: [
-                2,
-                2,
-                2,
-                4,
-                1,
-                1,
-                3,
-                9,
-                4,
-                4
-            ],
+            rating: [2, 2, 2, 4, 1, 1, 3, 9, 4, 4],
             salary: 1000000,
-            forename: "David",
-            surname: "Mishcon",
-            email: "david.mishcon@sentcha.com",
+            forename: "Mark",
+            surname: "White",
+            email: "mark.white@sentcha.com",
             department: "Accounting",
             dob: "19711221",
             joinDate: "20110509",
@@ -11608,26 +6889,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "601057",
-            rating: [
-                9,
-                8,
-                3,
-                2,
-                7,
-                6,
-                8,
-                1,
-                2,
-                9
-            ],
+            rating: [9, 8, 3, 2, 7, 6, 8, 1, 2, 9],
             salary: 900,
-            forename: "Dave",
-            surname: "Kaneda",
-            email: "dave.kaneda@sentcha.com",
+            forename: "Kevin",
+            surname: "Krohe",
+            email: "kevin.krohe@sentcha.com",
             department: "Support",
             dob: "19761203",
             joinDate: "20080613",
@@ -11635,26 +6905,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 25,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "034266",
-            rating: [
-                7,
-                5,
-                5,
-                9,
-                10,
-                1,
-                7,
-                0,
-                5,
-                7
-            ],
+            rating: [7, 5, 5, 9, 10, 1, 7, 0, 5, 7],
             salary: 400,
-            forename: "Tommy",
-            surname: "Elias",
-            email: "tommy.elias@sentcha.com",
+            forename: "Phil",
+            surname: "Guerrant",
+            email: "phil.guerrant@sentcha.com",
             department: "Administration",
             dob: "19590326",
             joinDate: "20101031",
@@ -11662,26 +6921,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 30,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "615504",
-            rating: [
-                9,
-                5,
-                4,
-                1,
-                6,
-                7,
-                4,
-                8,
-                7,
-                6
-            ],
+            rating: [9, 5, 4, 1, 6, 7, 4, 8, 7, 6],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Administration",
             dob: "19890813",
             joinDate: "20080905",
@@ -11689,26 +6937,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "355730",
-            rating: [
-                3,
-                5,
-                1,
-                1,
-                7,
-                4,
-                4,
-                6,
-                9,
-                9
-            ],
+            rating: [3, 5, 1, 1, 7, 4, 4, 6, 9, 9],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Kaneda",
-            email: "adam.kaneda@sentcha.com",
+            forename: "Nige",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Administration",
             dob: "19760221",
             joinDate: "20110626",
@@ -11716,26 +6953,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 21,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "375722",
-            rating: [
-                9,
-                2,
-                3,
-                7,
-                0,
-                10,
-                7,
-                9,
-                2,
-                7
-            ],
+            rating: [9, 2, 3, 7, 0, 10, 7, 9, 2, 7],
             salary: 900,
-            forename: "David",
-            surname: "Ferrero",
-            email: "david.ferrero@sentcha.com",
+            forename: "Mark",
+            surname: "Tokarev",
+            email: "mark.tokarev@sentcha.com",
             department: "Administration",
             dob: "19640611",
             joinDate: "20080310",
@@ -11743,26 +6969,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "230066",
-            rating: [
-                7,
-                1,
-                2,
-                7,
-                5,
-                7,
-                0,
-                5,
-                8,
-                9
-            ],
+            rating: [7, 1, 2, 7, 5, 7, 0, 5, 8, 9],
             salary: 1500,
-            forename: "Tommy",
-            surname: "Conran",
-            email: "tommy.conran@sentcha.com",
+            forename: "Phil",
+            surname: "Trimboli",
+            email: "phil.trimboli@sentcha.com",
             department: "Support",
             dob: "19850122",
             joinDate: "20071214",
@@ -11770,26 +6985,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "674712",
-            rating: [
-                0,
-                0,
-                10,
-                4,
-                4,
-                0,
-                4,
-                5,
-                5,
-                6
-            ],
+            rating: [0, 0, 10, 4, 4, 0, 4, 5, 5, 6],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Mishcon",
-            email: "aaron.mishcon@sentcha.com",
+            forename: "Evan",
+            surname: "White",
+            email: "evan.white@sentcha.com",
             department: "Managment",
             dob: "19720918",
             joinDate: "20121223",
@@ -11797,26 +7001,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "573130",
-            rating: [
-                9,
-                1,
-                4,
-                0,
-                8,
-                2,
-                10,
-                4,
-                5,
-                9
-            ],
+            rating: [9, 1, 4, 0, 8, 2, 10, 4, 5, 9],
             salary: 400,
-            forename: "Aaron",
+            forename: "Evan",
             surname: "White",
-            email: "aaron.white@sentcha.com",
+            email: "evan.white@sentcha.com",
             department: "Support",
             dob: "19780328",
             joinDate: "20100817",
@@ -11824,26 +7017,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "531146",
-            rating: [
-                9,
-                9,
-                8,
-                7,
-                3,
-                6,
-                6,
-                9,
-                6,
-                10
-            ],
+            rating: [9, 9, 8, 7, 3, 6, 6, 9, 6, 10],
             salary: 1000000,
-            forename: "David",
-            surname: "Mishcon",
-            email: "david.mishcon@sentcha.com",
+            forename: "Mark",
+            surname: "White",
+            email: "mark.white@sentcha.com",
             department: "Support",
             dob: "19711130",
             joinDate: "20090806",
@@ -11851,26 +7033,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "303340",
-            rating: [
-                1,
-                4,
-                3,
-                6,
-                0,
-                0,
-                1,
-                7,
-                5,
-                6
-            ],
+            rating: [1, 4, 3, 6, 0, 0, 1, 7, 5, 6],
             salary: 400,
-            forename: "David",
-            surname: "Maintz",
-            email: "david.maintz@sentcha.com",
+            forename: "Mark",
+            surname: "Griffin",
+            email: "mark.griffin@sentcha.com",
             department: "Administration",
             dob: "19700809",
             joinDate: "20110527",
@@ -11878,26 +7049,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 35,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "472100",
-            rating: [
-                7,
-                0,
-                2,
-                3,
-                0,
-                8,
-                3,
-                8,
-                10,
-                0
-            ],
+            rating: [7, 0, 2, 3, 0, 8, 3, 8, 10, 0],
             salary: 1000000,
             forename: "Nige",
-            surname: "Robinson",
-            email: "nige.robinson@sentcha.com",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19660715",
             joinDate: "20090123",
@@ -11905,26 +7065,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 22,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "663153",
-            rating: [
-                6,
-                8,
-                0,
-                10,
-                2,
-                2,
-                5,
-                3,
-                3,
-                1
-            ],
+            rating: [6, 8, 0, 10, 2, 2, 5, 3, 3, 1],
             salary: 100,
-            forename: "Jamie",
-            surname: "Avins",
-            email: "jamie.avins@sentcha.com",
+            forename: "Ross",
+            surname: "Gerbasi",
+            email: "ross.gerbasi@sentcha.com",
             department: "Engineering",
             dob: "19590108",
             joinDate: "20100611",
@@ -11932,26 +7081,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "567404",
-            rating: [
-                8,
-                6,
-                2,
-                1,
-                2,
-                1,
-                4,
-                6,
-                9,
-                4
-            ],
+            rating: [8, 6, 2, 1, 2, 1, 4, 6, 9, 4],
             salary: 1000000,
             forename: "Nige",
-            surname: "Mishcon",
-            email: "nige.mishcon@sentcha.com",
+            surname: "White",
+            email: "nige.white@sentcha.com",
             department: "Sales",
             dob: "19850626",
             joinDate: "20091005",
@@ -11959,26 +7097,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 24,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "442071",
-            rating: [
-                6,
-                4,
-                5,
-                3,
-                0,
-                8,
-                6,
-                5,
-                4,
-                10
-            ],
+            rating: [6, 4, 5, 3, 0, 8, 6, 5, 4, 10],
             salary: 1000000,
-            forename: "Tommy",
-            surname: "Davis",
-            email: "tommy.davis@sentcha.com",
+            forename: "Phil",
+            surname: "Brocato",
+            email: "phil.brocato@sentcha.com",
             department: "Support",
             dob: "19720904",
             joinDate: "20121202",
@@ -11986,26 +7113,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "541754",
-            rating: [
-                8,
-                8,
-                7,
-                6,
-                1,
-                8,
-                7,
-                4,
-                4,
-                4
-            ],
+            rating: [8, 8, 7, 6, 1, 8, 7, 4, 4, 4],
             salary: 1500,
             forename: "Nige",
-            surname: "Davis",
-            email: "nige.davis@sentcha.com",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "QA",
             dob: "19791129",
             joinDate: "20091016",
@@ -12013,26 +7129,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 34,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "537632",
-            rating: [
-                10,
-                5,
-                2,
-                9,
-                0,
-                10,
-                8,
-                10,
-                3,
-                8
-            ],
+            rating: [10, 5, 2, 9, 0, 10, 8, 10, 3, 8],
             salary: 900,
-            forename: "Aaron",
-            surname: "Avins",
-            email: "aaron.avins@sentcha.com",
+            forename: "Evan",
+            surname: "Gerbasi",
+            email: "evan.gerbasi@sentcha.com",
             department: "Administration",
             dob: "19760305",
             joinDate: "20110910",
@@ -12040,22 +7145,11 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "644201",
-            rating: [
-                2,
-                6,
-                8,
-                0,
-                0,
-                4,
-                0,
-                4,
-                8,
-                9
-            ],
+            rating: [2, 6, 8, 0, 0, 4, 0, 4, 8, 9],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
@@ -12067,26 +7161,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 23,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "410750",
-            rating: [
-                9,
-                10,
-                3,
-                5,
-                1,
-                1,
-                1,
-                3,
-                1,
-                7
-            ],
+            rating: [9, 10, 3, 5, 1, 1, 1, 3, 1, 7],
             salary: 1500,
-            forename: "Dave",
-            surname: "Spencer",
-            email: "dave.spencer@sentcha.com",
+            forename: "Kevin",
+            surname: "Teodorescu",
+            email: "kevin.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19740201",
             joinDate: "20081029",
@@ -12094,22 +7177,11 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "735562",
-            rating: [
-                0,
-                0,
-                8,
-                8,
-                6,
-                10,
-                5,
-                2,
-                4,
-                0
-            ],
+            rating: [0, 0, 8, 8, 6, 10, 5, 2, 4, 0],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
@@ -12121,26 +7193,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "041244",
-            rating: [
-                8,
-                8,
-                3,
-                2,
-                10,
-                4,
-                4,
-                4,
-                8,
-                6
-            ],
+            rating: [8, 8, 3, 2, 10, 4, 4, 4, 8, 6],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Avins",
-            email: "abe.avins@sentcha.com",
+            forename: "Don",
+            surname: "Gerbasi",
+            email: "don.gerbasi@sentcha.com",
             department: "Sales",
             dob: "19600329",
             joinDate: "20080512",
@@ -12148,26 +7209,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "515011",
-            rating: [
-                1,
-                3,
-                2,
-                0,
-                7,
-                8,
-                8,
-                3,
-                4,
-                3
-            ],
+            rating: [1, 3, 2, 0, 7, 8, 8, 3, 4, 3],
             salary: 100,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "QA",
             dob: "19790205",
             joinDate: "20110211",
@@ -12175,26 +7225,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 39,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "061636",
-            rating: [
-                4,
-                1,
-                1,
-                8,
-                3,
-                0,
-                4,
-                4,
-                4,
-                2
-            ],
+            rating: [4, 1, 1, 8, 3, 0, 4, 4, 4, 2],
             salary: 1500,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "Administration",
             dob: "19650618",
             joinDate: "20130101",
@@ -12202,26 +7241,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 31,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "156513",
-            rating: [
-                0,
-                3,
-                8,
-                9,
-                7,
-                8,
-                4,
-                5,
-                1,
-                5
-            ],
+            rating: [0, 3, 8, 9, 7, 8, 4, 5, 1, 5],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19610220",
             joinDate: "20090409",
@@ -12229,26 +7257,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 22,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "213060",
-            rating: [
-                4,
-                2,
-                8,
-                3,
-                0,
-                4,
-                4,
-                9,
-                4,
-                3
-            ],
+            rating: [4, 2, 8, 3, 0, 4, 4, 9, 4, 3],
             salary: 1000000,
             forename: "Nige",
-            surname: "Robinson",
-            email: "nige.robinson@sentcha.com",
+            surname: "Kravchenko",
+            email: "nige.kravchenko@sentcha.com",
             department: "Sales",
             dob: "19880804",
             joinDate: "20081109",
@@ -12256,26 +7273,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "144117",
-            rating: [
-                1,
-                4,
-                2,
-                0,
-                1,
-                3,
-                2,
-                9,
-                7,
-                1
-            ],
+            rating: [1, 4, 2, 0, 1, 3, 2, 9, 7, 1],
             salary: 100,
-            forename: "Abe",
-            surname: "Maintz",
-            email: "abe.maintz@sentcha.com",
+            forename: "Don",
+            surname: "Griffin",
+            email: "don.griffin@sentcha.com",
             department: "QA",
             dob: "19640730",
             joinDate: "20071217",
@@ -12283,26 +7289,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "154134",
-            rating: [
-                10,
-                9,
-                1,
-                0,
-                4,
-                2,
-                3,
-                2,
-                0,
-                5
-            ],
+            rating: [10, 9, 1, 0, 4, 2, 3, 2, 0, 5],
             salary: 1000000,
-            forename: "Dave",
-            surname: "Maintz",
-            email: "dave.maintz@sentcha.com",
+            forename: "Kevin",
+            surname: "Griffin",
+            email: "kevin.griffin@sentcha.com",
             department: "Managment",
             dob: "19640218",
             joinDate: "20110302",
@@ -12310,26 +7305,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 25,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "775272",
-            rating: [
-                8,
-                3,
-                3,
-                6,
-                6,
-                8,
-                1,
-                0,
-                5,
-                4
-            ],
+            rating: [8, 3, 3, 6, 6, 8, 1, 0, 5, 4],
             salary: 1000000,
             forename: "Nige",
-            surname: "Kaneda",
-            email: "nige.kaneda@sentcha.com",
+            surname: "Krohe",
+            email: "nige.krohe@sentcha.com",
             department: "Sales",
             dob: "19720719",
             joinDate: "20091018",
@@ -12337,26 +7321,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 27,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "704223",
-            rating: [
-                9,
-                8,
-                0,
-                0,
-                4,
-                5,
-                1,
-                10,
-                10,
-                10
-            ],
+            rating: [9, 8, 0, 0, 4, 5, 1, 10, 10, 10],
             salary: 100,
-            forename: "Jamie",
-            surname: "Davis",
-            email: "jamie.davis@sentcha.com",
+            forename: "Ross",
+            surname: "Brocato",
+            email: "ross.brocato@sentcha.com",
             department: "Engineering",
             dob: "19580224",
             joinDate: "20101130",
@@ -12364,26 +7337,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "162267",
-            rating: [
-                9,
-                8,
-                0,
-                8,
-                2,
-                3,
-                5,
-                10,
-                9,
-                4
-            ],
+            rating: [9, 8, 0, 8, 2, 3, 5, 10, 9, 4],
             salary: 900,
-            forename: "Jamie",
-            surname: "Kaneda",
-            email: "jamie.kaneda@sentcha.com",
+            forename: "Ross",
+            surname: "Krohe",
+            email: "ross.krohe@sentcha.com",
             department: "QA",
             dob: "19751209",
             joinDate: "20100309",
@@ -12391,26 +7353,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 23,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "475034",
-            rating: [
-                10,
-                3,
-                1,
-                8,
-                7,
-                1,
-                1,
-                3,
-                5,
-                7
-            ],
+            rating: [10, 3, 1, 8, 7, 1, 1, 3, 5, 7],
             salary: 900,
-            forename: "Abe",
-            surname: "Robinson",
-            email: "abe.robinson@sentcha.com",
+            forename: "Don",
+            surname: "Kravchenko",
+            email: "don.kravchenko@sentcha.com",
             department: "Administration",
             dob: "19590729",
             joinDate: "20080924",
@@ -12418,26 +7369,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 32,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "314074",
-            rating: [
-                3,
-                5,
-                0,
-                10,
-                2,
-                7,
-                1,
-                5,
-                4,
-                10
-            ],
+            rating: [3, 5, 0, 10, 2, 7, 1, 5, 4, 10],
             salary: 900,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "Marketing",
             dob: "19810216",
             joinDate: "20130110",
@@ -12445,26 +7385,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "003106",
-            rating: [
-                9,
-                3,
-                1,
-                7,
-                5,
-                7,
-                4,
-                0,
-                0,
-                4
-            ],
+            rating: [9, 3, 1, 7, 5, 7, 4, 0, 0, 4],
             salary: 100,
-            forename: "Adam",
+            forename: "Nige",
             surname: "White",
-            email: "adam.white@sentcha.com",
+            email: "nige.white@sentcha.com",
             department: "Administration",
             dob: "19900105",
             joinDate: "20080128",
@@ -12472,26 +7401,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 33,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "333370",
-            rating: [
-                8,
-                2,
-                7,
-                2,
-                4,
-                0,
-                0,
-                2,
-                7,
-                7
-            ],
+            rating: [8, 2, 7, 2, 4, 0, 0, 2, 7, 7],
             salary: 400,
-            forename: "Ed",
-            surname: "Spencer",
-            email: "ed.spencer@sentcha.com",
+            forename: "Adrian",
+            surname: "Teodorescu",
+            email: "adrian.teodorescu@sentcha.com",
             department: "Engineering",
             dob: "19620717",
             joinDate: "20100524",
@@ -12499,26 +7417,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 2,
             holidayAllowance: 33,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "447517",
-            rating: [
-                7,
-                3,
-                7,
-                6,
-                6,
-                4,
-                8,
-                7,
-                10,
-                3
-            ],
+            rating: [7, 3, 7, 6, 6, 4, 8, 7, 10, 3],
             salary: 400,
-            forename: "Nicolas",
-            surname: "Elias",
-            email: "nicolas.elias@sentcha.com",
+            forename: "Alex",
+            surname: "Guerrant",
+            email: "alex.guerrant@sentcha.com",
             department: "Sales",
             dob: "19741023",
             joinDate: "20090811",
@@ -12526,26 +7433,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "372253",
-            rating: [
-                4,
-                10,
-                2,
-                2,
-                5,
-                6,
-                7,
-                2,
-                10,
-                3
-            ],
+            rating: [4, 10, 2, 2, 5, 6, 7, 2, 10, 3],
             salary: 1500,
-            forename: "Dave",
+            forename: "Kevin",
             surname: "White",
-            email: "dave.white@sentcha.com",
+            email: "kevin.white@sentcha.com",
             department: "Support",
             dob: "19860713",
             joinDate: "20100421",
@@ -12553,22 +7449,11 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "360755",
-            rating: [
-                1,
-                2,
-                2,
-                2,
-                1,
-                7,
-                4,
-                7,
-                6,
-                9
-            ],
+            rating: [1, 2, 2, 2, 1, 7, 4, 7, 6, 9],
             salary: 1000000,
             forename: "Nige",
             surname: "White",
@@ -12580,26 +7465,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "705663",
-            rating: [
-                5,
-                4,
-                4,
-                10,
-                6,
-                1,
-                9,
-                4,
-                8,
-                3
-            ],
+            rating: [5, 4, 4, 10, 6, 1, 9, 4, 8, 3],
             salary: 400,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Managment",
             dob: "19780426",
             joinDate: "20121109",
@@ -12607,26 +7481,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 3,
             holidayAllowance: 29,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "243020",
-            rating: [
-                2,
-                5,
-                6,
-                6,
-                2,
-                8,
-                10,
-                8,
-                2,
-                6
-            ],
+            rating: [2, 5, 6, 6, 2, 8, 10, 8, 2, 6],
             salary: 1500,
-            forename: "Dave",
-            surname: "Ferrero",
-            email: "dave.ferrero@sentcha.com",
+            forename: "Kevin",
+            surname: "Tokarev",
+            email: "kevin.tokarev@sentcha.com",
             department: "Accounting",
             dob: "19630722",
             joinDate: "20090413",
@@ -12634,26 +7497,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 30,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "133010",
-            rating: [
-                6,
-                7,
-                2,
-                9,
-                9,
-                3,
-                6,
-                8,
-                1,
-                1
-            ],
+            rating: [6, 7, 2, 9, 9, 3, 6, 8, 1, 1],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Maintz",
-            email: "aaron.maintz@sentcha.com",
+            forename: "Evan",
+            surname: "Griffin",
+            email: "evan.griffin@sentcha.com",
             department: "Managment",
             dob: "19870727",
             joinDate: "20101128",
@@ -12661,26 +7513,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 40,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "713663",
-            rating: [
-                0,
-                4,
-                1,
-                3,
-                7,
-                3,
-                4,
-                0,
-                0,
-                3
-            ],
+            rating: [0, 4, 1, 3, 7, 3, 4, 0, 0, 3],
             salary: 400,
-            forename: "Dave",
-            surname: "Ferrero",
-            email: "dave.ferrero@sentcha.com",
+            forename: "Kevin",
+            surname: "Tokarev",
+            email: "kevin.tokarev@sentcha.com",
             department: "Engineering",
             dob: "19741204",
             joinDate: "20090304",
@@ -12688,26 +7529,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 24,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "134435",
-            rating: [
-                6,
-                6,
-                0,
-                3,
-                10,
-                3,
-                1,
-                10,
-                10,
-                9
-            ],
+            rating: [6, 6, 0, 3, 10, 3, 1, 10, 10, 9],
             salary: 900,
-            forename: "Dave",
-            surname: "Robinson",
-            email: "dave.robinson@sentcha.com",
+            forename: "Kevin",
+            surname: "Kravchenko",
+            email: "kevin.kravchenko@sentcha.com",
             department: "Support",
             dob: "19620516",
             joinDate: "20110103",
@@ -12715,26 +7545,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "147531",
-            rating: [
-                10,
-                1,
-                8,
-                0,
-                1,
-                2,
-                3,
-                9,
-                4,
-                9
-            ],
+            rating: [10, 1, 8, 0, 1, 2, 3, 9, 4, 9],
             salary: 100,
-            forename: "David",
-            surname: "Davis",
-            email: "david.davis@sentcha.com",
+            forename: "Mark",
+            surname: "Brocato",
+            email: "mark.brocato@sentcha.com",
             department: "Support",
             dob: "19870410",
             joinDate: "20071118",
@@ -12742,26 +7561,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 40,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "731245",
-            rating: [
-                6,
-                6,
-                7,
-                3,
-                8,
-                7,
-                9,
-                0,
-                6,
-                1
-            ],
+            rating: [6, 6, 7, 3, 8, 7, 9, 0, 6, 1],
             salary: 100,
-            forename: "Jamie",
-            surname: "Robinson",
-            email: "jamie.robinson@sentcha.com",
+            forename: "Ross",
+            surname: "Kravchenko",
+            email: "ross.kravchenko@sentcha.com",
             department: "Accounting",
             dob: "19580114",
             joinDate: "20100321",
@@ -12769,26 +7577,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "661066",
-            rating: [
-                2,
-                7,
-                8,
-                7,
-                10,
-                5,
-                5,
-                1,
-                4,
-                9
-            ],
+            rating: [2, 7, 8, 7, 10, 5, 5, 1, 4, 9],
             salary: 100,
-            forename: "Ed",
-            surname: "Ferrero",
-            email: "ed.ferrero@sentcha.com",
+            forename: "Adrian",
+            surname: "Tokarev",
+            email: "adrian.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19670223",
             joinDate: "20090129",
@@ -12796,26 +7593,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 28,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "511764",
-            rating: [
-                6,
-                10,
-                4,
-                0,
-                3,
-                4,
-                4,
-                8,
-                7,
-                1
-            ],
+            rating: [6, 10, 4, 0, 3, 4, 4, 8, 7, 1],
             salary: 400,
-            forename: "David",
-            surname: "Maintz",
-            email: "david.maintz@sentcha.com",
+            forename: "Mark",
+            surname: "Griffin",
+            email: "mark.griffin@sentcha.com",
             department: "Sales",
             dob: "19750302",
             joinDate: "20100320",
@@ -12823,26 +7609,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 20,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "217673",
-            rating: [
-                3,
-                7,
-                10,
-                1,
-                9,
-                2,
-                8,
-                2,
-                5,
-                4
-            ],
+            rating: [3, 7, 10, 1, 9, 2, 8, 2, 5, 4],
             salary: 1500,
-            forename: "Adam",
+            forename: "Nige",
             surname: "White",
-            email: "adam.white@sentcha.com",
+            email: "nige.white@sentcha.com",
             department: "Engineering",
             dob: "19601016",
             joinDate: "20080512",
@@ -12850,26 +7625,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 38,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "611651",
-            rating: [
-                5,
-                7,
-                7,
-                8,
-                10,
-                3,
-                10,
-                9,
-                2,
-                3
-            ],
+            rating: [5, 7, 7, 8, 10, 3, 10, 9, 2, 3],
             salary: 100,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Accounting",
             dob: "19810711",
             joinDate: "20091008",
@@ -12877,26 +7641,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 28,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "432451",
-            rating: [
-                0,
-                10,
-                9,
-                0,
-                4,
-                7,
-                1,
-                4,
-                0,
-                1
-            ],
+            rating: [0, 10, 9, 0, 4, 7, 1, 4, 0, 1],
             salary: 1000000,
-            forename: "Ed",
-            surname: "Mishcon",
-            email: "ed.mishcon@sentcha.com",
+            forename: "Adrian",
+            surname: "White",
+            email: "adrian.white@sentcha.com",
             department: "QA",
             dob: "19770107",
             joinDate: "20120608",
@@ -12904,26 +7657,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 39,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "210043",
-            rating: [
-                10,
-                7,
-                8,
-                1,
-                0,
-                9,
-                4,
-                5,
-                2,
-                8
-            ],
+            rating: [10, 7, 8, 1, 0, 9, 4, 5, 2, 8],
             salary: 100,
-            forename: "Nicolas",
-            surname: "Kaneda",
-            email: "nicolas.kaneda@sentcha.com",
+            forename: "Alex",
+            surname: "Krohe",
+            email: "alex.krohe@sentcha.com",
             department: "Marketing",
             dob: "19871027",
             joinDate: "20081108",
@@ -12931,26 +7673,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 20,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "610230",
-            rating: [
-                2,
-                0,
-                7,
-                1,
-                2,
-                6,
-                3,
-                10,
-                3,
-                4
-            ],
+            rating: [2, 0, 7, 1, 2, 6, 3, 10, 3, 4],
             salary: 1000000,
-            forename: "Adam",
-            surname: "Spencer",
-            email: "adam.spencer@sentcha.com",
+            forename: "Nige",
+            surname: "Teodorescu",
+            email: "nige.teodorescu@sentcha.com",
             department: "Accounting",
             dob: "19881228",
             joinDate: "20080116",
@@ -12958,26 +7689,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 9,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "776720",
-            rating: [
-                10,
-                9,
-                3,
-                4,
-                7,
-                2,
-                0,
-                2,
-                9,
-                8
-            ],
+            rating: [10, 9, 3, 4, 7, 2, 0, 2, 9, 8],
             salary: 100,
-            forename: "Adam",
-            surname: "Davis",
-            email: "adam.davis@sentcha.com",
+            forename: "Nige",
+            surname: "Brocato",
+            email: "nige.brocato@sentcha.com",
             department: "Accounting",
             dob: "19730916",
             joinDate: "20110105",
@@ -12985,26 +7705,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 24,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "034651",
-            rating: [
-                9,
-                6,
-                7,
-                4,
-                10,
-                5,
-                4,
-                1,
-                6,
-                8
-            ],
+            rating: [9, 6, 7, 4, 10, 5, 4, 1, 6, 8],
             salary: 1500,
-            forename: "Aaron",
-            surname: "Elias",
-            email: "aaron.elias@sentcha.com",
+            forename: "Evan",
+            surname: "Guerrant",
+            email: "evan.guerrant@sentcha.com",
             department: "Sales",
             dob: "19660317",
             joinDate: "20080701",
@@ -13012,26 +7721,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 28,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "630127",
-            rating: [
-                8,
-                10,
-                0,
-                2,
-                7,
-                6,
-                8,
-                2,
-                0,
-                7
-            ],
+            rating: [8, 10, 0, 2, 7, 6, 8, 2, 0, 7],
             salary: 100,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "Engineering",
             dob: "19720919",
             joinDate: "20090502",
@@ -13039,26 +7737,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "367413",
-            rating: [
-                3,
-                2,
-                2,
-                6,
-                4,
-                1,
-                1,
-                0,
-                3,
-                0
-            ],
+            rating: [3, 2, 2, 6, 4, 1, 1, 0, 3, 0],
             salary: 100,
-            forename: "Jamie",
-            surname: "Mishcon",
-            email: "jamie.mishcon@sentcha.com",
+            forename: "Ross",
+            surname: "White",
+            email: "ross.white@sentcha.com",
             department: "Accounting",
             dob: "19840412",
             joinDate: "20110622",
@@ -13066,26 +7753,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "751475",
-            rating: [
-                3,
-                7,
-                6,
-                3,
-                6,
-                2,
-                10,
-                5,
-                2,
-                10
-            ],
+            rating: [3, 7, 6, 3, 6, 2, 10, 5, 2, 10],
             salary: 400,
-            forename: "Dave",
-            surname: "Mishcon",
-            email: "dave.mishcon@sentcha.com",
+            forename: "Kevin",
+            surname: "White",
+            email: "kevin.white@sentcha.com",
             department: "Administration",
             dob: "19640402",
             joinDate: "20090404",
@@ -13093,26 +7769,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 36,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "154110",
-            rating: [
-                0,
-                10,
-                7,
-                7,
-                5,
-                1,
-                1,
-                4,
-                0,
-                6
-            ],
+            rating: [0, 10, 7, 7, 5, 1, 1, 4, 0, 6],
             salary: 1000000,
-            forename: "Abe",
-            surname: "Elias",
-            email: "abe.elias@sentcha.com",
+            forename: "Don",
+            surname: "Guerrant",
+            email: "don.guerrant@sentcha.com",
             department: "Engineering",
             dob: "19871219",
             joinDate: "20091015",
@@ -13120,26 +7785,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 1,
             holidayAllowance: 26,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "431730",
-            rating: [
-                1,
-                7,
-                9,
-                8,
-                1,
-                5,
-                1,
-                8,
-                3,
-                0
-            ],
+            rating: [1, 7, 9, 8, 1, 5, 1, 8, 3, 0],
             salary: 1500,
-            forename: "Abe",
-            surname: "Conran",
-            email: "abe.conran@sentcha.com",
+            forename: "Don",
+            surname: "Trimboli",
+            email: "don.trimboli@sentcha.com",
             department: "Accounting",
             dob: "19630220",
             joinDate: "20090523",
@@ -13147,26 +7801,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 34,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "271045",
-            rating: [
-                1,
-                10,
-                4,
-                2,
-                2,
-                9,
-                4,
-                9,
-                5,
-                9
-            ],
+            rating: [1, 10, 4, 2, 2, 9, 4, 9, 5, 9],
             salary: 400,
             forename: "Nige",
-            surname: "Maintz",
-            email: "nige.maintz@sentcha.com",
+            surname: "Griffin",
+            email: "nige.griffin@sentcha.com",
             department: "Sales",
             dob: "19580509",
             joinDate: "20110906",
@@ -13174,26 +7817,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 5,
             holidayAllowance: 38,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "222203",
-            rating: [
-                1,
-                9,
-                1,
-                10,
-                10,
-                1,
-                4,
-                4,
-                10,
-                0
-            ],
+            rating: [1, 9, 1, 10, 10, 1, 4, 4, 10, 0],
             salary: 1000000,
             forename: "Nige",
-            surname: "Ferrero",
-            email: "nige.ferrero@sentcha.com",
+            surname: "Tokarev",
+            email: "nige.tokarev@sentcha.com",
             department: "Marketing",
             dob: "19870207",
             joinDate: "20091020",
@@ -13201,26 +7833,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "554620",
-            rating: [
-                1,
-                2,
-                8,
-                10,
-                1,
-                3,
-                7,
-                4,
-                4,
-                4
-            ],
+            rating: [1, 2, 8, 10, 1, 3, 7, 4, 4, 4],
             salary: 1500,
-            forename: "Jamie",
-            surname: "Ferrero",
-            email: "jamie.ferrero@sentcha.com",
+            forename: "Ross",
+            surname: "Tokarev",
+            email: "ross.tokarev@sentcha.com",
             department: "Accounting",
             dob: "19681120",
             joinDate: "20110213",
@@ -13228,26 +7849,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 37,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "545653",
-            rating: [
-                7,
-                10,
-                1,
-                0,
-                8,
-                0,
-                0,
-                7,
-                6,
-                1
-            ],
+            rating: [7, 10, 1, 0, 8, 0, 0, 7, 6, 1],
             salary: 1000000,
-            forename: "David",
-            surname: "Avins",
-            email: "david.avins@sentcha.com",
+            forename: "Mark",
+            surname: "Gerbasi",
+            email: "mark.gerbasi@sentcha.com",
             department: "Managment",
             dob: "19900220",
             joinDate: "20080407",
@@ -13255,26 +7865,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 23,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "612676",
-            rating: [
-                8,
-                1,
-                7,
-                10,
-                10,
-                10,
-                0,
-                0,
-                4,
-                8
-            ],
+            rating: [8, 1, 7, 10, 10, 10, 0, 0, 4, 8],
             salary: 100,
-            forename: "Dave",
-            surname: "Kaneda",
-            email: "dave.kaneda@sentcha.com",
+            forename: "Kevin",
+            surname: "Krohe",
+            email: "kevin.krohe@sentcha.com",
             department: "Engineering",
             dob: "19640628",
             joinDate: "20120628",
@@ -13282,26 +7881,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 7,
             holidayAllowance: 37,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "734353",
-            rating: [
-                4,
-                2,
-                1,
-                9,
-                7,
-                4,
-                4,
-                4,
-                2,
-                1
-            ],
+            rating: [4, 2, 1, 9, 7, 4, 4, 4, 2, 1],
             salary: 900,
-            forename: "Dave",
-            surname: "Davis",
-            email: "dave.davis@sentcha.com",
+            forename: "Kevin",
+            surname: "Brocato",
+            email: "kevin.brocato@sentcha.com",
             department: "Marketing",
             dob: "19821001",
             joinDate: "20100108",
@@ -13309,26 +7897,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 4,
             holidayAllowance: 35,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "441704",
-            rating: [
-                4,
-                7,
-                1,
-                10,
-                5,
-                3,
-                3,
-                9,
-                7,
-                1
-            ],
+            rating: [4, 7, 1, 10, 5, 3, 3, 9, 7, 1],
             salary: 1000000,
-            forename: "Nicolas",
-            surname: "Robinson",
-            email: "nicolas.robinson@sentcha.com",
+            forename: "Alex",
+            surname: "Kravchenko",
+            email: "alex.kravchenko@sentcha.com",
             department: "QA",
             dob: "19690213",
             joinDate: "20120408",
@@ -13336,26 +7913,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 40,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "543650",
-            rating: [
-                1,
-                1,
-                4,
-                10,
-                0,
-                6,
-                2,
-                4,
-                3,
-                0
-            ],
+            rating: [1, 1, 4, 10, 0, 6, 2, 4, 3, 0],
             salary: 900,
-            forename: "Ed",
-            surname: "Robinson",
-            email: "ed.robinson@sentcha.com",
+            forename: "Adrian",
+            surname: "Kravchenko",
+            email: "adrian.kravchenko@sentcha.com",
             department: "Sales",
             dob: "19630706",
             joinDate: "20090331",
@@ -13363,26 +7929,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 0,
             holidayAllowance: 31,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "606607",
-            rating: [
-                3,
-                2,
-                10,
-                5,
-                5,
-                3,
-                4,
-                9,
-                6,
-                5
-            ],
+            rating: [3, 2, 10, 5, 5, 3, 4, 9, 6, 5],
             salary: 900,
-            forename: "Nicolas",
-            surname: "Robinson",
-            email: "nicolas.robinson@sentcha.com",
+            forename: "Alex",
+            surname: "Kravchenko",
+            email: "alex.kravchenko@sentcha.com",
             department: "Marketing",
             dob: "19830520",
             joinDate: "20111114",
@@ -13390,26 +7945,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 29,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "033502",
-            rating: [
-                2,
-                2,
-                5,
-                6,
-                8,
-                1,
-                3,
-                1,
-                1,
-                0
-            ],
+            rating: [2, 2, 5, 6, 8, 1, 3, 1, 1, 0],
             salary: 1000000,
             forename: "Nige",
-            surname: "Conran",
-            email: "nige.conran@sentcha.com",
+            surname: "Trimboli",
+            email: "nige.trimboli@sentcha.com",
             department: "Administration",
             dob: "19640917",
             joinDate: "20090316",
@@ -13417,26 +7961,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 32,
             noticePeriod: "1 month",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "471615",
-            rating: [
-                6,
-                10,
-                7,
-                1,
-                2,
-                9,
-                6,
-                8,
-                0,
-                10
-            ],
+            rating: [6, 10, 7, 1, 2, 9, 6, 8, 0, 10],
             salary: 100,
-            forename: "Jay",
-            surname: "Davis",
-            email: "jay.davis@sentcha.com",
+            forename: "Vitaly",
+            surname: "Brocato",
+            email: "vitaly.brocato@sentcha.com",
             department: "Support",
             dob: "19790617",
             joinDate: "20120205",
@@ -13444,26 +7977,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 8,
             holidayAllowance: 29,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: true
+        }, {
             employeeNo: "765725",
-            rating: [
-                8,
-                3,
-                8,
-                6,
-                9,
-                5,
-                0,
-                7,
-                1,
-                4
-            ],
+            rating: [8, 3, 8, 6, 9, 5, 0, 7, 1, 4],
             salary: 400,
-            forename: "Jamie",
-            surname: "Elias",
-            email: "jamie.elias@sentcha.com",
+            forename: "Ross",
+            surname: "Guerrant",
+            email: "ross.guerrant@sentcha.com",
             department: "Support",
             dob: "19890720",
             joinDate: "20110610",
@@ -13471,15 +7993,15 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 6,
             holidayAllowance: 30,
             noticePeriod: "3 months",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
-        },
-        {
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
+        }, {
             employeeNo: "401554",
-            rating: [4,5,3,4,7,6,0,3,1,7],
+            rating: [4, 5, 3, 4, 7, 6, 0, 3, 1, 7],
             salary: 400,
-            forename: "Tommy",
-            surname: "Robinson",
-            email: "tommy.robinson@sentcha.com",
+            forename: "Phil",
+            surname: "Kravchenko",
+            email: "phil.kravchenko@sentcha.com",
             department: "QA",
             dob: "19801229",
             joinDate: "20091019",
@@ -13487,7 +8009,8 @@ Ext.ux.ajax.SimManager.register({
             holidayDays: 10,
             holidayAllowance: 22,
             noticePeriod: "2 weeks",
-            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ"
+            avatar: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSdj-gG2gXPkOUJGQ2r-3A5AnIgASv19axozeYMWssSVJyySvBIeQ",
+            verified: false
         }])
     }
 });
