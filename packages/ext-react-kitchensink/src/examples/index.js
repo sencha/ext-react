@@ -40,6 +40,7 @@ import Button from './Button/Button';
 import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
+import ColorPicker from './ColorPicker/ColorPicker';
 
 // Trees
 
@@ -263,6 +264,7 @@ const root = {
                 { text: 'SplitButton', component: SplitButton, layout: 'center', navIcon: 'icon-buttons' },
             ]},
             { text: 'Carousel', component: Carousel, navIcon: 'icon-carousel' },
+            { text: 'Color Picker', component: ColorPicker, navIcon: 'icon-color-picker' },
             { text: 'Drag & Drop', navIcon: 'icon-drag-drop', children: [
                 { text: 'Simple', component: SimpleDandD, navIcon: 'icon-drag-simple' },
                 { text: 'Constraints', component: Constrains, navIcon: 'icon-drag-constraint' },

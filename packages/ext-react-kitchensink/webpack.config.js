@@ -1,8 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-const WebpackShellPlugin = require('webpack-shell-plugin-next');
+const WebpackShellPlugin = require('webpack-shell-plugin-next')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
@@ -44,6 +45,10 @@ module.exports = function (env) {
           'charts'
         ]
       }),
+      new CopyWebpackPlugin([{
+        from: '../node_modules/@sencha/ext-ux/modern/resources',
+        to: '../build/ext-react/ux'
+      }]),
       new WebpackShellPlugin({
         onBuildEnd:{
           scripts: ['node extract-code.js'],
