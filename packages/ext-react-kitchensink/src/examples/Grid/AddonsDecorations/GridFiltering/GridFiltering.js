@@ -64,10 +64,9 @@ export default class GridFilteringExample extends Component {
         <Column
           dataIndex='dob'
           editable
-          format='d-m-Y'
+          formatter='date("m/d/Y")'
           text='Date of Birth'
           width={115}
-          xtype='datecolumn'
         />
         <Column
           dataIndex='noticePeriod'
@@ -80,14 +79,12 @@ export default class GridFilteringExample extends Component {
           dataIndex='holidayDays'
           format='0'
           text='Holidays'
-          xtype='numbercolumn'
         />
         <Column
           align='center'
           dataIndex='verified'
           text='Visible'
           width={150}
-          xtype='booleancolumn'
         />
         <Column
           align='right'
