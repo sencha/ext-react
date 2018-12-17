@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-webpack-plugin",
-  "version": "6.6.3",
+  "version": "6.6.4",
   "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
   "main": "dist/index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/polyfill": "^7.0.0",

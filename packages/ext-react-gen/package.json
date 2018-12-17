@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-gen",
-  "version": "6.6.3",
+  "version": "6.6.4",
   "description": "Sencha ExtReact code generator",
   "bin": {
     "ext-react-gen": "ext-react-gen.js",
@@ -18,12 +18,12 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "@sencha/ext-react-modern-boilerplate": "~6.6.3",
-    "@sencha/ext-react-modern-typescript-boilerplate": "~6.6.3",
-    "@sencha/ext-react-classic-boilerplate": "~6.6.3",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-reconciler": "^0.17.2",
+    "@sencha/ext-react-modern-boilerplate": "~6.6.4",
+    "@sencha/ext-react-modern-typescript-boilerplate": "~6.6.4",
+    "@sencha/ext-react-classic-boilerplate": "~6.6.4",
+    "react": "~16.6.3",
+    "react-dom": "~16.6.3",
+    "react-reconciler": "~0.17.2",
     "chalk": "^2.4.1",
     "glob": "^7.1.3",
     "boxen": "^2.0.0",

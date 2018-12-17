@@ -427,16 +427,33 @@ function isAssignableFrom(subClass, parentClass) {
 
 function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   l("ExtRenderer.js: doAdd, parentxtype: " + parentCmp.xtype + ", childxtype: " + childXtype + ", (parentCmp, childCmp, childPropsChildern)", parentCmp, childCmp, childPropsChildren);
+  var parentXtype = parentCmp.xtype;
 
-  if (parentCmp.xtype == 'grid') {
-    if (childXtype == 'column' || childXtype == 'treecolumn' || childXtype == 'textcolumn' || childXtype == 'checkcolumn' || childXtype == 'datecolumn' || childXtype == 'rownumberer' || childXtype == 'numbercolumn') {
+  if (parentXtype == 'grid') {
+    // if (childXtype == 'column' || 
+    // childXtype == 'treecolumn' || 
+    // childXtype == 'textcolumn' || 
+    // childXtype == 'checkcolumn' || 
+    // childXtype == 'datecolumn' || 
+    // childXtype == 'rownumberer' ||
+    // childXtype == 'numbercolumn' ) {
+    if (childxtype === 'column' || childxtype === 'treecolumn' || childxtype === 'textcolumn' || childxtype === 'checkcolumn' || childxtype === 'datecolumn' || childxtype === 'rownumberer' || childxtype === 'numbercolumn') {
       parentCmp.addColumn(childCmp);
+    } else if ((childxtype === 'toolbar' || childxtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
+      if (parentCmp.getHideHeaders() === false) {
+        //var j = parentCmp.items.items.length;
+        parentCmp.insert(1, childCmp);
+      } else {
+        parentCmp.add(childCmp);
+      }
+    } else {
+      console.log('??');
     }
-  } else if (parentCmp.xtype == 'tooltip') {
+  } else if (parentXtype == 'tooltip') {
     parentCmp.setTooltip(childCmp);
-  } else if (parentCmp.xtype == 'plugin') {
+  } else if (parentXtype == 'plugin') {
     parentCmp.setPlugin(childCmp);
-  } else if (parentCmp.xtype == 'button') {
+  } else if (parentXtype == 'button') {
     if (childXtype == 'menu') {
       //      l(`doAdd button/menu`)
       l("ExtRenderer.js: doAdd, parentxtype: " + parentCmp.xtype + ", childxtype: " + childXtype + ", button/menu setMenu");
@@ -465,85 +482,84 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   } else {
     //l(`doAdd did nothing!!!`, parentCmp.xtype, childCmp.xtype)
     l("ExtRenderer.js: doAdd, parentxtype: " + parentCmp.xtype + ", childxtype: " + childXtype + ", did nothing!!!");
-  } //we return if we handle html children correctly
-  //return
-  //   if (childPropsChildren == undefined) return
-  //   if (childPropsChildren.type == undefined) { 
-  //     if(typeof childPropsChildren === "string") {
-  //       //PLAIN TEXT CASE
-  //       var text=childPropsChildren
-  //       //l(`${text} is PLAIN TEXT`)
-  //       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, ${text} is PLAIN TEXT`)
-  //       childCmp.setHtml(text)
-  //     } 
-  //     else {
-  //       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (children)`, childPropsChildren)
-  //       for (var i = 0; i < childPropsChildren.length; i++) {
-  //         var child = childPropsChildren[i]
-  //         var xtype = null
-  //         try {
-  //           var type = child.type
-  //           if (type == undefined) { 
-  //             type = child[0].type 
-  //           }
-  //           xtype = type.toLowerCase().replace(/_/g, '-')
-  //         }
-  //         catch(e) {
-  //           l(`ExtRenderer.js: doAdd, child ${i}, catch (child)`, child)
-  //           continue
-  //         }
-  //         if (xtype != null) {
-  //           var target = Ext.ClassManager.getByAlias(`widget.${xtype}`)
-  //           if (target == undefined) {
-  //             //l(`${xtype} is HTML`)
-  //             l(`ExtRenderer.js: doAdd, child ${i}, xtype: ${xtype}, is HTML`)
-  //             //should call wrapDOMElement(node)??? what does classic do? can widget be used?
-  //             var widget = Ext.create({xtype:'widget'})
-  //             childCmp.add(widget)
-  //             ReactDOM.render(child,widget.el.dom)
-  //           }
-  //           else {
-  // //            l(`xtype is NULL`)
-  //             l(`ExtRenderer.js: doAdd, child ${i}, xtype: ${xtype}, target ${xtype}`)
-  //           }
-  //         }
-  //         else {
-  //           l(`ExtRenderer.js: doAdd, children, xtype: ${xtype}, i: ${i}, is null`)
-  //           //l(`${xtype} is ExtJS`)
-  //         }
-  //       }
-  //     }
-  //   }
-  //   else {
-  //     l(childPropsChildren);
-  //     var child = childPropsChildren
-  //     var xtype = null
-  //     try {
-  //       var type = child.type
-  //       if (type == undefined) { 
-  //         type = child[0].type 
-  //       }
-  //       xtype = type.toLowerCase().replace(/_/g, '-')
-  //     }
-  //     catch(e) {
-  //     }
-  //     if (xtype != null) {
-  //       var extObject = Ext.ClassManager.getByAlias(`widget.${xtype}`)
-  //       if (extObject == undefined) {
-  //         l(`${xtype} is HTML`)
-  //         //should call wrapDOMElement(node)??? what does classic do? can widget be used?
-  //         var widget = Ext.create({xtype:'widget'})
-  //         childCmp.add(widget)
-  //         ReactDOM.render(child,widget.el.dom)
-  //       }
-  //       else {
-  //         l(`xtype is NULL`)
-  //       }
-  //     }
-  //     else {
-  //       l(`${xtype} is ExtJS`)
-  //     }
-  //   }
-
-}
+  }
+} //we return if we handle html children correctly
+//return
+//   if (childPropsChildren == undefined) return
+//   if (childPropsChildren.type == undefined) { 
+//     if(typeof childPropsChildren === "string") {
+//       //PLAIN TEXT CASE
+//       var text=childPropsChildren
+//       //l(`${text} is PLAIN TEXT`)
+//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, ${text} is PLAIN TEXT`)
+//       childCmp.setHtml(text)
+//     } 
+//     else {
+//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (children)`, childPropsChildren)
+//       for (var i = 0; i < childPropsChildren.length; i++) {
+//         var child = childPropsChildren[i]
+//         var xtype = null
+//         try {
+//           var type = child.type
+//           if (type == undefined) { 
+//             type = child[0].type 
+//           }
+//           xtype = type.toLowerCase().replace(/_/g, '-')
+//         }
+//         catch(e) {
+//           l(`ExtRenderer.js: doAdd, child ${i}, catch (child)`, child)
+//           continue
+//         }
+//         if (xtype != null) {
+//           var target = Ext.ClassManager.getByAlias(`widget.${xtype}`)
+//           if (target == undefined) {
+//             //l(`${xtype} is HTML`)
+//             l(`ExtRenderer.js: doAdd, child ${i}, xtype: ${xtype}, is HTML`)
+//             //should call wrapDOMElement(node)??? what does classic do? can widget be used?
+//             var widget = Ext.create({xtype:'widget'})
+//             childCmp.add(widget)
+//             ReactDOM.render(child,widget.el.dom)
+//           }
+//           else {
+// //            l(`xtype is NULL`)
+//             l(`ExtRenderer.js: doAdd, child ${i}, xtype: ${xtype}, target ${xtype}`)
+//           }
+//         }
+//         else {
+//           l(`ExtRenderer.js: doAdd, children, xtype: ${xtype}, i: ${i}, is null`)
+//           //l(`${xtype} is ExtJS`)
+//         }
+//       }
+//     }
+//   }
+//   else {
+//     l(childPropsChildren);
+//     var child = childPropsChildren
+//     var xtype = null
+//     try {
+//       var type = child.type
+//       if (type == undefined) { 
+//         type = child[0].type 
+//       }
+//       xtype = type.toLowerCase().replace(/_/g, '-')
+//     }
+//     catch(e) {
+//     }
+//     if (xtype != null) {
+//       var extObject = Ext.ClassManager.getByAlias(`widget.${xtype}`)
+//       if (extObject == undefined) {
+//         l(`${xtype} is HTML`)
+//         //should call wrapDOMElement(node)??? what does classic do? can widget be used?
+//         var widget = Ext.create({xtype:'widget'})
+//         childCmp.add(widget)
+//         ReactDOM.render(child,widget.el.dom)
+//       }
+//       else {
+//         l(`xtype is NULL`)
+//       }
+//     }
+//     else {
+//       l(`${xtype} is ExtJS`)
+//     }
+//   }
 //# sourceMappingURL=ExtRenderer.js.map
