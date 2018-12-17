@@ -3,9 +3,11 @@ import BasicGrid from './Grid/BasicGrid/BasicGrid';
 import GroupedGrid from './Grid/GroupedGrid/GroupedGrid';
 import EditableGrid from './Grid/EditableGrid/EditableGrid';
 import XMLGrid from './Grid/XMLGrid/XMLGrid';
+import LockingGrid from './Grid/LockingGrid/LockingGrid';
 import BigDataGrid from './Grid/AdvancedFeatures/BigData/BigData';
 import ReconfigureGrid from './Grid/AdvancedFeatures/ReconfigureGrid/ReconfigureGrid';
 import SummaryRowGrid from './Grid/AddonsDecorations/SummaryRow/SummaryRow';
+import GridFiltering from './Grid/AddonsDecorations/GridFiltering/GridFiltering';
 import ViewOptionsGrid from './Grid/AddonsDecorations/ViewOptions/ViewOptions';
 import RowExpanderGrid from './Grid/AddonsDecorations/RowExpander/RowExpander';
 import ToolGrid from './Grid/AddonsDecorations/GridTools/GridTools';
@@ -38,6 +40,7 @@ import Button from './Button/Button';
 import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
+import ColorPicker from './ColorPicker/ColorPicker';
 
 // Trees
 
@@ -76,6 +79,7 @@ import UndoableStepSwiper from './Lists/UndoableStepSwiper/UndoableStepSwiper';
 // Form Fields
 
 import ComboBoxField from './FormFields/ComboBoxField/ComboBoxField';
+import MultiSelectComboBoxField from './FormFields/MultiSelectComboBoxField/MultiSelectComboBoxField';
 import TextField from './FormFields/TextField/TextField';
 import FieldSet from './FormFields/FieldSet/FieldSet';
 import EmailField from './FormFields/EmailField/EmailField';
@@ -260,6 +264,7 @@ const root = {
                 { text: 'SplitButton', component: SplitButton, layout: 'center', navIcon: 'icon-buttons' },
             ]},
             { text: 'Carousel', component: Carousel, navIcon: 'icon-carousel' },
+            { text: 'Color Picker', component: ColorPicker, navIcon: 'icon-color-picker' },
             { text: 'Drag & Drop', navIcon: 'icon-drag-drop', children: [
                 { text: 'Simple', component: SimpleDandD, navIcon: 'icon-drag-simple' },
                 { text: 'Constraints', component: Constrains, navIcon: 'icon-drag-constraint' },
@@ -273,6 +278,7 @@ const root = {
             { text: 'Forms', navIcon: 'icon-forms', children: [
                 { text: 'CheckBoxField', component: CheckBoxField, layout: 'center', navIcon: 'icon-Forms-CheckBoxField'  },
                 { text: 'ComboBoxField', component: ComboBoxField, layout: 'center', navIcon: 'icon-Forms-ComboBoxField'  },
+                { text: 'MultiSelect ComboBoxField', component: MultiSelectComboBoxField, layout: 'center', navIcon: 'icon-Forms-ComboBoxField'  },
                 { text: 'ContainerField', component: ContainerField, layout: Ext.os.is.Phone ? 'auto' : 'center', navIcon: 'icon-Forms-ContainerField'  },
                 { text: 'DatePickerField', component: DatePickerField, layout: 'center', navIcon: 'icon-Forms-DatePickerField'  },
                 { text: 'EmailField', component: EmailField , layout: 'center', navIcon: 'icon-Forms-EmailField' },
@@ -360,6 +366,7 @@ const root = {
             { text: 'Core Features', navIcon: 'icon-grids', children: [
                 { text: 'Basic Grid', component: BasicGrid, navIcon: 'icon-grids'},
                 { text: 'Grouped Grid', component: GroupedGrid, navIcon: 'icon-grouped-grid'},
+                { text: 'Locking Grid', component: LockingGrid, navIcon: 'icon-locking-grid'},
                 { text: 'Editable Grid', component: EditableGrid, navIcon: 'icon-editable-grid'},
                 { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'}
             ]},
@@ -368,6 +375,7 @@ const root = {
                 { text: 'Row Expander', component: RowExpanderGrid, navIcon: 'icon-row-expander-grid'},
                 { text: 'Row Body', component: RowBodyGrid, navIcon: 'icon-row-body-grid'},
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
+                { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
                 { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
