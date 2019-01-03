@@ -25,7 +25,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, ComboBoxField, Container } from '@extjs/ext-react';
+ *     import { FormPanel, ComboBox } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -37,22 +37,18 @@
  *          ]
  *
  *          return (
- *              <ExtReact>
- *                  <Container layout="center">
- *                      <FormPanel shadow>
- *                          <ComboBoxField
- *                              width={200}
- *                              label="State"
- *                              options={data}
- *                              displayField="name"
- *                              valueField="code"
- *                              queryMode="local"
- *                              labelAlign="placeholder"
- *                              typeAhead
- *                          />
- *                      </FormPanel>
- *                  </Container>
- *              </ExtReact>
+ *              <FormPanel shadow>
+ *                  <ComboBox
+ *                      width={200}
+ *                      label="State"
+ *                      options={data}
+ *                      displayField="name"
+ *                      valueField="code"
+ *                      queryMode="local"
+ *                      labelAlign="placeholder"
+ *                      typeAhead
+ *                  />
+ *              </FormPanel>
  *          )
  *       }
  *     }
@@ -96,21 +92,32 @@
  *
  *     ComboBox loads local data
  *
- *         var combo = new Ext.form.field.ComboBox({
- *             renderTo: document.body,
- *             queryMode: 'local',
- *             store: new Ext.data.ArrayStore({
- *                 id: 0,
- *                 fields: [
- *                     'myId',  // numeric value is the key
- *                     'displayText'
- *                 ],
- *                 data: [[1, 'item1'], [2, 'item2']]  // data is local
- *             }),
- *             valueField: 'myId',
- *             displayField: 'displayText',
- *             triggerAction: 'all'
- *         });
+ *     @example packages=[reactor]
+ *     import React, { Component } from "react";
+ *     import { FormPanel, ComboBox } from "@sencha/ext-react";
+ *     
+ *     export default class ComboBoxExample extends Component {
+ *         render() {
+ *             return (
+ *                 <FormPanel shadow>
+ *                     <ComboBox
+ *                         queryMode="local"
+ *                         store={new Ext.data.ArrayStore({
+ *                             id: 0,
+ *                             fields: [
+ *                                 "myId",  // numeric value is the key
+ *                                 "displayText"
+ *                             ],
+ *                             data: [[1, "item1"], [2, "item2"]]  // data is local
+ *                         })}
+ *                         valueField="myId"
+ *                         displayField="displayText"
+ *                         triggerAction="all"
+ *                     />
+ *                 </FormPanel>
+ *             )
+ *         }
+ *     }
  *
  * @accessor
  */

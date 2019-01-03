@@ -1,6 +1,6 @@
-# ext-react 6.6
+# ext-react 6.7.x
 
-This repo is for ExtReact 6.6, which supports React 16 and above
+This repo is for ExtReact 6.7, which supports React 16 and above
 
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
 
@@ -9,7 +9,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 ## Requirements
 
 * React 16.x.x 
-* Ext JS 6.6+
+* Ext JS 6.7+
 
 ## To Use this repo 'as-is' (to run the demos on your local machine)
 
@@ -348,7 +348,7 @@ export default class MyComponent {
 
 TBD reviewed for v2.x.x
 
-When using the Ext JS classic toolkit, any component with a `dock` prop is automatically added to (dockedItems)[http://docs.sencha.com/extjs/6.6.0/classic/Ext.panel.Panel.html#cfg-dockedItems].
+When using the Ext JS classic toolkit, any component with a `dock` prop is automatically added to (dockedItems)[http://docs.sencha.com/extjs/6.7.0/classic/Ext.panel.Panel.html#cfg-dockedItems].
 
 Here is an example which docks a toolbar above a grid:
 

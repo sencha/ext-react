@@ -7,7 +7,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, SelectField, Container } from '@extjs/ext-react';
+ *     import { ExtReact, FormPanel, SelectField, Container } from '@sencha/ext-react';
  *
  *     Ext.require('Ext.Toast');
  *
