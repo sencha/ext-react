@@ -294,8 +294,14 @@ function stepVersion() {
     message: 'What version is your ExtReact application?',
     default: config.version
   }).run().then(answer => { 
-    answers['version'] = answer
-    stepDescription()
+    if (semver.valid(answer) == null) {
+      console.log('version is not a valid format, must be 0.0.0')
+      stepVersion()
+    }
+    else {
+      answers['version'] = answer
+      stepDescription()
+    }
   })
 }
 
