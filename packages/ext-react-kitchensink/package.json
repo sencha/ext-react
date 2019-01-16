@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
     "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
     "local": "webpack-dev-server --progress --env.local=true",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.prod=true --env.watch=no --env.verbose=yes",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production --env.watch=no --env.verbose=yes",
     "build:sdk": "touch build/ext-react/app.json",
     "xprod": "cd build && static-server --port 8084",
     "extract-code": "node extract-code.js --watch"
