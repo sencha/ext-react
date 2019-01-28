@@ -32,6 +32,7 @@ module.exports = function (env) {
         verbose: buildverbose,
         theme: 'theme-kitchensink',
         packages: [
+          'treegrid',
           'transition', 
           'renderercell', 
           'font-ext', 

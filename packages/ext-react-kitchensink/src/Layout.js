@@ -103,7 +103,7 @@ class Layout extends Component {
           ref={phoneNav => this.phoneNav = phoneNav}
           store={navStore} 
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
-          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact Kitchen Sink'
+          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 6.7 Kitchen Sink'
           onItemTap={(self, list, index, target, node) => this.onNavChange(node && node.getId())}
           onBack={(self, node) => {
               // There is no easy way to grab the node that will be used after NestedList switches to previous List.
@@ -139,7 +139,7 @@ class Layout extends Component {
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">ExtReact Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">ExtReact 6.7 Kitchen Sink - React v{REACT_VERSION}</a>
             </TitleBar>
             <Container layout="fit" flex={1}>
               <NavTree 
@@ -155,20 +155,20 @@ class Layout extends Component {
                 collapsed={!showTree}
               /> 
               <Breadcrumbs docked="top" node={selectedNavNode}/>
-                <Transition type="slide" bindDirectionToLocation padding="30">
-                  { component ? (
-                    <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
-                      { layout === 'fit' ? (
-                          <Container padding="30" layout="fit">{ example }</Container> 
-                      ) : (
-                          example 
-                      )}
-                    </Container>
-                  ) : selectedNavNode ? (
-                    <NavView key={selectedNavNode.id} node={selectedNavNode}/>
-                  ) : null }
-                </Transition>
-              </Container>
+              <Transition type="slide" bindDirectionToLocation padding="30">
+                { component ? (
+                  <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                    { layout === 'fit' ? (
+                        <Container padding="30" layout="fit">{ example }</Container> 
+                    ) : (
+                        example 
+                    )}
+                  </Container>
+                ) : selectedNavNode ? (
+                  <NavView key={selectedNavNode.id} node={selectedNavNode}/>
+                ) : null }
+              </Transition>
+            </Container>
           </Container>
           { files && (
             <Button 
