@@ -68,7 +68,7 @@ export function go(_ref) {
           //var m = React.Children.map(rootElement, null)
           //var o1 = React.Children.only(e1)
 
-          var theElements = React.createElement(ExtReact, null, appElement.concat()); //var theElements = React.createElement(ExtReact,null,React.createElement(element,null,null))
+          var theElements = React.createElement(ExtReact, null, [].concat(appElement)); //var theElements = React.createElement(ExtReact,null,React.createElement(element,null,null))
           //var theElements = React.createElement(element)
 
           callback(theElements, target);

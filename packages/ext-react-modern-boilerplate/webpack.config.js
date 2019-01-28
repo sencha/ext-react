@@ -6,6 +6,7 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
+  var watchprofile = env.watch || 'yes'
   var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
@@ -21,10 +22,15 @@ module.exports = function (env) {
       }), 
       new ExtWebpackPlugin({
         framework: 'react',
+        toolkit: 'modern',
         port: port,
         profile: buildprofile, 
-        environment: buildenvironment, 
-        verbose: buildverbose
+        watch: watchprofile,
+        environment: buildenvironment,
+        verbose: buildverbose,
+        theme: 'theme-material',
+        packages: [
+        ]
       })
     ]
     if (!isProd) {

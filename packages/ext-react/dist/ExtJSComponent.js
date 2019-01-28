@@ -189,19 +189,19 @@ function (_Component) {
         plugins.responsive = true;
       }
     }
-  };
+  }
   /**
    * Returns the Ext JS component instance
    */
-
+  ;
 
   _proto.getHostNode = function getHostNode() {
     return this.el;
-  };
+  }
   /**
    * Returns the Ext JS component instance
    */
-
+  ;
 
   _proto.getPublicInstance = function getPublicInstance() {
     return this.cmp;
@@ -222,13 +222,13 @@ function (_Component) {
     } else {
       return children;
     }
-  };
+  }
   /**
    * Determines whether a child element corresponds to a config or a container item based on the presence of a rel config or
    * matching other known relationships
    * @param {Ext.Base} item
    */
-
+  ;
 
   _proto._propForChildElement = function _propForChildElement(item) {
     if (item.config && item.config.rel) {
@@ -288,13 +288,13 @@ function (_Component) {
     return _extends({}, item.initialConfig, {
       xclass: item.$className
     });
-  };
+  }
   /**
    * If the propName corresponds to an event listener (starts with "on" followed by a capital letter), returns the name of the event.
    * @param {String} propName 
    * @param {String}
    */
-
+  ;
 
   _proto._eventNameForProp = function _eventNameForProp(propName) {
     if (propName.match(/^on[A-Z]/)) {
@@ -302,14 +302,14 @@ function (_Component) {
     } else {
       return null;
     }
-  };
+  }
   /**
    * Creates an Ext config object for this specified props
    * @param {Object} props
    * @param {Boolean} [includeEvents] true to convert on* props to listeners, false to exclude them
    * @private
    */
-
+  ;
 
   _proto._createConfig = function _createConfig(props, includeEvents) {
     props = this._cloneProps(props);
@@ -340,14 +340,14 @@ function (_Component) {
     // }
 
     return config;
-  };
+  }
   /**
    * Cloning props rather than passing them directly on as configs fixes issues where Ext JS mutates configs during
    * component initialization.  One example of this is grid columns get $initParent added when the grid initializes.
    * @param {Object} props
    * @private
    */
-
+  ;
 
   _proto._cloneProps = function _cloneProps(props) {
     return cloneDeepWith(props, function (value) {
@@ -369,7 +369,7 @@ function (_Component) {
     }
 
     this._applyProps(oldConfigs, newConfigs);
-  }; //   _isEquivalent(a, b) {
+  } //   _isEquivalent(a, b) {
   //     // Create arrays of property names
   //     var aProps = Object.getOwnPropertyNames(a);
   //     var bProps = Object.getOwnPropertyNames(b);
@@ -417,7 +417,7 @@ function (_Component) {
    * Calls config setters for all react props that have changed
    * @private
    */
-
+  ;
 
   _proto._applyProps = function _applyProps(oldProps, props) {
     // if (this._shallowEqual(oldProps, props)) {
@@ -490,14 +490,14 @@ function (_Component) {
         }
       }
     }
-  };
+  }
   /**
    * Detaches the old event listener and adds the new one.
    * @param {String} eventName 
    * @param {Function} oldHandler 
    * @param {Function} newHandler 
    */
-
+  ;
 
   _proto._replaceEvent = function _replaceEvent(eventName, oldHandler, newHandler) {
     if (oldHandler) {
@@ -507,12 +507,12 @@ function (_Component) {
 
     if (this.ExtReactSettings.debug) console.log("attaching new listener for " + eventName);
     this.cmp.on(eventName, newHandler);
-  };
+  }
   /**
    * Returns the name of the setter method for a given prop.
    * @param {String} prop
    */
-
+  ;
 
   _proto._setterFor = function _setterFor(prop) {
     if (prop === 'className') {
@@ -522,25 +522,25 @@ function (_Component) {
     var name = "set" + this._capitalize(prop);
 
     return this.cmp[name] && name;
-  };
+  }
   /**
    * Returns the name of a getter for a given prop.
    * @param {String} prop
    */
-
+  ;
 
   _proto._getterFor = function _getterFor(prop) {
     var name = "get" + this._capitalize(prop);
 
     return this.cmp[name] && name;
-  };
+  }
   /**
    * Capitalizes the first letter in the string
    * @param {String} str
    * @return {String}
    * @private
    */
-
+  ;
 
   _proto._capitalize = function _capitalize(str) {
     return capitalize(str[0]) + str.slice(1);
@@ -566,12 +566,12 @@ function (_Component) {
     this.el = this.cmp.el.dom;
     this.el._extCmp = this.cmp;
     precacheNode(this, this.el);
-  };
+  }
   /**
    * Returns the child item at the given index, only counting those items which were created by ExtReact
    * @param {Number} n
    */
-
+  ;
 
   _proto._toReactChildIndex = function _toReactChildIndex(n) {
     var items = this.cmp.items;
@@ -590,14 +590,14 @@ function (_Component) {
     }
 
     return i;
-  };
+  }
   /**
    * Translates and index in props.children to an index within a config value that is an array.  Use
    * this to determine the position of an item in props.children within the array config to which it is mapped.
    * @param {*} prop
    * @param {*} indexInChildren
    */
-
+  ;
 
   _proto._toArrayConfigIndex = function _toArrayConfigIndex(prop, indexInChildren) {
     var _this2 = this;
@@ -613,7 +613,7 @@ function (_Component) {
       }
     });
     return -1;
-  };
+  }
   /**
    * Updates a config based on a child element
    * @param {Object} prop The prop descriptor (name and array)
@@ -621,7 +621,7 @@ function (_Component) {
    * @param {Number} [index] The index of the child element in props.children
    * @param {Boolean} [isArrayDelete=false] True if removing the item from an array
    */
-
+  ;
 
   _proto._mergeConfig = function _mergeConfig(prop, value, index, isArrayDelete) {
     var setter = this._setterFor(prop.name);

@@ -28,9 +28,9 @@
     "ext-react": "./bin/ext-react.js"
   },
   "peerDependencies": {
-    "react": "~16.6.3",
-    "react-dom": "~16.6.3",
-    "react-reconciler": "~0.17.2"
+    "react": "~16.7.0",
+    "react-dom": "~16.7.0",
+    "react-reconciler": "~0.18.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
@@ -43,16 +43,16 @@
     "lodash.union": "^4.6.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "react": "~16.6.3",
-    "react-dom": "~16.6.3",
-    "react-reconciler": "~0.17.2",
-    "react-test-renderer": "^16.6.3"
+    "react": "~16.7.0",
+    "react-dom": "~16.7.0",
+    "react-reconciler": "~0.18.0",
+    "react-test-renderer": "^16.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.2.1",
-    "@babel/plugin-proposal-decorators": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-function-sent": "^7.2.0",
     "@babel/plugin-proposal-json-strings": "^7.2.0",
@@ -61,9 +61,9 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "@types/react": "^16.7.17",
+    "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
     "react-addons-test-utils": "^15.6.2",
     "typescript": "^3.2.2"
