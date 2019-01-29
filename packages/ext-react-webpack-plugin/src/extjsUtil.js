@@ -14,8 +14,9 @@ export function getValidateOptions() {
       "verbose":     {"type": [ "string" ]},
 //      "theme":       {"type": [ "string" ]},
 //      "toolkit":     {"type": [ "string" ]},
-      "packages":    {"type": [ "string", "array" ]},
-      "treeshake": {"type": [ "boolean" ]}
+      "treeshake":   {"type": [ "boolean" ]}
+//      "packages":    {"type": [ "string", "array" ]},
+
     },
     "additionalProperties": false
     // "errorMessage": {
