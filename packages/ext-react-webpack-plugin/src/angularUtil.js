@@ -5,6 +5,7 @@ export function getValidateOptions() {
     "type": "object",
     "properties": {
       "framework":   {"type": [ "string" ]},
+      "toolkit":     {"type": [ "string" ]},
       "port":        {"type": [ "integer" ]},
       "emit":        {"type": [ "boolean" ]},
       "browser":     {"type": [ "boolean" ]},
@@ -13,9 +14,8 @@ export function getValidateOptions() {
       "environment": {"type": [ "string" ]},
       "verbose":     {"type": [ "string" ]},
       "theme":       {"type": [ "string" ]},
-      "toolkit":     {"type": [ "string" ]},
-      "packages":    {"type": [ "string", "array" ]},
-      "treeshake": {"type": [ "boolean" ]}
+      "treeshake": {"type": [ "boolean" ]},
+      "packages":    {"type": [ "string", "array" ]}
     },
     "additionalProperties": false
     // "errorMessage": {

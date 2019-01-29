@@ -6,6 +6,7 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
+  var treeshake  = env.treeshake || 'false'
   var browserprofile
   var watchprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
@@ -23,8 +24,9 @@ module.exports = function (env) {
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
   if (buildprofile == 'all') { buildprofile = '' }
-  const isProd = buildenvironment === 'production'
-
+  if (env.treeshake == undefined) {env.treeshake = false}
+  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+  
   portfinder.basePort = (env && env.port) || 1962; // the default port to use
   return portfinder.getPortPromise().then(port => {
     const plugins = [
@@ -43,6 +45,7 @@ module.exports = function (env) {
         environment: buildenvironment, 
         verbose: buildverbose,
         theme: 'theme-material',
+        treeshake: treeshake,
         packages: [
         ]
       })
