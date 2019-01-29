@@ -6,7 +6,6 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
-  var treeshake  = env.treeshake || 'false'
   var browserprofile
   var watchprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment

@@ -8,12 +8,25 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
-  var watchprofile = env.watch || 'yes'
+  var browserprofile
+  var watchprofile
+  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
+  if (buildenvironment == 'production') {
+    browserprofile = false
+    watchprofile = 'no'
+  }
+  else {
+    if (env.browser == undefined) {env.browser = true}
+    browserprofile = JSON.parse(env.browser) || true
+    watchprofile = env.watch || 'yes'
+  }
+  const isProd = buildenvironment === 'production'
   var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
   if (buildprofile == 'all') { buildprofile = '' }
-  const isProd = buildenvironment === 'production'
+  if (env.treeshake == undefined) {env.treeshake = false}
+  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
 
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
@@ -26,11 +39,14 @@ module.exports = function (env) {
         framework: 'react',
         toolkit: 'modern',
         port: port,
+        emit: true,
+        browser: browserprofile,
         profile: buildprofile, 
         watch: watchprofile,
-        environment: buildenvironment,
+        environment: buildenvironment, 
         verbose: buildverbose,
         theme: 'theme-kitchensink',
+        treeshake: treeshake,
         packages: [
           'treegrid',
           'transition', 
