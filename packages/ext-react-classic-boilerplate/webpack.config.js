@@ -23,7 +23,8 @@ module.exports = function (env) {
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
   if (buildprofile == 'all') { buildprofile = '' }
-  const isProd = buildenvironment === 'production'
+  if (env.treeshake == undefined) {env.treeshake = false}
+  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
 
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
@@ -44,6 +45,7 @@ module.exports = function (env) {
         environment: buildenvironment, 
         verbose: buildverbose,
         theme: 'theme-triton',
+        treeshake: treeshake,
         packages: []
       })
     ]
