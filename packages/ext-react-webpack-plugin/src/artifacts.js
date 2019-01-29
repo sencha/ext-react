@@ -1,7 +1,6 @@
 export const buildXML = function(compress, options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION buildXML')
-
   let compression = ''
 
   if (compress) {
