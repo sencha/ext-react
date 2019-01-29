@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const semver = require("semver")
 const util = require('./util.js')
 const path = require('path')
 const fs = require('fs-extra')
