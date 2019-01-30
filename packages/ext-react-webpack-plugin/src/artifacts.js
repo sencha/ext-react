@@ -190,32 +190,38 @@ export function createJSDOMEnvironment(options, output) {
   return 'window.Ext = Ext;'
 }
 
-// export function createWorkspaceJson2(options, output) {
-//   const logv = require('./pluginUtil').logv
-//   logv(options,'FUNCTION createWorkspaceJson')
+export function createWorkspaceJson2(options, output) {
+  const logv = require('./pluginUtil').logv
+  logv(options,'FUNCTION createWorkspaceJson')
 
-//   var isWindows = typeof process != 'undefined' && typeof process.platform != 'undefined' && !!process.platform.match(/^win/);
-//   var pathDifference = output.substring(process.cwd().length)
-//   var numberOfPaths = pathDifference.split(isWindows ? "\\" : "/").length - 1;
-//   var nodeModulePath = ''
-//   for (var i = 0; i < numberOfPaths; i++) { 
-//     nodeModulePath += "../"
-//   }
+  var isWindows = typeof process != 'undefined' && typeof process.platform != 'undefined' && !!process.platform.match(/^win/);
+  var pathDifference = output.substring(process.cwd().length)
+  var numberOfPaths = pathDifference.split(isWindows ? "\\" : "/").length - 1;
+  var nodeModulePath = ''
+  for (var i = 0; i < numberOfPaths; i++) { 
+    nodeModulePath += "../"
+  }
 
-//   const config = {
-//     "frameworks": {
-//       "ext":  "${workspace.dir}" + nodeModulePath + "node_modules/@sencha/ext"
-//     },
-//     "packages": {
-//       "dir": [
-//         "${workspace.dir}" + nodeModulePath + "ext-" + options.framework + "/packages",
-//         "${workspace.dir}" + nodeModulePath + "node_modules/@sencha"
-//       ],
-//       "extract": "${workspace.dir}/packages/remote"
-//     }
-//   }
-//   return JSON.stringify(config, null, 2)
-// }
+  logv(options,'isWindows: ' + isWindows)
+  logv(options,'output: ' + output)
+  logv(options,'pathDifference: ' + pathDifference)
+  logv(options,'numberOfPaths: ' + numberOfPaths)
+  logv(options,'nodeModulePath: ' + nodeModulePath)
+
+  const config = {
+    "frameworks": {
+      "ext":  "${workspace.dir}" + nodeModulePath + "node_modules/@sencha/ext"
+    },
+    "packages": {
+      "dir": [
+        "${workspace.dir}" + nodeModulePath + "ext-" + options.framework + "/packages",
+        "${workspace.dir}" + nodeModulePath + "node_modules/@sencha"
+      ],
+      "extract": "${workspace.dir}/packages/remote"
+    }
+  }
+  return JSON.stringify(config, null, 2)
+}
 
 export function createWorkspaceJson(options, output) {
   const logv = require('./pluginUtil').logv
