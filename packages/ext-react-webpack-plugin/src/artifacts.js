@@ -212,12 +212,22 @@ export function createWorkspaceJson(options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createWorkspaceJson')
 
+  // var pathDifference = output.substring(process.cwd().length)
+  // var numberOfPaths = (pathDifference.split("/").length - 1)
+  // var nodeModulePath = ''
+  // for (var i = 0; i < numberOfPaths; i++) { 
+  //   nodeModulePath += "../"
+  // }
+
+
+  var isWindows = typeof process != 'undefined' && typeof process.platform != 'undefined' && !!process.platform.match(/^win/);
   var pathDifference = output.substring(process.cwd().length)
-  var numberOfPaths = (pathDifference.split("/").length - 1)
+  var numberOfPaths = pathDifference.split(isWindows ? "\\" : "/").length - 1;
   var nodeModulePath = ''
   for (var i = 0; i < numberOfPaths; i++) { 
     nodeModulePath += "../"
   }
+
   const config = {
     "frameworks": {
       "ext": nodeModulePath + "node_modules/@sencha/ext"
