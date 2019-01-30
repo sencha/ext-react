@@ -195,7 +195,7 @@ export function createWorkspaceJson2(options, output) {
 
   const config = {
     "frameworks": {
-      "ext": nodeModulePath + "node_modules/@sencha/ext"
+      "ext":  "${workspace.dir}" + nodeModulePath + "node_modules/@sencha/ext"
     },
     "packages": {
       "dir": [
