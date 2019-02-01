@@ -118,7 +118,7 @@ export function _compilation(compiler, compilation, vars, options) {
 
       compilation.hooks.succeedModule.tap(`ext-succeed-module`, module => {
         //require('./pluginUtil').logv(options, 'HOOK succeedModule')
-        if (module.resource && !module.resource.match(/node_modules/)) {
+        if (module.resource && !module.resource.match(/node_modules/) && !module.resource.match(/\.html$/)) {
           vars.deps = [...(vars.deps || []), ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation, extComponents)]
         }
         // if (extComponents.length && module.resource && (module.resource.match(/\.(j|t)sx?$/) ||
@@ -333,7 +333,7 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
 
       if (vars.framework == 'angular') {
 
-        //because of a problem with colorpicker
+        //because of a problem in colorpicker
         if (fs.existsSync(path.join(process.cwd(),'ext-angular/ux/'))) {
           var fromPath = path.join(process.cwd(), 'ext-angular/')
           var toPath = path.join(output)
@@ -467,33 +467,6 @@ export function _done(vars, options) {
 
     if (vars.production && !options.treeshake && options.framework == 'angular') {
       require(`./${framework}Util`)._done(vars, options)
-
-      // const path = require('path')
-      // const fsx = require('fs-extra')
-      // var rimraf = require("rimraf");
-      // rimraf.sync(path.resolve(process.cwd(), `src/app/ext-angular-prod`));
-      // try {
-      //   const appModulePath = path.resolve(process.cwd(), 'src/app/app.module.ts')
-      //   var js = fsx.readFileSync(appModulePath).toString()
-      //   var newJs = js.replace(
-      //     `import { ExtAngularModule } from './ext-angular-prod/ext-angular.module'`,
-      //     `import { ExtAngularModule } from '@sencha/ext-angular'`
-      //   );
-      //   fsx.writeFileSync(appModulePath, newJs, 'utf-8', ()=>{return})
-
-      //   const mainPath = path.resolve(process.cwd(), 'src/main.ts')
-      //   var jsMain = fsx.readFileSync(mainPath).toString()
-      //   var newJsMain = jsMain.replace(
-      //     `enableProdMode();bootstrapModule( AppModule );`,
-      //     `bootstrapModule(AppModule);`
-      //   );
-      //   fsx.writeFileSync(mainPath, newJsMain, 'utf-8', ()=>{return})
-      // }
-      // catch (e) {
-      //   console.log(e)
-      //   //compilation.errors.push('replace ExtAngularModule - ext-done: ' + e)
-      //   return []
-      // }
     } 
 
     try {
