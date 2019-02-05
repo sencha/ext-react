@@ -102,7 +102,7 @@ export function _compilation(compiler, compilation, vars, options) {
 
     if (
       (options.framework == 'angular' && options.treeshake == false) ||
-      (options.framework == 'react' && options.treeshake == true)
+      (options.framework == 'react')
     ) {
         compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
         logv(options,'HOOK ext-html-generation')
@@ -168,7 +168,7 @@ export async function emit(compiler, compilation, vars, options, callback) {
         _prepareForBuild(app, vars, options, outputPath, compilation)
       }
       else {
-        if (options.framework == 'angular' && !options.treeshake) {
+        if (options.framework == 'angular' && options.treeshake == false) {
           require(`./${framework}Util`)._prepareForBuild(app, vars, options, outputPath, compilation)
         }
         else {
@@ -255,76 +255,36 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options, output), 'utf8')
       fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options, output), 'utf8')
 
-      if (options.framework == 'angular') {
-
-        //because of a problem with colorpicker
-        if (fs.existsSync(path.join(process.cwd(),'ext-angular/ux/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/ux/')
-          var toPath = path.join(output, 'ux')
-          fsx.copySync(fromPath, toPath)
-          log(app + 'Copying (ux) ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-        }
-
-        if (fs.existsSync(path.join(process.cwd(),'ext-angular/packages/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/packages/')
-          var toPath = path.join(output, 'packages')
-          fsx.copySync(fromPath, toPath)
-          log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-        }
-        if (fs.existsSync(path.join(process.cwd(),'ext-angular/overrides/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/overrides/')
-          var toPath = path.join(output, 'overrides')
-          fsx.copySync(fromPath, toPath)
-          log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-        }
+      var framework = vars.framework;
+      //because of a problem with colorpicker
+      if (fs.existsSync(path.join(process.cwd(),`ext-${framework}/ux/`))) {
+        var fromPath = path.join(process.cwd(), `ext-${framework}/ux/`)
+        var toPath = path.join(output, 'ux')
+        fsx.copySync(fromPath, toPath)
+        log(app + 'Copying (ux) ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
       }
-
-
-
-
-      if (vars.framework == 'react')  {
-        if (fs.existsSync(path.join(process.cwd(),'ext-react/packages/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-react/packages/')
-          var toPath = path.join(output, 'packages')
-          fsx.copySync(fromPath, toPath)
-          log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-        }
-        if (fs.existsSync(path.join(process.cwd(),'ext-react/overrides/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-react/overrides/')
-          var toPath = path.join(output, 'overrides')
-          fsx.copySync(fromPath, toPath)
-          log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-        }
+      if (fs.existsSync(path.join(process.cwd(),`ext-${framework}/packages/`))) {
+        var fromPath = path.join(process.cwd(), `ext-${framework}/packages/`)
+        var toPath = path.join(output, 'packages')
+        fsx.copySync(fromPath, toPath)
+        log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
       }
-
+      if (fs.existsSync(path.join(process.cwd(),`ext-${framework}/overrides/`))) {
+        var fromPath = path.join(process.cwd(), `ext-${framework}/overrides/`)
+        var toPath = path.join(output, 'overrides')
+        fsx.copySync(fromPath, toPath)
+        log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
+      }
       if (fs.existsSync(path.join(process.cwd(),'resources/'))) {
         var fromResources = path.join(process.cwd(), 'resources/')
         var toResources = path.join(output, '../resources')
         fsx.copySync(fromResources, toResources)
         log(app + 'Copying ' + fromResources.replace(process.cwd(), '') + ' to: ' + toResources.replace(process.cwd(), ''))
       }
-      
-      if (fs.existsSync(path.join(process.cwd(),'packages/'))) {
-        var fromPackages = path.join(process.cwd(), 'packages/')
-        var toPackages = path.join(output, 'packages')
-        fsx.copySync(fromPackages, toPackages)
-        log(app + 'Copying ' + fromPackages.replace(process.cwd(), '') + ' to: ' + toPackages.replace(process.cwd(), ''))
-      }
-
-      if (fs.existsSync(path.join(process.cwd(),'overrides/'))) {
-        var fromPath = path.join(process.cwd(), 'overrides/')
-        var toPath = path.join(output, 'overrides')
-        fsx.copySync(fromPath, toPath)
-        log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
-      }
-
     }
     vars.firstTime = false
     var js = ''
     if (vars.production) {
-      // if (!vars.deps.includes('Ext.require("Ext.layout.*");\n')) {
-      //   vars.deps.push('Ext.require("Ext.layout.*");\n')
-      // }
       js = vars.deps.join(';\n');
     }
     else {
