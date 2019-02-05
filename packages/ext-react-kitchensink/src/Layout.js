@@ -12,7 +12,11 @@ import * as actions from './actions';
 import Breadcrumbs from './Breadcrumbs';
 var REACT_VERSION = require('react').version
 
-Ext.require('Ext.panel.Collapser');
+Ext.require([
+  'Ext.layout.*',
+  'Ext.panel.Collapser',
+  'Ext.panel.Resizer'
+]);
 
 class Layout extends Component {
 

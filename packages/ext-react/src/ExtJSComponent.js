@@ -50,7 +50,7 @@ export class ExtJSComponent extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate')
+    //console.log('componentDidUpdate')
     if (this.isRootContainer) {
       l(`ExtJSComponent: componentDidUpdate, call EXTRenderer.updateContainer, element: ${this.target}`)
       EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this);
@@ -390,7 +390,7 @@ export class ExtJSComponent extends Component {
    * @private
    */
   _applyProps(oldProps, props) {
-    console.log('_applyProps')
+    //console.log('_applyProps')
 
     // if (this._shallowEqual(oldProps, props)) {
     //   console.log('*****************************************************************same'); 

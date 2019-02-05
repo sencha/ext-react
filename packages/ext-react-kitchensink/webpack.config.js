@@ -26,7 +26,7 @@ module.exports = function (env) {
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
   if (buildprofile == 'all') { buildprofile = '' }
   if (env.treeshake == undefined) {env.treeshake = false}
-  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : true
 
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
