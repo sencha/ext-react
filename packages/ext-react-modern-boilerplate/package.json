@@ -65,6 +65,8 @@
     "babel-loader": "^8.0.5",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "css-loader": "^2.1.0",
     "portfinder": "^1.0.20",
     "react-hot-loader": "^4.6.3",
     "rimraf": "^2.6.3",

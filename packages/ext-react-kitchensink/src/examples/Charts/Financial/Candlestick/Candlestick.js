@@ -13,127 +13,168 @@ Ext.require([
 
 export default class CandlestickChartExample extends Component {
 
-    constructor() {
-        super();
-        this.refresh();
+  store = Ext.create('Ext.data.Store', {
+    fields: ['time', 'open', 'high', 'low', 'close']
+  });
+  state = {theme: 'default',zoom: false};
+
+  constructor() {
+    super();
+    this.refresh();
+  }
+
+  componentDidMount() {
+
+
+    console.log(this.container.cmp)
+
+    //this.container.cmp.remove(0)
+
+
+
+    this.chart.cmp.getInteraction('panzoom').setEnabled(false);
+    this.chart.cmp.getInteraction('crosshair').setEnabled(true);
+
+
+//     console.log(this.chart.cmp)
+//     //this.chart = this.refs.chart.cmp;
+//     this.panzoom = this.chart.cmp.getInteraction('panzoom');
+//     this.crosshair = this.chart.cmp.getInteraction('crosshair');
+    
+// //    console.log(this.panzoom)
+//     console.log(this.crosshair)
+  }
+
+  refresh = () => {this.store.loadData(createData(1000));}
+
+  changeTheme = theme => this.setState({ theme })
+
+  toggleZoomOnPan = (zoomOnPan) => {
+    this.toggleCrosshair(false);
+    this.panzoom.setZoomOnPan(zoomOnPan);
+    this.setState({zoom:zoomOnPan});
+  }
+
+  toggleCrosshair = (crosshair) => {
+    this.chart.cmp.getInteraction('panzoom').setEnabled(false);
+    this.chart.cmp.getInteraction('crosshair').setEnabled(true);
+    console.log(this.chart.cmp.getInteraction('panzoom').getEnabled())
+    console.log(this.chart.cmp.getInteraction('crosshair').getEnabled())
+    return
+
+
+
+
+    console.log(this.crosshair)
+    console.log(this.crosshair.getEnabled())
+
+    this.crosshair.setEnabled(true);
+    this.panzoom.setEnabled(false);
+    console.log(this.crosshair.getEnabled())
+    return
+    console.log(!crosshair)
+    this.panzoom.setEnabled(!crosshair);
+    this.crosshair.setEnabled(crosshair);
+    if(crosshair){
+      this.setState({zoom:crosshair});
     }
+  }
 
-    store = Ext.create('Ext.data.Store', {
-        fields: ['time', 'open', 'high', 'low', 'close']
-    });
+  render() {
+    console.log('render')
+    const { theme } = this.state;
+    //const { zoom } = this.state;
 
-    state = {
-        theme: 'default',
-        zoom: false
-    };
+    console.log(theme)
 
-    refresh = () => {
-        this.store.loadData(createData(1000));
-    }
+    var theme2='midnight'
 
-    changeTheme = theme => this.setState({ theme })
+    return (
+      <Container padding={!Ext.os.is.Phone && 10} layout="fit" ref={container => this.container = container}>
 
-    toggleZoomOnPan = (zoomOnPan) => {
-        this.toggleCrosshair(false);
-        this.panzoom.setZoomOnPan(zoomOnPan);
-        this.setState({zoom:zoomOnPan});
-    }
+        <ChartToolbar
+          onThemeChange={this.changeTheme}
+          onToggleZoomOnPan={this.toggleZoomOnPan}
+          onToggleCrosshair={this.toggleCrosshair}
+          onRefreshClick={this.refresh}
+          theme={theme2}
+          onlyMidnight/>
 
-    toggleCrosshair = (crosshair) => {
-        this.panzoom.setEnabled(!crosshair);
-        this.crosshair.setEnabled(crosshair);
-        if(crosshair){
-            this.setState({zoom:crosshair});
-        }
-    }
+        <Cartesian
+          shadow
+          ref={chart => this.chart = chart}
+          store={this.store}
+          theme={theme}
+          axes={[
+            {
+              type: 'numeric',
+              fields: ['open', 'high', 'low', 'close'],
+              position: 'left',
+              maximum: 1000,
+              minimum: 0
+            }, 
+            {
+              type: 'time',
+              fields: ['time'],
+              position: 'bottom',
+              visibleRange: [0, 0.3],
+              style: {
+                axisLine: false
+              }
+            }
+          ]}
+          series={
+            {
+              type: 'candlestick',
+              xField: 'time',
+              openField: 'open',
+              highField: 'high',
+              lowField: 'low',
+              closeField: 'close',
+              style: {
+                barWidth: 10,
+                opacity: 0.9,
+                dropStyle: {
+                  fill: 'rgb(237,123,43)',
+                  stroke: 'rgb(237,123,43)'
+                },
+                raiseStyle: {
+                  fill: 'rgb(55,153,19)',
+                  stroke: 'rgb(55,153,19)'
+                }
+              }
+            }
+          }
+          interactions={[
+            {
+              type: 'panzoom',
+              axes: {
+                left: {
+                  allowPan: false,
+                  allowZoom: false
+                },
+                bottom: {
+                  allowPan: true,
+                  allowZoom: true
+                }
+              }
+            },
+            {
+              type: 'crosshair',
+              axes: {
+                label: {
+                  fillStyle: 'white'
+                },
+                rect: {
+                  fillStyle: '#344459',
+                  opacity: 0.7,
+                  radius: 5
+                }
+              }
+          }]}
+        />
 
-    componentDidMount() {
-        const chart = this.refs.chart.cmp;
-        this.panzoom = chart.getInteraction('panzoom');
-        this.crosshair = chart.getInteraction('crosshair');
-    }
-
-    render() {
-        const { theme } = this.state;
-        const { zoom } = this.state;
-
-        return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
-                <ChartToolbar
-                    onThemeChange={this.changeTheme}
-                    onToggleZoomOnPan={this.toggleZoomOnPan}
-                    onToggleCrosshair={this.toggleCrosshair}
-                    onRefreshClick={this.refresh}
-                    theme={theme}
-                    onlyMidnight
-                />
-                <Cartesian
-                    shadow
-                    ref="chart"
-                    store={this.store}
-                    theme={theme}
-                    interactions={[{
-                        type: 'panzoom',
-                        axes: {
-                            left: {
-                                allowPan: false,
-                                allowZoom: false
-                            },
-                            bottom: {
-                                allowPan: true,
-                                allowZoom: true
-                            }
-                        }
-                    }, {
-                        type: 'crosshair',
-                        axes: {
-                            label: {
-                                fillStyle: 'white'
-                            },
-                            rect: {
-                                fillStyle: '#344459',
-                                opacity: 0.7,
-                                radius: 5
-                            }
-                        }
-                    }]}
-                    series={{
-                        type: 'candlestick',
-                        xField: 'time',
-                        openField: 'open',
-                        highField: 'high',
-                        lowField: 'low',
-                        closeField: 'close',
-                        style: {
-                            barWidth: 10,
-                            opacity: 0.9,
-                            dropStyle: {
-                                fill: 'rgb(237,123,43)',
-                                stroke: 'rgb(237,123,43)'
-                            },
-                            raiseStyle: {
-                                fill: 'rgb(55,153,19)',
-                                stroke: 'rgb(55,153,19)'
-                            }
-                        }
-                    }}
-                    axes={[{
-                        type: 'numeric',
-                        fields: ['open', 'high', 'low', 'close'],
-                        position: 'left',
-                        maximum: 1000,
-                        minimum: 0
-                    }, {
-                        type: 'time',
-                        fields: ['time'],
-                        position: 'bottom',
-                        visibleRange: [0, 0.3],
-                        style: {
-                            axisLine: false
-                        }
-                    }]}
-                />
-            </Container>            
-        )
-    }
+      </Container>
+    )
+  }
 }

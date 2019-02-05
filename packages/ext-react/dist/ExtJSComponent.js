@@ -58,6 +58,8 @@ function (_Component) {
   };
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+
     if (this.isRootContainer) {
       l("ExtJSComponent: componentDidUpdate, call EXTRenderer.updateContainer, element: " + this.target);
       EXTRenderer.updateContainer(this.reactChildren, this._mountNode, this);
@@ -420,7 +422,7 @@ function (_Component) {
   ;
 
   _proto._applyProps = function _applyProps(oldProps, props) {
-    // if (this._shallowEqual(oldProps, props)) {
+    console.log('_applyProps'); // if (this._shallowEqual(oldProps, props)) {
     //   console.log('*****************************************************************same'); 
     //   return
     // }
@@ -440,6 +442,7 @@ function (_Component) {
     //   alert('same'); // gives true
     //   return
     // }
+
     var keys = union(Object.keys(oldProps), Object.keys(props));
 
     for (var _iterator = keys, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
@@ -485,7 +488,11 @@ function (_Component) {
             //   //this.cmp.redraw()
             //  }
 
-            this.cmp[setter](value);
+            Ext.testCmp = this.cmp;
+            this.cmp[setter](value); // console.log(this.cmp.redraw)
+            // if (this.cmp.redraw != undefined) {
+            //   this.cmp.redraw()
+            // }
           }
         }
       }
