@@ -74,13 +74,15 @@ export function _compilation(compiler, compilation, vars, options) {
       compilation.hooks.succeedModule.tap(`ext-succeed-module`, module => {
         //require('./pluginUtil').logv(options, 'HOOK succeedModule')
         if (module.resource && !module.resource.match(/node_modules/)) {
-        //if (module.resource && !module.resource.match(/node_modules/) && !module.resource.match(/\.html$/)) {
-          // if(module.resource.match(/\.html$/) == true) {
-          //   console.log(module.resource)
-          // }
-          // else {
-          // }
-          vars.deps = [...(vars.deps || []), ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation, extComponents)]
+          if(module.resource.match(/\.html$/) != null) {
+            if(module._source._value.toLowerCase().includes('doctype html') == false) {
+              vars.deps = [...(vars.deps || []), ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation, extComponents)]
+            }
+          }
+          else {
+            vars.deps = [...(vars.deps || []), ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation, extComponents)]
+
+          }
         }
         // if (extComponents.length && module.resource && (module.resource.match(/\.(j|t)sx?$/) ||
         // options.framework == 'angular' && module.resource.match(/\.html$/)) &&
@@ -98,9 +100,11 @@ export function _compilation(compiler, compilation, vars, options) {
 
     }
 
-    if (options.framework != 'extjs' && options.treeshake == false) {
-
-      compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
+    if (
+      (options.framework == 'angular' && options.treeshake == false) ||
+      (options.framework == 'react' && options.treeshake == true)
+    ) {
+        compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
         logv(options,'HOOK ext-html-generation')
         const path = require('path')
         var outputPath = ''
@@ -251,7 +255,7 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       fs.writeFileSync(path.join(output, 'jsdom-environment.js'), createJSDOMEnvironment(options, output), 'utf8')
       fs.writeFileSync(path.join(output, 'workspace.json'), createWorkspaceJson(options, output), 'utf8')
 
-      if (vars.framework == 'angular') {
+      if (options.framework == 'angular') {
 
         //because of a problem with colorpicker
         if (fs.existsSync(path.join(process.cwd(),'ext-angular/ux/'))) {
