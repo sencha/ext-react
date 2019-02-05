@@ -1,57 +1,60 @@
 'use strict'
 require('@babel/polyfill')
+const v = require('./pluginUtil').logv
 export default class ExtWebpackPlugin {
   constructor(options) {
     this.plugin = require(`./pluginUtil`)._constructor(options)
   }
 
   apply(compiler) {
-    require('./pluginUtil').logv(this.plugin.options,'FUNCTION apply')
+    const vars = this.plugin.vars
+    const options = this.plugin.options
+    v(options,'FUNCTION apply')
     if (!compiler.hooks) {console.log('not webpack 4');return}
 
     compiler.hooks.thisCompilation.tap(`ext-this-compilation`, (compilation) => {
-      require('./pluginUtil').logv(this.plugin.options,'HOOK thisCompilation')
-      if (this.plugin.vars.pluginErrors.length > 0) {
-        compilation.errors.push( new Error(this.plugin.vars.pluginErrors.join("")) )
+      v(options,'HOOK thisCompilation')
+      if (vars.pluginErrors.length > 0) {
+        compilation.errors.push( new Error(vars.pluginErrors.join("")) )
       }
     })
-    if (this.plugin.vars.pluginErrors.length > 0) {
+    if (vars.pluginErrors.length > 0) {
       return
     }
 
-    if ( this.plugin.vars.framework == 'extjs') {
+    if ( vars.framework == 'extjs') {
       compiler.hooks.compilation.tap(`ext-compilation`, (compilation) => {
-        require('./pluginUtil').logv(this.plugin.options,'HOOK compilation (empty)')
+        v(options,'HOOK compilation (empty)')
       })
       compiler.hooks.afterCompile.tap('ext-after-compile', (compilation) => {
-        require('./pluginUtil').logv(this.plugin.options,'HOOK afterCompile')
-        require(`./extjsUtil`)._afterCompile(compilation, this.plugin.vars, this.plugin.options)
+        v(options,'HOOK afterCompile')
+        require(`./extjsUtil`)._afterCompile(compilation, vars, options)
       })
     }
     else {
       compiler.hooks.compilation.tap(`ext-compilation`, (compilation) => {
-        require('./pluginUtil').logv(this.plugin.options,'HOOK compilation')
-        require(`./pluginUtil`)._compilation(compiler, compilation, this.plugin.vars, this.plugin.options)
+        v(options,'HOOK compilation')
+        require(`./pluginUtil`)._compilation(compiler, compilation, vars, options)
       })
       compiler.hooks.afterCompile.tap('ext-after-compile', (compilation) => {
-        require('./pluginUtil').logv(this.plugin.options,'HOOK afterCompile')
-        require(`./pluginUtil`)._afterCompile(compiler, compilation, this.plugin.vars, this.plugin.options)
+        v(options,'HOOK afterCompile')
+        require(`./pluginUtil`)._afterCompile(compiler, compilation, vars, options)
       })
     }
 
-    if((this.plugin.options.treeshake == true && this.plugin.options.environment == 'production') ||
-       (this.plugin.options.treeshake == false && this.plugin.options.environment != 'production'))
+    if((options.treeshake == true && options.environment == 'production') ||
+       (options.treeshake == false && options.environment != 'production'))
     {
       compiler.hooks.emit.tapAsync(`ext-emit`, (compilation, callback) => {
-        require('./pluginUtil').logv(this.plugin.options,'HOOK emit')
-        require(`./pluginUtil`).emit(compiler, compilation, this.plugin.vars, this.plugin.options, callback)
+        v(options,'HOOK emit')
+        require(`./pluginUtil`).emit(compiler, compilation, vars, options, callback)
       })
     }
 
     compiler.hooks.done.tap(`ext-done`, () => {
-      require('./pluginUtil').logv(this.plugin.options,'HOOK done')
-      require(`./pluginUtil`)._done(this.plugin.vars, this.plugin.options)
-      require('./pluginUtil').log(this.plugin.vars.app + `Completed ext-webpack-plugin processing`)
+      v(options,'HOOK done')
+      require(`./pluginUtil`)._done(vars, options)
+      require('./pluginUtil').log(vars.app + `Completed ext-webpack-plugin processing`)
     })
   }
 }

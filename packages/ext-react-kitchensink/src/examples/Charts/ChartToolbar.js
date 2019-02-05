@@ -34,7 +34,7 @@ export default function ChartToolbar({
     downloadChartRef,
     onStackGroup
 }) {
-    var show = false
+    var show = true
     return (
         <Toolbar docked="top" ui="app-transparent-toolbar" shadow={false} margin={!Ext.os.is.Phone && "0 10"}>
             { show && theme && (

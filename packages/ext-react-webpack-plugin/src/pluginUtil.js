@@ -1,9 +1,7 @@
 //**********
 export function _constructor(options) {
-  //const path = require('path')
   const fs = require('fs')
-  //const fsx = require('fs-extra')
-
+ 
   var thisVars = {}
   var thisOptions = {}
   var plugin = {}
@@ -45,10 +43,15 @@ export function _constructor(options) {
     {thisVars.production = true}
   else 
     {thisVars.production = false}
+  logv(options, `thisVars - ${JSON.stringify(thisVars)}`)
 
   log(require('./pluginUtil')._getVersions(thisVars.app, thisVars.pluginName, thisVars.framework))
   log(thisVars.app + 'Building for ' + thisOptions.environment)
   log(thisVars.app + 'Treeshake is ' + thisOptions.treeshake)
+
+  if (thisVars.production == true && thisOptions.treeshake == true && options.framework == 'angular') {
+    require(`./angularUtil`)._toProd(thisVars, thisOptions)
+  }
 
   plugin.vars = thisVars
   plugin.options = thisOptions
@@ -61,64 +64,22 @@ export function _compilation(compiler, compilation, vars, options) {
   try {
     require('./pluginUtil').logv(options, 'FUNCTION _compilation')
 
-    const fsx = require('fs-extra')
-    const fs = require('fs')
-    const mkdirp = require('mkdirp')
-    const path = require('path')
-
-    const extAngularPackage = '@sencha/ext-angular'
-    const extAngularFolder = 'ext-angular-prod'
-    const extAngularModule = 'ext-angular.module'
-    const pathToExtAngularModern = path.resolve(process.cwd(), `src/app/${extAngularFolder}`)
     var extComponents = []
 
     if (vars.production) {
       if (options.framework == 'angular' && options.treeshake) {
-        const packagePath = path.resolve(process.cwd(), 'node_modules/' + extAngularPackage)
-        var files = fsx.readdirSync(`${packagePath}/lib`)
-        files.forEach((fileName) => {
-          if (fileName && fileName.substr(0, 4) == 'ext-') {
-            var end = fileName.substr(4).indexOf('.component')
-            if (end >= 0) {
-              extComponents.push(fileName.substring(4, end + 4))
-            }
-          }
-        })
-
-        try {
-          const appModulePath = path.resolve(process.cwd(), 'src/app/app.module.ts')
-          var js = fsx.readFileSync(appModulePath).toString()
-          var newJs = js.replace(
-            `import { ExtAngularModule } from '@sencha/ext-angular'`,
-            `import { ExtAngularModule } from './ext-angular-prod/ext-angular.module'`
-          );
-          fsx.writeFileSync(appModulePath, newJs, 'utf-8', ()=>{return})
-
-          const mainPath = path.resolve(process.cwd(), 'src/main.ts')
-          var jsMain = fsx.readFileSync(mainPath).toString()
-          var newJsMain = jsMain.replace(
-            `bootstrapModule(AppModule);`,
-            `enableProdMode();bootstrapModule( AppModule );`
-          );
-          fsx.writeFileSync(mainPath, newJsMain, 'utf-8', ()=>{return})
-
-          if (!fs.existsSync(pathToExtAngularModern)) {
-            mkdirp.sync(pathToExtAngularModern)
-            const t = require('./artifacts').extAngularModule('', '', '')
-            fsx.writeFileSync(`${pathToExtAngularModern}/${extAngularModule}.ts`, t, 'utf-8', () => {return})
-          }
-
-        }
-        catch (e) {
-          console.log(e)
-          compilation.errors.push('buildModule hook in _compilation: ' + e)
-          return []
-        }
+        extComponents = require('./angularUtil')._getAllComponents(vars, options)
       }
 
       compilation.hooks.succeedModule.tap(`ext-succeed-module`, module => {
         //require('./pluginUtil').logv(options, 'HOOK succeedModule')
-        if (module.resource && !module.resource.match(/node_modules/) && !module.resource.match(/\.html$/)) {
+        if (module.resource && !module.resource.match(/node_modules/)) {
+        //if (module.resource && !module.resource.match(/node_modules/) && !module.resource.match(/\.html$/)) {
+          // if(module.resource.match(/\.html$/) == true) {
+          //   console.log(module.resource)
+          // }
+          // else {
+          // }
           vars.deps = [...(vars.deps || []), ...require(`./${vars.framework}Util`).extractFromSource(module, options, compilation, extComponents)]
         }
         // if (extComponents.length && module.resource && (module.resource.match(/\.(j|t)sx?$/) ||
@@ -128,57 +89,16 @@ export function _compilation(compiler, compilation, vars, options) {
         // }
       })
 
-      if (options.framework == 'angular' && options.treeshake) {
-
-
-
+      if (options.framework == 'angular' && options.treeshake == true) {
         compilation.hooks.finishModules.tap(`ext-finish-modules`, modules => {
           require('./pluginUtil').logv(options, 'HOOK finishModules')
-          const string = 'Ext.create({\"xtype\":\"'
-          vars.deps.forEach(code => {
-            var index = code.indexOf(string)
-            if (index >= 0) {
-              code = code.substring(index + string.length)
-              var end = code.indexOf('\"')
-              vars.usedExtComponents.push(code.substr(0, end))
-            }
-          })
-          vars.usedExtComponents = [...new Set(vars.usedExtComponents)]
-          const readFrom = path.resolve(process.cwd(), 'node_modules/' + extAngularPackage + '/src/lib')
-          const writeToPath = pathToExtAngularModern
-
-          const baseContent = fsx.readFileSync(`${readFrom}/base.ts`).toString()
-          fsx.writeFileSync(`${writeToPath}/base.ts`, baseContent, 'utf-8', ()=>{return})
-          
-          var writeToPathWritten = false
-          var moduleVars = {
-            imports: '',
-            exports: '',
-            declarations: ''
-          }
-          vars.usedExtComponents.forEach(xtype => {
-            var capclassname = xtype.charAt(0).toUpperCase() + xtype.replace(/-/g, "_").slice(1)
-            moduleVars.imports = moduleVars.imports + `import { Ext${capclassname}Component } from './ext-${xtype}.component';\n`
-            moduleVars.exports = moduleVars.exports + `    Ext${capclassname}Component,\n`
-            moduleVars.declarations = moduleVars.declarations + `    Ext${capclassname}Component,\n`
-            var classFile = `/ext-${xtype}.component.ts`
-            const contents = fsx.readFileSync(`${readFrom}${classFile}`).toString()
-            fsx.writeFileSync(`${writeToPath}${classFile}`, contents, 'utf-8', ()=>{return})
-            writeToPathWritten = true
-          })
-          if (writeToPathWritten) {
-            var t = require('./artifacts').extAngularModule(
-              moduleVars.imports, moduleVars.exports, moduleVars.declarations
-            )
-            fsx.writeFileSync(`${writeToPath}/${extAngularModule}.ts`, t, 'utf-8', ()=>{return})
-          }
+          require('./angularUtil')._writeFilesToProdFolder(vars, options)
         })
       }
 
-
     }
 
-    if (options.framework != 'extjs' && !options.treeshake) {
+    if (options.framework != 'extjs' && options.treeshake == false) {
 
       compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
         logv(options,'HOOK ext-html-generation')
@@ -333,27 +253,31 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
 
       if (vars.framework == 'angular') {
 
-        //because of a problem in colorpicker
+        //because of a problem with colorpicker
         if (fs.existsSync(path.join(process.cwd(),'ext-angular/ux/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/')
-          var toPath = path.join(output)
+          var fromPath = path.join(process.cwd(), 'ext-angular/ux/')
+          var toPath = path.join(output, 'ux')
           fsx.copySync(fromPath, toPath)
           log(app + 'Copying (ux) ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
         }
 
         if (fs.existsSync(path.join(process.cwd(),'ext-angular/packages/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/')
-          var toPath = path.join(output)
+          var fromPath = path.join(process.cwd(), 'ext-angular/packages/')
+          var toPath = path.join(output, 'packages')
           fsx.copySync(fromPath, toPath)
           log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
         }
         if (fs.existsSync(path.join(process.cwd(),'ext-angular/overrides/'))) {
-          var fromPath = path.join(process.cwd(), 'ext-angular/')
-          var toPath = path.join(output)
+          var fromPath = path.join(process.cwd(), 'ext-angular/overrides/')
+          var toPath = path.join(output, 'overrides')
           fsx.copySync(fromPath, toPath)
           log(app + 'Copying ' + fromPath.replace(process.cwd(), '') + ' to: ' + toPath.replace(process.cwd(), ''))
         }
       }
+
+
+
+
       if (vars.framework == 'react')  {
         if (fs.existsSync(path.join(process.cwd(),'ext-react/packages/'))) {
           var fromPath = path.join(process.cwd(), 'ext-react/packages/')
@@ -394,9 +318,9 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
     vars.firstTime = false
     var js = ''
     if (vars.production) {
-      if (!vars.deps.includes('Ext.require("Ext.layout.*");\n')) {
-        vars.deps.push('Ext.require("Ext.layout.*");\n')
-      }
+      // if (!vars.deps.includes('Ext.require("Ext.layout.*");\n')) {
+      //   vars.deps.push('Ext.require("Ext.layout.*");\n')
+      // }
       js = vars.deps.join(';\n');
     }
     else {
@@ -465,9 +389,11 @@ export function _done(vars, options) {
     const logv = require('./pluginUtil').logv
     logv(options,'FUNCTION _done')
 
-    if (vars.production && !options.treeshake && options.framework == 'angular') {
-      require(`./${framework}Util`)._done(vars, options)
-    } 
+
+    if (vars.production == true && options.treeshake == false && options.framework == 'angular') {
+      require(`./${options.framework}Util`)._toDev(vars, options)
+    }
+
 
     try {
       if(options.browser == true && options.watch == 'yes' && vars.production == false) {

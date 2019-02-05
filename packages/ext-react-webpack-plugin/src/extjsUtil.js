@@ -1,3 +1,5 @@
+"use strict"
+
 export function getValidateOptions() {
   return {
     "type": "object",

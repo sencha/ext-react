@@ -12,19 +12,20 @@ export default class PivotGridWidgets extends Component {
 
     addData = () => {
         const data = generateData(6);
-
         for(let i=0; i<data.length; i++) {
             const record = data[i];
             record.person = 'Adrian';
             record.company = (i < 3 ? 'Microsoft' : 'Apple');
+            record.country = 'United States'
+            record.date = new Date(2012, 0, 1)
+            record.value = Math.random() * 1000 + 1
+            record.quantity = Math.floor(Math.random() * 30 + 1)
         }
-
         this.store.add(data);
     }
     updateData = () => {
         const data = generateData(1)[0],
             record = randomItem(this.store.data.items);
-
         if(record) record.set(data);
     }
     removeData = () => {
