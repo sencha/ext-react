@@ -19,10 +19,10 @@ class About extends Component {
         <div style={{padding: Ext.os.is.Phone ? '0 10px': '0 20px'}}>
             <h2 style={{fontWeight: 100}}>ExtReact Conference App</h2>
             <div>
-                This app is built with <a href="https://github.com/sencha/ext-react">Sencha ExtReact 6.6.2</a> and uses the following libraries:
+                This app is built with <a href="https://github.com/sencha/ext-react">Sencha ExtReact 6.7</a> and uses the following libraries:
                 <ul style={{listStyle: 'none', padding: '0'}}>
-                    <li style={listStyle}><a href="https://facebook.github.io/react/">React 16.5.2</a></li>
-                    <li style={listStyle}><a href="http://redux.js.org/">React Redux 5.0.7</a></li>
+                    <li style={listStyle}><a href="https://facebook.github.io/react/">React 16.8.0</a></li>
+                    <li style={listStyle}><a href="http://redux.js.org/">React Redux 5.1.1</a></li>
                     <li style={listStyle}><a href="http://redux.js.org/">React Router Redux 5.0.0-alpha.6</a></li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@ class About extends Component {
 };
 
 const mapStateToProps = (state) => {
-    return { };
+  return { };
 }
 
 export default connect(mapStateToProps)(About);
