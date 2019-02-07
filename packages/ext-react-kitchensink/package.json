@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.environment=development",
     "prod": "webpack-dev-server --env.environment=production",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production --env.watch=no"
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production  --env.treeshake=true"
   },
   "extbuild": {
     "defaultprofile": "",
