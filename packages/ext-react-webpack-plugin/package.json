@@ -4,8 +4,8 @@
   "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
   "main": "dist/index.js",
   "scripts": {
-    "watch": "babel ./src --out-dir ./dist --watch --source-maps",
-    "build": "babel ./src --out-dir ./dist",
+    "watch": "npx babel ./src --out-dir ./dist --watch --source-maps",
+    "build": "npx babel ./src --out-dir ./dist",
     "prepublish": "npm run build",
     "test": "mocha"
   },
@@ -28,7 +28,6 @@
     "switchit": "^1.0.8"
   },
   "devDependencies": {
-    "babel":"~6.23.0",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
