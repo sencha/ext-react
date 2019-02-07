@@ -21,7 +21,7 @@ class About extends Component {
             <div>
                 This app is built with <a href="https://github.com/sencha/ext-react">Sencha ExtReact 6.7</a> and uses the following libraries:
                 <ul style={{listStyle: 'none', padding: '0'}}>
-                    <li style={listStyle}><a href="https://facebook.github.io/react/">React 16.8.0</a></li>
+                    <li style={listStyle}><a href="https://facebook.github.io/react/">React 16.8.1</a></li>
                     <li style={listStyle}><a href="http://redux.js.org/">React Redux 5.1.1</a></li>
                     <li style={listStyle}><a href="http://redux.js.org/">React Router Redux 5.0.0-alpha.6</a></li>
                 </ul>
