@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "module": "index.js",
   "scripts": {
-    "build": "babel ./src  --out-dir ./dist",
+    "build": "npx babel ./src  --out-dir ./dist",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -16,7 +16,6 @@
   "license": "MIT",
   "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin",
   "devDependencies": {
-    "babel":"~6.23.0",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",

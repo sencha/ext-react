@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "watch": "babel ./src --out-dir ./dist --source-maps --watch",
-    "build": "babel ./src --out-dir ./dist --source-maps",
+    "watch": "npx babel ./src --out-dir ./dist --source-maps --watch",
+    "build": "npx babel ./src --out-dir ./dist --source-maps",
     "prepublish": "npm run build",
     "create-typings": "node script/create-typings.js",
     "test": "pushd ../ext-react-tests; npm test"
@@ -44,7 +44,6 @@
     "react-test-renderer": "~16.8.1"
   },
   "devDependencies": {
-    "babel":"~6.23.0",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",

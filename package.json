@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "lerna bootstrap",
-    "increment": "lerna publish --skip-git --skip-npm --force-publish",
-    "clean": "lerna clean",
-    "install:clean": "npm cache clear --force && lerna clean && npm install",
+    "postinstall": "npx lerna bootstrap --loglevel warn",
+    "increment": "npx lerna publish --skip-git --skip-npm --force-publish",
+    "clean": "npx lerna clean",
+    "install:clean": "npm cache clear --force && npx lerna clean && npm install",
     "kitchensink": "cd packages/ext-react-kitchensink && npm start",
     "boilerplate": "cd packages/ext-react-modern-boilerplate && npm start"
   },
