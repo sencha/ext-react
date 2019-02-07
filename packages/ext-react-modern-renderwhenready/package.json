@@ -39,9 +39,9 @@
     "@sencha/ext-ux": "^6.7.0",
     "d3": "4.5.0",
     "prop-types": "^15.6.2",
-    "react": "^16.5.3",
-    "react-dom": "^16.5.3",
-    "react-redux": "^5.1.1",
+    "react": "~16.8.1",
+    "react-dom": "~16.8.1",
+    "react-redux": "~6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1"
   },
