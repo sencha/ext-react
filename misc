@@ -34,3 +34,61 @@ git merge upstream/ext-6.6.x
 
 
 git remote add upstream https://github.com/sencha/guides.git
+
+
+
+
+
+        <Column 
+          text="Company" 
+          dataIndex="name" 
+          width="150"
+          summaryRenderer={this.summarizeCompanies}
+          locked
+        />
+        <Column 
+          text="Price" 
+          width="75" 
+          dataIndex="price" 
+          formatter="usMoney" 
+          summary="average"
+          locked
+        />
+        <Column
+          locked="left"
+          cell={{
+            tools: {
+                approve: {
+                    iconCls: 'x-fa fa-check green',
+                    handler: this.onApprove
+                },
+                decline: {
+                    iconCls: 'x-fa fa-ban red',
+                    handler: this.onDecline,
+                    weight: 1
+                }
+            }
+        }}
+        /> 
+        <Column 
+          text="Change" 
+          width="90" 
+          dataIndex="priceChange" 
+          renderer={this.renderSign.bind(this, '0.00')}
+          summary="max"
+          locked="right"
+        />
+        <Column 
+          text="% Change" 
+          width="100"
+          dataIndex="priceChangePct" 
+          renderer={this.renderSign.bind(this, '0.00')}
+          summary="average" 
+        />
+        <Column 
+          text="Last Updated" 
+          width="125" 
+          dataIndex="priceLastChange" 
+          formatter="date('m/d/Y')" 
+          summary="max"
+        />

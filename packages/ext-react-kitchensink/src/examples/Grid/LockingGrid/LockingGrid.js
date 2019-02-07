@@ -22,63 +22,98 @@ export default class LockingGridExample extends Component {
   render() {
     return (
       <LockedGrid
+          left="10" top="10" width="800" height="400"
           title="Locking Grid"
           store={this.store}
           shadow
-      >
-        <Column 
-          text="Company" 
-          dataIndex="name" 
-          width="150"
-          summaryRenderer={this.summarizeCompanies}
-          locked
-        />
-        <Column 
-          text="Price" 
-          width="75" 
-          dataIndex="price" 
-          formatter="usMoney" 
-          summary="average"
-          locked
-        />
-        <Column
-          locked="left"
-          cell={{
-            tools: {
-                approve: {
-                    iconCls: 'x-fa fa-check green',
-                    handler: this.onApprove
+          columns={[
+            {
+              locked: true,
+              text: 'Company',
+              width: 200,
+              dataIndex: 'name',
+              minWidth: 100,
+              menu: {
+                customFirst: {
+                  text: 'Custom First',
+                  weight: -200,
+                  handler: 'onCustomFirst'
                 },
-                decline: {
-                    iconCls: 'x-fa fa-ban red',
-                    handler: this.onDecline,
-                    weight: 1
+                customLast: {
+                  text: 'Custom Last',
+                  separator: true,
+                  handler: 'onCustomLast'
                 }
+              }
+            },
+            {
+              locked: true,
+              text: 'Price',
+              width: 75,
+              dataIndex: 'price',
+              formatter: 'usMoney',
+              editable: true,
+              editor: {
+                xtype: 'numberfield',
+                required: true,
+                validators: {
+                  type: 'number',
+                  message: 'Invalid price'
+                }
+              }
+            },
+            {
+              locked: 'left',
+              width: 70,
+              cell: {
+                tools: {
+                  approve: {
+                    iconCls: 'x-fa fa-check green',
+                    handler: this.onApprove.bind(this)
+                  },
+                  decline: {
+                    iconCls: 'x-fa fa-ban red',
+                    handler:  this.onDecline.bind(this),
+                    weight: 1
+                  }
+                }
+              }
+            },
+            {
+              locked: 'right',
+              text: 'Change',
+              width: 120,
+              align: "right",
+              renderer: this.renderSign.bind(this, '0.00'),
+              dataIndex: 'change',
+              cell: {
+                encodeHtml: false
+              }
+            },
+            {
+              text: '% Change',
+              width: 130,
+              align: "right",
+              dataIndex: 'pctChange',
+              renderer: this.renderSign.bind(this, '0.00%'),
+              cell: {
+                encodeHtml: false
+              }
+            },
+            {
+              text: 'Last Updated',
+              width: 150,
+              dataIndex: 'lastChange',
+              formatter: 'date("m/d/Y")'
+            },
+            {
+              text: 'Industry',
+              width: 150,
+              dataIndex: 'industry'
             }
-        }}
-        /> 
-        <Column 
-          text="Change" 
-          width="90" 
-          dataIndex="priceChange" 
-          renderer={this.renderSign.bind(this, '0.00')}
-          summary="max"
-          locked="right"
-        />
-        <Column 
-          text="% Change" 
-          width="100"
-          dataIndex="priceChangePct" 
-          renderer={this.renderSign.bind(this, '0.00')}
-          summary="average" 
-        />
-        <Column 
-          text="Last Updated" 
-          width="125" 
-          dataIndex="priceLastChange" 
-          formatter="date('m/d/Y')" 
-          summary="max"
-        />
+          ]}
+      >
+
       </LockedGrid>
     )
   }
@@ -92,9 +127,10 @@ export default class LockingGridExample extends Component {
   }
 
   renderSign = (format, value) => (
-      <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-          {Ext.util.Format.number(value, format)}
-      </span>
+    Ext.util.Format.number(value, format)
+    //  <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
+    //      {Ext.util.Format.number(value, format)}
+    //  </span>
   )
 
   summarizeCompanies = (grid, context) => context.records.length + ' Companies';
