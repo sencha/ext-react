@@ -71,9 +71,7 @@ class Layout extends Component {
   }
 
   onNavChange = (nodeId) => {
-    console.log('onNavChange')
     if(nodeId === '' || nodeId) {
-      console.log(nodeId)
       location.hash = nodeId;
     }
   }
@@ -101,7 +99,6 @@ class Layout extends Component {
     } = this.props;
 
     const example = component && React.createElement(component);
-    console.log(example)
 
     if (Ext.os.is.Phone) {
       // phone layout
