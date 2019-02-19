@@ -38,15 +38,15 @@
     "lodash.union": "^4.6.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "react": "~16.8.1",
-    "react-dom": "~16.8.1",
-    "react-reconciler": "~0.19.1",
-    "react-test-renderer": "~16.8.1"
+    "react": "~16.8.2",
+    "react-dom": "~16.8.2",
+    "react-reconciler": "~0.20.0",
+    "react-test-renderer": "~16.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-function-sent": "^7.2.0",
@@ -58,8 +58,8 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
-    "@types/react": "^16.8.2",
-    "@types/react-dom": "~16.8.0",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "~16.8.2",
     "react-addons-test-utils": "^15.6.2",
     "typescript": "^3.3.1"
   }
