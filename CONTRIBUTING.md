@@ -2,7 +2,7 @@
 
 ## Sign the CLA
 
-Before any contributions can be done, we need you to [sign the Sencha CLA](https://goo.gl/forms/XGj5PlhNUc9suiQE3). If you have already signed it for another Sencha open source repository, your good to go. 
+Before any contributions can be done, we need you to [sign the Sencha CLA](https://goo.gl/forms/XGj5PlhNUc9suiQE3). If you have already signed it for another Sencha open source repository, you're good to go. 
 
 ## Patches & Enhancements
 Have you found something that you would like to fix. 
