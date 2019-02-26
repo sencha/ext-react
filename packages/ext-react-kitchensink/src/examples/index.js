@@ -336,7 +336,7 @@ const root = {
                 { text: 'Collapsible Panel', component: CollapsiblePanel, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-panel-collapsible' },
                 { text: 'Basic Date Panel', component: BasicDatePanel, layout: 'center', navIcon: 'icon-panel-date' },
                 { text: 'Advanced Date Panel', component: AdvancedDatePanel, layout: 'center', navIcon: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
-                { text: 'Time Panel', component: TimePanel, layout: 'center', navIcon: 'icon-panel-time', hidden: Ext.os.is.Phone },
+                { text: 'Time Panel', component: TimePanel, layout: 'center', navIcon: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
             ]},
             { text: 'Popups', navIcon: 'icon-windows', children: [
                 { text: 'Dialog', component: Dialog, layout: 'center', navIcon: 'icon-basic-dialog' },
