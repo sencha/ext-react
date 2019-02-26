@@ -1,6 +1,6 @@
 import _extends from "@babel/runtime/helpers/extends";
-import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
 import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
 //import ReactDOM from 'react-dom';
 import { l } from './index'; //import React from 'react';
 
@@ -36,9 +36,9 @@ function (_Component) {
     if (_this.isRootContainer) {
       _this.rawConfigs.ExtReactRoot = true;
       _this.cmp = new _this.extJSClass(_this.rawConfigs);
-      l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_assertThisInitialized(_this)));
+      l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_this));
     } else {
-      l("ExtJSComponent: constructor NOTROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this)", _this.rawConfig, _assertThisInitialized(_assertThisInitialized(_this)));
+      l("ExtJSComponent: constructor NOTROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this)", _this.rawConfig, _assertThisInitialized(_this));
     }
 
     return _this;
