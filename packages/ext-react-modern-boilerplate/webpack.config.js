@@ -43,7 +43,7 @@ module.exports = function (env) {
         profile: buildprofile, 
         environment: buildenvironment, 
         verbose: buildverbose,
-        theme: 'theme-custom',
+        theme: 'custom-ext-react-theme',
         treeshake: treeshake,
         packages: [
         ]
