@@ -4,7 +4,12 @@ import { AppContainer } from 'react-hot-loader'
 import { launch } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
 import App from './App'
+
 let viewport
+
+Ext.require([
+  'Ext.layout.*',
+])
 
 const render = (Component, target) => {
     ReactDOM.render(

@@ -208,10 +208,11 @@ export async function emit(compiler, compilation, vars, options, callback) {
           await _buildExtBundle(app, compilation, outputPath, parms, options)
           vars.watchStarted = true
         }
+
         callback()
       }
       else {
-        callback()
+          callback()
       }
     }
     else {
@@ -382,6 +383,7 @@ export function _done(vars, options) {
 
 //**********
 export async function executeAsync (app, command, parms, opts, compilation, options) {
+  
   try {
     //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
     const DEFAULT_SUBSTRS = ["[INF] xServer", '[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
@@ -408,9 +410,17 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
       child.stdout.on('data', (data) => {
         var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
         logv(options, `${str}`)
-        if (data && data.toString().match(/waiting for changes\.\.\./)) {
+        if (data && data.toString().match(/Fashion waiting for changes\.\.\./)) {
+          const fs = require('fs');
+          var filename = process.cwd()+'/src/index.js';
+          var data = fs.readFileSync(filename);
+          fs.writeFileSync(filename, data + ' ', 'utf8')
+          logv(options, `touching ${filename}`)
           resolve(0)
         }
+        // if (data && data.toString().match(/waiting for changes\.\.\./)) {
+        //   resolve(0)
+        // }
         else {
           if (substrings.some(function(v) { return data.indexOf(v) >= 0; })) { 
             str = str.replace("[INF]", "")

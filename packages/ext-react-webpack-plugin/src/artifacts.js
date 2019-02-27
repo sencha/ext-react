@@ -145,7 +145,7 @@ export function createAppJson( theme, packages, toolkit, options, output ) {
     "packages": {
       "dir": [
         nodeModulePath + "node_modules/@sencha",
-        "packages"
+        nodeModulePath + "ext-react/packages"
       ]
     },
     output: {
