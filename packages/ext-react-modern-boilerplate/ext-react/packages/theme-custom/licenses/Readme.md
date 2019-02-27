@@ -1,3 +1,3 @@
-# custom-ext-react-theme/licenses
+# theme-conference-app/licenses
 
 This folder contains the supported licenses for third-party use.

@@ -1,0 +1,58 @@
+{
+  "name": "theme-custom",
+  "sencha": {
+    "namespace": "Ext",
+    "type": "theme",
+    "extend": "theme-material",
+    "toolkit": "",
+    "creator": "anonymous",
+    "summary": "Short summary",
+    "detailedDescription": "Long description of package",
+    "version": "1.0.0",
+    "compatVersion": "1.0.0",
+    "format": "1",
+    "slicer": {
+      "js": [
+        {
+          "path": "${package.dir}/sass/example/custom.js",
+          "isWidgetManifest": true
+        }
+      ]
+    },
+    "output": "${package.dir}/build",
+    "local": true,
+    "sass": {
+      "namespace": "",
+      "etc": [
+        "${package.dir}/sass/etc/all.scss"
+      ],
+      "var": [
+        "${package.dir}/sass/var",
+        "${package.dir}/sass/var/themer-ui-variables.scss"
+      ],
+      "src": [
+        "${package.dir}/sass/src"
+      ],
+      "generated": {
+        "var": "sass/save.scss",
+        "src": "sass/save"
+      }
+    },
+    "classpath": [
+      "${package.dir}/src"
+    ],
+    "overrides": [
+      "${package.dir}/overrides"
+    ],
+    "example": {
+      "path": [
+        "${package.dir}/examples"
+      ]
+    },
+    "framework": "ext",
+    "requires": [],
+      "themer": {
+      "version": "1.3.4.96"
+    }
+  }
+}
