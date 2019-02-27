@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="custom-ext-react-theme" default=".help">
+<project name="theme-conference-app" default=".help">
 
     <script language="javascript">
         <![CDATA[
