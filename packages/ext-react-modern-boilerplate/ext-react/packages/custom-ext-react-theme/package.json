@@ -1,5 +1,5 @@
 {
-  "name": "theme-custom",
+  "name": "custom-ext-react-theme",
   "sencha": {
     "namespace": "Ext",
     "type": "theme",
