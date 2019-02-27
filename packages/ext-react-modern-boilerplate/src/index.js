@@ -6,6 +6,10 @@ import App from './App'
 
 let viewport;
 
+Ext.require([
+  'Ext.layout.*',
+])
+
 import {ExtReact} from '@sencha/ext-react';
 const render = (Component, target) => {
   ReactDOM.render(
