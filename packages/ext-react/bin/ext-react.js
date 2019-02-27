@@ -148,6 +148,14 @@ const applyTheme = config => {
             if(err) return reject(err);
             else    return resolve();
         });
+        //update app.json with new theme name
+        const appJsonPath = path.join('.', 'build', 'ext-react', 'app.json');
+        if (fs.existsSync(appJsonPath)) {
+          var data = fs.readFileSync(appJsonPath, 'utf-8')
+          var appJson = cjson.parse(data)
+          appJson.theme = config.name
+          fs.writeFile(appJsonPath, cjson.stringify(appJson, null, 2))
+        }
     });
 }
 
