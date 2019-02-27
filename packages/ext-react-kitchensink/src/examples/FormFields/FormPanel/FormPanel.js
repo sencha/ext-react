@@ -20,14 +20,21 @@ import {
     Label,
     Toolbar
 } from '@sencha/ext-modern';
+import { ColorField } from '@sencha/ext-ux'
 
-Ext.require('Ext.field.InputMask'); // need to require this specifically for inputMask props to work
+Ext.require([
+  'Ext.field.InputMask', // need to require this specifically for inputMask props to work
+  'Ext.ux.colorpick.*'
+]);
 
 export default class FormPanelExample extends Component {
     constructor() {
         super();
 
+        const color = '#00ff00';
+
         this.state = {
+            color,
             disabled: false
         };
     }
@@ -102,6 +109,17 @@ export default class FormPanelExample extends Component {
                         <RadioField name="color" disabled={disabled} boxLabel="Blue" value="blue"/>
                         <RadioField name="color" disabled={disabled} boxLabel="Green" value="green"/>
                         <RadioField name="color" disabled={disabled} boxLabel="Purple" value="purple"/>
+                    </FieldSet>
+                    <FieldSet
+                        title="Second Favorite Color"
+                        layout={{ type: 'vbox', align: 'left'}}
+                        viewModel={{
+                            data: {
+                                color: this.state.color
+                            }
+                        }}
+                    >
+                        <ColorField bind="{color}" xtype="colorfield" disabled={disabled} />
                     </FieldSet>
                     <Toolbar shadow={false} docked="bottom" layout={{ type: 'hbox', pack: 'right' }}>
                         <Button text={disabled ? 'Enable All' : 'Disable All'} margin="0 10 0 0" handler={this.toggleDisabled.bind(this)}/>
