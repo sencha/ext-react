@@ -446,9 +446,9 @@ async function stepCreate() {
     }))
   answers['theme'] = `theme-${answers['theme']}`;
 
-  const theme = path.join('ext-react', 'packages', 'custom-ext-react-theme', 'package.json');
-  const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['theme'])
-  fs.writeFileSync(theme, themePackageJson, 'utf8');
+  //const theme = path.join('ext-react', 'packages', 'custom-ext-react-theme', 'package.json');
+  //const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['theme'])
+  //fs.writeFileSync(theme, themePackageJson, 'utf8');
 
   const packageInfo = {};
   Object.assign(packageInfo, {name: answers['packageName']})
