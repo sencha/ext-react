@@ -100,11 +100,9 @@ const generateTheme = config => {
             '--framework', 'ext',
             '--name', config.name
         ], { cwd: path.join('.', 'ext-react'), silent: true });
-
         proc.once('exit', code => code > 0 ? reject(`Generating package failed with code: ${code}`) : resolve());
         proc.stdout.pipe(process.stdout);
         proc.stderr.pipe(process.stderr);
-
         return proc;
     }).then(updatePackageJson.bind(null, config));
 }
@@ -129,14 +127,11 @@ const updatePackageJson = config => {
         return new Promise((resolve, reject) => {
             fs.writeFile(packageJsonPath, cjson.stringify(data, null, 4), err => {
                 if(err) return reject(`Could not write package.json for theme named: ${config.name}`);
-
                 return resolve();
             });
         });
     });
 }
-
-
 
 /**
  * Applies a theme based on `name` property in config object to current app by writing to a .sencharc file.
@@ -185,15 +180,15 @@ switch(args._.join(' ')) {
             .then(generateTheme.bind(null, args))
             .then((args.apply ? applyTheme.bind(null, args) : Promise.resolve([])))
             .then(() => {
-              //update app.json with new theme name
+              console.log(`Theme created at: ext-react/packages/${args.name}`);
+              //this is done too early
               const appJsonPath = path.join('.', 'build', 'ext-react', 'app.json');
               if (fs.existsSync(appJsonPath)) {
                 var data = fs.readFileSync(appJsonPath, 'utf-8')
                 var appJson = cjson.parse(data)
                 appJson.theme = args.name
-                fs.writeFileSync(appJsonPath, cjson.stringify(appJson, null, 2))
+                fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 4))
               }
-              console.log(`Theme created at: ext-react/packages/${args.name}`);
             })
             .catch(error => {
                 console.error('Error encountered.', error);
@@ -204,7 +199,6 @@ switch(args._.join(' ')) {
             console.error('Missing required argument: --name');
             return printUsage();
         }
-
         return applyTheme(args);
     }
     default: {
