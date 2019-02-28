@@ -96,3 +96,50 @@ git remote add upstream https://github.com/sencha/guides.git
           formatter="date('m/d/Y')" 
           summary="max"
         />
+
+
+
+
+
+{
+    "apps": [
+        "packages/my-theme/.sencha/temp/Themer"
+    ],
+    "frameworks": {
+        "ext67": {
+            "path":"ext67",
+            "version":"6.7.0"
+        },
+        "ext": "../node_modules/@sencha/ext"
+    },
+    "build": {
+        "dir": "${workspace.dir}/build"
+    },
+    "packages": {
+        "dir": ["${workspace.dir}/packages",
+
+        "${workspace.dir}/../ext-react/packages/local",
+        "${workspace.dir}/../../ext-react/packages",
+        "${workspace.dir}/../node_modules/@sencha",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-base",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-ios",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-material",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-aria",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-neutral",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-classic",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-gray",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-crisp",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-crisp-touch",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-neptune",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-neptune-touch",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-triton",
+        "${workspace.dir}/../node_modules/@sencha/ext-${toolkit.name}-theme-graphite"
+
+
+
+    ]},
+    "properties": {
+        "build.web.root": "${workspace.dir}/../"
+    }
+}
