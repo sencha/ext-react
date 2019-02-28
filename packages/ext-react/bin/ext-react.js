@@ -136,27 +136,24 @@ const updatePackageJson = config => {
     });
 }
 
+
+
 /**
  * Applies a theme based on `name` property in config object to current app by writing to a .sencharc file.
  */
 const applyTheme = config => {
-    console.log('Applying theme to current app...');
-    return new Promise((resolve, reject) => {
-        fs.writeFile('.ext-reactrc', JSON.stringify({
-            theme: path.join('.', 'ext-react', 'packages', config.name)
-        }, null, 4), err => {
-            if(err) return reject(err);
-            else    return resolve();
-        });
-        //update app.json with new theme name
-        const appJsonPath = path.join('.', 'build', 'ext-react', 'app.json');
-        if (fs.existsSync(appJsonPath)) {
-          var data = fs.readFileSync(appJsonPath, 'utf-8')
-          var appJson = cjson.parse(data)
-          appJson.theme = config.name
-          fs.writeFileSync(appJsonPath, cjson.stringify(appJson, null, 2))
-        }
-    });
+  console.log('Applying theme to current app...');
+  return new Promise((resolve, reject) => {
+      fs.writeFile('.ext-reactrc', JSON.stringify({theme: path.join('.', 'ext-react', 'packages', config.name)}, null, 4), 
+      err => {
+          if(err) {
+            return reject(err);
+          }
+          else {
+            return resolve();
+          }
+      });
+  });
 }
 
 // Parse the arguments passed from command-line using minimist.
@@ -188,7 +185,15 @@ switch(args._.join(' ')) {
             .then(generateTheme.bind(null, args))
             .then((args.apply ? applyTheme.bind(null, args) : Promise.resolve([])))
             .then(() => {
-                console.log(`Theme created at: ext-react/packages/${args.name}`);
+              //update app.json with new theme name
+              const appJsonPath = path.join('.', 'build', 'ext-react', 'app.json');
+              if (fs.existsSync(appJsonPath)) {
+                var data = fs.readFileSync(appJsonPath, 'utf-8')
+                var appJson = cjson.parse(data)
+                appJson.theme = args.name
+                fs.writeFileSync(appJsonPath, cjson.stringify(appJson, null, 2))
+              }
+              console.log(`Theme created at: ext-react/packages/${args.name}`);
             })
             .catch(error => {
                 console.error('Error encountered.', error);
