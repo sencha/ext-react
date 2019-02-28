@@ -154,7 +154,7 @@ const applyTheme = config => {
           var data = fs.readFileSync(appJsonPath, 'utf-8')
           var appJson = cjson.parse(data)
           appJson.theme = config.name
-          fs.writeFile(appJsonPath, cjson.stringify(appJson, null, 2))
+          fs.writeFileSync(appJsonPath, cjson.stringify(appJson, null, 2))
         }
     });
 }
