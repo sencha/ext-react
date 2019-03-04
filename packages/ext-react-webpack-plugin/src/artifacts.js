@@ -142,10 +142,15 @@ export function createAppJson( theme, packages, toolkit, options, output ) {
       "overrides",
       "jsdom-environment.js"
     ],
+    // "language": {
+    //   "js": {
+    //     "output": "ES5"
+    //   }
+    // },
     "packages": {
       "dir": [
         nodeModulePath + "node_modules/@sencha",
-        nodeModulePath + "ext-react/packages"
+        nodeModulePath + toolkit + "/packages"
       ]
     },
     output: {

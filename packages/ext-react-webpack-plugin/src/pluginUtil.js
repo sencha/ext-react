@@ -107,26 +107,30 @@ export function _compilation(compiler, compilation, vars, options) {
         compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tap(`ext-html-generation`,(data) => {
         logv(options,'HOOK ext-html-generation')
         const path = require('path')
-        var outputPath = ''
-        if (compiler.options.devServer) {
-          if (compiler.outputPath === '/') {
-            outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
-          }
-          else {
-            if (compiler.options.devServer.contentBase == undefined) {
-              outputPath = 'build'
-            }
-            else {
-              outputPath = ''
-            }
-          }
-        }
-        else {
-          outputPath = 'build'
-        }
-        outputPath = outputPath.replace(process.cwd(), '').trim()
-        var jsPath = path.join(outputPath, vars.extPath, 'ext.js')
-        var cssPath = path.join(outputPath, vars.extPath, 'ext.css')
+
+        //var outputPath = ''
+        // if (compiler.options.devServer) {
+        //   if (compiler.outputPath === '/') {
+        //     outputPath = path.join(compiler.options.devServer.contentBase, outputPath)
+        //   }
+        //   else {
+        //     if (compiler.options.devServer.contentBase == undefined) {
+        //       outputPath = 'build'
+        //     }
+        //     else {
+        //       outputPath = ''
+        //     }
+        //   }
+        // }
+        // else {
+        //   outputPath = 'build'
+        // }
+        // outputPath = outputPath.replace(process.cwd(), '').trim()
+        //var jsPath = path.join(outputPath, vars.extPath, 'ext.js')
+        //var cssPath = path.join(outputPath, vars.extPath, 'ext.css')
+
+        var jsPath = path.join(vars.extPath, 'ext.js')
+        var cssPath = path.join(vars.extPath, 'ext.css')
         data.assets.js.unshift(jsPath)
         data.assets.css.unshift(cssPath)
         log(vars.app + `Adding ${jsPath} and ${cssPath} to index.html`)
@@ -208,7 +212,6 @@ export async function emit(compiler, compilation, vars, options, callback) {
           await _buildExtBundle(app, compilation, outputPath, parms, options)
           vars.watchStarted = true
         }
-
         callback()
       }
       else {
@@ -301,9 +304,8 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       log(app + 'Building Ext bundle at: ' + bundleDir)
     }
     else {
-      vars.rebuild = true
+      vars.rebuild = false
       log(app + 'Ext rebuild NOT needed')
-      log(app + 'but done')
     }
   }
   catch(e) {
@@ -384,7 +386,6 @@ export function _done(vars, options) {
 
 //**********
 export async function executeAsync (app, command, parms, opts, compilation, options) {
-  
   try {
     //const DEFAULT_SUBSTRS = ['[INF] Loading', '[INF] Processing', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Server", "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
     const DEFAULT_SUBSTRS = ["[INF] xServer", '[INF] Loading', '[INF] Append', '[INF] Processing', '[INF] Processing Build', '[LOG] Fashion build complete', '[ERR]', '[WRN]', "[INF] Writing", "[INF] Loading Build", "[INF] Waiting", "[LOG] Fashion waiting"];
@@ -419,9 +420,6 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
           logv(options, `touching ${filename}`)
           resolve(0)
         }
-        // if (data && data.toString().match(/waiting for changes\.\.\./)) {
-        //   resolve(0)
-        // }
         else {
           if (substrings.some(function(v) { return data.indexOf(v) >= 0; })) { 
             str = str.replace("[INF]", "")
