@@ -31,7 +31,7 @@
     "@sencha/ext-modern-treegrid": "^6.7.0",
     "@sencha/ext-react": "^6.7.1",
     "@sencha/ext-react-renderercell": "^6.7.1",
-    "@types/node": "^11.11.13",
+    "@types/node": "^11.11.3",
     "prop-types": "^15.7.2",
     "react": "~16.8.4",
     "react-dom": "~16.8.4",
