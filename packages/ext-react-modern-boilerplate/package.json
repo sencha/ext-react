@@ -5,16 +5,10 @@
   "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf build",
     "start": "npm run dev",
-    "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
-    "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production",
-    "prod2": "cd build && static-server --port 8080",
-    "test": "jest",
-    "update-snapshots": "jest -u",
-    "pretest": "webpack --progress",
-    "preupdate-snapshots": "webpack --progress"
+    "clean": "rimraf build",
+    "dev": "webpack-dev-server",
+    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes' && cross-env webpack --env.environment='production'  --env.treeshake='no'"
   },
   "extbuild": {
     "defaultprofile": "",
