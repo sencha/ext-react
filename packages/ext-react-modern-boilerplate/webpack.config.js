@@ -28,7 +28,6 @@ module.exports = function (env) {
         script: '',
         port: port,
         packages: [
-          'ux', 
           'treegrid'
         ],
         profile: profile, 
