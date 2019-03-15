@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-classic-boilerplate",
   "product": "ext-react",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "A boilerplate project showing how to integrate React and Ext JS using the classic toolkit.",
   "main": "index.js",
   "scripts": {

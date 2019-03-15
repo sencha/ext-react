@@ -1,11 +1,12 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
-const WebpackShellPlugin = require('webpack-shell-plugin-next')
+//const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin')
+//const WebpackShellPlugin = require('webpack-shell-plugin-next')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const portfinder = require('portfinder')
-const sourcePath = path.join(__dirname, './src')
+//const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
   var browserprofile
@@ -27,26 +28,27 @@ module.exports = function (env) {
   if (buildprofile == 'all') { buildprofile = '' }
   if (env.treeshake == undefined) {env.treeshake = false}
   var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+  var mode = isProd ? 'production': 'development'
+  var outputFolder = 'build'
+
 
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
-      new HtmlWebpackPlugin({
-        template: 'index.html',
-        hash: true
-      }), 
+      new HtmlWebpackPlugin({template: './src/index.html',hash: true,inject: "body"}), 
       new ExtWebpackPlugin({
         framework: 'react',
         toolkit: 'modern',
+        theme: 'theme-kitchensink',
+        profile: buildprofile, 
+        environment: buildenvironment,
+        treeshake: treeshake,
         port: port,
         emit: true,
         browser: browserprofile,
-        profile: buildprofile, 
         watch: watchprofile,
-        environment: buildenvironment, 
         verbose: buildverbose,
-        theme: 'theme-kitchensink',
-        treeshake: treeshake,
+        script: './extract-code.js',
         packages: [
           'treegrid',
           'transition', 
@@ -62,17 +64,17 @@ module.exports = function (env) {
           'charts'
         ]
       }),
-      new CopyWebpackPlugin([{
-        from: '../node_modules/@sencha/ext-ux/modern/resources',
-        to: '../build/ext-react/ux'
-      }]),
-      new WebpackShellPlugin({
-        onBuildEnd:{
-          scripts: ['node extract-code.js'],
-          blocking: false,
-          parallel: true
-        }
-      })
+      // new CopyWebpackPlugin([{
+      //   from: './node_modules/@sencha/ext-ux/modern/resources',
+      //   to: './ext-react/ux'
+      // }]),
+      // new WebpackShellPlugin({
+      //   onBuildEnd:{
+      //     scripts: ['node extract-code.js'],
+      //     blocking: false,
+      //     parallel: true
+      //   }
+      // })
     ]
     if (!isProd) {
       plugins.push(
@@ -80,32 +82,22 @@ module.exports = function (env) {
       )
     }
     return {
-      mode: 'development',
-      cache: true,
-      devtool: isProd ? 'source-map' : 'cheap-module-source-map',
-      context: sourcePath,
-      entry: {
-        'app': ['./index.js']
-      },
+      mode: mode,
+      devtool: (mode === 'development') ? 'inline-source-map' : false,
+      entry: path.resolve(__dirname, 'src/index.js'),
+//      cache: true,
       output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, outputFolder),
         filename: '[name].js'
       },
+      plugins : plugins,
       module: {
         rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: [
-              'babel-loader'
-            ]
-          },
+          //{ test: /\.(js|jsx)$/,exclude: /node_modules/,use: ['babel-loader'] },
+          { test: /\.(js)$/, exclude: /node_modules/, use: ['babel-loader'] },
           {
             test: /\.css$/,
-            use: [
-                'style-loader', 
-                'css-loader'
-            ]
+            use: ['style-loader','css-loader']
           }
         ]
       },
@@ -116,30 +108,21 @@ module.exports = function (env) {
           "react": path.resolve('./node_modules/react')
         }
       },
-      plugins,
+      stats: 'none',
+      optimization: {
+        noEmitOnErrors: true
+      },
+      node: false,
       devServer: {
-        contentBase: './build',
+        contentBase: outputFolder,
+        hot: !isProd,
         historyApiFallback: true,
-        hot: false,
         host: '0.0.0.0',
         port: port,
         disableHostCheck: false,
         compress: isProd,
-        inline: !isProd,
-        stats: {
-          assets: false,
-          children: false,
-          chunks: false,
-          hash: false,
-          modules: false,
-          publicPath: false,
-          timings: false,
-          version: false,
-          warnings: false,
-          colors: {
-            green: '\u001b[32m'
-          }
-        }
+        inline:!isProd,
+        stats: 'none'
       }
     }
   })

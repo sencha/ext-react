@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-rest-example",
   "private": true,
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
   "main": "index.js",
   "scripts": {

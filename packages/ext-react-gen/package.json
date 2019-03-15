@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-gen",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "Sencha ExtReact code generator",
   "bin": {
     "ext-react-gen": "ext-react-gen.js",

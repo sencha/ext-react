@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-modern-demo",
   "product": "ext-react",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "ext-react-modern-demo",
   "main": "index.js",
   "scripts": {
