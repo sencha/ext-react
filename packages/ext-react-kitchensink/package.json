@@ -1,15 +1,19 @@
 {
   "name": "@sencha/ext-react-kitchensink",
   "product": "ext-react",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "A boilerplate project for Ext React showing all Ext JS modern components.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.environment=development",
-    "prod": "webpack-dev-server --env.environment=production",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production  --env.treeshake=true"
+    "prod2": "webpack-dev-server --env.environment=production",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production --env.treeshake=true",
+    "prod": "npm run build",
+    "b1zzz": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=true",
+    "b2zzz": "cross-env webpack --env.environment=production",
+    "build2zzz": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=true && cross-env webpack --env.environment=production"
   },
   "extbuild": {
     "defaultprofile": "",
@@ -52,8 +56,8 @@
     "highlightjs": "~9.12.0",
     "history": "~4.7.2",
     "prop-types": "~15.7.2",
-    "react": "~16.8.3",
-    "react-dom": "~16.8.3",
+    "react": "~16.8.4",
+    "react-dom": "~16.8.4",
     "react-redux": "~6.0.1",
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.1"
@@ -61,6 +65,7 @@
   "devDependencies": {
     "@sencha/ext-react-babel-plugin": "^6.7.0",
     "@sencha/ext-react-webpack-plugin": "^6.7.0",
+    "@sencha/ext-webpack-plugin": "^7.0.0",
 
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
@@ -82,13 +87,13 @@
     "portfinder": "^1.0.20",
 
     "html-webpack-plugin": "^3.2.0",
-    "copy-webpack-plugin": "^5.0.0",
+    "copy-webpack-plugin": "^5.0.1",
     "webpack-shell-plugin-next": "^0.6.4",
-    "css-loader": "^2.1.0",
-    "react-hot-loader": "^4.7.1",
+    "css-loader": "^2.1.1",
+    "react-hot-loader": "^4.8.0",
     "style-loader": "^0.23.1",
 
-    "webpack": "^4.29.5",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   }

@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-modern-boilerplate",
   "product": "ext-react",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
   "scripts": {
@@ -38,17 +38,17 @@
     "@sencha/ext-modern": "^6.7.0",
     "@sencha/ext-modern-theme-material": "^6.7.0",
     "@sencha/ext-modern-treegrid": "^6.7.0",
-    "@sencha/ext-react": "^6.7.0",
-    "@sencha/ext-react-renderercell": "^6.7.0",
-    "@sencha/ext-react-transition": "^6.7.0",
+    "@sencha/ext-react": "^7.0.0",
+    "@sencha/ext-react-renderercell": "^7.0.0",
+    "@sencha/ext-react-transition": "^7.0.0",
     "prop-types": "^15.7.2",
-    "react": "~16.8.3",
-    "react-dom": "~16.8.3",
+    "react": "~16.8.4",
+    "react-dom": "~16.8.4",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@sencha/ext-react-babel-plugin": "^6.7.0",
-    "@sencha/ext-react-webpack-plugin": "^6.7.0",
+    "@sencha/ext-webpack-plugin": "^7.0.0",
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-decorators": "^7.3.0",

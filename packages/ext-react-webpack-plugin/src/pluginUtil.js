@@ -413,11 +413,17 @@ export async function executeAsync (app, command, parms, opts, compilation, opti
         var str = data.toString().replace(/\r?\n|\r/g, " ").trim()
         logv(options, `${str}`)
         if (data && data.toString().match(/Fashion waiting for changes\.\.\./)) {
+
           const fs = require('fs');
-          var filename = process.cwd()+'/src/index.js';
-          var data = fs.readFileSync(filename);
-          fs.writeFileSync(filename, data + ' ', 'utf8')
-          logv(options, `touching ${filename}`)
+          var filename = process.cwd() + '/src/index.jsx';
+          try {
+            var data = fs.readFileSync(filename);
+            fs.writeFileSync(filename, data + ' ', 'utf8');
+            log(options, `touching ${filename}`);
+          }
+          catch(e) {
+            log(options, `NOT touching ${filename}`);
+          }
           resolve(0)
         }
         else {
