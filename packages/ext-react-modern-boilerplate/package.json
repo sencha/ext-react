@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "clean": "rimraf build",
     "dev": "webpack-dev-server",
-    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes' && cross-env webpack --env.environment='production'  --env.treeshake='no'"
+    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'"
   },
   "extbuild": {
     "defaultprofile": "",
