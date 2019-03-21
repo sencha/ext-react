@@ -82,6 +82,7 @@
 
     "babel-loader": "^8.0.5",
     "html-loader": "^0.5.5",
+    "raw-loader": "~2.0.0",
     "style-loader": "^0.23.1",
     "css-loader": "^2.1.1",
     "sass-loader": "^7.1.0",

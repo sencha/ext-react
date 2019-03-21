@@ -65,6 +65,7 @@ module.exports = function (env) {
       plugins: plugins,
       module: {
         rules: [
+          { test: /\.(ext-reactrc)$/, use: 'raw-loader' },
           { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
           { test: /\.(html)$/,use: { loader: 'html-loader' } },
           {
