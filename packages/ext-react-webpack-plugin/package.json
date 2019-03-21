@@ -10,8 +10,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "@babel/generator": "^7.3.3",
-    "@babel/polyfill": "^7.2.5",
+    "@babel/generator": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
 
     "@sencha/cmd": "~6.7.0",
     "ast-traverse": "^0.1.1",
@@ -21,7 +21,7 @@
     "cjson": "^0.5.0",
     "fs-extra": "^7.0.1",
     "mkdirp": "^0.5.1",
-    "opn": "^5.4.0",
+    "opn": "^5.5.0",
     "resolve": "^1.10.0",
     "rimraf": "^2.6.3",
     "schema-utils": "^1.0.0",
@@ -29,15 +29,15 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
-    "@babel/plugin-transform-async-to-generator": "^7.2.0",
-    "@babel/plugin-transform-regenerator": "^7.0.0",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-transform-async-to-generator": "^7.4.0",
+    "@babel/plugin-transform-regenerator": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "babel-plugin-add-module-exports": "^1.0.0",
     "chai": "^4.2.0",
-    "mocha": "^6.0.0"
+    "mocha": "^6.0.2"
   },
   "babel": {
     "presets": [
@@ -66,6 +66,6 @@
   "license": "MIT",
   "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin",
   "peerDependencies": {
-    "webpack": "^4.29.5"
+    "webpack": "^4.29.6"
   }
 }
