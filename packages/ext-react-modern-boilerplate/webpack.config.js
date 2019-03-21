@@ -1,6 +1,9 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const portfinder = require('portfinder')
 
 module.exports = function (env) {
@@ -12,6 +15,7 @@ module.exports = function (env) {
   var browser     = get('browser',     'yes')
   var watch       = get('watch',       'yes')
   var verbose     = get('verbose',     'no')
+  var basehref    = get('basehref',    '/')
 
   const isProd = environment === 'production'
   const outputFolder = 'build'
@@ -19,26 +23,37 @@ module.exports = function (env) {
 
   return portfinder.getPortPromise().then(port => {
     const plugins = [
-      new HtmlWebpackPlugin({template: "index.html",hash: true,inject: "body"}),
+      new HtmlWebpackPlugin({ template: "index.html", hash: true, inject: "body" }),
+      new BaseHrefWebpackPlugin({ baseHref: basehref }),
       new ExtWebpackPlugin({
         framework: 'react',
         toolkit: 'modern',
         theme: 'theme-material',
-        emit: 'yes',
-        script: '',
-        port: port,
         packages: [
-          'treegrid'
+          'treegrid',
+          'ux',
         ],
+        script: '',
+        emit: 'yes',
+        port: port,
         profile: profile, 
         environment: environment,
         treeshake: treeshake,
         browser: browser,
         watch: watch,
         verbose: verbose
-      })
+      }),
+      new CopyWebpackPlugin([{
+        from: '../node_modules/@sencha/ext-ux/modern/resources',
+        to: './ext/ux'
+      }])
     ]
     return {
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom'
+        }
+      },
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, './src'),
@@ -46,27 +61,18 @@ module.exports = function (env) {
       output: {
         path: path.join(__dirname, outputFolder),
         filename: "[name].js"
-        //filename: "[name].[chunkhash:20].js"
       },
       plugins: plugins,
       module: {
         rules: [
-          { test: /\.(js)$/, exclude: /node_modules/, use: ['babel-loader'] },
+          { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
           { test: /\.(html)$/,use: { loader: 'html-loader' } },
-          //{ test: /\.css$/,use: ['style-loader','css-loader'] }
-
           {
             test: /\.(css|scss)$/,
             use: [
-              {
-                loader: 'style-loader'
-              },
-              {
-                loader: 'css-loader'
-              },
-              {
-                loader: 'sass-loader'
-              }
+              { loader: 'style-loader' },
+              { loader: 'css-loader' },
+              { loader: 'sass-loader' }
             ]
           }
         ]
