@@ -43,10 +43,10 @@ module.exports = function (env) {
         watch: watch,
         verbose: verbose
       }),
-      new CopyWebpackPlugin([{
-        from: '../node_modules/@sencha/ext-ux/modern/resources',
-        to: './ext/ux'
-      }])
+      // new CopyWebpackPlugin([{
+      //   from: '../node_modules/@sencha/ext-ux/modern/resources',
+      //   to: './ext/ux'
+      // }])
     ]
     return {
       resolve: {
