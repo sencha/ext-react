@@ -426,11 +426,11 @@ async function stepCreate() {
   console.log(`${app} ${destDir} created`)
 
   var boilerplate = ''
-    if (answers['language'] == LANGUAGE.TYPESCRIPT) {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
+  if (answers['language'] == LANGUAGE.TYPESCRIPT) {
+    boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
   }
   else {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
+    boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
   }
 
   // copy in files from boilerplate
