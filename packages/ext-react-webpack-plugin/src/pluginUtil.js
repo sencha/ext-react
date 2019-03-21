@@ -454,10 +454,10 @@ export async function _executeAsync (app, command, parms, opts, compilation, var
             var d = new Date().toLocaleString()
             var data = fs.readFileSync(filename);
             fs.writeFileSync(filename, '//' + d, 'utf8');
-            log(app, `touching ${filename}`);
+            logv(app, `touching ${filename}`);
           }
           catch(e) {
-            log(app, `NOT touching ${filename}`);
+            logv(app, `NOT touching ${filename}`);
           }
 
           resolve(0)
