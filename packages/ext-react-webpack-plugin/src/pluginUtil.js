@@ -374,26 +374,8 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       log(app, 'Building Ext bundle at: ' + bundleDir)
     }
     else {
-      vars.rebuild = true
-
-//mjg
-      const fs = require('fs');
-      var filename = process.cwd() + vars.touchFile;
-      try {
-        var d = new Date().toLocaleString()
-        var data = fs.readFileSync(filename);
-        fs.writeFileSync(filename, '//' + d, 'utf8');
-        log(app, `touching ${filename}`);
-      }
-      catch(e) {
-        log(app, `NOT touching ${filename}`);
-      }
-
-
-
-
-
-      log(app, 'Ext rebuild NOT needed (but done for theme)')
+      vars.rebuild = false
+      log(app, 'Ext rebuild NOT needed')
     }
   }
   catch(e) {
