@@ -38,7 +38,7 @@ export default class NavigatorExample extends Component {
 
     getChart() {
         //Added cmp to access component attributes in ext-react16 [revisit]
-        return this.refs.navigator.cmp.getChart()
+        return this.navigator.cmp.getChart()
     }
 
     categoryRenderer = (axis, value) => Math.round(value * 180 / Math.PI)
@@ -56,10 +56,11 @@ export default class NavigatorExample extends Component {
                 />
                 <ChartNavigator
                     shadow
-                    ref="navigator"
+                    ref={(navigator) => {this.navigator = navigator}}
                     navigator={{ axis: 'bottom' }}
                     chart={{
                         xtype: 'cartesian',
+                        downloadServerUrl: 'http://svg.sencha.io',
                         reference: 'chart',
                         insetPadding: '20 10 10 10',
                         platformConfig: {

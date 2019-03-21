@@ -1,44 +1,9 @@
 "use strict"
 
-export function getValidateOptions() {
+export function _getDefaultVars() {
   return {
-    "type": "object",
-    "properties": {
-      "framework":   {"type": [ "string" ]},
-      "port":        {"type": [ "integer" ]},
-      "emit":        {"type": [ "boolean" ]},
-      "browser":     {"type": [ "boolean" ]},
-      "watch":       {"type": [ "string" ]},
-      "profile":     {"type": [ "string" ]},
-      "environment": {"type": [ "string" ]},
-      "verbose":     {"type": [ "string" ]},
-//      "theme":       {"type": [ "string" ]},
-//      "toolkit":     {"type": [ "string" ]},
-      "treeshake":   {"type": [ "boolean" ]}
-//      "packages":    {"type": [ "string", "array" ]},
-
-    },
-    "additionalProperties": false
-    // "errorMessage": {
-    //   "option": "should be {Boolean} (https:/github.com/org/repo#anchor)"
-    // }
-  }
-}
-
-export function getDefaultOptions() {
-  return {
-    port: 1962,
-    emit: true,
-    browser: true,
-    watch: 'yes',
-    profile: 'desktop', 
-    environment: 'development', 
-    verbose: 'no'
-  }
-}
-
-export function getDefaultVars() {
-  return {
+    touchFile: '/themer.js',
+    rebuild: true,
     watchStarted : false,
     firstTime : true,
     browserCount : 0,
@@ -54,36 +19,34 @@ export function getDefaultVars() {
 }
 
 export function _afterCompile(compilation, vars, options) {
-  try {
-    require('./pluginUtil').logv(options,'FUNCTION ext-after-compile')
-    const path = require('path')
-    let { files, dirs } = vars
-    const { cwd } = vars
-    files = typeof files === 'string' ? [files] : files
-    dirs = typeof dirs === 'string' ? [dirs] : dirs
-    const {
-      fileDependencies,
-      contextDependencies,
-    } = _getFileAndContextDeps(compilation, files, dirs, cwd, options);
-    if (files.length > 0) {
-      fileDependencies.forEach((file) => {
-        compilation.fileDependencies.add(path.resolve(file));
-      })
-    }
-    if (dirs.length > 0) {
-      contextDependencies.forEach((context) => {
-        compilation.contextDependencies.add(context);
-      })
-    }
+  var verbose = options.verbose
+  var logv = require('./pluginUtil').logv
+  logv(verbose,'FUNCTION extjs _afterCompile')
+  const path = require('path')
+  let { files, dirs } = vars
+  const { cwd } = vars
+  files = typeof files === 'string' ? [files] : files
+  dirs = typeof dirs === 'string' ? [dirs] : dirs
+  const {
+    fileDependencies,
+    contextDependencies,
+  } = _getFileAndContextDeps(compilation, files, dirs, cwd, options);
+  if (files.length > 0) {
+    fileDependencies.forEach((file) => {
+      compilation.fileDependencies.add(path.resolve(file));
+    })
   }
-  catch(e) {
-    console.log(e)
-    compilation.errors.push('_afterCompile: ' + e)
+  if (dirs.length > 0) {
+    contextDependencies.forEach((context) => {
+      compilation.contextDependencies.add(context);
+    })
   }
 }
 
 function _getFileAndContextDeps(compilation, files, dirs, cwd, options) {
-  require('./pluginUtil').logv(options,'FUNCTION _getFileAndContextDeps')
+  var verbose = options.verbose
+  var logv = require('./pluginUtil').logv
+  logv(verbose,'FUNCTION _getFileAndContextDeps')
   const uniq = require('lodash.uniq')
   const isGlob = require('is-glob')
 
@@ -108,7 +71,7 @@ function _getFileAndContextDeps(compilation, files, dirs, cwd, options) {
 }
 
 export function _prepareForBuild(app, vars, options, output, compilation) {
-  try {
+//  try {
     const log = require('./pluginUtil').log
     const logv = require('./pluginUtil').logv
     logv(options,'_prepareForBuild')
@@ -120,16 +83,6 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
     var currentNumFiles = watchedFiles.length
     logv(options,'watchedFiles: ' + currentNumFiles)
     var doBuild = true
-
-    // var doBuild = false
-    // for (var file in watchedFiles) {
-    //   if (vars.lastMilliseconds < fs.statSync(watchedFiles[file]).mtimeMs) {
-    //     if (watchedFiles[file].indexOf("scss") != -1) {doBuild=true;break;}
-    //   }
-    // }
-    // if (vars.lastMilliseconds < fs.statSync('./app.json').mtimeMs) {
-    //   doBuild=true
-    // }
     
     logv(options,'doBuild: ' + doBuild)
 
@@ -154,9 +107,9 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       vars.rebuild = false
     }
     vars.lastNumFiles = currentNumFiles
-  }
-  catch(e) {
-    console.log(e)
-    compilation.errors.push('_prepareForBuild: ' + e)
-  }
+  // }
+  // catch(e) {
+  //   console.log(e)
+  //   compilation.errors.push('_prepareForBuild: ' + e)
+  // }
 }

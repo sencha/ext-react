@@ -48,8 +48,10 @@ export default function renderWhenReady(Component) {
   }(React.Component), _defineProperty(_class, "isExtJSComponent", true), _temp;
 }
 Ext.onReady(function () {
-  for (var _i = 0; _i < launchQueue.length; _i++) {
-    var queued = launchQueue[_i];
+  var _arr = launchQueue;
+
+  for (var _i = 0; _i < _arr.length; _i++) {
+    var queued = _arr[_i];
     queued.setState({
       ready: true
     });
