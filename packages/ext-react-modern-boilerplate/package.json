@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server --env.browser='yes'  --env.verbose='no'",
     "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'"
   },
-  "author": "Sencha, Inc.",
+  "author": "Sencha, Inc.", 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sencha/ext-react.git"
