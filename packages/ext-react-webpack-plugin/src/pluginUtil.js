@@ -374,8 +374,8 @@ export function _prepareForBuild(app, vars, options, output, compilation) {
       log(app, 'Building Ext bundle at: ' + bundleDir)
     }
     else {
-      vars.rebuild = false
-      log(app, 'Ext rebuild NOT needed')
+      vars.rebuild = true
+      log(app, 'Ext rebuild NOT needed (but done for theme)')
     }
   }
   catch(e) {
