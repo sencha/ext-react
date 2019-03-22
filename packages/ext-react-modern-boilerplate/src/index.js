@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { launch } from '@sencha/ext-react'
 import App from './App'
+import './themer.js'
+import '../.ext-reactrc'
 
 let viewport;
 

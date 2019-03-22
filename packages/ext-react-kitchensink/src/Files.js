@@ -39,10 +39,9 @@ export default class Files extends Component {
   }
 
   highlightCode() {
-  //had to add .cmp - is there a way to avoid this??
-  if (this.refs.tabs) for (let el of this.refs.tabs.cmp.el.query('.code')) {
-    highlightBlock(el);
-  }
+    if (this.tabs) for (let el of this.tabs.cmp.el.query('.code')) {
+      highlightBlock(el);
+    }
   }
 
   render() {
@@ -50,7 +49,7 @@ export default class Files extends Component {
 
     return (
       <TabPanel 
-        ref="tabs"
+        ref={(tabs) => {this.tabs = tabs}}
         shadow
         tabBar={{
             layout: {

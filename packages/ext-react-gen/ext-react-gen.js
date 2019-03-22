@@ -426,12 +426,17 @@ async function stepCreate() {
   console.log(`${app} ${destDir} created`)
 
   var boilerplate = ''
-    if (answers['language'] == LANGUAGE.TYPESCRIPT) {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
+  if (answers['language'] == LANGUAGE.TYPESCRIPT) {
+    //boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
+    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-typesxcript-boilerplate')
+
   }
   else {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
+    //boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
+    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-boilerplate')
+
   }
+  console.log(`${app} boilerplate: ${boilerplate}`)
 
   // copy in files from boilerplate
   glob.sync('**/*', { cwd: boilerplate, ignore: ['build/**', 'node_modules/**', 'index.js'], dot: true })
@@ -464,13 +469,16 @@ async function stepCreate() {
   if (answers['author']) packageInfo.author = answers['author']
   if (answers['license']) packageInfo.license = answers['license']
 
-  Object.assign(packageInfo, pick(fs.readJsonSync('package.json'), 'main', 'scripts', 'dependencies', 'devDependencies', 'jest'));
+  var packageJson = path.join(destDir, 'package.json')
+  //console.log(`${app} package.json: ${destDir}/package.json`)
+
+  Object.assign(packageInfo, pick(fs.readJsonSync(packageJson), 'main', 'scripts', 'dependencies', 'devDependencies', 'jest'));
   if (answers['theme'] !== 'theme-material') {
     packageInfo.dependencies[`@sencha/ext-modern-${answers['theme']}`] = packageInfo.dependencies['@sencha/ext-modern-theme-material'];
   }
 
   let packageInfoString = JSON.stringify(packageInfo,null,2)
-  fs.writeFileSync('package.json', packageInfoString)  
+  fs.writeFileSync(packageJson, packageInfoString)  
 
   const indexHtml = path.join('src', 'index.html');
   fs.writeFileSync(indexHtml, fs.readFileSync(indexHtml, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8')

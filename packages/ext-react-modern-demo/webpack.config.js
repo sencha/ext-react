@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
+const ExtWebpackPlugin = require('@sencha/ext-react webpack-plugin')
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 

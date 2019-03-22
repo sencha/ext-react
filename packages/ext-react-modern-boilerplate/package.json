@@ -5,23 +5,12 @@
   "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf build",
     "start": "npm run dev",
-    "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
-    "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production",
-    "prod2": "cd build && static-server --port 8080",
-    "test": "jest",
-    "update-snapshots": "jest -u",
-    "pretest": "webpack --progress",
-    "preupdate-snapshots": "webpack --progress"
+    "clean": "rimraf build",
+    "dev": "webpack-dev-server --env.browser='yes'  --env.verbose='no'",
+    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'"
   },
-  "extbuild": {
-    "defaultprofile": "",
-    "defaultenvironment": "development",
-    "defaultverbose": "no"
-  },
-  "author": "Sencha, Inc.",
+  "author": "Sencha, Inc.", 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sencha/ext-react.git"
@@ -32,26 +21,35 @@
   },
   "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
-    "@babel/runtime": "^7.3.1",
+    "@sencha/ext-react": "~6.7.1",
+
     "@sencha/ext": "^6.7.0",
     "@sencha/ext-modern": "^6.7.0",
-    "@sencha/ext-modern-theme-material": "^6.7.0",
-    "@sencha/ext-modern-treegrid": "^6.7.0",
-    "@sencha/ext-react": "^7.0.0",
-    "@sencha/ext-react-renderercell": "^7.0.0",
-    "@sencha/ext-react-transition": "^7.0.0",
-    "prop-types": "^15.7.2",
+    "@sencha/ext-modern-treegrid": "~6.7.0",
+
+    "@sencha/ext-modern-theme-material": "~6.7.0",
+
+    "@babel/polyfill": "^7.4.0",
+    "@babel/runtime": "^7.4.2",
+
+    "d3": "4.5.0",
+    "highlightjs": "~9.12.0",
+    "history": "~4.9.0",
+    "prop-types": "~15.7.2",
+
     "react": "~16.8.4",
-    "react-dom": "~16.8.4",
-    "react-router-dom": "^4.3.1"
+    "@hot-loader/react-dom":"~16.8.4",
+    "react-redux": "~6.0.1",
+    "react-router-dom": "~5.0.0",
+    "redux": "~4.0.1"
   },
   "devDependencies": {
-    "@sencha/ext-react-babel-plugin": "^6.7.0",
-    "@sencha/ext-webpack-plugin": "^7.0.0",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@sencha/ext-react-babel-plugin": "~6.7.1",
+    "@sencha/ext-react-webpack-plugin": "~6.7.1",
+
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-function-sent": "^7.2.0",
     "@babel/plugin-proposal-json-strings": "^7.2.0",
@@ -59,19 +57,30 @@
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
+
     "cross-env": "^5.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.23.1",
-    "css-loader": "^2.1.0",
-    "portfinder": "^1.0.20",
-    "react-hot-loader": "^4.7.1",
     "rimraf": "^2.6.3",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
+    "portfinder": "^1.0.20",
+
+    "html-webpack-plugin": "^3.2.0",
+    "base-href-webpack-plugin": "~2.0.0",
+    "copy-webpack-plugin": "^5.0.1",
+
+    "babel-loader": "^8.0.5",
+    "html-loader": "^0.5.5",
+    "raw-loader": "~2.0.0",
+    "style-loader": "^0.23.1",
+    "css-loader": "^2.1.1",
+    "sass-loader": "^7.1.0",
+
+    "node-sass": "^4.11.0",
+    "react-hot-loader": "^4.8.0",
+
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
   "jest": {

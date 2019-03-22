@@ -1,66 +1,28 @@
 "use strict"
 
-export function getValidateOptions() {
+export function _getDefaultVars() {
   return {
-    "type": "object",
-    "properties": {
-      "framework":   {"type": [ "string" ]},
-      "toolkit":     {"type": [ "string" ]},
-      "port":        {"type": [ "integer" ]},
-      "emit":        {"type": [ "boolean" ]},
-      "browser":     {"type": [ "boolean" ]},
-      "watch":       {"type": [ "string" ]},
-      "profile":     {"type": [ "string" ]},
-      "environment": {"type": [ "string" ]},
-      "verbose":     {"type": [ "string" ]},
-      "theme":       {"type": [ "string" ]},
-      "treeshake": {"type": [ "boolean" ]},
-      "packages":    {"type": [ "string", "array" ]}
-    },
-    "additionalProperties": false
-    // "errorMessage": {
-    //   "option": "should be {Boolean} (https:/github.com/org/repo#anchor)"
-    // }
-  }
-}
-
-export function getDefaultOptions() {
-  return {
-    port: 1962,
-    emit: true,
-    browser: true,
-    watch: 'yes',
-    profile: '', 
-    environment: 'development', 
-    verbose: 'no',
-    toolkit: 'modern',
-    packages: null
-  }
-}
-
-export function getDefaultVars() {
-  return {
+    touchFile: '/src/themer.js',
     watchStarted : false,
+    buildstep: '1 of 1',
     firstTime : true,
     firstCompile: true,
     browserCount : 0,
     manifest: null,
-    extPath: 'ext-react',
+    extPath: 'ext',
     pluginErrors: [],
     deps: [],
+    usedExtComponents: [],
     rebuild: true
   }
 }
 
-function toXtype(str) {
-  return str.toLowerCase().replace(/_/g, '-')
-}
-
-export function extractFromSource(module, options, compilation) {
-  try {
+export function _extractFromSource(module, options, compilation, extComponents) {
+  const logv = require('./pluginUtil').logv
+  logv(options.verbose,'FUNCTION _extractFromSource')
+//  try {
     var js = module._source._value
-    const logv = require('./pluginUtil').logv
-    logv(options,'FUNCTION extractFromSource')
+    logv(options.verbose,'FUNCTION extractFromSource')
     var generate = require("@babel/generator").default
     var parse = require("babylon").parse
     var traverse = require("ast-traverse")
@@ -85,9 +47,9 @@ export function extractFromSource(module, options, compilation) {
     function addType(argNode) {
       var type
       if (argNode.type === 'StringLiteral') {
-        var xtype = toXtype(argNode.value)
+        var xtype = require('./pluginUtil')._toXtype(argNode.value)
         if (xtype != 'extreact') {
-          type = { xtype: toXtype(argNode.value) }
+          type = { xtype: require('./pluginUtil')._toXtype(argNode.value) }
         }
       } else {
         type = { xclass: js.slice(argNode.start, argNode.end) }
@@ -140,31 +102,12 @@ export function extractFromSource(module, options, compilation) {
       }
     })
     return statements
-  }
-  catch(e) {
-    console.log(module.resource)
-    console.log(js)
-    console.log(e)
-    compilation.errors.push('extractFromSource: ' + e)
-    return []
-  }
-}
-
-//**********
-export function _done(vars, options) {
-  try {
-    const log = require('./pluginUtil').log
-    const logv = require('./pluginUtil').logv
-    logv(options,'FUNCTION _done')
-
-    try {
-    }
-    catch (e) {
-      console.log(e)
-      return []
-    }
-  }
-  catch(e) {
-    require('./pluginUtil').logv(options,e)
-  }
+  // }
+  // catch(e) {
+  //   console.log(module.resource)
+  //   console.log(js)
+  //   console.log(e)
+  //   compilation.errors.push('extractFromSource: ' + e)
+  //   return []
+  // }
 }
