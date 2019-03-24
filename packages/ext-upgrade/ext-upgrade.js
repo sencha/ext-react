@@ -62,6 +62,13 @@ function upgrade() {
     return 'end'
   }
 
+  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
+  packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
+
+  console.log(packageJson.old.name)
+  return
+
+
   if (fs.existsSync(backupDir)){
     console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
     return 'end'
@@ -71,8 +78,6 @@ function upgrade() {
   console.log(backupDir)
   console.log(upgradeDir)
 
-  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
-  packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
 
   fs.mkdirSync(backupDir)
   console.log(`${boldGreen('Created ' + backupDir)}`)
