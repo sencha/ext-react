@@ -328,7 +328,7 @@ function _emit2() {
         case "end":
           return _context.stop();
       }
-    }, _callee, this, [[0, 37]]);
+    }, _callee, null, [[0, 37]]);
   }));
   return _emit2.apply(this, arguments);
 }
@@ -635,7 +635,7 @@ function _executeAsync2() {
         case "end":
           return _context2.stop();
       }
-    }, _callee2, this);
+    }, _callee2);
   }));
   return _executeAsync2.apply(this, arguments);
 }

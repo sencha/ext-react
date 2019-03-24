@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
+
+      "install": "node ./readme.js",
+
+
     "watch": "npx babel ./src --out-dir ./dist --source-maps --watch",
     "build": "npx babel ./src --out-dir ./dist --source-maps",
     "prepublish": "npm run build",

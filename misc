@@ -17,6 +17,10 @@ git remote -v
 
 git log
 
+/usr/local/lib/node_modules/node/lib/node_modules/@sencha
+
+
+
 git tag -a v6.6.0 8677d26 -m "ExtReact v6.6.0"
 git tag v6.6.0 v6.6.0^{} -f -m "ExtReact v6.6.0"
 
