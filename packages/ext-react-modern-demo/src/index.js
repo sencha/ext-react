@@ -8,7 +8,9 @@ import { ExtReact } from '@sencha/ext-react'
 //import App from './D3/AppD3'
 //import App from './Progress/AppProgress'
 //import App from './Button/AppButton'
-import App from './Grid/AppGrid'
+//import App from './Grid/AppGrid'
+import App from './DivGrid/AppDivGrid'
+
 //import App from './Router/App'
 
 Ext.require('Ext.panel.Collapser')
