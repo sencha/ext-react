@@ -7,11 +7,31 @@ const portfinder = require('portfinder')
 module.exports = function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
+  //******* */
+  var framework     = get('framework',     'react')
   var contextFolder = get('contextFolder', './src')
   var entryFile     = get('entryFile',     './index.js')
   var outputFolder  = get('outputFolder',  'build')
+  const rules = [
+    { test: /\.ext-reactrc$/, use: 'raw-loader' },
+    { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+    { test: /\.(html)$/,use: { loader: 'html-loader' } },
+    {
+      test: /\.(css|scss)$/,
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader' },
+        { loader: 'sass-loader' }
+      ]
+    }
+  ]
+  const resolve = {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
+  //******* */
 
-  var framework     = get('framework',     'react')
   var toolkit       = get('toolkit',       'modern')
   var theme         = get('theme',         'theme-material')
   var packages      = get('packages',      ['treegrid'])
@@ -27,9 +47,7 @@ module.exports = function (env) {
 
   const isProd = environment === 'production'
   portfinder.basePort = (env && env.port) || 1962
-
   return portfinder.getPortPromise().then(port => {
-    
     const plugins = [
       new HtmlWebpackPlugin({ template: "index.html", hash: true, inject: "body" }),
       new BaseHrefWebpackPlugin({ baseHref: basehref }),
@@ -49,24 +67,6 @@ module.exports = function (env) {
         verbose: verbose
       })
     ]
-    const rules =[
-      { test: /\.ext-reactrc$/, use: 'raw-loader' },
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-      { test: /\.(html)$/,use: { loader: 'html-loader' } },
-      {
-        test: /\.(css|scss)$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
-      }
-    ]
-    const resolve = {
-      alias: {
-        'react-dom': '@hot-loader/react-dom'
-      }
-    }
     return {
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,

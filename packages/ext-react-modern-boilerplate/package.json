@@ -4,12 +4,6 @@
   "version": "6.7.1",
   "description": "A foundation for React 16 apps built with ExtReact components.",
   "main": "index.js",
-  "scripts": {
-    "start": "npm run dev",
-    "clean": "rimraf build",
-    "dev": "webpack-dev-server --env.browser='yes'  --env.verbose='no'",
-    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'"
-  },
   "author": "Sencha, Inc.", 
   "repository": {
     "type": "git",
@@ -20,6 +14,12 @@
     "url": "https://github.com/sencha/ext-react/issues"
   },
   "homepage": "https://github.com/sencha/ext-react#readme",
+  "scripts": {
+    "start": "npm run dev",
+    "clean": "rimraf build",
+    "dev": "webpack-dev-server --env.browser='yes'  --env.verbose='no'",
+    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'"
+  },
   "dependencies": {
     "@sencha/ext-react": "~6.7.1",
 
@@ -82,23 +82,5 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "setupFiles": [
-      "./node_modules/@sencha/ext-react/jest/setup.js",
-      "./build/ext-react/ext.js"
-    ],
-    "unmockedModulePathPatterns": [
-      "react",
-      "react-dom",
-      "react-addons-test-utils",
-      "enzyme"
-    ]
   }
 }
