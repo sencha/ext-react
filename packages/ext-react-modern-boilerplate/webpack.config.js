@@ -62,12 +62,12 @@ module.exports = function (env) {
         ]
       }
     ]
+    const resolve = {
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      }
+    }
     return {
-      // resolve: {
-      //   alias: {
-      //     'react-dom': '@hot-loader/react-dom'
-      //   }
-      // },
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, contextFolder),
@@ -80,6 +80,7 @@ module.exports = function (env) {
       module: {
         rules: rules
       },
+      resolve: resolve,
       performance: { hints: false },
       stats: 'none',
       optimization: { noEmitOnErrors: true },
