@@ -106,7 +106,7 @@ function upgrade() {
   //fs.writeFileSync(webpackConfigJs.root, JSON.stringify(webpackConfigJs.old, null, 2));
 
   var values = {}
-  switch (framework) {
+  switch (o.foundFramework) {
     case 'extjs':
       values = {
         framework: 'extjs',
