@@ -46,7 +46,7 @@ function upgrade() {
 
   var rootDir = path.resolve(process.cwd())
   var backupDir = path.resolve(rootDir, 'extBackup')
-  var upgradeDir = path.resolve(__dirname, 'extUpgrade')
+  var upgradeDir = path.resolve(__dirname, 'extReactUpgrade')
 
   packageJson.root = path.join(rootDir, packageJson.name)
   packageJson.backup = path.join(backupDir, packageJson.name)
