@@ -1,0 +1,56 @@
+{
+  "name": "{packageName}",
+  "product": "ext",
+  "version": "{version}",
+  "description": "{description}",
+  "repository": {
+    "type": "git",
+    "url": "{repositoryURL}"
+  },
+  "keywords": [{keywords}],
+  "author": "{authorName}",
+  "license": "{license}",
+  "bugs": {
+    "url": "{bugsURL}"
+  },
+  "homepage": "{homepageURL}",
+<tpl if="universal == true">
+  "scripts": {
+    "start": "npm run dev:desktop",
+    "clean": "rimraf build",
+    "dev:desktop": "webpack-dev-server --env.profile='desktop' --env.browser='yes' --env.verbose='no'",
+    "dev:phone": "webpack-dev-server --env.profile='phone' --env.browser='yes' --env.verbose='no'",
+    "build:desktop": "npm run clean && cross-env webpack --env.profile='desktop' --env.environment='production' --env.treeshake='yes'",
+    "build:phone": "npm run clean && cross-env webpack --env.profile='phone' --env.environment='production' --env.treeshake='yes'"
+  },
+</tpl>
+<tpl if="universal == false">
+  "scripts": {
+    "start": "npm run dev:desktop",
+    "clean": "rimraf build",
+    "dev:desktop": "webpack-dev-server --env.profile='desktop' --env.browser='yes' --env.verbose='no'",
+    "build:desktop": "npm run clean && cross-env webpack --env.profile='desktop' --env.environment='production' --env.treeshake='yes'"
+  },
+</tpl>
+  "dependencies": {
+    <tpl if="modern == true">
+    "@sencha/ext-modern": "~6.7.0",
+    "@sencha/ext-modern-{modernTheme}": "~6.7.0",</tpl><tpl if="classic == true">
+    "@sencha/ext-classic": "~6.7.0",
+    "@sencha/ext-classic-{classicTheme}": "~6.7.0",</tpl>
+    "@sencha/ext": "~6.7.0"
+  },
+  "devDependencies": {
+    "@sencha/ext-webpack-plugin": "~6.7.1",
+
+    "html-webpack-plugin": "^3.2.0",
+    "base-href-webpack-plugin": "~2.0.0",
+
+    "cross-env": "^5.2.0",
+    "portfinder": "^1.0.20",
+
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
