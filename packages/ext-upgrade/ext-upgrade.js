@@ -46,7 +46,7 @@ function upgrade() {
 
   var rootDir = path.resolve(process.cwd())
   var backupDir = path.resolve(rootDir, 'extBackup')
-  var upgradeDir = path.resolve(__dirname, 'extReactUpgrade')
+  var upgradeDir = path.resolve(__dirname, 'extUpgrade')
 
   packageJson.root = path.join(rootDir, packageJson.name)
   packageJson.backup = path.join(backupDir, packageJson.name)
@@ -78,11 +78,7 @@ function upgrade() {
   findIt('angular', packageJson, o)
   findIt('components', packageJson, o)
 
-  console.log(o.foundFramework + ' ' + o.foundVersion)
-
-  //return
-
-
+  console.log('found ' + o.foundFramework + ' ' + o.foundVersion)
  
   if (fs.existsSync(backupDir)){
     console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
@@ -174,7 +170,7 @@ function upgrade() {
       break;
   }
 
-  var file = upgradeDir + '/templates/webpack.config.js.tpl.default'
+  var file = upgradeDir + '/' + o.foundFramework + '/webpack.config.js.tpl.default'
   var content = fs.readFileSync(file).toString()
   var tpl = new Ext.XTemplate(content)
   var t = tpl.apply(values)
