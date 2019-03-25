@@ -80,6 +80,8 @@ function upgrade() {
 
   console.log('found ' + o.foundFramework + ' ' + o.foundVersion)
  
+  var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
+
   if (fs.existsSync(backupDir)){
     console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
     return
@@ -170,12 +172,16 @@ function upgrade() {
       break;
   }
 
-  var file = upgradeDir + '/' + o.foundFramework + '/webpack.config.js.tpl.default'
+
+
+  var file = path.join(frameworkTemplateFolder, webpack.config.js.tpl.default) 
   var content = fs.readFileSync(file).toString()
   var tpl = new Ext.XTemplate(content)
   var t = tpl.apply(values)
   tpl = null
   fs.writeFileSync(webpackConfigJs.root, t);
+
+  fs.copySync(path.join(frameworkTemplateFolder, '.babelrc'), path.join(rootDir, '.babelrc'))
  
   console.log('upgrade completed')
   return 'end'
