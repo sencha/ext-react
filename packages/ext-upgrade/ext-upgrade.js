@@ -50,11 +50,10 @@ function upgrade() {
 
   packageJson.root = path.join(rootDir, packageJson.name)
   packageJson.backup = path.join(backupDir, packageJson.name)
-  packageJson.upgrade = path.join(upgradeDir, packageJson.name)
+
 
   webpackConfigJs.root = path.join(rootDir, webpackConfigJs.name)
   webpackConfigJs.backup = path.join(backupDir, webpackConfigJs.name)
-  webpackConfigJs.upgrade = path.join(upgradeDir, webpackConfigJs.name)
 
   if (!fs.existsSync(upgradeDir)){
     console.log(`${boldRed('Error: ' + upgradeDir.replace(process.cwd(), '') + ' does not exist')}`)
@@ -85,18 +84,22 @@ function upgrade() {
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
+  packageJson.upgrade = path.join(frameworkTemplateFolder, packageJson.name)
+  webpackConfigJs.upgrade = path.join(frameworkTemplateFolder, webpackConfigJs.name)
 
   fs.mkdirSync(backupDir)
   console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
 
   fs.copySync(packageJson.root, packageJson.backup)
   console.log(`${boldGreen('Copied ' + packageJson.root.replace(process.cwd(), '') + ' to ' +  packageJson.backup.replace(process.cwd(), ''))}`)
+
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
   packageJson.old.dependencies = packageJson.new.dependencies
   delete packageJson.old.extDefults
 //  delete json[key];
   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
+  console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
 
   fs.copySync(webpackConfigJs.root, webpackConfigJs.backup)
   console.log(`${boldGreen('Copied ' + webpackConfigJs.root.replace(process.cwd(), '') + ' to ' +  webpackConfigJs.backup.replace(process.cwd(), ''))}`)
@@ -170,17 +173,19 @@ function upgrade() {
       break;
   }
 
-
-
   var file = path.join(frameworkTemplateFolder, 'webpack.config.js.tpl.default') 
   var content = fs.readFileSync(file).toString()
   var tpl = new Ext.XTemplate(content)
   var t = tpl.apply(values)
   tpl = null
   fs.writeFileSync(webpackConfigJs.root, t);
+  console.log(`${boldGreen('Updated ' + webpackConfigJs.root.replace(process.cwd(), ''))}`)
 
-  fs.copySync(path.join(frameworkTemplateFolder, '.babelrc'), path.join(rootDir, '.babelrc'))
- 
+  var babelNew = path.join(frameworkTemplateFolder, '.babelrc')
+  var babelOld = path.join(rootDir, '.babelrc')
+  fs.copySync(babelNew, babelOld)
+  console.log(`${boldGreen('Copied ' + babelNew.replace(process.cwd(), '') + ' to ' +  babelOld.replace(process.cwd(), ''))}`)
+
   console.log('upgrade completed')
   return 'end'
 }
