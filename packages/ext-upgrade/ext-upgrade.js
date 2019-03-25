@@ -80,7 +80,7 @@ function upgrade() {
   findIt('angular', packageJson, o)
   findIt('components', packageJson, o)
 
-  console.log('found ' + o.foundFramework + ' ' + o.foundVersion)
+  console.log('Upgrading ext-' + o.foundFramework + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
@@ -184,8 +184,8 @@ function upgrade() {
   var babelNew = path.join(frameworkTemplateFolder, '.babelrc')
   var babelOld = path.join(rootDir, '.babelrc')
   fs.copySync(babelNew, babelOld)
-  console.log(`${boldGreen('Copied ' + babelNew.replace(process.cwd(), '') + ' to ' +  babelOld.replace(process.cwd(), ''))}`)
+  console.log(`${boldGreen('Copied ' + babelNew.replace(__dirname, '') + ' to ' +  babelOld.replace(process.cwd(), ''))}`)
 
   console.log('upgrade completed')
-  return 'end'
+  return
 }
