@@ -57,12 +57,12 @@ function upgrade() {
   webpackConfigJs.upgrade = path.join(upgradeDir, webpackConfigJs.name)
 
   if (!fs.existsSync(upgradeDir)){
-    console.log(`${boldRed('Error: ' + upgradeDir + ' does not exist')}`)
+    console.log(`${boldRed('Error: ' + upgradeDir.replace(process.cwd(), '') + ' does not exist')}`)
     return 'end'
   }
 
   if (!fs.existsSync(packageJson.root)){
-    console.log(`${boldRed('Error: ' + packageJson.root + ' does not exist')}`)
+    console.log(`${boldRed('Error: ' + packageJson.root.replace(process.cwd(), '') + ' does not exist')}`)
     return 'end'
   }
 
@@ -83,15 +83,15 @@ function upgrade() {
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
 
   if (fs.existsSync(backupDir)){
-    console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
+    console.log(`${boldRed('Error: backup folder ' + backupDir.replace(process.cwd(), '') + ' exists')}`)
     return
   }
 
   fs.mkdirSync(backupDir)
-  console.log(`${boldGreen('Created ' + backupDir)}`)
+  console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
 
   fs.copySync(packageJson.root, packageJson.backup)
-  console.log(`${boldGreen('Copied ' + packageJson.root + ' to ' +  packageJson.backup)}`)
+  console.log(`${boldGreen('Copied ' + packageJson.root.replace(process.cwd(), '') + ' to ' +  packageJson.backup.replace(process.cwd(), ''))}`)
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
   packageJson.old.dependencies = packageJson.new.dependencies
@@ -100,8 +100,7 @@ function upgrade() {
   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
 
   fs.copySync(webpackConfigJs.root, webpackConfigJs.backup)
-  console.log(`${boldGreen('Copied ' + webpackConfigJs.root + ' to ' +  webpackConfigJs.backup)}`)
-  //fs.writeFileSync(webpackConfigJs.root, JSON.stringify(webpackConfigJs.old, null, 2));
+  console.log(`${boldGreen('Copied ' + webpackConfigJs.root.replace(process.cwd(), '') + ' to ' +  webpackConfigJs.backup.replace(process.cwd(), ''))}`)
 
   var values = {}
   switch (o.foundFramework) {
