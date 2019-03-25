@@ -33,76 +33,97 @@ function findIt(framework, packageJson, o) {
   if (inDevDep) {
     v = packageJson.old.devDependencies[key].slice(-5)
   }
-  if (v != '') { o.foundFramework = framework; o.foundVersion = v; }
+  if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
+}
+
+function findItOlder(framework, packageJson, o) {
+  var v = ''
+  var key = ''
+  key = '@extjs/reactor-webpack-plugin'
+
+  var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
+  if (inDep) {
+    v = packageJson.old.dependencies[key].slice(-5)
+  }
+  var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
+  if (inDevDep) {
+    v = packageJson.old.devDependencies[key].slice(-5)
+  }
+  if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
+}
+
+var rootDir = path.resolve(process.cwd())
+var backupDir = path.resolve(rootDir, 'extBackup')
+var upgradeDir = path.resolve(__dirname, 'upgradeTemplates')
+
+function setAndArchive(o, name) {
+  o.name = name
+  o.root = path.join(rootDir, o.name)
+  o.backup = path.join(backupDir, o.name)
+
+  if (!fs.existsSync(o.root)){
+    console.log(`${boldRed('Error: ' + o.root.replace(process.cwd(), '') + ' does not exist')}`)
+    return
+  }
+  else {
+    fs.copySync(o.root, o.backup)
+    console.log(`${boldGreen('Archived ' + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))}`)
+  }
 }
 
 
 function upgrade() {
-  var packageJson = {}
-  var webpackConfigJs = {}
-
-  packageJson.name = 'package.json'
-  webpackConfigJs.name = 'webpack.config.js'
-
-  var rootDir = path.resolve(process.cwd())
-  var backupDir = path.resolve(rootDir, 'extBackup')
-  var upgradeDir = path.resolve(__dirname, 'upgradeTemplates')
-
-  packageJson.root = path.join(rootDir, packageJson.name)
-  packageJson.backup = path.join(backupDir, packageJson.name)
-
-
-  webpackConfigJs.root = path.join(rootDir, webpackConfigJs.name)
-  webpackConfigJs.backup = path.join(backupDir, webpackConfigJs.name)
-
-  if (!fs.existsSync(upgradeDir)){
-    console.log(`${boldRed('Error: ' + upgradeDir.replace(process.cwd(), '') + ' does not exist')}`)
-    return 'end'
-  }
-
-  if (!fs.existsSync(packageJson.root)){
-    console.log(`${boldRed('Error: ' + packageJson.root.replace(process.cwd(), '') + ' does not exist')}`)
-    return 'end'
-  }
-
   if (fs.existsSync(backupDir)){
     console.log(`${boldRed('Error: backup folder ' + backupDir.replace(process.cwd(), '') + ' exists')}`)
     return
   }
+  if (!fs.existsSync(upgradeDir)){
+    console.log(`${boldRed('Error: ' + upgradeDir.replace(process.cwd(), '') + ' does not exist')}`)
+    return
+  }
+
+  var packageJson = {}
+  var webpackConfigJs = {}
+  var babelrc = {}
+  var indexjs = {}
+
+  setAndArchive(packageJson, 'package.json')
+  setAndArchive(webpackConfigJs, 'webpack.config.js')
+  setAndArchive(babelrc, '.babelrc')
+  setAndArchive(indexjs, 'index.js')
 
   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
     foundFramework: '',
-    foundVersion: ''
+    foundVersion: '',
+    foundKey: ''
   }
   findIt('extjs', packageJson, o)
   findIt('react', packageJson, o)
   findIt('angular', packageJson, o)
   findIt('components', packageJson, o)
+  findItOlder('react', packageJson, o)
 
-  console.log('Upgrading ext-' + o.foundFramework + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
+  console.log('Upgrading ' + o.foundKey + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
+
   packageJson.upgrade = path.join(frameworkTemplateFolder, packageJson.name)
   webpackConfigJs.upgrade = path.join(frameworkTemplateFolder, webpackConfigJs.name)
+  babelrc.upgrade = path.join(frameworkTemplateFolder, babelrc.name)
+  indexjs.upgrade = path.join(frameworkTemplateFolder, indexjs.name)
 
   fs.mkdirSync(backupDir)
   console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
-
-  fs.copySync(packageJson.root, packageJson.backup)
-  console.log(`${boldGreen('Copied ' + packageJson.root.replace(process.cwd(), '') + ' to ' +  packageJson.backup.replace(process.cwd(), ''))}`)
 
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
   packageJson.old.dependencies = packageJson.new.dependencies
   delete packageJson.old.extDefults
-//  delete json[key];
+  //delete packageJson.old['extDefults'];
   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
   console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
-
-  fs.copySync(webpackConfigJs.root, webpackConfigJs.backup)
-  console.log(`${boldGreen('Copied ' + webpackConfigJs.root.replace(process.cwd(), '') + ' to ' +  webpackConfigJs.backup.replace(process.cwd(), ''))}`)
 
   var values = {}
   switch (o.foundFramework) {
@@ -173,18 +194,15 @@ function upgrade() {
       break;
   }
 
-  var file = path.join(frameworkTemplateFolder, 'webpack.config.js.tpl.default') 
-  var content = fs.readFileSync(file).toString()
+  var content = fs.readFileSync(webpackConfigJs.upgrade).toString()
   var tpl = new Ext.XTemplate(content)
   var t = tpl.apply(values)
   tpl = null
   fs.writeFileSync(webpackConfigJs.root, t);
   console.log(`${boldGreen('Updated ' + webpackConfigJs.root.replace(process.cwd(), ''))}`)
 
-  var babelNew = path.join(frameworkTemplateFolder, '.babelrc')
-  var babelOld = path.join(rootDir, '.babelrc')
-  fs.copySync(babelNew, babelOld)
-  console.log(`${boldGreen('Copied ' + babelNew.replace(__dirname, '') + ' to ' +  babelOld.replace(process.cwd(), ''))}`)
+  fs.copySync(babelrc.upgrade, babelrc.root)
+  console.log(`${boldGreen('Copied ' + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))}`)
 
   console.log('upgrade completed')
   return
