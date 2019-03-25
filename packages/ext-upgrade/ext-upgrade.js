@@ -66,8 +66,10 @@ function upgrade() {
     return 'end'
   }
 
-  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
-  packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
+  if (fs.existsSync(backupDir)){
+    console.log(`${boldRed('Error: backup folder ' + backupDir.replace(process.cwd(), '') + ' exists')}`)
+    return
+  }
 
   var o = {
     foundFramework: '',
@@ -82,10 +84,8 @@ function upgrade() {
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
 
-  if (fs.existsSync(backupDir)){
-    console.log(`${boldRed('Error: backup folder ' + backupDir.replace(process.cwd(), '') + ' exists')}`)
-    return
-  }
+  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
+  packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
 
   fs.mkdirSync(backupDir)
   console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
