@@ -71,6 +71,7 @@ function upgrade() {
     return
   }
 
+  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
     foundFramework: '',
     foundVersion: ''
@@ -83,8 +84,6 @@ function upgrade() {
   console.log('found ' + o.foundFramework + ' ' + o.foundVersion)
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
-
-  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
 
   fs.mkdirSync(backupDir)
@@ -173,7 +172,7 @@ function upgrade() {
 
 
 
-  var file = path.join(frameworkTemplateFolder, webpack.config.js.tpl.default) 
+  var file = path.join(frameworkTemplateFolder, 'webpack.config.js.tpl.default') 
   var content = fs.readFileSync(file).toString()
   var tpl = new Ext.XTemplate(content)
   var t = tpl.apply(values)
