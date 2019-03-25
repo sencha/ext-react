@@ -204,6 +204,37 @@ function upgrade() {
   fs.copySync(babelrc.upgrade, babelrc.root)
   console.log(`${boldGreen('Copied ' + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))}`)
 
+
+  const replace = require('replace-in-file');
+  const options = {
+    files: path.join(rootDir, 'src'),
+    from: '@extjs/ext-react',
+    to: '@sencha/ext-react',
+  };
+  try {
+    const changes = replace.sync(options);
+    console.log('Modified files:', changes.join(', '));
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+  }
+
+  const options2 = {
+    files: path.join(rootDir, 'src'),
+    from: '@extjs/reactor',
+    to: '@sencha/ext-react',
+  };
+  try {
+    const changes = replace.sync(options2);
+    console.log('Modified files:', changes.join(', '));
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+  }
+
+
+
+
   console.log('upgrade completed')
   return
 }
