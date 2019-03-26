@@ -71,7 +71,7 @@ function setAndArchive(o, name) {
   }
 }
 
-
+/********** */
 function upgrade() {
   rootDir = path.resolve(process.cwd())
   backupDir = path.resolve(rootDir, 'extBackup')
@@ -92,7 +92,7 @@ function upgrade() {
   var indexjs = {}
 
   setAndArchive(packageJson, 'package.json')
-  setAndArchive(webpackConfigJs, 'webpack.config.js')
+  setAndArchive(webpackConfigJs, 'webpack.config.js.tpl.default')
   setAndArchive(babelrc, '.babelrc')
   setAndArchive(indexjs, 'index.js')
 
@@ -118,8 +118,8 @@ function upgrade() {
   babelrc.upgrade = path.join(frameworkTemplateFolder, babelrc.name)
   indexjs.upgrade = path.join(frameworkTemplateFolder, indexjs.name)
 
-  fs.mkdirSync(backupDir)
-  console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
+  //fs.mkdirSync(backupDir)
+  //console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
 
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
@@ -210,7 +210,7 @@ function upgrade() {
 
 
   const replace = require('replace-in-file');
-  const options = {}
+  var options = {}
   options = {
     files: path.join(rootDir, 'src/**/*.js'),
     from: /\@extjs\/ext-react/g,
@@ -218,8 +218,10 @@ function upgrade() {
   };
   try {
     const changes = replace.sync(options);
-    console.dir(changes)
-    console.log('Modified files:', changes.join(', '));
+    if (changes.length > 0) {
+      console.log('Modified these files containing: ' + '@extjs/ext-react');
+      console.dir(changes)
+    }
   }
   catch (error) {
     console.error('Error occurred:', error);
@@ -232,7 +234,11 @@ function upgrade() {
   };
   try {
     const changes = replace.sync(options);
-    console.log('Modified files:', changes.join(', '));
+    console.log(changes.length)
+    if (changes.length > 0) {
+      console.log('Modified these files containing: ' + '@extjs/reactor');
+      console.dir(changes)
+    }
   }
   catch (error) {
     console.error('Error occurred:', error);
@@ -245,7 +251,10 @@ function upgrade() {
   };
   try {
     const changes = replace.sync(options);
-    console.log('Modified files:', changes.join(', '));
+    if (changes.length > 0) {
+      console.log('Removed: ' + '<Transition />');
+
+    }
   }
   catch (error) {
     console.error('Error occurred:', error);
@@ -258,13 +267,13 @@ function upgrade() {
   };
   try {
     const changes = replace.sync(options);
-    console.log('Modified files:', changes.join(', '));
+    if (changes.length > 0) {
+      console.log('Removed: ' + '</Transition>');
+    }
   }
   catch (error) {
     console.error('Error occurred:', error);
   }
-
-
 
   console.log('upgrade completed')
   return
