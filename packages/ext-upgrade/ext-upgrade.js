@@ -56,9 +56,9 @@ var rootDir
 var backupDir
 var upgradeDir
 
-function setAndArchive(o, name, template) {
+function setAndArchive(o, name, root, template) {
   o.name = name
-  o.root = path.join(rootDir, o.name)
+  o.root = path.join(rootDir, root, o.name)
   o.backup = path.join(backupDir, o.name)
   o.template = template
 
@@ -92,11 +92,13 @@ function upgrade() {
   var webpackConfigJs = {}
   var babelrc = {}
   var indexjs = {}
+  var themerjs = {}
 
-  setAndArchive(packageJson, 'package.json', '')
-  setAndArchive(webpackConfigJs, 'webpack.config.js', 'webpack.config.js.tpl.default')
-  setAndArchive(babelrc, '.babelrc', '')
-  setAndArchive(indexjs, 'index.js', '')
+  setAndArchive(packageJson, 'package.json', './', '')
+  setAndArchive(webpackConfigJs, 'webpack.config.js', './', 'webpack.config.js.tpl.default')
+  setAndArchive(babelrc, '.babelrc', './', '')
+  setAndArchive(indexjs, 'index.js', './src', '')
+  setAndArchive(themerjs, 'themer.js', './src', '')
 
   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
@@ -111,7 +113,6 @@ function upgrade() {
   findItOlder('react', packageJson, o)
 
   console.log(boldGreen('Upgrading') + ' version ' + o.foundVersion + ' to version 6.7.1')
-  //console.log('Upgrading ' + o.foundKey + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
@@ -120,20 +121,13 @@ function upgrade() {
   webpackConfigJs.upgrade = path.join(frameworkTemplateFolder, webpackConfigJs.template)
   babelrc.upgrade = path.join(frameworkTemplateFolder, babelrc.name)
   indexjs.upgrade = path.join(frameworkTemplateFolder, indexjs.name)
-
-  //fs.mkdirSync(backupDir)
-  //console.log(`${boldGreen('Created ' + backupDir.replace(process.cwd(), ''))}`)
+  themerjs.upgrade = path.join(frameworkTemplateFolder, themerjs.name)
 
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
   packageJson.old.dependencies = packageJson.new.dependencies
   delete packageJson.old.extDefults
-  //delete packageJson.old['extDefults'];
   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
-
-  //console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
-  //console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
-
   console.log(boldGreen('Updated ') + packageJson.root.replace(process.cwd(), ''))
 
   var values = {}
@@ -210,16 +204,16 @@ function upgrade() {
   var t = tpl.apply(values)
   tpl = null
   fs.writeFileSync(webpackConfigJs.root, t);
-  //console.log(`${boldGreen('Updated ' + webpackConfigJs.root.replace(process.cwd(), ''))}`)
   console.log(boldGreen('Updated ') + webpackConfigJs.root.replace(process.cwd(), ''))
 
   fs.copySync(babelrc.upgrade, babelrc.root)
-  //console.log(`${boldGreen('Copied ' + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))}`)
   console.log(boldGreen('Copied ') + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))
 
   fs.copySync(indexjs.upgrade, indexjs.root)
-//  console.log(`${boldGreen('Copied ' + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))}`)
   console.log(boldGreen('Copied ') + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))
+
+  fs.copySync(themerjs.upgrade, themerjs.root)
+  console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
 
   const replace = require('replace-in-file');
   var options = {}
