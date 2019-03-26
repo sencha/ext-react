@@ -202,13 +202,13 @@ function upgrade() {
 
   options = {
     files: path.join(rootDir, 'src/**/*.js'),
-    from: /\@extjs\/ext-react\/modern/g,
+    from: /\@sencha\/ext-react\/modern/g,
     to: '@sencha/ext-react',
   };
   try {
     const changes = replace.sync(options);
     if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@extjs/ext-react/modern' + ' to @sencha/ext-react');
+      console.log('Modified these files containing: ' + '@sencha/ext-react/modern' + ' to @sencha/ext-react');
       console.dir(changes)
     }
   }
