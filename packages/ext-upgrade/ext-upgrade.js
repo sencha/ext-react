@@ -56,10 +56,11 @@ var rootDir
 var backupDir
 var upgradeDir
 
-function setAndArchive(o, name) {
+function setAndArchive(o, name, template) {
   o.name = name
   o.root = path.join(rootDir, o.name)
   o.backup = path.join(backupDir, o.name)
+  o.template = template
 
   if (!fs.existsSync(o.root)){
     console.log(`${boldRed('Error: ' + o.root.replace(process.cwd(), '') + ' does not exist')}`)
@@ -67,6 +68,7 @@ function setAndArchive(o, name) {
   }
   else {
     fs.copySync(o.root, o.backup)
+    console.log(boldGreen('Archived ') + `o.root.replace(process.cwd(), '') to `)
     console.log(`${boldGreen('Archived ' + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))}`)
   }
 }
@@ -91,10 +93,10 @@ function upgrade() {
   var babelrc = {}
   var indexjs = {}
 
-  setAndArchive(packageJson, 'package.json')
-  setAndArchive(webpackConfigJs, 'webpack.config.js.tpl.default')
-  setAndArchive(babelrc, '.babelrc')
-  setAndArchive(indexjs, 'index.js')
+  setAndArchive(packageJson, 'package.json', '')
+  setAndArchive(webpackConfigJs, 'webpack.config.js', 'webpack.config.js.tpl.default')
+  setAndArchive(babelrc, '.babelrc', '')
+  setAndArchive(indexjs, 'index.js', '')
 
   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
@@ -114,7 +116,7 @@ function upgrade() {
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
 
   packageJson.upgrade = path.join(frameworkTemplateFolder, packageJson.name)
-  webpackConfigJs.upgrade = path.join(frameworkTemplateFolder, webpackConfigJs.name)
+  webpackConfigJs.upgrade = path.join(frameworkTemplateFolder, webpackConfigJs.template)
   babelrc.upgrade = path.join(frameworkTemplateFolder, babelrc.name)
   indexjs.upgrade = path.join(frameworkTemplateFolder, indexjs.name)
 
