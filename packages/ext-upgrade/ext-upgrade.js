@@ -63,7 +63,8 @@ function setAndArchive(o, name, root, template) {
   o.template = template
 
   if (!fs.existsSync(o.root)){
-    console.log(`${boldRed('Error: ' + o.root.replace(process.cwd(), '') + ' does not exist')}`)
+//    console.log(`${boldRed('Error: ' + o.root.replace(process.cwd(), '') + ' does not exist')}`)
+    console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
     return
   }
   else {
@@ -241,7 +242,6 @@ function upgrade() {
   };
   try {
     const changes = replace.sync(options);
-    console.log(changes.length)
     if (changes.length > 0) {
       console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
       console.dir(changes)
