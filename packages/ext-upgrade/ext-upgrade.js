@@ -68,8 +68,8 @@ function setAndArchive(o, name, template) {
   }
   else {
     fs.copySync(o.root, o.backup)
-    console.log(boldGreen('Archived ') + `o.root.replace(process.cwd(), '') to `)
-    console.log(`${boldGreen('Archived ' + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))}`)
+    console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
+//    console.log(`${boldGreen('Archived ' + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))}`)
   }
 }
 
@@ -110,7 +110,8 @@ function upgrade() {
   findIt('components', packageJson, o)
   findItOlder('react', packageJson, o)
 
-  console.log('Upgrading ' + o.foundKey + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
+  console.log(boldGreen('Upgrading') + ' version ' + o.foundVersion + ' to version 6.7.1')
+  //console.log('Upgrading ' + o.foundKey + ' ' + o.foundVersion + ' to ext-' + o.foundFramework + ' 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
@@ -129,7 +130,11 @@ function upgrade() {
   delete packageJson.old.extDefults
   //delete packageJson.old['extDefults'];
   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
-  console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
+
+  //console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
+  //console.log(`${boldGreen('Updated ' + packageJson.root.replace(process.cwd(), ''))}`)
+
+  console.log(boldGreen('Updated ') + packageJson.root.replace(process.cwd(), ''))
 
   var values = {}
   switch (o.foundFramework) {
@@ -205,14 +210,20 @@ function upgrade() {
   var t = tpl.apply(values)
   tpl = null
   fs.writeFileSync(webpackConfigJs.root, t);
-  console.log(`${boldGreen('Updated ' + webpackConfigJs.root.replace(process.cwd(), ''))}`)
+  //console.log(`${boldGreen('Updated ' + webpackConfigJs.root.replace(process.cwd(), ''))}`)
+  console.log(boldGreen('Updated ') + webpackConfigJs.root.replace(process.cwd(), ''))
 
   fs.copySync(babelrc.upgrade, babelrc.root)
-  console.log(`${boldGreen('Copied ' + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))}`)
+  //console.log(`${boldGreen('Copied ' + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))}`)
+  console.log(boldGreen('Copied ') + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))
 
+  fs.copySync(indexjs.upgrade, indexjs.root)
+//  console.log(`${boldGreen('Copied ' + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))}`)
+  console.log(boldGreen('Copied ') + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))
 
   const replace = require('replace-in-file');
   var options = {}
+
   options = {
     files: path.join(rootDir, 'src/**/*.js'),
     from: /\@extjs\/ext-react/g,
@@ -221,7 +232,7 @@ function upgrade() {
   try {
     const changes = replace.sync(options);
     if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@extjs/ext-react');
+      console.log('Modified these files containing: ' + '@extjs/ext-react' + ' to @sencha/ext-react');
       console.dir(changes)
     }
   }
@@ -238,7 +249,7 @@ function upgrade() {
     const changes = replace.sync(options);
     console.log(changes.length)
     if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@extjs/reactor');
+      console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
       console.dir(changes)
     }
   }
@@ -248,13 +259,13 @@ function upgrade() {
 
   options = {
     files: path.join(rootDir, 'src/**/*.js'),
-    from: /\<Transition.*\\\>/g,
+    from: /\<Transition.*\>/g,
     to: '',
   };
   try {
     const changes = replace.sync(options);
     if (changes.length > 0) {
-      console.log('Removed: ' + '<Transition />');
+      console.log('Removed: ' + '<Transition>');
 
     }
   }
@@ -277,6 +288,6 @@ function upgrade() {
     console.error('Error occurred:', error);
   }
 
-  console.log('upgrade completed')
+  console.log("Upgrade Completed, run 'npm install' then 'npm start'")
   return
 }
