@@ -11,11 +11,11 @@ var nodeDir = path.resolve(__dirname)
 var pkg = (fs.existsSync(nodeDir + '/package.json') && JSON.parse(fs.readFileSync(nodeDir + '/package.json', 'utf-8')) || {});
 version = pkg.version
 
-console.log (`Welcome to ${boldGreen('Sencha ExtUpgrade')} v${version} - The ExtReact Upgrade Tool
+console.log (`Welcome to ${boldGreen('Sencha ExtUpgrade')} v${version}
 
-This tool upgrades applications generated with ext-react-gen
+This tool upgrades applications generated with ext-gen, ext-react-gen or ext-angular-gen
 
-It must be run in an existine ExtReact project folder
+It must be run in an existing ExtGen, ExtReact or ExtAngular project folder
 
 ${boldGreen('Quick Start:')} 
 ext-upgrade

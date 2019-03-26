@@ -3,79 +3,15 @@ const path = require('path')
 const fs = require('fs-extra')
 require('./XTemplate/js')
 
-function boldGreen (s) {
-  var boldgreencolor = `\x1b[32m\x1b[1m`
-  var endMarker = `\x1b[0m`
-  return (`${boldgreencolor}${s}${endMarker}`)
-}
-function boldRed (s) {
-  var boldredcolor = `\x1b[31m\x1b[1m`
-  var endMarker = `\x1b[0m`
-  return (`${boldredcolor}${s}${endMarker}`)
-}
-
-upgrade()
-
-function findIt(framework, packageJson, o) {
-  var v = ''
-  var key = ''
-  if (framework == 'extjs') {
-    key = '@sencha/ext-webpack-plugin'
-  }
-  else {
-    key = '@sencha/ext-' + framework + '-webpack-plugin'
-  }
-  var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
-  if (inDep) {
-    v = packageJson.old.dependencies[key].slice(-5)
-  }
-  var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
-  if (inDevDep) {
-    v = packageJson.old.devDependencies[key].slice(-5)
-  }
-  if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
-}
-
-function findItOlder(framework, packageJson, o) {
-  var v = ''
-  var key = ''
-  key = '@extjs/reactor-webpack-plugin'
-
-  var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
-  if (inDep) {
-    v = packageJson.old.dependencies[key].slice(-5)
-  }
-  var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
-  if (inDevDep) {
-    v = packageJson.old.devDependencies[key].slice(-5)
-  }
-  if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
-}
-
 var rootDir
 var backupDir
 var upgradeDir
 
-function setAndArchive(o, name, root, template) {
-  o.name = name
-  o.root = path.join(rootDir, root, o.name)
-  o.backup = path.join(backupDir, o.name)
-  o.template = template
-
-  if (!fs.existsSync(o.root)){
-//    console.log(`${boldRed('Error: ' + o.root.replace(process.cwd(), '') + ' does not exist')}`)
-    console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
-    return
-  }
-  else {
-    fs.copySync(o.root, o.backup)
-    console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
-//    console.log(`${boldGreen('Archived ' + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))}`)
-  }
-}
+upgrade()
 
 /********** */
 function upgrade() {
+  
   rootDir = path.resolve(process.cwd())
   backupDir = path.resolve(rootDir, 'extBackup')
   upgradeDir = path.resolve(__dirname, 'upgradeTemplates')
@@ -107,13 +43,20 @@ function upgrade() {
     foundVersion: '',
     foundKey: ''
   }
+
   findIt('extjs', packageJson, o)
   findIt('react', packageJson, o)
   findIt('angular', packageJson, o)
   findIt('components', packageJson, o)
-  findItOlder('react', packageJson, o)
+  findIt('reactor', packageJson, o)
 
-  console.log(boldGreen('Upgrading') + ' version ' + o.foundVersion + ' to version 6.7.1')
+  if (o.foundFramework == '') {
+    console.log(boldRed('Error: ') + 'no framework found')
+    fs.removeSync(backupDir); 
+    return
+  }
+
+  console.log(boldGreen('Upgrading ') + o.foundFramework + ': version ' + o.foundVersion + ' to version 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
   packageJson.new = JSON.parse(fs.readFileSync(path.join(frameworkTemplateFolder, 'package.json'), {encoding: 'utf8'}))
@@ -147,6 +90,7 @@ function upgrade() {
       }
       break;
     case 'react':
+    case 'reactor':
       values = {
         framework: 'react',
         contextFolder: './src',
@@ -197,6 +141,27 @@ function upgrade() {
       }
       break;
     case 'components':
+      values = {
+        framework: 'components',
+        contextFolder: './src',
+        entryFile: './app.js',
+        outputFolder: 'build',
+        rules: `[
+          { test: /\.ext-angularrc$/, use: 'raw-loader' },
+          { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+          { test: /\.(html)$/,use: { loader: 'html-loader' } },
+          {
+            test: /\.(css|scss)$/,
+            use: [
+              { loader: 'style-loader' },
+              { loader: 'css-loader' },
+              { loader: 'sass-loader' }
+            ]
+          }
+        ]`,
+        resolve:`{
+        }`
+      }
       break;
   }
 
@@ -285,3 +250,55 @@ function upgrade() {
   console.log("Upgrade Completed, run 'npm install' then 'npm start'")
   return
 }
+
+function setAndArchive(o, name, root, template) {
+  o.name = name
+  o.root = path.join(rootDir, root, o.name)
+  o.backup = path.join(backupDir, o.name)
+  o.template = template
+
+  if (!fs.existsSync(o.root)){
+    console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
+    return
+  }
+  else {
+    fs.copySync(o.root, o.backup)
+    console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
+  }
+}
+
+function findIt(framework, packageJson, o) {
+  var v = ''
+  var key = ''
+  if (framework == 'extjs') {
+    key = '@sencha/ext-webpack-plugin'
+  }
+  else if (framework == 'reactor') {
+    key = '@extjs/reactor-webpack-plugin'
+  } 
+  else{
+    key = '@sencha/ext-' + framework + '-webpack-plugin'
+  }
+  var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
+  if (inDep) {
+    v = packageJson.old.dependencies[key].slice(-5)
+  }
+  var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
+  if (inDevDep) {
+    v = packageJson.old.devDependencies[key].slice(-5)
+  }
+  if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
+}
+
+
+function boldGreen (s) {
+  var boldgreencolor = `\x1b[32m\x1b[1m`
+  var endMarker = `\x1b[0m`
+  return (`${boldgreencolor}${s}${endMarker}`)
+}
+function boldRed (s) {
+  var boldredcolor = `\x1b[31m\x1b[1m`
+  var endMarker = `\x1b[0m`
+  return (`${boldredcolor}${s}${endMarker}`)
+}
+
