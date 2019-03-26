@@ -52,9 +52,9 @@ function findItOlder(framework, packageJson, o) {
   if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
 }
 
-var rootDir = path.resolve(process.cwd())
-var backupDir = path.resolve(rootDir, 'extBackup')
-var upgradeDir = path.resolve(__dirname, 'upgradeTemplates')
+var rootDir
+var backupDir
+var upgradeDir
 
 function setAndArchive(o, name) {
   o.name = name
@@ -73,6 +73,10 @@ function setAndArchive(o, name) {
 
 
 function upgrade() {
+  rootDir = path.resolve(process.cwd())
+  backupDir = path.resolve(rootDir, 'extBackup')
+  upgradeDir = path.resolve(__dirname, 'upgradeTemplates')
+
   if (fs.existsSync(backupDir)){
     console.log(`${boldRed('Error: backup folder ' + backupDir.replace(process.cwd(), '') + ' exists')}`)
     return
@@ -206,9 +210,24 @@ function upgrade() {
 
 
   const replace = require('replace-in-file');
-  const options = {
-    files: path.join(rootDir, 'src'),
-    from: '@extjs/ext-react',
+  const options = {}
+  options = {
+    files: path.join(rootDir, 'src/**/*.js'),
+    from: /\@extjs\/ext-react/g,
+    to: '@sencha/ext-react',
+  };
+  try {
+    const changes = replace.sync(options);
+    console.dir(changes)
+    console.log('Modified files:', changes.join(', '));
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+  }
+
+  options = {
+    files: path.join(rootDir, 'src/**/*.js'),
+    from: /\@extjs\/reactor/g,
     to: '@sencha/ext-react',
   };
   try {
@@ -219,19 +238,31 @@ function upgrade() {
     console.error('Error occurred:', error);
   }
 
-  const options2 = {
-    files: path.join(rootDir, 'src'),
-    from: '@extjs/reactor',
-    to: '@sencha/ext-react',
+  options = {
+    files: path.join(rootDir, 'src/**/*.js'),
+    from: /\<Transition.*\\\>/g,
+    to: '',
   };
   try {
-    const changes = replace.sync(options2);
+    const changes = replace.sync(options);
     console.log('Modified files:', changes.join(', '));
   }
   catch (error) {
     console.error('Error occurred:', error);
   }
 
+  options = {
+    files: path.join(rootDir, 'src/**/*.js'),
+    from: /\<\/Transition\>/g,
+    to: '',
+  };
+  try {
+    const changes = replace.sync(options);
+    console.log('Modified files:', changes.join(', '));
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+  }
 
 
 
