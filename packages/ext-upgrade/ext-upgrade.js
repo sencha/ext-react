@@ -202,6 +202,24 @@ function upgrade() {
 
   options = {
     files: path.join(rootDir, 'src/**/*.js'),
+    from: /\@extjs\/ext-react\/modern/g,
+    to: '@sencha/ext-react',
+  };
+  try {
+    const changes = replace.sync(options);
+    if (changes.length > 0) {
+      console.log('Modified these files containing: ' + '@extjs/ext-react/modern' + ' to @sencha/ext-react');
+      console.dir(changes)
+    }
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+  }
+
+
+
+  options = {
+    files: path.join(rootDir, 'src/**/*.js'),
     from: /\@extjs\/reactor/g,
     to: '@sencha/ext-react',
   };
@@ -250,6 +268,7 @@ function upgrade() {
   console.log("Upgrade Completed, run 'npm install' then 'npm start'")
   return
 }
+/***** */
 
 function setAndArchive(o, name, root, template) {
   o.name = name
