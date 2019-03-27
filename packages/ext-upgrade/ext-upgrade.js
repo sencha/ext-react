@@ -31,11 +31,11 @@ function upgrade() {
   var indexjs = {}
   var themerjs = {}
 
-  setAndArchive(packageJson, 'package.json', './', '')
-  setAndArchive(webpackConfigJs, 'webpack.config.js', './', 'webpack.config.js.tpl.default')
-  setAndArchive(babelrc, '.babelrc', './', '')
-  setAndArchive(indexjs, 'index.js', './src', '')
-  setAndArchive(themerjs, 'themer.js', './src', '')
+  set(packageJson, 'package.json', './', '')
+  set(webpackConfigJs, 'webpack.config.js', './', 'webpack.config.js.tpl.default')
+  set(babelrc, '.babelrc', './', '')
+  set(indexjs, 'index.js', './src', '')
+  set(themerjs, 'themer.js', './src', '')
 
   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
@@ -56,10 +56,16 @@ function upgrade() {
     return
   }
 
-  if (o.foundFramework == '6.7.1') {
-    console.log(boldGreen('Upgrade Not Needed: ') + ' project is already upgraded to version 6.7.1')
+  if (o.foundVersion == '6.7.1') {
+    console.log(boldRed('Upgrade Not Needed: ') + ' project is already upgraded to version 6.7.1')
     return
   }
+
+  archive(packageJson)
+  archive(webpackConfigJs)
+  archive(babelrc)
+  archive(indexjs)
+  archive(themerjs)
 
   console.log(boldGreen('Upgrading ') + o.foundFramework + ': version ' + o.foundVersion + ' to version 6.7.1')
  
@@ -277,20 +283,36 @@ function upgrade() {
 }
 /***** */
 
-function setAndArchive(o, name, root, template) {
+function set(o, name, root, template) {
   o.name = name
   o.root = path.join(rootDir, root, o.name)
   o.backup = path.join(backupDir, o.name)
   o.template = template
 
-  if (!fs.existsSync(o.root)){
-    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
-    return
-  }
-  else {
+  // if (!fs.existsSync(o.root)){
+  //   //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
+  //   return
+  // }
+  // else {
+  //   fs.copySync(o.root, o.backup)
+  //   console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
+  // }
+}
+
+function archive(o) {
+  // o.name = name
+  // o.root = path.join(rootDir, root, o.name)
+  // o.backup = path.join(backupDir, o.name)
+  // o.template = template
+
+//  if (!fs.existsSync(o.root)){
+//    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
+//    return
+//  }
+//  else {
     fs.copySync(o.root, o.backup)
     console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
-  }
+//  }
 }
 
 function findIt(framework, packageJson, o) {
@@ -305,16 +327,24 @@ function findIt(framework, packageJson, o) {
   else{
     key = '@sencha/ext-' + framework + '-webpack-plugin'
   }
-  var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
-  if (inDep) {
-    v = packageJson.old.dependencies[key].slice(-5)
+
+  if (packageJson.old.dependencies != undefined) {
+    var inDep = packageJson.old.dependencies.hasOwnProperty(key) 
+    if (inDep) {
+      v = packageJson.old.dependencies[key].slice(-5)
+    }
   }
-  var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
-  if (inDevDep) {
-    v = packageJson.old.devDependencies[key].slice(-5)
+
+  if (packageJson.old.devDependencies != undefined) {
+    var inDevDep = packageJson.old.devDependencies.hasOwnProperty(key) 
+    if (inDevDep) {
+      v = packageJson.old.devDependencies[key].slice(-5)
+    }
   }
+  
   if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
-}
+  }
+
 
 
 function boldGreen (s) {
