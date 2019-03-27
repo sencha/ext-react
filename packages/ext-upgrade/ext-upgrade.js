@@ -97,92 +97,17 @@ function upgrade() {
   var values = {}
   switch (o.foundFramework) {
     case 'extjs':
-      values = {
-        framework: 'extjs',
-        contextFolder: './',
-        entry: `{
-          main: './app.js'
-        }`,
-        outputFolder: './',
-        rules: `[
-          { test: /.(js|jsx)$/, exclude: /node_modules/ }
-        ]`,
-        resolve:`{
-        }`
-      }
+      values = extjsValues()
       break;
     case 'react':
     case 'reactor':
-      values = {
-        framework: 'react',
-        contextFolder: './src',
-        entry: `{
-          main: './index.js'
-        }`,
-        outputFolder: 'build',
-        rules: `[
-          { test: /\.ext-reactrc$/, use: 'raw-loader' },
-          { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-          { test: /\.(html)$/,use: { loader: 'html-loader' } },
-          {
-            test: /\.(css|scss)$/,
-            use: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'sass-loader' }
-            ]
-          }
-        ]`,
-        resolve:`{
-          alias: {
-            'react-dom': '@hot-loader/react-dom'
-          }
-        }`
-      }
+      values = reactValues()
       break;
     case 'angular':
-      values = {
-        framework: 'angular',
-        contextFolder: './src',
-        entry: `{
-          vendor:  './vendor.ts',
-          polyfills: './polyfills.ts',
-          main: './main.ts'
-        }`,
-        outputFolder: 'build',
-        rules: `[
-          {test: /\.css$/, loader: ['to-string-loader', "style-loader", "css-loader"]},
-          {test: /\.(png|svg|jpg|jpeg|gif)$/, use: ['file-loader']},
-          {test: /\.html$/,loader: "html-loader"},
-          {test: /\.ts$/,  loader: '@ngtools/webpack'}
-        ]`,
-        resolve:`{
-          extensions: ['.ts', '.js', '.html']
-        }`
-      }
+      values = angularValues()
       break;
     case 'components':
-      values = {
-        framework: 'components',
-        contextFolder: './src',
-        entryFile: './app.js',
-        outputFolder: 'build',
-        rules: `[
-          { test: /\.ext-angularrc$/, use: 'raw-loader' },
-          { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-          { test: /\.(html)$/,use: { loader: 'html-loader' } },
-          {
-            test: /\.(css|scss)$/,
-            use: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'sass-loader' }
-            ]
-          }
-        ]`,
-        resolve:`{
-        }`
-      }
+      values = componentsValues()
       break;
   }
 
@@ -212,103 +137,114 @@ function upgrade() {
     fs.copySync(themerjs.upgrade, themerjs.root)
     console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
 
-    const replace = require('replace-in-file');
-    var options = {}
+    // const replace = require('replace-in-file');
+    // var options = {}
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\@extjs\/ext-react/g,
-      to: '@sencha/ext-react',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Modified these files containing: ' + '@extjs/ext-react' + ' to @sencha/ext-react');
-        console.dir(changes)
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
+    //var changes
+    
+    if (replaceIt(/\@extjs\/ext-react/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@extjs\/reactor/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@sencha\/ext-react\/modern/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@sencha\/reactor\/modern/g, '@sencha/ext-react') == -1) {return}
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\@sencha\/ext-react\/modern/g,
-      to: '@sencha/ext-react',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Modified these files containing: ' + '@sencha/ext-react/modern' + ' to @sencha/ext-react');
-        console.dir(changes)
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
+    if (replaceIt(/\<Transition.*\>/g, '') == -1) {return}
+    if (replaceIt(/\<\/Transition\>/g, '') == -1) {return}
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\@sencha\/reactor\/modern/g,
-      to: '@sencha/ext-react',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Modified these files containing: ' + '@sencha/reactor/modern' + ' to @sencha/ext-react');
-        console.dir(changes)
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\@extjs\/reactor/g,
-      to: '@sencha/ext-react',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
-        console.dir(changes)
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\@extjs\/ext-react/g,
+    //   to: '@sencha/ext-react',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Modified these files containing: ' + '@extjs/ext-react' + ' to @sencha/ext-react');
+    //     console.dir(changes)
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\<Transition.*\>/g,
-      to: '',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Removed: ' + '<Transition>');
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\@sencha\/ext-react\/modern/g,
+    //   to: '@sencha/ext-react',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Modified these files containing: ' + '@sencha/ext-react/modern' + ' to @sencha/ext-react');
+    //     console.dir(changes)
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
 
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\@sencha\/reactor\/modern/g,
+    //   to: '@sencha/ext-react',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Modified these files containing: ' + '@sencha/reactor/modern' + ' to @sencha/ext-react');
+    //     console.dir(changes)
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
 
-    options = {
-      files: path.join(rootDir, 'src/**/*.js'),
-      from: /\<\/Transition\>/g,
-      to: '',
-    };
-    try {
-      const changes = replace.sync(options);
-      if (changes.length > 0) {
-        console.log('Removed: ' + '</Transition>');
-      }
-    }
-    catch (error) {
-      console.error('Error occurred:', error);
-    }
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\@extjs\/reactor/g,
+    //   to: '@sencha/ext-react',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
+    //     console.dir(changes)
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
+
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\<Transition.*\>/g,
+    //   to: '',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Removed: ' + '<Transition>');
+
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
+
+    // options = {
+    //   files: path.join(rootDir, 'src/**/*.js'),
+    //   from: /\<\/Transition\>/g,
+    //   to: '',
+    // };
+    // try {
+    //   const changes = replace.sync(options);
+    //   if (changes.length > 0) {
+    //     console.log('Removed: ' + '</Transition>');
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error occurred:', error);
+    // }
   }
 
   console.log("Upgrade Completed, run 'npm install' then 'npm start'")
@@ -363,6 +299,27 @@ function findIt(framework, packageJson, o) {
   if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
 }
 
+function replaceIt(regex, to) {
+  const replace = require('replace-in-file');
+  var options = {
+    files: path.join(rootDir, 'src/**/*.js'),
+    from: regex,
+    to: to,
+  };
+  try {
+    var changes = replace.sync(options);
+    if (changes.length > 0) {
+       console.log('Modified these files containing: ' + regex.toString() + ' to ' + to);
+       console.dir(changes)
+    }
+    return 0
+  }
+  catch (error) {
+    console.error('Error occurred:', error);
+    return -1
+  }
+}
+
 function boldGreen (s) {
   var boldgreencolor = `\x1b[32m\x1b[1m`
   var endMarker = `\x1b[0m`
@@ -372,4 +329,95 @@ function boldRed (s) {
   var boldredcolor = `\x1b[31m\x1b[1m`
   var endMarker = `\x1b[0m`
   return (`${boldredcolor}${s}${endMarker}`)
+}
+
+function angularValues() {
+  return {
+    framework: 'angular',
+    contextFolder: './src',
+    entry: `{
+      vendor:  './vendor.ts',
+      polyfills: './polyfills.ts',
+      main: './main.ts'
+    }`,
+    outputFolder: 'build',
+    rules: `[
+      {test: /\.css$/, loader: ['to-string-loader', "style-loader", "css-loader"]},
+      {test: /\.(png|svg|jpg|jpeg|gif)$/, use: ['file-loader']},
+      {test: /\.html$/,loader: "html-loader"},
+      {test: /\.ts$/,  loader: '@ngtools/webpack'}
+    ]`,
+    resolve:`{
+      extensions: ['.ts', '.js', '.html']
+    }`
+  }
+}
+
+function reactValues() {
+  return {
+    framework: 'react',
+    contextFolder: './src',
+    entry: `{
+      main: './index.js'
+    }`,
+    outputFolder: 'build',
+    rules: `[
+      { test: /\.ext-reactrc$/, use: 'raw-loader' },
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+      { test: /\.(html)$/,use: { loader: 'html-loader' } },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
+      }
+    ]`,
+    resolve:`{
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      }
+    }`
+  }
+}
+
+function extjsValues() {
+  return {
+    framework: 'extjs',
+    contextFolder: './',
+    entry: `{
+      main: './app.js'
+    }`,
+    outputFolder: './',
+    rules: `[
+      { test: /.(js|jsx)$/, exclude: /node_modules/ }
+    ]`,
+    resolve:`{
+    }`
+  }
+}
+
+function componentsValues() {
+  return {
+    framework: 'components',
+    contextFolder: './src',
+    entryFile: './app.js',
+    outputFolder: 'build',
+    rules: `[
+      { test: /\.ext-angularrc$/, use: 'raw-loader' },
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+      { test: /\.(html)$/,use: { loader: 'html-loader' } },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
+      }
+    ]`,
+    resolve:`{
+    }`
+  }
 }
