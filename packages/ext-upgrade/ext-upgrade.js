@@ -137,9 +137,12 @@ function upgrade() {
     fs.copySync(themerjs.upgrade, themerjs.root)
     console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
 
+    if (replaceIt(/\@extjs\/reactor\/modern/g, '@sencha/ext-react') == -1) {return}
     if (replaceIt(/\@sencha\/reactor\/modern/g, '@sencha/ext-react') == -1) {return}
-    if (replaceIt(/\@extjs\/reactor/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@extjs\/ext-react\/modern/g, '@sencha/ext-react') == -1) {return}
     if (replaceIt(/\@sencha\/ext-react\/modern/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@extjs\/reactor/g, '@sencha/ext-react') == -1) {return}
+    if (replaceIt(/\@sencha\/reactor/g, '@sencha/ext-react') == -1) {return}
     if (replaceIt(/\@extjs\/ext-react/g, '@sencha/ext-react') == -1) {return}
 
     if (replaceIt(/\<Transition.*\>/g, '') == -1) {return}
