@@ -324,7 +324,7 @@ function findIt(framework, packageJson, o) {
   else if (framework == 'reactor') {
     key = '@extjs/reactor-webpack-plugin'
   } 
-  else{
+  else {
     key = '@sencha/ext-' + framework + '-webpack-plugin'
   }
 
@@ -341,9 +341,9 @@ function findIt(framework, packageJson, o) {
       v = packageJson.old.devDependencies[key].slice(-5)
     }
   }
-  
+
   if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
-  }
+}
 
 
 
