@@ -52,7 +52,7 @@ function upgrade() {
 
   if (o.foundFramework == '') {
     console.log(boldRed('Error: ') + 'no framework found')
-    fs.removeSync(backupDir); 
+//    fs.removeSync(backupDir); 
     return
   }
 
@@ -344,8 +344,6 @@ function findIt(framework, packageJson, o) {
 
   if (v != '') { o.foundFramework = framework; o.foundVersion = v; o.foundKey = key; }
 }
-
-
 
 function boldGreen (s) {
   var boldgreencolor = `\x1b[32m\x1b[1m`
