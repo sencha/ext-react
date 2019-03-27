@@ -1,12 +1,4 @@
 {
-  "name": "reacta",
-  "version": "0.0.1",
-  "description": "reacta description for ExtReact app reacta",
-  "keywords": [
-    "ExtReact"
-  ],
-  "license": "ISC",
-  "main": "index.js",
   "scripts": {
     "start": "npm run dev",
     "clean": "rimraf build",
@@ -64,23 +56,5 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "setupFiles": [
-      "./node_modules/@sencha/ext-react/jest/setup.js",
-      "./build/ext-react/ext.js"
-    ],
-    "unmockedModulePathPatterns": [
-      "react",
-      "react-dom",
-      "react-addons-test-utils",
-      "enzyme"
-    ]
   }
 }
