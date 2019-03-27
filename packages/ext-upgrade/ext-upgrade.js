@@ -30,12 +30,17 @@ function upgrade() {
   var babelrc = {}
   var indexjs = {}
   var themerjs = {}
+  var themerts = {}
+  var polyfillsts = {}
 
   set(packageJson, 'package.json', './', '')
   set(webpackConfigJs, 'webpack.config.js', './', 'webpack.config.js.tpl.default')
   set(babelrc, '.babelrc', './', '')
   set(indexjs, 'index.js', './src', '')
   set(themerjs, 'themer.js', './src', '')
+  set(themerts, 'themer.ts', './src', '')
+  set(polyfillsts, 'polyfills.ts', './src', '')
+
 
   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
   var o = {
@@ -52,7 +57,6 @@ function upgrade() {
 
   if (o.foundFramework == '') {
     console.log(boldRed('Error: ') + 'no framework found')
-//    fs.removeSync(backupDir); 
     return
   }
 
@@ -66,6 +70,8 @@ function upgrade() {
   archive(babelrc)
   archive(indexjs)
   archive(themerjs)
+  archive(themerts)
+  archive(polyfillsts)
 
   console.log(boldGreen('Upgrading ') + o.foundFramework + ': version ' + o.foundVersion + ' to version 6.7.1')
  
@@ -77,6 +83,9 @@ function upgrade() {
   babelrc.upgrade = path.join(frameworkTemplateFolder, babelrc.name)
   indexjs.upgrade = path.join(frameworkTemplateFolder, indexjs.name)
   themerjs.upgrade = path.join(frameworkTemplateFolder, themerjs.name)
+  themerts.upgrade = path.join(frameworkTemplateFolder, themerts.name)
+  polyfillsts.upgrade = path.join(frameworkTemplateFolder, polyfillsts.name)
+
 
   packageJson.old.scripts = packageJson.new.scripts
   packageJson.old.devDependencies = packageJson.new.devDependencies
@@ -91,7 +100,9 @@ function upgrade() {
       values = {
         framework: 'extjs',
         contextFolder: './',
-        entryFile: './app.js',
+        entry: `{
+          main: './app.js'
+        }`,
         outputFolder: './',
         rules: `[
           { test: /.(js|jsx)$/, exclude: /node_modules/ }
@@ -105,7 +116,9 @@ function upgrade() {
       values = {
         framework: 'react',
         contextFolder: './src',
-        entryFile: './index.js',
+        entry: `{
+          main: './index.js'
+        }`,
         outputFolder: 'build',
         rules: `[
           { test: /\.ext-reactrc$/, use: 'raw-loader' },
@@ -131,7 +144,11 @@ function upgrade() {
       values = {
         framework: 'angular',
         contextFolder: './src',
-        entryFile: './main.ts',
+        entry: `{
+          vendor:  './vendor.ts',
+          polyfills: './polyfills.ts',
+          main: './main.ts'
+        }`,
         outputFolder: 'build',
         rules: `[
           { test: /\.ext-reactrc$/, use: 'raw-loader' },
@@ -183,7 +200,16 @@ function upgrade() {
   fs.writeFileSync(webpackConfigJs.root, t);
   console.log(boldGreen('Updated ') + webpackConfigJs.root.replace(process.cwd(), ''))
 
-  if (o.foundFramework != 'extjs') {
+  if ((o.foundFramework == 'angular') ) {
+    fs.copySync(themerts.upgrade, themerts.root)
+    console.log(boldGreen('Copied ') + themerts.upgrade.replace(__dirname, '') + ' to ' +  themerts.root.replace(process.cwd(), ''))
+
+    fs.copySync(polyfillsts.upgrade, polyfillsts.root)
+    console.log(boldGreen('Copied ') + polyfillsts.upgrade.replace(__dirname, '') + ' to ' +  polyfillsts.root.replace(process.cwd(), ''))
+  }
+
+  if (o.foundFramework == 'react' || o.foundFramework == 'reactor') {
+
     fs.copySync(babelrc.upgrade, babelrc.root)
     console.log(boldGreen('Copied ') + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))
 
@@ -192,9 +218,7 @@ function upgrade() {
 
     fs.copySync(themerjs.upgrade, themerjs.root)
     console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
-  }
 
-  if (o.foundFramework == 'react' || o.foundFramework == 'reactor') {
     const replace = require('replace-in-file');
     var options = {}
 
@@ -288,25 +312,10 @@ function set(o, name, root, template) {
   o.root = path.join(rootDir, root, o.name)
   o.backup = path.join(backupDir, o.name)
   o.template = template
-
-  // if (!fs.existsSync(o.root)){
-  //   //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
-  //   return
-  // }
-  // else {
-  //   fs.copySync(o.root, o.backup)
-  //   console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
-  // }
 }
 
 function archive(o) {
-  // o.name = name
-  // o.root = path.join(rootDir, root, o.name)
-  // o.backup = path.join(backupDir, o.name)
-  // o.template = template
-
   if (!fs.existsSync(o.root)){
-    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
     return
   }
   else {
@@ -355,4 +364,3 @@ function boldRed (s) {
   var endMarker = `\x1b[0m`
   return (`${boldredcolor}${s}${endMarker}`)
 }
-
