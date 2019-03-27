@@ -172,97 +172,99 @@ function upgrade() {
   fs.writeFileSync(webpackConfigJs.root, t);
   console.log(boldGreen('Updated ') + webpackConfigJs.root.replace(process.cwd(), ''))
 
-  fs.copySync(babelrc.upgrade, babelrc.root)
-  console.log(boldGreen('Copied ') + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))
+  if (o.foundFramework != 'extjs') {
+    fs.copySync(babelrc.upgrade, babelrc.root)
+    console.log(boldGreen('Copied ') + babelrc.upgrade.replace(__dirname, '') + ' to ' +  babelrc.root.replace(process.cwd(), ''))
 
-  fs.copySync(indexjs.upgrade, indexjs.root)
-  console.log(boldGreen('Copied ') + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))
+    fs.copySync(indexjs.upgrade, indexjs.root)
+    console.log(boldGreen('Copied ') + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))
 
-  fs.copySync(themerjs.upgrade, themerjs.root)
-  console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
+    fs.copySync(themerjs.upgrade, themerjs.root)
+    console.log(boldGreen('Copied ') + themerjs.upgrade.replace(__dirname, '') + ' to ' +  themerjs.root.replace(process.cwd(), ''))
+  }
 
-  const replace = require('replace-in-file');
-  var options = {}
+  if (o.foundFramework == 'react' || o.foundFramework == 'reactor') {
+    const replace = require('replace-in-file');
+    var options = {}
 
-  options = {
-    files: path.join(rootDir, 'src/**/*.js'),
-    from: /\@extjs\/ext-react/g,
-    to: '@sencha/ext-react',
-  };
-  try {
-    const changes = replace.sync(options);
-    if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@extjs/ext-react' + ' to @sencha/ext-react');
-      console.dir(changes)
+    options = {
+      files: path.join(rootDir, 'src/**/*.js'),
+      from: /\@extjs\/ext-react/g,
+      to: '@sencha/ext-react',
+    };
+    try {
+      const changes = replace.sync(options);
+      if (changes.length > 0) {
+        console.log('Modified these files containing: ' + '@extjs/ext-react' + ' to @sencha/ext-react');
+        console.dir(changes)
+      }
     }
-  }
-  catch (error) {
-    console.error('Error occurred:', error);
-  }
-
-  options = {
-    files: path.join(rootDir, 'src/**/*.js'),
-    from: /\@sencha\/ext-react\/modern/g,
-    to: '@sencha/ext-react',
-  };
-  try {
-    const changes = replace.sync(options);
-    if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@sencha/ext-react/modern' + ' to @sencha/ext-react');
-      console.dir(changes)
+    catch (error) {
+      console.error('Error occurred:', error);
     }
-  }
-  catch (error) {
-    console.error('Error occurred:', error);
-  }
 
-
-
-  options = {
-    files: path.join(rootDir, 'src/**/*.js'),
-    from: /\@extjs\/reactor/g,
-    to: '@sencha/ext-react',
-  };
-  try {
-    const changes = replace.sync(options);
-    if (changes.length > 0) {
-      console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
-      console.dir(changes)
+    options = {
+      files: path.join(rootDir, 'src/**/*.js'),
+      from: /\@sencha\/ext-react\/modern/g,
+      to: '@sencha/ext-react',
+    };
+    try {
+      const changes = replace.sync(options);
+      if (changes.length > 0) {
+        console.log('Modified these files containing: ' + '@sencha/ext-react/modern' + ' to @sencha/ext-react');
+        console.dir(changes)
+      }
     }
-  }
-  catch (error) {
-    console.error('Error occurred:', error);
-  }
-
-  options = {
-    files: path.join(rootDir, 'src/**/*.js'),
-    from: /\<Transition.*\>/g,
-    to: '',
-  };
-  try {
-    const changes = replace.sync(options);
-    if (changes.length > 0) {
-      console.log('Removed: ' + '<Transition>');
-
+    catch (error) {
+      console.error('Error occurred:', error);
     }
-  }
-  catch (error) {
-    console.error('Error occurred:', error);
-  }
 
-  options = {
-    files: path.join(rootDir, 'src/**/*.js'),
-    from: /\<\/Transition\>/g,
-    to: '',
-  };
-  try {
-    const changes = replace.sync(options);
-    if (changes.length > 0) {
-      console.log('Removed: ' + '</Transition>');
+    options = {
+      files: path.join(rootDir, 'src/**/*.js'),
+      from: /\@extjs\/reactor/g,
+      to: '@sencha/ext-react',
+    };
+    try {
+      const changes = replace.sync(options);
+      if (changes.length > 0) {
+        console.log('Modified these files containing: ' + '@extjs/reactor' + ' to @sencha/ext-react');
+        console.dir(changes)
+      }
     }
-  }
-  catch (error) {
-    console.error('Error occurred:', error);
+    catch (error) {
+      console.error('Error occurred:', error);
+    }
+
+    options = {
+      files: path.join(rootDir, 'src/**/*.js'),
+      from: /\<Transition.*\>/g,
+      to: '',
+    };
+    try {
+      const changes = replace.sync(options);
+      if (changes.length > 0) {
+        console.log('Removed: ' + '<Transition>');
+
+      }
+    }
+    catch (error) {
+      console.error('Error occurred:', error);
+    }
+
+    options = {
+      files: path.join(rootDir, 'src/**/*.js'),
+      from: /\<\/Transition\>/g,
+      to: '',
+    };
+    try {
+      const changes = replace.sync(options);
+      if (changes.length > 0) {
+        console.log('Removed: ' + '</Transition>');
+      }
+    }
+    catch (error) {
+      console.error('Error occurred:', error);
+    }
   }
 
   console.log("Upgrade Completed, run 'npm install' then 'npm start'")

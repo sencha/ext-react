@@ -16,8 +16,6 @@
   "dependencies": {
     "@sencha/ext-modern": "~6.7.0",
     "@sencha/ext-modern-theme-material": "~6.7.0",
-    "@sencha/ext-modern-theme-ios": "~6.7.0",
-    "@sencha/ext-font-ios": "~6.7.0",
     "@sencha/ext": "~6.7.0"
   },
   "devDependencies": {
