@@ -151,17 +151,10 @@ function upgrade() {
         }`,
         outputFolder: 'build',
         rules: `[
-          { test: /\.ext-reactrc$/, use: 'raw-loader' },
-          { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-          { test: /\.(html)$/,use: { loader: 'html-loader' } },
-          {
-            test: /\.(css|scss)$/,
-            use: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'sass-loader' }
-            ]
-          }
+          {test: /\.css$/, loader: ['to-string-loader', "style-loader", "css-loader"]},
+          {test: /\.(png|svg|jpg|jpeg|gif)$/, use: ['file-loader']},
+          {test: /\.html$/,loader: "html-loader"},
+          {test: /\.ts$/,  loader: '@ngtools/webpack'}
         ]`,
         resolve:`{
           extensions: ['.ts', '.js', '.html']

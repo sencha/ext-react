@@ -10,8 +10,8 @@ module.exports = async function (env) {
   //******* */
   var framework     = get('framework',     '{framework}')
   var contextFolder = get('contextFolder', '{contextFolder}')
-  var entry         = get('entry',         '{entry}')
   var outputFolder  = get('outputFolder',  '{outputFolder}')
+  const entry = {entry}
   const rules = {rules}
   const resolve = {resolve}
   //******* */
