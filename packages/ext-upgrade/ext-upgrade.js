@@ -56,6 +56,11 @@ function upgrade() {
     return
   }
 
+  if (o.foundFramework == '6.7.1') {
+    console.log(boldGreen('Upgrade Not Needed: ') + ' project is already upgraded to version 6.7.1')
+    return
+  }
+
   console.log(boldGreen('Upgrading ') + o.foundFramework + ': version ' + o.foundVersion + ' to version 6.7.1')
  
   var frameworkTemplateFolder = path.join(upgradeDir, o.foundFramework)
@@ -279,7 +284,7 @@ function setAndArchive(o, name, root, template) {
   o.template = template
 
   if (!fs.existsSync(o.root)){
-    console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
+    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
     return
   }
   else {
