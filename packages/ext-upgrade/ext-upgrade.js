@@ -141,6 +141,7 @@ function upgrade() {
     if (replaceIt(/\@extjs\/reactor/g, '@sencha/ext-react') == -1) {return}
     if (replaceIt(/\@sencha\/ext-react\/modern/g, '@sencha/ext-react') == -1) {return}
     if (replaceIt(/\@extjs\/ext-react/g, '@sencha/ext-react') == -1) {return}
+
     if (replaceIt(/\<Transition.*\>/g, '') == -1) {return}
     if (replaceIt(/\<\/Transition\>/g, '') == -1) {return}
   }
