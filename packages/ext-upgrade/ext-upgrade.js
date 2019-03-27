@@ -305,14 +305,14 @@ function archive(o) {
   // o.backup = path.join(backupDir, o.name)
   // o.template = template
 
-//  if (!fs.existsSync(o.root)){
-//    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
-//    return
-//  }
-//  else {
+  if (!fs.existsSync(o.root)){
+    //console.log(boldGreen('Not Backed up ') + o.root.replace(process.cwd(), '') + ' does not exist ')
+    return
+  }
+  else {
     fs.copySync(o.root, o.backup)
     console.log(boldGreen('Backed up ') + o.root.replace(process.cwd(), '') + ' to ' +  o.backup.replace(process.cwd(), ''))
-//  }
+  }
 }
 
 function findIt(framework, packageJson, o) {
