@@ -297,7 +297,7 @@ function extjsValues() {
     framework: 'extjs',
     contextFolder: './',
     entry: `{
-      main: './app.js'
+      main: './index.js'
     }`,
     outputFolder: './',
     rules: `[
