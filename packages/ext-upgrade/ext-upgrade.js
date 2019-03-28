@@ -118,6 +118,14 @@ function upgrade() {
   fs.writeFileSync(webpackConfigJs.root, t);
   console.log(boldGreen('Updated ') + webpackConfigJs.root.replace(process.cwd(), ''))
 
+  if ((o.foundFramework == 'extjs') ) {
+    fs.copySync(indexjs.upgrade, indexjs.root)
+    console.log(boldGreen('Copied ') + indexjs.upgrade.replace(__dirname, '') + ' to ' +  indexjs.root.replace(process.cwd(), ''))
+  }
+
+  if ((o.foundFramework == 'components') ) {
+  }
+
   if ((o.foundFramework == 'angular') ) {
     fs.copySync(themerts.upgrade, themerts.root)
     console.log(boldGreen('Copied ') + themerts.upgrade.replace(__dirname, '') + ' to ' +  themerts.root.replace(process.cwd(), ''))
