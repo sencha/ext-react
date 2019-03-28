@@ -2,16 +2,16 @@
   "scripts": {
     "start": "cross-env-shell npm run dev",
     "clean": "rimraf build",
-    "dev": "webpack-dev-server --env.browser='yes' --env.verbose='no'",
-    "desktop": "webpack-dev-server --env.profile='desktop'",
-    "phone": "webpack-dev-server --env.profile='phone'",
-    "build": "npm run clean && cross-env webpack --env.environment='production' --env.treeshake='yes'",
+    "dev": "webpack-dev-server --env.browser=yes --env.verbose=no",
+    "desktop": "webpack-dev-server --env.profile=desktop",
+    "phone": "webpack-dev-server --env.profile=phone",
+    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes",
 
     "build-desktop-testing": "npx sencha app build desktop testing",
     "build-desktop-production": "npx sencha app build desktop production",
     "build-phone-testing": "npx sencha app build phone testing",
     "build-phone-production": "npx sencha app build phone production",
-    "createview": "cross-env-shell npx sencha generate viewpackage $npm_package_extbuild_defaultprofile $VIEW"
+    "createview": "cross-env-shell npx sencha generate viewpackage desktop $VIEW"
   },
   "dependencies": {
     "@sencha/ext-modern": "~6.7.0",
