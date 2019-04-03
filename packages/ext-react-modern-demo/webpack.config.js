@@ -29,6 +29,7 @@ module.exports = function (env) {
         toolkit: 'modern',
         theme: 'theme-material',
         packages: [
+          'renderercell'
         ],
         script: '',
         emit: 'yes',
