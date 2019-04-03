@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from './Layout';
 import { Router, Route } from 'react-router-dom'
 
+
 import createHistory from 'history/createHashHistory'
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
