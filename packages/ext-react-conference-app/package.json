@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-conference-app",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "A full example app using ExtReact and Redux.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --env.verbose=no --env.environment=development",
     "prod": "webpack-dev-server --env.verbose=no --env.environment=production",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.watch=no --env.verbose=yes"
+    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=true"
   },
   "extbuild": {
     "defaultprofile": "",
@@ -26,28 +26,32 @@
   },
   "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.2.0",
     "@sencha/ext": "^6.7.0",
-    "@sencha/ext-calendar": "^6.7.0",
-    "@sencha/ext-d3": "^6.7.0",
     "@sencha/ext-modern": "^6.7.0",
     "@sencha/ext-modern-theme-material": "^6.7.0",
     "@sencha/ext-modern-treegrid": "^6.7.0",
-    "@sencha/ext-react": "^6.7.0",
-    "@sencha/ext-react-renderercell": "^6.7.0",
-    "@sencha/ext-react-transition": "^6.7.0",
+
+    "@sencha/ext-calendar": "^6.7.0",
+    "@sencha/ext-d3": "^6.7.0",
+
+    "@sencha/ext-react": "^6.7.1",
+    "@sencha/ext-react-renderercell": "^6.7.1",
+    "@sencha/ext-react-transition": "^6.7.1",
+
+    "react": "~16.8.1",
+    "react-dom": "~16.8.1",
+    "react-redux": "5.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+
     "d3": "^5.4.0",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-router-redux": "^5.0.0-alpha.6",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "topojson-client": "^3.0.0"
+    "topojson-client": "^3.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -64,18 +68,25 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@sencha/ext-react-babel-plugin": "^6.7.0",
-    "@sencha/ext-react-webpack-plugin": "^6.7.0",
+    "@sencha/ext-react-webpack-plugin": "~6.7.1",
     "babel-loader": "^8.0.2",
-    "copy-webpack-plugin": "^4.5.2",
+
     "cross-env": "^5.2.0",
-    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
     "portfinder": "^1.0.20",
-    "react-hot-loader": "^4.6.2",
-    "rimraf": "^2.6.2",
+
+    "html-webpack-plugin": "^3.2.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "webpack-shell-plugin-next": "^0.6.4",
+    "webpack-shell-plugin": "^0.5.0",
+    "css-loader": "^2.1.0",
+    "react-hot-loader": "^4.6.5",
+
+    "style-loader": "^0.23.1",
     "static-server": "~2.2.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-shell-plugin": "^0.5.0"
+
+    "webpack": "^4.29.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
   }
 }

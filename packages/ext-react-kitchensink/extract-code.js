@@ -39,11 +39,19 @@ function extractFrom(example, file, fullPath) {
 }
 
 function run() {
-  const outputDir = path.join(__dirname, 'build', 'resources')
+  var outputDir = path.join(__dirname, 'build', 'resources')
   extractAll(examples)
   mkdirp(outputDir)
   fs.writeFileSync(path.join(outputDir, 'code.js'), `window._code = ${JSON.stringify(result, null, '\t')}`, 'utf8')
-  //console.log('wrote code.js')
+
+  var chalk = require('chalk')
+  var prefix = ``
+  var platform = require('os').platform()
+  if (platform == 'darwin') { prefix = `ℹ ｢ext｣:` }
+  else { prefix = `i [ext]:` }
+  var val = `${chalk.green(prefix)} `
+  outputDir = outputDir.replace(process.cwd(), '').trim()
+  console.log(val + 'Writing code.js to ' + outputDir)
 }
 
 run()

@@ -28,7 +28,7 @@ var t = <div style={styles.tooltipHeader}>&lt;Indicator tapMode="direction" /&gt
                         height: 350,
                         width: 550
                     }
-                }}            
+                }}
             >
 
 

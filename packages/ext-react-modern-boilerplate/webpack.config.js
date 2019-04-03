@@ -1,98 +1,100 @@
-const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
 const portfinder = require('portfinder')
-const sourcePath = path.join(__dirname, './src')
 
 module.exports = function (env) {
-  var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
-  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
-  var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
-  if (buildprofile == 'all') { buildprofile = '' }
-  const isProd = buildenvironment === 'production'
+  function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
-  portfinder.basePort = (env && env.port) || 1962; // the default port to use
+  //******* */
+  var framework     = get('framework',     'react')
+  var contextFolder = get('contextFolder', './src')
+  var entryFile     = get('entryFile',     './index.js')
+  var outputFolder  = get('outputFolder',  'build')
+  const rules = [
+    { test: /\.ext-reactrc$/, use: 'raw-loader' },
+    { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+    { test: /\.(html)$/,use: { loader: 'html-loader' } },
+    {
+      test: /\.(css|scss)$/,
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader' },
+        { loader: 'sass-loader' }
+      ]
+    }
+  ]
+  const resolve = {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
+  //******* */
+
+  var toolkit       = get('toolkit',       'modern')
+  var theme         = get('theme',         'theme-material')
+  var packages      = get('packages',      ['treegrid'])
+  var script        = get('script',        '')
+  var emit          = get('emit',          'yes')
+  var profile       = get('profile',       '')
+  var environment   = get('environment',   'development')
+  var treeshake     = get('treeshake',     'no')
+  var browser       = get('browser',       'yes')
+  var watch         = get('watch',         'yes')
+  var verbose       = get('verbose',       'no')
+  var basehref      = get('basehref',      '/')
+
+  const isProd = environment === 'production'
+  portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
-      new HtmlWebpackPlugin({
-        template: 'index.html',
-        hash: true
-      }), 
+      new HtmlWebpackPlugin({ template: "index.html", hash: true, inject: "body" }),
+      new BaseHrefWebpackPlugin({ baseHref: basehref }),
       new ExtWebpackPlugin({
-        framework: 'react',
+        framework: framework,
+        toolkit: toolkit,
+        theme: theme,
+        packages: packages,
+        script: script,
+        emit: emit,
         port: port,
-        profile: buildprofile, 
-        environment: buildenvironment, 
-        verbose: buildverbose
+        profile: profile, 
+        environment: environment,
+        treeshake: treeshake,
+        browser: browser,
+        watch: watch,
+        verbose: verbose
       })
     ]
-    if (!isProd) {
-      plugins.push(
-        new webpack.HotModuleReplacementPlugin()
-      )
-    }
     return {
-      mode: 'development',
-      cache: true,
-      devtool: isProd ? 'source-map' : 'cheap-module-source-map',
-      context: sourcePath,
-      entry: {
-        'app': ['./index.js']
-      },
+      mode: environment,
+      devtool: (environment === 'development') ? 'inline-source-map' : false,
+      context: path.join(__dirname, contextFolder),
+      entry: entryFile,
       output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: '[name].js'
+        path: path.join(__dirname, outputFolder),
+        filename: "[name].js"
       },
+      plugins: plugins,
       module: {
-        rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: [
-              'babel-loader'
-            ]
-          },
-          {
-            test: /\.css$/,
-            use: [
-                'style-loader', 
-                'css-loader'
-            ]
-          }
-        ]
+        rules: rules
       },
-      resolve: {
-        // The following is only needed when running this boilerplate within the ext-react repo.  You can remove this from your own projects.
-        alias: {
-          "react-dom": path.resolve('./node_modules/react-dom'),
-          "react": path.resolve('./node_modules/react')
-        }
-      },
-      plugins,
+      resolve: resolve,
+      performance: { hints: false },
+      stats: 'none',
+      optimization: { noEmitOnErrors: true },
+      node: false,
       devServer: {
-        contentBase: './build',
+        contentBase: outputFolder,
+        hot: !isProd,
         historyApiFallback: true,
-        hot: false,
         host: '0.0.0.0',
         port: port,
         disableHostCheck: false,
         compress: isProd,
-        inline: !isProd,
-        stats: {
-          assets: false,
-          children: false,
-          chunks: false,
-          hash: false,
-          modules: false,
-          publicPath: false,
-          timings: false,
-          version: false,
-          warnings: false,
-          colors: {
-            green: '\u001b[32m'
-          }
-        }
+        inline:!isProd,
+        stats: 'none'
       }
     }
   })

@@ -13,7 +13,7 @@ export function render(component, target) {
 import { settings } from './reactify';
 export { reactify };
 export function l(name, val, val2, val3, val4) {
-  //settings.debug = true
+  //  settings.debug = true
   if (settings.debug) {
     console.group(name);
 
@@ -68,7 +68,7 @@ export function go(_ref) {
           //var m = React.Children.map(rootElement, null)
           //var o1 = React.Children.only(e1)
 
-          var theElements = React.createElement(ExtReact, null, appElement.concat()); //var theElements = React.createElement(ExtReact,null,React.createElement(element,null,null))
+          var theElements = React.createElement(ExtReact, null, [].concat(appElement)); //var theElements = React.createElement(ExtReact,null,React.createElement(element,null,null))
           //var theElements = React.createElement(element)
 
           callback(theElements, target);

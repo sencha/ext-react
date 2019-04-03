@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const semver = require("semver")
 const util = require('./util.js')
 const path = require('path')
 const fs = require('fs-extra')
@@ -78,7 +79,58 @@ var config = {}
 var cmdLine = {}
 stepStart()
 
+function upgrade() {
+  if (process.argv[2] != 'upgrade') {
+    return 'continue';
+  }
+  var packageJson = {}
+  var webpackConfigJs = {}
+
+  packageJson.name = 'package.json'
+  webpackConfigJs.name = 'webpack.config.js'
+
+  var rootDir = path.resolve(process.cwd())
+  var backupDir = path.resolve(rootDir, 'extBackup')
+  var upgradeDir = path.resolve(__dirname, 'extUpgrade')
+
+  packageJson.root = path.join(rootDir, packageJson.name)
+  packageJson.backup = path.join(backupDir, packageJson.name)
+  packageJson.upgrade = path.join(upgradeDir, packageJson.name)
+
+  if (fs.existsSync(backupDir)){
+    console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
+    return 'end'
+  }
+
+  console.log(rootDir)
+  console.log(backupDir)
+  console.log(upgradeDir)
+
+  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
+  packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
+
+  fs.mkdirSync(backupDir)
+  console.log(`${boldGreen('Created ' + backupDir)}`)
+  fs.copySync(packageJson.root, packageJson.backup)
+  console.log(`${boldGreen('Copied ' +packageJson.root + ' to ' +  packageJson.backup)}`)
+  packageJson.old.scripts = packageJson.new.scripts
+  packageJson.old.devDependencies = packageJson.new.devDependencies
+  packageJson.old.dependencies = packageJson.old.dependencies
+  packageJson.old.extDefults = null
+  fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
+
+  console.log('upgrade completed')
+  return 'end'
+}
+
 function stepStart() {
+
+  var rc = upgrade()
+  if (rc == 'end') {
+    return
+  }
+  console.log('not an upgrade')
+
   var nodeDir = path.resolve(__dirname)
   var pkg = (fs.existsSync(nodeDir + '/package.json') && JSON.parse(fs.readFileSync(nodeDir + '/package.json', 'utf-8')) || {});
   version = pkg.version
@@ -294,8 +346,14 @@ function stepVersion() {
     message: 'What version is your ExtReact application?',
     default: config.version
   }).run().then(answer => { 
-    answers['version'] = answer
-    stepDescription()
+    if (semver.valid(answer) == null) {
+      console.log('version is not a valid format, must be 0.0.0')
+      stepVersion()
+    }
+    else {
+      answers['version'] = answer
+      stepDescription()
+    }
   })
 }
 
@@ -419,12 +477,17 @@ async function stepCreate() {
   console.log(`${app} ${destDir} created`)
 
   var boilerplate = ''
-    if (answers['language'] == LANGUAGE.TYPESCRIPT) {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
+  if (answers['language'] == LANGUAGE.TYPESCRIPT) {
+    //boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
+    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-typesxcript-boilerplate')
+
   }
   else {
-    boilerplate = path.dirname(require.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
+    //boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-boilerplate'))
+    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-boilerplate')
+
   }
+  console.log(`${app} boilerplate: ${boilerplate}`)
 
   // copy in files from boilerplate
   glob.sync('**/*', { cwd: boilerplate, ignore: ['build/**', 'node_modules/**', 'index.js'], dot: true })
@@ -439,9 +502,9 @@ async function stepCreate() {
     }))
   answers['theme'] = `theme-${answers['theme']}`;
 
-  const theme = path.join('ext-react', 'packages', 'custom-ext-react-theme', 'package.json');
-  const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['theme'])
-  fs.writeFileSync(theme, themePackageJson, 'utf8');
+  //const theme = path.join('ext-react', 'packages', 'custom-ext-react-theme', 'package.json');
+  //const themePackageJson = fs.readFileSync(theme, 'utf8').replace('theme-material', answers['theme'])
+  //fs.writeFileSync(theme, themePackageJson, 'utf8');
 
   const packageInfo = {};
   Object.assign(packageInfo, {name: answers['packageName']})
@@ -457,13 +520,16 @@ async function stepCreate() {
   if (answers['author']) packageInfo.author = answers['author']
   if (answers['license']) packageInfo.license = answers['license']
 
-  Object.assign(packageInfo, pick(fs.readJsonSync('package.json'), 'main', 'scripts', 'dependencies', 'devDependencies', 'jest'));
+  var packageJson = path.join(destDir, 'package.json')
+  //console.log(`${app} package.json: ${destDir}/package.json`)
+
+  Object.assign(packageInfo, pick(fs.readJsonSync(packageJson), 'main', 'scripts', 'dependencies', 'devDependencies', 'jest'));
   if (answers['theme'] !== 'theme-material') {
     packageInfo.dependencies[`@sencha/ext-modern-${answers['theme']}`] = packageInfo.dependencies['@sencha/ext-modern-theme-material'];
   }
 
   let packageInfoString = JSON.stringify(packageInfo,null,2)
-  fs.writeFileSync('package.json', packageInfoString)  
+  fs.writeFileSync(packageJson, packageInfoString)  
 
   const indexHtml = path.join('src', 'index.html');
   fs.writeFileSync(indexHtml, fs.readFileSync(indexHtml, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8')

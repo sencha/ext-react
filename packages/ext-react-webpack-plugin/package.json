@@ -1,42 +1,43 @@
 {
   "name": "@sencha/ext-react-webpack-plugin",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
   "main": "dist/index.js",
   "scripts": {
-    "watch": "babel ./src --out-dir ./dist --watch --source-maps",
-    "build": "babel ./src --out-dir ./dist",
+    "watch": "npx babel ./src --out-dir ./dist --watch --source-maps",
+    "build": "npx babel ./src --out-dir ./dist",
     "prepublish": "npm run build",
     "test": "mocha"
   },
   "dependencies": {
-    "@babel/generator": "^7.2.0",
-    "@babel/polyfill": "^7.0.0",
-    "@sencha/cmd": "~6.6.0",
+    "@babel/generator": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+
+    "@sencha/cmd": "~6.7.0",
     "ast-traverse": "^0.1.1",
     "astring": "^1.3.1",
     "babylon": "^6.18.0",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "cjson": "^0.5.0",
     "fs-extra": "^7.0.1",
     "mkdirp": "^0.5.1",
-    "opn": "^5.4.0",
-    "resolve": "^1.9.0",
-    "rimraf": "^2.6.2",
+    "opn": "^5.5.0",
+    "resolve": "^1.10.0",
+    "rimraf": "^2.6.3",
     "schema-utils": "^1.0.0",
     "switchit": "^1.0.8"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-async-to-generator": "^7.2.0",
-    "@babel/plugin-transform-regenerator": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-transform-async-to-generator": "^7.4.0",
+    "@babel/plugin-transform-regenerator": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "babel-plugin-add-module-exports": "^1.0.0",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^6.0.2"
   },
   "babel": {
     "presets": [
@@ -65,6 +66,6 @@
   "license": "MIT",
   "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin",
   "peerDependencies": {
-    "webpack": "^4.17.2"
+    "webpack": "^4.29.6"
   }
 }

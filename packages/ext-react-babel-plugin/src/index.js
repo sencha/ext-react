@@ -29,6 +29,7 @@ var PATTERNS =
 }
 
 module.exports = function(babel) {
+  
   if (fs != undefined && fs != {} && typeof fs.existsSync === 'function') {
     var pkg = (fs.existsSync('package.json') && JSON.parse(fs.readFileSync('package.json', 'utf-8')) || {});
     reactVersionFull = pkg.dependencies.react

@@ -15,7 +15,8 @@ export default class FlexibleSelection extends Component {
             rows: true,
             cells: true,
             columns: true,
-            drag: true
+            drag: true,
+            checkbox: true
         },
         extensible: 'both',
         message: 'No Selection'
@@ -57,8 +58,7 @@ export default class FlexibleSelection extends Component {
                     }}
                     shadow
                     rowNumbers
-                    columnLines
-                >
+                    columnLines>
                     <Column text="Year" dataIndex="year" flex={1} minWidth={75}/>
                     <Column text="Jan" dataIndex="jan" width={75}/>
                     <Column text="Feb" dataIndex="feb" width={75}/>
@@ -73,7 +73,7 @@ export default class FlexibleSelection extends Component {
                     <Column text="Nov" dataIndex="nov" width={75}/>
                     <Column text="Dev" dataIndex="dec" width={75}/>
                     <Panel docked="bottom" bodyPadding={5}>
-                        <Container style={{ fontSize: '14px', fontWeight: 'normal' }} html={message}></Container>
+                      <Container style={{ fontSize: '14px', fontWeight: 'normal' }} html={message}></Container>
                     </Panel>
                 </Grid>
             </Container>
@@ -121,3 +121,25 @@ export default class FlexibleSelection extends Component {
     }
 
 }
+
+
+// columns={[
+//   {text:'Year',dataIndex:'year',minWidth:75,flex:1},
+//   {text:'Jan',dataIndex:'jan',width:75},
+//   {text:'Feb',dataIndex:'feb',width:75},
+//   {text:'Mar',dataIndex:'mar',width:75},
+//   {text:'Apr',dataIndex:'apr',width:75},
+//   {text:'May',dataIndex:'may',width:75},
+//   {text:'Jun',dataIndex:'jun',width:75},
+//   {text:'Jul',dataIndex:'jul',width:75},
+//   {text:'Aug',dataIndex:'aug',width:75},
+//   {text:'Sep',dataIndex:'sep',width:75},
+//   {text:'Oct',dataIndex:'oct',width:75},
+//   {text:'Nov',dataIndex:'nov',width:75},
+//   {text:'Dec',dataIndex:'dec',width:75}
+// ]}
+// >
+
+
+
+

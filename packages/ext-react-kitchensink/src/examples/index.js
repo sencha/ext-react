@@ -336,7 +336,7 @@ const root = {
                 { text: 'Collapsible Panel', component: CollapsiblePanel, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-panel-collapsible' },
                 { text: 'Basic Date Panel', component: BasicDatePanel, layout: 'center', navIcon: 'icon-panel-date' },
                 { text: 'Advanced Date Panel', component: AdvancedDatePanel, layout: 'center', navIcon: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
-                { text: 'Time Panel', component: TimePanel, layout: 'center', navIcon: 'icon-panel-time', hidden: Ext.os.is.Phone },
+                { text: 'Time Panel', component: TimePanel, layout: 'center', navIcon: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
             ]},
             { text: 'Popups', navIcon: 'icon-windows', children: [
                 { text: 'Dialog', component: Dialog, layout: 'center', navIcon: 'icon-basic-dialog' },
@@ -382,7 +382,7 @@ const root = {
                 { text: 'Big Data', component: BigDataGrid, navIcon: 'icon-big-data-grid' },
                 { text: 'Select And Copy', component: SelectAndCopy, navIcon: 'icon-flexible-selection-grid' },
                 { text: 'Reconfigure Grid', component: ReconfigureGrid, navIcon: 'icon-reconfigure-grid' },
-                { text: 'Render Components In Cells', component: RenderComponentsInCells, navIcon: 'icon-grid-tools' },
+                { text: 'Components In Cells', component: RenderComponentsInCells, navIcon: 'icon-grid-tools' },
                 { text: 'Stock Ticker', component: StockTickerGrid, navIcon: 'icon-ticker-grid' }
             ]},
             { text: 'Redux Grid', component: ReduxGrid, navIcon: 'icon-Redux-Grid' }

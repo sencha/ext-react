@@ -1,7 +1,7 @@
 export const buildXML = function(compress, options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION buildXML')
-
+  
   let compression = ''
 
   if (compress) {
@@ -126,13 +126,9 @@ export function createAppJson( theme, packages, toolkit, options, output ) {
 
   const fs = require('fs')
 
-  // overrides: overrides.map(dir => path.resolve(dir)).concat('jsdom-environment.js'),
-  // packages: {
-  //   dir: packageDirs.map(dir => path.resolve(dir))
-  // },
-
+  var isWindows = typeof process != 'undefined' && typeof process.platform != 'undefined' && !!process.platform.match(/^win/);
   var pathDifference = output.substring(process.cwd().length)
-  var numberOfPaths = (pathDifference.split("/").length - 1)
+  var numberOfPaths = pathDifference.split(isWindows ? "\\" : "/").length - 1;
   var nodeModulePath = ''
   for (var i = 0; i < numberOfPaths; i++) { 
     nodeModulePath += "../"
@@ -146,10 +142,15 @@ export function createAppJson( theme, packages, toolkit, options, output ) {
       "overrides",
       "jsdom-environment.js"
     ],
+    // "language": {
+    //   "js": {
+    //     "output": "ES5"
+    //   }
+    // },
     "packages": {
       "dir": [
         nodeModulePath + "node_modules/@sencha",
-        "packages"
+        nodeModulePath + toolkit + "/packages"
       ]
     },
     output: {
@@ -163,6 +164,8 @@ export function createAppJson( theme, packages, toolkit, options, output ) {
 
   // if theme is local add it as an additional package dir
   if (fs.existsSync(theme)) {
+      const path = require('path')
+      const cjson = require('cjson')
       const packageInfo = cjson.load(path.join(theme, 'package.json'));
       config.theme = packageInfo.name;
       config.packages.dir.push(path.resolve(theme));
@@ -183,24 +186,65 @@ export function createWorkspaceJson(options, output) {
   const logv = require('./pluginUtil').logv
   logv(options,'FUNCTION createWorkspaceJson')
 
+  var isWindows = typeof process != 'undefined' && typeof process.platform != 'undefined' && !!process.platform.match(/^win/);
   var pathDifference = output.substring(process.cwd().length)
-  var numberOfPaths = (pathDifference.split("/").length - 1)
+  var numberOfPaths = pathDifference.split(isWindows ? "\\" : "/").length - 1;
   var nodeModulePath = ''
   for (var i = 0; i < numberOfPaths; i++) { 
     nodeModulePath += "../"
   }
 
+  logv(options,'isWindows: ' + isWindows)
+  logv(options,'output: ' + output)
+  logv(options,'pathDifference: ' + pathDifference)
+  logv(options,'numberOfPaths: ' + numberOfPaths)
+  logv(options,'nodeModulePath: ' + nodeModulePath)
+
   const config = {
     "frameworks": {
       "ext": nodeModulePath + "node_modules/@sencha/ext"
     },
+    "build": {
+      "dir": "${workspace.dir}/" + nodeModulePath + "build"
+    },
     "packages": {
       "dir": [
-        "${workspace.dir}" + nodeModulePath + "ext-" + options.framework + "/packages",
-        "${workspace.dir}" + nodeModulePath + "node_modules/@sencha"
+        "${workspace.dir}/" + nodeModulePath + "ext-" + options.framework + "/packages/local",
+        "${workspace.dir}/" + nodeModulePath + "ext-" + options.framework + "/packages",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-base",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-ios",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-material",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-aria",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-neutral",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-classic",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-gray",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-crisp",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-crisp-touch",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-neptune",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-neptune-touch",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-triton",
+        "${workspace.dir}/" + nodeModulePath + "node_modules/@sencha/ext-${toolkit.name}-theme-graphite"
       ],
-      "extract": "${workspace.dir}/packages/remote"
+      "extract": "${workspace.dir}/" + nodeModulePath + "packages/remote"
     }
   }
   return JSON.stringify(config, null, 2)
+}
+
+export const extAngularModule = function(imports, exports, declarations) {
+  return `
+  import { NgModule } from '@angular/core';
+  ${imports}
+  @NgModule({
+    imports: [
+    ],
+    declarations: [
+  ${declarations}  ],
+    exports: [
+  ${exports}  ]
+  })
+  export class ExtAngularModule { }
+  `
 }

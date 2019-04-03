@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from './Layout';
-//import { HashRouter as Router, Route } from 'react-router-dom' mjg
 import { Router, Route } from 'react-router-dom'
 
 import createHistory from 'history/createHashHistory'
@@ -39,3 +38,4 @@ export default function App() {
     </Provider>
   )
 }
+//https://github.com/gaearon/react-hot-loader/tree/7089062eac273832102c074a368d5af27e23e0b0#webpack-plugin

@@ -9,6 +9,7 @@ rm -r ext-react-froala-example/node_modules
 rm -r ext-react-gen/node_modules
 rm -r ext-react-kitchensink/node_modules
 rm -r ext-react-modern-boilerplate/node_modules
+rm -r ext-react-modern-demo/node_modules
 rm -r ext-react-modern-renderwhenready/node_modules
 rm -r ext-react-modern-typescript-boilerplate/node_modules
 rm -r ext-react-renderercell/node_modules

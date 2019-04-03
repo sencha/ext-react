@@ -34,10 +34,10 @@ export default function ChartToolbar({
     downloadChartRef,
     onStackGroup
 }) {
-    var show = false
+    var show = true
     return (
         <Toolbar docked="top" ui="app-transparent-toolbar" shadow={false} margin={!Ext.os.is.Phone && "0 10"}>
-            { show && theme && (
+            { false && show && theme && (
                 <Button {...toolbarItemDefaults} iconCls="x-fa fa-picture-o" text="Theme" ui="action">
                     <Menu>
                         <MenuItem text="Default" handler={() => onThemeChange('default')} iconCls={theme === 'default' && 'x-font-icon md-icon-done'}/>
@@ -69,13 +69,13 @@ export default function ChartToolbar({
                 <Button ui="action" {...toolbarItemDefaults} iconCls="x-fa fa-refresh" handler={onRefreshClick} text="REFRESH"/>
             )}
             <Spacer/>
-            { show && onStackGroup && (
+            { false && show && onStackGroup && (
                 <SegmentedButton {...toolbarItemDefaults} onToggle={onStackGroup} value={stacked}>
                     <Button iconCls="x-fa fa-bars" text="STACK" />
                     <Button iconCls="x-fa fa-bar-chart" text="GROUP"/>
                 </SegmentedButton>
             )}
-            { show && onToggleZoomOnPan && !Ext.supports.Touch && (
+            { false && show && onToggleZoomOnPan && !Ext.supports.Touch && (
                 <SegmentedButton value={zoom}>
                     <Button iconCls="x-fa fa-arrows" handler={() => onToggleZoomOnPan(false)} text="PAN" value="false"/>
                     <Button iconCls="x-fa fa-search-plus" handler={() => onToggleZoomOnPan(true)} text="ZOOM" value="true"/>

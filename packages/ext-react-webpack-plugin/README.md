@@ -55,7 +55,7 @@ ExtReact components in the initial build and thus not requiring a rebuild after 
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-react webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',

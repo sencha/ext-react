@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { launch } from '@sencha/ext-react'
 import App from './App'
+import './themer.js'
+import '../.ext-reactrc'
 
 let viewport;
+
+Ext.require([
+  'Ext.layout.*',
+])
 
 import {ExtReact} from '@sencha/ext-react';
 const render = (Component, target) => {

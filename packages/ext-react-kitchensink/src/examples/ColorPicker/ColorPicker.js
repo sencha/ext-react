@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Panel } from '@sencha/ext-modern';
+import { Container, Panel } from '@sencha/ext-modern';
 import { ColorSelector } from '@sencha/ext-ux';
 
 Ext.require([
@@ -35,44 +35,46 @@ export default class ColorPickerExample extends Component {
 
   render() {
     return (
-      <Panel
-        autoSize
-        header={{
-          hidden: Ext.platformTags.phone ? true : false,
-          items: [{
-            xtype: 'colorbutton',
-            bind: '{color}',
-            width: Ext.platformTags.phone ? 25 : 15,
-            height: Ext.platformTags.phone ? 25 : 15,
-            listeners: {
-              change: this.onChange
-            }
-          }]
-        }}
-        layout={{
-          type: 'vbox',
-          align: 'stretch'
-        }}
-        resizable
-        title='Color Picker Components'
-        viewModel={{
-          data: {
-              color: this.state.color
-          }
-        }}
-        width={Ext.platformTags.phone ? '100%' : 600}
-        xtype='color-selector'
-      >
-        <ColorSelector
-          bind="{color}"
-          xtype="colorselector"
-        />
+      <Container
+        platformConfig={{"!phone": {height: 450,width: 550}}}
+        padding={10}>
         <Panel
-          title={this.state.exampleLabel}
-          ui="light"
-          xtype="panel"
-        />
-      </Panel>
+          width={600}
+          header={{
+            hidden: Ext.platformTags.phone ? true : false,
+            items: [
+              {
+                xtype: 'colorbutton',
+                bind: '{color}',
+                width: Ext.platformTags.phone ? 25 : 15,
+                height: Ext.platformTags.phone ? 25 : 15,
+                listeners: {
+                  change: this.onChange
+                }
+              }
+            ]
+          }}
+          layout={{
+            type: 'vbox'
+          }}
+          title='Color Picker Components'
+          xtype='color-selector'
+          viewModel={{
+            data: {
+                color: this.state.color
+            }
+          }}>
+          <ColorSelector
+            bind="{color}"
+            xtype="colorselector"
+          />
+          <Panel
+            title={this.state.exampleLabel}
+            ui="light"
+            xtype="panel"
+          />
+        </Panel>
+      </Container>
     );
   };
 }

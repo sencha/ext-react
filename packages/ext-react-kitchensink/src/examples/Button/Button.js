@@ -47,7 +47,7 @@ export default class ButtonExample extends Component {
                     <Button ui="action raised" text="Style">
                         <Menu defaults={{ handler: this.onStyleChange, group: 'buttonstyle' }}>
                             <MenuItem text="None" value="" iconCls={style === '' && 'x-font-icon md-icon-check'}/>
-                            <MenuItem text="Action" value="action" iconCls={style === 'action' && 'x-font-icon md-icon-check'}/>
+                            <MenuItem text="Action" align="right" value="action" iconCls={style === 'action' && 'x-font-icon md-icon-check'}/>
                             <MenuItem text="Decline" value="decline" iconCls={style === 'decline' && 'x-font-icon md-icon-check'}/>
                             <MenuItem text="Confirm" value="confirm" iconCls={style === 'confirm' && 'x-font-icon md-icon-check'}/>
                             <MenuItem text="Menu" value="menu" iconCls={style === 'menu' && 'x-font-icon md-icon-check'}/>

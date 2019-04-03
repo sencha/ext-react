@@ -9,6 +9,7 @@ rm ext-react-froala-example/package-lock.json
 rm ext-react-gen/package-lock.json
 rm ext-react-kitchensink/package-lock.json
 rm ext-react-modern-boilerplate/package-lock.json
+rm ext-react-modern-demo/package-lock.json
 rm ext-react-modern-renderwhenready/package-lock.json
 rm ext-react-modern-typescript-boilerplate/package-lock.json
 rm ext-react-renderercell/package-lock.json

@@ -44,7 +44,8 @@ export default class BigDataGridExample extends Component {
               <Button handler={this.onCancelExport} text="Cancel"/>
           </ActionSheet>
         <Grid
-          title="Big Data Grid"        
+          ref={ grid => this.grid = grid }
+          title="Big Data Grid"
           store={this.store}
           shadow
           grouped
@@ -405,7 +406,7 @@ export default class BigDataGridExample extends Component {
 
   doExport(config) {
     this.setState({ showExportSheet: false });
-    this.grid.saveDocumentAs(config);
+    this.grid.cmp.saveDocumentAs(config);
   }
 
   renderRating = (value, record) => {
