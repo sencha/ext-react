@@ -1,0 +1,7 @@
+require('./Ext.js')
+require('./String.js')
+require('./Format.js')
+require('./Template.js')
+require('./XTemplateParser.js')
+require('./XTemplateCompiler.js')
+require('./XTemplate.js')

@@ -1,40 +1,28 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-angular-webpack-plugin')
 const portfinder = require('portfinder')
+
+const webpack = require("webpack")
+const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin')
 
 module.exports = function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
   //******* */
-  var framework     = get('framework',     'react')
-  var contextFolder = get('contextFolder', './src')
-  var entryFile     = get('entryFile',     './index.js')
-  var outputFolder  = get('outputFolder',  'build')
-  const rules = [
-    { test: /\.ext-reactrc$/, use: 'raw-loader' },
-    { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-    { test: /\.(html)$/,use: { loader: 'html-loader' } },
-    {
-      test: /\.(css|scss)$/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' }
-      ]
-    }
-  ]
-  const resolve = {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
-  }
+  var framework     = get('framework',     '{framework}')
+  var contextFolder = get('contextFolder', '{contextFolder}')
+  var outputFolder  = get('outputFolder',  '{outputFolder}')
+  const entry = {entry}
+  const rules = {rules}
+  const resolve = {resolve}
   //******* */
-
+ 
   var toolkit       = get('toolkit',       'modern')
   var theme         = get('theme',         'theme-material')
-  var packages      = get('packages',      ['treegrid'])
+  var packages      = get('packages',      ['treegrid', 'ux'])
   var script        = get('script',        '')
   var emit          = get('emit',          'yes')
   var profile       = get('profile',       '')
@@ -43,13 +31,13 @@ module.exports = function (env) {
   var browser       = get('browser',       'yes')
   var watch         = get('watch',         'yes')
   var verbose       = get('verbose',       'no')
-  var basehref      = get('basehref',      '/')
+  var basehref      = get('basehref',      '/') 
 
   const isProd = environment === 'production'
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
-      new HtmlWebpackPlugin({ template: "index.html", hash: true, inject: "body" }),
+      new HtmlWebpackPlugin({template: "index.html",hash: true,inject: "body"}),
       new BaseHrefWebpackPlugin({ baseHref: basehref }),
       new ExtWebpackPlugin({
         framework: framework,
@@ -65,13 +53,28 @@ module.exports = function (env) {
         browser: browser,
         watch: watch,
         verbose: verbose
-      })
+      }),
+
+      new AngularCompilerPlugin({
+        tsConfigPath: './tsconfig.json',
+        entryModule: "src/app/app.module#AppModule",
+        mainPath: "./src/main.ts",
+        skipCodeGeneration: true
+      }),
+      new webpack.ContextReplacementPlugin(
+        /\@angular(\\|\/)core(\\|\/)fesm5/,
+        path.resolve(__dirname, 'src'),{}
+      ),
+      new FilterWarningsPlugin({
+        exclude: /System.import/
+      }),
+      new webpack.HotModuleReplacementPlugin()
     ]
     return {
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, contextFolder),
-      entry: entryFile,
+      entry: entry,
       output: {
         path: path.join(__dirname, outputFolder),
         filename: "[name].js"

@@ -1,0 +1,33 @@
+{
+  "name": "@sencha/ext-upgrade",
+  "version": "6.7.1",
+  "description": "Sencha ExtUpgrade",
+  "bin": {
+    "ext-upgrade": "ext-upgrade.js"
+  },
+  "scripts": {
+    "install": "node ./install.js"
+  },
+  "keywords": [
+    "Ext JS",
+    "ext-upgrade"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "replace-in-file": "~3.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sencha/ext-react.git"
+  },
+  "author": "Sencha, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/"
+  },
+  "homepage": "http://www.sencha.com"
+}

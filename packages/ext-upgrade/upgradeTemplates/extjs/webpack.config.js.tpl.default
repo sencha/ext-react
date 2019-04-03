@@ -1,35 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
-const portfinder = require('portfinder')
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin');
+const portfinder = require('portfinder');
 
-module.exports = function (env) {
+module.exports = async function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
   //******* */
-  var framework     = get('framework',     'react')
-  var contextFolder = get('contextFolder', './src')
-  var entryFile     = get('entryFile',     './index.js')
-  var outputFolder  = get('outputFolder',  'build')
-  const rules = [
-    { test: /\.ext-reactrc$/, use: 'raw-loader' },
-    { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
-    { test: /\.(html)$/,use: { loader: 'html-loader' } },
-    {
-      test: /\.(css|scss)$/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' }
-      ]
-    }
-  ]
-  const resolve = {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
-  }
+  var framework     = get('framework',     '{framework}')
+  var contextFolder = get('contextFolder', '{contextFolder}')
+  var outputFolder  = get('outputFolder',  '{outputFolder}')
+  const entry = {entry}
+  const rules = {rules}
+  const resolve = {resolve}
   //******* */
 
   var toolkit       = get('toolkit',       'modern')
@@ -67,11 +51,12 @@ module.exports = function (env) {
         verbose: verbose
       })
     ]
+
     return {
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, contextFolder),
-      entry: entryFile,
+      entry: entry,
       output: {
         path: path.join(__dirname, outputFolder),
         filename: "[name].js"
