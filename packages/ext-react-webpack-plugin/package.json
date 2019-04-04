@@ -1,5 +1,5 @@
 {
-  "name": "@sencha/ext-webpack-plugin",
+  "name": "@sencha/ext-react-webpack-plugin",
   "version": "7.0.0",
   "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
   "main": "dist/index.js",
