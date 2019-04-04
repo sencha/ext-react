@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@sencha/ext-react-babel-plugin": "~6.7.1",
-    "@sencha/ext-react-webpack-plugin": "~6.7.1",
+    "@sencha/ext-webpack-plugin": "~6.7.1",
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",

@@ -37,7 +37,7 @@ function _constructor(initialOptions) {
   try {
     if (initialOptions.framework == undefined) {
       vars.pluginErrors = [];
-      vars.pluginErrors.push('webpack config: framework parameter on ext-react-webpack-plugin is not defined - values: react, angular, extjs, components');
+      vars.pluginErrors.push('webpack config: framework parameter on ext-webpack-plugin is not defined - values: react, angular, extjs, components');
       var o = {};
       o.vars = vars;
       return o;
@@ -53,7 +53,7 @@ function _constructor(initialOptions) {
     const rc = fs.existsSync(`.ext-${framework}rc`) && JSON.parse(fs.readFileSync(`.ext-${framework}rc`, 'utf-8')) || {};
     options = _objectSpread({}, _getDefaultOptions(), initialOptions, rc);
     vars = require(`./${framework}Util`)._getDefaultVars();
-    vars.pluginName = 'ext-react-webpack-plugin';
+    vars.pluginName = 'ext-webpack-plugin';
     vars.app = _getApp();
     var pluginName = vars.pluginName;
     var app = vars.app;
@@ -739,7 +739,7 @@ function _getVersions(pluginName, frameworkName) {
     frameworkInfo = ', ' + frameworkName + ' v' + v.frameworkVersion;
   }
 
-  return 'ext-react-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ' ' + v.edition + ' Edition, Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo;
+  return 'ext-webpack-plugin v' + v.pluginVersion + ', Ext JS v' + v.extVersion + ' ' + v.edition + ' Edition, Sencha Cmd v' + v.cmdVersion + ', webpack v' + v.webpackVersion + frameworkInfo;
 } //**********
 
 

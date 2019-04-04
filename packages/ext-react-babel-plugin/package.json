@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-babel-plugin",
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "Converts ES6 imports to reactify calls.",
   "main": "dist/index.js",
   "module": "index.js",

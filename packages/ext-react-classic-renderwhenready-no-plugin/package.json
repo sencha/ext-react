@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-classic-renderwhenready-no-plugin",
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "A Demo",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.2.0",
-    "@sencha/ext-react": "^6.7.1",
+    "@sencha/ext-react": "^7.0.0",
     "prop-types": "^15.6.2",
     "react": "~16.8.1",
     "react-dom": "~16.8.1",

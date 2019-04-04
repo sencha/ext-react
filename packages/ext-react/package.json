@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react",
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "Use Ext JS components in React 16 and above",
   "main": "dist/index.js",
   "typings": "index.d.ts",
