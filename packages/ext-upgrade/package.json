@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-upgrade",
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "Sencha ExtUpgrade",
   "bin": {
     "ext-upgrade": "ext-upgrade.js"

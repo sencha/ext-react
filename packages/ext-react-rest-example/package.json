@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-rest-example",
   "private": true,
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
   "main": "index.js",
   "scripts": {
@@ -33,9 +33,9 @@
     "@sencha/ext-modern": "^6.7.0",
     "@sencha/ext-modern-theme-material": "^6.7.0",
     "@sencha/ext-modern-treegrid": "^6.7.0",
-    "@sencha/ext-react": "^6.7.1",
-    "@sencha/ext-react-renderercell": "^6.7.1",
-    "@sencha/ext-react-transition": "^6.7.1",
+    "@sencha/ext-react": "^7.0.0",
+    "@sencha/ext-react-renderercell": "^7.0.0",
+    "@sencha/ext-react-transition": "^7.0.0",
     "express": "^4.16.4",
     "prop-types": "^15.7.2",
     "react": "~16.8.3",
@@ -45,8 +45,8 @@
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
-    "@sencha/ext-react-babel-plugin": "^6.7.0",
-    "@sencha/ext-react-webpack-plugin": "~6.7.1",
+    "@sencha/ext-react-babel-plugin": "^7.0.0",
+    "@sencha/ext-webpack-plugin": "~7.0.0",
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-decorators": "^7.3.0",

@@ -16,5 +16,5 @@ rm ext-react-renderercell/package-lock.json
 rm ext-react-rest-example/package-lock.json
 rm ext-react-tests/package-lock.json
 rm ext-react-transition/package-lock.json
-rm ext-react-webpack-plugin/package-lock.json
+rm ext-webpack-plugin/package-lock.json
 rm extjs-to-react-converter/package-lock.json

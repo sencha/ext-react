@@ -1,6 +1,6 @@
 {
-  "name": "@sencha/ext-react-webpack-plugin",
-  "version": "6.7.1",
+  "name": "@sencha/ext-webpack-plugin",
+  "version": "7.0.0",
   "description": "A webpack plugin that produces minimal ExtReact and Ext JS bundles containing only those components used in your app.",
   "main": "dist/index.js",
   "scripts": {
@@ -64,7 +64,7 @@
   },
   "author": "Sencha, Inc.",
   "license": "MIT",
-  "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin",
+  "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-webpack-plugin",
   "peerDependencies": {
     "webpack": "^4.29.6"
   }

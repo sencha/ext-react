@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-conference-app",
-  "version": "6.7.1",
+  "version": "7.0.0",
   "description": "A full example app using ExtReact and Redux.",
   "main": "index.js",
   "scripts": {
@@ -34,9 +34,9 @@
     "@sencha/ext-calendar": "^6.7.0",
     "@sencha/ext-d3": "^6.7.0",
 
-    "@sencha/ext-react": "^6.7.1",
-    "@sencha/ext-react-renderercell": "^6.7.1",
-    "@sencha/ext-react-transition": "^6.7.1",
+    "@sencha/ext-react": "^7.0.0",
+    "@sencha/ext-react-renderercell": "^7.0.0",
+    "@sencha/ext-react-transition": "^7.0.0",
 
     "react": "~16.8.1",
     "react-dom": "~16.8.1",
@@ -67,8 +67,8 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@sencha/ext-react-babel-plugin": "^6.7.0",
-    "@sencha/ext-react-webpack-plugin": "~6.7.1",
+    "@sencha/ext-react-babel-plugin": "^7.0.0",
+    "@sencha/ext-webpack-plugin": "~7.0.0",
     "babel-loader": "^8.0.2",
 
     "cross-env": "^5.2.0",
