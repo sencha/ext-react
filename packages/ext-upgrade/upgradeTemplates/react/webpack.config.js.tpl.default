@@ -8,12 +8,12 @@ module.exports = async function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
   //******* */
-  var framework     = get('framework',     '{framework}')
+  var framework     = get('framework', '{framework}')
   var contextFolder = get('contextFolder', '{contextFolder}')
-  var entry         = get('entry',         '{entry}')
   var outputFolder  = get('outputFolder',  '{outputFolder}')
-  const rules = {rules}
-  const resolve = {resolve}
+  const entry       = {entry}
+  const rules       = {rules}
+  const resolve     = {resolve}
   //******* */
 
   var toolkit       = get('toolkit',       'modern')
