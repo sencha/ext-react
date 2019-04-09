@@ -295,7 +295,7 @@ function reactValues() {
 function extjsValues() {
   return {
     framework: 'extjs',
-    contextFolder: './src',
+    contextFolder: './',
     entry: `{
       main: './app.js'
     }`,
