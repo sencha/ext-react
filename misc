@@ -36,6 +36,7 @@ git checkout v6.6.0
 git fetch upstream
 git merge upstream/master
 git merge upstream/ext-react-6.7.x
+git merge upstream/ext-react-7.0.x
 
 
 git merge upstream/ext-6.6.x
