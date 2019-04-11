@@ -16,9 +16,9 @@
   "license": "MIT",
   "homepage": "https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
     "chalk": "^2.4.2",
     "fs": "^0.0.1-security"
