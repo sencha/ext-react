@@ -13,10 +13,14 @@ import { globalRoot } from './index'
 
 var count = 0
 
-export class ExtJSComponent extends Component {
+export class ExtJSComponent {
+}
+export class ExtJSComponent2 extends Component {
 
   constructor(element) {
     super(element)
+    console.log('in ExtJSComponent constructor')
+
     this.cmp = null;
     this.el = null;
 
