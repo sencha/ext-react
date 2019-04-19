@@ -13,13 +13,12 @@ import cloneDeepWith from 'lodash.clonedeepwith'; //import { renderWhenReady } f
 
 import { globalRoot } from './index';
 var count = 0;
-export var ExtJSComponent = function ExtJSComponent() {};
-export var ExtJSComponent2 =
+export var ExtJSComponent =
 /*#__PURE__*/
 function (_Component) {
-  _inheritsLoose(ExtJSComponent2, _Component);
+  _inheritsLoose(ExtJSComponent, _Component);
 
-  function ExtJSComponent2(element) {
+  function ExtJSComponent(element) {
     var _this;
 
     _this = _Component.call(this, element) || this;
@@ -46,7 +45,7 @@ function (_Component) {
     return _this;
   }
 
-  var _proto = ExtJSComponent2.prototype;
+  var _proto = ExtJSComponent.prototype;
 
   _proto.componentWillMount = function componentWillMount() {
     l("ExtJSComponent: componentWillMount");
@@ -674,7 +673,7 @@ function (_Component) {
     if (CLASS_CACHE.TabPanel && this.cmp instanceof CLASS_CACHE.TabPanel) return true;
   };
 
-  return ExtJSComponent2;
+  return ExtJSComponent;
 }(Component);
 /**
  * Wraps a dom element in an Ext Component so it can be added as a child item to an Ext Container.  We attach
