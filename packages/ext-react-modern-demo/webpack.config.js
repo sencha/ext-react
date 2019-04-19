@@ -27,7 +27,7 @@ module.exports = function (env) {
       new ExtWebpackPlugin({
         framework: 'react',
         toolkit: 'modern',
-        theme: 'theme-material',
+        theme: 'theme-triton',
         packages: [
           'renderercell'
         ],
