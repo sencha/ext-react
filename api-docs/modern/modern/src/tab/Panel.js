@@ -8,9 +8,9 @@
  * the top or the bottom of the Tab Panel, and can optionally accept title and icon
  * configurations (see {@link Ext.Button#iconCls iconCls} for additional information).
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Container, TabPanel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, TabPanel } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

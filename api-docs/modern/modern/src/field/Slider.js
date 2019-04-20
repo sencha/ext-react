@@ -9,9 +9,9 @@
  * Sliders are equally useful inside {@link Ext.form.Panel forms} and standalone. Here's how to quickly create a
  * slider in form, in this case enabling a user to choose a percentage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, SliderField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, SliderField } from '@sencha/ext-react';
  *
  *     export default class SliderFieldExample extends Component {
  *

@@ -5,7 +5,7 @@
  *
  * Simple Select field wrapper. Example usage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
  *     import { ExtReact, FormPanel, SelectField, Container } from '@sencha/ext-react';
  *

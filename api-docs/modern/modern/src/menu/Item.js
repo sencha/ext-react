@@ -6,9 +6,9 @@
  * A base class for all menu items that require menu-related functionality such as click handling,
  * sub-menus, icons, etc.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuItem } from '@extjs/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuItem } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

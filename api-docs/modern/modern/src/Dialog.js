@@ -8,9 +8,9 @@
  * draggable, and closable.  Dialogs are not subject to the restrictions of browser
  * popup windows, but provide similar modal experiences.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Dialog, Container, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Dialog, Container, Button } from '@sencha/ext-react';
  *
  *     export default class DialogExample extends Component {
  *

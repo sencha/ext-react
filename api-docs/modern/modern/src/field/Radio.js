@@ -8,9 +8,9 @@
  * good way of allowing your user to choose one option out of a selection of several
  * (for example, choosing a favorite color):
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, RadioField, FieldSet } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, RadioField, FieldSet } from '@sencha/ext-react';
  *
  *     const radioProps = {
  *         name: 'radios'

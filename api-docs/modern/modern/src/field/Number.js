@@ -8,9 +8,9 @@
  * only accepts numerical input and also provides additional spinner UI that increases or decreases the current value
  * by a configured {@link #stepValue step value}. Here's how we might use one in a form:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, NumberField, FormPanel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, NumberField, FormPanel } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

@@ -11,9 +11,9 @@
  * an information panel in the rest of the screen. We can achieve this with vbox layout's
  * *flex* config:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {
@@ -39,9 +39,9 @@
  * example, here we have 3 items - one at the top and bottom with flex: 1, and one in the
  * center with a fixed width of 100px:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {

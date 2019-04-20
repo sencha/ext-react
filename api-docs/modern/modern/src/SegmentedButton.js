@@ -8,9 +8,9 @@
  *
  * ## Example usage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React from 'react';
- *     import { ExtReact, SegmentedButton, Button, Container, Toolbar } from '@extjs/ext-react';
+ *     import { ExtReact, SegmentedButton, Button, Container, Toolbar } from '@sencha/ext-react';
  *
  *     export default function SegementedButtonExample() {
  *         return (
