@@ -6,9 +6,9 @@
  * Creates an HTML file input field on the page. This is usually used to upload files to remote server. File fields are usually
  * created inside a form like this:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, FileField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, FileField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

@@ -6,9 +6,9 @@
  * A menu item that contains a radio button item which can participate in a group of
  * mutually exclusive radio items.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuRadioItem } from '@extjs/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuRadioItem } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

@@ -15,10 +15,10 @@
  *
  * For example:
  *
- *     @example packages=[charts,reactor]
+ *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container } from '@extjs/ext-react';
- *     import { Cartesian } from '@extjs/ext-react-charts';
+ *     import { ExtReact, Container } from '@sencha/ext-react';
+ *     import { Cartesian } from '@sencha/ext-react-charts';
  *
  *     export default class MyExample extends Component {
  *

@@ -16,9 +16,9 @@
  * Customizing the RowOperations plugin to provide operations other then "Delete" can
  * be done with the `operation` config:
  *
- *      @example packages = [reactor]
+ *      @example packages = [ext-react]
  *      import React, { Component } from 'react'
- *      import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *      import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *      Ext.require('Ext.grid.plugin.RowOperations');
  *

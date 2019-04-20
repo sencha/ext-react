@@ -10,9 +10,9 @@
  * This will create one reusable toast container and content will be swapped out as
  * toast messages are queued or displayed.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Button } from '@sencha/ext-react';
  *
  *     Ext.require('Ext.Toast');
  *

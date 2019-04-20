@@ -8,9 +8,9 @@
  * like any other component. This component typically takes between 1 and 3 props - a {@link #src}, and
  * optionally a {@link #height} and a {@link #width}:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Panel, Image } from '@extjs/ext-react';
+ *     import { ExtReact, Panel, Image } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

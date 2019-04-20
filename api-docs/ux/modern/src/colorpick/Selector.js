@@ -7,7 +7,7 @@
  * and The Format is configurable via {@link #format}. Usually used in
  * forms via {@link Ext.ux.colorpick.Button} or {@link Ext.ux.colorpick.Field}.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     <ColorSelector
  *         onChange={(picker, color, previousColor) => {
  *             Ext.Msg.alert('Color', color);

@@ -5,9 +5,9 @@
  *
  * A menu item that contains a togglable checkbox by default, but that can also be a part of a radio group.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuCheckItem } from '@extjs/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuCheckItem } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

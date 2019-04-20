@@ -7,9 +7,9 @@
  * field, most browsers will show a specialized virtual keyboard for web address input. Aside from that, the url field
  * is just a normal text field. Here's an example of how to use it in a form:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, URLField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, URLField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

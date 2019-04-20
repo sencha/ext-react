@@ -4,7 +4,7 @@
  * fields in the DataView's records.
  *
  * This handles selection and deletion of chips.
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     Ext.define('Contact', {
  *         extend: 'Ext.data.Model',
  *         fields: [{
