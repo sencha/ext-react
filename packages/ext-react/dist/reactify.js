@@ -50,61 +50,48 @@ function getTheClass(isRootContainer, xtype, target) {
   var extJSClass = Ext.ClassManager.getByAlias("widget." + xtype);
   if (!extJSClass) throw new Error("No Ext JS component with xtype \"" + xtype + "\" found.  Perhaps you're missing a package?"); //what is target used for?? or, does it have 1 meaning here and another in ExtJSComponent.js?
 
-  console.log('before c');
+  return (
+    /*#__PURE__*/
+    function (_ExtJSComponent) {
+      _inheritsLoose(_class2, _ExtJSComponent);
 
-  var c =
-  /*#__PURE__*/
-  function (_ExtJSComponent) {
-    _inheritsLoose(c, _ExtJSComponent);
-
-    function c() {
-      return _ExtJSComponent.apply(this, arguments) || this;
-    }
-
-    _createClass(c, [{
-      key: "isRootContainer",
-      //static get source() {return 'ExtJS'}
-      get: function get() {
-        return isRootContainer;
+      function _class2() {
+        return _ExtJSComponent.apply(this, arguments) || this;
       }
-    }, {
-      key: "extJSClass",
-      get: function get() {
-        return extJSClass;
-      }
-    }, {
-      key: "ExtReactSettings",
-      get: function get() {
-        return settings;
-      }
-    }, {
-      key: "xtype",
-      get: function get() {
-        return xtype;
-      }
-    }, {
-      key: "target",
-      get: function get() {
-        return target;
-      } //original element passed from jsx
-      //constructor(props) { super(props) }
 
-    }]);
+      _createClass(_class2, [{
+        key: "isRootContainer",
+        //static get source() {return 'ExtJS'}
+        get: function get() {
+          return isRootContainer;
+        }
+      }, {
+        key: "extJSClass",
+        get: function get() {
+          return extJSClass;
+        }
+      }, {
+        key: "ExtReactSettings",
+        get: function get() {
+          return settings;
+        }
+      }, {
+        key: "xtype",
+        get: function get() {
+          return xtype;
+        }
+      }, {
+        key: "target",
+        get: function get() {
+          return target;
+        } //original element passed from jsx
+        //constructor(props) { super(props) }
 
-    return c;
-  }(ExtJSComponent);
+      }]);
 
-  console.log('after c');
-  console.log(c);
-  return c; // return class extends ExtJSComponent {
-  //   //static get source() {return 'ExtJS'}
-  //   get isRootContainer() {return isRootContainer}
-  //   get extJSClass() {return extJSClass}
-  //   get ExtReactSettings() { return settings }
-  //   get xtype() {return xtype}
-  //   get target() {return target} //original element passed from jsx
-  //   //constructor(props) { super(props) }
-  // }
+      return _class2;
+    }(ExtJSComponent)
+  );
 } //merge this into reactify
 
 
@@ -131,8 +118,6 @@ export function reactify(target) {
     l('target is: ExtReact, return reactifiedClass');
     var xtype = 'container';
     var reactifiedClass = getTheClass(true, xtype, target);
-    console.log('after');
-    console.log(reactifiedClass);
     return reactifiedClass;
   } else {
     return target;
