@@ -61,12 +61,14 @@ module.exports = function (env) {
         ]
       }
     ]
-    const resolve = {
-      // alias: {
-      //   'react-dom': '@hot-loader/react-dom'
-      // }
-    }
+
     return {
+      resolve: {
+        alias: {
+         //'react-dom': '@hot-loader/react-dom'
+         react: path.resolve('./node_modules/react')
+        }
+      },
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, contextFolder),
