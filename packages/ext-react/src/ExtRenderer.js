@@ -22,7 +22,49 @@ const CLASS_CACHE = {
   Field: Ext.ClassManager.getByAlias('widget.field')
 }
 
+let scheduledCallback = null
+let scheduledCallbackTimeout = -1
+let scheduledPassiveCallback = null
+let elapsedTimeInMs = 0
+
 const ExtRenderer = Reconciler({
+
+  schedulePassiveEffects(callback) {
+    //console.log('in schedulePassiveEffects')
+    if (scheduledCallback) {
+      throw new Error(
+        'Scheduling a callback twice is excessive. Instead, keep track of ' +
+          'whether the callback has already been scheduled.',
+      )
+    }
+    scheduledPassiveCallback = callback
+  },
+
+  cancelPassiveEffects() {
+    //console.log('in cancelPassiveEffects')
+    if (scheduledPassiveCallback === null) {
+      throw new Error('No passive effects callback is scheduled.')
+    }
+    scheduledPassiveCallback = null
+  },
+
+  scheduleDeferredCallback(callback, options) {
+    //console.log('in scheduleDeferredCallback')
+    if (scheduledCallback) {
+      throw new Error(
+        'Scheduling a callback twice is excessive. Instead, keep track of ' +
+          'whether the callback has already been scheduled.',
+      )
+    }
+    scheduledCallback = callback
+    if (typeof options === 'object' && options !== null && typeof options.timeout === 'number') {
+      const newTimeout = options.timeout
+      if (scheduledCallbackTimeout === -1 || scheduledCallbackTimeout > newTimeout) {
+        scheduledCallbackTimeout = elapsedTimeInMs + newTimeout
+      }
+    }
+    return 0
+  },
 
   createInstance(type, props, internalInstanceHandle) {
     let instance = null;
