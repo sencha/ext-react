@@ -35,8 +35,7 @@ function getTheClass(isRootContainer, xtype, target) {
   if (!extJSClass) throw new Error(`No Ext JS component with xtype "${xtype}" found.  Perhaps you're missing a package?`);
   //what is target used for?? or, does it have 1 meaning here and another in ExtJSComponent.js?
 
-  console.log('before c')
-  var c = class extends ExtJSComponent {
+  return class extends ExtJSComponent {
     //static get source() {return 'ExtJS'}
     get isRootContainer() {return isRootContainer}
     get extJSClass() {return extJSClass}
@@ -45,20 +44,6 @@ function getTheClass(isRootContainer, xtype, target) {
     get target() {return target} //original element passed from jsx
     //constructor(props) { super(props) }
   }
-  console.log('after c')
-  console.log(c)
-  return c
-
-
-  // return class extends ExtJSComponent {
-  //   //static get source() {return 'ExtJS'}
-  //   get isRootContainer() {return isRootContainer}
-  //   get extJSClass() {return extJSClass}
-  //   get ExtReactSettings() { return settings }
-  //   get xtype() {return xtype}
-  //   get target() {return target} //original element passed from jsx
-  //   //constructor(props) { super(props) }
-  // }
 }
 
 //merge this into reactify
@@ -88,8 +73,6 @@ export function reactify(target) {
     l('target is: ExtReact, return reactifiedClass')
     const xtype = 'container'
     var reactifiedClass = getTheClass(true, xtype, target)
-    console.log('after')
-    console.log(reactifiedClass)
     return reactifiedClass
   }
   else {
