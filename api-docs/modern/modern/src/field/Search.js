@@ -12,7 +12,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, SearchField } from '@extjs/ext-react'
+ *     import { ExtReact, Container, FormPanel, SearchField } from '@sencha/ext-react'
  *
  *     export default class SearchFieldExample extends Component {
  *

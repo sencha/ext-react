@@ -8,7 +8,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuItem } from '@extjs/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuItem } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

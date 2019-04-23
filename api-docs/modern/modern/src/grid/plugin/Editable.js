@@ -16,7 +16,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column, SelectField } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column, SelectField } from '@sencha/ext-react';
  * 
  *     Ext.require('Ext.grid.plugin.Editable');
  *

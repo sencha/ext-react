@@ -10,7 +10,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, RadioField, FieldSet } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, RadioField, FieldSet } from '@sencha/ext-react';
  *
  *     const radioProps = {
  *         name: 'radios'

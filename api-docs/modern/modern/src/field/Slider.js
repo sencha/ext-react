@@ -11,7 +11,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, SliderField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, SliderField } from '@sencha/ext-react';
  *
  *     export default class SliderFieldExample extends Component {
  *

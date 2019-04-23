@@ -10,7 +10,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Dialog, Container, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Dialog, Container, Button } from '@sencha/ext-react';
  *
  *     export default class DialogExample extends Component {
  *

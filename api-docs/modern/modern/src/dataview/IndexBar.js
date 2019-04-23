@@ -11,7 +11,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List } from '@extjs/ext-react';
+ *     import { ExtReact, List } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

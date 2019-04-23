@@ -9,7 +9,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, URLField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, URLField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

@@ -11,7 +11,7 @@
  *
  *     @example packages=[reactor]
  *     import React from 'react';
- *     import { ExtReact, Container, FieldSet, TextField, FormPanel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FieldSet, TextField, FormPanel } from '@sencha/ext-react';
  *
  *     export default function FieldSetExample() {
  *         return (

@@ -250,7 +250,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Panel, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Panel, Button } from '@sencha/ext-react';
  *
  *     Ext.require('Ext.MessageBox');
  *

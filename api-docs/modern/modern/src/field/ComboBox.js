@@ -25,7 +25,7 @@
  *
  *     @example packages=[reactor]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, ComboBoxField, Container } from '@extjs/ext-react';
+ *     import { ExtReact, FormPanel, ComboBoxField, Container } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
