@@ -11,7 +11,7 @@
  *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
  *     import { ExtReact, Container } from '@sencha/ext-react';
- *     import { Polar } from '@sencha/ext-react-charts';
+ *     import { Polar } from '@sencha/ext-charts';
  *
  *     export default class MyExample extends Component {
  *
