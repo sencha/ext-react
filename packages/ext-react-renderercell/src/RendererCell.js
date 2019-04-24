@@ -76,15 +76,31 @@ Ext.define('Ext.react.RendererCell', {
         }
 
         renderer = renderer || me.getRenderer() || column.getRenderer();
-
+console.log('in setValue')
+console.dir(this)
         if (renderer) {
             markup = renderer.call(scope, value, context.record, context.dataIndex, me, column);
-
+console.dir('markup')
+console.dir(markup)
             if (typeof markup === 'object') {
                 // Ext.react.ReactDOM is set by ExtReact before the app is launched
+                console.dir('me.bodyElement.dom')
+                console.dir(me.bodyElement.dom)
+                console.dir('Ext.react.ReactDOM.render')
+                console.dir(Ext.react.ReactDOM.render)
+
+                var node = document.createElement("LI");                 // Create a <li> node
+                var textnode = document.createTextNode("Water");         // Create a text node
+                node.appendChild(textnode);                              // Append the text to <li>
+                // me.bodyElement.dom.appendChild(node);
+
+//                const element = <h1>Hello, world</h1>;
+//                Ext.react.ReactDOM.render(node, me.bodyElement.dom);
+
+
                 result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
-            
                 if (result.isWidget) {
+                  console.log('is widget')
                     needsSizing = result !== me.widget;
                     me.widget = result;
                 }

@@ -148,3 +148,13 @@ git remote add upstream https://github.com/sencha/guides.git
         "build.web.root": "${workspace.dir}/../"
     }
 }
+
+
+Ext.require([
+  "Ext.*",
+  "Ext.layout.Fit",
+  "Ext.*",
+  "Ext.data.TreeStore",
+  "Ext.panel.Collapser",
+  "Ext.panel.Resizer"
+])
