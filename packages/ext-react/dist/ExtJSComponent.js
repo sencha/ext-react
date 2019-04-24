@@ -21,8 +21,8 @@ function (_Component) {
   function ExtJSComponent(element) {
     var _this;
 
-    _this = _Component.call(this, element) || this;
-    console.log('in ExtJSComponent constructor');
+    _this = _Component.call(this, element) || this; //console.log('in ExtJSComponent constructor')
+
     _this.cmp = null;
     _this.el = null;
     _this.reactProps = {};
@@ -166,7 +166,15 @@ function (_Component) {
           config['fullscreen'] = true;
         }
 
-        config.renderTo = root;
+        console.log('this');
+        console.dir(this);
+
+        if (this.target == 'ExtReact') {
+          console.log('in renderTo');
+          config.renderTo = root;
+        } else {
+          console.log('NOT in renderTo');
+        }
       }
 
       this.extJSConfig = config;

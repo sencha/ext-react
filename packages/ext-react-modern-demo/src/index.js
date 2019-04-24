@@ -12,11 +12,11 @@ import '../.ext-reactrc'
 //import App from './Button/AppButton'
 //import App from './Grid/AppGrid'
 //import App from './DivGrid/AppDivGrid'
-//import App from './Render/AppRender'
+import App from './Render/AppRender'
 //import App from './GroupGrid/AppGroupGrid'
 //import App from './Form/AppForm'
 //import App from './Router/App'
-import App from './Hooks/AppHooks'
+//import App from './Hooks/AppHooks'
 
 let viewport;
 
@@ -44,5 +44,5 @@ const render = (Component, target) => {
 launch(target => render(App, viewport = target))
 
 if (module.hot) {
-  module.hot.accept('./Hooks/AppHooks', () => render(App, viewport))
+  module.hot.accept('./Render/AppRender', () => render(App, viewport))
 }

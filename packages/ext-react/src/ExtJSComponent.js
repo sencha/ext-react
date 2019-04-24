@@ -17,7 +17,7 @@ export class ExtJSComponent extends Component {
 
   constructor(element) {
     super(element)
-    console.log('in ExtJSComponent constructor')
+    //console.log('in ExtJSComponent constructor')
 
     this.cmp = null;
     this.el = null;
@@ -158,7 +158,15 @@ export class ExtJSComponent extends Component {
         else {
           config['fullscreen'] = true
         }
-        config.renderTo = root
+        console.log('this')
+        console.dir(this)
+        if (this.target == 'ExtReact') {
+          console.log('in renderTo')
+          config.renderTo = root
+        }
+        else {
+          console.log('NOT in renderTo')
+        }
       }
       this.extJSConfig = config
     }

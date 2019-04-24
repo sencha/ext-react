@@ -72,6 +72,14 @@ export function reactify(target) {
   else if (target === 'ExtReact') {
     l('target is: ExtReact, return reactifiedClass')
     const xtype = 'container'
+    console.dir('target: ' + target)
+    var reactifiedClass = getTheClass(true, xtype, target)
+    return reactifiedClass
+  }
+  else if (target === 'ExtReactRenderer') {
+    l('target is: ExtReactRenderer, return reactifiedClass')
+    const xtype = 'container'
+    console.dir('target: ' + target)
     var reactifiedClass = getTheClass(true, xtype, target)
     return reactifiedClass
   }
