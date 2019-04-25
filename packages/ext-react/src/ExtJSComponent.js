@@ -26,8 +26,8 @@ export class ExtJSComponent extends Component {
     this.reactChildren = {}
     this.reactElement = {}
 
-    console.dir('element')
-    console.dir(element)
+//    console.dir('element')
+//    console.dir(element)
 
 
     this._getReactStuff(element)

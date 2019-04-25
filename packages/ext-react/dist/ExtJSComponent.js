@@ -27,9 +27,8 @@ function (_Component) {
     _this.el = null;
     _this.reactProps = {};
     _this.reactChildren = {};
-    _this.reactElement = {};
-    console.dir('element');
-    console.dir(element);
+    _this.reactElement = {}; //    console.dir('element')
+    //    console.dir(element)
 
     _this._getReactStuff(element);
 
