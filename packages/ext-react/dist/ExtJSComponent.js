@@ -28,6 +28,8 @@ function (_Component) {
     _this.reactProps = {};
     _this.reactChildren = {};
     _this.reactElement = {};
+    console.dir('element');
+    console.dir(element);
 
     _this._getReactStuff(element);
 
@@ -36,6 +38,8 @@ function (_Component) {
 
     if (_this.isRootContainer) {
       _this.rawConfigs.ExtReactRoot = true;
+      console.dir('this.rawConfigs');
+      console.dir(_this.rawConfigs);
       _this.cmp = new _this.extJSClass(_this.rawConfigs);
       l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_this));
     } else {
@@ -130,16 +134,20 @@ function (_Component) {
       config['cls'] = config['cls'] + ' ' + config['className'];
     }
 
-    this._ensureResponsivePlugin(config);
+    this._ensureResponsivePlugin(config); // console.dir('this,target')
+    // console.dir(this.target)
+
 
     if (this.isRootContainer) {
       if (config['layout'] == undefined) {
         config['layout'] = 'fit';
 
         if (config['cls'] != undefined) {
-          config['cls'] = config['cls'] + ' ' + 'ExtReactRoot';
+          //config['cls'] = config['cls'] + ' ' + 'ExtReactRoot'
+          config['cls'] = config['cls'] + ' ' + this.target;
         } else {
-          config['cls'] = 'ExtReactRoot';
+          //config['cls'] = 'ExtReactRoot'
+          config['cls'] = this.target;
         }
       }
 
@@ -155,26 +163,36 @@ function (_Component) {
         config['width'] = '100%';
         config.renderTo = root;
       } else {
-        var root = document.getElementsByClassName('x-viewport-body-el')[0];
-
-        if (root == undefined) {
-          root = globalRoot[count];
-          count++;
-          config['height'] = '100%';
-          config['width'] = '100%';
-        } else {
-          config['fullscreen'] = true;
-        }
-
-        console.log('this');
-        console.dir(this);
-
         if (this.target == 'ExtReact') {
+          var root = document.getElementsByClassName('x-viewport-body-el')[0];
+
+          if (root == undefined) {
+            root = globalRoot[count];
+            count++;
+            config['height'] = '100%';
+            config['width'] = '100%';
+          } else {
+            config['fullscreen'] = true;
+          }
+
           console.log('in renderTo');
           config.renderTo = root;
         } else {
+          config['height'] = '100%';
+          config['width'] = '100%';
           console.log('NOT in renderTo');
-        }
+        } //console.log('this')
+        //console.dir(this)
+        // if (this.target == 'ExtReact') {
+        //   console.log('in renderTo')
+        //   config.renderTo = root
+        // }
+        // else {
+        //   //config.renderTo = this
+        //   console.dir(this)
+        //   console.log('NOT in renderTo')
+        // }
+
       }
 
       this.extJSConfig = config;

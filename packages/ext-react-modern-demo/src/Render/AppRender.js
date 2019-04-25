@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Grid, Column, Panel, ExtReactRenderer } from '@sencha/ext-modern';
+import { Grid, Column, Panel, RendererCell, ExtReactRenderer } from '@sencha/ext-modern';
 
 //Ext.require('widget.renderercell')
 
 
 export default class AppRender extends Component {
 
-  cell = {encodeHtml:false}
+  //cell = {encodeHtml:false}
   store = Ext.create('Ext.data.Store', {
-      fields: ['firstname', 'lastname', 'dept', 'dob'],
+      //fields: ['fName', 'lName', 'dept', 'dob'],
       data: [
           {id: 111, active: true,  "fName":"Benjamin","lName":"Banks",     "dept":"Services",     dob: new Date("1/1/1960") },
       ]
@@ -28,10 +28,25 @@ export default class AppRender extends Component {
         text="Department"
         dataIndex="dept"
         flex={1}
-        cell={this.cell}
         renderer={this.renderer}
       >
       </Column>
+
+      <Column
+        text="Fname"
+        dataIndex="fName"
+        flex={1}
+      >
+      </Column>
+
+      <Column
+        text="Fname"
+        dataIndex="fName"
+        flex={1}
+      >
+        <RendererCell renderer={this.renderer}/>
+      </Column>
+
   </Grid>
 
     )
@@ -64,6 +79,10 @@ export default class AppRender extends Component {
 
   renderer = (v, r) => {
     return(<ExtReactRenderer><Panel title="hi2" style={{ color: 'pink' }}>{v}</Panel></ExtReactRenderer>);
+  }
+
+  renderer2 = (v, r) => {
+    return(<ExtReactRenderer><span title="hi2" style={{ color: 'pink' }}>{v}</span></ExtReactRenderer>);
   }
 
 
