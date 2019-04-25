@@ -71,12 +71,11 @@ export default class AppRender extends Component {
 
 
 
-
-
   // renderer = (v, r) => {
   //   return(<span title="hi2" style={{ color: 'pink' }}>{v}</span>);
   // }
 
+  
   renderer = (v, r) => {
     return(<ExtReactRenderer><Panel title="hi2" style={{ color: 'pink' }}>{v}</Panel></ExtReactRenderer>);
   }
