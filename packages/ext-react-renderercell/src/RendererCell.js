@@ -80,6 +80,9 @@ Ext.define('Ext.react.RendererCell', {
             markup = renderer.call(scope, value, context.record, context.dataIndex, me, column);
             if (typeof markup === 'object') {
                 result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
+                console.log('ext-react-renderercell')
+                console.log('value: ' + value)
+                console.dir(result.cmp)
 
                 //added
                 result.cmp.setRenderTo(me.bodyElement.dom);

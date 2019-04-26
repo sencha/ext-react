@@ -32,15 +32,20 @@ export class ExtJSComponent extends Component {
 
     this._getReactStuff(element)
 
+    console.log(this.target + ': _getConfig')
     this.rawConfigs = this._getConfig()
     this.rawConfigs.$createdByExtReact = true
 
     if(this.isRootContainer) {
       this.rawConfigs.ExtReactRoot = true
-      console.dir('this.rawConfigs')
-      console.dir(this.rawConfigs)
+//      console.dir(this.target + ': rawConfigs')
+//      console.dir(this.rawConfigs)
 
       this.cmp = new this.extJSClass(this.rawConfigs)
+      console.dir(this.target + ': cmp')
+      console.dir(this.cmp)
+
+
       l(`ExtJSComponent: constructor ROOT, element: ${this.target}, xtype: ${this.xtype} (this.rawConfig, this.cmp, this)`, this.rawConfig, this.cmp, this)
     }
     else {
@@ -174,7 +179,7 @@ export class ExtJSComponent extends Component {
             else {
               config['fullscreen'] = true
             }
-            console.log('in renderTo')
+            console.log(this.target + ': renderTo')
             config.renderTo = root
 
 
@@ -182,8 +187,7 @@ export class ExtJSComponent extends Component {
           else {
             config['height'] = '100%'
             config['width'] = '100%'
-            console.log('NOT in renderTo')
-
+            console.log(this.target + ': NOT renderTo')
           }
           //console.log('this')
           //console.dir(this)

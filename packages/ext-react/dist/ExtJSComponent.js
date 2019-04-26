@@ -32,14 +32,17 @@ function (_Component) {
 
     _this._getReactStuff(element);
 
+    console.log(_this.target + ': _getConfig');
     _this.rawConfigs = _this._getConfig();
     _this.rawConfigs.$createdByExtReact = true;
 
     if (_this.isRootContainer) {
-      _this.rawConfigs.ExtReactRoot = true;
-      console.dir('this.rawConfigs');
-      console.dir(_this.rawConfigs);
+      _this.rawConfigs.ExtReactRoot = true; //      console.dir(this.target + ': rawConfigs')
+      //      console.dir(this.rawConfigs)
+
       _this.cmp = new _this.extJSClass(_this.rawConfigs);
+      console.dir(_this.target + ': cmp');
+      console.dir(_this.cmp);
       l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_this));
     } else {
       l("ExtJSComponent: constructor NOTROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this)", _this.rawConfig, _assertThisInitialized(_this));
@@ -174,12 +177,12 @@ function (_Component) {
             config['fullscreen'] = true;
           }
 
-          console.log('in renderTo');
+          console.log(this.target + ': renderTo');
           config.renderTo = root;
         } else {
           config['height'] = '100%';
           config['width'] = '100%';
-          console.log('NOT in renderTo');
+          console.log(this.target + ': NOT renderTo');
         } //console.log('this')
         //console.dir(this)
         // if (this.target == 'ExtReact') {
