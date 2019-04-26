@@ -74,6 +74,7 @@ export function reactify(target) {
     const xtype = 'container'
     console.dir('target: ' + target)
     var reactifiedClass = getTheClass(true, xtype, target)
+    //console.dir(reactifiedClass)
     return reactifiedClass
   }
   else if (target === 'ExtReactRenderer') {
@@ -81,6 +82,7 @@ export function reactify(target) {
     const xtype = 'container'
     console.dir('target: ' + target)
     var reactifiedClass = getTheClass(true, xtype, target)
+    //console.dir(reactifiedClass)
     return reactifiedClass
   }
   else {

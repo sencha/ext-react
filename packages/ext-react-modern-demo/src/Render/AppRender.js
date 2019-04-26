@@ -18,26 +18,30 @@ export default class AppRender extends Component {
   // {id: 333, active: true,  "fName":"Tom",     "lName":"Thumb",     "dept":"Development", dob: new Date("1/1/1960")}
 
 
+        // <Column
+      //   text="Department"
+      //   dataIndex="dept"
+      //   flex={1}
+      //   renderer={this.renderer}
+      // >
+      // </Column>
+
+    //   <Column
+    //   text="Lname"
+    //   dataIndex="lName"
+    //   flex={1}
+    // >
+    // </Column>
+
   render() {
 
     return (
 
       <Grid title="Grid title" store={this.store}>
 
-      <Column
-        text="Department"
-        dataIndex="dept"
-        flex={1}
-        renderer={this.renderer}
-      >
-      </Column>
 
-      <Column
-        text="Fname"
-        dataIndex="fName"
-        flex={1}
-      >
-      </Column>
+
+
 
       <Column
         text="Fname"
@@ -71,18 +75,20 @@ export default class AppRender extends Component {
 
 
 
+
+
   // renderer = (v, r) => {
   //   return(<span title="hi2" style={{ color: 'pink' }}>{v}</span>);
   // }
 
-  
+
   renderer = (v, r) => {
     return(<ExtReactRenderer><Panel title="hi2" style={{ color: 'pink' }}>{v}</Panel></ExtReactRenderer>);
   }
 
-  renderer2 = (v, r) => {
-    return(<ExtReactRenderer><span title="hi2" style={{ color: 'pink' }}>{v}</span></ExtReactRenderer>);
-  }
+  // renderer2 = (v, r) => {
+  //   return(<ExtReactRenderer><span title="hi2" style={{ color: 'pink' }}>{v}</span></ExtReactRenderer>);
+  // }
 
 
 }
