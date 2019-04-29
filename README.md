@@ -1,6 +1,6 @@
-# ext-react 6.7.x
+# ext-react 7.0.x
 
-This repo is for ExtReact 6.7, which supports React 16 and above
+This repo is for ExtReact 7.0, which supports React 16 and above
 
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
 
@@ -9,7 +9,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 ## Requirements
 
 * React 16.x.x 
-* Ext JS 6.7+
+* Ext JS 7.0+
 
 ## To Use this repo 'as-is' (to run the demos on your local machine)
 
@@ -34,7 +34,9 @@ To create a new ExtReact app, we recommend using the [ExtReact Generator](https:
 
 ```
 npm install -g @sencha/ext-react-gen
-@sencha/ext-react-gen
+
+ext-react-gen app CoolExtReactApp
+
 ```
 
 The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Modern Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate).

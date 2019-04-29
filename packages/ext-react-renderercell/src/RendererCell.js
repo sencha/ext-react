@@ -78,20 +78,35 @@ Ext.define('Ext.react.RendererCell', {
         renderer = renderer || me.getRenderer() || column.getRenderer();
         if (renderer) {
             markup = renderer.call(scope, value, context.record, context.dataIndex, me, column);
+            console.dir('this')
+            console.dir(this)
+
+            console.dir('markup')
+            console.dir(markup)
+            console.dir(markup.type.prototype.target)
             if (typeof markup === 'object') {
                 result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
-                console.log('ext-react-renderercell')
-                console.log('value: ' + value)
-                console.dir(result.cmp)
 
-                //added
-                result.cmp.setRenderTo(me.bodyElement.dom);
-
-                if (result.isWidget) {
-                  console.log('is widget')
-                    needsSizing = result !== me.widget;
-                    me.widget = result;
+                if (result == null) {
+                  markup.type.prototype.rootDOM =  me.bodyElement.dom
                 }
+                else {
+                  console.log('ext-react-renderercell')
+                  console.log('value: ' + value)
+                  console.dir(result.cmp)
+  
+                  //added
+                  result.cmp.setRenderTo(me.bodyElement.dom);
+  
+                  if (result.isWidget) {
+                    console.log('is widget')
+                      needsSizing = result !== me.widget;
+                      me.widget = result;
+                  }
+                }
+
+
+
             } else {
                 if (markup == null) {
                     markup = '';

@@ -1,5 +1,13 @@
 # Release Notes
 
+## v7.0.0
+
+* Support for React 16.8.x
+* Support for Ext JS Components v7.0
+* Improved support for renderer function of grid cell
+* Common @sencha/ext-webpack-plugin npm package
+
+
 ## v6.6.4
 
 * Support for React 16.6.3
