@@ -175,14 +175,29 @@ function (_Component) {
             config['width'] = '100%';
           } else {
             config['fullscreen'] = true;
-          }
+          } //   console.log(this.target + ': renderTo')
+          //   config.renderTo = root
+          // }
+          // else {
+          //   config['height'] = '100%'
+          //   config['width'] = '100%'
+          //   console.log(this.target + ': NOT renderTo')
+          // }
+
 
           console.log(this.target + ': renderTo');
           config.renderTo = root;
         } else {
           config['height'] = '100%';
           config['width'] = '100%';
-          console.log(this.target + ': NOT renderTo');
+          console.log('this.rootDOM');
+          console.log(this.rootDOM);
+
+          if (this.rootDOM != undefined) {
+            config.renderTo = this.rootDOM;
+          } else {
+            console.log(this.target + ': NOT renderTo');
+          }
         } //console.log('this')
         //console.dir(this)
         // if (this.target == 'ExtReact') {

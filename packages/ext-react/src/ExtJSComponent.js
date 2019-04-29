@@ -170,6 +170,7 @@ export class ExtJSComponent extends Component {
         else {
           if (this.target == 'ExtReact') {
             var root = document.getElementsByClassName('x-viewport-body-el')[0]
+
             if(root == undefined) {
               root = globalRoot[count]
               count++
@@ -179,16 +180,36 @@ export class ExtJSComponent extends Component {
             else {
               config['fullscreen'] = true
             }
-            console.log(this.target + ': renderTo')
-            config.renderTo = root
 
 
+
+          //   console.log(this.target + ': renderTo')
+          //   config.renderTo = root
+
+
+          // }
+          // else {
+          //   config['height'] = '100%'
+          //   config['width'] = '100%'
+          //   console.log(this.target + ': NOT renderTo')
+          // }
+
+          console.log(this.target + ': renderTo');
+          config.renderTo = root;
+        } else {
+          config['height'] = '100%';
+          config['width'] = '100%';
+          console.log('this.rootDOM')
+          console.log(this.rootDOM)
+          if (this.rootDOM != undefined) {
+            config.renderTo = this.rootDOM;
           }
           else {
-            config['height'] = '100%'
-            config['width'] = '100%'
-            console.log(this.target + ': NOT renderTo')
+            console.log(this.target + ': NOT renderTo');
           }
+        } 
+
+
           //console.log('this')
           //console.dir(this)
 
