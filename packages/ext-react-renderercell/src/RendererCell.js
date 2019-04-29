@@ -87,6 +87,7 @@ Ext.define('Ext.react.RendererCell', {
             if (typeof markup === 'object') {
                 result = Ext.react.ReactDOM.render(markup, me.bodyElement.dom); 
 
+                
                 if (result == null) {
                   markup.type.prototype.rootDOM =  me.bodyElement.dom
                 }

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run dev",
     "clean": "rimraf build",
-    "dev": "webpack-dev-server --env.browser=yes --env.verbose=no",
+    "dev": "webpack-dev-server --env.browser=yes --env.verbose=no --env.emit=no",
     "buildlocal": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
     "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.0.0/kitchensink/"
   },
