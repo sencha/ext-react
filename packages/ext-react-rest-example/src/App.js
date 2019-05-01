@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducer';
 import Layout from './Layout';
 
+
 const store = createStore(
     reducer,
     {
