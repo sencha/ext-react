@@ -448,7 +448,7 @@ function MyComponent() {
 Select your toolkit, theme, and packages using [@sencha/ext-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
 
 ```JavaScript
-const ExtWebpackPlugin = require('@sencha/ext-react webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin');
 
 module.exports = {
   ...

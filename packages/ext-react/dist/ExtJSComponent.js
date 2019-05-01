@@ -30,9 +30,9 @@ function (_Component) {
     _this.reactElement = {}; //    console.dir('element')
     //    console.dir(element)
 
-    _this._getReactStuff(element);
+    _this._getReactStuff(element); //console.log(this.target + ': _getConfig')
 
-    console.log(_this.target + ': _getConfig');
+
     _this.rawConfigs = _this._getConfig();
     _this.rawConfigs.$createdByExtReact = true;
 
@@ -40,9 +40,9 @@ function (_Component) {
       _this.rawConfigs.ExtReactRoot = true; //      console.dir(this.target + ': rawConfigs')
       //      console.dir(this.rawConfigs)
 
-      _this.cmp = new _this.extJSClass(_this.rawConfigs);
-      console.dir(_this.target + ': cmp');
-      console.dir(_this.cmp);
+      _this.cmp = new _this.extJSClass(_this.rawConfigs); //console.dir(this.target + ': cmp')
+      //console.dir(this.cmp)
+
       l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_this));
     } else {
       l("ExtJSComponent: constructor NOTROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this)", _this.rawConfig, _assertThisInitialized(_this));
@@ -185,7 +185,6 @@ function (_Component) {
           // }
 
 
-          console.log(this.target + ': renderTo');
           config.renderTo = root;
         } else {
           config['height'] = '100%';

@@ -32,7 +32,7 @@ export class ExtJSComponent extends Component {
 
     this._getReactStuff(element)
 
-    console.log(this.target + ': _getConfig')
+    //console.log(this.target + ': _getConfig')
     this.rawConfigs = this._getConfig()
     this.rawConfigs.$createdByExtReact = true
 
@@ -42,8 +42,8 @@ export class ExtJSComponent extends Component {
 //      console.dir(this.rawConfigs)
 
       this.cmp = new this.extJSClass(this.rawConfigs)
-      console.dir(this.target + ': cmp')
-      console.dir(this.cmp)
+      //console.dir(this.target + ': cmp')
+      //console.dir(this.cmp)
 
 
       l(`ExtJSComponent: constructor ROOT, element: ${this.target}, xtype: ${this.xtype} (this.rawConfig, this.cmp, this)`, this.rawConfig, this.cmp, this)
@@ -194,7 +194,6 @@ export class ExtJSComponent extends Component {
           //   console.log(this.target + ': NOT renderTo')
           // }
 
-          console.log(this.target + ': renderTo');
           config.renderTo = root;
         } else {
           config['height'] = '100%';
