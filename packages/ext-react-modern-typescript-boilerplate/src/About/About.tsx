@@ -1,7 +1,13 @@
 import * as React from 'react';
 import { Container } from '@sencha/ext-modern';
+import { ActionSheetProps } from '../../modern';
+
 
 export default function About() {
+
+    var a: ActionSheetProps = {};
+    a.activeChildTabIndex = 1;
+    console.dir(a);
 
     return (
         <Container padding="20">
