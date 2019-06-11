@@ -100,6 +100,7 @@ import NumberField from './FormFields/NumberField/NumberField';
 import ContainerField from './FormFields/ContainerField/ContainerField';
 import Validation from './FormFields/Validation/Validation';
 import TimeField from './FormFields/TimeField/TimeField';
+import CheckBoxGroup from './FormFields/CheckBoxGroup/CheckBoxGroup';
 
 import Video from './Video/Video';
 import Audio from './Audio/Audio';
@@ -298,7 +299,8 @@ const root = {
                 { text: 'TimeField', component: TimeField, navIcon: 'icon-form-panel' },
                 { text: 'ToggleField', component: ToggleField, layout: 'center', navIcon: 'icon-Forms-ToggleField' },
                 { text: 'URLField', component: URLField, layout: 'center', navIcon: 'icon-Forms-URLField' },
-                { text: 'Validation', component: Validation, layout: 'auto', navIcon: 'icon-form-validation'}
+                { text: 'Validation', component: Validation, layout: 'auto', navIcon: 'icon-form-validation'},
+                { text: 'CheckBoxGroup', component: CheckBoxGroup, layout: 'center', navIcon: 'icon-Forms-CheckBoxGroup' }
             ] },
            
            { text: 'Gauges', navIcon: 'icon-gauge-charts', children: [
