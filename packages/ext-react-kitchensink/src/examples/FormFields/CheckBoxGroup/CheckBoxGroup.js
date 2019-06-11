@@ -159,9 +159,9 @@ export default class CheckBocGroupExample extends Component {
 			      		<Panel
 			                label="Multi-Column<br />(custom widths):"
 			                cls="x-check-group-alt"
-			                vertical=true
+			                vertical="true"
 			                errorTarget="side"
-			                required=true
+			                required="true"
 			                defaults={
 			                	{
 				                  	"width": "120",
@@ -170,16 +170,18 @@ export default class CheckBocGroupExample extends Component {
 			                }
 			            >
 				            <Container 
-			                    width="120", 
+			                    width="120"
 			                    height="120"
 			                    defaults={
-			                      	"labelAlign":"right"
+			                    	{
+			                      		"labelAlign": "right"
+			                    	}
 			                    }
 			                >
 			                	<CheckBoxField>
 			                		<Component 
-				                		html='Heading 1'
-				                		padding='0 2'
+				                		html="Heading 1"
+				                		padding="0 2"
 				                	>
                         			</Component>
 	                        		<Label
@@ -195,8 +197,8 @@ export default class CheckBocGroupExample extends Component {
                     			</CheckBoxField>
 	                    		<CheckBoxField>
 		                    		<Component
-		                    			html='Heading 2'
-		                    			padding='0 2'
+		                    			html="Heading 2"
+		                    			padding="0 2"
 		                    		>
 			                        </Component>
 			                        <Label
@@ -207,8 +209,8 @@ export default class CheckBocGroupExample extends Component {
 		                        </CheckBoxField>
 		                        <CheckBoxField>
 			                        <Component
-			                        	html='Heading 1'
-			                        	padding='0 2'
+			                        	html="Heading 1"
+			                        	padding="0 2"
 			                        >
 			                        </Component>
 			                        <Label
