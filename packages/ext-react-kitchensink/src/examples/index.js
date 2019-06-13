@@ -41,6 +41,7 @@ import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
 import ColorPicker from './ColorPicker/ColorPicker';
+import BreadcrumbToolBar from './Toolbar/BreadcrumbToolBar/BreadcrumbToolBar'
 
 // Trees
 
@@ -361,6 +362,7 @@ const root = {
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
             { text: 'Wizard', component: Wizard, navIcon: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
+            { text: 'BreadcrumbToolBar', component: BreadcrumbToolBar, navIcon: 'icon-breadcrumb-toolbar'}
         ]},
         { text: 'Grids', navIcon: 'icon-grids', children: [
             { text: 'Core Features', navIcon: 'icon-grids', children: [
