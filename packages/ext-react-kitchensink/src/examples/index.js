@@ -50,6 +50,7 @@ import EditableTree from './Trees/EditableTree/EditableTree';
 import TreeGrid from './Trees/TreeGrid/TreeGrid';
 import TreeDecorations from './Trees/TreeDecorations/TreeDecorations';
 import HeterogeneousTree from './Trees/HeterogeneousTree/HeterogeneousTree';
+import TreeReorder from './Trees/TreeReorder/TreeReorder';
 
 // Pivot Grids
 import OutlineLayout from './PivotGrid/OutlineLayout/OutlineLayout';
@@ -393,7 +394,8 @@ const root = {
             { text: 'Editable Tree', premium: true, component: EditableTree, navIcon: 'icon-tree-editable'},
             { text: 'Tree Grid', premium: true, component: TreeGrid, navIcon: 'icon-tree-grid' },
             { text: 'Tree Decorations', premium: true, component:TreeDecorations, navIcon: 'icon-tree-decorations'},
-            { text: 'Heterogeneous Tree', premium: true, component: HeterogeneousTree, navIcon: 'icon-heterogeneous-tree'}
+            { text: 'Heterogeneous Tree', premium: true, component: HeterogeneousTree, navIcon: 'icon-heterogeneous-tree'},
+            { text: 'Tree Reorder', component: TreeReorder, navIcon: 'icon-tree-reorder'}
         ] },
         { text: 'Calendar', premium: false, navIcon: 'icon-calendar', children:[
             { text: 'Calendar Panel', component: Calendar, navIcon: 'icon-calendar-panel' },
