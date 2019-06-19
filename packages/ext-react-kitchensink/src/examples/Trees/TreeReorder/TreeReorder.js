@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Tree, Container, Toolbar, Button } from '@sencha/ext-modern';
 import data from './data';
 
-export default class TreeExample extends Component {
+export default class TreeReorderExample extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {
         rootVisible: true,
