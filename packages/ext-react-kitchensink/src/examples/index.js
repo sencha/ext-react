@@ -16,6 +16,7 @@ import ReduxGrid from './Grid/ReduxGrid/ReduxGrid';
 import RowBodyGrid from './Grid/AddonsDecorations/RowBody/RowBody';
 import SelectAndCopy from './Grid/AdvancedFeatures/SelectAndCopy/SelectAndCopy';
 import RenderComponentsInCells from './Grid/AdvancedFeatures/RenderComponentsInCells/RenderComponentsInCells';
+import DragFormToGrid from './Grid/AddonsDecorations/DragFormToGrid/DragFormToGrid';
 
 // Panels
 
@@ -376,7 +377,8 @@ const root = {
                 { text: 'Row Body', component: RowBodyGrid, navIcon: 'icon-row-body-grid'},
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
                 { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
-                { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'}
+                { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'},
+                { text: 'Drag Form To Grid', component: DragFormToGrid, navIcon: 'icon-dd-form-to-grid' }
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
                 { text: 'Big Data', component: BigDataGrid, navIcon: 'icon-big-data-grid' },
