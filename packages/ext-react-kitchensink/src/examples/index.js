@@ -362,6 +362,7 @@ const root = {
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
             { text: 'Wizard', component: Wizard, navIcon: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
+            { text: 'Froala Editor', component: FroalaEditor, navIcon: 'icon-editor', layout: Ext.os.is.Phone ? 'fit': 'center' }
         ]},
         { text: 'Grids', navIcon: 'icon-grids', children: [
             { text: 'Core Features', navIcon: 'icon-grids', children: [
