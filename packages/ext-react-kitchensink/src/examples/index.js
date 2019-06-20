@@ -234,6 +234,7 @@ import VboxLayout from './Layouts/vbox/vbox';
 import FormLayout from './Layouts/form/form';
 import Resizable from './Layouts/resizable/resizable';
 import CenterLayout from './Layouts/center/center';
+import AccordionLayout from './Layouts/accordion/accordion';
 
 // Drag & Drop
 
@@ -312,7 +313,8 @@ const root = {
                 { text: 'form', component: FormLayout, layout: 'auto', navIcon: 'icon-layout-form' },
                 { text: 'hbox', component: HboxLayout, layout: 'auto', navIcon: 'icon-layout-horizontal-box' },
                 { text: 'resizable', component: Resizable, navIcon: 'icon-layout-box' },
-                { text: 'vbox', component: VboxLayout, layout: 'auto', navIcon: 'icon-layout-vertical-box' }
+                { text: 'vbox', component: VboxLayout, layout: 'auto', navIcon: 'icon-layout-vertical-box' },
+                { text: 'accordion', component: AccordionLayout, navIcon: 'icon-layout-accordion'}
             ]},
             { text: 'Lists', navIcon: 'icon-lists', children: [
                 { text: 'Basic List', component: BasicList, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-basic-list' },
