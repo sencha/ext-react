@@ -23,7 +23,7 @@
  *
  * # Example usage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
  *     import { FormPanel, ComboBox } from '@sencha/ext-react';
  *
@@ -92,7 +92,7 @@
  *
  *     ComboBox loads local data
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from "react";
  *     import { FormPanel, ComboBox } from "@sencha/ext-react";
  *     

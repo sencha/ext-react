@@ -12,9 +12,9 @@
  *
  * ## A Basic Grid
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -55,9 +55,9 @@
  * A top-level column definition may contain a `columns` configuration. This means that the
  * resulting header will be a group header, and will contain the child columns.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

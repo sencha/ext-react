@@ -9,9 +9,9 @@
  * Carousels can be oriented either horizontally or vertically and are easy to configure - they just work like any other
  * Container.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Carousel, Container } from '@extjs/ext-react';
+ *     import { ExtReact, Carousel, Container } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

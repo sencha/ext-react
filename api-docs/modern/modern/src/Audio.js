@@ -24,7 +24,7 @@
  * Android considerations.
  *
  *     import React, { Component } from 'react'
- *     import { Panel, Audio, Button, Container } from '@extjs/ext-react';
+ *     import { Panel, Audio, Button, Container } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

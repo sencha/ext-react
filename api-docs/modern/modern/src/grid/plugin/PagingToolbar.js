@@ -7,9 +7,9 @@
  * The Paging Toolbar is a specialized toolbar that is
  * bound to a `Ext.data.Store` and provides automatic paging control.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  * 
  *     Ext.require('Ext.grid.plugin.PagingToolbar');
  *

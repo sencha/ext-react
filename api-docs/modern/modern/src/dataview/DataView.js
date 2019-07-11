@@ -18,9 +18,9 @@
  * At its simplest, a DataView is just a Store full of data and a simple template that we
  * use to render each item:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, DataView } from '@extjs/ext-react';
+ *     import { ExtReact, DataView } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -82,9 +82,9 @@
  * rotten tomatoes (http://developer.rottentomatoes.com/) and modify the {@link #store}
  * and {@link #itemTpl} a little:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, DataView } from '@extjs/ext-react';
+ *     import { ExtReact, DataView } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

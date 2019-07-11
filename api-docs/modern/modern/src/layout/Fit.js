@@ -10,9 +10,9 @@
  * panel to a container using Fit layout, simply set `layout: 'fit'` on the container and
  * add a single panel to it.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {
