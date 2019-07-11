@@ -10,8 +10,9 @@ import SummaryRowGrid from './Grid/AddonsDecorations/SummaryRow/SummaryRow';
 import GridFiltering from './Grid/AddonsDecorations/GridFiltering/GridFiltering';
 import ViewOptionsGrid from './Grid/AddonsDecorations/ViewOptions/ViewOptions';
 import RowExpanderGrid from './Grid/AddonsDecorations/RowExpander/RowExpander';
+import RowDragAndDrop from './Grid/AddonsDecorations/RowDragAndDrop/RowDragAndDrop';
 import ToolGrid from './Grid/AddonsDecorations/GridTools/GridTools';
-import StockTickerGrid from './Grid/AdvancedFeatures/StockTicker/StockTicker'; 
+import StockTickerGrid from './Grid/AdvancedFeatures/StockTicker/StockTicker';
 import ReduxGrid from './Grid/ReduxGrid/ReduxGrid';
 import RowBodyGrid from './Grid/AddonsDecorations/RowBody/RowBody';
 import SelectAndCopy from './Grid/AdvancedFeatures/SelectAndCopy/SelectAndCopy';
@@ -50,6 +51,7 @@ import EditableTree from './Trees/EditableTree/EditableTree';
 import TreeGrid from './Trees/TreeGrid/TreeGrid';
 import TreeDecorations from './Trees/TreeDecorations/TreeDecorations';
 import HeterogeneousTree from './Trees/HeterogeneousTree/HeterogeneousTree';
+import TreeReorder from './Trees/TreeReorder/TreeReorder';
 
 // Pivot Grids
 import OutlineLayout from './PivotGrid/OutlineLayout/OutlineLayout';
@@ -63,7 +65,7 @@ import ConfiguratorPlugin from './PivotGrid/ConfiguratorPlugin/ConfiguratorPlugi
 import RangeEditorPlugin from './PivotGrid/RangeEditorPlugin/RangeEditorPlugin';
 import ExporterPlugin from './PivotGrid/ExporterPlugin/ExporterPlugin';
 
-// Lists 
+// Lists
 
 import BasicList from './Lists/BasicList/BasicList';
 import GroupedList from './Lists/Grouped/Grouped';
@@ -223,7 +225,7 @@ import TreeMapTooltip from './D3/Hierarchy/TreeMapTooltip/TreeMapTooltip';
 import ConfigurablePivotTreeMap from './D3/Hierarchy/ConfigurablePivotTreeMap/ConfigurablePivotTreeMap';
 import Pack from './D3/Hierarchy/Pack/Pack';
 import Sunburst from './D3/Hierarchy/Sunburst/Sunburst';
-import ZoomableSunburst from './D3/Hierarchy/ZoomableSunburst/ZoomableSunburst'; 
+import ZoomableSunburst from './D3/Hierarchy/ZoomableSunburst/ZoomableSunburst';
 
 // Layouts
 
@@ -244,7 +246,7 @@ import Handles from './DragAndDrop/Handles/Handles';
 import Groups from './DragAndDrop/Groups/Groups';
 import Data from './DragAndDrop/Data/Data';
 import Files from './DragAndDrop/Files/Files';
- 
+
 import Transition from './Transition/Transition';
 
 import Wizard from './Wizard/Wizard';
@@ -300,7 +302,7 @@ const root = {
                 { text: 'URLField', component: URLField, layout: 'center', navIcon: 'icon-Forms-URLField' },
                 { text: 'Validation', component: Validation, layout: 'auto', navIcon: 'icon-form-validation'}
             ] },
-           
+
            { text: 'Gauges', navIcon: 'icon-gauge-charts', children: [
                 { text: 'Default Gauge', component: DefaultGauge, layout: 'center', navIcon: 'icon-gauge-charts' },
                 { text: 'Needle Gauge', component: NeedleGauge, layout: 'center', navIcon: 'icon-gauge-charts' }
@@ -353,7 +355,7 @@ const root = {
                 { text: 'Desktop Tabs', component: DesktopTabs, navIcon: 'icon-Desktop-Tabs' },
                 { text: 'Closable', component: Closable, navIcon: 'icon-Closable-Tabs' },
                 { text: 'ScrollingTabs', component: ScrollingTabs, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-Scrolling-Tabs' },
-                { text: 'TabBar', component: TabBar, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-Tab-Bar' }        
+                { text: 'TabBar', component: TabBar, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-Tab-Bar' }
             ]},
             { text: 'TitleBar', component: TitleBar, navIcon: 'icon-Title-Bar' },
             { text: 'Toolbar', component: Toolbar, navIcon: 'icon-toolbar' },
@@ -376,7 +378,8 @@ const root = {
                 { text: 'Row Body', component: RowBodyGrid, navIcon: 'icon-row-body-grid'},
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
                 { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
-                { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'}
+                { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'},
+                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-view-options-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
                 { text: 'Big Data', component: BigDataGrid, navIcon: 'icon-big-data-grid' },
@@ -393,7 +396,8 @@ const root = {
             { text: 'Editable Tree', premium: true, component: EditableTree, navIcon: 'icon-tree-editable'},
             { text: 'Tree Grid', premium: true, component: TreeGrid, navIcon: 'icon-tree-grid' },
             { text: 'Tree Decorations', premium: true, component:TreeDecorations, navIcon: 'icon-tree-decorations'},
-            { text: 'Heterogeneous Tree', premium: true, component: HeterogeneousTree, navIcon: 'icon-heterogeneous-tree'}
+            { text: 'Heterogeneous Tree', premium: true, component: HeterogeneousTree, navIcon: 'icon-heterogeneous-tree'},
+            { text: 'Tree Reorder', component: TreeReorder, navIcon: 'icon-tree-reorder'}
         ] },
         { text: 'Calendar', premium: false, navIcon: 'icon-calendar', children:[
             { text: 'Calendar Panel', component: Calendar, navIcon: 'icon-calendar-panel' },
@@ -434,8 +438,8 @@ const root = {
                 { text: 'OHLC', component: OHLC, navIcon: 'icon-financial-ohlc' }
             ] },
             { text: 'Gauges', navIcon: 'icon-gauge-charts', children: [
-                { text: 'Basic Gauge', component: BasicGaugeChart, navIcon: 'icon-gauge-basic' }  
-            ] }, 
+                { text: 'Basic Gauge', component: BasicGaugeChart, navIcon: 'icon-gauge-basic' }
+            ] },
             { text: 'Line', navIcon: 'icon-line-charts', children: [
                 { text: 'Basic Line', component: BasicLine, navIcon: 'icon-line-basic' },
                 { text: 'Basic Markers', component: BasicMarkers, navIcon: 'icon-line-markers' },
@@ -451,7 +455,7 @@ const root = {
                 { text: 'Spie', component: Spie, navIcon: 'icon-pie-custom' },
                 { text: 'Donut', component: Donut, navIcon: 'icon-pie-donut' },
                 { text: 'Double Donut', component: DoubleDonut, navIcon: 'icon-pie-double-donut' },
-                { text: '3D Pie', component: ThreeDPie, navIcon: 'icon-pie-3d' } 
+                { text: '3D Pie', component: ThreeDPie, navIcon: 'icon-pie-3d' }
             ] },
             { text: 'Radar', navIcon: 'icon-radar-charts', children: [
                 { text: 'Basic Radar', component: BasicRadar, navIcon: 'icon-radar-basic' },
@@ -515,6 +519,6 @@ function transform(node, parentUrl) {
     }
 }
 
-transform(root); 
+transform(root);
 
 export default root;
