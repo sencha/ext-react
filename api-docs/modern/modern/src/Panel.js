@@ -19,9 +19,9 @@
  * If configured with `{@link #cfg-anchor: true}`, when you {@link #showBy} another
  * component, there will be an anchor arrow pointing to the reference component.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel, Button } from '@sencha/ext-react';
  *
  *     Ext.require('Ext.Toast');
  *

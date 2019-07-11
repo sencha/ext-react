@@ -7,9 +7,9 @@
  * used as the foundation for all of the chart classes but may also be created directly 
  * in order to create custom drawings.
  * 
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Panel, Draw, Toolbar, Button, Spacer, Label } from '@extjs/ext-react';
+ *     import { ExtReact, Panel, Draw, Toolbar, Button, Spacer, Label } from '@sencha/ext-react';
  *
  *     export default class DrawExample extends Component {
  *

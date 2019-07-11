@@ -5,9 +5,9 @@
  *
  * ActionSheet is a `Sheet` that is docked at the bottom of the screen by default.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, ActionSheet, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Container, ActionSheet, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *        render() {

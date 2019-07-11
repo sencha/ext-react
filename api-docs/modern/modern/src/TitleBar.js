@@ -11,9 +11,9 @@
  * You can also give items of a {@link Ext.TitleBar} an `align` prop of `left` or `right`,
  * which will dock them to the `left` or `right` of the bar.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, TitleBar, Button } from '@extjs/ext-react';
+ *     import { ExtReact, Container, TitleBar, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

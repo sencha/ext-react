@@ -5,9 +5,9 @@
  *
  * List is a custom styled DataView which allows Grouping, Indexing, Icons, and a Disclosure.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List } from '@extjs/ext-react';
+ *     import { ExtReact, List } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -34,9 +34,9 @@
  *
  * A more advanced example showing a list of people grouped by last name:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@extjs/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -79,9 +79,9 @@
  *
  * If you want to dock items to the bottom or top of a List, you can use the scrollDock configuration on child items in this List. The following example adds a button to the bottom of the List.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@extjs/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

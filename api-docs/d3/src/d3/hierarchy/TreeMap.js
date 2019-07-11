@@ -8,10 +8,10 @@
  * to recursively subdivide area into rectangles, where the area of any node in the tree
  * corresponds to its value.
  *
- *     @example packages=[d3,reactor]
+ *     @example packages=[d3,ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Container }  from '@extjs/ext-react';
- *     import { D3_TreeMap } from '@extjs/ext-react-d3';
+ *     import { ExtReact, Container }  from '@sencha/ext-react';
+ *     import { D3_TreeMap } from '@sencha/ext-react-d3';
  *
  *     export default class MyExample extends Component {
  *

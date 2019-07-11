@@ -17,9 +17,9 @@
  * the current date. You can also use the {@link #setValue} method to update the value
  * at any time.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, DatePickerField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, DatePickerField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

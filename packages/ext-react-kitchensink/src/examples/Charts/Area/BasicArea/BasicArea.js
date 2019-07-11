@@ -41,7 +41,6 @@ export default class BasicAreaChartExample extends Component {
 
     render() {
         var { theme } = this.state
-        console.log(theme)
 
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
@@ -52,6 +51,7 @@ export default class BasicAreaChartExample extends Component {
                 />
                 <Cartesian
                     shadow
+                    downloadServerUrl='http://svg.sencha.io'
                     store={this.store}
                     theme={theme}
                     insetPadding="25 35 0 10"

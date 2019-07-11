@@ -23,7 +23,7 @@ class EmployeesGrid extends Component {
         pageSize: 100,
         proxy: {
             type: 'rest',
-            url: '/employees',
+            url: 'http://localhost:8082/employees',
             reader: {
                 type: 'json',
                 rootProperty: 'records',

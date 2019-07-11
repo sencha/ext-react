@@ -170,7 +170,7 @@
  * When the renderer prop is specified, a {@link Ext.reactor.RendererCell RendererCell} is used.  Be sure to import
  * RendererCell so that it is included in your application's JavaScript bundle:
  * 
- *      import { RendererCell } from '@extjs/ext-react';
+ *      import { RendererCell } from '@sencha/ext-react';
  * 
  * @cfg {Object} renderer.value The data value for the current cell.
  * @cfg {Ext.data.Model} renderer.record The record for the current row.

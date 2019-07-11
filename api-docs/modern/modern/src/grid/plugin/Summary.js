@@ -29,9 +29,9 @@
  * + {@link Ext.data.summary.Sum sum}
  *
  *
- *      @example packages=[reactor]
+ *      @example packages=[ext-react]
  *      import React, { Component } from 'react'
- *      import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *      import { ExtReact, Grid, Column } from '@sencha/ext-react';
  * 
  *      Ext.require('Ext.grid.plugin.Summary');
  *

@@ -6,9 +6,9 @@
  * The Form panel presents a set of form fields and provides convenient ways to load and save data. Usually a form
  * panel just contains the set of fields you want to display.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, FormPanel, TextField } from '@extjs/ext-react';
+ *     import { ExtReact, Button, FormPanel, TextField } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {

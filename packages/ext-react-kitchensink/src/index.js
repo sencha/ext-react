@@ -5,8 +5,16 @@ window.d3 = d3
 require('./index.css')
 import './Data'
 
+Ext.require([
+  'Ext.*',
+  'Ext.ux.*',
+  'Ext.panel.Collapser',
+  'Ext.layout.Fit'
+])
+
 import { launch } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
+import './themer.js'
 
 launch(() => {
   let top = Ext.get('loadingSplashTop'), wrapper = Ext.get('loadingSplash')

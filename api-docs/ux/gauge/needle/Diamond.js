@@ -5,7 +5,7 @@
  *
  *      @example
  *      import React, { Component } from 'react';
- *      import { ExtReact, SliderField, Gauge, FormPanel, Container} from '@extjs/ext-react';
+ *      import { ExtReact, SliderField, Gauge, FormPanel, Container} from '@sencha/ext-react';
  *      Ext.require('Ext.ux.gauge.needle.Diamond');
  *      Ext.require('Ext.ux.gauge.needle.Arrow');
  *      export default class NeedleExample extends Component {

@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin')
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin')
 const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src')
 
@@ -10,12 +10,12 @@ module.exports = function (env) {
   var watchprofile
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   if (buildenvironment == 'production') {
-    browserprofile = false
+    browserprofile = 'no'
     watchprofile = 'no'
   }
   else {
     if (env.browser == undefined) {env.browser = true}
-    browserprofile = JSON.parse(env.browser) || true
+    browserprofile = JSON.parse(env.browser) || 'yes'
     watchprofile = env.watch || 'yes'
   }
   const isProd = buildenvironment === 'production'
@@ -23,8 +23,8 @@ module.exports = function (env) {
   var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
   var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
   if (buildprofile == 'all') { buildprofile = '' }
-  if (env.treeshake == undefined) {env.treeshake = false}
-  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+  if (env.treeshake == undefined) {env.treeshake = 'no'}
+  var treeshake = env.treeshake ? env.treeshake : 'no'
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
@@ -36,7 +36,7 @@ module.exports = function (env) {
         framework: 'react',
         toolkit: 'modern',
         port: port,
-        emit: true,
+        emit: 'yes',
         browser: browserprofile,
         profile: buildprofile, 
         watch: watchprofile,

@@ -16,5 +16,5 @@ rm -r ext-react-renderercell/node_modules
 rm -r ext-react-rest-example/node_modules
 rm -r ext-react-tests/node_modules
 rm -r ext-react-transition/node_modules
-rm -r ext-react-webpack-plugin/node_modules
+rm -r ext-webpack-plugin/node_modules
 rm -r extjs-to-react-converter/node_modules
