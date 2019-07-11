@@ -22,10 +22,10 @@
     "@babel/polyfill": "^7.4.3",
     "@babel/runtime": "^7.4.3",
 
-    "@sencha/ext": "^6.7.0",
-    "@sencha/ext-modern": "^6.7.0",
-    "@sencha/ext-modern-theme-material": "^6.7.0",
-    "@sencha/ext-modern-treegrid": "^6.7.0",
+    "@sencha/ext": "^7.0.0",
+    "@sencha/ext-modern": "^7.0.0",
+    "@sencha/ext-modern-theme-material": "^7.0.0",
+    "@sencha/ext-modern-treegrid": "^7.0.0",
 
     "@sencha/ext-react": "^7.0.0",
     "@sencha/ext-react-renderercell": "^7.0.0",
