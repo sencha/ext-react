@@ -38,19 +38,19 @@ export default class TimePanelExample extends Component {
 				}
 				scrollable={true}
             >
-               <ToolBar 
+                <ToolBar 
 				    docked="top"
 				    ui="transparent"
 				    style="align-self:center; margin-top:10px;"
 			  	>
 				    <ToggleField
-				      boxLabel="is Meridiem (12 hour)"
-				      name="hourformat"
-				      reference="hourformat"
-				      cls="demo-solid-background"
-				      padding="0 10"
-				      value={this.state.isMeridiem}
-				      onChange={this.onMeridiemChange}
+				      	boxLabel="is Meridiem (12 hour)"
+				      	name="hourformat"
+				      	reference="hourformat"
+				      	cls="demo-solid-background"
+				      	padding="0 10"
+				      	value={this.state.isMeridiem}
+				      	onChange={this.onMeridiemChange}
 				    >
 			    	</ToggleField>
 				    <ToggleField
