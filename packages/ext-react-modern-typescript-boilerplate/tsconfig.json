@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "target": "es5",
@@ -16,21 +16,23 @@
     "strictNullChecks": false,
     "outDir": "build",
     "lib": [
-      "es6",
-      "es7",
-      "dom"
+        "es6",
+        "es7",
+        "dom"
     ],
     "types": [
-      "node"
+        "node"
     ]
-  },
-  "include": [
+    },
+    "include": [
     "./src/**/*"
-  ],
-
-  "exclude": [
-    "dist",
-    "build",
-    "node_modules"
-  ]
+    ],
+    "files": [
+        "modern.d.ts"
+    ],
+    "exclude": [
+        "dist",
+        "build",
+        "node_modules"
+    ]
 }

@@ -13,7 +13,7 @@
     "@babel/generator": "^7.4.0",
     "@babel/polyfill": "^7.4.0",
 
-    "@sencha/cmd": "~6.7.0",
+    "@sencha/cmd": "~7.0.0",
     "ast-traverse": "^0.1.1",
     "astring": "^1.3.1",
     "babylon": "^6.18.0",
