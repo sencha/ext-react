@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Grid, Column } from '@sencha/ext-modern';
 import model from '../../CompanyModel';
 
-Ext.require(['Ext.grid.plugin.RowExpander']);
+Ext.require(['Ext.grid.plugin.RowDragDrop']);
 
 export default class RowDragAndDropExample extends Component {
   store = Ext.create('Ext.data.Store', {
