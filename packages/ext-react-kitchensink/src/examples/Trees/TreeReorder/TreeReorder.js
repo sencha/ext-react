@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Tree, Container, Toolbar, Button } from '@sencha/ext-modern';
 import data from './data';
 
+Ext.require([
+    'Ext.data.TreeStore',
+    'Ext.grid.plugin.TreeDragDrop'
+]);
 export default class TreeReorderExample extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {
@@ -41,7 +45,7 @@ export default class TreeReorderExample extends Component {
         const { title, width, height } = this.state;
         return (
             <Container padding="10" layout="center" flex="1" height="100%">
-                <Tree ref="mainTree" width={width} height={height} title={title} store={this.store} shadow>
+                <Tree plugins="treedragdrop" ref="mainTree" width={width} height={height} title={title} store={this.store} shadow>
                     <Toolbar docked="top" ref="treeToolbar">
                         <Button text="Expand All" handler={this.onExpandAllClick}></Button>
                         <Button text="Collapse All" handler={this.onCollapseAllClick}></Button>
