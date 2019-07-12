@@ -479,7 +479,7 @@ async function stepCreate() {
   var boilerplate = ''
   if (answers['language'] == LANGUAGE.TYPESCRIPT) {
     //boilerplate = path.dirname(path.resolve(nodeDir + '/node_modules/@sencha/ext-react-modern-typescript-boilerplate'))
-    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-typesxcript-boilerplate')
+    boilerplate = path.join(nodeDir, 'node_modules/@sencha/ext-react-modern-typescript-boilerplate')
 
   }
   else {
