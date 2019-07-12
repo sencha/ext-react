@@ -104,7 +104,7 @@ export default Ext.define('KitchenSink.model.Company', {
         reader: {
             type: 'json'
         },
-        url: '/KitchenSink/Company'
+        url: '/KitchenSink/Companys'
     },
 
     validators: {
