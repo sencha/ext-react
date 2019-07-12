@@ -8,10 +8,10 @@
  * the same value is returned for each node, meaning that siblings will span equal
  * angles and occupy equal area.
  *
- *     @example packages=[d3,reactor]
+ *     @example packages=[d3,ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Container }  from '@extjs/ext-react';
- *     import { D3_Sunburst } from '@extjs/ext-react-d3';
+ *     import { ExtReact, Container }  from '@sencha/ext-react';
+ *     import { D3_Sunburst } from '@sencha/ext-react-d3';
  *
  *     export default class MyExample extends Component {
  *

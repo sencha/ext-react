@@ -9,9 +9,9 @@
  * normal form submission. For example, here is how we might set up a form to send
  * back a hidden userId field:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, HiddenField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, HiddenField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

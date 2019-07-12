@@ -6,9 +6,9 @@
  * Specialized {@link Ext.field.Slider} with a single thumb which only supports two
  * {@link #value values}.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, ToggleField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, ToggleField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

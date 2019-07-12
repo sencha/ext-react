@@ -4,7 +4,7 @@
  * The selected color is configurable via {@link #value} and
  * The Format is configurable via {@link #format}.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     <ColorButton
  *         onChange={(picker, color, previousColor) => {
  *             Ext.Msg.alert('Color', color);

@@ -10,9 +10,9 @@
  * As with all other form fields, the search field gains a "clear" button that appears whenever there
  * is text entered into the form, and which removes that text when tapped.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, SearchField } from '@extjs/ext-react'
+ *     import { ExtReact, Container, FormPanel, SearchField } from '@sencha/ext-react'
  *
  *     export default class SearchFieldExample extends Component {
  *

@@ -4,7 +4,7 @@
  *
  * In general an gridfilters plugin will be passed to the grid:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     var store = Ext.create('Ext.data.Store', {
  *         fields: ['firstname', 'lastname', 'seniority', 'department', 'hired', 'active'],
  *         data: [

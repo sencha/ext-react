@@ -9,10 +9,10 @@
  * As with all other series, the Radar series must be appended in the *series* Chart array configuration. See the Chart
  * documentation for more information.
  *
- *     @example packages=[charts,reactor]
+ *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container } from '@extjs/ext-react';
- *     import { Polar } from '@extjs/ext-react-charts';
+ *     import { ExtReact, Container } from '@sencha/ext-react';
+ *     import { Polar } from '@sencha/ext-charts';
  *
  *     export default class MyExample extends Component {
  *

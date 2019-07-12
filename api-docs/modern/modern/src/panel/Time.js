@@ -10,8 +10,8 @@
  *
  * Example usage:
  *
- *      @example packages=[reactor]
- *      import { ExtReact, Container, TimePanel } from '@extjs/ext-react';
+ *      @example packages=[ext-react]
+ *      import { ExtReact, Container, TimePanel } from '@sencha/ext-react';
  *      import React, { Component } from 'react';
  *      export default class TimeExample extends Component {
  *          render() {

@@ -7,9 +7,9 @@
  * functionality such as input validation, standard events, state management and look
  * and feel. Typically we create text fields inside a form, like this:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, Container, TextField, FieldSet } from '@extjs/ext-react';
+ *     import { ExtReact, FormPanel, Container, TextField, FieldSet } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {
