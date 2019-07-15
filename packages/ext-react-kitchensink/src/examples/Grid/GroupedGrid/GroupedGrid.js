@@ -6,7 +6,8 @@ Ext.require([
     'Ext.grid.cell.Number',
     'Ext.grid.cell.Widget',
     'Ext.grid.SummaryRow',
-    'Ext.ux.rating.Picker'
+    'Ext.ux.rating.Picker',
+    'Ext.grid.filters.Plugin'
 ]);
 
 export default class GroupedGridExample extends Component {
@@ -22,7 +23,9 @@ export default class GroupedGridExample extends Component {
     });
 
     state = {
-        grouped: true
+        grouped: true,
+        stateful: true,
+        stateId: "grouped-grid"
     };
 
     onToggleGrouping = on => { this.setState({ grouped: on })}
@@ -45,10 +48,17 @@ export default class GroupedGridExample extends Component {
                     title="Restaurants"
                     shadow 
                     store={this.store}
-                   grouped={grouped}
+                    grouped={grouped}
+                    stateful={this.state.stateful}
+                    stateId={this.state.stateId}
                     groupFooter={{
                         xtype: 'gridsummaryrow'
                     }}
+                    plugins={
+                        {
+                            gridfilters: "true"
+                        }
+                    }
                 >
                     <Column 
                         text="Name" 
