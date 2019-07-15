@@ -26,6 +26,7 @@ import CollapsiblePanel from './Panels/CollapsiblePanel/CollapsiblePanel';
 import BasicDatePanel from './Panels/BasicDatePanel/BasicDatePanel';
 import AdvancedDatePanel from './Panels/AdvancedDatePanel/AdvancedDatePanel';
 import TimePanel from './Panels/TimePanel/TimePanel';
+
 // Tabs
 
 import BasicTabs from './Tabs/BasicTabs/BasicTabs';
@@ -36,13 +37,15 @@ import Closable from './Tabs/Closable/Closable';
 import ScrollingTabs from './Tabs/ScrollingTabs/ScrollingTabs';
 import TabBar from './Tabs/TabBar/TabBar';
 
-import Toolbar from './Toolbar/Toolbar';
+// ToolBars
+
+import ToolBar from './ToolBars/ToolBar/ToolBar';
 import Button from './Button/Button';
 import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
 import ColorPicker from './ColorPicker/ColorPicker';
-import BreadcrumbToolBar from './Toolbar/BreadcrumbToolBar/BreadcrumbToolBar'
+import BreadcrumbToolbar from './ToolBars/BreadcrumbToolbar/BreadcrumbToolbar'
 
 // Trees
 
@@ -359,12 +362,14 @@ const root = {
                 { text: 'TabBar', component: TabBar, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-Tab-Bar' }
             ]},
             { text: 'TitleBar', component: TitleBar, navIcon: 'icon-Title-Bar' },
-            { text: 'Toolbar', component: Toolbar, navIcon: 'icon-toolbar' },
+            { text: 'ToolBars', navIcon: 'icon-toolbar', children: [
+                { text: 'ToolBar', component: ToolBar, navIcon: 'icon-toolbar' },
+                { text: 'BreadcrumbToolbar', component: BreadcrumbToolbar, navIcon: 'icon-breadcrumb-toolbar'}
+            ]},
             { text: 'ToolTip', component: ToolTip, layout: 'center', navIcon: 'icon-tooltips'  },
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
             { text: 'Wizard', component: Wizard, navIcon: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
-            { text: 'BreadcrumbToolBar', component: BreadcrumbToolBar, navIcon: 'icon-breadcrumb-toolbar'}
         ]},
         { text: 'Grids', navIcon: 'icon-grids', children: [
             { text: 'Core Features', navIcon: 'icon-grids', children: [
