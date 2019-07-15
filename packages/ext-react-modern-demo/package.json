@@ -28,6 +28,7 @@
     "@sencha/ext-modern-theme-material": "~7.0.0",
     "@sencha/ext-modern-treegrid": "~7.0.0",
     "@sencha/ext-react-renderercell": "^7.0.0",
+    "@sencha/ext-charts": "~6.7.0",
     "@sencha/ext-react": "~7.0.0",
     "d3": "4.5.0",
     "highlightjs": "~9.12.0",
