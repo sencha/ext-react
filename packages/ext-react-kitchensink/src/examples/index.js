@@ -17,7 +17,9 @@ import ReduxGrid from './Grid/ReduxGrid/ReduxGrid';
 import RowBodyGrid from './Grid/AddonsDecorations/RowBody/RowBody';
 import SelectAndCopy from './Grid/AdvancedFeatures/SelectAndCopy/SelectAndCopy';
 import RenderComponentsInCells from './Grid/AdvancedFeatures/RenderComponentsInCells/RenderComponentsInCells';
+import InfiniteGrid from './Grid/InfiniteGrid/InfiniteGrid';
 import DragFormToGrid from './Grid/AddonsDecorations/DragFormToGrid/DragFormToGrid';
+
 
 // Panels
 
@@ -378,7 +380,8 @@ const root = {
                 { text: 'Grouped Grid', component: GroupedGrid, navIcon: 'icon-grouped-grid'},
                 { text: 'Locking Grid', component: LockingGrid, navIcon: 'icon-locking-grid'},
                 { text: 'Editable Grid', component: EditableGrid, navIcon: 'icon-editable-grid'},
-                { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'}
+                { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'},
+                { text: 'Infinite Grid', component: InfiniteGrid, navIcon: 'icon-buffer-grid'}
             ]},
             { text: 'Add-ons', navIcon: 'icon-framing-buttons', children: [
                 { text: 'Grid Tools', component: ToolGrid, navIcon: 'icon-grid-tools'},
