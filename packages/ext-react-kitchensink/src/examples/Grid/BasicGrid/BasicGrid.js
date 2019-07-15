@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Grid, Column } from '@sencha/ext-modern';
 import '../CompanyData';
@@ -9,16 +8,26 @@ Ext.require([
   'Ext.grid.plugin.HeaderReorder'
 ]);
 export default class BasicGridExample extends Component {
+  componentDidMount() {
+    const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+    pctChangeColumn.setRenderer(this.renderSign.bind(this, '0.00%'));
 
-  renderSign (format, value) {
-    value = Ext.util.Format.number(value, format)
-    if (value > 0) {
-      return '<span style="color:green;">' + value + '</span>';
-    } else if (value < 0) {
-      return '<span style="color:red;">' + value + '</span>';
-    }
+    const changeColumn = this.refs.changeColumn.cmp;
+    changeColumn.setRenderer(this.renderSign.bind(this, '0.00'));
   }
 
+  renderSign = (format, value,record, dI, cell) => {
+    let color = 'black';
+
+    if (value > 0) {
+      color = 'green'
+    } else if (value < 0) {
+      color = 'red'
+    }
+
+    cell.setStyle({ color });
+    return Ext.util.Format.number(value, format);
+  }
 
   store = Ext.create('Ext.data.Store', {
     model,
@@ -38,20 +47,13 @@ export default class BasicGridExample extends Component {
         <Column
           text="Change"
           width="100"
+          ref="changeColumn"
           dataIndex="priceChange"
-          renderer={function (value) {
-            value = Ext.util.Format.number(value, '0.00');
-            if (value > 0) {
-              return '<span style="color:green;">' + value + '</span>';
-            } else if (value < 0) {
-              return '<span style="color:red;">' + value + '</span>';
-            }
-          }}
         />
         <Column
           text="% Change"
           dataIndex="priceChangePct"
-          renderer={this.renderSign.bind(this, '0.00')}
+          ref="pctChangeColumn"
         />
         <Column text="Last Updated" width="125" dataIndex="lastChange" formatter='date("m/d/Y")' />
       </Grid>

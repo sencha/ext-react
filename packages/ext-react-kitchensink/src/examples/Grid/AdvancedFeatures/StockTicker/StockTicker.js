@@ -4,6 +4,13 @@ import model from '../../CompanyModel';
 import './Ticker.css';
 
 export default class StockTickerGridExample extends Component {
+    componentDidMount() {
+      const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+      pctChangeColumn.setRenderer(this.renderSign.bind(this, '0.00%'));
+  
+      const changeColumn = this.refs.changeColumn.cmp;
+      changeColumn.setRenderer(this.renderSign.bind(this, '0.00'));
+    }
 
     state = {
         tickDelay: 200,
@@ -109,9 +116,9 @@ export default class StockTickerGridExample extends Component {
                          }}
                  >
                 </Column>
-                <Column align="right" text="Change" width="90" dataIndex="change" renderer={this.renderSign.bind(this, '0.00')} 
+                <Column ref="changeColumn" align="right" text="Change" width="90" dataIndex="change" 
                         cell={{ bodyStyle: { padding: 0 } }} sortable/>
-                <Column align="right" text="% Change" dataIndex="pctChange" renderer={this.renderSign.bind(this, '0.00%')} 
+                <Column ref="pctChangeColumn" align="right" text="% Change" dataIndex="pctChange" 
                         cell={{ bodyStyle: { padding: 0 } }} sortable/>
                 <Toolbar docked="bottom" defaults={{ margin: '0 20 0 0' }}>
                     <Label html="Tick Delay"/>
@@ -145,15 +152,18 @@ export default class StockTickerGridExample extends Component {
         )
     }
 
-    renderSign = (format, value) => (
-        <div 
-            style={{ 
-                color: value > 0 ? 'green' : value < 0 ? 'red' : '',
-                padding: '10px'
-            }} 
-            className={this.state.flashBackground && (value > 0 ? 'ticker-cell-gain' : value < 0 ? 'ticker-cell-loss' : '')}
-        >
-            {Ext.util.Format.number(value, format)}
-        </div>
-    )
+    renderSign = (format, value,record, dI, cell) => {
+        let color = 'black';
+
+        if (value > 0) {
+          color = 'green'
+        } else if (value < 0) {
+          color = 'red'
+        }
+     
+        let className=this.state.flashBackground && (value > 0 ? 'ticker-cell-gain' : value < 0 ? 'ticker-cell-loss' : '')
+        cell.setStyle({ color, padding: '10px' });
+        cell.setCls(className);
+        return Ext.util.Format.number(value, format);
+    }
 }

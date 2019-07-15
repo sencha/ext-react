@@ -28,6 +28,41 @@ export default class BigDataGridExample extends Component {
     }
   });
 
+  componentDidMount() {
+    debugger;
+    this.ratingAvgColumn = Ext.getCmp('ratingAverageColumn');
+    this.ratingAvgColumn.setRenderer(this.renderRating);
+  }
+
+  renderRating = (value, record, dI, cell) => {
+    debugger;
+     let group = "over6";
+
+    if (age < 4) {
+        group = "under4";
+    } else if (age < 5) {
+        group = "under5";
+    } else if (age < 6) {
+        group = "under6";
+    }
+
+    cell.setCls(group);
+    return age.toFixed(2);
+
+    // const age = record.get('averageRating');
+    // let group = "over6";
+
+    // if (age < 4) {
+    //     group = "under4";
+    // } else if (age < 5) {
+    //     group = "under5";
+    // } else if (age < 6) {
+    //     group = "under6";
+    // }
+
+    // return <div className={group}>{value.toFixed(2)}</div>
+  }
+
   render() {
     const { showExportSheet } = this.state;
 
@@ -77,7 +112,6 @@ export default class BigDataGridExample extends Component {
             items: [{
               align: 'right',
               xtype: 'button',
-              text: `Export to${Ext.os.is.Phone ? '...' : ''}`,
               menu: Ext.os.is.Desktop && {
                 indented: false,
                 items: [
@@ -125,7 +159,7 @@ export default class BigDataGridExample extends Component {
                   text: 'Avg',
                   xtype: 'numbercolumn',
                   dataIndex: 'averageRating',
-                  renderer : this.renderRating,
+                  id: 'ratingAverageColumn',
                   summary: 'average',
                   width: 75,
                   cell: {
@@ -271,7 +305,6 @@ export default class BigDataGridExample extends Component {
           <TextColumn
               text='Salary'
               dataIndex='salary'
-              renderer={Ext.util.Format.usMoney}
               width='150'
               editable
               summary='sum'
@@ -407,21 +440,6 @@ export default class BigDataGridExample extends Component {
   doExport(config) {
     this.setState({ showExportSheet: false });
     this.grid.cmp.saveDocumentAs(config);
-  }
-
-  renderRating = (value, record) => {
-    const age = record.get('averageRating');
-    let group = "over6";
-
-    if (age < 4) {
-        group = "under4";
-    } else if (age < 5) {
-        group = "under5";
-    } else if (age < 6) {
-        group = "under6";
-    }
-
-    return <div className={group}>{value.toFixed(2)}</div>
   }
 
   renderRatingThisYear = (value) => (

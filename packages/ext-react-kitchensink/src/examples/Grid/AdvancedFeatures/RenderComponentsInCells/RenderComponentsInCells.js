@@ -4,6 +4,13 @@ import ActionsCell from './ActionsCell';
 import '../../CompanyData';
 
 export default class RendererCellExample extends Component {
+    componentDidMount() {
+      const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+      pctChangeColumn.setRenderer(this.renderNumberCell.bind(this, '0.00%'));
+  
+      const changeColumn = this.refs.changeColumn.cmp;
+      changeColumn.setRenderer(this.renderNumberCell.bind(this, '0.00'));
+    }
     
     store = Ext.create('Ext.data.Store', {
         autoLoad: true,
@@ -19,8 +26,8 @@ export default class RendererCellExample extends Component {
             <Grid title="Stock Prices" store={this.store} shadow grouped>
                 <Column text="Company" dataIndex="name" width="150"/>
                 <Column text="Price" width="85" dataIndex="price" formatter='usMoney'/>
-                <Column text="Change" width="100" dataIndex="priceChange" renderer={this.renderNumberCell.bind(this, '0.00')}/>
-                <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderNumberCell.bind(this, '0.00%')}/>
+                <Column ref="changeColumn" text="Change" width="100" dataIndex="priceChange"/>
+                <Column ref="pctChangeColumn" text="% Change" dataIndex="priceChangePct"/>
                 <Column text="Actions" flex={1} minWidth={210}>
                     <WidgetCell>
                      <SegmentedButton 
@@ -58,13 +65,18 @@ export default class RendererCellExample extends Component {
         )
     }
 
-    renderNumberCell(format, value) {
-        return (
-            <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-                {Ext.util.Format.number(value, format)}
-            </span>
-        )
-    }
+    renderNumberCell = (format, value,record, dI, cell) => {
+        let color = 'black';
+    
+        if (value > 0) {
+          color = 'green'
+        } else if (value < 0) {
+          color = 'red'
+        }
+    
+        cell.setStyle({ color });
+        return Ext.util.Format.number(value, format);
+      }
 
     buyHandler = (button) => {
         let gridrow = button.up('gridrow'),

@@ -12,6 +12,13 @@ Ext.require([
 ]);
 
 export default class EditableGrid extends Component {
+  componentDidMount() {
+    const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+    pctChangeColumn.setRenderer(this.renderSign.bind(this, '0.00%'));
+
+    const changeColumn = this.refs.changeColumn.cmp;
+    changeColumn.setRenderer(this.renderSign.bind(this, '0.00'));
+  }
 
   store = Ext.create('Ext.data.Store', {
     model,
@@ -65,13 +72,13 @@ export default class EditableGrid extends Component {
           text="Change" 
           width="90" 
           dataIndex="change"
-          renderer={this.renderSign.bind(this, '0.00')}
+          ref="changeColumn"
         />
         <Column 
           text="% Change" 
           width="100" 
-          dataIndex="pctChange" 
-          renderer={this.renderSign.bind(this, '0.00')}
+          dataIndex="pctChange"
+          ref="pctChangeColumn"
         />
         <Column 
           text="Last Updated" 
@@ -98,10 +105,16 @@ export default class EditableGrid extends Component {
         </span>
     ));
 
-    renderSign = (format, value) => (
-        <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-            {Ext.util.Format.number(value, format)}
-        </span>
-    )
+    renderSign = (format, value,record, dI, cell) => {
+      let color = 'black';
 
+      if (value > 0) {
+        color = 'green'
+      } else if (value < 0) {
+        color = 'red'
+      }
+
+      cell.setStyle({ color });
+      return Ext.util.Format.number(value, format);
+    }
 }

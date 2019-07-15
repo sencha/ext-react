@@ -9,6 +9,13 @@ Ext.require([
 ]);
 
 export default class RowBodyGridExample extends Component {
+  componentDidMount() {
+    const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+    pctChangeColumn.setRenderer(this.renderSign.bind(this, '0.00%'));
+
+    const changeColumn = this.refs.changeColumn.cmp;
+    changeColumn.setRenderer(this.renderSign.bind(this, '0.00'));
+  }
 
   store = Ext.create('Ext.data.Store', {
     model,
@@ -44,17 +51,17 @@ export default class RowBodyGridExample extends Component {
           summary="average"
         />
         <Column 
+          ref="changeColumn" 
           text="Change" 
           width="90" 
           dataIndex="priceChange" 
-          renderer={this.renderSign.bind(this, '0.00')}
           summary="max" 
         />
         <Column 
+          ref="pctChangeColumn"
           text="% Change" 
           width="100"
           dataIndex="priceChangePct" 
-          renderer={this.renderSign.bind(this, '0.00')}
           summary="average" 
         />
         <Column 
@@ -69,11 +76,18 @@ export default class RowBodyGridExample extends Component {
   }
   
 
-  renderSign = (format, value) => (
-      <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-          {Ext.util.Format.number(value, format)}
-      </span>
-  )
+  renderSign = (format, value,record, dI, cell) => {
+    let color = 'black';
+
+    if (value > 0) {
+      color = 'green'
+    } else if (value < 0) {
+      color = 'red'
+    }
+
+    cell.setStyle({ color });
+    return Ext.util.Format.number(value, format);
+  }
 
   summarizeCompanies = (grid, context) => context.records.length + ' Companies';
 }

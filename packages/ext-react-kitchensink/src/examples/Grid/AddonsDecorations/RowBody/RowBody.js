@@ -3,6 +3,13 @@ import { Grid, Column, } from '@sencha/ext-modern';
 import model from '../../CompanyModel';
 
 export default class RowBodyGridExample extends Component {
+  componentDidMount() {
+    const pctChangeColumn = this.refs.pctChangeColumn.cmp;
+    pctChangeColumn.setRenderer(this.renderSign.bind(this, '0.00%'));
+
+    const changeColumn = this.refs.changeColumn.cmp;
+    changeColumn.setRenderer(this.renderSign.bind(this, '0.00'));
+  }
 
   store = Ext.create('Ext.data.Store', {
     model,
@@ -36,17 +43,24 @@ render() {
       >
         <Column text="Company" dataIndex="name" width="150"/>
         <Column text="Price" dataIndex="price" width="75" formatter="usMoney"/>
-        <Column text="Change" width="100" dataIndex="priceChange" renderer={this.renderSign.bind(this, '0.00')}/>
-        <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderSign.bind(this, '0.00')}/>
+        <Column ref="changeColumn" text="Change" width="100" dataIndex="priceChange"/>
+        <Column ref="pctChangeColumn" text="% Change" dataIndex="priceChangePct"/>
         <Column text="Last Updated" dataIndex="priceLastChange" width="125" formatter="date('m/d/Y')" />
       </Grid>
     )
   }
     
- renderSign = (format, value) => (
-        <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-            {Ext.util.Format.number(value, format)}
-        </span>
-  )
+  renderSign = (format, value,record, dI, cell) => {
+    let color = 'black';
+
+    if (value > 0) {
+      color = 'green'
+    } else if (value < 0) {
+      color = 'red'
+    }
+
+    cell.setStyle({ color });
+    return Ext.util.Format.number(value, format);
+  }
 
 }
