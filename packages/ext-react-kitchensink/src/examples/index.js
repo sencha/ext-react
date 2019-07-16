@@ -382,7 +382,7 @@ const root = {
                 { text: 'Locking Grid', component: LockingGrid, navIcon: 'icon-locking-grid'},
                 { text: 'Editable Grid', component: EditableGrid, navIcon: 'icon-editable-grid'},
                 { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'},
-                { text: 'Row Editing', component: RowEditingExample, navIcon: 'icon-row-editing'}
+                { text: 'Row Editing', component: RowEditingExample, navIcon: 'icon-row-editing'},
                 { text: 'Infinite Grid', component: InfiniteGrid, navIcon: 'icon-buffer-grid'}
             ]},
             { text: 'Add-ons', navIcon: 'icon-framing-buttons', children: [
