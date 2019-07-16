@@ -1,31 +1,12 @@
 import React, { Component } from 'react';
 import { Grid, Column } from '@sencha/ext-modern';
+import './VirtualForm';
 
 Ext.require([
     'Ext.grid.filters.Plugin'
 ]);
 
 export default class InfiniteGridExample extends Component {
-
-	store = Ext.create('Ext.data.Store', {
-		fields: [
-        	'firstName', 'lastName', 'address', 'company', 'title',
-        {
-            name: 'id',
-            type: 'int'
-        }],
-	    autoLoad: true,
-	    pageSize: 25,
-	    proxy: {
-	      	type: 'ajax',
-	      	url: 'https://llbzr8dkzl.execute-api.us-east-1.amazonaws.com/production/user',
-	      	reader: {
-	            rootProperty: 'users',
-	            totalProperty: 'totalCount'
-	        }
-	    }
-  	})
-
 	render() {
 		return(
 			<Grid
@@ -38,7 +19,11 @@ export default class InfiniteGridExample extends Component {
 			    		gridfilters: true
 			    	}
 			    }
-			    store={this.store}
+				store={
+					{
+						type: 'virtualforum'
+					}
+				}
 			>
 				<Column
 					text="First Name"
