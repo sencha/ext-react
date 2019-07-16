@@ -31,6 +31,7 @@ export default function ChartToolbar({
     onToggleZoomOnPan, 
     onToggleCrosshair,
     onRefreshClick,
+    onTestClick,
     downloadChartRef,
     onStackGroup
 }) {
@@ -67,6 +68,8 @@ export default function ChartToolbar({
             { onRefreshClick && (
                 <Button ui="action" {...toolbarItemDefaults} iconCls="x-fa fa-refresh" handler={onRefreshClick} text="REFRESH"/>
             )}
+            <Button ui="action" {...toolbarItemDefaults} iconCls="x-fa fa-refresh" handler={onTestClick} text="TEST"/>
+
             <Spacer/>
             { onStackGroup && (
                 <SegmentedButton {...toolbarItemDefaults} onToggle={onStackGroup} value={stacked}>

@@ -1,0 +1,63 @@
+.form-to-grid-dd {
+    .x-dataview-item {
+        padding: 3px;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+        margin: 8px;
+    }
+
+    .dd-hospital-grid {
+        border: 1px solid #e1e1e1;
+    }
+
+    .hospital-target.hospital-target-hover {
+        background-color: #C0C0C0;
+    }
+
+    .patient-source {
+        cursor: pointer;
+    }
+
+    .name-tag {
+        background: #eee;
+        padding: 5px;
+        border: 1px solid lightgray;
+        border-radius: 35px;
+        display: inline-block;
+        margin: 2px 4px;
+        font-size: 13px;
+    }
+
+    .remove-icon {
+        font-size: 15px;
+        width: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #444;
+        padding-top: 1px;
+    }
+
+    .grid-inner-item-cls .remove-icon {
+        color: #007aff;
+    }
+}
+
+.patient-proxy-el:before {
+    margin: auto;
+}
+
+.icon-dd-form-to-grid:before {
+    content: "\e756";
+}
+
+td.patient-label {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+    font-weight: bold;
+    text-align: right;
+    padding: 0px 3px 0px 0px;
+}
+
+td.patient-name {
+    padding-left: 8px;
+    font-size: 12px;
+}
