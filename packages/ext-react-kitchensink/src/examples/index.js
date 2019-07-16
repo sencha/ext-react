@@ -3,6 +3,7 @@ import BasicGrid from './Grid/BasicGrid/BasicGrid';
 import GroupedGrid from './Grid/GroupedGrid/GroupedGrid';
 import EditableGrid from './Grid/EditableGrid/EditableGrid';
 import XMLGrid from './Grid/XMLGrid/XMLGrid';
+import RowEditingExample from './Grid/RowEditing/RowEditing';
 import LockingGrid from './Grid/LockingGrid/LockingGrid';
 import BigDataGrid from './Grid/AdvancedFeatures/BigData/BigData';
 import ReconfigureGrid from './Grid/AdvancedFeatures/ReconfigureGrid/ReconfigureGrid';
@@ -381,6 +382,7 @@ const root = {
                 { text: 'Locking Grid', component: LockingGrid, navIcon: 'icon-locking-grid'},
                 { text: 'Editable Grid', component: EditableGrid, navIcon: 'icon-editable-grid'},
                 { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'},
+                { text: 'Row Editing', component: RowEditingExample, navIcon: 'icon-row-editing'}
                 { text: 'Infinite Grid', component: InfiniteGrid, navIcon: 'icon-buffer-grid'}
             ]},
             { text: 'Add-ons', navIcon: 'icon-framing-buttons', children: [
