@@ -9,6 +9,6 @@
     "boilerplate": "cd packages/ext-react-modern-boilerplate && npm start"
   },
   "devDependencies": {
-    "lerna": "~3.10.8"
+    "lerna": "~3.15.0"
   }
 }

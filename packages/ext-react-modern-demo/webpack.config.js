@@ -36,7 +36,7 @@ module.exports = function (env) {
         framework: framework,
         toolkit: toolkit,
         theme: theme,
-        packages: ['treegrid', 'renderercell'],
+        packages: ['treegrid', 'renderercell', 'charts'],
         script: script,
         emit: emit,
         port: port,
