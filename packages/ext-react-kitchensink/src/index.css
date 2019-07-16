@@ -15,3 +15,11 @@ code {
   padding: 20px;
   font-size: 15px;
 }
+
+.green {
+  color: #81cb31 !important
+}
+
+.red {
+  color: #dd6550 !important;
+}

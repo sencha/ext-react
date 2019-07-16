@@ -29,13 +29,12 @@ export default class BigDataGridExample extends Component {
   });
 
   componentDidMount() {
-    debugger;
-    this.ratingAvgColumn = Ext.getCmp('ratingAverageColumn');
-    this.ratingAvgColumn.setRenderer(this.renderRating);
+    this.ratingAvgColumn = this.refs.ratingAvgColumn.cmp;
+    this.ratingAvgColumn.setRenderer(this.renderRating.bind(this));
   }
 
   renderRating = (value, record, dI, cell) => {
-    debugger;
+    const age = record.get('averageRating');
      let group = "over6";
 
     if (age < 4) {
@@ -48,19 +47,6 @@ export default class BigDataGridExample extends Component {
 
     cell.setCls(group);
     return age.toFixed(2);
-
-    // const age = record.get('averageRating');
-    // let group = "over6";
-
-    // if (age < 4) {
-    //     group = "under4";
-    // } else if (age < 5) {
-    //     group = "under5";
-    // } else if (age < 6) {
-    //     group = "under6";
-    // }
-
-    // return <div className={group}>{value.toFixed(2)}</div>
   }
 
   render() {
@@ -152,42 +138,39 @@ export default class BigDataGridExample extends Component {
               headerCheckbox
           />
 
-          <Column text="Ratings"
-            columns= {
-              [
-                {
-                  text: 'Avg',
-                  xtype: 'numbercolumn',
-                  dataIndex: 'averageRating',
-                  id: 'ratingAverageColumn',
-                  summary: 'average',
-                  width: 75,
-                  cell: {
+          <Column text="Ratings">
+            <Column
+                  text='Avg'
+                  xtype='numbercolumn'
+                  dataIndex='averageRating'
+                  ref='ratingAvgColumn'
+                  summary='average'
+                  width='75'
+                  cell={{
                     cls: 'big-data-ratings-cell'
-                  },
-                  exportStyle: {
+                  }}
+                  exportStyle={{
                     format: 'Standard',
                     alignment: {
                       horizontal: 'Right'
                     }
-                  }
-              }, 
-              {
-                text: 'All',
-                dataIndex: 'rating',
-                ignoreExport: true,
-                cell: {
-                  xtype: 'widgetcell',
-                  forceWidth: true,
-                  widget: {
-                    xtype: 'sparklineline',
-                    tipTpl:'Price: {y:number("0.00")}'
+                  }}
+                /> 
+                <Column
+                  text='All'
+                  dataIndex='rating'
+                  ignoreExport='true'
+                  cell={{
+                    xtype: 'widgetcell',
+                    forceWidth: true,
+                    widget: {
+                      xtype: 'sparklineline',
+                      tipTpl:'Price: {y:number("0.00")}'
+                    }
                   }
                 }
-              }
-            ]
-          }
-          /> 
+              />
+          </Column> 
           <DateColumn
               text="Date of Birth"
               dataIndex="dob"
