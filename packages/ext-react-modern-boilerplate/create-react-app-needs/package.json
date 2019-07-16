@@ -1,25 +1,4 @@
 {
-  "name": "@sencha/ext-react-modern-boilerplate",
-  "product": "ext-react",
-  "version": "7.0.0",
-  "description": "A foundation for React 16 apps built with ExtReact components.",
-  "main": "index.js",
-  "author": "Sencha, Inc.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sencha/ext-react.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sencha/ext-react/issues"
-  },
-  "homepage": "https://github.com/sencha/ext-react#readme",
-  "scripts": {
-    "start": "npm run dev",
-    "clean": "rimraf build",
-    "dev": "webpack-dev-server --env.browser=yes --env.verbose=no",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes"
-  },
   "dependencies": {
     "@sencha/ext-react": "~7.0.0",
     "@sencha/ext": "^7.0.0",
@@ -27,19 +6,14 @@
     "@sencha/ext-modern-treegrid": "~7.0.0",
     "@sencha/ext-modern-theme-material": "~7.0.0",
     "@babel/polyfill": "^7.4.4",
-    "@babel/runtime": "^7.5.4",
+    "@babel/runtime": "^7.5.4"
 
-    "d3": "4.5.0",
-    "highlightjs": "~9.12.0",
-    "history": "~4.9.0",
-    "prop-types": "~15.7.2",
-    "react": "~16.8.6",
-    "react-redux": "~7.1.0",
-    "react-router-dom": "~5.0.1",
-    "redux": "~4.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
+    //"@babel/core": "^7.5.4",
+    //"base-href-webpack-plugin": "~2.0.0",
+    //"babel-loader": "^8.0.6",
+
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
@@ -55,8 +29,8 @@
     "@sencha/ext-react-babel-plugin": "~7.0.0",
     "@sencha/ext-webpack-plugin": "~7.0.0",
     
-    "babel-loader": "^8.0.6",
-    "base-href-webpack-plugin": "~2.0.0",
+
+
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
@@ -70,7 +44,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
   }
 }
