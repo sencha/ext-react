@@ -18,6 +18,9 @@ import ReduxGrid from './Grid/ReduxGrid/ReduxGrid';
 import RowBodyGrid from './Grid/AddonsDecorations/RowBody/RowBody';
 import SelectAndCopy from './Grid/AdvancedFeatures/SelectAndCopy/SelectAndCopy';
 import RenderComponentsInCells from './Grid/AdvancedFeatures/RenderComponentsInCells/RenderComponentsInCells';
+import InfiniteGrid from './Grid/InfiniteGrid/InfiniteGrid';
+import DragFormToGrid from './Grid/AddonsDecorations/DragFormToGrid/DragFormToGrid';
+
 
 // Panels
 
@@ -27,6 +30,7 @@ import CollapsiblePanel from './Panels/CollapsiblePanel/CollapsiblePanel';
 import BasicDatePanel from './Panels/BasicDatePanel/BasicDatePanel';
 import AdvancedDatePanel from './Panels/AdvancedDatePanel/AdvancedDatePanel';
 import TimePanel from './Panels/TimePanel/TimePanel';
+
 // Tabs
 
 import BasicTabs from './Tabs/BasicTabs/BasicTabs';
@@ -37,12 +41,15 @@ import Closable from './Tabs/Closable/Closable';
 import ScrollingTabs from './Tabs/ScrollingTabs/ScrollingTabs';
 import TabBar from './Tabs/TabBar/TabBar';
 
-import Toolbar from './Toolbar/Toolbar';
+// ToolBars
+
+import ToolBar from './ToolBars/ToolBar/ToolBar';
 import Button from './Button/Button';
 import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
 import ColorPicker from './ColorPicker/ColorPicker';
+import BreadcrumbToolbar from './ToolBars/BreadcrumbToolbar/BreadcrumbToolbar'
 
 // Trees
 
@@ -359,7 +366,10 @@ const root = {
                 { text: 'TabBar', component: TabBar, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-Tab-Bar' }
             ]},
             { text: 'TitleBar', component: TitleBar, navIcon: 'icon-Title-Bar' },
-            { text: 'Toolbar', component: Toolbar, navIcon: 'icon-toolbar' },
+            { text: 'ToolBars', navIcon: 'icon-toolbar', children: [
+                { text: 'ToolBar', component: ToolBar, navIcon: 'icon-toolbar' },
+                { text: 'BreadcrumbToolbar', component: BreadcrumbToolbar, navIcon: 'icon-breadcrumb-toolbar'}
+            ]},
             { text: 'ToolTip', component: ToolTip, layout: 'center', navIcon: 'icon-tooltips'  },
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
@@ -373,7 +383,7 @@ const root = {
                 { text: 'Editable Grid', component: EditableGrid, navIcon: 'icon-editable-grid'},
                 { text: 'XML Grid', component: XMLGrid, navIcon: 'icon-xml-grid'},
                 { text: 'Row Editing', component: RowEditingExample, navIcon: 'icon-row-editing'}
-
+                { text: 'Infinite Grid', component: InfiniteGrid, navIcon: 'icon-buffer-grid'}
             ]},
             { text: 'Add-ons', navIcon: 'icon-framing-buttons', children: [
                 { text: 'Grid Tools', component: ToolGrid, navIcon: 'icon-grid-tools'},
@@ -382,7 +392,8 @@ const root = {
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
                 { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
                 { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'},
-                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-view-options-grid'}
+                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-view-options-grid'},
+                { text: 'Drag Form To Grid', component: DragFormToGrid, navIcon: 'icon-dd-form-to-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
                 { text: 'Big Data', component: BigDataGrid, navIcon: 'icon-big-data-grid' },
