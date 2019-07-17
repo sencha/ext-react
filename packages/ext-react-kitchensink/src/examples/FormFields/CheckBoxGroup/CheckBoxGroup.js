@@ -235,29 +235,29 @@ export default class CheckBocGroupExample extends Component {
 						labelAlign="left"
 						labelWidth={120}
 					>
-					<Container 
-						width={140}
-						height={120}
-					>
-					<CMP html="Heading 1" padding="0 2"></CMP>
-					<CheckBoxField labelAlign="right" label="Item 1" name="cb-cust-1"></CheckBoxField>
-					<CheckBoxField labelAlign="right" label="Item 2" name="cb-cust-2"></CheckBoxField>
-					</Container>
-					<Container 
-						width={180}
-						height={120}
-					>
-						<CMP html="Heading 2" padding="0 2"></CMP>
-						<CheckBoxField labelAlign="right" label="A long item just for fun" name="cb-cust-3"></CheckBoxField>
-					</Container>
-					<Container 
-						width={140}
-						height={120}
-					>
-						<CMP html="Heading 3" padding="0 2"></CMP>
-						<CheckBoxField labelAlign="right" label="Item 4" name="cb-cust-4"></CheckBoxField>
-						<CheckBoxField labelAlign="right" label="Item 5" name="cb-cust-5"></CheckBoxField>
-					</Container>
+						<Container 
+							width={140}
+							height={120}
+						>
+							<CMP html="Heading 1" padding="0 2"></CMP>
+							<CheckBoxField labelAlign="right" label="Item 1" name="cb-cust-1"></CheckBoxField>
+							<CheckBoxField labelAlign="right" label="Item 2" name="cb-cust-2"></CheckBoxField>
+						</Container>
+						<Container 
+							width={180}
+							height={120}
+						>
+							<CMP html="Heading 2" padding="0 2"></CMP>
+							<CheckBoxField labelAlign="right" label="A long item just for fun" name="cb-cust-3"></CheckBoxField>
+						</Container>
+						<Container 
+							width={140}
+							height={120}
+						>
+							<CMP html="Heading 3" padding="0 2"></CMP>
+							<CheckBoxField labelAlign="right" label="Item 4" name="cb-cust-4"></CheckBoxField>
+							<CheckBoxField labelAlign="right" label="Item 5" name="cb-cust-5"></CheckBoxField>
+						</Container>
 					</CheckboxGroup>
 				</FieldSet>
 				<Container>
