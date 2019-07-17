@@ -5,6 +5,9 @@ import '../CompanyData';
 import model from '../CompanyModel';
 
 Ext.require({"xtype":"renderercell"})
+Ext.require([
+  'Ext.grid.plugin.HeaderReorder'
+]);
 
 export default class BasicGridExample extends Component {
   store = Ext.create('Ext.data.Store', {
