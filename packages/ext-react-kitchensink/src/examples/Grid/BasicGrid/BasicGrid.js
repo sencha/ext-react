@@ -5,6 +5,9 @@ import '../CompanyData';
 import model from '../CompanyModel';
 
 Ext.require({"xtype":"renderercell"})
+Ext.require([
+  'Ext.grid.plugin.HeaderReorder'
+]);
 
 export default class BasicGridExample extends Component {
 
@@ -22,7 +25,7 @@ export default class BasicGridExample extends Component {
 
   render() {
     return (
-      <Grid title="Stock Prices" store={this.store} shadow grouped>
+      <Grid title="Stock Prices" store={this.store} shadow grouped enableColumnMove="true">
         <Column text="Company" dataIndex="name" width="150"/>
         <Column text="Price" width="85" dataIndex="price" formatter='usMoney'/>
         <Column 
