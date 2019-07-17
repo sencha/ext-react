@@ -310,7 +310,7 @@ const root = {
                 { text: 'ToggleField', component: ToggleField, layout: 'center', navIcon: 'icon-Forms-ToggleField' },
                 { text: 'URLField', component: URLField, layout: 'center', navIcon: 'icon-Forms-URLField' },
                 { text: 'Validation', component: Validation, layout: 'auto', navIcon: 'icon-form-validation'},
-                { text: 'CheckBoxGroup', component: CheckBoxGroup, layout: 'center', navIcon: 'icon-Forms-CheckBoxGroup' }
+                { text: 'CheckBoxGroup', component: CheckBoxGroup, layout: 'center', navIcon: 'icon-form-checkboxgroup' }
             ] },
 
            { text: 'Gauges', navIcon: 'icon-gauge-charts', children: [
