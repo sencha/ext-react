@@ -42,6 +42,7 @@ import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
 import ColorPicker from './ColorPicker/ColorPicker';
+import FroalaEditor from './FroalaEditor/FroalaEditor';
 
 // Trees
 
@@ -362,6 +363,7 @@ const root = {
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
             { text: 'Wizard', component: Wizard, navIcon: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
+            { text: 'Froala Editor', component: FroalaEditor, layout: 'center', navIcon: 'icon-editor' },
         ]},
         { text: 'Grids', navIcon: 'icon-grids', children: [
             { text: 'Core Features', navIcon: 'icon-grids', children: [

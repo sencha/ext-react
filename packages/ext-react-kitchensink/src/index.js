@@ -1,9 +1,12 @@
 import React from 'react'
 import App from './App'
 import * as d3 from 'd3'
+import * as FroalaEditor from 'froala-editor';
+
 window.d3 = d3
 require('./index.css')
 import './Data'
+window.FroalaEditor = FroalaEditor;
 
 Ext.require([
   'Ext.*',
@@ -21,9 +24,9 @@ launch(() => {
   top.on('transitionend', wrapper.destroy, wrapper, { single: true })
   wrapper.addCls('app-loaded')
   return <ExtReact><App/></ExtReact>
-  }, 
-  { debug: false }, 
-  { 
+  },
+  { debug: false },
+  {
     quickTips: {
       tooltip: {
           // show qtips on tap on mobile
