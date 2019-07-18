@@ -39,12 +39,15 @@ export default class DefaultGaugeExample extends Component {
               <FroalaEditorField
                 name="html"
                 margin="16"
-                onChange={this.froalaTextChange}
                 editor={{
                     autofocus: true,
                     fontSize: [10, 12, 16, 24]
                 }}
                 value={this.state.value}
+                listeners = {{
+                  change: this.froalaTextChange,
+                  'froala.click': (froalaComponent) => { Ext.toast({ message: 'Click!' }); }
+                }}
               >
               </FroalaEditorField>
             </FormPanel>
