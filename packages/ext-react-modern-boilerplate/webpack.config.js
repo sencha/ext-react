@@ -8,10 +8,6 @@ module.exports = function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
   //******* */
-  var framework     = get('framework',     'react')
-  var contextFolder = get('contextFolder', './src')
-  var entryFile     = get('entryFile',     './index.js')
-  var outputFolder  = get('outputFolder',  'build')
   const rules = [
     { test: /\.ext-reactrc$/, use: 'raw-loader' },
     { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
@@ -32,6 +28,8 @@ module.exports = function (env) {
   }
   //******* */
 
+  var basehref      = get('basehref',      '/')
+  var framework     = get('framework',     'react')
   var toolkit       = get('toolkit',       'modern')
   var theme         = get('theme',         'theme-material')
   var packages      = get('packages',      ['treegrid'])
@@ -43,7 +41,6 @@ module.exports = function (env) {
   var browser       = get('browser',       'yes')
   var watch         = get('watch',         'yes')
   var verbose       = get('verbose',       'no')
-  var basehref      = get('basehref',      '/')
 
   const isProd = environment === 'production'
   portfinder.basePort = (env && env.port) || 1962
@@ -67,6 +64,10 @@ module.exports = function (env) {
         verbose: verbose
       })
     ]
+
+    var contextFolder = get('contextFolder', './src')
+    var entryFile     = get('entryFile',     './index.js')
+    var outputFolder  = get('outputFolder',  'build')
     return {
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
