@@ -341,7 +341,7 @@ const root = {
                 { text: 'Undoable Accordion Swiper', component: UndoableAccordionSwiper, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-undoable-accordion-swiper'},
                 { text: 'Undoable Step Swiper', component: UndoableStepSwiper, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-undoable-step-swiper'}
             ]},
-            { text: 'Media', navIcon: 'x-fa fa-video-camera', children: [
+            { text: 'Media', navIcon: 'icon-video', children: [
                 { text: 'Video', navIcon: 'icon-video', component: Video },
                 { text: 'Audio', navIcon: 'icon-audio', component: Audio }
             ] },
