@@ -1,7 +1,7 @@
 import React from 'react'
 import App from './App'
 import * as d3 from 'd3'
-import * as FroalaEditor from 'froala-editor';
+import * as FroalaEditor from 'froala-editor/js/froala_editor.pkgd.min.js';
 
 window.d3 = d3
 require('./index.css')
@@ -42,4 +42,3 @@ launch(() => {
     }
   }
 )
- 
