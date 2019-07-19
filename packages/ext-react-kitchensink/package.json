@@ -37,6 +37,7 @@
     "@sencha/ext-exporter": "^7.0.0",
     "@sencha/ext-pivot": "~7.0.0",
     "@sencha/ext-pivot-d3": "~7.0.0",
+    "@sencha/ext-froala-editor": "~7.0.0",
     "@sencha/ext-ux": "^7.0.0",
     "@sencha/ext-react-transition": "~7.0.0",
     "@sencha/ext-modern-theme-material": "~7.0.0",
@@ -80,6 +81,7 @@
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "froala-editor": "^3.0.3",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
