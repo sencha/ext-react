@@ -44,13 +44,14 @@ import TabBar from './Tabs/TabBar/TabBar';
 // ToolBars
 
 import ToolBar from './ToolBars/ToolBar/ToolBar';
+import BreadcrumbToolbar from './ToolBars/BreadcrumbToolbar/BreadcrumbToolbar'
+
 import Button from './Button/Button';
 import SplitButton from './SplitButton/SplitButton';
 import SegmentedButton from './SegmentedButton/SegmentedButton';
 import Carousel from './Carousel/Carousel';
 import ColorPicker from './ColorPicker/ColorPicker';
-import BreadcrumbToolbar from './ToolBars/BreadcrumbToolbar/BreadcrumbToolbar'
-
+import FroalaEditor from './FroalaEditor/FroalaEditor';
 // Trees
 
 import Tree from './Trees/Tree/Tree';
@@ -245,6 +246,7 @@ import VboxLayout from './Layouts/vbox/vbox';
 import FormLayout from './Layouts/form/form';
 import Resizable from './Layouts/resizable/resizable';
 import CenterLayout from './Layouts/center/center';
+import AccordionLayout from './Layouts/accordion/accordion';
 
 // Drag & Drop
 
@@ -324,7 +326,8 @@ const root = {
                 { text: 'form', component: FormLayout, layout: 'auto', navIcon: 'icon-layout-form' },
                 { text: 'hbox', component: HboxLayout, layout: 'auto', navIcon: 'icon-layout-horizontal-box' },
                 { text: 'resizable', component: Resizable, navIcon: 'icon-layout-box' },
-                { text: 'vbox', component: VboxLayout, layout: 'auto', navIcon: 'icon-layout-vertical-box' }
+                { text: 'vbox', component: VboxLayout, layout: 'auto', navIcon: 'icon-layout-vertical-box' },
+                { text: 'accordion', component: AccordionLayout, navIcon: 'icon-layout-accordion'}
             ]},
             { text: 'Lists', navIcon: 'icon-lists', children: [
                 { text: 'Basic List', component: BasicList, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-basic-list' },
@@ -338,7 +341,7 @@ const root = {
                 { text: 'Undoable Accordion Swiper', component: UndoableAccordionSwiper, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-undoable-accordion-swiper'},
                 { text: 'Undoable Step Swiper', component: UndoableStepSwiper, layout: Ext.os.is.Phone ? 'fit': 'center', navIcon: 'icon-undoable-step-swiper'}
             ]},
-            { text: 'Media', navIcon: 'x-fa fa-video-camera', children: [
+            { text: 'Media', navIcon: 'icon-video', children: [
                 { text: 'Video', navIcon: 'icon-video', component: Video },
                 { text: 'Audio', navIcon: 'icon-audio', component: Audio }
             ] },
@@ -376,6 +379,7 @@ const root = {
             { text: 'Touch Events', component: TouchEvents, navIcon: 'icon-touch-events' },
             //{ text: 'Transition', component: Transition, navIcon: 'icon-Transition' },
             { text: 'Wizard', component: Wizard, navIcon: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
+            { text: 'Froala Editor', component: FroalaEditor, layout: 'center', navIcon: 'icon-editor' },
         ]},
         { text: 'Grids', navIcon: 'icon-grids', children: [
             { text: 'Core Features', navIcon: 'icon-grids', children: [
