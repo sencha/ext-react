@@ -6,7 +6,7 @@ export default class DefaultGaugeExample extends Component {
     constructor() {
         super();
         this.state = {
-            value: '<p>Four score and seven years ago.</p>'
+            value: ''
         }
     }
 
