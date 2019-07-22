@@ -4,6 +4,7 @@ import './CheckBoxGroup.scss';
 
 export default class CheckBocGroupExample extends Component {
 	onSaveFormClick = () => {
+		console.log(this.form.cmp)
         if (this.form.cmp.isValid()) {
             Ext.Msg.alert(
                 'Form completed',
