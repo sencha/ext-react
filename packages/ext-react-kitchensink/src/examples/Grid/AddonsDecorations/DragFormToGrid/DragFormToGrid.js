@@ -23,22 +23,23 @@ export default class DragFormToGridExample extends Component {
         let me = this.refs.dragPanel.cmp;
         let patientView = this.refs.patientView.cmp;
         let touchEvents = Ext.supports.Touch && Ext.supports.TouchEvents;
+        let context = this;
 
         me.dragZone = Ext.create('Ext.plugin.dd.DragZone', {
             element: patientView.bodyElement,
             handle: '.patient-source',
-            view: patientView,  
-            $configStrict: false,
+            view: patientView, 
             activateOnLongPress: touchEvents ? true : false,
             proxy: {
                 cls: 'x-proxy-drag-el patient-proxy-el'
             },
-
+            $configStrict: false,
             getDragText: function(info) {
-                var selector = '.x-dataview-item',
-                    el = Ext.fly(info.eventTarget).up(selector);
+                var result = context.getParentElement(info.eventTarget, 'x-dataview-item');
 
-                return el.dom.innerHTML;
+                if (result.isFound) {
+                    return result.searchedElement.innerHTML;
+                }
             },
 
             getDragData: function(e) {
@@ -64,20 +65,17 @@ export default class DragFormToGridExample extends Component {
                 let me = this;
                 let ddManager = Ext.dd.Manager;
                 let targetEl = ddManager.getTargetEl(info);
-                let rowBody = Ext.fly(targetEl);
-                let isRowBody = rowBody.hasCls('hospital-target');
+                let result = mainContext.getParentElement(targetEl, 'x-rowbody');
+                let isRowBody = result.isFound;
+                if (!isRowBody) {
+                    return;
+                }
+
+                let rowBody = Ext.get(result.searchedElement);
                 let hospital;
                 let patients;
                 let name;
-
-                if (!isRowBody) {
-                    rowBody = Ext.fly(targetEl).parent('.x-rowbody');
-
-                    if (rowBody) {
-                        isRowBody = rowBody.hasCls('hospital-target');
-                    }
-                }
-
+                
                 me.toggleDropMarker(info, false);
 
                 if (!isRowBody) {
@@ -188,6 +186,25 @@ export default class DragFormToGridExample extends Component {
         me.dragZone = me.dropZone = Ext.destroy(me.dragZone, me.dragZone);
         me.callParent();
     };
+
+    getParentElement = (selectedElement, selector) => {
+        let isFound = false;
+        let searchedElement = null;
+  
+        while(!isFound) {
+          if (selectedElement.className.includes(selector)) {
+            isFound = true;
+            searchedElement = selectedElement;
+          } else {
+            selectedElement = selectedElement.parentNode;
+            if (selectedElement.tagName === 'BODY') {
+              break;
+            }
+          }
+        }
+  
+        return { searchedElement, isFound };
+    }
 
 	patientStore = Ext.create('Ext.data.Store', {
         fields: ['name', 'address', 'telephone'],
