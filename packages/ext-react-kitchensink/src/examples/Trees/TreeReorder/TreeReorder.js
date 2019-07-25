@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Tree, Container, Toolbar, Button } from '@sencha/ext-modern';
-import data from './data';
 
 Ext.require([
     'Ext.data.TreeStore',
@@ -9,8 +8,20 @@ Ext.require([
 export default class TreeReorderExample extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {
+        type: 'tree',
         rootVisible: true,
-        root: data
+        sorters: [{
+            property: 'text',
+            direction: 'ASC'
+        }],
+        root: {
+            text: 'Products',
+            expanded: true
+        },
+        proxy: {
+            type: 'ajax',
+            url: 'resources/data/tree/cars.json'
+        },
     });
 
     state = {
@@ -40,6 +51,10 @@ export default class TreeReorderExample extends Component {
             this.refs.treeToolbar.cmp.enable();
         });
     }
+    
+    onResetClick = () => {
+        this.store.reload();
+    }
 
     render() {
         const { title, width, height } = this.state;
@@ -49,6 +64,7 @@ export default class TreeReorderExample extends Component {
                     <Toolbar docked="top" ref="treeToolbar">
                         <Button text="Expand All" handler={this.onExpandAllClick}></Button>
                         <Button text="Collapse All" handler={this.onCollapseAllClick}></Button>
+                        <Button text="Reset" handler={this.onResetClick}></Button>
                     </Toolbar>
                 </Tree>
             </Container>
