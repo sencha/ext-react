@@ -11,20 +11,38 @@
  *
  * Usually a `fieldpanel` just contains a set of fields.
  *
- *     panel = <FieldPanel>
- *         <TextField
- *             name="name"
- *             label="Name"
- *         />
- *         <EmailField
- *             name="email"
- *             label="Email"
- *         />
- *         <PasswordField
- *             name="password"
- *             label="Password"
- *         />
- *     </FieldPanel>
+ * # Example usage:
+ *
+ *   @example packages=[ext-react]
+ *   import React, { Component } from 'react'
+ *   import { FieldPanel, TextField, EmailField, PasswordField } from '@sencha/ext-modern';
+ *
+ *   export default class MyExample extends Component {
+ *       render() {
+ *           return (
+ *               <FieldPanel width="600" height="300">
+ *                   <TextField
+ *                       name="name"
+ *                       label="Name"
+ *                       padding="10"
+ *                   >
+ *                   </TextField>
+ *                   <EmailField
+ *                       name="email"
+ *                       label="Email"
+ *                       padding="10"
+ *                   >
+ *                   </EmailField>
+ *                   <PasswordField
+ *                       name="password"
+ *                       label="Password"
+ *                       padding="10"
+ *                   >
+ *                   </PasswordField>
+ *               </FieldPanel>
+ *           )
+ *       }
+ *   }
  *
  * Here we just created a simple container which could be used as a registration form to
  * sign up to your service. We added a plain TextField for the user's Name, an EmailField,

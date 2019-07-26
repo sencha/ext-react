@@ -194,3 +194,43 @@
  *
  * @accessor
  */
+
+/**
+ * @cfg {RegExp} stripCharsRe
+ * A JavaScript RegExp object used to strip unwanted content from the value
+ * during input. If `stripCharsRe` is specified,
+ * every *character sequence* matching `stripCharsRe` will be removed.
+ */
+
+/**
+ * @property doKeyDown
+ * Called when a key has been pressed in the `<input>`
+ * @protected
+ */
+
+/**
+ * @property defaultBindProperty
+ * @inheritdoc
+ */
+
+/**
+ * @property classCls
+ * @inheritdoc
+ */
+
+/**
+ * @method doKeyUp
+ * Called when a key has been pressed in the `<input>`
+ * @private
+ */
+
+/**
+ * @method processRawValue
+ * Performs any necessary manipulation of a raw String value to prepare
+ * it for conversion and/or
+ * {@link #validate validation}. For text fields this applies the configured
+ * {@link #stripCharsRe} to the raw value.
+ * @param {String} value The unprocessed string value
+ * @return {String} The processed string value
+ * @since 7.0
+ */
