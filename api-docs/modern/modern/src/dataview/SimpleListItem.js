@@ -1,18 +1,11 @@
-/**
- * @class Ext.dataview.SimpleListItem
- * @extend Ext.Component
- * @xtype simplelistitem
- *
- * A SimpleListItem is a simplified list item that is used by {@link Ext.dataview.List} when
- * useSimpleItems is set to true.  It supports disclosure icons and headers and generates the
- * slimmest markup possible to achieve this. It doesn't support container functionality like adding
- * or docking items. If you require those features you should have your list use
- * {@link Ext.dataview.ListItem} instances by setting the List's
- * {@link Ext.dataview.List#useSimpleItems useSimpleItems} config to `false`.
- */
-
-/**
- * @cfg {Ext.data.Model} [record=null]
- * The model instance of this ListTplItem. It is controlled by the List.
- * @accessor
- */
+ /**
+  * @class Ext.dataview.SimpleListItem
+  * @extend Ext.Component
+  * @xtype simplelistitem
+  * This component is the default data item used by {@link Ext.dataview.List}.
+  *
+  * This component supports disclosure icons and generates the slimmest markup possible for
+  * a list data item. It doesn't support container functionality like adding or docking
+  * items. To enable those features, use {@link Ext.dataview.ListItem} instead.
+  *
+  */
