@@ -173,3 +173,10 @@
  * Sets the data value of the editor
  * @param {Object} value Any valid value supported by the underlying field
  */
+
+/**
+ * @method getLocation
+ * @protected
+ * @returns {Ext.grid.Location} The location where editing is active *if* editing is
+ * active, else `null`.
+ */

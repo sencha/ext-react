@@ -111,6 +111,12 @@
  */
 
 /**
+ * @cfg {String/String[]} bodyCls
+ * The CSS class to add to this container's body element.
+ * @since 7.0
+ */
+
+/**
  * @cfg {Number} [minButtonWidth=null]
  * Minimum width of all footer toolbar buttons in pixels. If set, this will be used as the default
  * value for the {@link Ext.Button#minWidth} config of each Button added to the **footer toolbar** via the
