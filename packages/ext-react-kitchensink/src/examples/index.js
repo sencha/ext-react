@@ -398,7 +398,7 @@ const root = {
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
                 { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
                 { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'},
-                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-view-options-grid'},
+                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-dd-grid-row'},
                 { text: 'Drag Form To Grid', component: DragFormToGrid, navIcon: 'icon-dd-form-to-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
