@@ -104,12 +104,6 @@
  */
 
 /**
- * @cfg {Number/String} [margin=null] The margin to use on this Component. Can be specified as a number (in which case
- * all edges get the same margin) or a CSS string like '5 10 10 10'
- * @accessor
- */
-
-/**
  * @cfg {Number/String} [padding=null]
  * The padding to use on this Component. Can be specified as a number (in which
  * case all edges get the same padding) or a CSS string like '5 10 10 10'
