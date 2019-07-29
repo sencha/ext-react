@@ -8,15 +8,16 @@
  * It plots items into wither horizontal / vertical depending on 
  * {@link Ext.field.FieldGroupContainer#vertical} config properties.
  * 
- * # Example usage:
+ * ## Example usage:
  *
  *   @example packages=[ext-react]
- *   import React, { Component } from 'react'
- *   import { FormPanel, RadioGroup, RadioField } from '@sencha/ext-modern';
+ *   import React, { Component } from 'react';
+ *   import { ExtReact, FormPanel, RadioGroup, RadioField } from '@sencha/ext-modern';
  *
  *   export default class MyExample extends Component {
  *       render() {
  *           return (
+ *              <ExtReact>
  *               <FormPanel
  *                   title="RadioGroup Example"
  *                   width={600}
@@ -67,11 +68,11 @@
  *                   </RadioField>
  *               </RadioGroup>
  *               </FormPanel>
+ *              </ExtReact>
  *           )
  *       }
  *   }
  *
- * @since 7.0
  */
    
 /**

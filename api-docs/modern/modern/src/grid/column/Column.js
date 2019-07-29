@@ -11,11 +11,11 @@
  *
  * In general an array of column configurations will be passed to the grid.
  * 
- * # Example usage:
+ * ## Example usage:
  *
  *   @example packages=[ext-react]
- *   import React, { Component } from 'react'
- *   import { Grid, Column, Panel } from '@sencha/ext-modern';
+ *   import React, { Component } from 'react';
+ *   import { ExtReact, Grid, Column, Panel } from '@sencha/ext-modern';
  *
  *   export default class MyExample extends Component {
  *       render() {
@@ -28,6 +28,7 @@
  *               ]
  *           });
  *           return (
+ *              </ExtReact>
  *               <Panel width="100%" height="100%">
  *                   <Grid shadow="true" height="100%" store={this.store}>
  *                       <Column text="Name" dataIndex="name" flex="1"></Column>
@@ -35,6 +36,7 @@
  *                       <Column text="Phone" dataIndex="phone" flex="1"></Column>
  *                   </Grid>
  *               </Panel>
+ *              </ExtReact>
  *           )
  *       }
  *   }

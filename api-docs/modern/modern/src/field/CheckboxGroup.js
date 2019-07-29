@@ -8,15 +8,16 @@
  * It plots items into wither horizontal / vertical depending on 
  * {@link Ext.field.FieldGroupContainer#vertical} config properties.
  *
- * # Example usage:
+ * ## Example usage:
  *
  *   @example packages=[ext-react]
- *   import React, { Component } from 'react'
- *    import { ExtReact, FormPanel, CheckBoxGroup, CheckBoxField } from '@sencha/ext-modern';
+ *   import React, { Component } from 'react';
+ *   import { ExtReact, FormPanel, CheckBoxGroup, CheckBoxField } from '@sencha/ext-modern';
  *
  *   export default class MyExample extends Component {
  *       render() {
  *           return (
+ *              <ExtReact>
  *               <FormPanel
  *                title="Checkbox Group"
  *                width="300"
@@ -67,21 +68,21 @@
  *                   </CheckBoxField>
  *               </CheckBoxGroup>
  *           </FormPanel>
+ *          </ExtReact>
  *       )
  *   }
  * }
- * 
- * @since 7.0
+ *
  */
 
 /**
- * @property {Boolean} isCheckboxGroup
+ * @property {Boolean} [isCheckboxGroup=true]
  * The value `true` to identify an object as an instance of this or derived class.
  * @readonly
  */
 
 /**
- * @property {String} defaultType
+ * @property {String} [defaultType='checkbox']
  * Default item type in radio group
  * @readonly
  */

@@ -11,15 +11,16 @@
  *
  * Usually a `fieldpanel` just contains a set of fields.
  *
- * # Example usage:
+ * ## Example usage:
  *
  *   @example packages=[ext-react]
- *   import React, { Component } from 'react'
- *   import { FieldPanel, TextField, EmailField, PasswordField } from '@sencha/ext-modern';
+ *   import React, { Component } from 'react';
+ *   import { ExtReact, FieldPanel, TextField, EmailField, PasswordField } from '@sencha/ext-modern';
  *
  *   export default class MyExample extends Component {
  *       render() {
  *           return (
+ *              <ExtReact>
  *               <FieldPanel width="600" height="300">
  *                   <TextField
  *                       name="name"
@@ -40,6 +41,7 @@
  *                   >
  *                   </PasswordField>
  *               </FieldPanel>
+ *              </ExtReact>
  *           )
  *       }
  *   }
@@ -86,7 +88,6 @@
  * The above code responds to a {@link Ext.field.Text#change change} event from any `field`
  * that is an immediate child of its view, the `fieldpanel`.
  *
- * @since 6.5.0
  */
 
 /**

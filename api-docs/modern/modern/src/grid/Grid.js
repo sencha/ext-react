@@ -13,7 +13,7 @@
  * ## A Basic Grid
  *
  *     @example packages=[ext-react]
- *     import React, { Component } from 'react'
+ *     import React, { Component } from 'react';
  *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
