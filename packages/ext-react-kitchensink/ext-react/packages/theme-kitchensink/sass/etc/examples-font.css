@@ -987,6 +987,10 @@
   content: "\e754";
 }
 
+.icon-dd-grid-row:before {
+content: "\e755";
+}
+
 .icon-dd-grid-to-form:before {
   content: "\e755";
 }
