@@ -38,6 +38,47 @@
  *             )
  *         }
  *     }
+ * 
+ * * This creates two text fields inside a form. Text Fields can also be created outside of a
+ * Form, like this:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Your Name',
+ *         value: 'Ed Spencer'
+ *     });
+ *
+ * ## Configuring
+ *
+ * Text field offers several configuration options, including {@link #placeholder},
+ * {@link #maxLength}, {@link #autoComplete}, {@link #autoCapitalize} and
+ * {@link #autoCorrect}.
+ *
+ * For example, here is how we would configure a text field to have a maximum length of
+ * 10 characters, with placeholder text that disappears when the field is focused:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Username',
+ *         maxLength: 10,
+ *         placeholder: 'Enter your username'
+ *     });
+ *
+ * The autoComplete, autoCapitalize and autoCorrect configs simply set those attributes on
+ * the text field and allow the native browser to provide those capabilities. For example,
+ * to enable auto complete and auto correct, simply configure your text field like this:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Username',
+ *         autoComplete: true,
+ *         autoCorrect: true
+ *     });
+ *
+ * These configurations will be picked up by the native browser, which will enable the
+ * options at the OS level.
+ *
+ * Text field inherits from {@link Ext.field.Field}, which is the base class for all
+ * fields and provides a lot of shared functionality for all fields, including setting
+ * values, clearing and basic validation. See the {@link Ext.field.Field} documentation
+ * to see how to leverage its capabilities.
  */
 
 /**

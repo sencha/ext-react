@@ -18,7 +18,7 @@
  *                         <TextField label="First Name"></TextField>
  *                         <TextField label="Last Name"></TextField>
  *                         <TextField label="Account Number"></TextField>
- *                         <Button text="Submit"/></Button>
+ *                         <Button text="Submit"></Button>
  *                     </FormPanel>
  *                 </ExtReact>
  *             )
