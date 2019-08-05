@@ -35,19 +35,9 @@ git tag -a v6.6.2 0c0d1fb -m "ExtReact v6.6.2"
 
 git push upstream --tags
 
-git checkout v6.6.0
-
-
-
 git fetch upstream
 git merge upstream/master
-git merge upstream/ext-react-6.7.x
-:ga!
-
-
-
-git merge upstream/ext-6.6.x
-
+git merge upstream/ext-react-7.0.x
 
 git remote add upstream https://github.com/sencha/guides.git
 
