@@ -89,7 +89,7 @@ const ExtRenderer = Reconciler({
     if (childInstance == null || (typeof childInstance === "string" && childInstance.trim().length === 0)) {return}
     if (parentInstance != null && childInstance != null) {
       //SK : Do not uncomment below console statement. It will cause error in case of div
-      //l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      //l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childXtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
       l(`ExtRenderer: appendInitialChild`)
       var parentXtype = parentInstance.xtype
       var childXtype = childInstance.xtype
@@ -484,7 +484,7 @@ function isAssignableFrom(subClass, parentClass) {
 
 //this needs to be refactored
 function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
-  l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (parentCmp, childCmp, childPropsChildern)`, parentCmp, childCmp, childPropsChildren)
+  l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, (parentCmp, childCmp, childPropsChildern)`, parentCmp, childCmp, childPropsChildren)
 
   var parentXtype = parentCmp.xtype
 
@@ -497,10 +497,10 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
     // childXtype == 'datecolumn' || 
     // childXtype == 'rownumberer' ||
     // childXtype == 'numbercolumn' ) {
-    if (childxtype === 'column' || childxtype === 'treecolumn' || childxtype === 'textcolumn' || childxtype === 'checkcolumn' || childxtype === 'datecolumn' || childxtype === 'rownumberer' || childxtype === 'numbercolumn') {
+    if (childXtype === 'column' || childXtype === 'treecolumn' || childXtype === 'textcolumn' || childXtype === 'checkcolumn' || childXtype === 'datecolumn' || childXtype === 'rownumberer' || childXtype === 'numbercolumn') {
       parentCmp.addColumn(childCmp);
     }
-    else if ((childxtype === 'toolbar' || childxtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
+    else if ((childXtype === 'toolbar' || childXtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
       if (parentCmp.getHideHeaders() === false) {
         //var j = parentCmp.items.items.length;
         parentCmp.insert(1, childCmp);
@@ -522,16 +522,16 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   else if (parentXtype == 'button') {
     if (childXtype == 'menu') {
 //      l(`doAdd button/menu`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, button/menu setMenu`)
+      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, button/menu setMenu`)
       parentCmp.setMenu(childCmp)
     }
     else {
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, did nothing!!!`)
+      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, did nothing!!!`)
     }
   }
 
   else if (childXtype == 'toolbar'  && Ext.isClassic == true) {
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar, classic, addDockedItems`)
+    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar, classic, addDockedItems`)
     parentCmp.addDockedItems(childCmp)
   }
 
@@ -539,24 +539,24 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   else if ((childXtype == 'toolbar' || childXtype == 'titlebar') && parentCmp.getHideHeaders != undefined) {
     if (parentCmp.getHideHeaders() == false) {
 //      l(`doAdd toolbar hideHeaders is false`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar hideHeaders is false, insert`)
+      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar hideHeaders is false, insert`)
       var i = parentCmp.items.items.length
       parentCmp.insert(i-1,childCmp)
      }
     else {
       //l(`doAdd toolbar hideHeaders is true`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar hideHeaders is false, add`)
+      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar hideHeaders is false, add`)
       parentCmp.add(childCmp)
     }
   }
   else if (parentCmp.add != undefined) {
     //l(`doAdd use add method`, parentCmp.xtype, childCmp.xtype)
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, add`)
+    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, add`)
     parentCmp.add(childCmp)
   }
   else {
     //l(`doAdd did nothing!!!`, parentCmp.xtype, childCmp.xtype)
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, did nothing!!!`)
+    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, did nothing!!!`)
 
   }
 
@@ -575,11 +575,11 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //       //PLAIN TEXT CASE
 //       var text=childPropsChildren
 //       //l(`${text} is PLAIN TEXT`)
-//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, ${text} is PLAIN TEXT`)
+//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, ${text} is PLAIN TEXT`)
 //       childCmp.setHtml(text)
 //     } 
 //     else {
-//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (children)`, childPropsChildren)
+//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childXtype: ${childXtype}, (children)`, childPropsChildren)
 //       for (var i = 0; i < childPropsChildren.length; i++) {
 //         var child = childPropsChildren[i]
 //         var xtype = null
