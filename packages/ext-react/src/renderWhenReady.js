@@ -19,7 +19,7 @@ export default function renderWhenReady(Component) {
       }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       if (!this.state.ready) {
         launchQueue.push(this);
       }
