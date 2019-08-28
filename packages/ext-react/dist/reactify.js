@@ -117,7 +117,14 @@ export function reactify(target) {
   } else if (target === 'ExtReact') {
     l('target is: ExtReact, return reactifiedClass');
     var xtype = 'container';
-    var reactifiedClass = getTheClass(true, xtype, target);
+    var reactifiedClass = getTheClass(true, xtype, target); //console.dir(reactifiedClass)
+
+    return reactifiedClass;
+  } else if (target === 'ExtReactRenderer') {
+    l('target is: ExtReactRenderer, return reactifiedClass');
+    var _xtype = 'container';
+    var reactifiedClass = getTheClass(true, _xtype, target); //console.dir(reactifiedClass)
+
     return reactifiedClass;
   } else {
     return target;

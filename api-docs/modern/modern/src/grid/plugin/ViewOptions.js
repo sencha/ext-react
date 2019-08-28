@@ -12,9 +12,9 @@
  * Once the columns are ordered to your liking, you may then close the menu by tapping the
  * "Done" button.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  * 
  *     Ext.require('Ext.grid.plugin.ViewOptions');
  *

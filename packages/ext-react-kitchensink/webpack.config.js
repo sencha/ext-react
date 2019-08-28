@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
-const ExtWebpackPlugin = require('@sencha/ext-react-webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const portfinder = require('portfinder')
@@ -32,21 +32,22 @@ module.exports = function (env) {
         packages: [
           'treegrid',
           'ux',
-          'transition', 
-          'renderercell', 
-          'font-ext', 
+          'transition',
+          'renderercell',
+          'font-ext',
           'd3',
           'pivot-d3',
-          'font-awesome', 
+          'font-awesome',
           'exporter',
-          'pivot', 
-          'calendar', 
-          'charts'
+          'pivot',
+          'calendar',
+          'charts',
+          'froala-editor'
         ],
         script: './extract-code.js',
         emit: 'yes',
         port: port,
-        profile: profile, 
+        profile: profile,
         environment: environment,
         treeshake: treeshake,
         browser: browser,
@@ -59,11 +60,12 @@ module.exports = function (env) {
       }])
     ]
     return {
-      resolve: {
-        alias: {
-          'react-dom': '@hot-loader/react-dom'
-        }
-      },
+       resolve: {
+         alias: {
+          //'react-dom': '@hot-loader/react-dom'
+          react: path.resolve('./node_modules/react')
+         }
+       },
       mode: environment,
       devtool: (environment === 'development') ? 'inline-source-map' : false,
       context: path.join(__dirname, './src'),

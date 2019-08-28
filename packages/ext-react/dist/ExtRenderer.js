@@ -22,7 +22,45 @@ var CLASS_CACHE = (_CLASS_CACHE = {
   TabPanel: Ext.ClassManager.getByAlias('widget.tabpanel'),
   RendererCell: Ext.ClassManager.getByAlias('widget.renderercell')
 }, _CLASS_CACHE["Field"] = Ext.ClassManager.getByAlias('widget.field'), _CLASS_CACHE);
+var scheduledCallback = null;
+var scheduledCallbackTimeout = -1;
+var scheduledPassiveCallback = null;
+var elapsedTimeInMs = 0;
 var ExtRenderer = Reconciler({
+  schedulePassiveEffects: function schedulePassiveEffects(callback) {
+    //console.log('in schedulePassiveEffects')
+    if (scheduledCallback) {
+      throw new Error('Scheduling a callback twice is excessive. Instead, keep track of ' + 'whether the callback has already been scheduled.');
+    }
+
+    scheduledPassiveCallback = callback;
+  },
+  cancelPassiveEffects: function cancelPassiveEffects() {
+    //console.log('in cancelPassiveEffects')
+    if (scheduledPassiveCallback === null) {
+      throw new Error('No passive effects callback is scheduled.');
+    }
+
+    scheduledPassiveCallback = null;
+  },
+  scheduleDeferredCallback: function scheduleDeferredCallback(callback, options) {
+    //console.log('in scheduleDeferredCallback')
+    if (scheduledCallback) {
+      throw new Error('Scheduling a callback twice is excessive. Instead, keep track of ' + 'whether the callback has already been scheduled.');
+    }
+
+    scheduledCallback = callback;
+
+    if (typeof options === 'object' && options !== null && typeof options.timeout === 'number') {
+      var newTimeout = options.timeout;
+
+      if (scheduledCallbackTimeout === -1 || scheduledCallbackTimeout > newTimeout) {
+        scheduledCallbackTimeout = elapsedTimeInMs + newTimeout;
+      }
+    }
+
+    return 0;
+  },
   createInstance: function createInstance(type, props, internalInstanceHandle) {
     var instance = null;
     var xtype = type.toLowerCase().replace(/_/g, '-');

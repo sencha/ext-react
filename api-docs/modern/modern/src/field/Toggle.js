@@ -6,9 +6,9 @@
  * Specialized {@link Ext.field.Slider} with a single thumb which only supports two
  * {@link #value values}.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, ToggleField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, ToggleField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {
@@ -61,4 +61,11 @@
  * @method toggle
  * Toggles the value of this toggle field.
  * @return {Object} this
+ */
+
+/**
+ * @method getRawValue
+ * Returns the toggled state of the togglefield.
+ * @return {Boolean} True if toggled on, else false
+ * @since 7.0
  */

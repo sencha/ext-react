@@ -9,9 +9,9 @@
  * optionally have a title at the top and instructions at the bottom. Here's how we might create a FieldSet inside a
  * form:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React from 'react';
- *     import { ExtReact, Container, FieldSet, TextField, FormPanel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FieldSet, TextField, FormPanel } from '@sencha/ext-react';
  *
  *     export default function FieldSetExample() {
  *         return (

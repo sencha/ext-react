@@ -10,9 +10,9 @@
  * input methods like select boxes or radio buttons are not possible. Text Areas are
  * usually created inside forms, like this:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, TextAreaField } from '@extjs/ext-react';
+ *     import { ExtReact, Container, FormPanel, TextAreaField } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

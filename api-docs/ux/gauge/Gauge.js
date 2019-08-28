@@ -155,7 +155,7 @@
  *
  *      @example
  *      import React, { Component } from 'react';
- *      import { ExtReact, SliderField, Gauge, FormPanel } from '@extjs/ext-react';
+ *      import { ExtReact, SliderField, Gauge, FormPanel } from '@sencha/ext-react';
  *      export default class GaugeExample extends Component {
  *          constructor() {
  *              super();

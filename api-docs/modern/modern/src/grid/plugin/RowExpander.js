@@ -6,9 +6,9 @@
  * The Row Expander plugin provides an "expander" column to give the user the ability to show
  * or hide the {@link Ext.grid.Row#cfg!body body} of each row.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     Ext.require('Ext.grid.plugin.RowExpander');
  * 

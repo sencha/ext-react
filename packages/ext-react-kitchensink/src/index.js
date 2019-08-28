@@ -1,9 +1,19 @@
 import React from 'react'
 import App from './App'
 import * as d3 from 'd3'
+import * as FroalaEditor from 'froala-editor/js/froala_editor.pkgd.min.js';
+
 window.d3 = d3
 require('./index.css')
 import './Data'
+window.FroalaEditor = FroalaEditor;
+
+Ext.require([
+  'Ext.*',
+  'Ext.ux.*',
+  'Ext.panel.Collapser',
+  'Ext.layout.Fit'
+])
 
 import { launch } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
@@ -14,9 +24,9 @@ launch(() => {
   top.on('transitionend', wrapper.destroy, wrapper, { single: true })
   wrapper.addCls('app-loaded')
   return <ExtReact><App/></ExtReact>
-  }, 
-  { debug: false }, 
-  { 
+  },
+  { debug: false },
+  {
     quickTips: {
       tooltip: {
           // show qtips on tap on mobile
@@ -32,4 +42,3 @@ launch(() => {
     }
   }
 )
-                  

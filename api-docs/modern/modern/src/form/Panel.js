@@ -6,19 +6,19 @@
  * The Form panel presents a set of form fields and provides convenient ways to load and save data. Usually a form
  * panel just contains the set of fields you want to display.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, FormPanel, TextField } from '@extjs/ext-react';
+ *     import { ExtReact, Button, FormPanel, TextField } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {
  *             return (
  *                 <ExtReact>
  *                     <FormPanel title="Form Panel">
- *                         <TextField label="First Name"/>
- *                         <TextField label="Last Name"/>
- *                         <TextField label="Account Number"/>
- *                         <Button text="Submit"/>
+ *                         <TextField label="First Name"></TextField>
+ *                         <TextField label="Last Name"></TextField>
+ *                         <TextField label="Account Number"></TextField>
+ *                         <Button text="Submit"></Button>
  *                     </FormPanel>
  *                 </ExtReact>
  *             )
@@ -282,6 +282,19 @@
 /**
  * @cfg [nameHolder=true]
  * @inheritdoc
+ */
+
+/**
+ * @cfg {Object} fieldDefaults
+ * The properties in this object are used as default config values for field instance.
+ */
+
+/**
+ * @cfg {Boolean} jsonSubmit
+ * If set to true, the field values are sent as JSON in the request body.
+ * All of the field values, plus any additional params configured via
+ * {@link #baseParams} and/or the `options` to {@link #submit},
+ * will be included in the values POSTed in the body of the request.
  */
 
 /**

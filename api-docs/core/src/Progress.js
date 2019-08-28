@@ -12,9 +12,9 @@
  * want to show progress throughout an operation that has predictable points of interest
  * at which you can update the control.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Panel, Progress } from '@extjs/ext-react';
+ *     import { ExtReact, Panel, Progress } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

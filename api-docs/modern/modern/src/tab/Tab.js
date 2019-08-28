@@ -33,6 +33,16 @@
  * @accessor
  */
 
+ /**
+ * @cfg {String} [tabPosition='top']
+ * The position of the tabbar.
+ */
+
+/**
+ * @cfg {String} [rotation='default']
+ * The rotation of the tab buttons in tabbar.
+ */
+
 /**
  * @event activate
  * Fires when a tab is activated

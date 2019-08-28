@@ -1,55 +1,41 @@
-import React from 'react';
-import { Toolbar, Button, Container } from '@sencha/ext-modern';
+import React, {Component} from 'react';
+import { BreadcrumbBar } from '@sencha/ext-modern';
+import root from './examples/index';
 
-export default function Breadcrumbs(props) {
-    let { node } = props;
-    const leaf = node.isLeaf();
-    const items = [];
+export default class Breadcrumbs extends Component {
+    constructor(props) {
+        super(props);
+        this.store = Ext.create('Ext.data.TreeStore', {
+            rootVisible: true,
+            root: root
+        });
+    }
 
-    let premium = false;
+    componentDidMount() {
+        this.refs.appBreadcrumb.cmp.setSelection(this.props.node);
+    }
 
-    do {
-        if (node.get('premium')) {
-            premium = true;
+    componentWillUpdate(newProps) {
+        if (newProps.node.id !== this.props.node.id) {
+            this.refs.appBreadcrumb.cmp.setSelection(newProps.node);
         }
+    }
 
-        items.unshift(
-            <Button 
-                text={node.get('text')} 
-                key={node.get('text')}
-                ui="app-breadcrumb"
-                handler={navigate.bind(null, node.id)}
-            />
-        );
-        
-        if (node.parentNode) {
-            items.unshift(
-              <Container key={node.get('text') + '>'} >
-                <div 
-                    className="x-font-icon md-icon-keyboard-arrow-right" 
-                    key={node.get('text') + '>'}
-                    style={{ 
-                        fontSize: '20px', 
-                        lineHeight: '32px', 
-                        verticalAlign: 'middle', 
-                        color: '#666'
-                    }}
-                />
-              </Container>
-            );
-        }
-    } while (node = node.parentNode)
+    onPathChange = (context, node) => {
+        location.hash = node.id;
+    }
 
-    return (
-        <Toolbar {...props}>
-            {items}
-            { premium && leaf && (
-                <div className="app-premium">Premium</div>
-            )}
-        </Toolbar>
-    )
-}
-
-function navigate(hash) {
-    location.hash = hash;
+    render() {
+        return (
+            <BreadcrumbBar
+                docked="top"
+                showIcons= "true"
+                store={this.store}
+                onChange={this.onPathChange}
+                ref="appBreadcrumb"
+                useSplitButtons
+            >
+            </BreadcrumbBar>
+        )
+    }
 }

@@ -7,9 +7,9 @@
  *
  * Simple Treelist using inline data:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { Panel, TreeList } from '@extjs/ext-react';
+ *     import { Panel, TreeList } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *

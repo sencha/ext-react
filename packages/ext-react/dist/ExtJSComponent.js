@@ -21,21 +21,28 @@ function (_Component) {
   function ExtJSComponent(element) {
     var _this;
 
-    _this = _Component.call(this, element) || this;
+    _this = _Component.call(this, element) || this; //console.log('in ExtJSComponent constructor')
+
     _this.cmp = null;
     _this.el = null;
     _this.reactProps = {};
     _this.reactChildren = {};
-    _this.reactElement = {};
+    _this.reactElement = {}; //    console.dir('element')
+    //    console.dir(element)
 
-    _this._getReactStuff(element);
+    _this._getReactStuff(element); //console.log(this.target + ': _getConfig')
+
 
     _this.rawConfigs = _this._getConfig();
     _this.rawConfigs.$createdByExtReact = true;
 
     if (_this.isRootContainer) {
-      _this.rawConfigs.ExtReactRoot = true;
-      _this.cmp = new _this.extJSClass(_this.rawConfigs);
+      _this.rawConfigs.ExtReactRoot = true; //      console.dir(this.target + ': rawConfigs')
+      //      console.dir(this.rawConfigs)
+
+      _this.cmp = new _this.extJSClass(_this.rawConfigs); //console.dir(this.target + ': cmp')
+      //console.dir(this.cmp)
+
       l("ExtJSComponent: constructor ROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this.cmp, this)", _this.rawConfig, _this.cmp, _assertThisInitialized(_this));
     } else {
       l("ExtJSComponent: constructor NOTROOT, element: " + _this.target + ", xtype: " + _this.xtype + " (this.rawConfig, this)", _this.rawConfig, _assertThisInitialized(_this));
@@ -129,16 +136,20 @@ function (_Component) {
       config['cls'] = config['cls'] + ' ' + config['className'];
     }
 
-    this._ensureResponsivePlugin(config);
+    this._ensureResponsivePlugin(config); // console.dir('this,target')
+    // console.dir(this.target)
+
 
     if (this.isRootContainer) {
       if (config['layout'] == undefined) {
         config['layout'] = 'fit';
 
         if (config['cls'] != undefined) {
-          config['cls'] = config['cls'] + ' ' + 'ExtReactRoot';
+          //config['cls'] = config['cls'] + ' ' + 'ExtReactRoot'
+          config['cls'] = config['cls'] + ' ' + this.target;
         } else {
-          config['cls'] = 'ExtReactRoot';
+          //config['cls'] = 'ExtReactRoot'
+          config['cls'] = this.target;
         }
       }
 
@@ -154,18 +165,50 @@ function (_Component) {
         config['width'] = '100%';
         config.renderTo = root;
       } else {
-        var root = document.getElementsByClassName('x-viewport-body-el')[0];
+        if (this.target == 'ExtReact') {
+          var root = document.getElementsByClassName('x-viewport-body-el')[0];
 
-        if (root == undefined) {
-          root = globalRoot[count];
-          count++;
+          if (root == undefined) {
+            root = globalRoot[count];
+            count++;
+            config['height'] = '100%';
+            config['width'] = '100%';
+          } else {
+            config['fullscreen'] = true;
+          } //   console.log(this.target + ': renderTo')
+          //   config.renderTo = root
+          // }
+          // else {
+          //   config['height'] = '100%'
+          //   config['width'] = '100%'
+          //   console.log(this.target + ': NOT renderTo')
+          // }
+
+
+          config.renderTo = root;
+        } else {
           config['height'] = '100%';
           config['width'] = '100%';
-        } else {
-          config['fullscreen'] = true;
-        }
+          console.log('this.rootDOM');
+          console.log(this.rootDOM);
 
-        config.renderTo = root;
+          if (this.rootDOM != undefined) {
+            config.renderTo = this.rootDOM;
+          } else {
+            console.log(this.target + ': NOT renderTo');
+          }
+        } //console.log('this')
+        //console.dir(this)
+        // if (this.target == 'ExtReact') {
+        //   console.log('in renderTo')
+        //   config.renderTo = root
+        // }
+        // else {
+        //   //config.renderTo = this
+        //   console.dir(this)
+        //   console.log('NOT in renderTo')
+        // }
+
       }
 
       this.extJSConfig = config;

@@ -12,9 +12,9 @@
  *
  * ## A Basic Grid
  *
- *     @example packages=[reactor]
- *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     @example packages=[ext-react]
+ *     import React, { Component } from 'react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -55,9 +55,9 @@
  * A top-level column definition may contain a `columns` configuration. This means that the
  * resulting header will be a group header, and will contain the child columns.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@extjs/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -317,6 +317,14 @@
  */
 
 /**
+ * @cfg {Boolean} [enableColumnMove=true]
+ * Set to `false` to disable column reorder.
+ * 
+ * **Note**: if `gridviewoptions` plugin is enabled on grids gets 
+ * precedence over `enableColumnMove` for touch supported device.
+ */
+
+/**
  * @cfg {Object[]} [data=null]
  * An array of records to display. Use in place of {@link #store} when fetching data directly
  * or using static data rather than fetching data with an ExtReact proxy.
@@ -385,4 +393,81 @@
  * @param {Ext.grid.Grid} this The Grid instance.
  * @param {Ext.grid.column.Column} column The sorted column.
  * @param {String} direction The direction of the sort on this Column. Either 'asc' or 'desc'.
+ */
+
+/**
+ * @event beforecomplete
+ * Fires after a change has been made to the field, but before the change is reflected in the
+ * underlying field.  Saving the change to the field can be canceled by returning false from
+ * the handler of this event. Note that if the value has not changed and ignoreNoChange = true,
+ * the editing will still end but this event will not fire since no edit actually occurred.
+ * @param {Ext.Editor} editor
+ * @param {Object} value The current field value
+ * @param {Object} startValue The original field value
+ * @param {Ext.grid.Location} The location where actionable mode was successfully started
+ * @since 7.0
+ */
+
+/**
+ * @event canceledit
+ * Fires after editing has been canceled and the editor's value has been reset.
+ * @param {Ext.Editor} editor
+ * @param {Object} value The user-entered field value that was discarded
+ * @param {Object} startValue The original field value that was set back into the editor after
+ * cancel
+ * @since 7.0
+ */
+
+/**
+ * @event complete
+ * Fires after editing is complete and any changed value has been written to the underlying
+ * field.
+ * @param {Ext.Editor} editor
+ * @param {Object} value The current field value
+ * @param {Object} startValue The original field value
+ * @param {Ext.grid.Location} The location where actionable mode was successfully started
+ * @since 7.0
+ */
+
+/**
+ * @event startedit
+ * Fires when this editor is displayed
+ * @param {Ext.Editor} editor
+ * @param {Ext.dom.Element} boundEl The underlying element bound to this editor
+ * @param {Object} value The starting field value
+ * @param {Ext.grid.Location} The location where actionable mode was successfully started
+ * @since 7.0
+ */
+
+/**
+ * @event specialkey
+ * Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. You can
+ * check
+ * {@link Ext.event.Event#getKey} to determine which key was pressed.
+ * @param {Ext.Editor} editor
+ * @param {Ext.form.field.Field} field The field attached to this editor
+ * @param {Ext.event.Event} event The event object
+ * @since 7.0
+ */
+
+/**
+ * @event beforestartedit
+ * Fires when editing is initiated, but before the value changes.  Editing can be canceled by
+ * returning false from the handler of this event.
+ * @param {Ext.Editor} editor
+ * @param {Ext.dom.Element} boundEl The underlying element bound to this editor
+ * @param {Object} value The field value being set
+ * @param {Ext.grid.Location} The location where actionable mode was successfully started
+ * @since 7.0
+ */
+
+/**
+ * @method getSelection
+ * Returns the grid's selection if {@link Ext.grid.selection.Model#cfg!mode mode} is single 
+ * @return {Ext.data.Model} returns selected record if selectable is rows
+ * @return {Ext.grid.column.Column} returns selected column if selectable is columns
+ * @return {Ext.data.Model} returns selected record if selectable is cells
+ * 
+ * Returns the last selected column/cell's record/row's record based on selectable
+ * if {@link Ext.grid.selection.Model#cfg!mode mode} is multi
  */

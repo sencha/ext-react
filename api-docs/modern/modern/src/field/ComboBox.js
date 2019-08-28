@@ -21,11 +21,11 @@
  * If your store is not remote, i.e. it depends only on local data and is loaded up front, you MUST
  * set the {@link #queryMode} to `'local'`.
  *
- * # Example usage:
+ * ## Example usage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { FormPanel, ComboBox } from '@sencha/ext-react';
+ *     import { ExtReact, FormPanel, ComboBox } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -37,6 +37,7 @@
  *          ]
  *
  *          return (
+ *             <ExtReact>
  *              <FormPanel shadow>
  *                  <ComboBox
  *                      width={200}
@@ -49,6 +50,7 @@
  *                      typeAhead
  *                  />
  *              </FormPanel>
+ *              </ExtReact>
  *          )
  *       }
  *     }
@@ -92,7 +94,7 @@
  *
  *     ComboBox loads local data
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from "react";
  *     import { FormPanel, ComboBox } from "@sencha/ext-react";
  *     

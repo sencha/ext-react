@@ -55,6 +55,13 @@
  * @accessor
  */
 
+ /**
+  * @cfg {Boolean} toggleOnClick
+  * `true` to toggle the selection state of an item when clicked.
+  * Only applicable when the {@link #mode} is 'single'.
+  * Only applicable when the {@link #deselectable} is 'true'.
+  */
+
 /**
  * @cfg {Ext.data.Model} lastSelected
  * @private

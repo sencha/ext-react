@@ -7,7 +7,7 @@ var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {
 
-  title = "Sencha ExtReact 6.7 Classic Boilerplate" + REACT_VERSION
+  title = "Sencha ExtReact 7.0 Classic Boilerplate" + REACT_VERSION
 
     state = {
         person: null

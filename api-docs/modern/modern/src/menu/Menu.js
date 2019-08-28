@@ -16,9 +16,9 @@
  * Menu with `{@link #cfg-floated}: false`, a Menu may be used as a child of a 
  * {@link Ext.Container Container}.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuItem } from '@extjs/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuItem } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         render() {

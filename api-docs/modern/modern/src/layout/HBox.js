@@ -10,9 +10,9 @@
  * For example, an email client might have a list of messages pinned to the left, taking say one third of the available
  * width, and a message viewing panel in the rest of the screen. We can achieve this with hbox layout's *flex* config:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {
@@ -37,9 +37,9 @@
  * We can also specify fixed widths for child items, or mix fixed widths and flexes. For example, here we have 3 items
  * - one on each side with flex: 1, and one in the center with a fixed width of 100px:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, Panel } from '@extjs/ext-react';
+ *     import { ExtReact, Container, Panel } from '@sencha/ext-react';
  *
  *     export default class myExample extends Component {
  *         render() {

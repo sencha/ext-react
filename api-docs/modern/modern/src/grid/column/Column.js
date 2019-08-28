@@ -10,6 +10,36 @@
  * grid itself.
  *
  * In general an array of column configurations will be passed to the grid.
+ * 
+ * ## Example usage:
+ *
+ *   @example packages=[ext-react]
+ *   import React, { Component } from 'react';
+ *   import { ExtReact, Grid, Column, Panel } from '@sencha/ext-modern';
+ *
+ *   export default class MyExample extends Component {
+ *       render() {
+ *           this.store = new Ext.data.Store({
+ *               data: [
+ *                   { "name": "Lisa", "email": "lisa@simpsons.com", "phone": "555-111-1224" },
+ *                   { "name": "Bart", "email": "bart@simpsons.com", "phone": "555-222-1234" },
+ *                   { "name": "Homer", "email": "home@simpsons.com", "phone": "555-222-1244" },
+ *                   { "name": "Marge", "email": "marge@simpsons.com", "phone": "555-222-1254" }
+ *               ]
+ *           });
+ *           return (
+ *              </ExtReact>
+ *               <Panel width="100%" height="100%">
+ *                   <Grid shadow="true" height="100%" store={this.store}>
+ *                       <Column text="Name" dataIndex="name" flex="1"></Column>
+ *                       <Column text="Email" dataIndex="email" flex="1"></Column>
+ *                       <Column text="Phone" dataIndex="phone" flex="1"></Column>
+ *                   </Grid>
+ *               </Panel>
+ *              </ExtReact>
+ *           )
+ *       }
+ *   }
  *
  * # Convenience Subclasses
  *
@@ -170,7 +200,7 @@
  * When the renderer prop is specified, a {@link Ext.reactor.RendererCell RendererCell} is used.  Be sure to import
  * RendererCell so that it is included in your application's JavaScript bundle:
  * 
- *      import { RendererCell } from '@extjs/ext-react';
+ *      import { RendererCell } from '@sencha/ext-react';
  * 
  * @cfg {Object} renderer.value The data value for the current cell.
  * @cfg {Ext.data.Model} renderer.record The record for the current row.
@@ -573,4 +603,35 @@
  * @param {Ext.grid.Grid} grid This Grid
  * @param {Ext.grid.Column} column The column creating the menu
  * @param {Ext.menu.Menu} menu The column's new menu
+ */
+
+/**
+ * @cfg {Object} editorDefaults
+ * This object holds default config objects for creating the column's `editor`.
+ * The keys of this object are {@link Ext.data.field.Field#cfg!type field type}
+ * values (such as `'date'` or `'int'`). These keys can also be a comma-separated
+ * list of such type names.
+ *
+ * These defaults are applied when producing an `editor` based on the field of
+ * {@link #cfg!store store's} {@link Ext.data.Store#cfg!model model} identified
+ * by the {@link #cfg!dataIndex dataIndex}.
+ *
+ * See {@link #ensureEditor ensureEditor}.
+ * @since 7.0
+ */
+
+/**
+ * @method autoSize
+ * Sizes this Column to fit the max content width of records.
+ * @since 7.0
+ */
+
+/**
+ * @method ensureEditor
+ * This method returns the {@link #cfg!editor editor} for this column. If an `editor`
+ * is not explicitly configured and `editable` is `true`, then `defaultEditor` and
+ * `editorDefaults` configs are used to produce an appropriate editor based on the
+ * column's derived type and/or the `dataIndex` of the associated model.
+ * @return {Ext.Component}
+ * @since 7.0
  */

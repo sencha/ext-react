@@ -1,6 +1,6 @@
-# ext-react 6.7.x
+# ext-react 7.0.x
 
-This repo is for ExtReact 6.7, which supports React 16 and above
+This repo is for ExtReact 7.0, which supports React 16 and above
 
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
 
@@ -9,7 +9,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 ## Requirements
 
 * React 16.x.x 
-* Ext JS 6.7+
+* Ext JS 7.0+
 
 ## To Use this repo 'as-is' (to run the demos on your local machine)
 
@@ -25,7 +25,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 
 npm install --save @sencha/ext-react
 npm install --save @sencha/ext @sencha/ext-modern @sencha/ext-modern-theme-material
-npm install --save-dev @sencha/ext-react-webpack-plugin @sencha/ext-react-babel-plugin html-webpack-plugin
+npm install --save-dev @sencha/ext-webpack-plugin @sencha/ext-react-babel-plugin html-webpack-plugin
 ```
 
 ## Getting Started with ExtReact
@@ -34,7 +34,9 @@ To create a new ExtReact app, we recommend using the [ExtReact Generator](https:
 
 ```
 npm install -g @sencha/ext-react-gen
-@sencha/ext-react-gen
+
+ext-react-gen app CoolExtReactApp
+
 ```
 
 The application it creates uses react, react-router, webpack, and babel (ES2015+) and is based off of the [ExtReact Modern Boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate).
@@ -443,10 +445,10 @@ function MyComponent() {
 
 ## Building
 
-Select your toolkit, theme, and packages using [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
+Select your toolkit, theme, and packages using [@sencha/ext-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-webpack-plugin). The plugin scans your code and only includes the classes you need in the final bundle.  Here's an example:
 
 ```JavaScript
-const ExtWebpackPlugin = require('@sencha/ext-react webpack-plugin');
+const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin');
 
 module.exports = {
   ...
@@ -550,7 +552,7 @@ Tests are implemented using [Sencha Test](https://www.sencha.com/products/test/)
 # Packages
 
 * [@sencha/ext-react](https://github.com/sencha/ext-react/tree/master/packages/ext-react) - A custom React renderer that lets you to use any Ext JS xtype as a JSX tag
-* [@sencha/ext-react-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
+* [@sencha/ext-webpack-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-webpack-plugin) - Integrates Webpack with Sencha Cmd to produce optimized builds of Ext JS
 * [@sencha/ext-react-babel-plugin](https://github.com/sencha/ext-react/tree/master/packages/ext-react-babel-plugin) - Allows you to load reactified Ext JS components using ES6 import syntax.
 * [@sencha/ext-react-modern-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-modern-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the modern toolkit.
 * [@sencha/ext-react-classic-boilerplate](https://github.com/sencha/ext-react/tree/master/packages/ext-react-classic-boilerplate) - An example project using React, Webpack, and Ext JS 6 with the classic toolkit.

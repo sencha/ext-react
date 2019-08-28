@@ -17,20 +17,35 @@ export class ExtJSComponent extends Component {
 
   constructor(element) {
     super(element)
+    //console.log('in ExtJSComponent constructor')
+
     this.cmp = null;
     this.el = null;
 
     this.reactProps = {}
     this.reactChildren = {}
     this.reactElement = {}
+
+//    console.dir('element')
+//    console.dir(element)
+
+
     this._getReactStuff(element)
 
+    //console.log(this.target + ': _getConfig')
     this.rawConfigs = this._getConfig()
     this.rawConfigs.$createdByExtReact = true
 
     if(this.isRootContainer) {
       this.rawConfigs.ExtReactRoot = true
+//      console.dir(this.target + ': rawConfigs')
+//      console.dir(this.rawConfigs)
+
       this.cmp = new this.extJSClass(this.rawConfigs)
+      //console.dir(this.target + ': cmp')
+      //console.dir(this.cmp)
+
+
       l(`ExtJSComponent: constructor ROOT, element: ${this.target}, xtype: ${this.xtype} (this.rawConfig, this.cmp, this)`, this.rawConfig, this.cmp, this)
     }
     else {
@@ -124,41 +139,91 @@ export class ExtJSComponent extends Component {
     }
     this._ensureResponsivePlugin(config);
 
-    if (this.isRootContainer) {
-      if (config['layout'] == undefined) {
-        config['layout'] = 'fit'
-        if (config['cls'] != undefined) {
-          config['cls'] = config['cls'] + ' ' + 'ExtReactRoot'
-        }
-        else {
-          config['cls'] = 'ExtReactRoot'
-        }
-      }
-      if (Ext.isClassic) {
-        var root = document.getElementsByClassName('reactroot')[0]
-        if(root == undefined) {
-        root = globalRoot[count]
-        count++
-        }
-        config['height'] = '100%'
-        config['width'] = '100%'
-        config.renderTo = root
 
-      }
-      else {
-        var root = document.getElementsByClassName('x-viewport-body-el')[0]
-        if(root == undefined) {
+    // console.dir('this,target')
+    // console.dir(this.target)
+
+    
+      if (this.isRootContainer) {
+        if (config['layout'] == undefined) {
+          config['layout'] = 'fit'
+          if (config['cls'] != undefined) {
+            //config['cls'] = config['cls'] + ' ' + 'ExtReactRoot'
+            config['cls'] = config['cls'] + ' ' + this.target
+
+          }
+          else {
+            //config['cls'] = 'ExtReactRoot'
+            config['cls'] = this.target
+          }
+        }
+        if (Ext.isClassic) {
+          var root = document.getElementsByClassName('reactroot')[0]
+          if(root == undefined) {
           root = globalRoot[count]
           count++
+          }
           config['height'] = '100%'
           config['width'] = '100%'
+          config.renderTo = root
         }
         else {
-          config['fullscreen'] = true
+          if (this.target == 'ExtReact') {
+            var root = document.getElementsByClassName('x-viewport-body-el')[0]
+
+            if(root == undefined) {
+              root = globalRoot[count]
+              count++
+              config['height'] = '100%'
+              config['width'] = '100%'
+            }
+            else {
+              config['fullscreen'] = true
+            }
+
+
+
+          //   console.log(this.target + ': renderTo')
+          //   config.renderTo = root
+
+
+          // }
+          // else {
+          //   config['height'] = '100%'
+          //   config['width'] = '100%'
+          //   console.log(this.target + ': NOT renderTo')
+          // }
+
+          config.renderTo = root;
+        } else {
+          config['height'] = '100%';
+          config['width'] = '100%';
+          console.log('this.rootDOM')
+          console.log(this.rootDOM)
+          if (this.rootDOM != undefined) {
+            config.renderTo = this.rootDOM;
+          }
+          else {
+            console.log(this.target + ': NOT renderTo');
+          }
+        } 
+
+
+          //console.log('this')
+          //console.dir(this)
+
+          // if (this.target == 'ExtReact') {
+          //   console.log('in renderTo')
+          //   config.renderTo = root
+          // }
+          // else {
+          //   //config.renderTo = this
+          //   console.dir(this)
+          //   console.log('NOT in renderTo')
+          // }
+
         }
-        config.renderTo = root
-      }
-      this.extJSConfig = config
+        this.extJSConfig = config
     }
     return config
   }

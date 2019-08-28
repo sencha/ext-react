@@ -5,9 +5,9 @@
  *
  * List is a custom styled DataView which allows Grouping, Indexing, Icons, and a Disclosure.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List } from '@extjs/ext-react';
+ *     import { ExtReact, List } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -34,9 +34,9 @@
  *
  * A more advanced example showing a list of people grouped by last name:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@extjs/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -79,9 +79,9 @@
  *
  * If you want to dock items to the bottom or top of a List, you can use the scrollDock configuration on child items in this List. The following example adds a button to the bottom of the List.
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@extjs/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *
@@ -371,6 +371,41 @@
  * Set this to `false` to suppress the borders in between the items in this list.
  * By default the presence of borders in between the items is determined by the stylesheet.
  * @accessor
+ */
+
+/**
+ * @cfg {Ext.dataview.ListCollapser/Object} collapseDefaults
+ * This config object supplies default for the `collapsible` config. When that
+ * config is simply `true`, this is the complete config object for the group
+ * collapser.
+ *
+ * NOTE: This config cannot be changed after instantiation. Instead, change the
+ * `collapsible` config.
+ * @since 7.0
+ */
+
+ /**
+ * @cfg {Object/Ext.dataview.ListItemPlaceholder} groupPlaceholder
+ * This config provides defaults for the placeholder items rendered for collapsed
+ * groups.
+ * @since 7.0
+ * @private
+ */
+
+ /**
+ * @cfg {Object} grouping
+ * @private
+ * @since 7.0
+ */
+
+/**
+ * @cfg {Ext.dataview.ListCollapser/Object/Boolean} collapsible
+ * This object configures group collapse. It is only applicable when `grouped`.
+ * Set to `false` to disable group collapsibility. The default value of `true`
+ * uses the `collapseDefaults` config for the final collapser configuration
+ * object. If this config is an object, it is merged with `collapseDefaults`
+ * giving this object's properties priority over the defaults.
+ * @since 7.0
  */
 
 /**

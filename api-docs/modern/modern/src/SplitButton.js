@@ -9,9 +9,9 @@
  *
  * ## Example usage:
  *
- *     @example packages=[reactor]
+ *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, SplitButton } from '@extjs/ext-react';
+ *     import { ExtReact, Container, SplitButton } from '@sencha/ext-react';
  *
  *      export default class SplitButtonExample extends Component {
  *

@@ -27,7 +27,7 @@
  * ## Example
  *
  *     import React, { Component } from 'react'
- *     import { Panel, Video } from '@extjs/ext-react';
+ *     import { Panel, Video } from '@sencha/ext-react';
  *
  *     export default class MyExample extends Component {
  *         return (
