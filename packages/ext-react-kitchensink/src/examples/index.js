@@ -312,7 +312,7 @@ const root = {
                 { text: 'ToggleField', component: ToggleField, layout: 'center', navIcon: 'icon-Forms-ToggleField' },
                 { text: 'URLField', component: URLField, layout: 'center', navIcon: 'icon-Forms-URLField' },
                 { text: 'Validation', component: Validation, layout: 'auto', navIcon: 'icon-form-validation'},
-                { text: 'CheckBoxGroup', component: CheckBoxGroup, layout: 'center', navIcon: 'icon-form-checkboxgroup' }
+                { text: 'CheckBoxGroup', component: CheckBoxGroup, layout: Ext.os.is.Phone ? 'fit': 'auto', navIcon: 'icon-form-checkboxgroup' }
             ] },
 
            { text: 'Gauges', navIcon: 'icon-gauge-charts', children: [
@@ -398,7 +398,7 @@ const root = {
                 { text: 'Summary Row', component: SummaryRowGrid, navIcon: 'icon-grid-summary'},
                 { text: 'Grid Filtering', component: GridFiltering, navIcon: 'icon-grid-filtering'},
                 { text: 'View Options', component: ViewOptionsGrid, navIcon: 'icon-view-options-grid'},
-                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-dd-grid-row'},
+                { text: 'Row Drag & Drop', component: RowDragAndDrop, navIcon: 'icon-dd-grid-row', hidden: Ext.os.is.Phone },
                 { text: 'Drag Form To Grid', component: DragFormToGrid, navIcon: 'icon-dd-form-to-grid'}
             ]},
             { text: 'Advanced Features', navIcon: 'icon-grid-plugins', children:[
