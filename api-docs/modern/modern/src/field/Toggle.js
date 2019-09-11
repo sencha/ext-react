@@ -62,3 +62,10 @@
  * Toggles the value of this toggle field.
  * @return {Object} this
  */
+
+/**
+ * @method getRawValue
+ * Returns the toggled state of the togglefield.
+ * @return {Boolean} True if toggled on, else false
+ * @since 7.0
+ */

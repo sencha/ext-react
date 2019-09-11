@@ -108,7 +108,7 @@ class Layout extends Component {
           ref={phoneNav => this.phoneNav = phoneNav}
           store={navStore}
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
-          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 6.7 Kitchen Sink'
+          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 7.0 Kitchen Sink'
           onItemTap={(self, list, index, target, node) => this.onNavChange(node && node.getId())}
           onBack={(self, node) => {
               // There is no easy way to grab the node that will be used after NestedList switches to previous List.

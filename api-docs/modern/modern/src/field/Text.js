@@ -38,6 +38,47 @@
  *             )
  *         }
  *     }
+ * 
+ * * This creates two text fields inside a form. Text Fields can also be created outside of a
+ * Form, like this:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Your Name',
+ *         value: 'Ed Spencer'
+ *     });
+ *
+ * ## Configuring
+ *
+ * Text field offers several configuration options, including {@link #placeholder},
+ * {@link #maxLength}, {@link #autoComplete}, {@link #autoCapitalize} and
+ * {@link #autoCorrect}.
+ *
+ * For example, here is how we would configure a text field to have a maximum length of
+ * 10 characters, with placeholder text that disappears when the field is focused:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Username',
+ *         maxLength: 10,
+ *         placeholder: 'Enter your username'
+ *     });
+ *
+ * The autoComplete, autoCapitalize and autoCorrect configs simply set those attributes on
+ * the text field and allow the native browser to provide those capabilities. For example,
+ * to enable auto complete and auto correct, simply configure your text field like this:
+ *
+ *     Ext.create('Ext.field.Text', {
+ *         label: 'Username',
+ *         autoComplete: true,
+ *         autoCorrect: true
+ *     });
+ *
+ * These configurations will be picked up by the native browser, which will enable the
+ * options at the OS level.
+ *
+ * Text field inherits from {@link Ext.field.Field}, which is the base class for all
+ * fields and provides a lot of shared functionality for all fields, including setting
+ * values, clearing and basic validation. See the {@link Ext.field.Field} documentation
+ * to see how to leverage its capabilities.
  */
 
 /**
@@ -193,4 +234,44 @@
  * The text alignment of this field.
  *
  * @accessor
+ */
+
+/**
+ * @cfg {RegExp} stripCharsRe
+ * A JavaScript RegExp object used to strip unwanted content from the value
+ * during input. If `stripCharsRe` is specified,
+ * every *character sequence* matching `stripCharsRe` will be removed.
+ */
+
+/**
+ * @property doKeyDown
+ * Called when a key has been pressed in the `<input>`
+ * @protected
+ */
+
+/**
+ * @property defaultBindProperty
+ * @inheritdoc
+ */
+
+/**
+ * @property classCls
+ * @inheritdoc
+ */
+
+/**
+ * @method doKeyUp
+ * Called when a key has been pressed in the `<input>`
+ * @private
+ */
+
+/**
+ * @method processRawValue
+ * Performs any necessary manipulation of a raw String value to prepare
+ * it for conversion and/or
+ * {@link #validate validation}. For text fields this applies the configured
+ * {@link #stripCharsRe} to the raw value.
+ * @param {String} value The unprocessed string value
+ * @return {String} The processed string value
+ * @since 7.0
  */

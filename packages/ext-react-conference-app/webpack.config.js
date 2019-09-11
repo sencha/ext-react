@@ -14,8 +14,8 @@ module.exports = function (env) {
     watchprofile = 'no'
   }
   else {
-    if (env.browser == undefined) {env.browser = true}
-    browserprofile = JSON.parse(env.browser) || 'yes'
+    // if (env.browser == undefined) {env.browser = true}
+    // browserprofile = JSON.parse(env.browser) || 'yes'
     watchprofile = env.watch || 'yes'
   }
   const isProd = buildenvironment === 'production'

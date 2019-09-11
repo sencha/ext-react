@@ -374,6 +374,41 @@
  */
 
 /**
+ * @cfg {Ext.dataview.ListCollapser/Object} collapseDefaults
+ * This config object supplies default for the `collapsible` config. When that
+ * config is simply `true`, this is the complete config object for the group
+ * collapser.
+ *
+ * NOTE: This config cannot be changed after instantiation. Instead, change the
+ * `collapsible` config.
+ * @since 7.0
+ */
+
+ /**
+ * @cfg {Object/Ext.dataview.ListItemPlaceholder} groupPlaceholder
+ * This config provides defaults for the placeholder items rendered for collapsed
+ * groups.
+ * @since 7.0
+ * @private
+ */
+
+ /**
+ * @cfg {Object} grouping
+ * @private
+ * @since 7.0
+ */
+
+/**
+ * @cfg {Ext.dataview.ListCollapser/Object/Boolean} collapsible
+ * This object configures group collapse. It is only applicable when `grouped`.
+ * Set to `false` to disable group collapsibility. The default value of `true`
+ * uses the `collapseDefaults` config for the final collapser configuration
+ * object. If this config is an object, it is merged with `collapseDefaults`
+ * giving this object's properties priority over the defaults.
+ * @since 7.0
+ */
+
+/**
  * @cfg {Object[]} [data=null]
  * An array of records to display. Use in place of {@link #store} when fetching data directly
  * or using static data rather than fetching data with an ExtReact proxy.

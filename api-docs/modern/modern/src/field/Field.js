@@ -236,6 +236,30 @@
  */
 
 /**
+ * @cfg {Ext.data.field.Field/Object/String} dataType
+ * A config for a {@link Ext.data.field.Field} or data field sub-class instance
+ * used to serialize this field's value for form submission. This is used by the
+ * {@link #serialize} method unless `modelValidation` is used, in which case, the
+ * data field of the bound {@link Ext.data.Model model} is used.
+ *
+ * For example:
+ *
+ *      <DateField
+ *           dataType={
+ *              {
+ *                  "type": "date",
+ *                  "dateWriteFormat": "Y-m-d"
+ *              }    
+ *           }
+ *       >
+ *       </DateField>
+ *
+ * If this config is a string, it is used to create a {@link Ext.data.field.Field field}
+ * by that alias.
+ * @since 7.0
+ */
+
+/**
  * @cfg {Mixed} [startValue=false]
  * The value that the Field had at the time it was last focused. This is the value that is passed
  * to the {@link Ext.field.Text#change} event which is fired if the value has been changed when the Field is blurred.
@@ -361,4 +385,64 @@
  * Validate the field and return it's validity state.
  * To get the existing validity state without re-validating current value,
  * use {@link isValid}.
+ */
+
+/**
+ * @method getRawValue
+ * Returns the raw value of the field, without performing any normalization, conversion,
+ * or validation. To get a normalized and converted value see {@link #getValue}.
+ * @return {String} value The raw String value of the field
+ *
+ * @since 7.0
+ */
+
+/**
+ * @method processRawValue
+ * Performs any necessary manipulation of a raw field value to prepare it for
+ * {@link #rawToValue conversion} and/or {@link #validate validation}, for instance
+ * stripping out ignored characters. In the base implementation it does nothing;
+ * individual subclasses may override this as needed.
+ *
+ * @param {Object} value The unprocessed string value
+ * @return {Object} The processed string value
+ *
+ * @since 7.0
+ */
+
+/**
+ * @method rawToValue
+ * Converts a raw input field value into a mixed-type value that is suitable for this particular
+ * field type. This allows controlling the normalization and conversion of user-entered values
+ * into field-type-appropriate values, e.g. a Date object for {@link Ext.field.Date},
+ * and is invoked by {@link #getValue}.
+ *
+ * It is up to individual implementations to decide how to handle raw values that cannot be
+ * successfully converted to the desired object type.
+ *
+ * The base implementation does no conversion, returning the raw value untouched.
+ *
+ * @param {Object} rawValue
+ * @return {Object} The converted value.
+ *
+ * @since 7.0
+ */
+
+/**
+ * @method serialize
+ * A function which converts the field’s value for submission. This is the value used
+ * for form submit. The field's value is serialized using the serializer for the
+ * associated {@link Ext.data.Model} when using `modelValidation`, or using the
+ * serializer specified by the {@link #dataType} config.
+ * @return {String}
+ * @since 7.0
+ */
+
+/**
+ * @method transformRawValue
+ * Transform the raw value before it is set
+ * @protected
+ * @param {Object} value The value
+ * @return {Object} The value to set
+ *
+ * @since 7.0
  */
