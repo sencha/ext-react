@@ -18,17 +18,16 @@
         //const basecolor = params.get("basecolor");
         //window['title'] = params.get("title");
 
-        var h = window.location.href
-        //if (h.includes("localhost")) {
-        if (h.includes("ExtReact")) {
-            window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
-        }
-        else {
+        var h = parent.document.location.href
+        if (h.includes("react-ui")) {
             const basecolor = 'navy';
             window['title'] = 'React UI Toolkit';
             var d = document.documentElement.style
             d.setProperty('--base-color', basecolor);
             d.setProperty('--color', basecolor);
+        }
+        else {
+            window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
         }
 
   </script>
