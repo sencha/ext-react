@@ -21,6 +21,7 @@ Ext.require([
 class Layout extends Component {
 
   componentDidMount() {
+    this.title = window['title']
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
 
@@ -143,7 +144,7 @@ class Layout extends Component {
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha Extreact 7.0 Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">{title} - React v{REACT_VERSION}</a>
             </TitleBar>
             <Container layout="fit" flex={1}>
               <NavTree

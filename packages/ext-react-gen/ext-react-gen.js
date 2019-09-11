@@ -15,7 +15,7 @@ const LANGUAGE = {
   JAVASCRIPT: 'JavaScript'
 }
 const CODE = {
-  EXAMPLE: 'Include some example code', 
+  EXAMPLE: 'Include some example code',
   BARE_BONES: 'Generate an empty app'
 }
 
@@ -79,57 +79,57 @@ var config = {}
 var cmdLine = {}
 stepStart()
 
-function upgrade() {
-  if (process.argv[2] != 'upgrade') {
-    return 'continue';
-  }
-  var packageJson = {}
-  var webpackConfigJs = {}
+// function upgrade() {
+//   if (process.argv[2] != 'upgrade') {
+//     return 'continue';
+//   }
+//   var packageJson = {}
+//   var webpackConfigJs = {}
 
-  packageJson.name = 'package.json'
-  webpackConfigJs.name = 'webpack.config.js'
+//   packageJson.name = 'package.json'
+//   webpackConfigJs.name = 'webpack.config.js'
 
-  var rootDir = path.resolve(process.cwd())
-  var backupDir = path.resolve(rootDir, 'extBackup')
-  var upgradeDir = path.resolve(__dirname, 'extUpgrade')
+//   var rootDir = path.resolve(process.cwd())
+//   var backupDir = path.resolve(rootDir, 'extBackup')
+//   var upgradeDir = path.resolve(__dirname, 'extUpgrade')
 
-  packageJson.root = path.join(rootDir, packageJson.name)
-  packageJson.backup = path.join(backupDir, packageJson.name)
-  packageJson.upgrade = path.join(upgradeDir, packageJson.name)
+//   packageJson.root = path.join(rootDir, packageJson.name)
+//   packageJson.backup = path.join(backupDir, packageJson.name)
+//   packageJson.upgrade = path.join(upgradeDir, packageJson.name)
 
-  if (fs.existsSync(backupDir)){
-    console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
-    return 'end'
-  }
+//   if (fs.existsSync(backupDir)){
+//     console.log(`${boldRed('Error: backup folder ' + backupDir + ' exists')}`)
+//     return 'end'
+//   }
 
-  console.log(rootDir)
-  console.log(backupDir)
-  console.log(upgradeDir)
+//   console.log(rootDir)
+//   console.log(backupDir)
+//   console.log(upgradeDir)
 
-  packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
-  packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
+//   packageJson.old = JSON.parse(fs.readFileSync(packageJson.root, {encoding: 'utf8'}))
+//   packageJson.new = JSON.parse(fs.readFileSync(packageJson.upgrade, {encoding: 'utf8'}))
 
-  fs.mkdirSync(backupDir)
-  console.log(`${boldGreen('Created ' + backupDir)}`)
-  fs.copySync(packageJson.root, packageJson.backup)
-  console.log(`${boldGreen('Copied ' +packageJson.root + ' to ' +  packageJson.backup)}`)
-  packageJson.old.scripts = packageJson.new.scripts
-  packageJson.old.devDependencies = packageJson.new.devDependencies
-  packageJson.old.dependencies = packageJson.old.dependencies
-  packageJson.old.extDefults = null
-  fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
+//   fs.mkdirSync(backupDir)
+//   console.log(`${boldGreen('Created ' + backupDir)}`)
+//   fs.copySync(packageJson.root, packageJson.backup)
+//   console.log(`${boldGreen('Copied ' +packageJson.root + ' to ' +  packageJson.backup)}`)
+//   packageJson.old.scripts = packageJson.new.scripts
+//   packageJson.old.devDependencies = packageJson.new.devDependencies
+//   packageJson.old.dependencies = packageJson.old.dependencies
+//   packageJson.old.extDefults = null
+//   fs.writeFileSync(packageJson.root, JSON.stringify(packageJson.old, null, 2));
 
-  console.log('upgrade completed')
-  return 'end'
-}
+//   console.log('upgrade completed')
+//   return 'end'
+// }
 
 function stepStart() {
 
-  var rc = upgrade()
-  if (rc == 'end') {
-    return
-  }
-  console.log('not an upgrade')
+//   var rc = upgrade()
+//   if (rc == 'end') {
+//     return
+//   }
+//   console.log('not an upgrade')
 
   var nodeDir = path.resolve(__dirname)
   var pkg = (fs.existsSync(nodeDir + '/package.json') && JSON.parse(fs.readFileSync(nodeDir + '/package.json', 'utf-8')) || {});
@@ -139,7 +139,7 @@ function stepStart() {
 
   console.log(boldGreen(`\ext-react-gen - Sencha ExtReact Code Generator v${version}`))
   console.log('')
-  
+
   let mainDefinitions = [{ name: 'command', defaultOption: true }]
   const mainCommandArgs = commandLineArgs(mainDefinitions, { stopAtFirstUnknown: true })
 //  console.log('');console.log(`mainCommandArgs: ${JSON.stringify(mainCommandArgs)}`)
@@ -216,7 +216,7 @@ function stepCheckCmdLine() {
     process.env.EXTREACTGEN_VERBOSE = 'false'
   }
   if (cmdLine.help == true) {
-    stepHelpGeneral() 
+    stepHelpGeneral()
   }
   else if (cmdLine.command == undefined) {
     console.log(`${app} ${boldRed('[ERR]')} no command specified (app, view)`)
@@ -251,7 +251,7 @@ function stepCheckCmdLine() {
 
 function stepSeeDefaults() {
   new Confirm({
-    message: 
+    message:
     `would you like to see the defaults for package.json?`,
     default: config.seeDefaults
   }).run().then(answer => {
@@ -335,7 +335,7 @@ function stepPackageName() {
   new Input({
     message: 'What would you like to name the npm Package?',
     default:  kebabCase(answers['appName'])
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['packageName'] = answer
     stepVersion()
   })
@@ -345,7 +345,7 @@ function stepVersion() {
   new Input({
     message: 'What version is your ExtReact application?',
     default: config.version
-  }).run().then(answer => { 
+  }).run().then(answer => {
     if (semver.valid(answer) == null) {
       console.log('version is not a valid format, must be 0.0.0')
       stepVersion()
@@ -361,7 +361,7 @@ function stepDescription() {
   new Input({
     message: 'What is the description?',
     default: config.description
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['description'] = answer
     stepRepositoryURL()
   })
@@ -371,7 +371,7 @@ function stepRepositoryURL() {
   new Input({
     message: 'What is the GIT repository URL?',
     default: config.repositoryURL
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['repositoryURL'] = answer
     stepKeywords()
   })
@@ -381,7 +381,7 @@ function stepKeywords() {
   new Input({
     message: 'What are the npm keywords?',
     default: config.keywords
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['keywords'] = answer
     stepAuthorName()
   })
@@ -391,7 +391,7 @@ function stepAuthorName() {
   new Input({
     message: `What is the Author's Name?`,
     default: config.authorName
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['authorName'] = answer
     stepLicense()
   })
@@ -401,7 +401,7 @@ function stepLicense() {
   new Input({
     message: 'What type of License does this project need?',
     default: config.license
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['license'] = answer
     stepBugsURL()
   })
@@ -411,7 +411,7 @@ function stepBugsURL() {
   new Input({
     message: 'What is the URL to submit bugs?',
     default: config.bugsURL
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['bugsURL'] = answer
     stepHomepageURL()
   })
@@ -421,7 +421,7 @@ function stepHomepageURL() {
   new Input({
     message: 'What is the Home Page URL?',
     default: config.homepageURL
-  }).run().then(answer => { 
+  }).run().then(answer => {
     answers['homepageURL'] = answer
     stepGo()
   })
@@ -529,7 +529,7 @@ async function stepCreate() {
   }
 
   let packageInfoString = JSON.stringify(packageInfo,null,2)
-  fs.writeFileSync(packageJson, packageInfoString)  
+  fs.writeFileSync(packageJson, packageInfoString)
 
   const indexHtml = path.join('src', 'index.html');
   fs.writeFileSync(indexHtml, fs.readFileSync(indexHtml, 'utf8').replace('ExtReact Boilerplate', answers['appName']), 'utf8')
@@ -550,7 +550,7 @@ async function stepCreate() {
           path.join(destDir, 'src/App.test.js')
         )
     }
-  } 
+  }
   else {
       // update Layout.js
       const layout = path.join('src', `Layout.${answers['language'] === LANGUAGE.TYPESCRIPT ? 'tsx' : 'js'}`);
@@ -655,7 +655,7 @@ ext-react-gen app (-h) (-d) (-i) (-t 'material') (-l 'JavaScript') (-c 'Include 
 -c --code          'Include some example code' or 'Generate an empty app'
 -v --verbose       verbose npm messages (for problems only)
 
-${boldGreen('Examples:')} 
+${boldGreen('Examples:')}
 ext-react-gen app --theme material --name CoolExtReactApp
 ext-react-gen app --interactive
 ext-react-gen app -a -t material -l JavaScript -c 'Include some example code' -n CoolExtReactApp
@@ -667,11 +667,11 @@ ${boldGreen('modern themes:')}  material, ios, neptune, triton
 }
 
 function stepShortHelp() {
-  var message = `${boldGreen('Quick Start:')} 
+  var message = `${boldGreen('Quick Start:')}
 ext-react-gen app CoolExtReactApp
 ext-react-gen app -i
- 
-${boldGreen('Examples:')} 
+
+${boldGreen('Examples:')}
 ext-react-gen app --language JavaScript --theme material --name CoolExtReactApp
 ext-react-gen app -l JavaScript -t triton -n CoolExtReactApp
 
