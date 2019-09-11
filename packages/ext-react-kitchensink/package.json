@@ -8,9 +8,24 @@
     "start": "npm run dev",
     "clean": "rimraf build",
     "dev": "webpack-dev-server --env.browser=yes --env.emit=yes --env.verbose=no",
-    "buildlocal": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.0.0/kitchensink/"
-  },
+    "buildlocal2": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
+    "buildlocalx": "npm run clean && npm run webpackprod && npm run gzip && npm run http",
+    "buildlocal": "npm run clean && npm run webpackprod && npm run http",
+
+
+    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.0.0/kitchensink/",
+
+    "webpackprod": "cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
+
+    "gzip": "npm run gzipbuild && npm run gzipext && npm run gzipresources",
+    "gzipbuild": "npx gzip build/*.js",
+    "gzipext": "npx gzip build/ext/*.js",
+    "gzipresources": "npx gzip build/resources/*.js",
+    "replace": "npx replace-in-file /.js/g .js.gz build/index.html --isRegex",
+    "http": "npx http-server build -g -o"
+
+
+},
   "author": "Sencha, Inc.",
   "repository": {
     "type": "git",
@@ -22,6 +37,10 @@
   },
   "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
+    "gzip-cli": "^1.0.1",
+    "replace-in-file": "^4.1.1",
+    "http-server": "^0.11.1",
+
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.5.4",
 

@@ -5,10 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
-    <script src="resources/code.js?<%= webpack.hash %>"></script>
+    <script src="resources/code.js"></script>
     <link rel="stylesheet" type="text/css" href="resources/loader.css"/>
     <link rel="shortcut icon" href="resources/favicon.ico">
   </head>
+
+  <script>
+        //https://examples-test.sencha.com/ExtReact/7.0.0/kitchensink/frame-index.html?basecolor=slategray&title=Angular UI Toolkit
+        //http://localhost:1841/?basecolor=navy&title=React UI Toolkit
+        //https://www.rapidtables.com/web/color/red-color.html
+        //const params = new URLSearchParams(window.location.search);
+        //const basecolor = params.get("basecolor");
+        //window['title'] = params.get("title");
+
+        var h = window.location.href
+        //if (h.includes("localhost")) {
+        if (h.includes("ExtReact")) {
+            window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
+        }
+        else {
+            const basecolor = 'navy';
+            window['title'] = 'React UI Toolkit';
+            var d = document.documentElement.style
+            d.setProperty('--base-color', basecolor);
+            d.setProperty('--color', basecolor);
+        }
+
+  </script>
+
 <body>
   <div id="loadingSplash">
     <div id="loadingSplashTop"></div>

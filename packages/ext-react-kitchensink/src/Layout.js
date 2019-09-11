@@ -21,6 +21,7 @@ Ext.require([
 class Layout extends Component {
 
   componentDidMount() {
+    this.title = window['title']
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
 
@@ -33,11 +34,11 @@ class Layout extends Component {
          * This likely happened when someone is deep linking into
          * the application without user interaction
          * (changing hash manually or first visiting via bookmark).
-         */   
+         */
         const nav = this.phoneNav.cmp;
         const anim = nav.getLayout().getAnimation();
         anim.disable();
-        
+
         if(node.isLeaf()) {
             nav.goToLeaf(node);
         } else {
@@ -86,10 +87,10 @@ class Layout extends Component {
   }
 
   render() {
-    const { 
-      selectedNavNode, 
-      component, 
-      navStore, 
+    const {
+      selectedNavNode,
+      component,
+      navStore,
       files,
       children,
       showCode,
@@ -103,15 +104,15 @@ class Layout extends Component {
     if (Ext.os.is.Phone) {
       // phone layout
       return (
-        <NestedList 
+        <NestedList
           ref={phoneNav => this.phoneNav = phoneNav}
-          store={navStore} 
+          store={navStore}
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
           title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 6.7 Kitchen Sink'
           onItemTap={(self, list, index, target, node) => this.onNavChange(node && node.getId())}
           onBack={(self, node) => {
               // There is no easy way to grab the node that will be used after NestedList switches to previous List.
-              // The 'node' here will always be the 'previous' node, which means we can just strip the last /* from the 
+              // The 'node' here will always be the 'previous' node, which means we can just strip the last /* from the
               // node's ID and use that as the new nav URL.
               this.onNavChange(node && node.getId().replace(/\/[^\/]*$/, ''))
           }}
@@ -137,35 +138,35 @@ class Layout extends Component {
         <Container layout="hbox" cls="main-background">
           <Container layout="fit" flex={4}>
             <TitleBar docked="top" shadow style={{zIndex: 2}}>
-              <Button 
+              <Button
                 align="left"
-                iconCls="x-fa fa-bars" 
+                iconCls="x-fa fa-bars"
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha Extreact 7.0 Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">{title} - React v{REACT_VERSION}</a>
             </TitleBar>
             <Container layout="fit" flex={1}>
-              <NavTree 
+              <NavTree
                 docked="left"
                 width="300"
                 resizable={{
                   edges: 'east',
                   dynamic: true
                 }}
-                store={navStore} 
+                store={navStore}
                 selection={selectedNavNode}
                 onSelectionChange={(tree, node) => this.onNavChange(node && node.getId())}
                 collapsed={!showTree}
-              /> 
+              />
               <Breadcrumbs docked="top" node={selectedNavNode}/>
               <Transition type="slide" bindDirectionToLocation padding="30">
                 { component ? (
                   <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                     { layout === 'fit' ? (
-                        <Container padding="30" layout="fit">{ example }</Container> 
+                        <Container padding="30" layout="fit">{ example }</Container>
                     ) : (
-                        example 
+                        example
                     )}
                   </Container>
                 ) : selectedNavNode ? (
@@ -175,30 +176,30 @@ class Layout extends Component {
             </Container>
           </Container>
           { files && (
-            <Button 
-                align="right" 
+            <Button
+                align="right"
                 iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
-                ui="fab" 
+                ui="fab"
                 top={Ext.os.is.Desktop ? 20 : 35}
                 right={21}
                 zIndex={1000}
-                handler={actions.toggleCode} 
-            /> 
-          )} 
+                handler={actions.toggleCode}
+            />
+          )}
           { files && (
-            <Panel 
-              resizable={{ edges: 'west', dynamic: true }} 
+            <Panel
+              resizable={{ edges: 'west', dynamic: true }}
               flex={2}
-              layout="fit" 
+              layout="fit"
               collapsed={!showCode}
               header={false}
               collapsible={{ direction: 'right' }}
-              shadow 
-              style={{zIndex: 3}} 
+              shadow
+              style={{zIndex: 3}}
               hideAnimation={{type: 'slideOut', direction: 'right', duration: 100, easing: 'ease' }}
               showAnimation={{type: 'slideIn', direction: 'left', duration: 100, easing: 'ease' }}
             >
-              <Files files={files} /> 
+              <Files files={files} />
             </Panel>
           )}
         </Container>
