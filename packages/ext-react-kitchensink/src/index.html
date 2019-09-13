@@ -14,22 +14,30 @@
         //https://examples-test.sencha.com/ExtReact/7.0.0/kitchensink/frame-index.html?basecolor=slategray&title=Angular UI Toolkit
         //http://localhost:1841/?basecolor=navy&title=React UI Toolkit
         //https://www.rapidtables.com/web/color/red-color.html
-        //const params = new URLSearchParams(window.location.search);
-        //const basecolor = params.get("basecolor");
-        //window['title'] = params.get("title");
 
-        var h = parent.document.location.href
-        //if (h.includes("localhost")) {
-        if (h.includes("react-ui")) {
-            const basecolor = 'navy';
-            window['title'] = 'React UI Toolkit';
-            var d = document.documentElement.style
+
+        const params = new URLSearchParams(window.location.search);
+        const basecolor = params.get("basecolor");
+        window['title'] = params.get("title");
+        var d = document.documentElement.style
+        if (basecolor != null) {
             d.setProperty('--base-color', basecolor);
             d.setProperty('--color', basecolor);
         }
-        else {
-            window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
-        }
+
+
+
+        // var h = parent.document.location.href
+        // if (h.includes("react-ui")) {
+        //     const basecolor = 'navy';
+        //     window['title'] = 'React UI Toolkit';
+        //     var d = document.documentElement.style
+        //     d.setProperty('--base-color', basecolor);
+        //     d.setProperty('--color', basecolor);
+        // }
+        // else {
+        //     window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
+        // }
 
   </script>
 
