@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { reactify } from '@sencha/ext-react';
+//import { reactify } from '@sencha/ext-react';
 import './CompanyData';
 //import ActionsCell from './ActionsCell';
+// var Grid = reactify('Grid');
+// var Column = reactify('Column');
+// var ExtReactRenderer = reactify('ExtReactRenderer');
+// var Button = reactify('Button');
+import { Grid } from '@sencha/ext-react'
+import { Column } from '@sencha/ext-react'
+import { ExtReactRenderer } from '@sencha/ext-react'
+import { Button } from '@sencha/ext-react'
 const Ext = window.Ext;
-var Grid = reactify('Grid');
-var Column = reactify('Column');
-var ExtReactRenderer = reactify('ExtReactRenderer');
-var Button = reactify('Button');
 
 export default class App extends Component {
 

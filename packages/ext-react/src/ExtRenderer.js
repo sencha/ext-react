@@ -89,7 +89,7 @@ const ExtRenderer = Reconciler({
     if (childInstance == null || (typeof childInstance === "string" && childInstance.trim().length === 0)) {return}
     if (parentInstance != null && childInstance != null) {
       //SK : Do not uncomment below console statement. It will cause error in case of div
-      //l(`ExtRenderer: appendInitialChild, parentxtype: ${parentInstance.rawConfigs.xtype}, childxtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
+      //l(`ExtRenderer: appendInitialChild, parentXtype: ${parentInstance.rawConfigs.xtype}, childXtype: ${childInstance.cmp.xtype}, (parentInstance, childInstance)`,parentInstance, childInstance)
       l(`ExtRenderer: appendInitialChild`)
       var parentXtype = parentInstance.xtype
       var childXtype = childInstance.xtype
@@ -112,27 +112,27 @@ const ExtRenderer = Reconciler({
         parentInstance.rawmenuitems.push(childInstance.cmp)
       }
       else if (parentXtype == 'column' && childXtype == 'renderercell') {
-        if(parentInstance.rawcell == undefined) 
+        if(parentInstance.rawcell == undefined)
         parentInstance.rawcell = childInstance.cmp.initialConfig
       }
       else if (parentXtype == 'column' && childXtype == 'widgetcell') {
-        if(parentInstance.rawcell == undefined) 
+        if(parentInstance.rawcell == undefined)
         parentInstance.rawcell = childInstance.cmp.initialConfig
       }
       else if (parentXtype == 'column' && childInstance.cmp instanceof CLASS_CACHE.Field ) {
-        if(parentInstance.raweditor == undefined) 
+        if(parentInstance.raweditor == undefined)
         parentInstance.raweditor = childInstance.cmp
-      } 
+      }
       else if (parentXtype == 'dialog' && childXtype == 'button') {
         if(parentInstance.rawbuttons == undefined) { parentInstance.rawbuttons = [] }
         parentInstance.rawbuttons.push(childInstance.cmp)
       }
       else if (parentXtype == 'widgetcell') {
-        if(parentInstance.rawwidget == undefined) 
+        if(parentInstance.rawwidget == undefined)
         parentInstance.rawwidget = childInstance.cmp.initialConfig
       }
       else if (childXtype == 'tooltip') {
-        if(parentInstance.rawtooltip == undefined) 
+        if(parentInstance.rawtooltip == undefined)
         parentInstance.rawtooltip = childInstance.cmp
       }
       else if (childInstance.cmp.config && childInstance.cmp.config.rel) {
@@ -209,7 +209,7 @@ const ExtRenderer = Reconciler({
         })
       }
       if(ExtJSComponent.rawConfigs.config != undefined ) {
-        Object.assign(ExtJSComponent.rawConfigs, ExtJSComponent.rawConfigs.config);   
+        Object.assign(ExtJSComponent.rawConfigs, ExtJSComponent.rawConfigs.config);
       }
       if (typeof(props.children) == 'string' || typeof(props.children) == 'number') {
         if(ExtJSComponent.rawhtml === undefined) {
@@ -234,12 +234,12 @@ const ExtRenderer = Reconciler({
     }
     return true;
   },
- 
+
   createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
     l(`createTextInstance (text, rootContainerInstance, internalInstanceHandle)`,text, rootContainerInstance, internalInstanceHandle)
     return text
   },
- 
+
   getPublicInstance(instance) {
     l(`getPublicInstance`,instance)
     return instance
@@ -340,7 +340,7 @@ const ExtRenderer = Reconciler({
         parentInstance.remove(child.cmp, true)
       } else {
         console.log("removeChildFromContainer - child.cmp is undefined")
-      }        
+      }
     }
   },
 
@@ -406,7 +406,7 @@ const ExtRenderer = Reconciler({
       if (child.cmp != undefined) {
         if(parentInstance.cmp.xtype == 'grid' && child.cmp.xtype == 'column') {
           parentInstance.cmp.removeColumn(child.cmp);
-        } 
+        }
         else if(parentInstance.cmp.xtype === "button") {
           if(child.cmp.xtype === "menu"){
             parentInstance.cmp.setMenu(null)
@@ -416,7 +416,7 @@ const ExtRenderer = Reconciler({
           parentInstance.cmp.remove(child.cmp, true)
         } else {
           l("DID NOTHING IN REMOVE")
-        }   
+        }
       }
     }
     else {
@@ -442,12 +442,12 @@ export default ExtRenderer
 function wrapDOMElement(node) {
   let contentEl = node.node;
 
-  const cmp = new Ext.Component({ 
-      // We give the wrapper component a class so that developers can reset css 
+  const cmp = new Ext.Component({
+      // We give the wrapper component a class so that developers can reset css
       // properties (ex. box-sizing: context-box) for third party components.
-      cls: 'x-react-element' 
+      cls: 'x-react-element'
   });
-  
+
   if (cmp.element) {
       // modern
       DOMLazyTree.insertTreeBefore(cmp.element.dom, node);
@@ -484,23 +484,23 @@ function isAssignableFrom(subClass, parentClass) {
 
 //this needs to be refactored
 function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
-  l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (parentCmp, childCmp, childPropsChildern)`, parentCmp, childCmp, childPropsChildren)
+  l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, (parentCmp, childCmp, childPropsChildern)`, parentCmp, childCmp, childPropsChildren)
 
   var parentXtype = parentCmp.xtype
 
 
   if(parentXtype == 'grid') {
-    // if (childXtype == 'column' || 
-    // childXtype == 'treecolumn' || 
-    // childXtype == 'textcolumn' || 
-    // childXtype == 'checkcolumn' || 
-    // childXtype == 'datecolumn' || 
+    // if (childXtype == 'column' ||
+    // childXtype == 'treecolumn' ||
+    // childXtype == 'textcolumn' ||
+    // childXtype == 'checkcolumn' ||
+    // childXtype == 'datecolumn' ||
     // childXtype == 'rownumberer' ||
     // childXtype == 'numbercolumn' ) {
-    if (childxtype === 'column' || childxtype === 'treecolumn' || childxtype === 'textcolumn' || childxtype === 'checkcolumn' || childxtype === 'datecolumn' || childxtype === 'rownumberer' || childxtype === 'numbercolumn') {
+    if (childXtype === 'column' || childXtype === 'treecolumn' || childXtype === 'textcolumn' || childXtype === 'checkcolumn' || childXtype === 'datecolumn' || childXtype === 'rownumberer' || childXtype === 'numbercolumn') {
       parentCmp.addColumn(childCmp);
     }
-    else if ((childxtype === 'toolbar' || childxtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
+    else if ((childXtype === 'toolbar' || childXtype === 'titlebar') && parentCmp.getHideHeaders != undefined) {
       if (parentCmp.getHideHeaders() === false) {
         //var j = parentCmp.items.items.length;
         parentCmp.insert(1, childCmp);
@@ -522,16 +522,16 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   else if (parentXtype == 'button') {
     if (childXtype == 'menu') {
 //      l(`doAdd button/menu`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, button/menu setMenu`)
+      l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, button/menu setMenu`)
       parentCmp.setMenu(childCmp)
     }
     else {
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, did nothing!!!`)
+      l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, did nothing!!!`)
     }
   }
 
   else if (childXtype == 'toolbar'  && Ext.isClassic == true) {
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar, classic, addDockedItems`)
+    l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar, classic, addDockedItems`)
     parentCmp.addDockedItems(childCmp)
   }
 
@@ -539,24 +539,24 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   else if ((childXtype == 'toolbar' || childXtype == 'titlebar') && parentCmp.getHideHeaders != undefined) {
     if (parentCmp.getHideHeaders() == false) {
 //      l(`doAdd toolbar hideHeaders is false`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar hideHeaders is false, insert`)
+      l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar hideHeaders is false, insert`)
       var i = parentCmp.items.items.length
       parentCmp.insert(i-1,childCmp)
      }
     else {
       //l(`doAdd toolbar hideHeaders is true`)
-      l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, toolbar hideHeaders is false, add`)
+      l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, toolbar hideHeaders is false, add`)
       parentCmp.add(childCmp)
     }
   }
   else if (parentCmp.add != undefined) {
     //l(`doAdd use add method`, parentCmp.xtype, childCmp.xtype)
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, add`)
+    l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, add`)
     parentCmp.add(childCmp)
   }
   else {
     //l(`doAdd did nothing!!!`, parentCmp.xtype, childCmp.xtype)
-    l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, did nothing!!!`)
+    l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, did nothing!!!`)
 
   }
 
@@ -570,23 +570,23 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 
 
 //   if (childPropsChildren == undefined) return
-//   if (childPropsChildren.type == undefined) { 
+//   if (childPropsChildren.type == undefined) {
 //     if(typeof childPropsChildren === "string") {
 //       //PLAIN TEXT CASE
 //       var text=childPropsChildren
 //       //l(`${text} is PLAIN TEXT`)
-//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, ${text} is PLAIN TEXT`)
+//       l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, ${text} is PLAIN TEXT`)
 //       childCmp.setHtml(text)
-//     } 
+//     }
 //     else {
-//       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (children)`, childPropsChildren)
+//       l(`ExtRenderer.js: doAdd, parentXtype: ${parentCmp.xtype}, childXtype: ${childXtype}, (children)`, childPropsChildren)
 //       for (var i = 0; i < childPropsChildren.length; i++) {
 //         var child = childPropsChildren[i]
 //         var xtype = null
 //         try {
 //           var type = child.type
-//           if (type == undefined) { 
-//             type = child[0].type 
+//           if (type == undefined) {
+//             type = child[0].type
 //           }
 //           xtype = type.toLowerCase().replace(/_/g, '-')
 //         }
@@ -615,7 +615,7 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //         }
 //       }
 //     }
-    
+
 //   }
 //   else {
 //     l(childPropsChildren);
@@ -624,8 +624,8 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //     var xtype = null
 //     try {
 //       var type = child.type
-//       if (type == undefined) { 
-//         type = child[0].type 
+//       if (type == undefined) {
+//         type = child[0].type
 //       }
 //       xtype = type.toLowerCase().replace(/_/g, '-')
 //     }
