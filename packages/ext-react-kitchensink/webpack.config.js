@@ -9,13 +9,26 @@ const portfinder = require('portfinder')
 module.exports = function (env) {
   function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
 
-  var profile     = get('profile',     '')
-  var environment = get('environment', 'development')
-  var treeshake   = get('treeshake',   'no')
-  var browser     = get('browser',     'yes')
-  var watch       = get('watch',       'yes')
-  var verbose     = get('verbose',     'no')
-  var basehref    = get('basehref',    '/')
+//   var profile     = get('profile',     '')
+//   var environment = get('environment', 'development')
+//   var treeshake   = get('treeshake',   'no')
+//   var browser     = get('browser',     'yes')
+//   var watch       = get('watch',       'yes')
+//   var verbose     = get('verbose',     'no')
+//   var basehref    = get('basehref',    '/')
+
+  var toolkit       = get('toolkit',       'modern')
+  var theme         = get('theme',         'theme-material')
+  var packages      = get('packages',      ['treegrid'])
+  var script        = get('script',        '')
+  var emit          = get('emit',          'yes')
+  var profile       = get('profile',       '')
+  var environment   = get('environment',   'development')
+  var treeshake     = get('treeshake',     'no')
+  var browser       = get('browser',       'yes')
+  var watch         = get('watch',         'yes')
+  var verbose       = get('verbose',       'no')
+  var basehref      = get('basehref',      '/')
 
   const isProd = environment === 'production'
   const outputFolder = 'build'
@@ -45,14 +58,16 @@ module.exports = function (env) {
           'froala-editor'
         ],
         script: './extract-code.js',
-        emit: 'yes',
+        emit: emit,
         port: port,
         profile: profile,
         environment: environment,
         treeshake: treeshake,
         browser: browser,
         watch: watch,
-        verbose: verbose
+        verbose: verbose,
+        inject: 'yes',
+        intellishake: 'no'
       }),
       new CopyWebpackPlugin([{
         from: '../node_modules/@sencha/ext-ux/modern/resources',
