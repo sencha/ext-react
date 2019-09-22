@@ -1,10 +1,11 @@
 import React from 'react';
 import './index.css';
-import { reactify } from '@sencha/ext-react';
+//import { reactify } from '@sencha/ext-react';
 import { launch } from '@sencha/ext-react'
 import App from './App';
 
-var ExtReact = reactify('ExtReact');
+//var ExtReact = reactify('ExtReact');
+import { ExtReact } from '@sencha/ext-react'
 
 const Ext = window.Ext;
 Ext.require([

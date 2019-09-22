@@ -3,7 +3,7 @@ const launchQueue = []
 
 /**
  * Higher order function that returns a component that waits for a ExtReact to be ready before rendering.
- * @param {class} Component 
+ * @param {class} Component
  * @return {class}
  */
 export default function renderWhenReady(Component) {
@@ -19,7 +19,7 @@ export default function renderWhenReady(Component) {
       }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       if (!this.state.ready) {
         launchQueue.push(this);
       }
