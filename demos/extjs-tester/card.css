@@ -1,0 +1,13 @@
+.card {
+    font-size: 18px;
+  }
+  .cardLight {
+    background-color: white;
+  }
+  .cardDark {
+    background-color: #303030;
+    color: white;
+  }
+  .code {
+    color: #859900;
+  }

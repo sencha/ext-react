@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html manifest="">
+<head>
+    <title>Ext JS Tester</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+
+</head>
+<body>
+    <script src="ext-modern-all-debug.js"></script>
+    <script src="dist/css.production.js"></script>
+    <!-- <script type="text/javascript" src="lockedgrid.js"></script> -->
+
+    <script>
+
+function clickMe() {
+    console.log('hi')
+    Ext.Msg.show({
+        title: 'XXX-XX-XX',
+        //message: 'description',
+        icon : Ext.Msg.QUESTION,
+        //defaultFocus: 'no',
+        //buttons: Ext.Msg.YESNOCANCEL
+        //defaultFocus: 'button[text="Not Save"]',
+        // fn: function(btn) {
+        //     if (btn === 'yes') {
+        //         console.log('Yes pressed');
+        //     } else if (btn === 'no') {
+        //         console.log('No pressed');
+        //     } else {
+        //         console.log('Cancel pressed');
+        //     }
+        // }
+    })
+}
+
+
+        var cmp = {
+            xtype: 'container',
+            items: [
+                {
+                    xtype: 'button',text: 'hi',
+                    listeners: {
+                        //click: 'clickMe()'
+
+                        click: {
+                            //element: 'el', //bind to the underlying el property on the panel
+                            fn: function(){ console.log('click el'); }
+                        }
+                    },
+
+
+                // handler: function () {
+                //     Ext.Msg.show({
+                //                 title: 'XXX-XX-XX',
+                //                 //message: 'description',
+                //                 icon : Ext.Msg.QUESTION,
+                //                 //defaultFocus: 'no',
+                //                 //buttons: Ext.Msg.YESNOCANCEL
+                //                 //defaultFocus: 'button[text="Not Save"]',
+                //                 // fn: function(btn) {
+                //                 //     if (btn === 'yes') {
+                //                 //         console.log('Yes pressed');
+                //                 //     } else if (btn === 'no') {
+                //                 //         console.log('No pressed');
+                //                 //     } else {
+                //                 //         console.log('Cancel pressed');
+                //                 //     }
+                //                 // }
+                //             })
+                // }
+            }
+            ]
+        }
+    Ext.application({
+        name: 'MyApp',
+        launch: function() {
+            console.log(Ext.Msg.YESNOCANCEL)
+
+            Ext.Msg.show({
+            title:'Save Changes?',
+            message: 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
+            buttons: Ext.Msg.YESNOCANCEL,
+            icon: Ext.Msg.QUESTION,
+            defaultFocus: 'no',
+            fn: function(btn) {
+                if (btn === 'yes') {
+                    console.log('Yes pressed');
+                } else if (btn === 'no') {
+                    console.log('No pressed');
+                } else {
+                    console.log('Cancel pressed');
+                }
+            }
+        });
+
+
+
+            //Ext.Viewport.add([cmp])
+        }
+    });
+
+    </script>
+    <!-- <script type="text/javascript" src="gridGroupCols.js"></script> -->
+    <!-- <script>columns();</script> -->
+    <div id="route"></div>
+</body>
+</html>
