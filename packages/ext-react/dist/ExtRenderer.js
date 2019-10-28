@@ -225,6 +225,7 @@ var ExtRenderer = Reconciler({
       }
 
       ExtJSComponent.rawConfigs = ExtJSComponent._cloneProps(ExtJSComponent.rawConfigs);
+      console.log(ExtJSComponent.rawConfigs)
       ExtJSComponent.cmp = new ExtJSComponent.extJSClass(ExtJSComponent.rawConfigs);
       l("ExtRenderer: finalizeInitialChildren, type: " + type + ", xtype: " + xtype + ", (ExtJSComponent.rawConfigs, ExtJSComponent.cmp)", ExtJSComponent.rawConfigs, ExtJSComponent.cmp);
     } else {
@@ -420,7 +421,7 @@ export default ExtRenderer;
 function wrapDOMElement(node) {
   var contentEl = node.node;
   var cmp = new Ext.Component({
-    // We give the wrapper component a class so that developers can reset css 
+    // We give the wrapper component a class so that developers can reset css
     // properties (ex. box-sizing: context-box) for third party components.
     cls: 'x-react-element'
   });
@@ -468,11 +469,11 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
   var parentXtype = parentCmp.xtype;
 
   if (parentXtype == 'grid') {
-    // if (childXtype == 'column' || 
-    // childXtype == 'treecolumn' || 
-    // childXtype == 'textcolumn' || 
-    // childXtype == 'checkcolumn' || 
-    // childXtype == 'datecolumn' || 
+    // if (childXtype == 'column' ||
+    // childXtype == 'treecolumn' ||
+    // childXtype == 'textcolumn' ||
+    // childXtype == 'checkcolumn' ||
+    // childXtype == 'datecolumn' ||
     // childXtype == 'rownumberer' ||
     // childXtype == 'numbercolumn' ) {
     if (childxtype === 'column' || childxtype === 'treecolumn' || childxtype === 'textcolumn' || childxtype === 'checkcolumn' || childxtype === 'datecolumn' || childxtype === 'rownumberer' || childxtype === 'numbercolumn') {
@@ -524,14 +525,14 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 } //we return if we handle html children correctly
 //return
 //   if (childPropsChildren == undefined) return
-//   if (childPropsChildren.type == undefined) { 
+//   if (childPropsChildren.type == undefined) {
 //     if(typeof childPropsChildren === "string") {
 //       //PLAIN TEXT CASE
 //       var text=childPropsChildren
 //       //l(`${text} is PLAIN TEXT`)
 //       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, ${text} is PLAIN TEXT`)
 //       childCmp.setHtml(text)
-//     } 
+//     }
 //     else {
 //       l(`ExtRenderer.js: doAdd, parentxtype: ${parentCmp.xtype}, childxtype: ${childXtype}, (children)`, childPropsChildren)
 //       for (var i = 0; i < childPropsChildren.length; i++) {
@@ -539,8 +540,8 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //         var xtype = null
 //         try {
 //           var type = child.type
-//           if (type == undefined) { 
-//             type = child[0].type 
+//           if (type == undefined) {
+//             type = child[0].type
 //           }
 //           xtype = type.toLowerCase().replace(/_/g, '-')
 //         }
@@ -576,8 +577,8 @@ function doAdd(childXtype, parentCmp, childCmp, childPropsChildren) {
 //     var xtype = null
 //     try {
 //       var type = child.type
-//       if (type == undefined) { 
-//         type = child[0].type 
+//       if (type == undefined) {
+//         type = child[0].type
 //       }
 //       xtype = type.toLowerCase().replace(/_/g, '-')
 //     }
