@@ -1,0 +1,19 @@
+.footerview { 
+	border-left: 0; 
+	border-top: 0; 
+	color: $base-foreground-color;
+	background-color: $base-color;
+}
+
+.footerviewtext { 
+	font-size: 16px; 
+  color: $base-foreground-color;
+	padding: 0 0 0 15px;
+}
+
+@include button-ui(
+	$ui: 'footerbutton',
+	$background-color: transparent,
+	$color: $base-foreground-color,
+	$border-color: transparent
+);
