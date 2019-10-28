@@ -17,7 +17,7 @@ Ext.require([
 
 import { launch } from '@sencha/ext-react'
 import { ExtReact } from '@sencha/ext-react'
-import './themer.js'
+//import './themer.js'
 
 launch(() => {
   let top = Ext.get('loadingSplashTop'), wrapper = Ext.get('loadingSplash')

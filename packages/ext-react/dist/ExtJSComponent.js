@@ -40,6 +40,8 @@ function (_Component) {
       _this.rawConfigs.ExtReactRoot = true; //      console.dir(this.target + ': rawConfigs')
       //      console.dir(this.rawConfigs)
 
+
+      console.log(_this.rawConfigs)
       _this.cmp = new _this.extJSClass(_this.rawConfigs); //console.dir(this.target + ': cmp')
       //console.dir(this.cmp)
 
@@ -335,7 +337,7 @@ function (_Component) {
   }
   /**
    * If the propName corresponds to an event listener (starts with "on" followed by a capital letter), returns the name of the event.
-   * @param {String} propName 
+   * @param {String} propName
    * @param {String}
    */
   ;
@@ -466,20 +468,20 @@ function (_Component) {
   _proto._applyProps = function _applyProps(oldProps, props) {
     //console.log('_applyProps')
     // if (this._shallowEqual(oldProps, props)) {
-    //   console.log('*****************************************************************same'); 
+    //   console.log('*****************************************************************same');
     //   return
     // }
     // else {
-    //   console.log('*****************************************************************not same'); 
+    //   console.log('*****************************************************************not same');
     // }
     // var oldP = JSON.stringify(oldProps)
     // var newP = JSON.stringify(props)
     // if (oldP == newP) {
-    //   console.log('*****************************************************************same'); 
+    //   console.log('*****************************************************************same');
     //   return
     // }
     // else {
-    //   console.log('*****************************************************************not same'); 
+    //   console.log('*****************************************************************not same');
     // }
     // if (JSON.stringify(oldProps) == JSON.stringify(props)) {
     //   alert('same'); // gives true
@@ -520,7 +522,7 @@ function (_Component) {
             if (this.ExtReactSettings.debug) console.log(setter, newValue, value); // if (key == 'theme') {
             //   Ext.thechart = this.cmp
             //   console.log('*****************************************************************setter')
-            //   console.log(this.cmp.xtype + ' - ' + setter + ' - ' + value) 
+            //   console.log(this.cmp.xtype + ' - ' + setter + ' - ' + value)
             //   //console.log(this.cmp)
             //   //console.log('*****************************************************************value')
             //   //console.log(key)
@@ -542,9 +544,9 @@ function (_Component) {
   }
   /**
    * Detaches the old event listener and adds the new one.
-   * @param {String} eventName 
-   * @param {Function} oldHandler 
-   * @param {Function} newHandler 
+   * @param {String} eventName
+   * @param {Function} oldHandler
+   * @param {Function} newHandler
    */
   ;
 
@@ -728,7 +730,7 @@ function (_Component) {
 function wrapDOMElement(node) {
   var contentEl = node.node;
   var cmp = new Ext.Component({
-    // We give the wrapper component a class so that developers can reset css 
+    // We give the wrapper component a class so that developers can reset css
     // properties (ex. box-sizing: context-box) for third party components.
     cls: 'x-react-element'
   });
