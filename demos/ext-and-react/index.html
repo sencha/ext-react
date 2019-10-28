@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html manifest="">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+	<title>Ext-and-React</title>
+
+  <script type="text/javascript">
+    var Ext = Ext || {};
+    Ext.beforeLoad = function (tags) {
+      //var s = location.search;
+      var profile;
+      profile = 'desktop';
+      Ext.manifest ='generatedFiles/' + profile;
+    };
+  </script>
+
+  <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+  <script id="microloader" data-app="c7d0da0d-b43d-457a-b90d-1da5ba9aa91f" type="text/javascript" src="generatedFiles/bootstrap.js"></script>
+</head>
+  <body class="launching">
+    <div id="splash" style="margin-top:20%;font-family:Arial;font-size:64px;text-align:center;color:#404040;">
+      <div id="theLoadingText">LOADING...</div>
+      <i style="margin:20px;" class="fa fa-spinner fa-spin"></i>
+    </div>
+  </body>
+</html>
