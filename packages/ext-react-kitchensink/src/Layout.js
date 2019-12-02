@@ -152,7 +152,7 @@ class Layout extends Component {
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha Extreact 7.0 Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">Sencha ExtReact 7.1 Kitchen Sink - React v{REACT_VERSION}</a>
             </Titlebar>
             <Container layout="fit" flex={1}>
               <NavTree

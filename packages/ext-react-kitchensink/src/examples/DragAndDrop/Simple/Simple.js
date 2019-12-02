@@ -60,6 +60,10 @@ export default class Simple extends Component {
     });
   }
 
+  // componentDidMount = () => {
+  //   extReactDidMount = () => {
+  //   }
+
   componentWillUnmount() {
     Ext.destroy(this.source);
   }
