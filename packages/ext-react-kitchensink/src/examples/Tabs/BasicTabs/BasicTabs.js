@@ -1,11 +1,11 @@
 import React from 'react';
-import { TabPanel, Container } from '@sencha/ext-modern';
+import { TabPanel, Container } from '@sencha/ext-react-modern';
 
 export default function BasicTabsExample() {
     return (
-        <TabPanel 
+        <TabPanel
             flex={1}
-            shadow 
+            shadow
             defaults={{
                 cls: "card",
                 layout: "center"

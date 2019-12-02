@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Audio, Button, Container } from '@sencha/ext-modern';
+import { Audio, Button, Container } from '@sencha/ext-react-modern';
 
 export default class AudioExample extends Component {
 
@@ -19,7 +19,7 @@ export default class AudioExample extends Component {
             audio.pause();
         } else {
             audio.play();
-        }        
+        }
 
         this.setState({ playing: !playing });
     }
@@ -29,13 +29,13 @@ export default class AudioExample extends Component {
 
         return (
             <Container layout={{ type: 'vbox', align: 'stretch', pack: 'center' }} padding={10}>
-                <Container 
-                    shadow 
+                <Container
+                    shadow
                     layout={Ext.os.is.Android ? { type: 'vbox', align: 'center', pack: 'center' } : 'fit'}
                 >
                     <Audio
                         ref="audio"
-                        loop 
+                        loop
                         url="resources/audio/crash.mp3"
                         posterUrl="resources/images/cover.jpg"
                         enableControls={!Ext.os.is.Android}

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, List } from '@sencha/ext-modern';
 //import AppBar from '../AppBar';
-import { Template } from '@sencha/ext-react';
+import { Template } from '@sencha/ext-react-modern';
 import { loadSpeakers, loadSpeaker } from './actions';
 //import { setTitle } from '../actions';
 import Speaker from './Speaker';
@@ -31,7 +31,7 @@ class Speakers extends Component {
 
     updateData = (prevProps) => {
         const id = this.props.match.params.id;
-        
+
         if (!prevProps || prevProps.match.params.id !== id) {
             this.props.dispatch(loadSpeaker(id))
         }
@@ -45,21 +45,21 @@ class Speakers extends Component {
         const { store, record, match, ...props } = this.props;
 
         return (
-            <Container 
+            <Container
                 activeItem={match.params.id ? 1 : 0}
                 platformConfig={{
                     "!phone": {
                         layout: 'hbox'
                     },
                     "phone": {
-                        layout: { 
-                            type: 'card', 
-                            animation: 'slide' 
+                        layout: {
+                            type: 'card',
+                            animation: 'slide'
                         }
                     }
                 }}
             >
-                <List 
+                <List
                     {...props}
                     store={store}
                     itemTpl={this.itemTpl}
@@ -69,7 +69,7 @@ class Speakers extends Component {
                     flex={1}
                     cls="app-list"
                     maxWidth={!Ext.os.is.Phone && record && 500}
-                /> 
+                />
                 { (Ext.os.is.Phone || record) && <Speaker speaker={record} flex={1}/> }
             </Container>
         );

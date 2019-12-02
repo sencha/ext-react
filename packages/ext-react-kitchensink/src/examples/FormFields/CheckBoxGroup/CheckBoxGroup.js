@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormPanel, Container, FieldSet, TextField, CheckBoxField, RadioField, Button, CheckboxGroup, Component as CMP } from '@sencha/ext-modern';
+import { FormPanel, Container, FieldSet, TextField, CheckBoxField, RadioField, Button, CheckboxGroup, Component as CMP } from '@sencha/ext-react-modern';
 import './CheckBoxGroup.scss';
 
 export default class CheckBocGroupExample extends Component {

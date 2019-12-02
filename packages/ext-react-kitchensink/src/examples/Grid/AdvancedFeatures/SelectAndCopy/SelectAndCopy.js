@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Column, Container, Panel, Toolbar, Button, Menu, MenuItem, MenuCheckItem } from '@sencha/ext-modern';
+import { Grid, Column, Container, Panel, Toolbar, Button, Menu, MenuItem, MenuCheckItem } from '@sencha/ext-react-modern';
 import createStore from './createStore';
 
 Ext.require([

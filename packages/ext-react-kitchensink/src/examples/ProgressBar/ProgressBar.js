@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Panel, Progress, Container } from '@sencha/ext-modern';
+import { Panel, Progress, Container } from '@sencha/ext-react-modern';
 
 export default class ProgressBarExample extends Component {
 
@@ -7,11 +7,11 @@ export default class ProgressBarExample extends Component {
         super();
         this.state = {
             progress: 0
-        } 
+        }
     }
 
     componentDidMount() {
-        this.updateLoop = setInterval(() => { 
+        this.updateLoop = setInterval(() => {
             let { progress } = this.state;
             progress += 1;
             if (progress > 100) progress = 0;

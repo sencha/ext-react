@@ -12,7 +12,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, SearchField } from '@sencha/ext-react'
+ *     import { ExtReact, Container, FormPanel, SearchField } from '@sencha/ext-react-modern'
  *
  *     export default class SearchFieldExample extends Component {
  *
@@ -26,7 +26,7 @@
  *             const { query } = this.state;
  *
  *             return (
- *                 <ExtReact> 
+ *                 <ExtReact>
  *                     <Container layout="center">
  *                         <FormPanel shadow>
  *                             <SearchField

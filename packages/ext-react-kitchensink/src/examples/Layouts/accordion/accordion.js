@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel, Accordion } from '@sencha/ext-modern';
+import { Container, Panel, Accordion } from '@sencha/ext-react-modern';
 import BasicGridExample from '../../Grid/BasicGrid/BasicGrid';
 import ProgressBar from '../../ProgressBar/ProgressBar';
 

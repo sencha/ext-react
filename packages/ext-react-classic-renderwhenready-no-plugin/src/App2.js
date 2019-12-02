@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 //import { Panel } from '@sencha/ext-classic'
-//import { ExtReact } from '@sencha/ext-react'
-import { reactify } from '@sencha/ext-react'
+//import { ExtReact } from '@sencha/ext-react-modern'
+import { reactify } from '@sencha/ext-react-modern'
 const Panel = reactify('Panel')
 const ExtReact = reactify('ExtReact')
 
-import { renderWhenReady } from '@sencha/ext-react'
+import { renderWhenReady } from '@sencha/ext-react-modern'
 
 class App2 extends Component {
   render() {

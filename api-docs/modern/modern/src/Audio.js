@@ -3,19 +3,19 @@
  * @extend Ext.Media
  * @xtype audio
  *
- * {@link Ext.Audio} is a simple class which provides a container for the 
+ * {@link Ext.Audio} is a simple class which provides a container for the
  * [HTML5 Audio element](http://developer.mozilla.org/en-US/docs/Using_HTML5_audio_and_video).
  *
  * ## Recommended File Types/Compression:
- * 
+ *
  * * Uncompressed WAV and AIF audio
  * * MP3 audio
  * * AAC-LC
  * * HE-AAC audio
  *
  * ## Notes
- * 
- * On Android devices, the audio tags controls do not show. You must use the {@link #method-play}, 
+ *
+ * On Android devices, the audio tags controls do not show. You must use the {@link #method-play},
  * {@link #method-pause}, and {@link #toggle} methods to control the audio.
  *
  * ## Example
@@ -24,7 +24,7 @@
  * Android considerations.
  *
  *     import React, { Component } from 'react'
- *     import { Panel, Audio, Button, Container } from '@sencha/ext-react';
+ *     import { Panel, Audio, Button, Container } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Panel } from '@sencha/ext-modern'
+import { Panel } from '@sencha/ext-react-modern'
 
 import Layout from './Layout';
 import { Router, Route } from 'react-router-dom'

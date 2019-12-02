@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Calendar_Day, Calendar_List } from '@sencha/ext-calendar';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarDayViewExample extends Component {

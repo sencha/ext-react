@@ -3,21 +3,21 @@
  * @extend Ext.plugin.Abstract
  * @alias plugin.grideditable
  *
- * The Editable plugin adds row-level editing to any Grid. Editing begins by double-tapping a row.  
- * This can be set to any event, which we'll discuss below. The editor consists of a small 
+ * The Editable plugin adds row-level editing to any Grid. Editing begins by double-tapping a row.
+ * This can be set to any event, which we'll discuss below. The editor consists of a small
  * positioned dialog that be shown on the right side of your viewport.
  *
  * There is a button to save or cancel all changes for the edit in the toolbar, and the
  * row is deletable by default.
- * 
+ *
  * A Column is included in the editor dialog if it has a editable prop set to true.
- * By default a `TextField` is used as the editor.  You can substitute a different editor by 
+ * By default a `TextField` is used as the editor.  You can substitute a different editor by
  * adding a subclass of `Ext.field.Field` as a child of the `Column`.
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column, SelectField } from '@sencha/ext-react';
- * 
+ *     import { ExtReact, Grid, Column, SelectField } from '@sencha/ext-react-modern';
+ *
  *     Ext.require('Ext.grid.plugin.Editable');
  *
  *     export default class MyExample extends Component {
@@ -40,19 +40,19 @@
  *                         store={this.store}
  *                         plugins={['grideditable']}
  *                     >
- *                         <Column 
+ *                         <Column
  *                             text="First Name"
  *                             dataIndex="fname"
  *                             flex={1}
  *                             editable
  *                         />
- *                         <Column 
+ *                         <Column
  *                             text="Last Name"
  *                             dataIndex="lname"
  *                             flex={1}
  *                             editable
  *                         />
- *                         <Column 
+ *                         <Column
  *                             text="Talent"
  *                             dataIndex="talent"
  *                             flex={1}

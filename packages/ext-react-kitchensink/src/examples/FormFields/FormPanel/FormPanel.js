@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import { 
+import {
     FieldSet,
-    FormPanel, 
-    UrlField, 
-    TextField, 
-    EmailField, 
-    RadioField, 
-    TextAreaField, 
-    ToggleField, 
-    SliderField, 
-    DatePickerField, 
+    FormPanel,
+    UrlField,
+    TextField,
+    EmailField,
+    RadioField,
+    TextAreaField,
+    ToggleField,
+    SliderField,
+    DatePickerField,
     PasswordField,
     SpinnerField,
     CheckBoxField,
@@ -19,7 +19,7 @@ import {
     Container,
     Label,
     Toolbar
-} from '@sencha/ext-modern';
+} from '@sencha/ext-react-modern';
 import { ColorField } from '@sencha/ext-ux'
 
 Ext.require([
@@ -45,9 +45,9 @@ export default class FormPanelExample extends Component {
 
     render() {
         const { disabled } = this.state;
-        
+
         return (
-            <Container 
+            <Container
                 platformConfig={{
                     phone: {
                         layout: 'fit'
@@ -58,9 +58,9 @@ export default class FormPanelExample extends Component {
                     }
                 }}
             >
-                <FormPanel 
+                <FormPanel
                     ref={form => this.form = form}
-                    shadow 
+                    shadow
                     padding="20"
                     platformConfig={{
                         "!phone": {
@@ -94,9 +94,9 @@ export default class FormPanelExample extends Component {
                         <CheckBoxField disabled={disabled} boxLabel="Admin"/>
                         <CheckBoxField disabled={disabled} boxLabel="Power User"/>
                     </FieldSet>
-                    <FieldSet                      
-                        title="Favorite Color" 
-                        layout={{ type: 'vbox', align: 'left' }} 
+                    <FieldSet
+                        title="Favorite Color"
+                        layout={{ type: 'vbox', align: 'left' }}
                         defaults={{
                             labelAlign: "placeholder",
                             name: 'color',

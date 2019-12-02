@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-modern';
-import { Transition} from '@sencha/ext-react-transition';
+import { Container, Titlebar, Button, Sheet, Panel } from '@sencha/ext-react-modern';
+//import { Transition} from '@sencha/ext-react-transition';
 
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
@@ -44,11 +44,11 @@ class Layout extends Component {
 
         return (
             <Container fullscreen layout="fit">
-                <TitleBar title={this.title} docked="top">
+                <Titlebar title={this.title} docked="top">
                     {Ext.platformTags.phone && (
                         <Button align="left" iconCls="x-fa fa-bars" handler={this.toggleAppMenu} ripple={false}/>
                     )}
-                </TitleBar>
+                </Titlebar>
                 {Ext.platformTags.phone ? (
                     <Sheet displayed={showAppMenu} side="left" onHide={this.onHideAppMenu}>
                         <Panel scrollable title="ExtReact Boilerplate">

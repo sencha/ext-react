@@ -7,7 +7,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List } from '@sencha/ext-react';
+ *     import { ExtReact, List } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -36,7 +36,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@sencha/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -81,7 +81,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, List, Button } from '@sencha/ext-react';
+ *     import { ExtReact, List, Button } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -412,8 +412,8 @@
  * @cfg {Object[]} [data=null]
  * An array of records to display. Use in place of {@link #store} when fetching data directly
  * or using static data rather than fetching data with an ExtReact proxy.
- * 
- *      <List 
+ *
+ *      <List
  *          data={[
  *              { name: 'Apple', symbol: 'AAPL' },
  *              { name: 'Microsoft', symbol: 'MSFT' },
@@ -424,7 +424,7 @@
  *                  <div style={{ fontWeight: 'bold' }}>{data.name}</div>
  *                  <div>{data.symbol}</div>
  *              </div>
- *          )}   
+ *          )}
  *      />
  */
 

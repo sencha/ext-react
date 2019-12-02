@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TreeList } from '@sencha/ext-modern';
+import { TreeList } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.data.TreeStore');
 
 /**
  * The main navigation menu
  */
-export default function NavMenu({ 
-    onItemClick, 
-    selection, 
-    ...props 
+export default function NavMenu({
+    onItemClick,
+    selection,
+    ...props
 }) {
     return (
-        <TreeList 
+        <TreeList
             {...props}
             ui="nav"
             expanderFirst={false}
@@ -27,7 +27,7 @@ export default function NavMenu({
                     ]
                 }
             }}
-        />        
+        />
     )
 }
 

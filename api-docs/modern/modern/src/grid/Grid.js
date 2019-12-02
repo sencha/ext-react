@@ -14,7 +14,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -57,7 +57,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column } from '@sencha/ext-react';
+ *     import { ExtReact, Grid, Column } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -230,20 +230,20 @@
  *     </Grid>
  *
  * NOTE: The Column component or any column sub-component may be used.  i.e.:
- * {@link Ext.grid.column.Column GridColumn}  
- * 
- * {@link Ext.grid.column.Boolean BooleanColumn}  
- * 
- * {@link Ext.grid.column.Check CheckColumn}  
- * 
- * {@link Ext.grid.column.Date DateColumn}  
- * 
- * {@link Ext.grid.column.Number NumberColumn}  
- * 
- * {@link Ext.grid.column.RowNumberer RowNumberer}  
- * 
- * {@link Ext.grid.column.Text}  
- * 
+ * {@link Ext.grid.column.Column GridColumn}
+ *
+ * {@link Ext.grid.column.Boolean BooleanColumn}
+ *
+ * {@link Ext.grid.column.Check CheckColumn}
+ *
+ * {@link Ext.grid.column.Date DateColumn}
+ *
+ * {@link Ext.grid.column.Number NumberColumn}
+ *
+ * {@link Ext.grid.column.RowNumberer RowNumberer}
+ *
+ * {@link Ext.grid.column.Text}
+ *
  * {@link Ext.grid.column.Tree TreeColumn}
  *
  * @accessor
@@ -319,8 +319,8 @@
 /**
  * @cfg {Boolean} [enableColumnMove=true]
  * Set to `false` to disable column reorder.
- * 
- * **Note**: if `gridviewoptions` plugin is enabled on grids gets 
+ *
+ * **Note**: if `gridviewoptions` plugin is enabled on grids gets
  * precedence over `enableColumnMove` for touch supported device.
  */
 
@@ -328,8 +328,8 @@
  * @cfg {Object[]} [data=null]
  * An array of records to display. Use in place of {@link #store} when fetching data directly
  * or using static data rather than fetching data with an ExtReact proxy.
- * 
- *      <Grid 
+ *
+ *      <Grid
  *          data={[
  *              { name: 'Apple', symbol: 'AAPL' },
  *              { name: 'Microsoft', symbol: 'MSFT' },
@@ -340,7 +340,7 @@
  *          <Column text="Symbol" dataIndex="symbol"/>
  *      </Grid>
  */
- 
+
 /**
  * @event columnadd
  * Fires whenever a column is added to the Grid.
@@ -463,11 +463,11 @@
 
 /**
  * @method getSelection
- * Returns the grid's selection if {@link Ext.grid.selection.Model#cfg!mode mode} is single 
+ * Returns the grid's selection if {@link Ext.grid.selection.Model#cfg!mode mode} is single
  * @return {Ext.data.Model} returns selected record if selectable is rows
  * @return {Ext.grid.column.Column} returns selected column if selectable is columns
  * @return {Ext.data.Model} returns selected record if selectable is cells
- * 
+ *
  * Returns the last selected column/cell's record/row's record based on selectable
  * if {@link Ext.grid.selection.Model#cfg!mode mode} is multi
  */

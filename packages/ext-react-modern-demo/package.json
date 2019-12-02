@@ -29,7 +29,7 @@
     "@sencha/ext-modern-treegrid": "~7.0.0",
     "@sencha/ext-react-renderercell": "^7.0.0",
     "@sencha/ext-charts": "~7.0.0",
-    "@sencha/ext-react": "~7.0.0",
+    "@sencha/ext-react-modern": "~7.1.0",
     "d3": "4.5.0",
     "highlightjs": "~9.12.0",
     "history": "~4.9.0",

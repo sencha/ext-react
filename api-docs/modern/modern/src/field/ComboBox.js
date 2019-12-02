@@ -25,7 +25,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, ComboBox } from '@sencha/ext-react';
+ *     import { ExtReact, FormPanel, ComboBox } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -96,8 +96,8 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from "react";
- *     import { FormPanel, ComboBox } from "@sencha/ext-react";
- *     
+ *     import { FormPanel, ComboBox } from '@sencha/ext-react-modern';
+ *
  *     export default class ComboBoxExample extends Component {
  *         render() {
  *             return (

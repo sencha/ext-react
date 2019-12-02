@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Panel, Draw, Toolbar, Button, Spacer, Label, Container } from '@sencha/ext-modern';
+import { Panel, Draw, Toolbar, Button, Spacer, Label, Container } from '@sencha/ext-react-modern';
 
 export default class DrawExample extends Component {
-    
-    componentDidMount() { 
+
+    componentDidMount() {
         //Added cmp to access component attributes in ext-react16 [revisit]
         this.refs.draw.cmp.on({
             element: 'element',
@@ -24,7 +24,7 @@ export default class DrawExample extends Component {
 
     onMouseDown = (e) => {
         //Added cmp to access component attributes in ext-react16 [revisit]
-        let { draw } = this.refs, 
+        let { draw } = this.refs,
             surface = draw.cmp.getSurface(),
             xy, x, y;
 
@@ -110,7 +110,7 @@ export default class DrawExample extends Component {
                     <Spacer/>
                     <Button handler={this.clear} text="Clear"/>
                 </Toolbar>
-                <Draw ref="draw"/>  
+                <Draw ref="draw"/>
             </Panel>
         )
     }

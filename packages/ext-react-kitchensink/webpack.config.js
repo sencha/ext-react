@@ -45,8 +45,7 @@ module.exports = function (env) {
         packages: [
           'treegrid',
           'ux',
-          'transition',
-          'renderercell',
+
           'font-ext',
           'd3',
           'pivot-d3',

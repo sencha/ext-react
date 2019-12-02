@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Toolbar, Button, Spacer } from '@sencha/ext-modern';
+import { Toolbar, Button, Spacer } from '@sencha/ext-react-modern';
 import { PivotD3Container } from '@sencha/ext-pivot-d3';
 import createData from './createData';
 import './styles.css';
@@ -72,7 +72,7 @@ export default class ConfigurablePivotTreeMap extends Component {
         if(align) {
             align.hide();
         }
-    }    
+    }
 
     render() {
         return (

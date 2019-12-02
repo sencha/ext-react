@@ -4,7 +4,7 @@
  * This plugin provides drag and drop node moving in a tree.
  *
  * @example packages=[ext-react]
- *      import { ExtReact, Panel, Tree } from '@sencha/ext-react';
+ *      import { ExtReact, Panel, Tree } from '@sencha/ext-react-modern';
  *      import React, { Component } from 'react';
  *      export default class TreeDragDropComponent extends Component {
  *          render() {
@@ -62,7 +62,7 @@
  *              )
  *          }
  *      }
- */ 
+ */
 /**
  * @cfg {String/Function} dragText
  * The text to show while dragging.
@@ -71,7 +71,7 @@
  *
  * - `{0}` The number of selected items.
  * - `{1}` 's' when more than 1 items (only useful for English).
- * 
+ *
  * **NOTE:** The node's text will be shown when a single node is dragged unless `dragText`.
  * @locale
  */
@@ -85,67 +85,67 @@
 /**
  * @cfg {Boolean} allowExpandOnHover
  * Waits for `[expandDelay=1000]` to expand a node while drag is hold over a non leaf node
- * 
+ *
  * Defaults to `true`
  */
 
 /**
  * @cfg {Boolean} [copy=false]
- * Set as `true` to copy the records from the source grid to the destination drop 
+ * Set as `true` to copy the records from the source grid to the destination drop
  * grid.  Otherwise, dragged records will be moved.
- * 
- * **Note:** This only applies to records dragged between two different grids with 
+ *
+ * **Note:** This only applies to records dragged between two different grids with
  * unique stores.
  */
 
 /**
  * @event beforedrop
  * **This event is fired on valid drop at {@link Ext.grid.Tree TreeView}**
- * 
+ *
  * Returning `false` to this event cancels drop operation and prevent drop event.
- *  
+ *
  *     tree.on('beforedrop', function(node, data, overModel, dropPosition) {
  *          // return false;
  *     });
  *
- * @param {HTMLElement} node The {@link Ext.grid.Tree tree view} node **if any** over 
+ * @param {HTMLElement} node The {@link Ext.grid.Tree tree view} node **if any** over
  * which the cursor was positioned.
  *
  * @param {Object} data The data object gathered on drag start.
  * It contains the following properties:
- * @param {Ext.grid.Tree} data.view The source grid view from which the drag 
+ * @param {Ext.grid.Tree} data.view The source grid view from which the drag
  * originated
- * @param {Ext.grid.cell.Tree} data.item The grid view node upon which the mousedown event 
+ * @param {Ext.grid.cell.Tree} data.item The grid view node upon which the mousedown event
  * was registered
- * @param {Ext.data.Model[]} data.records An Array of Models representing the 
+ * @param {Ext.data.Model[]} data.records An Array of Models representing the
  * selected data being dragged from the source grid view
  *
  * @param {Ext.data.Model} overModel The Model over which the drop gesture took place
  *
- * @param {String} dropPosition `"before"` or `"after"` depending on whether the 
+ * @param {String} dropPosition `"before"` or `"after"` depending on whether the
  * cursor is above or below the mid-line of the node.
  */
 
 /**
  * @event drop
- * **This event is fired when a drop operation has been completed 
+ * **This event is fired when a drop operation has been completed
  * and the data has been moved {@link Ext.grid.Tree TreeView}**
  *
- * @param {HTMLElement} node The {@link Ext.grid.Tree tree view} node **if any** over 
+ * @param {HTMLElement} node The {@link Ext.grid.Tree tree view} node **if any** over
  * which the cursor was positioned.
  *
  * @param {Object} data The data object gathered on drag start.
  * It contains the following properties:
- * @param {Ext.grid.Tree} data.view The source grid view from which the drag 
+ * @param {Ext.grid.Tree} data.view The source grid view from which the drag
  * originated
- * @param {Ext.grid.cell.Tree} data.item The grid view node upon which the mousedown event 
+ * @param {Ext.grid.cell.Tree} data.item The grid view node upon which the mousedown event
  * was registered
- * @param {Ext.data.Model[]} data.records An Array of Models representing the 
+ * @param {Ext.data.Model[]} data.records An Array of Models representing the
  * selected data being dragged from the source grid view
  *
  * @param {Ext.data.Model} overModel The Model over which the drop gesture took place
  *
- * @param {String} dropPosition `"before"` or `"after"` depending on whether the 
+ * @param {String} dropPosition `"before"` or `"after"` depending on whether the
  * cursor is above or below the mid-line of the node.
  */
 

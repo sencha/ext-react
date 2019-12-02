@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Toolbar, Spacer } from '@sencha/ext-modern';
+import { Button, Toolbar, Spacer } from '@sencha/ext-react-modern';
 import { PivotD3Container } from '@sencha/ext-pivot-d3';
 import salesData from './salesData';
 

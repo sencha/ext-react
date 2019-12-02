@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NestedList } from '@sencha/ext-modern';
+import { NestedList } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.Toast');
 
@@ -22,8 +22,8 @@ export default class ListExample extends Component {
             />
         )
     }
-    
-    store = Ext.create('Ext.data.TreeStore', { 
+
+    store = Ext.create('Ext.data.TreeStore', {
         autoLoad: true,
         root: {},
         proxy: {
@@ -35,5 +35,5 @@ export default class ListExample extends Component {
     onLeafItemTap = (nestedList, list, index, target, record) => {
         Ext.toast(`You selected ${record.get('text')}`)
     }
-    
+
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -35,7 +35,7 @@ export default class Grouped extends Component {
                     flex={2}
                     store={this.store}
                     theme="Muted"
-                    ref="chart" 
+                    ref="chart"
                     insetPadding="70 40 0 10"
                     interactions="itemhighlight"
                     animation={{ duration: 200 }}

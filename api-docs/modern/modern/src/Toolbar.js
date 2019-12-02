@@ -18,7 +18,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Toolbar, Panel, Button, SegmentedButton, Spacer, SearchField } from '@sencha/ext-react';
+ *     import { ExtReact, Toolbar, Panel, Button, SegmentedButton, Spacer, SearchField } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *         render() {

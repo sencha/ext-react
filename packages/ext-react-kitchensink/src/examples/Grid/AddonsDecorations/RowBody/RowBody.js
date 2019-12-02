@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Column, } from '@sencha/ext-modern';
+import { Grid, Column, } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 export default class RowBodyGridExample extends Component {
@@ -11,8 +11,8 @@ export default class RowBodyGridExample extends Component {
       proxy: {
           type: 'ajax',
           url: 'resources/data/CompanyData.json'
-      } 
-  });   
+      }
+  });
 
   tpl = data => (
     <div>
@@ -21,7 +21,7 @@ export default class RowBodyGridExample extends Component {
       <div style={{marginTop:'1em'}}>{data.desc}</div>
     </div>
   );
-    
+
 render() {
     return (
       <Grid
@@ -42,7 +42,7 @@ render() {
       </Grid>
     )
   }
-    
+
  renderSign = (format, value) => (
         <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
             {Ext.util.Format.number(value, format)}

@@ -9,10 +9,10 @@
  *
  * Here is an example of how to use Transition with react-router to create a slide effect when changing routes:
  *
- *      
+ *
  *      import React from 'react';
  *      import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
- *      import { ExtReact, Transition } from '@sencha/ext-react';
+ *      import { ExtReact, Transition } from '@sencha/ext-react-modern';
  *      import NewsFeed from './NewsFeed';
  *      import Article from './Article';
  *

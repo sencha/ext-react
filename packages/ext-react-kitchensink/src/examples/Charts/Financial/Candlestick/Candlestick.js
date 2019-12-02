@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
@@ -40,7 +40,7 @@ export default class CandlestickChartExample extends Component {
 //     //this.chart = this.refs.chart.cmp;
 //     this.panzoom = this.chart.cmp.getInteraction('panzoom');
 //     this.crosshair = this.chart.cmp.getInteraction('crosshair');
-    
+
 // //    console.log(this.panzoom)
 //     console.log(this.crosshair)
   }
@@ -112,7 +112,7 @@ export default class CandlestickChartExample extends Component {
               position: 'left',
               maximum: 1000,
               minimum: 0
-            }, 
+            },
             {
               type: 'time',
               fields: ['time'],

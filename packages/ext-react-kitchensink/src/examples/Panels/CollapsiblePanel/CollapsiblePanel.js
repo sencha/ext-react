@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
+import { Container, Panel } from '@sencha/ext-react-modern';
 import { mediumText } from '../../dummy';
 
 Ext.require('Ext.panel.Collapser');
@@ -23,7 +23,7 @@ export default class CollapsibleExample extends Component {
                     bodyPadding={10}
                 >
                     <div> {mediumText} </div>
-                    <Panel 
+                    <Panel
                         docked="right"
                         width="50%"
                         bodyPadding={20}

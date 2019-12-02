@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Grid, Column, RendererCell, SegmentedButton, WidgetCell } from '@sencha/ext-modern';
+import { Grid, Column, RendererCell, SegmentedButton, WidgetCell } from '@sencha/ext-react-modern';
 import ActionsCell from './ActionsCell';
 import '../../CompanyData';
 
 export default class RendererCellExample extends Component {
-    
+
     store = Ext.create('Ext.data.Store', {
         autoLoad: true,
         pageSize: 0,
         proxy: {
             type: 'ajax',
             url: '/KitchenSink/Companys'
-        } 
+        }
     });
 
     render() {
@@ -23,18 +23,18 @@ export default class RendererCellExample extends Component {
                 <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderNumberCell.bind(this, '0.00%')}/>
                 <Column text="Actions" flex={1} minWidth={210}>
                     <WidgetCell>
-                     <SegmentedButton 
+                     <SegmentedButton
                       maxWidth={300}
-                      allowDepress = {true} 
+                      allowDepress = {true}
                       items = {[
                         {
                           text: 'Buy',
                           handler : this.buyHandler
-                        }, 
+                        },
                         {
                           text: 'Sell',
                           handler : this.sellHandler
-                        }, 
+                        },
                         {
                           text: 'Watch',
                           handler : this.watchHandler
@@ -50,10 +50,10 @@ export default class RendererCellExample extends Component {
 
     renderActionsCell = (value, record) => {
         return (
-            <ActionsCell 
-                buyHandler={this.buyHandler.bind(this, record)} 
-                sellHandler={this.sellHandler.bind(this, record)} 
-                watchHandler={this.watchHandler.bind(this, record)} 
+            <ActionsCell
+                buyHandler={this.buyHandler.bind(this, record)}
+                sellHandler={this.sellHandler.bind(this, record)}
+                watchHandler={this.watchHandler.bind(this, record)}
             />
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Chart';
-import { Orgchart } from '@sencha/ext-modern';
-import { Panel } from '@sencha/ext-modern';
+//import { Orgchart } from '@sencha/ext-react-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import createStore from './createStore';
 
 export default class D3OrgChart extends Component {
@@ -11,7 +11,7 @@ export default class D3OrgChart extends Component {
   render() {
     return (
       <Panel shadow layout="fit" title="Organization Chart">
-        <Orgchart
+        {/* <Orgchart
           interactions={{
             type: 'panzoom',
             zoom: {
@@ -25,7 +25,7 @@ export default class D3OrgChart extends Component {
           nodeSize={[200, 100]}
           imagePath="resources/images/org-chart/"
           store={this.store}
-        />
+        /> */}
       </Panel>
     )
   }

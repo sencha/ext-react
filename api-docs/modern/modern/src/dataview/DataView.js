@@ -20,7 +20,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, DataView } from '@sencha/ext-react';
+ *     import { ExtReact, DataView } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *
@@ -84,7 +84,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, DataView } from '@sencha/ext-react';
+ *     import { ExtReact, DataView } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

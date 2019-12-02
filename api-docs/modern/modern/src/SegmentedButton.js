@@ -10,7 +10,7 @@
  *
  *     @example packages=[ext-react]
  *     import React from 'react';
- *     import { ExtReact, SegmentedButton, Button, Container, Toolbar } from '@sencha/ext-react';
+ *     import { ExtReact, SegmentedButton, Button, Container, Toolbar } from '@sencha/ext-react-modern';
  *
  *     export default function SegementedButtonExample() {
  *         return (

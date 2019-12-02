@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ContainerField, FormPanel, RadioField, Container, Panel, CheckBoxField, TextField } from '@sencha/ext-modern';
+import { ContainerField, FormPanel, RadioField, Container, Panel, CheckBoxField, TextField } from '@sencha/ext-react-modern';
 
 export default class ContainerFieldExample extends Component {
 

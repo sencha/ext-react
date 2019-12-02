@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Grid, Column, DataView, Spacer } from '@sencha/ext-modern';
+import { Panel, Grid, Column, DataView, Spacer } from '@sencha/ext-react-modern';
 import { patientData, hospitalData } from './data';
 import './FormToGrid.scss';
 
@@ -9,7 +9,7 @@ Ext.require([
 ]);
 
 export default class DragFormToGridExample extends Component {
-     
+
     constructor(props) {
         super(props)
     }
@@ -28,7 +28,7 @@ export default class DragFormToGridExample extends Component {
         me.dragZone = Ext.create('Ext.plugin.dd.DragZone', {
             element: patientView.bodyElement,
             handle: '.patient-source',
-            view: patientView, 
+            view: patientView,
             activateOnLongPress: touchEvents ? true : false,
             proxy: {
                 cls: 'x-proxy-drag-el patient-proxy-el'
@@ -75,7 +75,7 @@ export default class DragFormToGridExample extends Component {
                 let hospital;
                 let patients;
                 let name;
-                
+
                 me.toggleDropMarker(info, false);
 
                 if (!isRowBody) {
@@ -190,7 +190,7 @@ export default class DragFormToGridExample extends Component {
     getParentElement = (selectedElement, selector) => {
         let isFound = false;
         let searchedElement = null;
-  
+
         while(!isFound) {
           if (selectedElement.className.includes(selector)) {
             isFound = true;
@@ -202,7 +202,7 @@ export default class DragFormToGridExample extends Component {
             }
           }
         }
-  
+
         return { searchedElement, isFound };
     }
 

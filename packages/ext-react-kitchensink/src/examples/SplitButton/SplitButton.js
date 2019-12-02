@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Spacer, ToggleField, Container, Panel, Button, Menu, MenuItem, MenuRadioItem, SplitButton } from '@sencha/ext-modern';
+import { Spacer, ToggleField, Container, Panel, Button, Menu, MenuItem, MenuRadioItem, SplitButton } from '@sencha/ext-react-modern';
 
 export default class SplitButtonExample extends Component {
-    
+
     state = {
         style: '',
         type: 'text',
@@ -38,9 +38,9 @@ export default class SplitButtonExample extends Component {
 
         return (
             <Container padding="10">
-                <Container 
-                    layout={{ type: 'hbox', pack: Ext.os.is.Phone ? 'center' : 'left'}} 
-                    margin="0 0 10 0" 
+                <Container
+                    layout={{ type: 'hbox', pack: Ext.os.is.Phone ? 'center' : 'left'}}
+                    margin="0 0 10 0"
                     defaults={{ margin: "0 10 0 0" }}
                     width={Ext.isIE && 550}
                 >

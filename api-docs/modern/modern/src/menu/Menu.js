@@ -12,13 +12,13 @@
  * the icon column. To make a contained general {@link Ext.Component Component} left aligned configure the child
  * Component with `indent: false.
  *
- * By default, Menus are absolutely positioned, floated Components. By configuring a 
- * Menu with `{@link #cfg-floated}: false`, a Menu may be used as a child of a 
+ * By default, Menus are absolutely positioned, floated Components. By configuring a
+ * Menu with `{@link #cfg-floated}: false`, a Menu may be used as a child of a
  * {@link Ext.Container Container}.
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, Container, Menu, MenuItem } from '@sencha/ext-react';
+ *     import { ExtReact, Button, Container, Menu, MenuItem } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *         render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -10,7 +10,7 @@ export default class FullStackedAreaChartExample extends Component {
 
     store = Ext.create('Ext.data.Store', {
         fields: ['month', 'data1', 'data2', 'data3', 'data4', 'other'],
-        data:[ 
+        data:[
             { month: 'Jan', data1: 20, data2: 37, data3: 35, data4: 4, other: 4 },
             { month: 'Feb', data1: 20, data2: 37, data3: 36, data4: 5, other: 2 },
             { month: 'Mar', data1: 19, data2: 36, data3: 37, data4: 4, other: 4 },
@@ -56,7 +56,7 @@ export default class FullStackedAreaChartExample extends Component {
                     onThemeChange={this.changeTheme}
                     theme={theme}
                 />
-                <Cartesian 
+                <Cartesian
                     shadow
                     store={this.store}
                     theme={theme}

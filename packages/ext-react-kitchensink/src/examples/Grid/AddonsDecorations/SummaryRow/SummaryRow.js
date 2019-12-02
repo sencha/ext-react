@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require([
@@ -17,7 +17,7 @@ export default class RowBodyGridExample extends Component {
     proxy: {
       type: 'ajax',
       url: 'resources/data/CompanyData.json'
-    } 
+    }
   });
 
   render() {
@@ -30,44 +30,44 @@ export default class RowBodyGridExample extends Component {
               gridsummaryrow: true
           }}
       >
-        <Column 
-          text="Company" 
-          dataIndex="name" 
+        <Column
+          text="Company"
+          dataIndex="name"
           width="150"
           summaryRenderer={this.summarizeCompanies}
         />
-        <Column 
-          text="Price" 
-          width="75" 
-          dataIndex="price" 
-          formatter="usMoney" 
+        <Column
+          text="Price"
+          width="75"
+          dataIndex="price"
+          formatter="usMoney"
           summary="average"
         />
-        <Column 
-          text="Change" 
-          width="90" 
-          dataIndex="priceChange" 
+        <Column
+          text="Change"
+          width="90"
+          dataIndex="priceChange"
           renderer={this.renderSign.bind(this, '0.00')}
-          summary="max" 
+          summary="max"
         />
-        <Column 
-          text="% Change" 
+        <Column
+          text="% Change"
           width="100"
-          dataIndex="priceChangePct" 
+          dataIndex="priceChangePct"
           renderer={this.renderSign.bind(this, '0.00')}
-          summary="average" 
+          summary="average"
         />
-        <Column 
-          text="Last Updated" 
-          width="125" 
-          dataIndex="priceLastChange" 
-          formatter="date('m/d/Y')" 
+        <Column
+          text="Last Updated"
+          width="125"
+          dataIndex="priceLastChange"
+          formatter="date('m/d/Y')"
           summary="max"
         />
       </Grid>
     )
   }
-  
+
 
   renderSign = (format, value) => (
       <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>

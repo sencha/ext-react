@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Picker, Button } from '@sencha/ext-modern';
+import { Container, Picker, Button } from '@sencha/ext-react-modern';
 
 export default class PickerExample extends Component {
 
@@ -13,7 +13,7 @@ export default class PickerExample extends Component {
         return (
             <Container>
                 <Button ui="action" handler={this.showPicker} text="Show Picker"/>
-                <Picker 
+                <Picker
                     displayed={displayed}
                     value={[100]}
                     onHide={this.onHidden}
@@ -33,5 +33,5 @@ export default class PickerExample extends Component {
             </Container>
         )
     }
-    
+
 }

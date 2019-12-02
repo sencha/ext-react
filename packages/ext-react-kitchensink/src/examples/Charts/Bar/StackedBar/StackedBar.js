@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
@@ -20,7 +20,7 @@ export default class StackedBarChartExample extends Component {
     store = Ext.create('Ext.data.Store', {
         fields: ['id', 'g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'name']
     });
- 
+
     state = {
         theme: 'default'
     };
@@ -33,7 +33,7 @@ export default class StackedBarChartExample extends Component {
 
     render() {
         const { theme } = this.state;
-        
+
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar

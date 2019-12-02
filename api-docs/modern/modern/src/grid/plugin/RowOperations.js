@@ -2,7 +2,7 @@
  * @class Ext.grid.plugin.RowOperations
  * @extend Ext.plugin.Abstract
  * @alias plugin.rowoperations
- * 
+ *
  * The RowOperations plugin enables user to select rows in a {@link Ext.grid.Grid grid} and
  * then perform an operation (e.g. Delete) on them. This plugin adds a "Select" button
  * to the grid's title to start the selection process. This button is replaced by "Done"
@@ -18,7 +18,7 @@
  *
  *      @example packages = [ext-react]
  *      import React, { Component } from 'react'
- *      import { ExtReact, Grid, Column } from '@sencha/ext-react';
+ *      import { ExtReact, Grid, Column } from '@sencha/ext-react-modern';
  *
  *      Ext.require('Ext.grid.plugin.RowOperations');
  *
@@ -33,7 +33,7 @@
  *                  { 'fname': 'Hal', 'lname': 'Jordan', 'talent': 'Willpower' }
  *              ]
  *          });
- *      
+ *
  *          render() {
  *              return (
  *                  <ExtReact>
@@ -59,16 +59,16 @@
  *                  </ExtReact>
  *              )
  *          }
- *      
+ *
  *          archiveSelected = () => {
  *              const selected = this.grid.getSelected().items
  *                  .map(record => `${record.get('fname')} ${record.get('lname')}`)
  *                  .join(', ');
- *      
+ *
  *              console.log(`Archived ${selected}`)
  *          }
  *      }
- * 
+ *
  * Since the `operation` is a {@link Ext.Button button}, multiple operations can easily be
  * provided using the button's  {@link Ext.Button#cfg!menu menu}.
  */

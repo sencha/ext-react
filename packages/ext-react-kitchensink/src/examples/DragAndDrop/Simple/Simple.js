@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 
 Ext.require(['Ext.drag.*']);
 
@@ -23,13 +23,13 @@ export default class Simple extends Component {
   render() {
     const {dragText} = this.state;
     return (
-      <Panel 
+      <Panel
         padding={5}
         shadow
         ref="dragContainer"
       >
-        <Container 
-          ref="dragItem" 
+        <Container
+          ref="dragItem"
           style={{
             width: '130px',
             height: '130px',

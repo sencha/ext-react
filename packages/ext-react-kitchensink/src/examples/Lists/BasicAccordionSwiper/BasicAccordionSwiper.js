@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, Panel } from '@sencha/ext-modern';
+import { List, Panel } from '@sencha/ext-react-modern';
 
 Ext.require([
     'Ext.dataview.listswiper.ListSwiper'
@@ -7,7 +7,7 @@ Ext.require([
 
 export default class BasicAccordionSwiper extends Component {
 
-    store = Ext.create('Ext.data.Store', { 
+    store = Ext.create('Ext.data.Store', {
         autoLoad: true,
         sorters: ['last_name', 'first_name'],
         proxy: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import { D3_Pack } from '@sencha/ext-d3';
 
 export default class Pack extends Component {

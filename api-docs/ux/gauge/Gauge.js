@@ -147,15 +147,15 @@
  * @accessor
  */
 
- 
+
 /**
  * @since 6.6.0
- * 
+ *
  * Example usage:
  *
  *      @example
  *      import React, { Component } from 'react';
- *      import { ExtReact, SliderField, Gauge, FormPanel } from '@sencha/ext-react';
+ *      import { ExtReact, SliderField, Gauge, FormPanel } from '@sencha/ext-react-modern';
  *      export default class GaugeExample extends Component {
  *          constructor() {
  *              super();

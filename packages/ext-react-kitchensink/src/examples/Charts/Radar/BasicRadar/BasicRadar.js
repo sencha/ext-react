@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Polar } from '@sencha/ext-charts';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
@@ -11,7 +11,7 @@ Ext.require([
 ]);
 
 export default class BasicScatterChartExample extends Component {
-    
+
     store = Ext.create('Ext.data.Store', {
         data
     });

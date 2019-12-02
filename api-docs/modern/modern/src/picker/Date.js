@@ -12,7 +12,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, DatePicker, Button } from '@sencha/ext-react';
+ *     import { ExtReact, Container, DatePicker, Button } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

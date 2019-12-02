@@ -2,7 +2,7 @@
  * @class Ext.Button
  * @extend Ext.Component
  * @xtype button
- * 
+ *
  * This class provides a push button with several presentation options. There are various
  * different styles of Button you can create by using the {@link #icon}, {@link #iconCls},
  * {@link #iconAlign}, {@link #ui}, and {@link #text} configurations.
@@ -11,23 +11,23 @@
  *
  *      @example packages=[ext-react]
  *      import React, { Component } from 'react';
- *      import { ExtReact, Container, Button } from '@sencha/ext-react';
- * 
+ *      import { ExtReact, Container, Button } from '@sencha/ext-react-modern';
+ *
  *      export default class MyExample extends Component {
  *
  *          state = { message: null }
- * 
+ *
  *          render() {
  *              return (
  *                  <ExtReact>
  *                      <Container padding="10">
- *                          <Button 
- *                              text="Say Hello" 
+ *                          <Button
+ *                              text="Say Hello"
  *                              handler={this.sayHello}
- *                              ui="action raised" 
+ *                              ui="action raised"
  *                          />
- *                          <Button 
- *                              text="Say Goodbye" 
+ *                          <Button
+ *                              text="Say Goodbye"
  *                              handler={this.sayGoodbye}
  *                          />
  *                          { this.state.message }
@@ -35,15 +35,15 @@
  *                  </ExtReact>
  *              )
  *          }
- * 
+ *
  *          sayHello = () => {
- *              this.setState({ message: 'Hello world!' });  
+ *              this.setState({ message: 'Hello world!' });
  *          }
- * 
+ *
  *          sayGoodbye = () => {
- *              this.setState({ message: 'Goodbye cruel world.' });  
+ *              this.setState({ message: 'Goodbye cruel world.' });
  *          }
- * 
+ *
  *     }
  *
  * ## Icons
@@ -89,7 +89,7 @@
  * You can also use the {@link #sencha-button-ui sencha-button-ui} CSS Mixin to create
  * your own UIs.
  */
-   
+
 /**
  * @event tap
  * @preventable
@@ -105,8 +105,8 @@
  * @param {Ext.Button} this The item added to the Container.
  * @param {Ext.EventObject} e The event object.
  */
-   
-       
+
+
 /**
 * @cfg {String} [buttonType='button']
 * By default, all buttons have `type="button"`. If a button is intended to be invoked as
@@ -328,32 +328,32 @@
 *
 * @since 6.0.2
 */
-   
+
 /**
 * @property preventDefaultAction
 * @private
 */
-   
+
 /**
 * @property baseCls
 * @inheritdoc
-*/  
-   
+*/
+
 /**
 * @property defaultBindProperty
 * @inheritdoc
 */
-   
+
 /**
 * @cfg publishes
 * @inheritdoc
-*/    
-   
+*/
+
 /**
 * @property element
 * @inheritdoc
 */
-   
+
 /**
 * @property focusable
 * @inheritdoc
@@ -372,8 +372,8 @@
 /**
 * @property focusClsEl
 * @inheritdoc
-*/  
-   
+*/
+
 /**
 * @method getButtonTemplate
 * @private
@@ -383,7 +383,7 @@
 * Overridden by {@link Ext.field.FileButton} to replace the `<button>` element with
 * an `<input type="file">` element.
 */
-   
+
 /**
 * @method shouldRipple
 * @private

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 import './styles.css';
 
 Ext.require(['Ext.drag.*']);
 
 export default class Groups extends Component {
-    
+
     render() {
         return (
-            <Panel 
+            <Panel
                 ref="mainPanel"
                 padding={5}
                 shadow
@@ -59,7 +59,7 @@ export default class Groups extends Component {
                 // This source will only interact with targets that belong to group1 or group2
                 groups: ['group1', 'group2']
             }),
-            
+
             new Ext.drag.Target({
                 id: 'group1-target',
                 element: this.refs.tar1.cmp.el,

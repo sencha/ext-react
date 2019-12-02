@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Panel, FormPanel, TextField, UrlField, EmailField, NumberField, DatePickerField } from '@sencha/ext-modern';
+import { Container, Panel, FormPanel, TextField, UrlField, EmailField, NumberField, DatePickerField } from '@sencha/ext-react-modern';
 
 Ext.require("Ext.data.validator.*");
 
@@ -47,7 +47,7 @@ export default function ValidationExample() {
                         label="Email"
                         validators="email"
                     />
-                    <TextField 
+                    <TextField
                         label="Phone Number"
                         inputMask="(999) 999-9999" // field is validated by this automatically
                     />
@@ -125,9 +125,9 @@ export default function ValidationExample() {
             </Container>
         </Container>
     )
-} 
+}
 
-// A method validator function returns the error message when 
+// A method validator function returns the error message when
 // invalid, true when valid.
 function validateCapilization(value) {
     const words = value.split(/\s+/);

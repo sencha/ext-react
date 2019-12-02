@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@sencha/ext-react'
-import { ExtReact } from '@sencha/ext-react'
+import { launch } from '@sencha/ext-react-modern'
+import { ExtReact } from '@sencha/ext-react-modern'
 import gridApp from './grid/gridApp'
 import App from './App'
 let viewport

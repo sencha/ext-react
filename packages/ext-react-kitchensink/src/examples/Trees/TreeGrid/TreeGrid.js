@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NumberColumn, Container, Column, Grid } from '@sencha/ext-modern';
+import { NumberColumn, Container, Column, Grid } from '@sencha/ext-react-modern';
 import { Tree, TreeColumn } from '@sencha/ext-modern-treegrid';
 import root from './data';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Toolbar, Spacer, Button } from '@sencha/ext-modern';
+import { Panel, Toolbar, Spacer, Button } from '@sencha/ext-react-modern';
 import createData from './createData';
 import { PivotHeatMap } from '@sencha/ext-pivot-d3';
 
@@ -48,8 +48,8 @@ export default class PivotHeatMapExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Panel 
-                shadow 
+            <Panel
+                shadow
                 layout="fit"
             >
                 <Toolbar docked="top">

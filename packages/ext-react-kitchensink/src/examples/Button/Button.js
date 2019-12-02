@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Panel, Button, Menu, MenuItem } from '@sencha/ext-modern';
+import { Container, Panel, Button, Menu, MenuItem } from '@sencha/ext-react-modern';
 
 export default class ButtonExample extends Component {
-    
+
     state = {
         style: '',
         type: 'text',
@@ -38,9 +38,9 @@ export default class ButtonExample extends Component {
 
         return (
             <Container padding="10">
-                <Container 
-                    layout={{ type: 'hbox', pack: Ext.os.is.Phone ? 'center' : 'left'}} 
-                    margin="0 0 10 0" 
+                <Container
+                    layout={{ type: 'hbox', pack: Ext.os.is.Phone ? 'center' : 'left'}}
+                    margin="0 0 10 0"
                     defaults={{ margin: "0 10 0 0" }}
                     width={Ext.isIE && 550}
                 >
@@ -118,7 +118,7 @@ const layoutProps = Ext.os.is.Phone ? {
         flex: 1,
         margin: '10',
         width: '100%'
-    }        
+    }
 }
 
 const buttonGroupProps = Ext.os.is.Phone ? {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import { D3_TreeMap } from '@sencha/ext-d3';
 import onTooltip from './tooltip';
 import './styles.css';

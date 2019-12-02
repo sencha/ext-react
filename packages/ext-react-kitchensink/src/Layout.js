@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { TitleBar, Container, NestedList, Panel, Button } from '@sencha/ext-modern'
-import { Transition } from '@sencha/ext-react-transition'
+import { Titlebar, Container, Nestedlist, Panel, Button } from '@sencha/ext-react-modern'
+//import { Transition } from '@sencha/ext-react-transition'
+
 
 //import hljs, { highlightBlock } from 'highlightjs';
 import NavTree from './NavTree';
@@ -23,6 +24,7 @@ class Layout extends Component {
   componentDidMount() {
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
+      //this.selectedNode = this.props.selectedNavNode;
 
       if (node) {
         /**
@@ -70,10 +72,16 @@ class Layout extends Component {
     }
   }
 
-  onNavChange = (nodeId) => {
-    if(nodeId === '' || nodeId) {
+  onNavChange = (node) => {
+    //console.log('onNavChange')
+    //console.log(node)
+    var nodeId = node.getId()
+    //console.log(nodeId)
+    //if(nodeId === '' || nodeId) {
       location.hash = nodeId;
-    }
+      //selectedNavNode
+      //this.props.selectedNavNode = node
+    //}
   }
 
   onTitleClick = () => {
@@ -103,7 +111,7 @@ class Layout extends Component {
     if (Ext.os.is.Phone) {
       // phone layout
       return (
-        <NestedList
+        <Nestedlist
           ref={phoneNav => this.phoneNav = phoneNav}
           store={navStore}
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
@@ -129,14 +137,15 @@ class Layout extends Component {
                   </Container>
               ) }
           </Container>
-        </NestedList>
+        </Nestedlist>
       )
-    } else {
+    } else if (!Ext.os.is.Phone) {
       // desktop + tablet layout
+      //this.onNavChange(node && node.getId(), node)
       return (
-        <Container layout="hbox" cls="main-background">
+        <Container layout="hbox" cls="main-background" viewport="true">
           <Container layout="fit" flex={4}>
-            <TitleBar docked="top" shadow style={{zIndex: 2}}>
+            <Titlebar docked="top" shadow style={{zIndex: 2}}>
               <Button
                 align="left"
                 iconCls="x-fa fa-bars"
@@ -144,7 +153,7 @@ class Layout extends Component {
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
               <a href="#" className="app-title">Sencha Extreact 7.0 Kitchen Sink - React v{REACT_VERSION}</a>
-            </TitleBar>
+            </Titlebar>
             <Container layout="fit" flex={1}>
               <NavTree
                 docked="left"
@@ -155,11 +164,17 @@ class Layout extends Component {
                 }}
                 store={navStore}
                 selection={selectedNavNode}
-                onSelectionChange={(tree, node) => this.onNavChange(node && node.getId())}
+                onSelectionChange={({treelist, record, eOpts}) => {
+                  //var node = detail.record
+                  var node = record;
+                  //console.log(node)
+                  //console.log('here')
+                  this.onNavChange(node)
+                }}
                 collapsed={!showTree}
               />
               <Breadcrumbs docked="top" node={selectedNavNode}/>
-              <Transition type="slide" bindDirectionToLocation padding="30">
+            
                 { component ? (
                   <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                     { layout === 'fit' ? (
@@ -171,7 +186,7 @@ class Layout extends Component {
                 ) : selectedNavNode ? (
                   <NavView key={selectedNavNode.id} node={selectedNavNode}/>
                 ) : null }
-              </Transition>
+             
             </Container>
           </Container>
           { files && (
@@ -188,7 +203,8 @@ class Layout extends Component {
           { files && (
             <Panel
               resizable={{ edges: 'west', dynamic: true }}
-              flex={2}
+          
+              width={700}
               layout="fit"
               collapsed={!showCode}
               header={false}
@@ -204,6 +220,11 @@ class Layout extends Component {
         </Container>
       );
     }
+    // else {
+    //   return (
+    //   <Panel title="hi"></Panel>
+    //   )
+    // }
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Toolbar, Label, SliderField, CheckBoxField, Column, WidgetCell, SparkLine , Container, SPark } from '@sencha/ext-modern';
+import { Grid, Toolbar, Label, SliderField, CheckBoxField, Column, WidgetCell, SparkLine , Container, SPark } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 import './Ticker.css';
 
@@ -82,7 +82,7 @@ export default class StockTickerGridExample extends Component {
         const { tickDelay } = this.state;
 
         return (
-            <Grid 
+            <Grid
                 title='Ticker Grid'
                 store={this.store}
                 itemConfig = {{
@@ -97,7 +97,7 @@ export default class StockTickerGridExample extends Component {
             >
                 <Column text="Company" dataIndex="name" width="150" sortable/>
                 <Column align="right" text="Price" width="85" dataIndex="price" formatter='usMoney' sortable/>
-                <Column text="Trend" width="200" dataIndex="trend" sortable={false} 
+                <Column text="Trend" width="200" dataIndex="trend" sortable={false}
                         cell= {{
                             bind: '{record.trend}',
                             xtype: 'widgetcell',
@@ -109,9 +109,9 @@ export default class StockTickerGridExample extends Component {
                          }}
                  >
                 </Column>
-                <Column align="right" text="Change" width="90" dataIndex="change" renderer={this.renderSign.bind(this, '0.00')} 
+                <Column align="right" text="Change" width="90" dataIndex="change" renderer={this.renderSign.bind(this, '0.00')}
                         cell={{ bodyStyle: { padding: 0 } }} sortable/>
-                <Column align="right" text="% Change" dataIndex="pctChange" renderer={this.renderSign.bind(this, '0.00%')} 
+                <Column align="right" text="% Change" dataIndex="pctChange" renderer={this.renderSign.bind(this, '0.00%')}
                         cell={{ bodyStyle: { padding: 0 } }} sortable/>
                 <Toolbar docked="bottom" defaults={{ margin: '0 20 0 0' }}>
                     <Label html="Tick Delay"/>
@@ -125,7 +125,7 @@ export default class StockTickerGridExample extends Component {
                         flex={1}
                     />
                     <Container><div>{tickDelay}ms</div></Container>
-                    <CheckBoxField 
+                    <CheckBoxField
                         margin="0"
                         boxLabel="Flash background color on change"
                         onChange={this.toggleFlashBackground}
@@ -137,20 +137,20 @@ export default class StockTickerGridExample extends Component {
 
     renderSparkline = (value) => {
         return (
-            <SparkLineLine 
-                values={value} 
-                height={16} 
+            <SparkLineLine
+                values={value}
+                height={16}
                 tipTpl='Price: {y:number("0.00")}'
             />
         )
     }
 
     renderSign = (format, value) => (
-        <div 
-            style={{ 
+        <div
+            style={{
                 color: value > 0 ? 'green' : value < 0 ? 'red' : '',
                 padding: '10px'
-            }} 
+            }}
             className={this.state.flashBackground && (value > 0 ? 'ticker-cell-gain' : value < 0 ? 'ticker-cell-loss' : '')}
         >
             {Ext.util.Format.number(value, format)}

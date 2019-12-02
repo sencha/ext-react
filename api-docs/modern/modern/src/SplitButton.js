@@ -11,7 +11,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, SplitButton } from '@sencha/ext-react';
+ *     import { ExtReact, Container, SplitButton } from '@sencha/ext-react-modern';
  *
  *      export default class SplitButtonExample extends Component {
  *
@@ -19,10 +19,10 @@
  *              return (
  *                  <ExtReact>
  *                      <Container padding="10" layout="vbox">
- *                          <SplitButton 
- *                              text="SplitButton" 
- *                              handler={this.sayHello} 
- *                              ui="action alt" 
+ *                          <SplitButton
+ *                              text="SplitButton"
+ *                              handler={this.sayHello}
+ *                              ui="action alt"
  *                              iconCls="x-fa fa-heart"
  *                              {...menuProps} margin="10"
  *                          />

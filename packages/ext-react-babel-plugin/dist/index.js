@@ -127,7 +127,7 @@ module.exports = function (babel) {
 
             if (sameFile && !importWritten) {
               //console.log('importWritten')
-              importWritten = true; //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react'`)
+              importWritten = true; //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react-modern'`)
 
               path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))], t.stringLiteral("@sencha/ext-react")));
             }

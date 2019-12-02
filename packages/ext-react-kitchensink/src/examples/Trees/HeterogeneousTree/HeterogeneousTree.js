@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ToolBar, TextField, Button } from '@sencha/ext-modern';
+import { ToolBar, TextField, Button } from '@sencha/ext-react-modern';
 import { Tree, TreeColumn } from '@sencha/ext-modern-treegrid';
 
 import './data';
@@ -18,7 +18,7 @@ export default class HeterogeneousTreeExample extends Component {
             name: 'iconCls',
             defaultValue: 'x-fa fa-bank'
         }]
-    }); 
+    });
 
     countryModel = Ext.define('KitchenSink.model.tree.Country', {
         extend: 'Ext.data.TreeModel',
@@ -67,10 +67,10 @@ export default class HeterogeneousTreeExample extends Component {
             value = inputField.getValue(),
             target = tree.getSelections()[0] || this.store.getRoot(),
             node;
-        
+
         if (value) {
             if (this.store.getNodeById(value)) {
-                return Ext.Msg.alert('Error', 'A node with this name already exists.'); 
+                return Ext.Msg.alert('Error', 'A node with this name already exists.');
             }
 
             node = {
@@ -145,19 +145,19 @@ export default class HeterogeneousTreeExample extends Component {
                     selectionchange: this.onSelectionChange
                 }}
             >
-                <TreeColumn 
+                <TreeColumn
                     text="Name"
                     dataIndex="name"
                     flex="1"
                 />
                 <ToolBar docked="bottom">
-                    <TextField 
+                    <TextField
                         ref={textfield => this.textfield = textfield}
                         listeners={{
                             action:'onFieldAction'
                         }}
                     />
-                    <Button 
+                    <Button
                         ref={button => this.button = button}
                         text="Add Territory"
                         handler={this.addItem}

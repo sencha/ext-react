@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-// import { reactify } from '@sencha/ext-react';
+// import { reactify } from '@sencha/ext-react-modern';
 // var Container = reactify('Container');
 // var Button = reactify('Button');
 // var Dialog = reactify('Dialog');
-import { Container } from '@sencha/ext-react'
-import { Button } from '@sencha/ext-react'
-import { Dialog } from '@sencha/ext-react'
+import { Container } from '@sencha/ext-react-modern'
+import { Button } from '@sencha/ext-react-modern'
+import { Dialog } from '@sencha/ext-react-modern'
 
 export default class DialogExample extends Component {
 

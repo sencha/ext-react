@@ -10,7 +10,7 @@
  *
  *     @example packages=[d3,ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Container }  from '@sencha/ext-react';
+ *     import { ExtReact, Container }  from '@sencha/ext-react-modern';
  *     import { D3_TreeMap } from '@sencha/ext-react-d3';
  *
  *     export default class MyExample extends Component {

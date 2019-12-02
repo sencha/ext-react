@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel, Button } from '@sencha/ext-modern';
+import { Container, Panel, Button } from '@sencha/ext-react-modern';
 import { shortText, mediumText } from '../../dummy';
 
 Ext.require('Ext.Toast');
@@ -14,8 +14,8 @@ export default class BasicPanelsExample extends Component {
         const text = Ext.os.is.Phone ? shortText : mediumText;
 
         return (
-            <Container 
-                padding={10} 
+            <Container
+                padding={10}
                 width={!Ext.os.is.Phone && 700}
                 layout={{
                     type: 'vbox',
@@ -23,9 +23,9 @@ export default class BasicPanelsExample extends Component {
                     align: 'stretch'
                 }}
             >
-                <Container 
-                    autoSize 
-                    defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }} 
+                <Container
+                    autoSize
+                    defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }}
                     layout={{ type: Ext.os.is.Phone ? 'vbox' : 'hbox', pack: 'center', align: 'stretch' }}
                     flex={1}
                 >
@@ -36,13 +36,13 @@ export default class BasicPanelsExample extends Component {
                         {text}
                     </Panel>
                 </Container>
-                <Container 
-                    autoSize 
-                    defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }} 
+                <Container
+                    autoSize
+                    defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }}
                     layout={{ type: Ext.os.is.Phone ? 'vbox' : 'hbox', pack: 'center', align: 'stretch' }}
                     flex={1}
                 >
-                    <Panel 
+                    <Panel
                         title="Built in Tools"
                         tools={[
                             {type: 'minimize', handler: toolHandler },
@@ -54,7 +54,7 @@ export default class BasicPanelsExample extends Component {
                     >
                         {text}
                     </Panel>
-                    <Panel 
+                    <Panel
                         title="Custom Tools w/ iconCls"
                         tools={[
                             {iconCls: 'x-fa fa-wrench', handler: toolHandler },
