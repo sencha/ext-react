@@ -1,6 +1,6 @@
-# ext-react 7.0.x
+# ext-react 7.1.x
 
-This repo is for ExtReact 7.0, which supports React 16 and above
+This repo is for ExtReact 7.1, which supports React 16 and above
 
 The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app.
 
@@ -8,8 +8,8 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 
 ## Requirements
 
-* React 16.x.x
-* Ext JS 7.0+
+* React 16.12.x
+* Ext JS 7.1+
 
 ## To Use this repo 'as-is' (to run the demos on your local machine)
 

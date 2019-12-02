@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-kitchensink",
   "product": "ext-react",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "A boilerplate project for Ext React showing all Ext JS modern components.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "clean": "rimraf build",
     "dev": "webpack-dev-server --env.browser=yes --env.emit=yes --env.verbose=no",
     "buildlocal": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.0.0/kitchensink/"
+    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.1.0/kitchensink/"
   },
   "author": "Sencha, Inc.",
   "repository": {
@@ -44,8 +44,8 @@
     "highlightjs": "~9.16.2",
     "history": "~4.9.0",
     "prop-types": "~15.7.2",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
+    "react": "~16.12.0",
+    "react-dom": "~16.12.0",
     "react-redux": "~7.1.1",
     "react-router-dom": "~5.1.0",
     "redux": "~4.0.4"
@@ -63,26 +63,26 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.5.4",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.7.4",
     "@sencha/ext-react-babel-plugin": "~7.0.0",
-    "@sencha/ext-webpack-plugin": "~7.0.0",
+    "@sencha/ext-webpack-plugin": "~7.1.0",
     "babel-loader": "^8.0.6",
     "base-href-webpack-plugin": "~2.0.0",
-    "copy-webpack-plugin": "^5.0.3",
-    "cross-env": "^5.2.0",
-    "css-loader": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.5",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.12.0",
-    "portfinder": "^1.0.21",
-    "raw-loader": "~3.0.0",
-    "react-hot-loader": "^4.12.7",
-    "rimraf": "^2.6.3",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "froala-editor": "^3.0.3",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "node-sass": "^4.13.0",
+    "portfinder": "^1.0.25",
+    "raw-loader": "~4.0.0",
+    "react-hot-loader": "^4.12.18",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "froala-editor": "^3.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   }
 }

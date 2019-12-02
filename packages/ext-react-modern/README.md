@@ -1,8 +1,8 @@
-## @sencha/ext-react
+## @sencha/ext-react-modern
 
-last run: Mon Dec 02 2019 10:55:46 GMT-0500 (Eastern Standard Time)
+last run: Mon Dec 02 2019 14:48:31 GMT-0500 (Eastern Standard Time)
 
-This npm package contains the files that are needed to add the @sencha/ext-react package to a React application
+This npm package contains the files that are needed to add the @sencha/ext-react-modern package to a React application
 
 ## Login to the Sencha early adopter npm repo
 
@@ -16,14 +16,14 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-demo
+npx create-react-app ext-react-demo-modern
 ```
 
 - Add ExtReact to your application by running the following:
 
 ```sh
-cd ext-react-demo
-npm install @sencha/ext-react --save
+cd ext-react-demo-modern
+npm install @sencha/ext-react-modern --save
 ```
 
 - Open your editor
@@ -42,7 +42,7 @@ code .
 
 ```sh
 import React, { Component } from 'react';
-import { ExtPanel, ExtToolbar, ExtButton, ExtGrid, ExtGridcolumn } from "@sencha/ext-react";
+import { ExtPanel, ExtToolbar, ExtButton, ExtGrid, ExtColumn } from "@sencha/ext-react-modern";
 
 class App extends Component {
 
@@ -61,15 +61,15 @@ class App extends Component {
           <ExtButton text="button2"></ExtButton>
         </ExtToolbar>
         <ExtGrid title="The Grid" shadow="true" onReady={ this.readyGrid }>
-          <ExtGridcolumn text="name" dataIndex="name"></ExtGridcolumn>
-          <ExtGridcolumn text="email" dataIndex="email" flex="1"></ExtGridcolumn>
+          <ExtColumn text="name" dataIndex="name"></ExtColumn>
+          <ExtColumn text="email" dataIndex="email" flex="1"></ExtColumn>
         </ExtGrid>
       </ExtPanel>
     )
   }
 
-  readyGrid = event => {
-    var grid = event.detail.cmp;
+  readyGrid = detail => {
+    var grid = detail.cmp;
     var data=[
       {name: 'Marc', email: 'marc@gmail.com'},
       {name: 'Nick', email: 'nick@gmail.com'},

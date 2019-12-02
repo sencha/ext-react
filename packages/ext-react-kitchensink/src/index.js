@@ -48,6 +48,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+//import { launch } from '@sencha/ext-react-modern'
 //import * as serviceWorker from './serviceWorker';
 
 import * as d3 from 'd3'
@@ -65,6 +66,7 @@ Ext.require([
   'Ext.layout.Fit'
 ])
 
+//launch(<App />, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
