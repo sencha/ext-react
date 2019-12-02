@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-//import { render } from '@sencha/ext-react';
+//import { render } from '@sencha/ext-react-modern';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

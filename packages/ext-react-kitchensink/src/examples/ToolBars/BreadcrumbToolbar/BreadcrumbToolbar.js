@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, BreadcrumbBar, Component as CMP } from '@sencha/ext-modern';
+import { Panel, BreadcrumbBar, Component as CMP } from '@sencha/ext-react-modern';
 import fileData from './Files.js'
 
 Ext.require(['Ext.BreadcrumbBar']);

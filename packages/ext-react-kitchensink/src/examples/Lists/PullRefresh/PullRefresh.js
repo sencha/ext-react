@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List } from '@sencha/ext-modern';
+import { List } from '@sencha/ext-react-modern';
 
 require('../stocks');
 

@@ -21,11 +21,11 @@ module.exports = function (env) {
       ]
     }
   ]
-  const resolve = {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
-  }
+  // const resolve = {
+  //   alias: {
+  //     'react-dom': '@hot-loader/react-dom'
+  //   }
+  // }
   //******* */
 
   var basehref      = get('basehref',      '/')
@@ -56,7 +56,7 @@ module.exports = function (env) {
         script: script,
         emit: emit,
         port: port,
-        profile: profile, 
+        profile: profile,
         environment: environment,
         treeshake: treeshake,
         browser: browser,
@@ -81,7 +81,7 @@ module.exports = function (env) {
       module: {
         rules: rules
       },
-      resolve: resolve,
+      //resolve: resolve,
       performance: { hints: false },
       stats: 'none',
       optimization: { noEmitOnErrors: true },

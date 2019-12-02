@@ -1,12 +1,12 @@
 /**
  * @class Ext.chart.series.Gauge
  * @extend Ext.chart.series.Series
- * 
+ *
  * Creates a Gauge Chart.
  *
  *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container } from '@sencha/ext-react';
+ *     import { ExtReact, Container } from '@sencha/ext-react-modern';
  *     import { Polar } from '@sencha/ext-charts';
  *
  *     export default class MyExample extends Component {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class NegativeValuesAreaChartExample extends Component {
     constructor(){
-        super();    
+        super();
     };
 
     state = {
@@ -54,14 +54,14 @@ export default class NegativeValuesAreaChartExample extends Component {
 
     render(){
         const { theme } = this.state;
-        
+
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
                 />
-                <Cartesian 
+                <Cartesian
                     shadow
                     insetPadding={'20 20 10 10'}
                     store={this.store}
@@ -119,5 +119,5 @@ export default class NegativeValuesAreaChartExample extends Component {
             </Container>
         )
     }
-    
+
 }

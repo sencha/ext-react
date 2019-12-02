@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { LockedGrid, Column } from '@sencha/ext-modern';
+import { LockedGrid, Column } from '@sencha/ext-react-modern';
 import model from '../CompanyModel';
 
 Ext.require([
@@ -16,7 +16,7 @@ export default class LockingGridExample extends Component {
     proxy: {
       type: 'ajax',
       url: 'resources/data/CompanyData.json'
-    } 
+    }
   });
 
   render() {
@@ -117,7 +117,7 @@ export default class LockingGridExample extends Component {
       </LockedGrid>
     )
   }
-  
+
   onApprove = (grid, info) => {
     Ext.Msg.alert('Approve', info.record.get('name'));
   }

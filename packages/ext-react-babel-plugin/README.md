@@ -9,7 +9,7 @@ import { Grid, Panel } from '@sencha/ext-modern';
 ... which this plugin converts to ...
 
 ```jsx
-import { reactify } from '@sencha/ext-react';
+import { reactify } from '@sencha/ext-react-modern';
 const Grid = reactify('grid');
 const Panel = reactify('panel');
 ```

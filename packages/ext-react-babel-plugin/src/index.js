@@ -1,4 +1,4 @@
-var reactVersion = 0 
+var reactVersion = 0
 var reactVersionFull = ''
 import chalk from 'chalk'
 const app = `${chalk.green('ℹ ｢ext｣:')} ext-react-babel-plugin: `
@@ -7,8 +7,8 @@ var fs
 try { fs = require('fs') }
 catch(ex) { console.log('\n' + app + 'fs not found') }
 
-var PATTERNS = 
-{ 
+var PATTERNS =
+{
   "ext" : '@sencha\/ext',
   "ext-core" : '@sencha\/ext-core',
   "ext-modern" : '@sencha\/ext-modern',
@@ -29,7 +29,7 @@ var PATTERNS =
 }
 
 module.exports = function(babel) {
-  
+
   if (fs != undefined && fs != {} && typeof fs.existsSync === 'function') {
     var pkg = (fs.existsSync('package.json') && JSON.parse(fs.readFileSync('package.json', 'utf-8')) || {});
     reactVersionFull = pkg.dependencies.react
@@ -83,7 +83,7 @@ module.exports = function(babel) {
             }
           }
         }
- 
+
         if (node.source && node.source.type === 'StringLiteral' && matches == true) {
           const declarations = []
           node.specifiers.forEach(spec => {
@@ -121,7 +121,7 @@ module.exports = function(babel) {
             if (sameFile && !importWritten) {
               //console.log('importWritten')
               importWritten = true
-              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react'`)
+              //readline.cursorTo(process.stdout, 0);console.log(`${app}generated-> import { reactify } from '@sencha/ext-react-modern'`)
               path.insertBefore(t.importDeclaration([t.importSpecifier(t.identifier('reactify'), t.identifier('reactify'))],t.stringLiteral(`@sencha/ext-react`)))
             }
             path.replaceWithMultiple(declarations)

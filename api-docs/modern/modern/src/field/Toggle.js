@@ -8,7 +8,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container, FormPanel, ToggleField } from '@sencha/ext-react';
+ *     import { ExtReact, Container, FormPanel, ToggleField } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *         render() {

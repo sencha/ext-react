@@ -2,7 +2,7 @@
  * @class Ext.chart.series.Bar
  * @extend Ext.chart.series.StackedCartesian
  * @alias series.bar
- * 
+ *
  * Creates a Bar or Column Chart (depending on the value of the
  * {@link Ext.chart.CartesianChart#flipXY flipXY} prop).
  *
@@ -11,7 +11,7 @@
  *
  *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Container } from '@sencha/ext-react';
+ *     import { ExtReact, Container } from '@sencha/ext-react-modern';
  *     import { Cartesian } from '@sencha/ext-charts';
  *
  *     export default class MyExample extends Component {

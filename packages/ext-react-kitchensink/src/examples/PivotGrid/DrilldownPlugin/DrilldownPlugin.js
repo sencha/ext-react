@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Container, PivotGrid, Toolbar, Button } from '@sencha/ext-modern';
+import { Container, PivotGrid, Toolbar, Button } from '@sencha/ext-react-modern';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 

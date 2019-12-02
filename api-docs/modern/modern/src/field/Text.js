@@ -9,7 +9,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, FormPanel, Container, TextField, FieldSet } from '@sencha/ext-react';
+ *     import { ExtReact, FormPanel, Container, TextField, FieldSet } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *         render() {
@@ -38,7 +38,7 @@
  *             )
  *         }
  *     }
- * 
+ *
  * * This creates two text fields inside a form. Text Fields can also be created outside of a
  * Form, like this:
  *

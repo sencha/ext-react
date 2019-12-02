@@ -10,7 +10,7 @@
  * grid itself.
  *
  * In general an array of column configurations will be passed to the grid.
- * 
+ *
  * ## Example usage:
  *
  *   @example packages=[ext-react]
@@ -105,18 +105,18 @@
  *     </Column>
  *
  * NOTE: Any subclass of {@link Ext.grid.cell.Base} may be used.  i.e.:
- * {@link Ext.grid.cell.Boolean BooleanCell}  
- * 
- * {@link Ext.grid.cell.Expander ExpanderCell}  
- * 
- * {@link Ext.grid.cell.Cell GridCell}  
- * 
- * {@link Ext.grid.cell.Number NumberCell}  
- * 
- * {@link Ext.grid.cell.RowNumberer RowNumbererCell}  
- * 
- * {@link Ext.grid.cell.Text TextCell}  
- * 
+ * {@link Ext.grid.cell.Boolean BooleanCell}
+ *
+ * {@link Ext.grid.cell.Expander ExpanderCell}
+ *
+ * {@link Ext.grid.cell.Cell GridCell}
+ *
+ * {@link Ext.grid.cell.Number NumberCell}
+ *
+ * {@link Ext.grid.cell.RowNumberer RowNumbererCell}
+ *
+ * {@link Ext.grid.cell.Text TextCell}
+ *
  * {@link Ext.grid.cell.Widget WidgetCell}
  *
  * @accessor
@@ -177,7 +177,7 @@
  * For example:
  *
  *      <Grid>
- *          <Column 
+ *          <Column
  *              text="Full Name"
  *              renderer={(value, record) => (
  *                  <div>{record.get('firstName')} {record.get('lastName')}</div>
@@ -186,22 +186,22 @@
  *      </Grid>
  *
  * A renderer may return any React element or component.  Here is an example that embeds a button in a grid cell:
- * 
+ *
  *      <Grid>
- *          <Column 
- *              text="Actions" 
+ *          <Column
+ *              text="Actions"
  *              dataIndex="name"
  *              renderer={(value, record) => (
  *                  <Button text={`Call ${value}`} handler={this.onCallClick.bind(this, record)}/>
  *              )}
  *          />
  *      </Grid>
- * 
+ *
  * When the renderer prop is specified, a {@link Ext.reactor.RendererCell RendererCell} is used.  Be sure to import
  * RendererCell so that it is included in your application's JavaScript bundle:
- * 
- *      import { RendererCell } from '@sencha/ext-react';
- * 
+ *
+ *      import { RendererCell } from '@sencha/ext-react-modern';
+ *
  * @cfg {Object} renderer.value The data value for the current cell.
  * @cfg {Ext.data.Model} renderer.record The record for the current row.
  * @cfg {Number} renderer.dataIndex The dataIndex of the current column.
@@ -264,34 +264,34 @@
  *     </Column>
  *
  * NOTE: Any subclass of {@link Ext.field.Field} may be used.  i.e.:
- * {@link Ext.field.Checkbox CheckboxField}  
- * 
- * {@link Ext.field.ComboBox ComboBoxField}  
- * 
- * {@link Ext.field.Container ContainerField}  
- * 
- * {@link Ext.field.Date DatePickerField}  
- * 
- * {@link Ext.field.Email EmailField}  
- * 
- * {@link Ext.field.File FileField}  
- * 
- * {@link Ext.field.Number NumberField}  
- * 
- * {@link Ext.field.Picker PickerField}  
- * 
- * {@link Ext.field.Search SearchField}  
- * 
- * {@link Ext.field.Select SelectField}  
- * 
- * {@link Ext.field.Slider SliderField}  
- * 
- * {@link Ext.field.Spinner SpinnerField}  
- * 
- * {@link Ext.field.TextArea TextArea}  
- * 
- * {@link Ext.field.Toggle ToggleField}  
- * 
+ * {@link Ext.field.Checkbox CheckboxField}
+ *
+ * {@link Ext.field.ComboBox ComboBoxField}
+ *
+ * {@link Ext.field.Container ContainerField}
+ *
+ * {@link Ext.field.Date DatePickerField}
+ *
+ * {@link Ext.field.Email EmailField}
+ *
+ * {@link Ext.field.File FileField}
+ *
+ * {@link Ext.field.Number NumberField}
+ *
+ * {@link Ext.field.Picker PickerField}
+ *
+ * {@link Ext.field.Search SearchField}
+ *
+ * {@link Ext.field.Select SelectField}
+ *
+ * {@link Ext.field.Slider SliderField}
+ *
+ * {@link Ext.field.Spinner SpinnerField}
+ *
+ * {@link Ext.field.TextArea TextArea}
+ *
+ * {@link Ext.field.Toggle ToggleField}
+ *
  * {@link Ext.field.URL URLField}
  *
  * @accessor

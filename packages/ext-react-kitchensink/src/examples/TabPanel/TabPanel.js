@@ -1,12 +1,12 @@
 import React from 'react';
-import { TabPanel, Component, Container } from '@sencha/ext-modern';
+import { TabPanel, Component, Container } from '@sencha/ext-react-modern';
 
 export default function TabPanelExample() {
     return (
         <Container layout={{type: 'vbox', align: 'stretch'}} padding={10}>
-            <TabPanel 
+            <TabPanel
                 flex={1}
-                shadow 
+                shadow
                 plain
             >
                 <Container title="Tab 1" {...tabProps}>
@@ -20,11 +20,11 @@ export default function TabPanelExample() {
                 </Container>
             </TabPanel>
 
-            <TabPanel 
+            <TabPanel
                 flex={1}
                 shadow
                 margin="20 0 0 0"
-                tabBar={{ 
+                tabBar={{
                     docked: 'bottom'
                 }}
             >

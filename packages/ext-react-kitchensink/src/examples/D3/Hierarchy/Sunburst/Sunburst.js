@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Tree } from '@sencha/ext-modern';
+import { Panel, Tree } from '@sencha/ext-react-modern';
 import { D3_Sunburst } from '@sencha/ext-d3';
 
 Ext.require([
@@ -42,7 +42,7 @@ export default class Sunburst extends Component {
             length = record.childNodes.length;
 
         tooltip.setTitle(record.get('text'));
-        tooltip.setHtml(size ? 
+        tooltip.setHtml(size ?
             Ext.util.Format.fileSize(size) :
             length + ' file' + (length === 1 ? '' : 's') + ' inside.'
         );
@@ -61,9 +61,9 @@ export default class Sunburst extends Component {
         const { selection } = this.state;
 
         return (
-            <Panel 
-                shadow 
-                plugins="responsive" 
+            <Panel
+                shadow
+                plugins="responsive"
                 layout={Ext.platformTags.phone ? 'vbox' : 'hbox'}
                 responsiveConfig={{
                     'width > 600': {

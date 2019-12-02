@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormPanel, ComboBoxField } from '@sencha/ext-modern';
+import { FormPanel, ComboBoxField } from '@sencha/ext-react-modern';
 import data from './data';
 
 export default class MultiSelectComboBoxFieldExample extends Component {

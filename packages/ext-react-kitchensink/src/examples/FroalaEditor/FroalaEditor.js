@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
-import { FroalaEditorField, FormPanel } from '@sencha/ext-modern';
+import { FroalaEditorField, FormPanel } from '@sencha/ext-react-modern';
 
 export default class DefaultGaugeExample extends Component {
     constructor() {

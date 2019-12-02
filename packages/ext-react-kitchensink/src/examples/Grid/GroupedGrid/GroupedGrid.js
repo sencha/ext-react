@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Grid, Toolbar, SegmentedButton, Button, Column } from '@sencha/ext-modern';
+import { Container, Grid, Toolbar, SegmentedButton, Button, Column } from '@sencha/ext-react-modern';
 import '../RestaurantData';
 
 Ext.require([
@@ -42,11 +42,11 @@ export default class GroupedGridExample extends Component {
                         <Button key="2" ui="toolbar-default" pressed={!grouped} text="OFF" handler={this.onToggleGrouping.bind(this, false)}/>
                     </SegmentedButton>
                 </Toolbar>
-            
+
                 <Grid
                     flex={1}
                     title="Restaurants"
-                    shadow 
+                    shadow
                     store={this.store}
                     grouped={grouped}
                     stateful={this.state.stateful}
@@ -60,19 +60,19 @@ export default class GroupedGridExample extends Component {
                         }
                     }
                 >
-                    <Column 
-                        text="Name" 
-                        dataIndex="name" 
+                    <Column
+                        text="Name"
+                        dataIndex="name"
                         flex={1}
                         groupHeaderTpl='{columnName}: {value:htmlEncode}'
                     />
-                    <Column 
-                        text="Cuisine" 
-                        dataIndex="cuisine" 
+                    <Column
+                        text="Cuisine"
+                        dataIndex="cuisine"
                         flex={1}
                     />
-                    <Column 
-                        text="Rating" 
+                    <Column
+                        text="Rating"
                         dataIndex="rating"
                         summaryCell="numbercell"
                         groupHeaderTpl='{value:repeat("★")} ({value:plural("Star")})'

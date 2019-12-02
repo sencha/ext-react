@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 
 export default class RippleExample extends React.Component {
 
@@ -11,7 +11,7 @@ export default class RippleExample extends React.Component {
         return (
             <Container layout="vbox">
                 <Container onClick={this.clickHandler} style={styles.rippleTarget} ripple={{ }} html='I ripple when clicked.'></Container>
-                <Container 
+                <Container
                     style={styles.rippleTarget}
                     ripple={{ }}
                     margin="30 0 0 0"
@@ -26,8 +26,8 @@ const styles = {
     rippleTarget: {
         position: 'relative', // this is required for ripples to be properly constrained to the target element
         height: '150px',
-        width: '300px', 
-        lineHeight: '150px',                       
+        width: '300px',
+        lineHeight: '150px',
         textAlign: 'center',
         backgroundColor: 'white',
         cursor: 'pointer',

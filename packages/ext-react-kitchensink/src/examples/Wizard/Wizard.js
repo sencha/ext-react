@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Toolbar, Container, Panel, Button, Indicator, SegmentedButton, ToolTip } from '@sencha/ext-modern';
+import { Toolbar, Container, Panel, Button, Indicator, SegmentedButton, ToolTip } from '@sencha/ext-react-modern';
 
 export default class WizardExample extends Component {
 
@@ -34,7 +34,7 @@ var t = <div style={styles.tooltipHeader}>&lt;Indicator tapMode="direction" /&gt
 
                 <Container layout="hbox" margin="0 0 10 0">
                     <SegmentedButton value={this.state.tapMode} onChange={this.changeTapMode} defaultUI="toolbar-default">
-                        <Button text="direction" value="direction" 
+                        <Button text="direction" value="direction"
                           tooltip={{
                             maxWidth:"300",
                             html:`
@@ -78,25 +78,25 @@ var t = <div style={styles.tooltipHeader}>&lt;Indicator tapMode="direction" /&gt
                     `}>
                     </Container>
                     <Toolbar docked="bottom" layout={{ type: 'hbox', align: 'center', pack: 'space-between' }}>
-                        <Button 
-                            disabled={step === 0} 
-                            text="Previous" 
-                            handler={this.previous} 
+                        <Button
+                            disabled={step === 0}
+                            text="Previous"
+                            handler={this.previous}
                             iconCls="x-fa fa-chevron-left"
                         />
-                        <Indicator 
-                            count={3} 
-                            activeIndex={step} 
-                            onNext={this.next} 
-                            onPrevious={this.previous} 
+                        <Indicator
+                            count={3}
+                            activeIndex={step}
+                            onNext={this.next}
+                            onPrevious={this.previous}
                             tapMode={tapMode}
-                            onIndicatorTap={this.onIndicatorTap} 
+                            onIndicatorTap={this.onIndicatorTap}
                         />
-                        <Button 
-                            disabled={step === 2} 
-                            text="Next" 
-                            handler={this.next} 
-                            iconCls="x-fa fa-chevron-right" 
+                        <Button
+                            disabled={step === 2}
+                            text="Next"
+                            handler={this.next}
+                            iconCls="x-fa fa-chevron-right"
                             iconAlign="right"
                         />
                     </Toolbar>

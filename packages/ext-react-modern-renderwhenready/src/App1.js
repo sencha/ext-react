@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Panel } from '@sencha/ext-modern'
-import { renderWhenReady } from '@sencha/ext-react'
-import { ExtReact } from '@sencha/ext-react'
+import { renderWhenReady } from '@sencha/ext-react-modern'
+import { ExtReact } from '@sencha/ext-react-modern'
 
 class App1 extends Component {
   render() {

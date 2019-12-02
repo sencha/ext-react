@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 import './styles.css';
 
 Ext.require(['Ext.drag.*']);
@@ -8,7 +8,7 @@ const DEFAULT_TEXT = 'Drag a file from your computer here';
 
 export default class Files extends Component {
 
- 
+
   state = {
     iconCls: 'drag-file-icon',
     //iconCls: 'drag-file-icon dropped fa-spin',
@@ -17,9 +17,9 @@ export default class Files extends Component {
 
   render() {
     const {iconCls, labelText} = this.state;
-    
+
     return (
-      <Panel 
+      <Panel
         ref="mainPanel"
         padding={5}
         shadow

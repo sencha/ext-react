@@ -1,9 +1,9 @@
 import React from 'react';
-import { TabPanel, Container } from '@sencha/ext-modern';
+import { TabPanel, Container } from '@sencha/ext-react-modern';
 
 export default function IconTabsExample() {
     return (
-        <TabPanel 
+        <TabPanel
             shadow
             tabBar={{ docked: 'bottom' }}
             defaults={{

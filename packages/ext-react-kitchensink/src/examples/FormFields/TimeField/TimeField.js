@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { 
+import {
     Container,
     FieldSet,
     FormPanel,
     TimeField,
     Toolbar,
     Button
-} from '@sencha/ext-modern';
+} from '@sencha/ext-react-modern';
 
 Ext.require('Ext.field.InputMask'); // need to require this specifically for inputMask props to work
 
@@ -26,9 +26,9 @@ export default class TimeFieldExample extends Component {
 
     render() {
         const { disabled } = this.state;
-        
+
         return (
-            <Container 
+            <Container
                 platformConfig={{
                     phone: {
                         layout: 'fit'
@@ -39,9 +39,9 @@ export default class TimeFieldExample extends Component {
                     }
                 }}
             >
-                <FormPanel 
+                <FormPanel
                     ref={form => this.form = form}
-                    shadow 
+                    shadow
                     padding="20"
                     platformConfig={{
                         "!phone": {

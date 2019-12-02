@@ -4,6 +4,8 @@ ps -al | grep node
 kill -9 <PID>
 
 
+    "@sencha/ext-react-babel-plugin",
+
 rm ~/.npmrc
 npm login --registry=https://npm.sencha.com/ --scope=@sencha
 npm login --registry=https://test.npm.sencha.com/ --scope=@sencha
@@ -45,18 +47,18 @@ git remote add upstream https://github.com/sencha/guides.git
 
 
 
-        <Column 
-          text="Company" 
-          dataIndex="name" 
+        <Column
+          text="Company"
+          dataIndex="name"
           width="150"
           summaryRenderer={this.summarizeCompanies}
           locked
         />
-        <Column 
-          text="Price" 
-          width="75" 
-          dataIndex="price" 
-          formatter="usMoney" 
+        <Column
+          text="Price"
+          width="75"
+          dataIndex="price"
+          formatter="usMoney"
           summary="average"
           locked
         />
@@ -75,27 +77,27 @@ git remote add upstream https://github.com/sencha/guides.git
                 }
             }
         }}
-        /> 
-        <Column 
-          text="Change" 
-          width="90" 
-          dataIndex="priceChange" 
+        />
+        <Column
+          text="Change"
+          width="90"
+          dataIndex="priceChange"
           renderer={this.renderSign.bind(this, '0.00')}
           summary="max"
           locked="right"
         />
-        <Column 
-          text="% Change" 
+        <Column
+          text="% Change"
           width="100"
-          dataIndex="priceChangePct" 
+          dataIndex="priceChangePct"
           renderer={this.renderSign.bind(this, '0.00')}
-          summary="average" 
+          summary="average"
         />
-        <Column 
-          text="Last Updated" 
-          width="125" 
-          dataIndex="priceLastChange" 
-          formatter="date('m/d/Y')" 
+        <Column
+          text="Last Updated"
+          width="125"
+          dataIndex="priceLastChange"
+          formatter="date('m/d/Y')"
           summary="max"
         />
 

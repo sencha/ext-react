@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * @class Ext.panel.time
  * @extend Ext.panel
  * @xtype timepanel
- * 
- * 
+ *
+ *
  * This component presents a time selection view with different interaction modes
  * depending on the device and configuration options. Default time view is analog
  * clock face.
@@ -17,7 +17,7 @@
  * Example usage:
  *
  *      @example packages=[ext-react]
- *      import { ExtReact, Container, TimePanel } from '@sencha/ext-react';
+ *      import { ExtReact, Container, TimePanel } from '@sencha/ext-react-modern';
  *      import React, { Component } from 'react';
  *      export default class TimeExample extends Component {
  *          render() {

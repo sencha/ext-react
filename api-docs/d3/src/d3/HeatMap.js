@@ -11,7 +11,7 @@
  *
  *     @example packages=[d3,ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Container }  from '@sencha/ext-react';
+ *     import { ExtReact, Container }  from '@sencha/ext-react-modern';
  *     import { D3_HeatMap } from '@sencha/ext-react-d3';
  *
  *     export default class MyExample extends Component {
@@ -96,7 +96,7 @@
  *                                 title: {
  *                                     text: 'Total'
  *                                 },
- *     
+ *
  *                                 field: 'bucket',
  *                                 step: 100
  *                             }}

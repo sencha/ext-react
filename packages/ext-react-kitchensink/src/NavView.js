@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 
 export default function NavView({ node }) {
 

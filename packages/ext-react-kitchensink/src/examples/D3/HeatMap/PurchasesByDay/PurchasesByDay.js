@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import { D3_HeatMap } from '@sencha/ext-d3';
 import storeData from './storeData';
 

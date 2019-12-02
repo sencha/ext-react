@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require(['Ext.grid.plugin.RowExpander'])
@@ -23,10 +23,10 @@ export default class RowExpanderGridExample extends Component {
       <div style={{marginTop:'1em'}}>{data.desc}</div>
     </div>
   );
-  
+
   render() {
     return (
-      <Grid 
+      <Grid
         title="Row Expander Grid"
         store={this.store}
         plugins={{

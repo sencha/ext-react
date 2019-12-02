@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 //import { Panel } from '@sencha/ext-modern';
-//import { renderWhenReady } from '@sencha/ext-react';
-//import { ExtReact, ExtReactRenderer } from '@sencha/ext-react';
+//import { renderWhenReady } from '@sencha/ext-react-modern';
+//import { ExtReact, ExtReactRenderer } from '@sencha/ext-react-modern';
 
 import ExtPanel from "@sencha/ext-elements-all/react/ExtPanel";
 //import Button from "@sencha/ext-elements-all/reactOrig/Button";

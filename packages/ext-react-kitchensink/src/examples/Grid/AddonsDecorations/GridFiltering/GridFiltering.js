@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Column, Grid } from '@sencha/ext-modern';
+import { Column, Grid } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require([
@@ -15,7 +15,7 @@ export default class GridFilteringExample extends Component {
     proxy: {
       type: 'ajax',
       url: '/KitchenSink/BigData'
-    } 
+    }
   });
 
   nameSorter = (rec1, rec2) => {
@@ -45,14 +45,14 @@ export default class GridFilteringExample extends Component {
         store={this.store}
         title='Grid Filters'
       >
-        <Column 
+        <Column
           dataIndex='employeeNo'
           filter='number'
           flex={1}
           minWidth={100}
           text='Id'
         />
-        <Column 
+        <Column
           dataIndex='fullName'
           filter='string'
           minWidth={150}

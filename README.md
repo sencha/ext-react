@@ -2,13 +2,13 @@
 
 This repo is for ExtReact 7.0, which supports React 16 and above
 
-The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app. 
+The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.com/products/extjs) components in your [React](https://facebook.github.io/react) app.
 
 [![Join the chat at https://gitter.im/sencha/ext-react](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/sencha/ext-react?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Requirements
 
-* React 16.x.x 
+* React 16.x.x
 * Ext JS 7.0+
 
 ## To Use this repo 'as-is' (to run the demos on your local machine)
@@ -21,7 +21,7 @@ The @sencha/ext-react package makes it easy to use [Ext JS](https://www.sencha.c
 ## Installation for an existing React application
 
 ```bash
-# Be sure to install react>=16 
+# Be sure to install react>=16
 
 npm install --save @sencha/ext-react
 npm install --save @sencha/ext @sencha/ext-modern @sencha/ext-modern-theme-material
@@ -56,8 +56,8 @@ If you're starting from scratch with Ext JS and React, we recommend cloning one 
 To launch your app, add the following to your index.js file (your webpack entry point):
 
 ```javascript
-import { launch } from '@sencha/ext-react'
-import { ExtReact } from '@sencha/ext-react'
+import { launch } from '@sencha/ext-react-modern'
+import { ExtReact } from '@sencha/ext-react-modern'
 import App from './App'
 
 launch(<ExtReact><App/></ExtReact>)
@@ -69,7 +69,7 @@ The launch function renders the specified component into the document body. It a
 launch(() => {
   // do some initialization before initial render
   // ...
-  
+
   // return the component to be rendered
   return <ExtReact><App/></ExtReact>
 })
@@ -78,9 +78,9 @@ launch(() => {
 The `launch` function serves two purposes:
 
 1. It delays your App's initial render until the ExtReact class system is fully initialized
-2. It creates a viewport, which is needed for creating components that take up the full height and width of the screen. 
+2. It creates a viewport, which is needed for creating components that take up the full height and width of the screen.
 
-When using `launch` you do not need a separate target `<div id="root"/>` in your `index.html` file. If you have one you 
+When using `launch` you do not need a separate target `<div id="root"/>` in your `index.html` file. If you have one you
 should remove it. The code above replaces the typical code for launching a React app, which generally looks something like:
 
 ```javascript
@@ -88,14 +88,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
-```    
+```
 
 ### your app component
 
 ```jsx
 // App.js
 import React, { Component } from 'react';
-import { ExtReact } from '@sencha/ext-react';
+import { ExtReact } from '@sencha/ext-react-modern';
 import { Panel } from '@sencha/ext-modern';
 
 class App extends Component {
@@ -111,18 +111,18 @@ class App extends Component {
 
 ### renderWhenReady(Component)
 
-If you do not need to create fullscreen components (for example if you're using ExtReact components with another 
-layout system), you can apply the `renderWhenReady` higher-order component to topmost component containing an ExtReact 
+If you do not need to create fullscreen components (for example if you're using ExtReact components with another
+layout system), you can apply the `renderWhenReady` higher-order component to topmost component containing an ExtReact
 element, omit the launch function, and render to a target element with render (just like ReactDOM.render).  This is especially useful
-if you're building a library of components based on ExtReact and you don't want to require the applications that 
+if you're building a library of components based on ExtReact and you don't want to require the applications that
 use your library to call `launch`.
 
 ```jsx
 // App.js
 import React, { Component } from 'react'
 import { Panel } from '@sencha/ext-modern'
-import { renderWhenReady } from '@sencha/ext-react'
-import { ExtReact } from '@sencha/ext-react'
+import { renderWhenReady } from '@sencha/ext-react-modern'
+import { ExtReact } from '@sencha/ext-react-modern'
 
 class App extends Component {
   render() {
@@ -141,7 +141,7 @@ export default renderWhenReady(App)
 // index.js
 import React from 'react'
 import App from './App'
-import { render } from '@sencha/ext-react'
+import { render } from '@sencha/ext-react-modern'
 
 render(<App/>, document.getElementById('root'))
 ```
@@ -154,7 +154,7 @@ Here is an example that uses the launch function's callback parameter to enable 
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@sencha/ext-react';
+import { launch } from '@sencha/ext-react-modern';
 import App from './App'
 
 let viewport;
@@ -216,7 +216,7 @@ Here's a minimal React app that renders an `Ext.Panel` from the classic toolkit:
 
 ```jsx
 import React from 'react';
-import { launch } from '@sencha/ext-react'
+import { launch } from '@sencha/ext-react-modern'
 import { Panel } from '@sencha/ext-modern'
 
 launch(
@@ -228,7 +228,7 @@ launch(
 
 ## Importing Components
 
-Any Ext JS component can be imported by the capitalized, camel-cased version of it's xtype.  For example, 
+Any Ext JS component can be imported by the capitalized, camel-cased version of it's xtype.  For example,
 
 ```jsx
 import { Grid } from '@sencha/ext-classic';
@@ -291,7 +291,7 @@ export default function MyComponent() {
 Event handler props can also take an object with additional options:
 
 ```jsx
-<Button 
+<Button
   onAfterRender={{
     single: true, // handler will only be called once
     fn: () => {...}
@@ -432,7 +432,7 @@ import { MyGrid } from '@sencha/ext-classic';
 If your component doesn't have an xtype, you can using the `reactify` function to convert any Ext JS component into a react component:
 
 ```jsx
-import { reactify } from '@sencha/ext-react'
+import { reactify } from '@sencha/ext-react-modern'
 
 const MyGrid = reactify(MyPackage.view.MyGrid);
 
@@ -543,7 +543,7 @@ You can upgrade all packages to use the latest `ext-react` and `sencha-cmd` by u
 
 ```
 npm run install:clean
-``` 
+```
 
 ## Running Tests
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TabPanel, Panel, Container } from '@sencha/ext-modern'; 
+import { TabPanel, Panel, Container } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.layout.overflow.Scroller');
 
@@ -7,18 +7,18 @@ export default class ScrollingTabsExample extends Component {
 
     render() {
         return (
-            <TabPanel 
-                shadow 
+            <TabPanel
+                shadow
                 tabBar={{
                     layout: {
                         pack: 'start',
                         overflow: 'scroller'
                     }
-                }} 
+                }}
                 platformConfig={{
                     "!phone": {
                         height: 600,
-                        width: 400 
+                        width: 400
                     }
                 }}
                 defaults={{

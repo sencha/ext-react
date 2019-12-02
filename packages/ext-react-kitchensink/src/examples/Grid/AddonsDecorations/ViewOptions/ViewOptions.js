@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Column, Toolbar } from '@sencha/ext-modern';
+import { Grid, Column, Toolbar } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require(['Ext.grid.plugin.ViewOptions']);
@@ -12,7 +12,7 @@ export default class ViewOptionsGridExample extends Component {
     proxy: {
       type: 'ajax',
       url: 'resources/data/CompanyData.json'
-    } 
+    }
   });
 
   render() {

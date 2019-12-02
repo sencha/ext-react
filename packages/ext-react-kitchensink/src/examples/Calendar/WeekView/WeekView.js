@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Calendar_Week, Calendar_List } from '@sencha/ext-calendar';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarWeekViewExample extends Component {
@@ -18,17 +18,17 @@ export default class CalendarWeekViewExample extends Component {
       url: '/KitchenSink/CalendarWeek'
     }
   })
- 
+
   changeCalendarView = (button, value) => {
     if (value == 'fullweek') {
-      this.setState({ 
+      this.setState({
         calendarview: value,
         visibleDays: 7,
         firstDayOfWeek: 0
       })
     }
     else {
-      this.setState({ 
+      this.setState({
         calendarview: value,
         visibleDays: 5,
         firstDayOfWeek: 0

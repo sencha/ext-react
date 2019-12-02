@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-modern';
+import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-react-modern';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 
@@ -249,8 +249,8 @@ export default class ExporterPlugin extends Component {
                     <Button text="Configurator" handler={this.showConfigurator}/>
                     <Button text="Export to ...">
                         <Menu defaults={{ handler: this.exportDocument, iconCls: 'x-fa fa-file-text-o' }}>
-                            <MenuItem 
-                                text="Excel xlsx (pivot table definition)" 
+                            <MenuItem
+                                text="Excel xlsx (pivot table definition)"
                                 iconCls="x-fa fa-file-excel-o"
                                 cfg={{
                                     type: 'pivotxlsx',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { reactify } from '@sencha/ext-react';
+import { reactify } from '@sencha/ext-react-modern';
 var Container = reactify('Container');
 var Button = reactify('Button');
 //var Dialog = reactify('Dialog');

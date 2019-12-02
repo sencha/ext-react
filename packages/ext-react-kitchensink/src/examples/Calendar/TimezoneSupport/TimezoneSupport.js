@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Calendar_Day } from '@sencha/ext-calendar';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarTimezoneSupportExample extends Component {
@@ -58,7 +58,7 @@ export default class CalendarTimezoneSupportExample extends Component {
                         }]
                     }]
                 }}>
-                <Calendar_Day 
+                <Calendar_Day
                     startTime= {6}
                     endTime = {22}
                     visibleDays = {2}

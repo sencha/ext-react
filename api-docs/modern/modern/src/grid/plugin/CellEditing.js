@@ -11,8 +11,8 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Grid, Column, SelectField } from '@sencha/ext-react';
- * 
+ *     import { ExtReact, Grid, Column, SelectField } from '@sencha/ext-react-modern';
+ *
  *     Ext.require('Ext.grid.plugin.CellEditing');
  *
  *     export default class MyExample extends Component {
@@ -35,19 +35,19 @@
  *                         store={this.store}
  *                         plugins={['cellediting']}
  *                     >
- *                         <Column 
+ *                         <Column
  *                             text="First Name"
  *                             dataIndex="fname"
  *                             flex={1}
  *                             editable
  *                         />
- *                         <Column 
+ *                         <Column
  *                             text="Last Name"
  *                             dataIndex="lname"
  *                             flex={1}
  *                             editable
  *                         />
- *                         <Column 
+ *                         <Column
  *                             text="Talent"
  *                             dataIndex="talent"
  *                             flex={1}

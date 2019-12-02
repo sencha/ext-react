@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Container } from '@sencha/ext-modern';
+import { Carousel, Container } from '@sencha/ext-react-modern';
 
 const styles = {
   card: {
@@ -28,9 +28,12 @@ const cardProps = {
   }
 };
 
+const rootProps = { align: 'stretch', type: 'vbox' };
+
+
 export default function CarouselExample() {
   return (
-    <Container layout={{ type: 'vbox', align: 'stretch' }} padding={10}>
+    <Container layout={{...rootProps}} padding={10}>
       <Carousel flex={1} shadow>
         <Container {...cardProps}>
           <div>Swipe left to show the next card...</div>

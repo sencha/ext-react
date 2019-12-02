@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { launch } from '@sencha/ext-react'
+import { launch } from '@sencha/ext-react-modern'
 import './themer.js'
 import '../.ext-reactrc'
 
@@ -28,9 +28,9 @@ Ext.require([
   'Ext.layout.Fit'
 ])
 
-import { ExtReact } from '@sencha/ext-react'
+import { ExtReact } from '@sencha/ext-react-modern'
 
-//import { reactify } from '@sencha/ext-react';
+//import { reactify } from '@sencha/ext-react-modern';
 //const ExtReact = reactify('ExtReact')
 
 const render = (Component, target) => {

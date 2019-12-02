@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Toolbar, Panel, Button, SearchField, SegmentedButton, Spacer, Container } from '@sencha/ext-modern';
+import { Toolbar, Panel, Button, SearchField, SegmentedButton, Spacer, Container } from '@sencha/ext-react-modern';
 
 export default class ToolbarExample extends Component {
 
@@ -14,7 +14,7 @@ export default class ToolbarExample extends Component {
     buttonHandler(button) {
       console.log(button.getValue())
         this.setState(
-          { 
+          {
             message: `User clicked "${button.getText()}"`,
             optionButton: button.getValue()
           }
@@ -31,7 +31,7 @@ export default class ToolbarExample extends Component {
                     <Spacer/>
                     {!Ext.os.is.Phone && (
                         <SegmentedButton
-                        value={this.state.optionButton}  
+                        value={this.state.optionButton}
                         >
                             <Button value="1" text="Option 1" pressed handler={this.buttonHandler.bind(this)}/>
                             <Button value="2" text="Option 2" handler={this.buttonHandler.bind(this)}/>

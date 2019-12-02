@@ -14,7 +14,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react'
- *     import { ExtReact, Panel, Progress } from '@sencha/ext-react';
+ *     import { ExtReact, Panel, Progress } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

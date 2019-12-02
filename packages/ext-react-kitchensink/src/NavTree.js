@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, SearchField, Toolbar, TreeList } from '@sencha/ext-modern';
+import { Container, Panel, SearchField, Toolbar, TreeList } from '@sencha/ext-react-modern';
 
 export default class NavTree extends Component {
 
@@ -19,11 +19,11 @@ export default class NavTree extends Component {
   render() {
     const { onSelectionChange, store, selection, ...props } = this.props;
     return (
-      <Panel 
+      <Panel
         {...props}
-        scrollable="y" 
-        shadow 
-        style={{zIndex: 100, backgroundColor: 'white'}} 
+        scrollable="y"
+        shadow
+        style={{zIndex: 100, backgroundColor: 'white'}}
         header={false}
         collapsible={{ direction: 'left' }}
       >
@@ -33,7 +33,7 @@ export default class NavTree extends Component {
             store={store}
             expanderFirst={false}
             expanderOnly={false}
-            onSelectionChange={onSelectionChange}
+            onSelectionchange={onSelectionChange}
             selection={selection}
         />
       </Panel>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TabPanel, Container, Toolbar, Button } from '@sencha/ext-modern'; 
+import { TabPanel, Container, Toolbar, Button } from '@sencha/ext-react-modern';
 
 export default class Closable extends Component {
 
@@ -17,7 +17,7 @@ export default class Closable extends Component {
         const tabs = this.state.tabs.filter(t => t !== tab);
         this.setState({ tabs })
     }
-    
+
     addTab = () => {
         const key = this.nextKey++;
         const tabs = [...this.state.tabs, key];
@@ -31,9 +31,9 @@ export default class Closable extends Component {
 
         return (
             <Container layout="fit" padding={10}>
-                <TabPanel 
-                    ref={tp => this.tabPanel = tp} 
-                    _extreactIgnoreOrder 
+                <TabPanel
+                    ref={tp => this.tabPanel = tp}
+                    _extreactIgnoreOrder
                     shadow
                     style={{ backgroundColor: 'white'}}
                     activeItem={0}
@@ -60,10 +60,10 @@ export default class Closable extends Component {
                         </Container>
                     ))}
                 </TabPanel>
-                <Button 
-                    top={18} 
-                    right={20} 
-                    iconCls="x-fa fa-plus" 
+                <Button
+                    top={18}
+                    right={20}
+                    iconCls="x-fa fa-plus"
                     handler={this.addTab}
                     ui="alt round"
                     tooltip="New Tab"

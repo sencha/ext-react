@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, FormPanel, SliderField } from '@sencha/ext-modern';
+import { Container, FormPanel, SliderField } from '@sencha/ext-react-modern';
 
 export default class SliderFieldExample extends Component {
 
@@ -26,14 +26,14 @@ export default class SliderFieldExample extends Component {
 
         return (
             <FormPanel shadow width="300" padding="20">
-                <SliderField 
+                <SliderField
                     onChange={this.onSingleChange}
                     label="Single Thumb"
                     value={singleValue}
                     padding="5"
                 />
                 <Container style={{marginBottom: '20px'}} html={`Value: ${singleValue}`}></Container>
-                <SliderField 
+                <SliderField
                     onChange={this.onLiveUpdateChange}
                     label="Live Update"
                     value={liveUpdateValue}
@@ -41,7 +41,7 @@ export default class SliderFieldExample extends Component {
                     padding="5"
                 />
                 <Container style={{marginBottom: '20px'}} html={`Value: ${liveUpdateValue}`}></Container>
-                <SliderField 
+                <SliderField
                     onChange={this.onMultipleChange}
                     label="Multiple Thumbs"
                     values={multipleValue}

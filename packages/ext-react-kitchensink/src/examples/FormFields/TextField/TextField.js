@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormPanel, TextField, FieldSet } from '@sencha/ext-modern';
+import { FormPanel, TextField, FieldSet } from '@sencha/ext-react-modern';
 
 export default function TextFieldExample() {
     return (
@@ -11,10 +11,10 @@ export default function TextFieldExample() {
                 <TextField labelAlign="placeholder" label="Name" required/>
             </FieldSet>
             <FieldSet title="With Error Message">
-                <TextField 
-                    labelAlign="placeholder" 
-                    label="Label" 
-                    errorMessage="The value you entered is invalid." 
+                <TextField
+                    labelAlign="placeholder"
+                    label="Label"
+                    errorMessage="The value you entered is invalid."
                     value="invalid value"
                     errorTarget="under"
                 />

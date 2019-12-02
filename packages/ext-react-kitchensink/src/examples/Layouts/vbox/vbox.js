@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel, Spacer } from '@sencha/ext-modern';
+import { Container, Panel, Spacer } from '@sencha/ext-react-modern';
 import colors from '../../colors';
 
 export default class VBoxLayoutExample extends Component {

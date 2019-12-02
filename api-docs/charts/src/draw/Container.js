@@ -3,13 +3,13 @@
  * @extend Ext.draw.ContainerBase
  * @xtype draw
  * The container that holds and manages instances of the {@link Ext.draw.Surface}
- * in which {@link Ext.draw.sprite.Sprite sprites} are rendered.  Draw containers are 
- * used as the foundation for all of the chart classes but may also be created directly 
+ * in which {@link Ext.draw.sprite.Sprite sprites} are rendered.  Draw containers are
+ * used as the foundation for all of the chart classes but may also be created directly
  * in order to create custom drawings.
- * 
+ *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Panel, Draw, Toolbar, Button, Spacer, Label } from '@sencha/ext-react';
+ *     import { ExtReact, Panel, Draw, Toolbar, Button, Spacer, Label } from '@sencha/ext-react-modern';
  *
  *     export default class DrawExample extends Component {
  *

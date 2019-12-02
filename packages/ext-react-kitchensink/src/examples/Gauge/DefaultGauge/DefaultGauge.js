@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { SliderField, Gauge, FormPanel } from '@sencha/ext-modern';
+import { SliderField, Gauge, FormPanel } from '@sencha/ext-react-modern';
 
 export default class DefaultGaugeExample extends Component {
 

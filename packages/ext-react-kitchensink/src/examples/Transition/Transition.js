@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Spacer, Panel, Button, Menu, MenuItem, Container, SliderField } from '@sencha/ext-modern'
-import { Transition } from '@sencha/ext-react-transition'
+import { Spacer, Panel, Button, Menu, MenuItem, Container, SliderField } from '@sencha/ext-react-modern'
+//import { Transition } from '@sencha/ext-react-transition'
 import colors from '../colors'
 
 export default class TransitionExample extends Component {
@@ -82,11 +82,11 @@ export default class TransitionExample extends Component {
         </Container>
 
         <Panel flex={1} layout="fit" shadow>
-          <Transition direction={direction} type={type.toLowerCase()} easing={easing} duration={duration}>
+          {/* <Transition direction={direction} type={type.toLowerCase()} easing={easing} duration={duration}>
             <Container key={`card${index}`} layout="center" style={styles[Math.abs(index) % 3]}>
               <div>View {index}</div>
             </Container>
-          </Transition>
+          </Transition> */}
         </Panel>
       </Container>
     )

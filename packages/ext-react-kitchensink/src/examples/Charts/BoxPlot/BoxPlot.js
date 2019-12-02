@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-charts';
 import ChartToolbar from '../ChartToolbar';
 import data from './data';
@@ -87,7 +87,7 @@ export default class BoxPlotExample extends Component {
                         type: 'scatter',
                         xField: 'field',
                         yField: 'age'
-                    }]}              
+                    }]}
                 />
             </Container>
         )

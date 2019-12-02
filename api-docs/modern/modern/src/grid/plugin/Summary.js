@@ -31,8 +31,8 @@
  *
  *      @example packages=[ext-react]
  *      import React, { Component } from 'react'
- *      import { ExtReact, Grid, Column } from '@sencha/ext-react';
- * 
+ *      import { ExtReact, Grid, Column } from '@sencha/ext-react-modern';
+ *
  *      Ext.require('Ext.grid.plugin.Summary');
  *
  *      export default class MyExample extends Component {
@@ -46,7 +46,7 @@
  *                  { 'fname': 'Hal', 'lname': 'Jordan', 'talent': 'Willpower', 'wins': 198 }
  *              ]
  *          });
- *      
+ *
  *          render() {
  *              return (
  *                  <ExtReact>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TabBar, Tab, Panel, Container } from '@sencha/ext-modern';
+import { TabBar, Tab, Panel, Container } from '@sencha/ext-react-modern';
 
 export default class TabBarExample extends Component {
 
@@ -34,4 +34,4 @@ export default class TabBarExample extends Component {
         this.setState({ activeTab: tab.getItemId() })
     }
 
-} 
+}

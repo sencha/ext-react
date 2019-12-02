@@ -1,25 +1,32 @@
 ## @sencha/ext-react
 
-last run: Tue Nov 19 2019 06:45:38 GMT-0500 (Eastern Standard Time)
+last run: Fri Nov 22 2019 17:21:30 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the files that are needed to add the @sencha/ext-react package to a React application
 
-## Create the React application with create-react-app
+## Login to the Sencha early adopter npm repo
 
-- Run the following:
+```sh
+npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@sencha
+
+```
+
+## Create a React application with create-react-app
+
+-   Run the following:
 
 ```sh
 npx create-react-app ext-react-demo
 ```
 
-- Add ExtReact to your application by running the following:
+-   Add ExtReact to your application by running the following:
 
 ```sh
 cd ext-react-demo
 npm install @sencha/ext-react --save
 ```
 
-- Open your editor
+-   Open your editor
 
 To open Visual Studio Code, type the following:
 
@@ -31,11 +38,11 @@ code .
 
 #### Add ExtReact to your project
 
-- Replace ./src/App.js with:
+-   Replace ./src/App.js with:
 
 ```sh
 import React, { Component } from 'react';
-import { ExtPanel, ExtToolbar, ExtButton, ExtGrid, ExtGridcolumn } from "@sencha/ext-react";
+import { ExtPanel, ExtToolbar, ExtButton, ExtGrid, ExtGridcolumn } from '@sencha/ext-react-modern';
 
 class App extends Component {
 
@@ -76,7 +83,7 @@ export default App;
 
 ```
 
-- Type the following in a command/terminal window:
+-   Type the following in a command/terminal window:
 
 ```sh
 npm start

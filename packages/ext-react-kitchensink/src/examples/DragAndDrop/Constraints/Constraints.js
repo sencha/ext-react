@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 import './styles.css';
 
 Ext.require(['Ext.drag.*']);
@@ -19,7 +19,7 @@ export default class Constraints extends Component {
 
         <Container ref="vertical" className="dand-constraints-item dand-constraints-vertical" html="Vertical"></Container>
         <Container ref="horizontal" className="dand-constraints-item dand-constraints-horizontal" html="Horizontal"></Container>
-        
+
         <Container ref="snap" className="dand-constraints-item dand-constraints-snap" html="snap: 60,50"></Container>
       </Panel>
     )

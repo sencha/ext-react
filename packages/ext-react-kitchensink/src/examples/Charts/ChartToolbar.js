@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Label, Spacer, Button, Toolbar, SegmentedButton, Menu, MenuItem } from '@sencha/ext-modern';
+import { Label, Spacer, Button, Toolbar, SegmentedButton, Menu, MenuItem } from '@sencha/ext-react-modern';
 
 Ext.require([
     'Ext.chart.theme.Blue',
@@ -21,14 +21,14 @@ const downloadChart = (chart) => {
         chart.preview();
     }
 }
-    
-export default function ChartToolbar({ 
-    theme, 
+
+export default function ChartToolbar({
+    theme,
     stacked,
     zoom,
     onlyMidnight=false,
-    onThemeChange, 
-    onToggleZoomOnPan, 
+    onThemeChange,
+    onToggleZoomOnPan,
     onToggleCrosshair,
     onRefreshClick,
     downloadChartRef,
@@ -51,11 +51,11 @@ export default function ChartToolbar({
                 </Button>
             )}
             { downloadChartRef && (
-                <Button 
+                <Button
                     {...toolbarItemDefaults}
                     ui="action"
-                    iconCls="x-fa fa-eye" 
-                    text="Preview" 
+                    iconCls="x-fa fa-eye"
+                    text="Preview"
                     handler={downloadChart.bind(null, downloadChartRef.cmp)}
                     platformConfig={{
                         desktop: {

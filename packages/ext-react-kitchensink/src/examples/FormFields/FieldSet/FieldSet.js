@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldSet, TextField, FormPanel } from '@sencha/ext-modern';
+import { FieldSet, TextField, FormPanel } from '@sencha/ext-react-modern';
 
 export default function FieldSetExample() {
     return (

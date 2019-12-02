@@ -9,7 +9,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { Panel, TreeList } from '@sencha/ext-react';
+ *     import { Panel, TreeList } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

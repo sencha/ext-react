@@ -8,7 +8,7 @@
  *
  *     @example packages=[ext-react]
  *     import React, { Component } from 'react';
- *     import { ExtReact, Button, FormPanel, TextField } from '@sencha/ext-react';
+ *     import { ExtReact, Button, FormPanel, TextField } from '@sencha/ext-react-modern';
  *
  *     export default class myExample extends Component {
  *         render() {
@@ -57,7 +57,7 @@
  *
  * ##Setting multiple errors on fields
  *
- * While you can call {@link Ext.field.Field#markInvalid} and {@link Ext.field.Field#clearInvalid} on each field, 
+ * While you can call {@link Ext.field.Field#markInvalid} and {@link Ext.field.Field#clearInvalid} on each field,
  * in your form, FormPanel provides a {@link #setErrors} method that will apply an Object of error states to multiple
  * fields with one call:
  *
@@ -69,7 +69,7 @@
  *          ...
  *      });
  *
- * While you can call {@link Ext.field.Field#getActiveErrors} on each field in the form to query the form for errors, 
+ * While you can call {@link Ext.field.Field#getActiveErrors} on each field in the form to query the form for errors,
  * you can call {@link #getErrors} on the form to get an array of error states, suitable to pass into {@link #setErrors}.
  *
  * NOTE: these methods will only work on fields that are named.

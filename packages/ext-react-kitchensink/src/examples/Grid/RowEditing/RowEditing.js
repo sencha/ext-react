@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Column, Grid, Datecolumn, Checkcolumn } from '@sencha/ext-modern';
+import { Container, Column, Grid, Datecolumn, Checkcolumn } from '@sencha/ext-react-modern';
 import model from '../PlantModel';
 
 Ext.require([
@@ -25,7 +25,7 @@ export default class RowEditingExample extends Component {
   render() {
     return (
     <Container padding="10" layout="fit" fitToParent={true}>
-        <Grid 
+        <Grid
           title="Row Editing"
           store={this.plants}
           shadow={true}
@@ -35,7 +35,7 @@ export default class RowEditingExample extends Component {
           markDirty={true}
           plugins={{ rowedit: { autoConfirm: false }}}
         >
-          <Column  
+          <Column
             text= 'Common Name'
             flex= {1}
             width= "100"
@@ -82,10 +82,10 @@ export default class RowEditingExample extends Component {
           />
         </Grid>
       </Container>
-      
+
     )
   }
-  
+
   onApprove = (grid, info) => {
     Ext.Msg.alert('Approve', info.record.get('name'));
   }

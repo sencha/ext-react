@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { List } from '@sencha/ext-modern';
+import { List } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.Toast');
 
 export default class BasicListExample extends Component {
 
-    store = Ext.create('Ext.data.Store', { 
+    store = Ext.create('Ext.data.Store', {
         autoLoad: true,
         proxy: {
             type: 'rest',
@@ -24,7 +24,7 @@ export default class BasicListExample extends Component {
     onSelect = (list, record) => {
         Ext.toast(`You selected ${record.get('first_name')} ${record.get('last_name')}.`)
     }
-    
+
     render() {
         return (
             <List

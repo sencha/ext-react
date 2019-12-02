@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, TreeList, Toolbar, SegmentedButton, Button } from '@sencha/ext-modern';
+import { Panel, TreeList, Toolbar, SegmentedButton, Button } from '@sencha/ext-react-modern';
 import data from './data';
 
 export default class TreeListExample extends Component {
@@ -20,8 +20,8 @@ export default class TreeListExample extends Component {
     }
 
     toggleMicro = (button, micro) => {
-        this.setState({ 
-            micro, 
+        this.setState({
+            micro,
             nav: micro || this.state.nav,
             width: micro ? 56 : undefined
         });
@@ -31,8 +31,8 @@ export default class TreeListExample extends Component {
         const { micro, nav, width } = this.state;
 
         return (
-            <Panel 
-                shadow={!Ext.os.is.Phone} 
+            <Panel
+                shadow={!Ext.os.is.Phone}
                 scrollable
                 platformConfig={{
                     "!phone": {
@@ -47,8 +47,8 @@ export default class TreeListExample extends Component {
                         <Button ui="default-toolbar" text="Micro" pressed={micro} onPressedChange={this.toggleMicro}/>
                     </SegmentedButton>
                 </Toolbar>
-                <TreeList      
-                    ref="tree"  
+                <TreeList
+                    ref="tree"
                     width={width}
                     expanderOnly={false}
                     store={this.store}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { Polar } from '@sencha/ext-charts';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
@@ -9,7 +9,7 @@ Ext.require([
 ]);
 
 export default class BasicPieChartExample extends Component {
-    
+
     constructor() {
         super();
         this.refresh();

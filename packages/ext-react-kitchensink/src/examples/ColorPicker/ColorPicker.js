@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
+import { Container, Panel } from '@sencha/ext-react-modern';
 import { ColorSelector } from '@sencha/ext-ux';
 
 Ext.require([

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormPanel, RadioField, FieldSet } from '@sencha/ext-modern';
+import { FormPanel, RadioField, FieldSet } from '@sencha/ext-react-modern';
 
 const radioProps = {
     name: 'radios'

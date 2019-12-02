@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import { ChartNavigator } from '@sencha/ext-charts';
 import createData from './createData';
 import ChartToolbar from '../ChartToolbar';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, SegmentedButton, Button, Panel, Container } from '@sencha/ext-modern';
+import { List, SegmentedButton, Button, Panel, Container } from '@sencha/ext-react-modern';
 
 require('../stocks');
 

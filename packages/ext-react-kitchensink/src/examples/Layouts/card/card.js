@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Panel, Button } from '@sencha/ext-modern';
+import { Container, Panel, Button } from '@sencha/ext-react-modern';
 import colors from '../../colors';
 
 export default class CardLayoutExample extends Component {
 
-    state = { 
-        activeCard: 0 
+    state = {
+        activeCard: 0
     }
 
     switchCards(animation) {
@@ -47,9 +47,9 @@ export default class CardLayoutExample extends Component {
         const { animation, activeCard } = this.state;
 
         const body = (
-            <Container 
+            <Container
                 layout={{ type: 'card', animation }}
-                activeItem={this.state.activeCard} 
+                activeItem={this.state.activeCard}
                 flex={1}
                 shadow
                 defaults={{
@@ -73,7 +73,7 @@ export default class CardLayoutExample extends Component {
                         Card layouts can optionally be configured to animate when switching cards.
                     </div>
                 </Panel>
-                { body }                    
+                { body }
             </Container>
         )
     }

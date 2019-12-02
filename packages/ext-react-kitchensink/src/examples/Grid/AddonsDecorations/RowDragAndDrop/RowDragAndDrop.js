@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require(['Ext.grid.plugin.RowDragDrop']);

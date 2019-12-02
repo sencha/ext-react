@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
-import { reactify } from '@sencha/ext-react';
+import { reactify } from '@sencha/ext-react-modern';
 const [ Container, Button, Grid, Column, Toolbar, Panel ] = reactify('Container', 'Button', 'Grid', 'Column', 'Toolbar', 'Panel');
- 
+
 describe('ReactTestRenderer shallow snapshots', () => {
     let renderer;
 
     beforeEach(() => {
         renderer = new ReactShallowRenderer()
     });
-    
+
     it('should support shallow rendering', () => {
         const TestComponent = () => (
             <Container>
