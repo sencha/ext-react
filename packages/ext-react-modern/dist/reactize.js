@@ -22,6 +22,13 @@ function syncEvent(node, eventName, newEventHandler, me) {
       //console.log('eventHandler')
       //console.log(eventname)
       //console.dir(e)
+      if (eventname == 'cmpready') {
+        //console.dir('cmpready')
+        me.cmp = event.detail.cmp;
+        me.ext = event.detail.cmp;
+        return;
+      }
+
       if (eventname == 'ready') {
         //console.dir(me)
         me.cmp = event.detail.cmp;
@@ -80,7 +87,8 @@ export default function (CustomElement) {
           //console.log(name)
           node[name] = _this2.props[name];
         }
-      }); // if (this.props.onTap) {
+      });
+      syncEvent(node, 'cmpready', true, this); // if (this.props.onTap) {
       //     this.componentRef.current.addEventListener('tap', (e) => this.props.onTap(e));
       // }
     };

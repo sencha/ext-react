@@ -68,7 +68,7 @@ Ext.define('Ext.ReactCell', {
     doDestroy: function () {
         this.widget = null;
         ReactDOM.unmountComponentAtNode(this.bodyElement.dom);
-        this.callParent();
+        //this.callParent();
     },
 
     privates: {

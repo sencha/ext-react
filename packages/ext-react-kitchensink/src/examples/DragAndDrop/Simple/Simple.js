@@ -27,6 +27,7 @@ export default class Simple extends Component {
         padding={5}
         shadow
         ref="dragContainer"
+        onReady={ this.extReactDidMount }
       >
         <Container
           ref="dragItem"
@@ -48,7 +49,7 @@ export default class Simple extends Component {
     )
   }
 
-  componentDidMount() {
+  extReactDidMount = () => {
     this.source = new Ext.drag.Source({
       element: this.refs.dragItem.cmp.el,
       constrain: this.refs.dragContainer.cmp.el,
