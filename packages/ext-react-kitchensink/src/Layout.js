@@ -57,6 +57,13 @@ class Layout extends Component {
     }
   }
 
+  extReactDidMount = detail => {
+    console.log(this.refs.rightContainer.cmp)
+    this.refs.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
+  }
+
+
+
   componentDidUpdate(previousProps) {
     if(Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
@@ -143,7 +150,7 @@ class Layout extends Component {
       // desktop + tablet layout
       //this.onNavChange(node && node.getId(), node)
       return (
-        <Container layout="hbox" cls="main-background" viewport="true">
+        <Container layout="hbox" cls="main-background" viewport="true" onReady={ this.extReactDidMount }>
           <Container layout="fit" flex={4}>
             <Titlebar docked="top" shadow style={{zIndex: 2}}>
               <Button
@@ -152,7 +159,11 @@ class Layout extends Component {
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha ExtReact 7.1 Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">Sencha ExtReact Kitchen Sink - React v{REACT_VERSION}</a>
+              <Container ref="rightContainer" align="right"></Container>
+
+
+
             </Titlebar>
             <Container layout="fit" flex={1}>
               <NavTree
@@ -174,7 +185,7 @@ class Layout extends Component {
                 collapsed={!showTree}
               />
               <Breadcrumbs docked="top" node={selectedNavNode}/>
-            
+
                 { component ? (
                   <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                     { layout === 'fit' ? (
@@ -186,7 +197,7 @@ class Layout extends Component {
                 ) : selectedNavNode ? (
                   <NavView key={selectedNavNode.id} node={selectedNavNode}/>
                 ) : null }
-             
+
             </Container>
           </Container>
           { files && (
@@ -203,7 +214,7 @@ class Layout extends Component {
           { files && (
             <Panel
               resizable={{ edges: 'west', dynamic: true }}
-          
+
               width={700}
               layout="fit"
               collapsed={!showCode}
