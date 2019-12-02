@@ -70,8 +70,7 @@ Ext.define('Ext.ReactCell', {
   },
   doDestroy: function doDestroy() {
     this.widget = null;
-    ReactDOM.unmountComponentAtNode(this.bodyElement.dom);
-    this.callParent();
+    ReactDOM.unmountComponentAtNode(this.bodyElement.dom); //this.callParent();
   },
   privates: {
     setWidgetWidth: function setWidgetWidth(width) {

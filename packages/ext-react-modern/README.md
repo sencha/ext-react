@@ -1,6 +1,6 @@
 ## @sencha/ext-react
 
-last run: Mon Dec 02 2019 00:00:12 GMT-0500 (Eastern Standard Time)
+last run: Mon Dec 02 2019 10:55:46 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the files that are needed to add the @sencha/ext-react package to a React application
 

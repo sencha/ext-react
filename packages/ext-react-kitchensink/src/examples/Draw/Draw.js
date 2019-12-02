@@ -3,106 +3,104 @@ import { Panel, Draw, Toolbar, Button, Spacer, Label, Container } from '@sencha/
 
 export default class DrawExample extends Component {
 
-    componentDidMount() {
-        //Added cmp to access component attributes in ext-react16 [revisit]
-        this.refs.draw.cmp.on({
-            element: 'element',
-            mousedown: this.onMouseDown,
-            mousemove: this.onMouseMove,
-            mouseup: this.onMouseUp,
-            mouseleave: this.onMouseUp
-        });
-    }
-
-    clear = () => {
+  componentDidMount() {}
+  extReactDidMount = detail => {
     //Added cmp to access component attributes in ext-react16 [revisit]
-        const { draw } = this.refs;
-        draw.cmp.getSurface().destroy();
-        draw.cmp.getSurface('overlay').destroy();
-        draw.cmp.renderFrame();
+    this.refs.draw.cmp.on({
+      element: 'element',
+      mousedown: this.onMouseDown,
+      mousemove: this.onMouseMove,
+      mouseup: this.onMouseUp,
+      mouseleave: this.onMouseUp
+    });
+  }
+
+  clear = () => {
+    const { draw } = this.refs;
+    draw.cmp.getSurface().destroy();
+    draw.cmp.getSurface('overlay').destroy();
+    draw.cmp.renderFrame();
+  }
+
+  onMouseDown = (e) => {
+    let { draw } = this.refs,
+        surface = draw.cmp.getSurface(),
+        xy, x, y;
+
+    if (!draw.cmp.sprite) {
+      xy = surface.getEventXY(e);
+      x = xy[0];
+      y = xy[1];
+
+      draw.cmp.list = [x, y, x, y];
+      draw.cmp.lastEventX = x;
+      draw.cmp.lastEventY = y;
+
+      draw.cmp.sprite = surface.add({
+        type: 'path',
+        path: ['M', draw.cmp.list[0], draw.cmp.list[1], 'L', draw.cmp.list[0] + 1e-1, draw.cmp.list[1] + 1e-1],
+        lineWidth: 30 * Math.random() + 10,
+        lineCap: 'round',
+        lineJoin: 'round',
+        strokeStyle: new Ext.util.Color(Math.random() * 127 + 128, Math.random() * 127 + 128, Math.random() * 127 + 128)
+      });
+
+      surface.renderFrame();
     }
+  }
 
-    onMouseDown = (e) => {
-        //Added cmp to access component attributes in ext-react16 [revisit]
-        let { draw } = this.refs,
-            surface = draw.cmp.getSurface(),
-            xy, x, y;
+  onMouseMove = (e) => {
+    let { draw } = this.refs;
+        let surface = draw.cmp.getSurface(),
+        path, xy, x, y, dx, dy, D;
 
-        if (!draw.cmp.sprite) {
-            xy = surface.getEventXY(e);
-            x = xy[0];
-            y = xy[1];
+    if (draw.cmp.sprite) {
+      xy = surface.getEventXY(e);
+      x = xy[0];
+      y = xy[1];
+      dx = draw.lastEventX - x;
+      dy = draw.lastEventY - y;
+      D = 10;
 
-            draw.cmp.list = [x, y, x, y];
-            draw.cmp.lastEventX = x;
-            draw.cmp.lastEventY = y;
+      if (dx * dx + dy * dy < D * D) {
+        draw.cmp.list.length -= 2;
+        draw.cmp.list.push(x, y);
+      } else {
+        draw.cmp.list.length -= 2;
+        draw.cmp.list.push(draw.cmp.lastEventX = x, draw.cmp.lastEventY = y);
+        draw.cmp.list.push(draw.cmp.lastEventX + 1, draw.cmp.lastEventY + 1);
+      }
 
-            draw.cmp.sprite = surface.add({
-                type: 'path',
-                path: ['M', draw.cmp.list[0], draw.cmp.list[1], 'L', draw.cmp.list[0] + 1e-1, draw.cmp.list[1] + 1e-1],
-                lineWidth: 30 * Math.random() + 10,
-                lineCap: 'round',
-                lineJoin: 'round',
-                strokeStyle: new Ext.util.Color(Math.random() * 127 + 128, Math.random() * 127 + 128, Math.random() * 127 + 128)
-            });
+      path = smoothList(draw.cmp.list);
 
-            surface.renderFrame();
-        }
+      draw.cmp.sprite.setAttributes({
+        path: path
+      });
+
+      if (Ext.os.is.Android) {
+        Ext.draw.cmp.Animator.schedule(() => surface.renderFrame(), draw);
+      } else {
+        surface.renderFrame();
+      }
     }
+  }
 
-    onMouseMove = (e) => {
-       //Added cmp to access component attributes in ext-react16 [revisit]
-        let { draw } = this.refs;
-           let surface = draw.cmp.getSurface(),
-            path, xy, x, y, dx, dy, D;
+  onMouseUp = (e) => {
+    //Added cmp to access component attributes in ext-react16 [revisit]
+    this.refs.draw.cmp.sprite = null;
+  }
 
-        if (draw.cmp.sprite) {
-            xy = surface.getEventXY(e);
-            x = xy[0];
-            y = xy[1];
-            dx = draw.lastEventX - x;
-            dy = draw.lastEventY - y;
-            D = 10;
-
-            if (dx * dx + dy * dy < D * D) {
-                draw.cmp.list.length -= 2;
-                draw.cmp.list.push(x, y);
-            } else {
-                draw.cmp.list.length -= 2;
-                draw.cmp.list.push(draw.cmp.lastEventX = x, draw.cmp.lastEventY = y);
-                draw.cmp.list.push(draw.cmp.lastEventX + 1, draw.cmp.lastEventY + 1);
-            }
-
-            path = smoothList(draw.cmp.list);
-
-            draw.cmp.sprite.setAttributes({
-                path: path
-            });
-
-            if (Ext.os.is.Android) {
-                Ext.draw.cmp.Animator.schedule(() => surface.renderFrame(), draw);
-            } else {
-                surface.renderFrame();
-            }
-        }
-    }
-
-    onMouseUp = (e) => {
-        //Added cmp to access component attributes in ext-react16 [revisit]
-        this.refs.draw.cmp.sprite = null;
-    }
-
-    onResize = () => {
-        //Added cmp to access component attributes in ext-react16 [revisit]
-        const { draw } = this.refs;
-        const size = draw.cmp.element.getSize();
-        draw.cmp.getSurface().setRect([0, 0, size.width, size.height]);
-        draw.cmp.renderFrame();
-    }
+  onResize = () => {
+    //Added cmp to access component attributes in ext-react16 [revisit]
+    const { draw } = this.refs;
+    const size = draw.cmp.element.getSize();
+    draw.cmp.getSurface().setRect([0, 0, size.width, size.height]);
+    draw.cmp.renderFrame();
+  }
 
     render() {
         return (
-            <Panel shadow layout="fit">
+            <Panel shadow layout="fit" onReady={ this.extReactDidMount }>
                 <Toolbar docked="top">
                     <Container>
                       <div style={{fontSize: Ext.os.is.Phone ? '12px' : '14px'}}>Use your {Ext.supports.Touch ? 'finger' : 'mouse'} to paint on the surface below.</div>
