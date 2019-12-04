@@ -22,17 +22,15 @@ function syncEvent(node, eventName, newEventHandler, me) {
       //console.log('eventHandler')
       //console.log(eventname)
       //console.dir(e)
-      if (eventname == 'cmpready') {
-        //console.dir('cmpready')
+      // if (eventname == 'cmpready') {
+      //   //console.dir('cmpready')
+      //   me.cmp = event.detail.cmp
+      //   me.ext = event.detail.cmp
+      //   return
+      // }
+      if (eventname == 'ready') {
         me.cmp = event.detail.cmp;
         me.ext = event.detail.cmp;
-        return;
-      }
-
-      if (eventname == 'ready') {
-        //console.dir(me)
-        me.cmp = event.detail.cmp;
-        me.ext = event.detail.cmp; //console.dir(me)
       }
 
       newEventHandler.call(this, e.detail);
@@ -75,8 +73,8 @@ export default function (CustomElement) {
 
       this.componentRef.current.text = this.props.text;
       var node = ReactDOM.findDOMNode(this);
+      this.cmp = node.cmp;
       Object.keys(this.props).forEach(function (name) {
-        //console.log(name)
         if (name === 'children' || name === 'style') {
           return;
         }
@@ -87,40 +85,19 @@ export default function (CustomElement) {
           //console.log(name)
           node[name] = _this2.props[name];
         }
-      });
-      syncEvent(node, 'cmpready', true, this); // if (this.props.onTap) {
-      //     this.componentRef.current.addEventListener('tap', (e) => this.props.onTap(e));
-      // }
+      }); //syncEvent(node, 'cmpready', true, this);
     };
 
     _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
       //console.log('componentDidUpdate: ' + tagName)
-      //console.log(prevProps)
-      //var r = React.isValidElement(this.element)
       var me = this;
 
       for (var prop in prevProps) {
         if (!/^on/.test(prop)) {
-          //console.log(prop)
-          //console.log(prevProps[prop])
-          //console.log(me.buttonRef.current[prop])
           if (me.props[prop] !== prevProps[prop] && prop != 'children') {
-            //console.log(prop)
-            //console.dir(me.props[prop])
             var node = ReactDOM.findDOMNode(this);
             me.componentRef.current[prop] = me.props[prop];
-            node[prop] = me.props[prop]; // var t = typeof me.props[prop]
-            // //console.log(t)
-            // if (t == 'object') {
-            //   me.componentRef.current[prop] = me.props[prop];
-            //   node.attributeObjects[prop] = me.props[prop]
-            //   node[prop] = t
-            // }
-            // else {
-            //   me.componentRef.current[prop] = me.props[prop];
-            //   node[prop] = me.props[prop]
-            // }
-            //me.componentRef.current[prop] = me.props[prop];
+            node[prop] = me.props[prop];
           }
         }
       }
@@ -129,6 +106,9 @@ export default function (CustomElement) {
     _proto.render = function render() {
       //console.log('*****render: ' + tagName)
       //console.log(this.props)
+      //var newProps = Object.assign({},this.props);
+      //newProps['aMe'] = this
+      //console.log(newProps)
       //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
       this.element = React.createElement(tagName, _extends({}, this.props, {
         style: this.props.style,

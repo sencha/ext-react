@@ -27,7 +27,7 @@
       "${workspace.dir}/../../node_modules/@sencha/ext-${toolkit.name}-theme-graphite",
       "${workspace.dir}/../../node_modules/@sencha/ext-react-renderercell",
       "${workspace.dir}/../../node_modules/@sencha/ext-web-components-renderercell",
-      "${workspace.dir}/../../node_modules/@sencha/ext-calendar",
+      "${workspace.dir}/../../node_modules/@sencha/ext-react-modern",
       "${workspace.dir}/../../node_modules/@sencha/ext-charts",
       "${workspace.dir}/../../node_modules/@sencha/ext-d3",
       "${workspace.dir}/../../node_modules/@sencha/ext-exporter",

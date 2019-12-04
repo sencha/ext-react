@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Calendar_Day } from '@sencha/ext-calendar';
+import { Calendar_Day } from '@sencha/ext-react-modern';
 import { Panel } from '@sencha/ext-react-modern';
 import './data';
 

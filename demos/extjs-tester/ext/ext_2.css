@@ -7947,7 +7947,7 @@ body {
     border: solid var(--faded-color);
     border-width: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:5 */
 .x-calendar-event {
     /**
  * @class Ext.calendar.Event
@@ -7955,11 +7955,11 @@ body {
     position: absolute;
     overflow: hidden;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:9 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:9 */
 .x-calendar-event.x-calendar-event-static {
     position: static;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:14 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:14 */
 .x-calendar-event-inner {
     user-select: none;
     -o-user-select: none;
@@ -7973,30 +7973,30 @@ body {
     width: 100%;
     cursor: pointer;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:24 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:24 */
 .x-calendar-event-inline-title .x-calendar-event-time {
     display: inline;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:28 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:28 */
 .x-calendar-event-inline-title .x-calendar-event-time-separator,
 .x-calendar-event-inline-title .x-calendar-event-time-end {
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:33 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:33 */
 .x-calendar-event-inline-title .x-calendar-event-inner {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:41 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:41 */
 .x-calendar-compact .x-calendar-event-time {
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:45 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:45 */
 .x-calendar-compact .x-calendar-event-inner {
     overflow: hidden;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:50 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:50 */
 .x-calendar-event-resizer {
     position: absolute;
     left: 50%;
@@ -8004,7 +8004,7 @@ body {
     cursor: s-resize;
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/Event.scss:57 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/Event.scss:57 */
 .x-calendar-event-resizable:hover .x-calendar-event-resizer,
 .x-calendar-event-resizing .x-calendar-event-resizer {
     display: block;
@@ -8071,21 +8071,21 @@ body {
     padding: 2px 4px;
     font-size: 11px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/List.scss:1 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/List.scss:1 */
 .x-calendar-list-item {
     position: relative;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/List.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/List.scss:5 */
 .x-calendar-list-icon {
     position: absolute;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/List.scss:9 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/List.scss:9 */
 .x-calendar-list-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/header/Base.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/header/Base.scss:5 */
 .x-calendar-header-table {
     /**
  * @class Ext.calendar.header.Base
@@ -8093,11 +8093,11 @@ body {
     table-layout: fixed;
     border-collapse: collapse;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/header/Base.scss:11 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/header/Base.scss:11 */
 .x-calendar-base .x-calendar-header-table {
     width: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/header/Base.scss:16 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/header/Base.scss:16 */
 .x-calendar-header-cell {
     user-select: none;
     -o-user-select: none;
@@ -8108,7 +8108,7 @@ body {
     -webkit-user-drag: none;
     cursor: default;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/header/Base.scss:20 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/header/Base.scss:20 */
 .x-calendar-header-hidden-cell {
     display: none;
 }
@@ -8156,13 +8156,13 @@ body {
 .x-calendar-header-compact .x-calendar-header-gutter {
     width: 24px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Base.scss:1 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Base.scss:1 */
 .x-calendar-table {
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:5 */
 .x-calendar-days-table-wrap {
     /**
  * @class Ext.calendar.view.Days
@@ -8171,50 +8171,50 @@ body {
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:11 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:11 */
 .x-calendar-days-header-wrap {
     width: 100%;
     display: table-cell;
     position: relative;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:17 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:17 */
 .x-calendar-days-body-row {
     display: table-row;
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:23 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:23 */
 .x-calendar-days-body-cell {
     display: table-cell;
     position: relative;
     width: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:28 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:28 */
 .x-gecko .x-calendar-days-body-cell {
     position: static;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:33 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:33 */
 .x-calendar-days-body-wrap {
     position: relative;
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:39 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:39 */
 .x-calendar-days-table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:46 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:46 */
 .x-calendar-days-allday-events {
     position: relative;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:49 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:49 */
 .x-calendar-days-allday-events td {
     padding: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:54 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:54 */
 .x-calendar-days-allday-background-wrap {
     position: absolute;
     left: 0;
@@ -8222,16 +8222,16 @@ body {
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:62 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:62 */
 .x-calendar-days-body-table {
     position: absolute;
     height: auto;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:66 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:66 */
 .x-calendar-days-body-table td {
     padding: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:71 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:71 */
 .x-calendar-days-time,
 .x-calendar-days-allday-empty-cell {
     user-select: none;
@@ -8243,12 +8243,12 @@ body {
     -webkit-user-drag: none;
     cursor: default;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:76 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:76 */
 .x-calendar-days-day-column {
     position: relative;
     z-index: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:82 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:82 */
 .x-calendar-days-day-event-container {
     position: absolute;
     height: 100%;
@@ -8256,7 +8256,7 @@ body {
     left: 0;
     right: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days.scss:90 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days.scss:90 */
 .x-calendar-days-now-marker {
     position: absolute;
     left: 0;
@@ -8400,19 +8400,19 @@ body {
 .x-calendar-days-compact .x-calendar-days-allday-empty-cell {
     line-height: 10px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:5 */
 .x-calendar-weeks {
     /**
  * @class Ext.calendar.view.Weeks
  */
     position: relative;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:9 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:9 */
 .x-calendar-weeks-week-rows {
     width: 100%;
     height: 100%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:14 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:14 */
 .x-calendar-weeks-cell {
     user-select: none;
     -o-user-select: none;
@@ -8423,41 +8423,41 @@ body {
     -webkit-user-drag: none;
     cursor: default;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:19 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:19 */
 .x-today-cell-highlight-weeks-day .x-calendar-weeks-day-text {
     padding: 2px 7px;
     border-radius: 50%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:25 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:25 */
 .x-calendar-weeks-cell-inner {
     width: 100%;
     height: 100%;
     position: relative;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:31 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:31 */
 .x-calendar-weeks-hidden-cell {
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:35 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:35 */
 .x-calendar-weeks-overflow {
     position: absolute;
     display: none;
     text-align: center;
     cursor: pointer;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:41 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:41 */
 .x-calendar-weeks-with-overflow-bottom .x-calendar-weeks-overflow {
     text-align: center;
     bottom: 0;
     left: 0;
     right: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:48 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:48 */
 .x-calendar-weeks-with-overflow-top .x-calendar-weeks-overflow {
     top: 5px;
     right: 5px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks.scss:53 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks.scss:53 */
 .x-calendar-weeks-overflow-cell .x-calendar-weeks-overflow {
     display: block;
 }
@@ -8529,31 +8529,31 @@ body {
 .x-calendar-weeks-compact .x-calendar-weeks-overflow {
     font-size: 11px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:6 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:6 */
 .x-calendar-month-4weeks .x-calendar-weeks-row {
     /**
  * @class Ext.calendar.view.Month
  */
     height: 25%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:9 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:9 */
 .x-calendar-month-4weeks .x-calendar-weeks-row[data-week="4"],
 .x-calendar-month-4weeks .x-calendar-weeks-row[data-week="5"] {
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:16 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:16 */
 .x-calendar-month-5weeks .x-calendar-weeks-row {
     height: 20%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:19 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:19 */
 .x-calendar-month-5weeks .x-calendar-weeks-row[data-week="5"] {
     display: none;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:26 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:26 */
 .x-calendar-month-6weeks .x-calendar-weeks-row {
     height: 16.66%;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month.scss:28 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month.scss:28 */
 .x-gecko .x-calendar-month-6weeks .x-calendar-weeks-row {
     height: 16%;
 }
@@ -8578,7 +8578,7 @@ body {
 .x-calendar-list .x-calendar-list-text {
     padding-left: 20px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/modern/sass/src/calendar/form/CalendarPicker.scss:5 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/form/CalendarPicker.scss:5 */
 .x-calendar-picker-list-icon,
 .x-calendar-picker-field-icon {
     /**
@@ -8589,7 +8589,7 @@ body {
     top: 0;
     bottom: 0;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/modern/sass/src/calendar/form/CalendarPicker.scss:12 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/form/CalendarPicker.scss:12 */
 .x-calendar-picker-list .x-picker-item {
     position: relative;
     width: 100%;
@@ -8796,7 +8796,7 @@ body {
 .x-calendar-panel-sheet .x-sheet-body-el {
     padding: 13px;
 }
-/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-calendar/modern/sass/src/calendar/panel/Panel.scss:14 */
+/* /Users/marcgusmano/_git/sencha/ext-web-components/packages/ext-web-components-kitchensink/node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/panel/Panel.scss:14 */
 .x-compact .x-calendar-panel-title {
     position: absolute;
     left: 50%;

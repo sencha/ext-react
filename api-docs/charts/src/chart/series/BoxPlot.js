@@ -18,7 +18,7 @@
  *     @example packages=[charts,ext-react]
  *     import React, { Component } from 'react';
  *     import { ExtReact, Container } from '@sencha/ext-react-modern';
- *     import { Cartesian } from '@sencha/ext-charts';
+ *     import { Cartesian } from '@sencha/ext-react-modern';
  *
  *     export default class MyExample extends Component {
  *

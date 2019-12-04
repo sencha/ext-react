@@ -25,12 +25,12 @@ export default class BasicGridExample extends Component {
       <Grid title="Stock Prices" store={this.store} scrollable shadow grouped>
         <Column text="Company" dataIndex="name" width="150"/>
         <Column text="Price" width="85" dataIndex="price" formatter='usMoney'/>
-        <Column
+        {/* <Column
           text="Change"
           width="100"
           dataIndex="priceChange"
           renderer={this.renderSign.bind(this, '0.00')}
-        />
+        /> */}
         <Column
           text="% Change"
           dataIndex="priceChangePct"

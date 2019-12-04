@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Polar } from '@sencha/ext-react-modern';
-//import { Polar } from '@sencha/ext-charts';
+//import { Polar } from '@sencha/ext-react-modern';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
