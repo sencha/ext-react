@@ -3,8 +3,12 @@ import { Panel, Draw, Toolbar, Button, Spacer, Label, Container } from '@sencha/
 
 export default class DrawExample extends Component {
 
-  componentDidMount() {}
-  extReactDidMount = detail => {
+  componentDidMount() {
+  //  console.log('componentDidMount')
+  //}
+  //onReady={ this.extReactDidMount }
+  //extReactDidMount = detail => {
+  //  console.log('extReactDidMount')
     //Added cmp to access component attributes in ext-react16 [revisit]
     this.refs.draw.cmp.on({
       element: 'element',
@@ -100,7 +104,7 @@ export default class DrawExample extends Component {
 
     render() {
         return (
-            <Panel shadow layout="fit" onReady={ this.extReactDidMount }>
+            <Panel shadow layout="fit" >
                 <Toolbar docked="top">
                     <Container>
                       <div style={{fontSize: Ext.os.is.Phone ? '12px' : '14px'}}>Use your {Ext.supports.Touch ? 'finger' : 'mouse'} to paint on the surface below.</div>

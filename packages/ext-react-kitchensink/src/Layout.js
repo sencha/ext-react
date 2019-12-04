@@ -22,6 +22,8 @@ Ext.require([
 class Layout extends Component {
 
   componentDidMount() {
+    //console.log('componentDidMount')
+    this.refs.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
       //this.selectedNode = this.props.selectedNavNode;
@@ -57,12 +59,11 @@ class Layout extends Component {
     }
   }
 
-  extReactDidMount = detail => {
-    console.log(this.refs.rightContainer.cmp)
-    this.refs.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
-  }
+// onReady={ this.extReactDidMount }
+  // extReactDidMount = detail => {
+  //   console.log('extReactDidMount')
 
-
+  // }
 
   componentDidUpdate(previousProps) {
     if(Ext.os.is.Phone) {
@@ -150,7 +151,7 @@ class Layout extends Component {
       // desktop + tablet layout
       //this.onNavChange(node && node.getId(), node)
       return (
-        <Container layout="hbox" cls="main-background" viewport="true" onReady={ this.extReactDidMount }>
+        <Container layout="hbox" cls="main-background" viewport="true">
           <Container layout="fit" flex={4}>
             <Titlebar docked="top" shadow style={{zIndex: 2}}>
               <Button
@@ -161,9 +162,6 @@ class Layout extends Component {
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
               <a href="#" className="app-title">Sencha ExtReact Kitchen Sink - React v{REACT_VERSION}</a>
               <Container ref="rightContainer" align="right"></Container>
-
-
-
             </Titlebar>
             <Container layout="fit" flex={1}>
               <NavTree
@@ -186,17 +184,19 @@ class Layout extends Component {
               />
               <Breadcrumbs docked="top" node={selectedNavNode}/>
 
-                { component ? (
-                  <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
-                    { layout === 'fit' ? (
-                        <Container padding="30" layout="fit">{ example }</Container>
-                    ) : (
-                        example
-                    )}
-                  </Container>
-                ) : selectedNavNode ? (
-                  <NavView key={selectedNavNode.id} node={selectedNavNode}/>
-                ) : null }
+                { component
+                  ? (
+                    <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                      { layout === 'fit'
+                        ? (<Container padding="30" layout="fit">{ example }</Container>)
+                        : (example)
+                      }
+                    </Container>
+                  )
+                  : selectedNavNode
+                    ? (<NavView key={selectedNavNode.id} node={selectedNavNode}/>)
+                    : null
+                }
 
             </Container>
           </Container>
@@ -214,7 +214,6 @@ class Layout extends Component {
           { files && (
             <Panel
               resizable={{ edges: 'west', dynamic: true }}
-
               width={700}
               layout="fit"
               collapsed={!showCode}
@@ -231,11 +230,6 @@ class Layout extends Component {
         </Container>
       );
     }
-    // else {
-    //   return (
-    //   <Panel title="hi"></Panel>
-    //   )
-    // }
   }
 }
 

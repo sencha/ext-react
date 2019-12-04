@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '@sencha/ext-react-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -23,18 +23,9 @@ export default class CandlestickChartExample extends Component {
     this.refresh();
   }
 
-  componentDidMount() {
-
-
-    console.log(this.container.cmp)
-
-    //this.container.cmp.remove(0)
-
-
-
+  extReactDidMount = () => {
     this.chart.cmp.getInteraction('panzoom').setEnabled(false);
     this.chart.cmp.getInteraction('crosshair').setEnabled(true);
-
 
 //     console.log(this.chart.cmp)
 //     //this.chart = this.refs.chart.cmp;
@@ -81,16 +72,14 @@ export default class CandlestickChartExample extends Component {
   }
 
   render() {
-    console.log('render')
+    //console.log('render')
     const { theme } = this.state;
     //const { zoom } = this.state;
-
-    console.log(theme)
-
+    //console.log(theme)
     var theme2='midnight'
 
     return (
-      <Container padding={!Ext.os.is.Phone && 10} layout="fit" ref={container => this.container = container}>
+      <Container onReady={ this.extReactDidMount } padding={!Ext.os.is.Phone && 10} layout="fit" ref={container => this.container = container}>
 
         <ChartToolbar
           onThemeChange={this.changeTheme}
@@ -102,6 +91,7 @@ export default class CandlestickChartExample extends Component {
 
         <Cartesian
           shadow
+          downloadServerUrl ="http://svg.sencha.io"
           ref={chart => this.chart = chart}
           store={this.store}
           theme={theme}

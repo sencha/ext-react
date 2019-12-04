@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Cartesian } from '@sencha/ext-charts';
+import { Cartesian } from '@sencha/ext-react-modern';
 
 Ext.require([
   'Ext.chart.series.Area',

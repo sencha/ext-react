@@ -1316,7 +1316,7 @@ $calendar-resource-path: 'calendar/images' !default;
 $current-package: 'calendar';
 $current-resource-root: $calendar-resource-root;
 $relative-image-path-for-uis: $calendar-resource-path;
-@import '../../node_modules/@sencha/ext-calendar/sass/etc/all';
+@import '../../node_modules/@sencha/ext-react-modern/sass/etc/all';
 
 /* including package charts */
 $charts-resource-root: 'charts' !default;
@@ -1942,13 +1942,13 @@ $calendar-resource-path: 'calendar/images' !default;
 $current-package: 'calendar';
 $current-resource-root: $calendar-resource-root;
 $relative-image-path-for-uis: $calendar-resource-path;
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/Event';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/List';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/header/Base';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/view/Base';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/view/Days';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/view/Weeks';
-@import '../../node_modules/@sencha/ext-calendar/sass/src/calendar/view/Month';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/Event';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/List';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/header/Base';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Base';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Days';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Weeks';
+@import '../../node_modules/@sencha/ext-react-modern/sass/src/calendar/view/Month';
 
 /* including package calendar */
 $calendar-resource-root: 'calendar' !default;
@@ -1956,10 +1956,10 @@ $calendar-resource-path: 'calendar/images' !default;
 $current-package: 'calendar';
 $current-resource-root: $calendar-resource-root;
 $relative-image-path-for-uis: $calendar-resource-path;
-@import '../../node_modules/@sencha/ext-calendar/modern/sass/src/calendar/List';
-@import '../../node_modules/@sencha/ext-calendar/modern/sass/src/calendar/form/CalendarPicker';
-@import '../../node_modules/@sencha/ext-calendar/modern/sass/src/calendar/view/Base';
-@import '../../node_modules/@sencha/ext-calendar/modern/sass/src/calendar/panel/Panel';
+@import '../../node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/List';
+@import '../../node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/form/CalendarPicker';
+@import '../../node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/view/Base';
+@import '../../node_modules/@sencha/ext-react-modern/modern/sass/src/calendar/panel/Panel';
 
 /* including package charts */
 $charts-resource-root: 'charts' !default;

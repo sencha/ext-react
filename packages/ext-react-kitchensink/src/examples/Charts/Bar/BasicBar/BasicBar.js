@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '@sencha/ext-react-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 
 Ext.require([

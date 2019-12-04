@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Calendar } from '@sencha/ext-calendar';
+import { Calendar } from '@sencha/ext-react-modern';
 import '../data';
 
 export default class CalendarExample extends Component {
