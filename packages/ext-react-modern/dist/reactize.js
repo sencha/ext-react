@@ -1,6 +1,6 @@
-import _extends from "@babel/runtime/helpers/extends";
-import _createClass from "@babel/runtime/helpers/createClass";
-import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
+import _extends from "@babel/runtime/helpers/extends.js";
+import _createClass from "@babel/runtime/helpers/createClass.js";
+import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose.js";
 import React from 'react';
 import ReactDOM from 'react-dom'; //https://coryrylan.com/blog/using-web-components-in-react
 //import ReactCell from './ReactCell.js';
@@ -68,8 +68,25 @@ export default function (CustomElement) {
 
     var _proto = ReactComponent.prototype;
 
+    _proto.render = function render() {
+      //console.log('*****render: ' + tagName)
+      //console.log(this.props)
+      //var newProps = Object.assign({},this.props);
+      //newProps['aMe'] = this
+      //console.log(newProps)
+      //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
+      var newProps = {
+        viewport: this.props.viewport
+      };
+      this.element = React.createElement(tagName, _extends({}, newProps, {
+        style: this.props.style,
+        ref: this.componentRef
+      }), this.props.children);
+      return this.element;
+    };
+
     _proto.componentDidMount = function componentDidMount() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.componentRef.current.text = this.props.text;
       var node = ReactDOM.findDOMNode(this);
@@ -80,10 +97,12 @@ export default function (CustomElement) {
         }
 
         if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
-          syncEvent(node, name.substring(2), _this2.props[name], _this2);
+          syncEvent(node, name.substring(2), _this3.props[name], _this3);
         } else {
           //console.log(name)
-          node[name] = _this2.props[name];
+          if (name != 'viewport') {
+            node[name] = _this2.props[name];
+          }
         }
       }); //syncEvent(node, 'cmpready', true, this);
     };
@@ -101,20 +120,6 @@ export default function (CustomElement) {
           }
         }
       }
-    };
-
-    _proto.render = function render() {
-      //console.log('*****render: ' + tagName)
-      //console.log(this.props)
-      //var newProps = Object.assign({},this.props);
-      //newProps['aMe'] = this
-      //console.log(newProps)
-      //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
-      this.element = React.createElement(tagName, _extends({}, this.props, {
-        style: this.props.style,
-        ref: this.componentRef
-      }), this.props.children);
-      return this.element;
     };
 
     _createClass(ReactComponent, null, [{
