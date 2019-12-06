@@ -59,6 +59,31 @@ export default function (CustomElement) {
       return displayName;
     }
 
+    render() {
+      //console.log('*****render: ' + tagName)
+      //console.log(this.props)
+
+      //var newProps = Object.assign({},this.props);
+      //newProps['aMe'] = this
+      //console.log(newProps)
+      //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
+
+      var newProps = {
+        viewport: this.props.viewport
+      }
+
+      this.element = React.createElement(
+          tagName,
+          {
+            ...newProps,
+            style: this.props.style,
+            ref: this.componentRef
+          },
+          this.props.children
+      )
+      return this.element;
+    }
+
     componentDidMount() {
       this.componentRef.current.text = this.props.text;
       const node = ReactDOM.findDOMNode(this);
@@ -72,7 +97,9 @@ export default function (CustomElement) {
           }
           else {
               //console.log(name)
-              node[name] = this.props[name];
+              if (name != 'viewport') {
+                node[name] = _this2.props[name];
+              }
           }
       });
       //syncEvent(node, 'cmpready', true, this);
@@ -92,25 +119,7 @@ export default function (CustomElement) {
       }
     }
 
-    render() {
-      //console.log('*****render: ' + tagName)
-      //console.log(this.props)
 
-      //var newProps = Object.assign({},this.props);
-      //newProps['aMe'] = this
-      //console.log(newProps)
-      //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
-      this.element = React.createElement(
-          tagName,
-          {
-            ...this.props,
-            style: this.props.style,
-            ref: this.componentRef
-          },
-          this.props.children
-      )
-      return this.element;
-    }
   }
 
   const proto = CustomElement.prototype;

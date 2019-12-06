@@ -115,12 +115,15 @@ try {
     }
     fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
+
     fs.copySync(`../ext-runtime-${toolkit}-base/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
 
-    fs.copySync(`../ext-runtime-${toolkit}-base/bootstrap.js`,`../../../${copyFolder}ext-runtime-${toolkit}/bootstrap.js`);
+    fs.copySync(`../ext-runtime-${toolkit}-base/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/bootstrap.js`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/bootstrap.js`);
 
+    fs.copySync(`../ext-runtime-${toolkit}-base/css.prod.js`,`../../../${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
 
     switch(framework) {
       case 'react':
@@ -146,6 +149,7 @@ try {
     >
     <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/bootstrap.js"></script>
     <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
+    <!--<script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>-->
 ${styles}
         `
         fs.copySync(`../../../${copyFolder}index.html`,`../../../${copyFolder}indexBack.html`);
@@ -159,18 +163,23 @@ ${styles}
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-        var script2 = "ext-runtime-${toolkit}/bootstrap.js";
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script2);
+
 
         var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        var script = "ext-runtime-${toolkit}/engine.js";
-        angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
+        var script2 = `ext-runtime-${toolkit}/bootstrap.js`;
+        var script = `ext-runtime-${toolkit}/engine.js`;
+        var cssjs = `ext-runtime-${toolkit}/css.prod.js`;
+        //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
+        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script2);
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script);
+        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(cssjs);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
-        console.log(`${prefix} added ${style} to styles array in ./angular.json`);
+        //console.log(`${prefix} added ${style} to styles array in ./angular.json`);
+        console.log(`${prefix} added ${script2} to scripts array in ./angular.json`);
         console.log(`${prefix} added ${script} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${cssjs} to scripts array in ./angular.json`);
         break;
       default:
     }

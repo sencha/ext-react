@@ -1,8 +1,8 @@
 ## @sencha/ext-react-modern
 
-last run: Wed Dec 04 2019 16:53:58 GMT-0500 (Eastern Standard Time)
+last run: Fri Dec 06 2019 11:44:55 GMT-0500 (Eastern Standard Time)
 
-This npm package contains the files that are needed to add the @sencha/ext-react-modern package to a React application
+This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
 ## Login to the Sencha early adopter npm repo
 
@@ -42,41 +42,70 @@ code .
 
 ```sh
 import React, { Component } from 'react';
-import { ExtPanel, ExtToolbar, ExtButton, ExtGrid, ExtColumn } from "@sencha/ext-react-modern";
+import { ExtGrid } from "@sencha/ext-react-modern{bundle)";
+import { ExtColumn } from "@sencha/ext-react-modern{bundle)";
+const Ext = window['Ext'];
 
 class App extends Component {
 
+  constructor() {
+    super()
+    var data=[
+      { name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25 },
+      { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
+      { name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45 }
+    ]
+    this.store = Ext.create('Ext.data.Store', { data })
+    //this.store = {xtype: 'store',data: data}
+  }
+
   render() {
     return (
-      <ExtPanel
-        title="Panel"
-        layout="fit"
-        shadow="true"
-        viewport="true"
-        padding="10"
+      <ExtGrid
+        viewport={ true }
+        ref={ grid => this.grid = grid }
+        title="The Grid"
+        store={ this.store }
+        onReady={ this.extReactDidMount }
+        // columns={ [ {text: "name", dataIndex: "name"} ] }
       >
-        <ExtToolbar docked="top">
-          <ExtButton text="button1"></ExtButton>
-          <div>div with text</div>
-          <ExtButton text="button2"></ExtButton>
-        </ExtToolbar>
-        <ExtGrid title="The Grid" shadow="true" onReady={ this.readyGrid }>
-          <ExtColumn text="name" dataIndex="name"></ExtColumn>
-          <ExtColumn text="email" dataIndex="email" flex="1"></ExtColumn>
-        </ExtGrid>
-      </ExtPanel>
+        <ExtColumn text="name" dataIndex="name"></ExtColumn>
+        <ExtColumn text="email" dataIndex="email" width="150"></ExtColumn>
+        <ExtColumn
+          text="% Change"
+          dataIndex="priceChangePct"
+          align="right"
+          renderer={ this.renderSign.bind(this, '0.00') }
+        />
+      </ExtGrid>
     )
   }
 
-  readyGrid = detail => {
-    var grid = detail.cmp;
-    var data=[
-      {name: 'Marc', email: 'marc@gmail.com'},
-      {name: 'Nick', email: 'nick@gmail.com'},
-      {name: 'Andy', email: 'andy@gmail.com'}
-    ]
-    grid.setData(data);
+  componentDidMount = () => {
+    console.log('componentDidMount')
+    console.log(this.grid.cmp)
   }
+
+  extReactDidMount = detail => {
+     console.log('extReactDidMount')
+    // var data=[
+    //   {name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25},
+    //   {name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35},
+    //   {name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45}
+    // ]
+    // //console.log(this.refs)
+    // //this.refs.grid.cmp.setData(data);
+    // const store = Ext.create('Ext.data.Store', {
+    //   data
+    // })
+    // this.grid.cmp.setStore(store);
+  }
+
+  renderSign = (format, value) => (
+    <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
+        {Ext.util.Format.number(value, format)}
+    </span>
+  )
 
 }
 export default App;
