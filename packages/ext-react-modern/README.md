@@ -1,6 +1,6 @@
 ## @sencha/ext-react-modern
 
-last run: Fri Dec 06 2019 11:44:55 GMT-0500 (Eastern Standard Time)
+last run: Sun Dec 08 2019 09:27:00 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
@@ -19,7 +19,7 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 npx create-react-app ext-react-demo-modern
 ```
 
-- Add ExtReact to your application by running the following:
+- Add ExtReactModern to your application by running the following:
 
 ```sh
 cd ext-react-demo-modern
@@ -38,12 +38,33 @@ code .
 
 #### Add ExtReact to your project
 
+- Replace ./src/index.js with:
+
+```sh
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+const Ext = window['Ext'];
+Ext.onReady(function () {
+  ReactDOM.render(<App />, document.getElementById('root'));
+});
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+```
+
 - Replace ./src/App.js with:
 
 ```sh
 import React, { Component } from 'react';
-import { ExtGrid } from "@sencha/ext-react-modern{bundle)";
-import { ExtColumn } from "@sencha/ext-react-modern{bundle)";
+import { ExtGrid } from "@sencha/ext-react-modern";
+import { ExtColumn } from "@sencha/ext-react-modern";
 const Ext = window['Ext'];
 
 class App extends Component {
