@@ -185,6 +185,7 @@ ${styles}
         break;
       default:
     }
+    console.log('')
     //if (xtype != '') {doXtype()}
 }
 catch(e) {console.log(e);}
