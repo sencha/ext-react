@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux'
 import { Titlebar, Container, Nestedlist, Panel, Button } from '@sencha/ext-react-modern'
 //import { Transition } from '@sencha/ext-react-transition'
 
-
-//import hljs, { highlightBlock } from 'highlightjs';
 import NavTree from './NavTree';
 import NavView from './NavView';
 import Files from './Files';
@@ -208,7 +206,7 @@ class Layout extends Component {
                 top={Ext.os.is.Desktop ? 20 : 35}
                 right={21}
                 zIndex={1000}
-                handler={actions.toggleCode}
+                onTap={actions.toggleCode}
             />
           )}
           { files && (
