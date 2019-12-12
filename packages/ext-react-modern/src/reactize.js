@@ -62,14 +62,27 @@ export default function (CustomElement) {
     render() {
       //console.log('*****render: ' + tagName)
       //console.log(this.props)
-
-      //var newProps = Object.assign({},this.props);
-      //newProps['aMe'] = this
-      //console.log(newProps)
-      //this.element = React.createElement(tagName, { style: this.props.style }, this.props.children);
-
-      var newProps = {
-        viewport: this.props.viewport
+      var newProps = {};
+      this.objectProps = {};
+      for (const prop in this.props) {
+        var t = typeof this.props[prop]
+        if (t != 'object') {
+          newProps[prop] = this.props[prop];
+        }
+        else {
+          if (prop == 'style' || prop == 'children') {
+          }
+          else {
+            var sPropVal = ''
+            try {
+              sPropVal = JSON.stringify(this.props[prop])
+              newProps[prop] = sPropVal;
+            }
+            catch(e) {
+              this.objectProps[prop] =this.props[prop];
+            }
+          }
+        }
       }
 
       this.element = React.createElement(
@@ -88,21 +101,23 @@ export default function (CustomElement) {
       this.componentRef.current.text = this.props.text;
       const node = ReactDOM.findDOMNode(this);
       this.cmp = node.cmp;
+
+      var me = this;
+      Object.keys(this.objectProps).forEach(function (name) {
+        node[name] = me.props[name];
+      });
+
       Object.keys(this.props).forEach(name => {
-          if (name === 'children' || name === 'style') {
-              return;
+        if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
+            return;
           }
           if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
-              syncEvent(node, name.substring(2), this.props[name], this);
+            syncEvent(node, name.substring(2), me.props[name], me);
           }
           else {
-              //console.log(name)
-              if (name != 'viewport') {
-                node[name] = this.props[name];
-              }
+            //node[name] = this.props[name];
           }
       });
-      //syncEvent(node, 'cmpready', true, this);
     }
 
     componentDidUpdate(prevProps, prevState) {

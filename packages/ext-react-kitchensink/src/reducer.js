@@ -33,6 +33,7 @@ export default function(state = initialState, action) {
       }
     }
     case TOGGLE_CODE: {
+      
       return { ...state, showCode: !state.showCode };
     }
     case TOGGLE_TREE: {
