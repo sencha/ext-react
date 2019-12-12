@@ -121,8 +121,8 @@ try {
     fs.copySync(`${from}/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
 
-    fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/bootstrap.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/bootstrap.js`);
+    fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/boot.js`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
 
     fs.copySync(`${from}/css.prod.js`,`../../../${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
@@ -149,7 +149,7 @@ try {
       href="%PUBLIC_URL%/ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css"
       rel="stylesheet" type="text/css"
     >-->
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/bootstrap.js"></script>
+    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
     <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
     <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>
 ${styles}
@@ -168,7 +168,7 @@ ${styles}
 
 
         var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        var script2 = `ext-runtime-${toolkit}/bootstrap.js`;
+        var script2 = `ext-runtime-${toolkit}/boot.js`;
         var script = `ext-runtime-${toolkit}/engine.js`;
         var cssjs = `ext-runtime-${toolkit}/css.prod.js`;
         //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);

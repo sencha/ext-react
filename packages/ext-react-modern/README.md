@@ -1,6 +1,6 @@
 ## @sencha/ext-react-modern
 
-last run: Thu Dec 12 2019 10:13:35 GMT-0500 (Eastern Standard Time)
+last run: Thu Dec 12 2019 13:39:23 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
@@ -16,13 +16,13 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-demo-modern
+npx create-react-app ext-react-modern-demo
 ```
 
 - Add ExtReactModern to your application by running the following:
 
 ```sh
-cd ext-react-demo-modern
+cd ext-react-modern-demo
 npm install @sencha/ext-react-modern --save
 ```
 
