@@ -1,6 +1,6 @@
 ## @sencha/ext-react-modern
 
-last run: Thu Dec 12 2019 13:39:23 GMT-0500 (Eastern Standard Time)
+last run: Sat Dec 14 2019 10:37:03 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
@@ -24,6 +24,8 @@ npx create-react-app ext-react-modern-demo
 ```sh
 cd ext-react-modern-demo
 npm install @sencha/ext-react-modern --save
+npm install
+
 ```
 
 - Open your editor
@@ -42,21 +44,31 @@ code .
 
 ```sh
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
+import ExtReactDOM from '@sencha/ext-react-modern';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const Ext = window['Ext'];
-Ext.onReady(function () {
-  ReactDOM.render(<App />, document.getElementById('root'));
-});
+//ReactDOM.render(<App />, document.getElementById('root'));
+ExtReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
+```
+
+- Replace ./src/index.css with:
+
+```sh
+:root {
+  --base-color: #A24059;
+  --base-foreground-color: white;
+  --background-color: white;
+  --color: black;
+}
 ```
 
 - Replace ./src/App.js with:
@@ -76,7 +88,7 @@ class App extends Component {
       { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
       { name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45 }
     ]
-    this.store = Ext.create('Ext.data.Store', { data })
+    this.store = Ext.create('Ext.data.Store', {data: data})
     //this.store = {xtype: 'store',data: data}
   }
 
@@ -104,22 +116,12 @@ class App extends Component {
 
   componentDidMount = () => {
     console.log('componentDidMount')
-    console.log(this.grid.cmp)
+    //console.log(this.grid.cmp)
   }
 
   extReactDidMount = detail => {
-     console.log('extReactDidMount')
-    // var data=[
-    //   {name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25},
-    //   {name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35},
-    //   {name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45}
-    // ]
-    // //console.log(this.refs)
-    // //this.refs.grid.cmp.setData(data);
-    // const store = Ext.create('Ext.data.Store', {
-    //   data
-    // })
-    // this.grid.cmp.setStore(store);
+    console.log('extReactDidMount')
+    //this.grid.cmp.setStore(this.store);
   }
 
   renderSign = (format, value) => (
