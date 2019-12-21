@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, TitleBar } from '@sencha/ext-modern';
+import { Button, TitleBar } from '@sencha/ext-react-modern';
 import { toggleMenu, toggleSearch } from './actions';
 import SearchField from './SearchField';
 const REACT_VERSION = require('react').version
 
-function AppBar({ 
-    dispatch, 
-    title, 
-    selectedNavNode, 
-    children, 
-    backButtonURL, 
-    events 
+function AppBar({
+    dispatch,
+    title,
+    selectedNavNode,
+    children,
+    backButtonURL,
+    events
 }) {
     return (
-        <TitleBar 
+        <TitleBar
             docked="top"
             titleAlign="left"
             shadow

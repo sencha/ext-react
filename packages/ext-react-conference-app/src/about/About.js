@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setTitle } from '../actions';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 
 class About extends Component {
 

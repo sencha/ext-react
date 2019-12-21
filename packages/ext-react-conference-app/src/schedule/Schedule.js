@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 //import { setTitle } from '../actions';
 import { loadEvent } from '../event/actions';
 
-import { Container, TabPanel } from '@sencha/ext-modern';
+import { Container, TabPanel } from '@sencha/ext-react-modern';
 import ScheduleList from './ScheduleList';
 import Event from '../event/Event';
 
@@ -27,8 +27,8 @@ class Schedule extends Component {
             Ext.create('Ext.data.ChainedStore', { ...this.storeDefaults, filters: [{ property: 'date', value: 'Monday, November 7' }] }),
             Ext.create('Ext.data.ChainedStore', { ...this.storeDefaults, filters: [{ property: 'date', value: 'Tuesday, November 8' }] }),
             Ext.create('Ext.data.ChainedStore', { ...this.storeDefaults, filters: [{ property: 'date', value: 'Wednesday, November 9' }] }),
-            Ext.create('Ext.data.ChainedStore', { 
-                ...this.storeDefaults, 
+            Ext.create('Ext.data.ChainedStore', {
+                ...this.storeDefaults,
                 filters: [{ property: 'favorite', value: true }],
                 grouper: {
                     groupFn: (item) => `${item.get('date')}, ${item.get('start_time')}`,

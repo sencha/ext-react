@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Calendar_Days, Container, Panel } from '@sencha/ext-modern';
+import { Calendar_Days, Container, Panel } from '@sencha/ext-react-modern';
 import Event from '../event/Event';
 import { loadEvent } from '../event/actions';
 
@@ -21,7 +21,7 @@ class Calendar extends Component {
 
     updateData = (prevProps) => {
         const id = this.props.match.params.id;
-        
+
         if (!prevProps || prevProps.match.params.id !== id) {
             this.props.dispatch(loadEvent(id, 'Calendar', '/calendar'))
         }
@@ -51,16 +51,16 @@ class Calendar extends Component {
         const showEvent = match.params.id && (Ext.os.is.Phone || event);
 
         return (
-            <Container 
+            <Container
                 activeItem={match.params.id && event ? 1 : 0}
                 platformConfig={{
                     "!phone": {
                         layout: 'hbox'
                     },
                     "phone": {
-                        layout: { 
-                            type: 'card', 
-                            animation: 'slide' 
+                        layout: {
+                            type: 'card',
+                            animation: 'slide'
                         }
                     }
                 }}

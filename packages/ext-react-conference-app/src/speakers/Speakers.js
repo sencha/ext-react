@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Container, List } from '@sencha/ext-modern';
+import { Container, List } from '@sencha/ext-react-modern';
 //import AppBar from '../AppBar';
-import { Template } from '@sencha/ext-react-modern';
+//import { Template } from '@sencha/ext-react-modern';
 import { loadSpeakers, loadSpeaker } from './actions';
 //import { setTitle } from '../actions';
 import Speaker from './Speaker';
 
 class Speakers extends Component {
 
-    itemTpl = new Template(data => (
+    itemTpl = new Ext.Template(data => (
         <div className="app-list-content">
             <div className="app-list-headshot" style={{backgroundImage: `url(${data.avatar_url})`}}></div>
             <div className="app-list-text">
@@ -80,4 +80,5 @@ const mapStateToProps = (state) => {
     return state.speakers;
 }
 
-export default connect(mapStateToProps, null, null, { withRef: true })(Speakers);
+//export default connect(mapStateToProps, null, null, { withRef: true })(Speakers);
+export default connect(mapStateToProps, null, null)(Speakers);

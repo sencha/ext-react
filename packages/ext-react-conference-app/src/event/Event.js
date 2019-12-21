@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, TabBar, Container } from '@sencha/ext-modern';
+import { Panel, TabBar, Container } from '@sencha/ext-react-modern';
 import { connect } from 'react-redux';
 import { setTitle } from '../actions';
 import { loadEvent } from './actions';
@@ -17,10 +17,10 @@ class Event extends Component {
         const fullDay = data ? day + ':  ' + data.start_time + ' - ' + data.end_time :''
 
         return (
-            <Panel 
+            <Panel
                 {...props}
-                padding="20" 
-                scrollable 
+                padding="20"
+                scrollable
                 header={header}
                 tools={header && { close: () => location.hash = '/schedule' }}
             >

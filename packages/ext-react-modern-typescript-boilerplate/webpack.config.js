@@ -32,7 +32,7 @@ module.exports = function (env) {
             script: '',
             emit: 'yes',
             port: port,
-            profile: profile, 
+            profile: profile,
             environment: environment,
             treeshake: treeshake,
             browser: browser,
@@ -68,7 +68,7 @@ module.exports = function (env) {
                                 loader: 'babel-loader',
                                 options: {
                                     "plugins": [
-                                        "@sencha/ext-react-babel-plugin"
+
                                     ]
                                 }
                             },
