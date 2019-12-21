@@ -1,6 +1,6 @@
 {
     "name": "@sencha/ext-react-classic-renderwhenready",
-    "version": "7.0.0",
+    "version": "7.1.0",
     "description": "A Demo",
     "main": "index.js",
     "scripts": {

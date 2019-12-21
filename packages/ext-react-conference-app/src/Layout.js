@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
+import { Container } from '@sencha/ext-react-modern';
 import Menu from './Menu';
 import AppBar from './AppBar';
 import Search from './Search';

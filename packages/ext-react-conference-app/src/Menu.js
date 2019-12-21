@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Sheet, TreeList, Panel, TitleBar, Button } from '@sencha/ext-modern';
+import { Container, Sheet, TreeList, Panel, TitleBar, Button } from '@sencha/ext-react-modern';
 import { connect } from 'react-redux';
 import { toggleMenu } from './actions';
 
@@ -53,7 +53,7 @@ class Menu extends Component {
                         width: 250
                     }
                 }}
-            />            
+            />
         );
 
         if (Ext.os.is.Phone) {

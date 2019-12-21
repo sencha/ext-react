@@ -1,6 +1,6 @@
 {
     "name": "@sencha/extjs-to-react-converter",
-    "version": "7.0.0",
+    "version": "7.1.0",
     "author": "Sencha, Inc.",
     "description": "Converts Ext JS code snippets to JSX/React",
     "license": "MIT",

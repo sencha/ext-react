@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ComboBox } from '@sencha/ext-modern';
+import { Combobox } from '@sencha/ext-react-modern';
 import { createTpl } from './schedule/EventTpl';
 import { connect } from 'react-redux';
 //import { toggleFavorite } from './schedule/actions';
@@ -16,9 +16,9 @@ class SearchField extends Component {
             source: store
         });
 
-        this.itemTpl = createTpl({ 
-            getQuery: this.getQuery, 
-            showTime: true 
+        this.itemTpl = createTpl({
+            getQuery: this.getQuery,
+            showTime: true
         })
     }
 
@@ -30,7 +30,7 @@ class SearchField extends Component {
     }
 
     /**
-     * Filters the combobox by event title and speaker name
+     * Filters the Combobox by event title and speaker name
      */
     search = (queryPlan) => {
         let { query } = queryPlan;
@@ -42,7 +42,7 @@ class SearchField extends Component {
             const { title, speakers } = record.data;
 
             return query.trim().split(/\s+/).some(token => {
-                return title.toLowerCase().indexOf(token) >= 0 || 
+                return title.toLowerCase().indexOf(token) >= 0 ||
                     (speakers && speakers.some(speaker => speaker.name.toLowerCase().indexOf(token) >= 0));
             })
         });
@@ -62,7 +62,7 @@ class SearchField extends Component {
 
     render() {
         return (
-            <ComboBox 
+            <Combobox
                 { ...this.props }
                 ui="alt"
                 placeholder="Search"

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { TreeList } from '@sencha/ext-modern';
+import { TreeList } from '@sencha/ext-react-modern';
 
 declare var Ext:any;
 
@@ -14,16 +14,16 @@ interface NavMenuProps {
 /**
  * The main navigation menu
  */
-const NavMenu: React.SFC<NavMenuProps & any> = ({ 
-    onItemClick, 
-    selection, 
-    ...props 
+const NavMenu: React.SFC<NavMenuProps & any> = ({
+    onItemClick,
+    selection,
+    ...props
 }) => (
-    <TreeList 
+    <TreeList
         {...props}
         ui="nav"
         expanderFirst={false}
-        onItemClick={(tree, item) => onItemClick(item.node.getId())}
+        onItemclick={(sender, info, eOpts) => {onItemClick(sender.info.node.getId())}}
         selection={selection}
         store={{
             root: {
@@ -33,7 +33,7 @@ const NavMenu: React.SFC<NavMenuProps & any> = ({
                 ]
             }
         }}
-    />        
+    />
 )
 
 export default NavMenu;
