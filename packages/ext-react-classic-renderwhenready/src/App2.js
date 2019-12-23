@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Panel } from '@sencha/ext-classic'
-import { renderWhenReady } from '@sencha/ext-react-modern'
-import { ExtReact } from '@sencha/ext-react-modern'
+//import { renderWhenReady } from '@sencha/ext-react-modern'
+import { ExtReact } from '@sencha/ext-react-classic'
 
 class App2 extends Component {
   render() {
@@ -13,4 +13,4 @@ class App2 extends Component {
  }
 }
 
-export default renderWhenReady(App2)
+export default App2
