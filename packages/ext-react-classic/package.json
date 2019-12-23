@@ -2,7 +2,7 @@
   "name": "@sencha/ext-react-classic",
   "version": "7.1.0",
   "description": "Sencha ext-react-classic",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist",
     "prepublish": "npm run build",
@@ -22,7 +22,9 @@
     "url": "git+https://github.com/sencha/ext-react-classic.git"
   },
   "peerDependencies": {
-    "@sencha/ext-web-components-classic": "~7.1.0"
+    "@sencha/ext-web-components-classic": "~7.1.0",
+    "react": "~16.12.0",
+    "react-dom": "~16.12.0"
   },
   "dependencies": {
     "fs-extra": "~8.1.0",
@@ -45,7 +47,7 @@
     "@babel/plugin-proposal-throw-expressions": "^7.7.4",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@types/react": "^16.9.14",
+    "@types/react": "^16.9.16",
     "@types/react-dom": "~16.9.4"
   }
 }

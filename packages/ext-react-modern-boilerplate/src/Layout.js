@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container, Titlebar, Button, Sheet, Panel } from '@sencha/ext-react-modern';
-//import { Transition} from '@sencha/ext-react-transition';
 
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
