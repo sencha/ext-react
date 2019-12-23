@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid } from '@sencha/ext-classic'
-import { renderWhenReady } from '@sencha/ext-react-modern'
+//import { renderWhenReady } from '@sencha/ext-react-modern'
 import data from './data';
 
 class App1 extends Component {
@@ -30,4 +30,4 @@ class App1 extends Component {
  }
 }
 
-export default renderWhenReady(App1)
+export default App1
