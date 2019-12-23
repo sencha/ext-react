@@ -8,7 +8,7 @@ Ext.require('Ext.data.TreeStore');
  * The main navigation menu
  */
 export default function NavMenu({
-    onItemClick,
+    onItemclick,
     selection,
     ...props
 }) {
@@ -17,7 +17,7 @@ export default function NavMenu({
             {...props}
             ui="nav"
             expanderFirst={false}
-            onItemClick={(tree, item) => onItemClick(item.node.getId())}
+            onItemclick={(sender, info, eOpts) => {onItemclick(sender.info.node.getId())}}
             selection={selection}
             store={{
                 root: {

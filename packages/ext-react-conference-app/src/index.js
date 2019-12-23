@@ -1,11 +1,7 @@
-import React from 'react'
-import App from './App'
-import * as d3 from 'd3'
-window.d3 = d3
-
-//import { launch } from '@sencha/ext-react-modern'
-//import { ExtReact } from '@sencha/ext-react-modern'
+import React from 'react';
 import ExtReactDOM from '@sencha/ext-react-modern';
+import App from './App';
+import * as d3 from 'd3';
+window.d3 = d3;
 
-//launch(<ExtReact><App/></ExtReact>,{ debug: false })
 ExtReactDOM.render(<App />, document.getElementById('root'));

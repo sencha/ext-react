@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
-import { Panel } from '@sencha/ext-modern'
-import { renderWhenReady } from '@sencha/ext-react-modern'
-import { ExtReact } from '@sencha/ext-react-modern'
+import { ExtPanel } from '@sencha/ext-react-modern'
 
-class App1 extends Component {
+export default class App1 extends Component {
   render() {
     return (
-      <ExtReact>
-        <Panel title="app1 title">app1</Panel>
-      </ExtReact>
+      <ExtPanel title="app1 title"><div>app1</div></ExtPanel>
     )
  }
 }
-
-export default renderWhenReady(App1)

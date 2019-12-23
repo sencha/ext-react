@@ -9,12 +9,9 @@ import About from './About/About';
 import NavMenu from './NavMenu';
 var REACT_VERSION = require('react').version
 
-/**
- * The main application view and routes
- */
 class Layout extends Component {
 
-    title = "Sencha ExtReact 7.0 Modern Boilerplate - React v" + REACT_VERSION
+    title = "Sencha ExtReact 7.1 Modern Boilerplate - React v" + REACT_VERSION
 
     state = {
         showAppMenu: false
@@ -38,12 +35,12 @@ class Layout extends Component {
         const { location } = this.props;
 
         const navMenuDefaults = {
-            onItemClick: this.navigate,
+            onItemclick: this.navigate,
             selection: location.pathname
         }
 
         return (
-            <Container fullscreen layout="fit">
+            <Container viewport="true" fullscreen layout="fit">
                 <Titlebar title={this.title} docked="top">
                     {Ext.platformTags.phone && (
                         <Button align="left" iconCls="x-fa fa-bars" handler={this.toggleAppMenu} ripple={false}/>
