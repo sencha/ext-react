@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 const Ext = window['Ext'];
-function render(element, container, callback) {
+export function render(element, container, callback) {
   //console.log('in render')
   Ext.onReady(function () {
     //console.log('before render')

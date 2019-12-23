@@ -1,6 +1,5 @@
 import React from 'react'
+import ExtReactDOM from '@sencha/ext-react-modern';
 import App from './App'
-import { launch } from '@sencha/ext-react-modern'
-import { ExtReact } from '@sencha/ext-react-modern'
 
-launch(<ExtReact> <App/> </ExtReact>)
+ExtReactDOM.render(<App/>, document.getElementById('root'));

@@ -21,12 +21,6 @@ module.exports = function (env) {
       ]
     }
   ]
-  // const resolve = {
-  //   alias: {
-  //     'react-dom': '@hot-loader/react-dom'
-  //   }
-  // }
-  //******* */
 
   var basehref      = get('basehref',      '/')
   var framework     = get('framework',     'react')

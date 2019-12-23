@@ -1,6 +1,6 @@
 ## @sencha/ext-react-modern
 
-last run: Fri Dec 20 2019 10:31:27 GMT+0000 (Greenwich Mean Time)
+last run: Mon Dec 23 2019 09:39:35 GMT+0000 (Greenwich Mean Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 

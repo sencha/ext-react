@@ -6,49 +6,68 @@ const portfinder = require('portfinder')
 const sourcePath = path.join(__dirname, './src');
 
 module.exports = function (env) {
-  var browserprofile
-  var watchprofile
-  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
-  if (buildenvironment == 'production') {
-    browserprofile = false
-    watchprofile = 'no'
-  }
-  else {
-    if (env.browser == undefined) {env.browser = true}
-    browserprofile = JSON.parse(env.browser) || true
-    watchprofile = env.watch || 'yes'
-  }
-  const isProd = buildenvironment === 'production'
-  var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
-  var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
-  var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
-  if (buildprofile == 'all') { buildprofile = '' }
-  if (env.treeshake == undefined) {env.treeshake = false}
-  var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+  function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
+  var basehref      = get('basehref',      '/')
+  var framework     = get('framework',     'react')
+  var toolkit       = get('toolkit',       'modern')
+  var theme         = get('theme',         'theme-material')
+  var packages      = get('packages',      ['froala-editor'])
+  var script        = get('script',        '')
+  var emit          = get('emit',          'yes')
+  var profile       = get('profile',       '')
+  var environment   = get('environment',   'development')
+  var treeshake     = get('treeshake',     'no')
+  var browser       = get('browser',       'yes')
+  var watch         = get('watch',         'yes')
+  var verbose       = get('verbose',       'no')
 
+
+
+  // var browserprofile
+  // var watchprofile
+  // var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
+  // if (buildenvironment == 'production') {
+  //   browserprofile = false
+  //   watchprofile = 'no'
+  // }
+  // else {
+  //   if (env.browser == undefined) {env.browser = true}
+  //   browserprofile = JSON.parse(env.browser) || true
+  //   watchprofile = env.watch || 'yes'
+  // }
+  // const isProd = buildenvironment === 'production'
+  // var buildprofile = env.profile || process.env.npm_package_extbuild_defaultprofile
+  // var buildenvironment = env.environment || process.env.npm_package_extbuild_defaultenvironment
+  // var buildverbose = env.verbose || process.env.npm_package_extbuild_defaultverbose
+  // if (buildprofile == 'all') { buildprofile = '' }
+  // if (env.treeshake == undefined) {env.treeshake = false}
+  // var treeshake = env.treeshake ? JSON.parse(env.treeshake) : false
+
+  const isProd = environment === 'production'
   portfinder.basePort = (env && env.port) || 1962
   return portfinder.getPortPromise().then(port => {
     const plugins = [
       new HtmlWebpackPlugin({
         template: 'index.html',
         hash: true
-      }), 
+      }),
       new ExtWebpackPlugin({
-        framework: 'react',
-        toolkit: 'modern',
+        framework: framework,
+        toolkit: toolkit,
+        theme: theme,
+        packages: packages,
+        script: script,
+        emit: emit,
         port: port,
-        emit: true,
-        browser: browserprofile,
-        profile: buildprofile, 
-        watch: watchprofile,
-        environment: buildenvironment, 
-        verbose: buildverbose,
-        theme: 'theme-material',
+        profile: profile,
+        environment: environment,
         treeshake: treeshake,
-        packages: []
+        browser: browser,
+        watch: watch,
+        verbose: verbose
       }),
 
-      // 1. Froala 
+      // 1. Froala
       // Jquery is used with the Froala editor
       // - https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react
       new webpack.ProvidePlugin({
@@ -86,12 +105,12 @@ module.exports = function (env) {
           {
             test: /\.css$/,
             use: [
-                'style-loader', 
+                'style-loader',
                 'css-loader'
             ]
           },
-          
-          // 2. Froala 
+
+          // 2. Froala
           // These loaders are used with the Froala editor.
           // - https://www.froala.com/wysiwyg-editor/docs/framework-plugins/react
           {
@@ -114,7 +133,7 @@ module.exports = function (env) {
         ]
       },
       resolve: {
-        // The following is only needed when running this boilerplate within the ext-react repo.  
+        // The following is only needed when running this boilerplate within the ext-react repo.
         // You can remove this from your own projects.
         alias: {
           "react-dom": path.resolve('./node_modules/react-dom'),
