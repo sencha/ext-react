@@ -1,5 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+//import ReactDOM from 'react-dom'
+import ExtReactDOM from '@sencha/ext-react-modern';
 //import { AppContainer } from 'react-hot-loader'
 //import { launch } from '@sencha/ext-react-modern'
 import App from './App'
@@ -12,7 +13,11 @@ Ext.require([
   'Ext.layout.*',
 ])
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+
+ExtReactDOM.render(<App/>, document.getElementById('root'));
+
+//ReactDOM.render(<App />, document.getElementById('root'));
 
 
 // const render = (Component, target) => {
