@@ -20,12 +20,22 @@ class Menu extends Component {
         this.props.dispatch(toggleMenu());
     };
 
-    onSelectionChange = (tree, item) => {
-        const record = item.node;
+    //onSelectionChange = (tree, item) => {
+    onSelectionChange = ({sender, info, eOpts}) => {
+
+      console.log('selectionChange')
+      console.log(info)
+        const record = info.node;
+        console.log(record)
+        console.log(location.hash)
         if (record && !location.hash.startsWith('#' + record.getId())) {
+          console.log('here')
             location.hash = record.getId();
         }
-        this.props.dispatch(toggleMenu(false));
+        else {
+          console.log('else')
+        }
+        //this.props.dispatch(toggleMenu(false));
     };
 
     render() {
@@ -37,7 +47,7 @@ class Menu extends Component {
                 store={store}
                 selection={selection}
                 plugins="responsive"
-                onItemClick={this.onSelectionChange}
+                onItemclick={this.onSelectionChange}
                 expanderFirst={false}
                 responsiveConfig={{
                     'width < 1080': {
