@@ -14,7 +14,6 @@ export function routeDidChange(location) {
 }
 
 export function toggleCode() {
-  console.log('here')
     return {
         type: TOGGLE_CODE
     }

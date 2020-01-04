@@ -64,8 +64,14 @@ export default function (CustomElement) {
       //console.log(this.props)
       var newProps = {};
       this.objectProps = {};
+      var className = '';
       for (const prop in this.props) {
         var t = typeof this.props[prop]
+
+        if (prop == 'className') {
+          className = ' ' + this.props[prop];
+        }
+
         if (t != 'object') {
           newProps[prop] = this.props[prop];
         }
@@ -83,6 +89,17 @@ export default function (CustomElement) {
             }
           }
         }
+      }
+
+      //console.log(newProps['cls'])
+      //console.log(className)
+      if (newProps['cls'] == undefined) {
+        if (className != '') {
+          newProps['cls'] = className
+        }
+      }
+      else {
+        newProps['cls'] = newProps['cls'] + className
       }
 
       this.element = React.createElement(

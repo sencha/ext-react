@@ -23,6 +23,7 @@ export default class NavTree extends Component {
         {...props}
         scrollable="y"
         shadow
+        layout="fit"
         style={{zIndex: 100, backgroundColor: 'white'}}
         header={false}
         collapsible={{ direction: 'left' }}
