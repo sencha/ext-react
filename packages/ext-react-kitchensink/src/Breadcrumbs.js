@@ -15,11 +15,9 @@ export default class Breadcrumbs extends Component {
 
 
 onReady = ({cmp, cmpObj}) => {
-  //console.log(cmp)
   //console.log(this)
   //console.log(this.refs.appBreadcrumb.cmp)
   this.breadcrumbCmp = cmp
-  //console.log(this.props)
   this.breadcrumbCmp.setSelection(this.props.node)
 
 }
@@ -45,10 +43,18 @@ onReady = ({cmp, cmpObj}) => {
 
           //this.breadcrumbCmp.setSelection(newProps.node)
 
+
+
+
           // var nodeId = newProps.node.getId()
           // if(nodeId === '' || nodeId) {
           //   location.hash = nodeId;
           // }
+          // this.breadcrumbCmp.setSelection(newProps.node);
+
+
+
+
           //this.refs.appBreadcrumb.cmp.setSelection(newProps.node);
         }
     }
