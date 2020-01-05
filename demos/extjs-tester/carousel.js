@@ -1,4 +1,4 @@
-function carousel() {
+Ext.onReady(function() {
 
   var oRoot = {
     xtype: 'container',
@@ -18,32 +18,46 @@ function carousel() {
   }
   var carousel = Ext.create(o)
 
-  Ext.Viewport.add([container])
-  container.add(carousel)
+  Ext.application({
+    name: 'MyEWCApp',
+    launch: function () {
+        //console.log('Ext.Viewport.add(' + cmp.xtype + ')')
+        //console.dir(cmp)
+        //Ext.Viewport.add([cmp])
 
-  var child01 = Ext.create({
-    xtype: 'container', 
-    layout: {"type":"vbox", "align": "center", "pack": "center"},
-    cls: "card cardLight",
-    html:"Swipe left to show the next card..."
-  })
-  var child02 = Ext.create({
-    xtype: 'container', 
-    layout: {"type":"vbox", "align": "center", "pack": "center"},
-    cls: "card cardLight",
-    html:"You can also tap on either side of the indicators."
-  })
-  var child03 = Ext.create({
-    xtype: 'container', 
-    layout: {"type":"vbox", "align": "center", "pack": "center"},
-    cls: "card cardLight",
-    html:"Card #3"
-  })
-  carousel.insert(0,child01)
-  carousel.insert(1,child02)
-  carousel.insert(2,child03)
+        Ext.Viewport.add([container])
+        container.add(carousel)
 
-}
+        var child01 = Ext.create({
+          xtype: 'container',
+          layout: {"type":"vbox", "align": "center", "pack": "center"},
+          cls: "card cardLight",
+          html:"Swipe left to show the next card..."
+        })
+        var child02 = Ext.create({
+          xtype: 'container',
+          layout: {"type":"vbox", "align": "center", "pack": "center"},
+          cls: "card cardLight",
+          html:"You can also tap on either side of the indicators."
+        })
+        var child03 = Ext.create({
+          xtype: 'container',
+          layout: {"type":"vbox", "align": "center", "pack": "center"},
+          cls: "card cardLight",
+          html:"Card #3"
+        })
+        carousel.insert(0,child01)
+        carousel.insert(1,child02)
+        carousel.insert(2,child03)
+
+
+
+
+    }
+});
+
+
+})
 
   //<ext-container height="100%" layout="vbox" padding="10" fitToParent="true"></ext-container>
   // <ext-carousel layout="vbox" margin="5 5 5 5" flex="1" shadow="true" onready="carousel.readyCarouselHorizontal" >

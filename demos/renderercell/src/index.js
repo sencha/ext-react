@@ -1,11 +1,7 @@
 import React from 'react';
-import './index.css';
-//import { reactify } from '@sencha/ext-react-modern';
-import { launch } from '@sencha/ext-react-modern'
+import ExtReactDOM from '@sencha/ext-react-modern';
+//import './index.css';
 import App from './App';
-
-//var ExtReact = reactify('ExtReact');
-import { ExtReact } from '@sencha/ext-react-modern'
 
 const Ext = window.Ext;
 Ext.require([
@@ -16,6 +12,4 @@ Ext.require([
     'Ext.layout.Fit'
   ])
 
-launch(() => {
-    return <ExtReact><App/></ExtReact>
-})
+  ExtReactDOM.render(<App />, document.getElementById('root'));

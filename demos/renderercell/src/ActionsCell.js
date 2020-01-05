@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { reactify } from '@sencha/ext-react-modern';
-var ExtReactRenderer = reactify('ExtReactRenderer');
-var Container = reactify('Container');
-var Button = reactify('Button');
+import { Container, Button } from '@sencha/ext-react-modern';
+
 
 export default class ActionsCell extends Component {
 
@@ -16,13 +14,13 @@ export default class ActionsCell extends Component {
     // </Container>
 
         return (
-            <ExtReactRenderer>
+            <Container>
 
                 <Button text="Buy" handler={buyHandler}/>
                 <Button text="Sell" handler={sellHandler}/>
                 <Button text="Watch" handler={watchHandler}/>
 
-            </ExtReactRenderer>
+            </Container>
         )
     }
 
