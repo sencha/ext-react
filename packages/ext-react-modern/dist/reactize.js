@@ -80,9 +80,21 @@ export default function (CustomElement) {
 
         if (prop == 'className') {
           className = ' ' + this.props[prop];
-        }
-
-        if (t != 'object') {
+        } else if (t == 'function') {
+          // newProps[prop] = this.props[prop];
+          // this.objectProps[prop] = this.props[prop];
+          if (prop == 'renderer' || prop == 'summaryRenderer') {
+            //console.log(t)
+            //console.log(this.props[prop])
+            //newProps[prop] = this.props[prop];
+            newProps[prop] = 'function';
+            this.objectProps[prop] = this.props[prop];
+          } else {
+            //newProps[prop] = this.props[prop];
+            newProps[prop] = 'function';
+            this.objectProps[prop] = this.props[prop];
+          }
+        } else if (t != 'object') {
           newProps[prop] = this.props[prop];
         } else {
           if (prop == 'style' || prop == 'children') {} else {
