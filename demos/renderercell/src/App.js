@@ -8,24 +8,34 @@ import './CompanyData';
 // var Button = reactify('Button');
 import { Grid } from '@sencha/ext-react-modern'
 import { Column } from '@sencha/ext-react-modern'
-import { ExtReactRenderer } from '@sencha/ext-react-modern'
 import { Button } from '@sencha/ext-react-modern'
+import { Container } from '@sencha/ext-react-modern'
 const Ext = window.Ext;
 
 export default class App extends Component {
 
-    store = Ext.create('Ext.data.Store', {
-        autoLoad: true,
-        pageSize: 0,
-        proxy: {
-            type: 'ajax',
-            url: '/KitchenSink/Companys'
-        }
-    });
+    // store = Ext.create('Ext.data.Store', {
+    //     autoLoad: true,
+    //     pageSize: 0,
+    //     proxy: {
+    //         type: 'ajax',
+    //         url: '/KitchenSink/Companys'
+    //     }
+    // });
+
+    store = {
+      xtype: 'store',
+      autoLoad: true,
+      pageSize: 0,
+      proxy: {
+          type: 'ajax',
+          url: '/KitchenSink/Companys'
+      }
+  };
 
     render() {
         return (
-            <Grid store={this.store}>
+            <Grid viewport="true" store={this.store}>
                 <Column text="Company" dataIndex="name" width="150"/>
                 <Column text="Change" width="100" dataIndex="priceChange" renderer={this.renderNumberCell.bind(this, '0.00')}/>
                 <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderNumberCell.bind(this, '0.00%')}/>
@@ -35,11 +45,11 @@ export default class App extends Component {
     }
     renderActionsCell = (value, record) => {
         return (
-            <ExtReactRenderer>
+            <Container>
                 <Button text="Buy" handler={this.buyHandler.bind(this, record)}/>
                 <Button text="Sell" handler={this.sellHandler.bind(this, record)}/>
                 <Button text="Watch" handler={this.watchHandler.bind(this, record)}/>
-            </ExtReactRenderer>
+            </Container>
         )
     }
 
