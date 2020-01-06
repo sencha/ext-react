@@ -82,8 +82,8 @@ export default function (CustomElement) {
             this.objectProps[prop] = this.props[prop];
           }
           else {
-            //newProps[prop] = this.props[prop];
-            newProps[prop] = 'function';
+            newProps[prop] = this.props[prop];
+            //newProps[prop] = 'function';
             this.objectProps[prop] = this.props[prop];
           }
         }

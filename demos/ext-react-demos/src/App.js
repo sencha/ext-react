@@ -1,31 +1,47 @@
-import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
-import { ExtPanel, ExtContainer } from '@sencha/ext-react-modern';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
+import { ExtPanel, ExtContainer, ExtTreelist } from '@sencha/ext-react-modern';
 
 import Home from './home/Home'
 import User from './user/User'
 import Grid from './grid/Grid'
 import GridRenderers from './gridrenderers/GridRenderers'
 
-export default function App() {
-  return (
-    <ExtPanel viewport="true" title="ext-react-demos" layout="fit">
-      <ExtContainer docked="left" width="150">
-        <ul>
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to="/user">User</Link></li>
-        <li><Link to="/grid">Grid</Link></li>
-        <li><Link to="/gridrenderers">GridRenderers</Link></li>
-        </ul>
+export default class App extends Component {
+
+  treeclick = (sender, info, eOpts) => {
+    window.location.hash = sender.info.node.getId();
+  }
+
+  render() {
+    return (
+      <ExtPanel viewport="true" title="ext-react-demos" layout="fit">
+      <ExtContainer docked="left" width="250">
+        <ExtTreelist
+          ui="nav"
+          expanderFirst={false}
+          onItemclick={this.treeclick}
+          store={{
+            root: {
+              children: [
+                { id: '/home', text: 'Home', iconCls: 'x-fa fa-home', leaf: true },
+                { id: '/user', text: 'User', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/grid', text: 'Grid', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/gridrenderers', text: 'GridRenderers', iconCls: 'x-fa fa-info', leaf: true },
+              ]
+            }
+          }}
+        />
       </ExtContainer>
       <ExtContainer style={{backgroundColor:'lightgray'}} padding="10" layout="fit">
         <Switch>
-          <Route exact path="/home" component={Home} />
+          <Route path="/home" component={Home} />
           <Route path="/user" component={User} />
           <Route path="/grid" component={Grid} />
           <Route path="/gridrenderers" component={GridRenderers} />
         </Switch>
       </ExtContainer>
     </ExtPanel>
-  )
-}
+    )
+  }
+};
