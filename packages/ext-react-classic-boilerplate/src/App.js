@@ -1,84 +1,65 @@
 import React, { Component } from 'react';
-
 import Person from './Person';
 import data from './data';
-import { Panel, Grid, Toolbar, TextField } from '@sencha/ext-classic';
+import { ExtPanel, ExtGrid, ExtToolbar, ExtTextfield } from '@sencha/ext-react-classic';
 var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {
 
-  title = "Sencha ExtReact 7.0 Classic Boilerplate" + REACT_VERSION
+  title = "Sencha ExtReactClassic 7.1 Boilerplate" + REACT_VERSION;
+  state = { person: null };
+  store = Ext.create('Ext.data.Store', {data});
 
-    state = {
-        person: null
-    };
+  onRowClick = ({sender, record, element, rowIndex, e}) => {
+    this.setState({person: record.data});
+  }
 
-    store = Ext.create('Ext.data.Store', {
-        data
+  onSavePerson = (person) => {
+    console.log('onSavePerson')
+    Ext.toast(`Person ${person.name} saved.`);
+    this.store.getById(person.id).set(person, { dirty: false });
+    this.setState({ person: null });
+  }
+
+  onPersonDialogClose = () => {
+    console.log('onPersonDialogClose')
+    this.setState({ person: null });
+  }
+
+  onSearch = ({sender, newValue, oldValue, eOpts}) => {
+    var value = newValue.toLowerCase();
+    this.store.clearFilter();
+    this.store.filterBy(record => {
+    return record.get('name').toLowerCase().indexOf(value) !== -1 ||
+           record.get('email').toLowerCase().indexOf(value) !== -1
     });
+  }
 
+  render() {
+    const { person } = this.state;
+    return (
+      <ExtPanel title={this.title}>
+        { person && (
+          <Person
+            person={person}
+            onSave={this.onSavePerson}
+            onClose={this.onPersonDialogClose}
+          />
+        )}
+        <ExtToolbar dock="top">
+          <ExtTextfield emptyText="Search" onChange={this.onSearch} flex={1}/>
+        </ExtToolbar>
+          <ExtGrid height={600}
+            store={this.store}
+            columns={[
+              { text: 'Name', dataIndex: 'name', flex: 1 },
+              { text: 'Email', dataIndex: 'email', flex: 1 }
+            ]}
+            onRowclick={this.onRowClick}
+            onRowClick={(ExtGrid, record) => this.onRowClick(record.data)}
+          />
+      </ExtPanel>
+    );
+  }
 
-  //   { person && (
-  //     <Person
-  //         person={person}
-  //         onSave={this.onSavePerson}
-  //         onClose={() => this.setState({ person: null })}
-  //     />
-  // ) }
-  // <Toolbar dock="top">
-  //     <TextField emptyText="Search" onChange={(field, value) => this.onSearch(value)} flex={1}/>
-  // </Toolbar>
-
-
-
-    render() {
-        const { person } = this.state;
-        
-        return (
-            <Panel title={this.title}>
-              { person && (
-                  <Person
-                      person={person}
-                      onSave={this.onSavePerson}
-                      onClose={() => this.setState({ person: null })}
-                  />
-              ) }
-              <Toolbar dock="top">
-                  <TextField emptyText="Search" onChange={(field, value) => this.onSearch(value)} flex={1}/>
-              </Toolbar>
-                <Grid height={600}
-                    store={this.store}
-                    columns={[
-                        { text: 'Name', dataIndex: 'name', flex: 1 },
-                        { text: 'Email', dataIndex: 'email', flex: 1 }
-                    ]}
-                    onRowClick={(grid, record) => this.onRowClick(record.data)}
-                />
-            </Panel>
-        );
-    }
-
-    onSearch = (value) => {
-        value = value.toLowerCase();
-        this.store.clearFilter();
-        this.store.filterBy(record => {
-            return record.get('name').toLowerCase().indexOf(value) !== -1 ||
-                record.get('email').toLowerCase().indexOf(value) !== -1
-        });
-    }
-
-    onRowClick = (person) => {
-        this.setState({ person });
-    }
-
-    onSavePerson = (person) => {
-        Ext.toast(`Person ${person.name} saved.`);
-        this.store.getById(person.id).set(person, { dirty: false });
-        this.setState({ person: null });
-    }
-
-    onPersonDialogClose = () => {
-        this.setState({ person: null });
-    }
-    
 }

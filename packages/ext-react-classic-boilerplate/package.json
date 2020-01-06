@@ -31,7 +31,7 @@
       "@babel/runtime": "^7.7.7",
       "@sencha/ext": "^7.1.0",
       "@sencha/ext-classic": "^7.1.0",
-      "@sencha/ext-classic-theme-triton": "^7.1.0",
+      "@sencha/ext-classic-theme-material": "^7.1.0",
       "@sencha/ext-react-classic": "^7.1.0",
 
       "prop-types": "^15.7.2",
@@ -65,15 +65,15 @@
       "raw-loader": "~4.0.0",
       "babel-loader": "^8.0.6",
       "html-loader": "^0.5.5",
-      "style-loader": "^1.1.1",
-      "css-loader": "^3.4.0",
+      "style-loader": "^1.1.2",
+      "css-loader": "^3.4.1",
       "sass-loader": "^8.0.0",
       "node-sass": "^4.13.0",
 
       "react-hot-loader": "^4.12.18",
 
       "portfinder": "^1.0.25",
-      "webpack": "^4.41.4",
+      "webpack": "^4.41.5",
       "webpack-cli": "^3.3.10",
       "webpack-dev-server": "^3.10.1"
     }
