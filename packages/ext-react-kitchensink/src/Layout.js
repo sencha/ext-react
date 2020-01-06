@@ -19,6 +19,26 @@ Ext.require([
 
 class Layout extends Component {
 
+
+  bodyStyle = `
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  alignItems: center;
+  justifyContent: center;
+
+    backgroundSize: 20px 20px;
+    borderWidth: 0px;
+    backgroundColor: #e8e8e8;
+    backgroundImage:
+    linear-gradient(0deg, #f5f5f5 1.1px, transparent 0),
+    linear-gradient(90deg, #f5f5f5 1.1px, transparent 0)
+  `;
+
+
   componentDidMount() {
     //console.log('componentDidMount')
     this.refs.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
@@ -79,15 +99,8 @@ class Layout extends Component {
   }
 
   onNavChange = (node) => {
-    //console.log('onNavChange')
-    //console.log(node)
     var nodeId = node.getId()
-    //console.log(nodeId)
-    //if(nodeId === '' || nodeId) {
-      location.hash = nodeId;
-      //selectedNavNode
-      //this.props.selectedNavNode = node
-    //}
+    location.hash = nodeId;
   }
 
   onTitleClick = () => {
@@ -111,6 +124,7 @@ class Layout extends Component {
       actions,
       layout
     } = this.props;
+    console.log(layout)
 
     const example = component && React.createElement(component);
 
@@ -182,19 +196,25 @@ class Layout extends Component {
               />
               <Breadcrumbs docked="top" node={selectedNavNode}/>
 
+
+
+
+
                 { component
                   ? (
-                    <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                    <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                       { layout === 'fit'
                         ? (<Container padding="30" layout="fit">{ example }</Container>)
                         : (example)
                       }
-                    </Container>
+                    </Panel>
                   )
                   : selectedNavNode
                     ? (<NavView key={selectedNavNode.id} node={selectedNavNode}/>)
                     : null
                 }
+
+
 
             </Container>
           </Container>
