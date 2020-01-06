@@ -11,25 +11,30 @@ export default class GridRenderers extends Component {
     data
   });
 
-  renderChange = (value, record) => (
+  renderName1 = (value, context) => (
     <div style={{height:'15px'}}>
-      <span>span - {record.data.name}</span>
-      <ext-button text={record.data.name}></ext-button>
+      <span>span - {context.data.name}</span>
+      <ext-button shadow="true" text={context.data.name}></ext-button>
     </div>
     //<ExtButton text="hi"></ExtButton>
   )
 
-  summarizeNames (grid, context) {
-    console.log(grid)
-    console.log(context)
-    return 'hi'
+  renderSummaryName1 (value, context) {
+    //console.log(value)
+    //console.log(context)
+    return 'broken'
     //return context.records.length + ' Names';
   }
 
-  summarizeNames2 = (sender, context) => {
-    console.log(sender)
-    console.log(context)
-    //return 'hi'
+  renderName2 = (value, context) => {
+    //console.log(value)
+    //console.log(context)
+    return value
+  }
+
+  renderSummaryName3 = (value, context) => {
+    //console.log(value)
+    //console.log(context)
     return context.records.length + ' Names';
   }
 
@@ -39,8 +44,9 @@ export default class GridRenderers extends Component {
         store={this.store}
         plugins= {{gridsummaryrow: true}}
       >
-        <ExtColumn text="Name" dataIndex="name" flex={2} renderer={this.renderChange} summaryRenderer={this.summarizeNames}/>
-        <ExtColumn text="Name" dataIndex="name" flex={2} summaryRenderer={this.summarizeNames2}/>
+        <ExtColumn text="Name" dataIndex="name" flex={2} renderer={this.renderName1} summaryRenderer={this.renderSummaryName1}/>
+        <ExtColumn text="Name" dataIndex="name" flex={2} renderer={this.renderName2} summary="count"/>
+        <ExtColumn text="Name" dataIndex="name" flex={2} summaryRenderer={this.renderSummaryName3}/>
         <ExtColumn text="Taken" dataIndex="hoursTaken" flex={1} summary="average"/>
       </ExtGrid>
     )

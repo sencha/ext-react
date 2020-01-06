@@ -18,7 +18,7 @@ export default class Grid extends Component {
     //console.log(this.searchfield.cmp)
   }
 
-  onSearch = ({detail: {sender, oldValue, newValue}}) => {
+  onSearch = ({sender, oldValue, newValue}) => {
     const query = sender.getValue().toLowerCase();
     this.store.clearFilter();
     if (query.length) this.store.filterBy(record => {
@@ -29,17 +29,16 @@ export default class Grid extends Component {
     });
   }
 
-  renderChange = (value, record) => (
+  renderChange = (value, context) => (
     <div style={{height:'15px'}}>
-      <ext-button text={record.data.name}></ext-button>
-      <span>span - {record.data.name}</span>
+      <ext-button text={context.data.name}></ext-button>
+      <span>span - {context.data.name}</span>
     </div>
     //<ExtButton text="hi"></ExtButton>
   )
 
-  renderSummary = (value) => {
-    console.log(value)
-    return value
+  renderSummary = (value, context) => {
+    return context.records.length;
 }
 
   render() {
@@ -62,7 +61,7 @@ export default class Grid extends Component {
             placeholder="Search..."
           />
         </ExtToolbar>
-        <ExtColumn text="Name" dataIndex="name" flex={1} renderer={this.renderChange}/>
+        <ExtColumn text="Name" dataIndex="name" flex={1} renderer={this.renderChange} summary="count"/>
         <ExtColumn text="Taken" dataIndex="hoursTaken" flex={1} summaryRenderer={this.renderSummary}/>
         {/* <ExtColumn text="Email" dataIndex="email" flex={3} resizable/>
         <ExtColumn text="Phone" dataIndex="phone" flex={2} resizable/> */}

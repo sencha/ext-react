@@ -24,7 +24,10 @@ Ext.onReady(function() {
     }
     var lockedgrid = Ext.create(o)
 
-    var panel = Ext.create({xtype:'panel', title:'lockedgrid'})
+    var panel = Ext.create({
+      xtype:'panel',
+      title:'lockedgrid'
+    })
     //Ext.Viewport.add([panel])
     panel.add(lockedgrid)
 
