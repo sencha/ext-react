@@ -41,7 +41,7 @@ onReady = ({cmp, cmpObj}) => {
           //console.log(this.breadcrumbCmp)
           //console.log(newProps.node.getId())
 
-          //this.breadcrumbCmp.setSelection(newProps.node)
+          this.breadcrumbCmp.setSelection(newProps.node)
 
 
 
@@ -60,6 +60,8 @@ onReady = ({cmp, cmpObj}) => {
     }
 
     nav(node) {
+      var nodeId = node.getId()
+      location.hash = nodeId;
         //console.log('in nav function, node is:');console.dir(node)
         //this.nav(node)
         // var nodeId = node.getId()
@@ -108,13 +110,17 @@ onReady = ({cmp, cmpObj}) => {
 
 
     //onPathChange = (context, node) => {
-    onPathChange = ({node, prevNode, eOpts}) => {
+    onPathChange = ({sender,node, prevNode, eOpts}) => {
+      console.log(sender)
+      console.log(node)
+      console.log(prevNode)
       //var node = detail.node;
       //console.log(detail.node)
       //console.log(node)
       //location.hash = node.id;
       this.nav(node)
     }
+
 
     render() {
         return (
