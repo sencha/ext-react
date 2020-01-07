@@ -1,65 +1,72 @@
-import React, { Component } from 'react';
-import { ToolBar, TextField, Button } from '@sencha/ext-react-modern';
-import { Tree, TreeColumn } from '@sencha/ext-modern-treegrid';
+import React, { Component } from "react";
+import { ToolBar, TextField, Button } from "@sencha/ext-react-modern";
+import { Tree, TreeColumn } from "@sencha/ext-react-modern";
 
-import './data';
+import "./data";
 
 export default class HeterogeneousTreeExample extends Component {
-
-    cityModel = Ext.define('KitchenSink.model.tree.City', {
-        extend: 'Ext.data.TreeModel',
-        entityName: 'City',
-        idProperty: 'name',
-        glyph: 'xf19c@FontAwesome',
-        fields: [{
-            name: 'name',
-            convert: undefined
-        },{
-            name: 'iconCls',
-            defaultValue: 'x-fa fa-bank'
-        }]
-    });
-
-    countryModel = Ext.define('KitchenSink.model.tree.Country', {
-        extend: 'Ext.data.TreeModel',
-        entityName: 'Country',
-        idProperty: 'name',
-        glyph: 'xf024@FontAwesome',
-        fields: [{
-            name: 'name',
-            convert: undefined
-        },{
-            name: 'iconCls',
-            defaultValue: 'x-fa fa-flag'
-        }]
-    })
-
-    territoryModel = Ext.define('KitchenSink.model.tree.Territory', {
-        extend: 'Ext.data.TreeModel',
-        entityName: 'Territory',
-        idProperty: 'name',
-        glyph: 'xf0ac@FontAwesome',
-        fields: [{
-            name: 'name',
-            convert: undefined
-        },{
-            name: 'iconCls',
-            defaultValue: 'x-fa fa-globe'
-        }]
-    });
-
-    store = Ext.create('Ext.data.TreeStore', {
-        proxy: {
-            type: 'ajax',
-            reader: {
-                type: 'json',
-                typeProperty: 'mtype'
+    cityModel = Ext.define("KitchenSink.model.tree.City", {
+        extend: "Ext.data.TreeModel",
+        entityName: "City",
+        idProperty: "name",
+        glyph: "xf19c@FontAwesome",
+        fields: [
+            {
+                name: "name",
+                convert: undefined
             },
-            url: '/KitchenSink/GeoData'
+            {
+                name: "iconCls",
+                defaultValue: "x-fa fa-bank"
+            }
+        ]
+    });
+
+    countryModel = Ext.define("KitchenSink.model.tree.Country", {
+        extend: "Ext.data.TreeModel",
+        entityName: "Country",
+        idProperty: "name",
+        glyph: "xf024@FontAwesome",
+        fields: [
+            {
+                name: "name",
+                convert: undefined
+            },
+            {
+                name: "iconCls",
+                defaultValue: "x-fa fa-flag"
+            }
+        ]
+    });
+
+    territoryModel = Ext.define("KitchenSink.model.tree.Territory", {
+        extend: "Ext.data.TreeModel",
+        entityName: "Territory",
+        idProperty: "name",
+        glyph: "xf0ac@FontAwesome",
+        fields: [
+            {
+                name: "name",
+                convert: undefined
+            },
+            {
+                name: "iconCls",
+                defaultValue: "x-fa fa-globe"
+            }
+        ]
+    });
+
+    store = Ext.create("Ext.data.TreeStore", {
+        proxy: {
+            type: "ajax",
+            reader: {
+                type: "json",
+                typeProperty: "mtype"
+            },
+            url: "/KitchenSink/GeoData"
         },
         lazyFill: false
     });
-
 
     addItem = () => {
         var inputField = this.textfield.cmp,
@@ -70,25 +77,28 @@ export default class HeterogeneousTreeExample extends Component {
 
         if (value) {
             if (this.store.getNodeById(value)) {
-                return Ext.Msg.alert('Error', 'A node with this name already exists.');
+                return Ext.Msg.alert(
+                    "Error",
+                    "A node with this name already exists."
+                );
             }
 
             node = {
-                name : value
+                name: value
             };
 
             if (target.isRoot()) {
                 //Nothing selected -- adding new Territory
                 node.children = [];
-                node.mtype = 'Territory';
+                node.mtype = "Territory";
             } else if (target instanceof this.territoryModel) {
                 // Programatically added - must not try to load over Ajax
                 node.children = [];
-                node.mtype = 'Country';
+                node.mtype = "Country";
             } else if (target instanceof this.countryModel) {
                 // Adding to the Country level - that is our leaf level
                 node.leaf = true;
-                node.mtype = 'City';
+                node.mtype = "City";
             }
 
             node = target.appendChild(node);
@@ -104,7 +114,7 @@ export default class HeterogeneousTreeExample extends Component {
     };
 
     onFieldAction = (field, e) => {
-         if (e.ENTER === e.getKey()) {
+        if (e.ENTER === e.getKey()) {
             this.addItem();
         }
     };
@@ -116,27 +126,26 @@ export default class HeterogeneousTreeExample extends Component {
             selectedNode = selection[0];
 
             if (selectedNode instanceof this.territoryModel) {
-                button.setText('Add Country');
+                button.setText("Add Country");
                 button.enable();
             } else if (selectedNode instanceof this.countryModel) {
-                button.setText('Add City');
+                button.setText("Add City");
                 button.enable();
             } else {
                 button.disable();
             }
         } else {
-            button.setText('Add Territory');
+            button.setText("Add Territory");
             button.enable();
         }
     };
 
     //shadow
 
-
-    render(){
-        return(
+    render() {
+        return (
             <Tree
-                ref={tree => this.tree = tree}
+                ref={tree => (this.tree = tree)}
                 shadow
                 title="Heterogeneous Geographical Tree"
                 rootVisible={false}
@@ -145,26 +154,21 @@ export default class HeterogeneousTreeExample extends Component {
                     selectionchange: this.onSelectionChange
                 }}
             >
-                <TreeColumn
-                    text="Name"
-                    dataIndex="name"
-                    flex="1"
-                />
+                <TreeColumn text="Name" dataIndex="name" flex="1" />
                 <ToolBar docked="bottom">
                     <TextField
-                        ref={textfield => this.textfield = textfield}
+                        ref={textfield => (this.textfield = textfield)}
                         listeners={{
-                            action:'onFieldAction'
+                            action: "onFieldAction"
                         }}
                     />
                     <Button
-                        ref={button => this.button = button}
+                        ref={button => (this.button = button)}
                         text="Add Territory"
                         handler={this.addItem}
                     />
                 </ToolBar>
-
             </Tree>
-        )
+        );
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { Titlebar, Container, Nestedlist, Panel, Button } from '@sencha/ext-react-modern'
+import { Titlebar, Container, Nestedlist, Panel, Button, BreadcrumbBar } from '@sencha/ext-react-modern'
 //import { Transition } from '@sencha/ext-react-transition'
 
 import NavTree from './NavTree';
@@ -19,25 +19,22 @@ Ext.require([
 
 class Layout extends Component {
 
-
   bodyStyle = `
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  display: flex;
-  alignItems: center;
-  justifyContent: center;
-
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    alignItems: center;
+    justifyContent: center;
     backgroundSize: 20px 20px;
     borderWidth: 0px;
     backgroundColor: #e8e8e8;
     backgroundImage:
-    linear-gradient(0deg, #f5f5f5 1.1px, transparent 0),
-    linear-gradient(90deg, #f5f5f5 1.1px, transparent 0)
+      linear-gradient(0deg, #f5f5f5 1.1px, transparent 0),
+      linear-gradient(90deg, #f5f5f5 1.1px, transparent 0)
   `;
-
 
   componentDidMount() {
     //console.log('componentDidMount')
@@ -98,10 +95,6 @@ class Layout extends Component {
     }
   }
 
-  onNavChange = (node) => {
-    var nodeId = node.getId()
-    location.hash = nodeId;
-  }
 
   onTitleClick = () => {
     location.hash = '/';
@@ -111,6 +104,36 @@ class Layout extends Component {
     if (!node) return false;
     return node.data.premium || this.isPremium(node.parentNode);
   }
+
+  onReady = ({cmp, cmpObj}) => {
+    this.breadcrumbCmp = cmp
+    this.breadcrumbCmp.setSelection(this.props.node)
+  }
+
+  onPathChange = ({sender,node, prevNode, eOpts}) => {
+    console.log(sender)
+    console.log(node)
+    console.log(prevNode)
+    //var node = detail.node;
+    //console.log(detail.node)
+    //console.log(node)
+    //location.hash = node.id;
+    this.nav(node)
+  }
+
+
+  nav(node) {
+    var nodeId = node.getId();
+    location.hash = nodeId;
+  }
+
+  onNavChange = (node) => {
+    console.log(node)
+    var nodeId = node.getId()
+    location.hash = nodeId;
+    this.breadcrumbCmp.setSelection(node)
+  }
+
 
   render() {
     const {
@@ -124,7 +147,7 @@ class Layout extends Component {
       actions,
       layout
     } = this.props;
-    console.log(layout)
+    //console.log(layout)
 
     const example = component && React.createElement(component);
 
@@ -172,7 +195,7 @@ class Layout extends Component {
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha ExtReact Kitchen Sink - React v{REACT_VERSION}</a>
+              <a href="#" className="app-title">Sencha ExtReactModern Kitchen Sink - React v{REACT_VERSION}</a>
               <Container ref="rightContainer" align="right"></Container>
             </Titlebar>
             <Container layout="fit" flex={1}>
@@ -186,19 +209,22 @@ class Layout extends Component {
                 store={navStore}
                 selection={selectedNavNode}
                 onSelectionChange={({treelist, record, eOpts}) => {
-                  //var node = detail.record
                   var node = record;
-                  //console.log(node)
-                  //console.log('here')
                   this.onNavChange(node)
                 }}
                 collapsed={!showTree}
               />
-              <Breadcrumbs docked="top" node={selectedNavNode}/>
 
-
-
-
+              <BreadcrumbBar
+                  docked="top"
+                  showIcons= "true"
+                  store={navStore}
+                  onReady={this.onReady}
+                  onChange={this.onPathChange}
+                  ref="appBreadcrumb"
+                  useSplitButtons
+              >
+              </BreadcrumbBar>
 
                 { component
                   ? (
@@ -214,8 +240,6 @@ class Layout extends Component {
                     : null
                 }
 
-
-
             </Container>
           </Container>
           { files && (
@@ -223,7 +247,7 @@ class Layout extends Component {
                 align="right"
                 iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
                 ui="fab"
-                top={Ext.os.is.Desktop ? 20 : 35}
+                top={Ext.os.is.Desktop ? 43 : 35}
                 right={21}
                 zIndex={1000}
                 onTap={actions.toggleCode}
