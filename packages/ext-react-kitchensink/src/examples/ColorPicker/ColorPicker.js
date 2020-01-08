@@ -45,7 +45,7 @@ export default class ColorPickerExample extends Component {
             hidden: Ext.platformTags.phone ? true : false,
             items: [
               {
-                //xtype: 'colorbutton',
+                xtype: 'colorbutton',
                 bind: '{color}',
                 width: Ext.platformTags.phone ? 25 : 15,
                 height: Ext.platformTags.phone ? 25 : 15,

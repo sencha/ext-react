@@ -47,6 +47,7 @@ export default class Grid extends Component {
         onReady={this.onReady}
         store={this.store}
         plugins= {{
+          gridfilters: true,
           gridsummaryrow: true
       }}
         // columns={[{text:'Name', dataIndex:'name', width: '200px'}]}

@@ -56,7 +56,7 @@ export default class App extends Component {
               { text: 'Email', dataIndex: 'email', flex: 1 }
             ]}
             onRowclick={this.onRowClick}
-            onRowClick={(ExtGrid, record) => this.onRowClick(record.data)}
+            //onRowClick={(ExtGrid, record) => this.onRowClick(record.data)}
           />
       </ExtPanel>
     );
