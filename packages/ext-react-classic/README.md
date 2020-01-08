@@ -1,6 +1,6 @@
 ## @sencha/ext-react-classic
 
-last run: Mon Dec 23 2019 10:31:54 GMT+0000 (Greenwich Mean Time)
+last run: Wed Jan 08 2020 18:52:12 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
@@ -24,6 +24,7 @@ npx create-react-app ext-react-classic-demo
 ```sh
 cd ext-react-classic-demo
 npm install @sencha/ext-react-classic --save
+npm install
 ```
 
 - Open your editor
@@ -64,7 +65,6 @@ serviceWorker.unregister();
 ```sh
 import React, { Component } from 'react';
 import { ExtGrid } from "@sencha/ext-react-classic";
-import { ExtColumn } from "@sencha/ext-react-classic";
 const Ext = window['Ext'];
 
 class App extends Component {
@@ -74,10 +74,9 @@ class App extends Component {
     var data=[
       { name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25 },
       { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
-      { name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45 }
+      { name: 'Andy', email: 'andy@gmail.com',priceChangePct: 1.45 }
     ]
-    this.store = Ext.create('Ext.data.Store', { data })
-    //this.store = {xtype: 'store',data: data}
+    this.store = { xtype: 'store', data: data }
   }
 
   render() {
@@ -88,16 +87,8 @@ class App extends Component {
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
-        // columns={ [ {text: "name", dataIndex: "name"} ] }
+        columns=[object Object]
       >
-        <ExtColumn text="name" dataIndex="name"></ExtColumn>
-        <ExtColumn text="email" dataIndex="email" width="150"></ExtColumn>
-        <ExtColumn
-          text="% Change"
-          dataIndex="priceChangePct"
-          align="right"
-          renderer={ this.renderSign.bind(this, '0.00') }
-        />
       </ExtGrid>
     )
   }
@@ -109,24 +100,15 @@ class App extends Component {
 
   extReactDidMount = detail => {
      console.log('extReactDidMount')
-    // var data=[
-    //   {name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25},
-    //   {name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35},
-    //   {name: 'Andy', email: 'andy@gmail.com',priceChangePct: .45}
-    // ]
-    // //console.log(this.refs)
-    // //this.refs.grid.cmp.setData(data);
-    // const store = Ext.create('Ext.data.Store', {
-    //   data
-    // })
-    // this.grid.cmp.setStore(store);
   }
 
-  renderSign = (format, value) => (
-    <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-        {Ext.util.Format.number(value, format)}
-    </span>
-  )
+  renderSign = (value, context) => {
+    var iValue = parseInt(value);
+    var color;
+    if (iValue > 0) { color = 'green'; }
+    else { color = 'red'; }
+    return `<span style="color:$;">$</span>`
+  }
 
 }
 export default App;

@@ -781,6 +781,7 @@ export const TabBar = ExtTabbar_;
 export const TabPanel = ExtTabpanel_;
 export const TextAreaField = ExtTextareafield_;
 export const TextColumn = ExtTextcolumn_;
+export const TreeColumn = ExtTreecolumn_;
 export const TextField = ExtTextfield_;
 export const TimeField = ExtTimefield_;
 export const TimePanel = ExtTimepanel_;

@@ -37,8 +37,7 @@ class Layout extends Component {
   `;
 
   componentDidMount() {
-    //console.log('componentDidMount')
-    this.refs.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
+    this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
       //this.selectedNode = this.props.selectedNavNode;
@@ -74,12 +73,6 @@ class Layout extends Component {
     }
   }
 
-// onReady={ this.extReactDidMount }
-  // extReactDidMount = detail => {
-  //   console.log('extReactDidMount')
-
-  // }
-
   componentDidUpdate(previousProps) {
     if(Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
@@ -95,7 +88,6 @@ class Layout extends Component {
     }
   }
 
-
   onTitleClick = () => {
     location.hash = '/';
   }
@@ -110,17 +102,9 @@ class Layout extends Component {
     this.breadcrumbCmp.setSelection(this.props.node)
   }
 
-  onPathChange = ({sender,node, prevNode, eOpts}) => {
-    console.log(sender)
-    console.log(node)
-    console.log(prevNode)
-    //var node = detail.node;
-    //console.log(detail.node)
-    //console.log(node)
-    //location.hash = node.id;
+  changeBreadcrumbbar = ({sender, node, prevNode, eOpts}) => {
     this.nav(node)
   }
-
 
   nav(node) {
     var nodeId = node.getId();
@@ -128,12 +112,10 @@ class Layout extends Component {
   }
 
   onNavChange = (node) => {
-    console.log(node)
     var nodeId = node.getId()
     location.hash = nodeId;
     this.breadcrumbCmp.setSelection(node)
   }
-
 
   render() {
     const {
@@ -147,7 +129,6 @@ class Layout extends Component {
       actions,
       layout
     } = this.props;
-    //console.log(layout)
 
     const example = component && React.createElement(component);
 
@@ -184,7 +165,6 @@ class Layout extends Component {
       )
     } else if (!Ext.os.is.Phone) {
       // desktop + tablet layout
-      //this.onNavChange(node && node.getId(), node)
       return (
         <Container layout="hbox" cls="main-background" viewport="true">
           <Container layout="fit" flex={4}>
@@ -196,7 +176,9 @@ class Layout extends Component {
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
               <a href="#" className="app-title">Sencha ExtReactModern Kitchen Sink - React v{REACT_VERSION}</a>
-              <Container ref="rightContainer" align="right"></Container>
+              <Container
+              ref={rightContainer => this.rightContainer = rightContainer}
+              align="right"></Container>
             </Titlebar>
             <Container layout="fit" flex={1}>
               <NavTree
@@ -208,38 +190,35 @@ class Layout extends Component {
                 }}
                 store={navStore}
                 selection={selectedNavNode}
-                onSelectionChange={({treelist, record, eOpts}) => {
+                onSelectionchange={({treelist, record, eOpts}) => {
                   var node = record;
                   this.onNavChange(node)
                 }}
                 collapsed={!showTree}
               />
-
               <BreadcrumbBar
                   docked="top"
                   showIcons= "true"
                   store={navStore}
                   onReady={this.onReady}
-                  onChange={this.onPathChange}
+                  onChange={this.changeBreadcrumbbar}
                   ref="appBreadcrumb"
                   useSplitButtons
               >
               </BreadcrumbBar>
-
-                { component
-                  ? (
-                    <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
-                      { layout === 'fit'
-                        ? (<Container padding="30" layout="fit">{ example }</Container>)
-                        : (example)
-                      }
-                    </Panel>
-                  )
-                  : selectedNavNode
-                    ? (<NavView key={selectedNavNode.id} node={selectedNavNode}/>)
-                    : null
-                }
-
+              { component
+                ? (
+                  <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                    { layout === 'fit'
+                      ? (<Container padding="30" layout="fit">{ example }</Container>)
+                      : (example)
+                    }
+                  </Panel>
+                )
+                : selectedNavNode
+                  ? (<NavView key={selectedNavNode.id} node={selectedNavNode}/>)
+                  : null
+              }
             </Container>
           </Container>
           { files && (

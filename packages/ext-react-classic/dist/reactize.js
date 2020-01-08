@@ -73,14 +73,33 @@ export default function (CustomElement) {
       //console.log(this.props)
       var newProps = {};
       this.objectProps = {};
+      var className = '';
 
       for (var prop in this.props) {
         var t = typeof this.props[prop];
 
-        if (t != 'object') {
+        if (prop == 'className') {
+          className = ' ' + this.props[prop];
+        } else if (t == 'function') {
+          // newProps[prop] = this.props[prop];
+          // this.objectProps[prop] = this.props[prop];
+          if (prop == 'renderer' || prop == 'summaryRenderer') {
+            //console.log(t)
+            //console.log(this.props[prop])
+            //newProps[prop] = this.props[prop];
+            newProps[prop] = 'function';
+            this.objectProps[prop] = this.props[prop];
+          } else {
+            newProps[prop] = this.props[prop]; //newProps[prop] = 'function';
+
+            this.objectProps[prop] = this.props[prop];
+          }
+        } else if (t != 'object') {
           newProps[prop] = this.props[prop];
         } else {
-          if (prop == 'style' || prop == 'children') {} else {
+          if (prop == 'style' || prop == 'children') {} else if (prop == 'columns') {
+            this.objectProps[prop] = this.props[prop];
+          } else {
             var sPropVal = '';
 
             try {
@@ -91,6 +110,16 @@ export default function (CustomElement) {
             }
           }
         }
+      } //console.log(newProps['cls'])
+      //console.log(className)
+
+
+      if (newProps['cls'] == undefined) {
+        if (className != '') {
+          newProps['cls'] = className;
+        }
+      } else {
+        newProps['cls'] = newProps['cls'] + className;
       }
 
       this.element = React.createElement(tagName, _extends({}, newProps, {

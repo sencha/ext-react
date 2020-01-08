@@ -772,6 +772,7 @@ export var TabBar = ExtTabbar_;
 export var TabPanel = ExtTabpanel_;
 export var TextAreaField = ExtTextareafield_;
 export var TextColumn = ExtTextcolumn_;
+export var TreeColumn = ExtTreecolumn_;
 export var TextField = ExtTextfield_;
 export var TimeField = ExtTimefield_;
 export var TimePanel = ExtTimepanel_;
