@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ExtGrid, ExtButton } from "@sencha/ext-react-modern";
+import { ExtGrid } from "@sencha/ext-react-modern";
 import { ExtColumn } from "@sencha/ext-react-modern";
 const Ext = window['Ext'];
 
@@ -16,42 +16,14 @@ class App extends Component {
     //this.store = {xtype: 'store',data: data}
   }
 
-  buttonTap = ({sender, e}) => {
-    console.log('buttonTap')
-    //console.log(sender)
-    //console.log(e)
-
-    this.theButton.cmp.setText('later')
-
-  }
-
-
-  buttonReady = () => {
-    console.log('buttonReady')
-    //console.log(sender)
-    //console.log(e)
-
-    this.theButton.cmp.setText('new val')
-
-  }
-
-
-
   render() {
     return (
-      // <ExtButton
-      //   ref={theButton => this.theButton = theButton}
-      //   text="hi"
-      //   onTap={ this.buttonTap }
-      //   onReady={ this.buttonReady }
-      // />
       <ExtGrid
         viewport={ true }
         ref={ grid => this.grid = grid }
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
-        // columns={ [ {text: "name", dataIndex: "name"} ] }
       >
         <ExtColumn text="name" dataIndex="name"></ExtColumn>
         <ExtColumn text="email" dataIndex="email" width="150"></ExtColumn>
