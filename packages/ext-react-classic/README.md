@@ -1,6 +1,6 @@
 ## @sencha/ext-react-classic
 
-last run: Wed Jan 08 2020 18:52:12 GMT-0500 (Eastern Standard Time)
+last run: Fri Jan 10 2020 09:55:13 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
@@ -87,7 +87,11 @@ class App extends Component {
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
-        columns=[object Object]
+        columns={ [
+          { text: "name", dataIndex: "name" },
+          { text: "email", dataIndex: "email", flex: "1" },
+          { text: "% Change", dataIndex: "priceChangePct", align: "right", renderer: this.renderSign }
+        ] }
       >
       </ExtGrid>
     )
@@ -98,7 +102,7 @@ class App extends Component {
     console.log(this.grid.cmp)
   }
 
-  extReactDidMount = detail => {
+  extReactDidMount = (detail) => {
      console.log('extReactDidMount')
   }
 
@@ -107,7 +111,7 @@ class App extends Component {
     var color;
     if (iValue > 0) { color = 'green'; }
     else { color = 'red'; }
-    return `<span style="color:$;">$</span>`
+    return `<span style="color:${ color };">${ value }</span>`
   }
 
 }

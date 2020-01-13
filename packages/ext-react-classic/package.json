@@ -3,6 +3,9 @@
   "version": "7.1.0",
   "description": "Sencha ext-react-classic",
   "main": "dist/index.js",
+  "bin": {
+    "ext-react": "./bin/ext-react.js"
+  },
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist",
     "prepublish": "npm run build",

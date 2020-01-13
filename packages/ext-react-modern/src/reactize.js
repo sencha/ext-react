@@ -93,6 +93,9 @@ export default function (CustomElement) {
         else {
           if (prop == 'style' || prop == 'children') {
           }
+          else if (prop == 'columns') {
+            this.objectProps[prop] = this.props[prop];
+          }
           else {
             var sPropVal = ''
             try {

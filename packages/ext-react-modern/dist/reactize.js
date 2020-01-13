@@ -97,7 +97,9 @@ export default function (CustomElement) {
         } else if (t != 'object') {
           newProps[prop] = this.props[prop];
         } else {
-          if (prop == 'style' || prop == 'children') {} else {
+          if (prop == 'style' || prop == 'children') {} else if (prop == 'columns') {
+            this.objectProps[prop] = this.props[prop];
+          } else {
             var sPropVal = '';
 
             try {
