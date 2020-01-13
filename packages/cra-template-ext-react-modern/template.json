@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@sencha/ext-react-modern": "^7.1.0"
+  },
+  "scripts": {
+
+  }
+}
