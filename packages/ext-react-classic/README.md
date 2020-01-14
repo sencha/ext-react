@@ -1,6 +1,6 @@
 ## @sencha/ext-react-classic
 
-last run: Tue Jan 14 2020 09:45:19 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 14 2020 10:14:01 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
@@ -17,9 +17,6 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 
 ```sh
 npx create-react-app ext-react-classic-demo --template @sencha/ext-react-classic
-cd ext-react-classic-demo
-npm install
-npm start
 ```
 
 create-react-app will create a new application using the ext-react-classic template (from the sencha/ext-react git repo)
@@ -38,9 +35,7 @@ To open Visual Studio Code, type the following:
 code .
 ```
 
-- To change the theme, edit 'public/index.html':
-
-uncomment one of the links below this line:
+- To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
 ```sh
     <script src="%PUBLIC_URL%/ext-runtime-classic/themes/css.classic.material.js"></script>
