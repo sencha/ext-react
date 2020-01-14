@@ -138,17 +138,17 @@ try {
         //var position = indexHtml.indexOf('<title>');
         var position = indexHtml.indexOf('</head>');
 
-        var styles = `
-    <!--https://www.rapidtables.com/web/color/-->
-    <style>
-      :root {
-        --base-color: #024059;
-        --base-foreground-color: white;
-        --background-color: white;
-        --color: black;
-      }
-    </style>
-        `
+    //     var styles = `
+    // <!--https://www.rapidtables.com/web/color/-->
+    // <style>
+    //   :root {
+    //     --base-color: #024059;
+    //     --base-foreground-color: white;
+    //     --background-color: white;
+    //     --color: black;
+    //   }
+    // </style>
+    //     `
 
         var b = ''
         if (toolkit == 'modern') {
@@ -160,11 +160,10 @@ try {
       >-->
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.modern.material.js"></script>
       <!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.modern.material.js"></script>
       -->
-  ${styles}
           `
         }
         else {
