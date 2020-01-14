@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Panel, FieldSet, TextField, SelectField, SliderField, Container, Spacer } from '@sencha/ext-modern';
+import { Panel, Fieldset, Textfield, Selectfield, Sliderfield, Container, Spacer } from '@sencha/ext-react-modern';
 import { connect } from 'react-redux';
 import { updateCriteria } from './actions';
 
@@ -28,27 +28,27 @@ class SearchOptions extends Component {
 
         return (
             <Panel bodyPadding={15} docked="left" width="300" layout="fit" scrollable docked={this.props.docked} hidden={this.props.hidden} shadow style={{zIndex: 10}}>
-                <FieldSet title="Search Options">
-                    <TextField 
+                <Fieldset title="Search Options">
+                    <Textfield
                         ref="firstName"
                         style={styles.field}
                         label="First Name"
                         onChange={this.onFieldChange}
                         clearable
                     />
-                    <TextField
+                    <Textfield
                         ref="lastName"
                         style={styles.field}
                         label="Last Name"
                         onChange={this.onFieldChange}
                         clearable
                     />
-                    <SliderField 
+                    <Sliderfield
                         ref="age"
                         style={styles.field}
-                        minValue={0} 
-                        maxValue={100} 
-                        values={[0, 100]} 
+                        minValue={0}
+                        maxValue={100}
+                        values={[0, 100]}
                         label="Age"
                         onChange={this.onFieldChange}
                         padding="5"
@@ -56,7 +56,7 @@ class SearchOptions extends Component {
                     <Container layout="center" style={{paddingLeft: '5px', color: '#999'}}>
                         <div>{(criteria.age || [0, 100]).join(' - ')}</div>
                     </Container>
-                    <SelectField
+                    <Selectfield
                         ref="gender"
                         style={styles.field}
                         label="Gender"
@@ -67,8 +67,8 @@ class SearchOptions extends Component {
                             { text: 'Female', value: 'Female' }
                         ]}
                     />
-                </FieldSet>
-            </Panel>        
+                </Fieldset>
+            </Panel>
         )
     }
 
