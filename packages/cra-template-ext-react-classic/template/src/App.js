@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ExtGrid } from "@sencha/ext-react-classic";
-//const Ext = window['Ext'];
 
 class App extends Component {
 
@@ -44,12 +43,11 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log('componentDidMount')
-    //console.log(this.grid.cmp)
+    //console.log('componentDidMount')
   }
 
   extReactDidMount = detail => {
-     console.log('extReactDidMount')
+     //console.log('extReactDidMount')
   }
 
 }
