@@ -119,7 +119,6 @@ try {
     //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
 
-
     fs.copySync(`${from}/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
@@ -177,14 +176,13 @@ try {
       <!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.crisp.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.graphite.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.material.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.neptune.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.triton.js"></script>
       -->
   ${styles}
           `
         }
-
-
 
         fs.copySync(`../../../${copyFolder}index.html`,`../../../${copyFolder}indexBack.html`);
         var indexHtmlNew = indexHtml.substring(0, position) + b + indexHtml.substring(position);

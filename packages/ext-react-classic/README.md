@@ -1,6 +1,6 @@
 ## @sencha/ext-react-classic
 
-last run: Tue Jan 14 2020 10:14:01 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 14 2020 10:24:48 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
@@ -8,7 +8,6 @@ This npm package contains the needed files to add the @sencha/ext-react-classic 
 
 ```sh
 npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@sencha
-
 ```
 
 ## Create a React application with create-react-app
@@ -19,7 +18,8 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 npx create-react-app ext-react-classic-demo --template @sencha/ext-react-classic
 ```
 
-create-react-app will create a new application using the ext-react-classic template (from the sencha/ext-react git repo)
+create-react-app will create a new application using the ext-react-classic template
+(from the sencha/ext-react git repo)
 
 - When create-react-app is completed, Run the following:
 
@@ -38,7 +38,7 @@ code .
 - To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
 ```sh
-    <script src="%PUBLIC_URL%/ext-runtime-classic/themes/css.classic.material.js"></script>
+<script src="%PUBLIC_URL%/ext-runtime-classic/themes/css.classic.material.js"></script>
 ```
 
 - To start the ExtReact application, run the following in a terminal window:
@@ -49,6 +49,7 @@ npm start
 
 The ExtReact application will load in a browser window!
 
+<hr>
 
 #### The following was added to your ExtReact project
 
