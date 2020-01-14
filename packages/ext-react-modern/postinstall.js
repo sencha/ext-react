@@ -114,6 +114,11 @@ try {
       theme = 'material';
     }
     var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
+
+    fs.copySync(`${from}/themes/`,`../../../${copyFolder}ext-runtime-${toolkit}/themes/`);
+    //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
+
     fs.copySync(`${from}/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
@@ -132,6 +137,7 @@ try {
         var indexHtml = fs.readFileSync(`../../../${copyFolder}index.html`, 'utf8');
         //var position = indexHtml.indexOf('<title>');
         var position = indexHtml.indexOf('</head>');
+
         var styles = `
     <!--https://www.rapidtables.com/web/color/-->
     <style>
@@ -143,17 +149,41 @@ try {
       }
     </style>
         `
-        var b =
-        `
-    <!--<link
-      href="%PUBLIC_URL%/ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css"
-      rel="stylesheet" type="text/css"
-    >-->
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>
-${styles}
-        `
+
+        var b = ''
+        if (toolkit == 'modern') {
+          b =
+          `
+      <!--<link
+        href="%PUBLIC_URL%/ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css"
+        rel="stylesheet" type="text/css"
+      >-->
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>
+      <!--
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.modern.material.js"></script>
+      -->
+  ${styles}
+          `
+        }
+        else {
+          b =
+          `
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.material.js"></script>
+      <!--
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.crisp.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.graphite.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.material.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.neptune.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.classic.triton.js"></script>
+      -->
+  ${styles}
+          `
+        }
+
         fs.copySync(`../../../${copyFolder}index.html`,`../../../${copyFolder}indexBack.html`);
         var indexHtmlNew = indexHtml.substring(0, position) + b + indexHtml.substring(position);
         fs.writeFileSync(`../../../${copyFolder}index.html`, indexHtmlNew);
