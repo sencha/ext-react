@@ -1,14 +1,21 @@
 ## @sencha/ext-react-modern
 
-last run: Mon Jan 13 2020 13:30:54 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 14 2020 12:18:44 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
-## Login to the Sencha early adopter npm repo
+## Login to the Sencha npm repo
+
+production:
+
+```sh
+npm login --registry=https://npm.sencha.com/ --scope=@sencha
+```
+
+early adopter:
 
 ```sh
 npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@sencha
-
 ```
 
 ## Create a React application with create-react-app
@@ -16,19 +23,19 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-modern-demo
+npx create-react-app ext-react-modern-demo --template @sencha/ext-react-modern
 ```
 
-- Add ExtReactModern to your application by running the following:
+create-react-app will create a new application using the ext-react-modern template
+(from the sencha/ext-react git repo)
+
+- When create-react-app is completed, Run the following:
 
 ```sh
 cd ext-react-modern-demo
-npm install @sencha/ext-react-modern --save
-npm install
-
 ```
 
-- Open your editor
+- Optionally, open your editor (You can use any editor)
 
 To open Visual Studio Code, type the following:
 
@@ -36,11 +43,25 @@ To open Visual Studio Code, type the following:
 code .
 ```
 
-(You can use any editor)
+- To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
-#### Add ExtReact to your project
+```sh
+<script src="%PUBLIC_URL%/ext-runtime-modern/themes/css.modern.material.js"></script>
+```
 
-- Replace ./src/index.js with:
+- To start the ExtReact application, run the following in a terminal window:
+
+```sh
+npm start
+```
+
+The ExtReact application will load in a browser window!
+
+<hr>
+
+#### The following was added to your ExtReact project
+
+- Replaced ./src/index.js with:
 
 ```sh
 import React from 'react';
@@ -60,7 +81,7 @@ serviceWorker.unregister();
 
 ```
 
-- Replace ./src/index.css with:
+- Replaced ./src/index.css with:
 
 ```sh
 :root {
@@ -71,7 +92,7 @@ serviceWorker.unregister();
 }
 ```
 
-- Replace ./src/App.js with:
+- Replaced ./src/App.js with:
 
 ```sh
 import React, { Component } from 'react';
@@ -132,13 +153,4 @@ class App extends Component {
 
 }
 export default App;
-
 ```
-
-- Type the following in a command/terminal window:
-
-```sh
-npm start
-```
-
-The ExtReact application will load in a browser window
