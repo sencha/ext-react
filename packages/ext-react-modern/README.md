@@ -1,9 +1,9 @@
-## @sencha/ext-react-modern
+## Readme for @sencha/ext-react-modern
 
-last run: Wed Jan 15 2020 13:40:40 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 15 2020 15:08:54 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
-- [Getting Started](./GETTING_STARTED.md)
-- [What's New](./WHATS_NEW.md)
-- [EJECT](./EJECT.md)
+- [Getting Started](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-modern/GETTING_STARTED.md)
+- [What's New](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-modern/WHATS_NEW.md)
+- [EJECT](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-modern/EJECT.md)
