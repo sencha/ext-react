@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-classic
 
-last run: Wed Jan 15 2020 12:37:57 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 15 2020 15:18:44 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-classic and create-react-app
 
