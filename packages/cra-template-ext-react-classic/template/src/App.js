@@ -6,9 +6,9 @@ class App extends Component {
   constructor() {
     super()
     var data=[
-      { name: 'Marc', v: true, email: 'marc@gmail.com',priceChangePct: .25 },
-      { name: 'Nick', v: true, email: 'nick@gmail.com',priceChangePct: .35 },
-      { name: 'Andy', v: true, email: 'andy@gmail.com',priceChangePct: 1.45 }
+      { name: 'Marc', email: 'marc@gmail.com',priceChangePct: .25 },
+      { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
+      { name: 'Andy', email: 'andy@gmail.com',priceChangePct: 1.45 }
     ]
     this.store = { xtype: 'store', data: data }
   }
@@ -16,8 +16,10 @@ class App extends Component {
   renderSign = (value, context) => {
     var iValue = parseInt(value);
     var color;
-    if (iValue > 0) { color = 'green'; }
-    else { color = 'red'; }
+    if (iValue > 0)
+      { color = 'green'; }
+    else
+      { color = 'red'; }
     return `<span style="color:${color};">
     ${value}
     <i class="fa fa-camera-retro fa-lg"></i>
@@ -27,8 +29,9 @@ class App extends Component {
   render() {
     return (
       <ExtGrid
+        extname="gridExt"
         viewport={ true }
-        ref={ grid => this.grid = grid }
+        ref={ gridReact => this.gridReact = gridReact }
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
@@ -42,12 +45,11 @@ class App extends Component {
     )
   }
 
-  componentDidMount = () => {
-    //console.log('componentDidMount')
-  }
-
-  extReactDidMount = detail => {
-     //console.log('extReactDidMount')
+  extReactDidMount = ({cmp, cmpObj}) => {
+    for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
+    console.log(this['gridExt'])
+    console.log(this.gridExt)
+    console.log(this.gridReact.cmp)
   }
 
 }

@@ -1,6 +1,6 @@
 ## @sencha/ext-react-classic
 
-last run: Tue Jan 14 2020 13:57:05 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 14 2020 15:20:59 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
@@ -65,21 +65,18 @@ The ExtReact application will load in a browser window!
 
 ```sh
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
+import ExtReactDOM from '@sencha/ext-react-classic';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const Ext = window['Ext'];
-Ext.onReady(function () {
-  ReactDOM.render(<App />, document.getElementById('root'));
-});
+ExtReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 ```
 
 - Replaced ./src/App.js with:
@@ -87,7 +84,6 @@ serviceWorker.unregister();
 ```sh
 import React, { Component } from 'react';
 import { ExtGrid } from "@sencha/ext-react-classic";
-const Ext = window['Ext'];
 
 class App extends Component {
 
@@ -101,43 +97,42 @@ class App extends Component {
     this.store = { xtype: 'store', data: data }
   }
 
+  renderSign = (value, context) => {
+    var iValue = parseInt(value);
+    var color;
+    if (iValue > 0)
+      { color = 'green'; }
+    else
+      { color = 'red'; }
+    return `<span style="color:$;">
+    $
+    <i class="fa fa-camera-retro fa-lg"></i>
+    </span>`
+  }
+
   render() {
     return (
       <ExtGrid
+        extname="gridExt"
         viewport={ true }
-        ref={ grid => this.grid = grid }
+        ref={ gridReact => this.gridReact = gridReact }
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
-        columns={ [
-          { text: "name", dataIndex: "name" },
-          { text: "email", dataIndex: "email", flex: "1" },
-          { text: "% Change", dataIndex: "priceChangePct", align: "right", renderer: this.renderSign }
-        ] }
+        columns=[object Object]
       >
       </ExtGrid>
     )
   }
 
-  componentDidMount = () => {
-    console.log('componentDidMount')
-    console.log(this.grid.cmp)
-  }
-
-  extReactDidMount = (detail) => {
-     console.log('extReactDidMount')
-  }
-
-  renderSign = (value, context) => {
-    var iValue = parseInt(value);
-    var color;
-    if (iValue > 0) { color = 'green'; }
-    else { color = 'red'; }
-    return `<span style="color:${ color };">${ value }</span>`
+  extReactDidMount = ({cmp, cmpObj}) => {
+    for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
+    console.log(this['gridExt'])
+    console.log(this.gridExt)
+    console.log(this.gridReact.cmp)
   }
 
 }
 export default App;
-
 ```
 
