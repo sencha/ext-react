@@ -1,5 +1,68 @@
 # Release Notes
 
+## v7.1.0
+
+#### separate modern and classic packages
+
+7.1 now supports separate packages for the modern and classic toolkits of Ext JS
+- @sencha/ext-react-modern
+- @sencha/ext-react-classic
+
+The @sencha/ext-react package has been deprecated
+
+#### deprecated packages - see git repo
+#### launching an app
+
+Launching an ExtReact application has been simplified:
+
+```
+import React from 'react';
+//import ReactDOM from 'react-dom';
+import ExtReactDOM from '@sencha/ext-react-modern';
+import App from './App';
+
+ExtReactDOM.render(<App />, document.getElementById('root'));
+```
+
+#### removal of need for <ExtReact> root element
+
+#### all imports now from '@sencha/ext-react-classic'
+#### all elements imported now prefixed with Ext
+
+import { ExtGrid, ExtButton } from "@sencha/ext-react-classic";
+
+#### new viewport="true" property
+#### onReady event - all components available, cmp and cmpObj
+#### using cmpObj
+
+To use the Ext JS viewport, add this to root element:
+
+```
+<ExtContainer
+  viewport={ true }
+  extname="containerExt"
+  ref={ containerReact => this.containerReact = containerReact }
+  onReady={ this.extReactDidMount }
+>
+</ExtContainer>
+
+extReactDidMount = ({cmp, cmpObj}) => {
+  for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
+  console.log(this['containerExt'])
+  console.log(this.containerExt)
+  console.log(this.containerReact.cmp)
+}
+```
+
+
+#### removal of ext-react-babel-plugin from .babelrc and/or package.json
+#### need a rood <div> around plain text
+
+#### optional - no need for webpack plugin
+- see Getting Started guide for an example
+
+
+
 ## v7.0.0
 
 * Support for React 16.8.x
@@ -61,9 +124,9 @@ This release contains the following bug fixes:
 * Bug: "Variable isDelete undefined in ExtJSComponent#_mergeConfig." This caused an error when attempting to add or remove columns from a grid when rerendering.
 * Bug: "TypeError: Object doesn't support property or method 'forEach' at Anonymous function". This error would show up in the debugger when using ExtReact in Edge or Internet Explorer.
 
-Of these changes, the first has the most potential to impact existing code. ExtReact previously ignored updates to props whose values are functions (typically event handlers) when rerendering. While defining event handler functions inside of the render function is generally discouraged in react, it is still supported. 
+Of these changes, the first has the most potential to impact existing code. ExtReact previously ignored updates to props whose values are functions (typically event handlers) when rerendering. While defining event handler functions inside of the render function is generally discouraged in react, it is still supported.
 
-Here is an example that illustrates the bug: 
+Here is an example that illustrates the bug:
 
 ```javascript
 class Counter extends Component {
@@ -115,7 +178,7 @@ Finally, while reactor-webpack-plugin and reactor-babel-plugin have been updated
 
 ### reactor
 
-* You can now render React components inside Grid cells using the `Column` component's `renderer` prop or the new `RendererCell` component. 
+* You can now render React components inside Grid cells using the `Column` component's `renderer` prop or the new `RendererCell` component.
 * The responsive plugin is automatically added to any ExtReact component with a `responsiveConfig` prop.
 * The `launch` function now passes the viewport DOM element as a parameter to the callback function.  This makes it easier to use react-hot-loader.  See updated reactor-boilerplate for an example of this in action.
 * New `renderWhenReady` higher-order component makes it easier to build libraries based on ExtReact.  When root ExtReact components are wrapped in `renderWhenReady`, the launch function is not needed as long as your app does not set the `fullscreen` prop to `true` on any components.
