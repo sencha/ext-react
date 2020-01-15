@@ -1,10 +1,23 @@
-## Eject for @sencha/ext-react-classic
+## What's new for @sencha/ext-react-modern
 
-last run: Wed Jan 15 2020 12:19:01 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 15 2020 12:08:49 GMT-0500 (Eastern Standard Time)
 
-### Eject - Adding ext-webpack-plugin to app
+### What's new in version 7.1
 
-#### 1. install ExtReact Packages using npm
+#### modern and classic packages
+#### deprecated packages
+#### launching an app
+####
+####
+####
+####
+####
+####
+####
+####
+####
+####
+####
 
 To add the ext-webpack-plugin, we must first
 [eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)
