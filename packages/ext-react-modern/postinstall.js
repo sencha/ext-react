@@ -117,7 +117,7 @@ try {
 
     fs.copySync(`${from}/themes/`,`../../../${copyFolder}ext-runtime-${toolkit}/themes/`);
     //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/themes folder`);
 
     // fs.copySync(`${from}/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
     // //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
@@ -188,22 +188,20 @@ try {
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-
-
-        var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        var script2 = `ext-runtime-${toolkit}/boot.js`;
-        var script = `ext-runtime-${toolkit}/engine.js`;
-        var cssjs = `ext-runtime-${toolkit}/css.prod.js`;
+        //var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
+        var scriptBoot = `ext-runtime-${toolkit}/boot.js`;
+        var scriptEngine = `ext-runtime-${toolkit}/engine.js`;
+        var cssjs = `ext-runtime-${toolkit}/themes/css.${toolkit}.material.js`;
         //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script2);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script);
+        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptBoot);
+        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(cssjs);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
         //console.log(`${prefix} added ${style} to styles array in ./angular.json`);
-        console.log(`${prefix} added ${script2} to scripts array in ./angular.json`);
-        console.log(`${prefix} added ${script} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${scriptBoot} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${scriptEngine} to scripts array in ./angular.json`);
         console.log(`${prefix} added ${cssjs} to scripts array in ./angular.json`);
         break;
       default:

@@ -1,8 +1,8 @@
-## @sencha/ext-react-classic
+## @sencha/ext-react-{toolkit}{bundle}
 
-last run: Wed Jan 15 2020 10:49:45 GMT-0500 (Eastern Standard Time)
+last run: {now}
 
-This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
+This npm package contains the needed files to add the @sencha/ext-react-{toolkit}{bundle} package to a React application
 
 ### Login to the Sencha npm repo
 
@@ -27,22 +27,22 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-classic-demo --template @sencha/ext-react-classic
+npx create-react-app ext-react-{toolkit}{bundle}-demo --template @sencha/ext-react-{toolkit}{bundle}
 ```
 
-create-react-app will create a new application using the ext-react-classic template
+create-react-app will create a new application using the ext-react-{toolkit}{bundle} template
 (from the sencha/ext-react git repo)
 
 - When create-react-app is completed, Run the following:
 
 ```sh
-cd ext-react-classic-demo
+cd ext-react-{toolkit}{bundle}-demo
 ```
 
 - To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
 ```sh
-<script src="%PUBLIC_URL%/ext-runtime-classic/themes/css.classic.material.js"></script>
+<script src="%PUBLIC_URL%/ext-runtime-{toolkit}{bundle}/themes/css.{toolkit}.material.js"></script>
 ```
 
 - To start the ExtReact application, run the following in a terminal window:
@@ -250,8 +250,8 @@ class App extends Component {
       { color = 'green'; }
     else
       { color = 'red'; }
-    return `<span style="color:$;">
-    $
+    return `<span style="color:${color};">
+    ${value}
     <i class="fa fa-camera-retro fa-lg"></i>
     </span>`
   }
@@ -265,7 +265,11 @@ class App extends Component {
         title="The Grid"
         store={ this.store }
         onReady={ this.extReactDidMount }
-        columns=[object Object]
+        columns={[
+          {text: "name", dataIndex: "name"},
+          {text: "email", dataIndex: "email", flex: "1"},
+          {text: "% Change", dataIndex: "priceChangePct", align: "right", producesHTML: false, renderer: this.renderSign}
+        ]}
       >
       </ExtGrid>
     )
