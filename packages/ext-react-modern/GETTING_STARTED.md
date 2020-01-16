@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-modern
 
-last run: Thu Jan 16 2020 14:53:15 GMT-0500 (Eastern Standard Time)
+last run: Thu Jan 16 2020 15:31:50 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-modern and create-react-app
 

@@ -210,7 +210,7 @@ class Layout extends Component {
                 ? (
                   <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
                     { layout === 'fit'
-                      ? (<Container padding="30" layout="fit">{ example }</Container>)
+                      ? (<Container padding="10" layout="fit">{ example }</Container>)
                       : (example)
                     }
                   </Panel>

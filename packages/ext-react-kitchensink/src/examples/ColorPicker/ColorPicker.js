@@ -26,12 +26,12 @@ export default class ColorPickerExample extends Component {
 
   onChange(picker) {
     const color = picker.getValue();
-    console.log(color)
 
-    this.setState({
-      color,
-      exampleLabel: this.getLabel(color)
-    });
+    //mjg
+    // this.setState({
+    //   color,
+    //   exampleLabel: this.getLabel(color)
+    // });
   }
 
   render() {
