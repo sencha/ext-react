@@ -1,6 +1,6 @@
 ## Readme for @sencha/ext-react-classic
 
-last run: Wed Jan 15 2020 15:18:44 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 15 2020 20:47:51 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
