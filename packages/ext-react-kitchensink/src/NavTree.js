@@ -17,7 +17,7 @@ export default class NavTree extends Component {
   }
 
   render() {
-    const { onSelectionChange, store, selection, ...props } = this.props;
+    const { onSelectionchange, store, selection, ...props } = this.props;
     return (
       <Panel
         {...props}
@@ -34,7 +34,7 @@ export default class NavTree extends Component {
             store={store}
             expanderFirst={false}
             expanderOnly={false}
-            onSelectionchange={onSelectionChange}
+            onSelectionchange={onSelectionchange}
             selection={selection}
         />
       </Panel>
