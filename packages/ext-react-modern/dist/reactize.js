@@ -143,7 +143,6 @@ export default function (CustomElement) {
         }
 
         if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
-          //console.log(name)
           syncEvent(node, name.substring(2), me.props[name], me);
         } else {//node[name] = this.props[name];
         }
