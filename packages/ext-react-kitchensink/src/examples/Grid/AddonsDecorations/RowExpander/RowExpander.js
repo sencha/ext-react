@@ -35,7 +35,10 @@ export default class RowExpanderGridExample extends Component {
         shadow
         itemConfig={{
           body: {
-            tpl: this.tpl
+            //tpl: this.tpl
+          tpl: '<div>Industry: {industry}</div>' +
+               '<div>Last Updated: {lastChange:date("Y-m-d g:ia")}</div>' +
+               '<div style="margin-top: 1em;">{desc}</div>'
           }
         }}
       >

@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-kitchensink",
   "product": "ext-react",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "A boilerplate project for Ext React showing all Ext JS modern components.",
   "main": "index.js",
   "scripts": {

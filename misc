@@ -1,4 +1,19 @@
-test
+npx create-react-app --template @sencha/ext-react-modern app1
+
+  onSelect = ({ sender, selected }) => {
+    console.log(selected.data)
+   };
+
+  render() {
+    return (
+      <ExtGrid
+
+        selectable="single"
+        onSelect={this.onSelect}
+      >
+
+
+
 
 ps -al | grep java
 ps -al | grep node
