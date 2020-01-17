@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container, FormPanel, SliderField } from '@sencha/ext-react-modern';
+import { Container, Formpanel, Sliderfield } from '@sencha/ext-react-modern';
 
-export default class SliderFieldExample extends Component {
+export default class SliderfieldExample extends Component {
 
     state = {
         singleValue: 20,
@@ -9,31 +9,31 @@ export default class SliderFieldExample extends Component {
         multipleValue: [10, 70]
     };
 
-    onSingleChange = (field, value) => {
-        this.setState({ singleValue: value });
+    onSingleChange = ({ sender, newValue, oldValue }) => {
+        this.setState({ singleValue: newValue });
     }
 
-    onMultipleChange = (field, value) => {
-        this.setState({ multipleValue: value });
+    onMultipleChange = ({ sender, newValue, oldValue }) => {
+        this.setState({ multipleValue: newValue });
     }
 
-    onLiveUpdateChange = (field, value) => {
-        this.setState({ liveUpdateValue: value });
+    onLiveUpdateChange = ({ sender, newValue, oldValue }) => {
+        this.setState({ liveUpdateValue: newValue });
     }
 
     render() {
         const { singleValue, multipleValue, liveUpdateValue } = this.state;
 
         return (
-            <FormPanel shadow width="300" padding="20">
-                <SliderField
+            <Formpanel shadow width="300" padding="20">
+                <Sliderfield
                     onChange={this.onSingleChange}
                     label="Single Thumb"
                     value={singleValue}
                     padding="5"
                 />
                 <Container style={{marginBottom: '20px'}} html={`Value: ${singleValue}`}></Container>
-                <SliderField
+                <Sliderfield
                     onChange={this.onLiveUpdateChange}
                     label="Live Update"
                     value={liveUpdateValue}
@@ -41,14 +41,14 @@ export default class SliderFieldExample extends Component {
                     padding="5"
                 />
                 <Container style={{marginBottom: '20px'}} html={`Value: ${liveUpdateValue}`}></Container>
-                <SliderField
+                <Sliderfield
                     onChange={this.onMultipleChange}
                     label="Multiple Thumbs"
                     values={multipleValue}
                     padding="5"
                 />
                 <Container html={`Values: ${multipleValue.join(', ')}`}></Container>
-            </FormPanel>
+            </Formpanel>
         )
     }
 

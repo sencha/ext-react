@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 
 import {
-    FieldSet,
-    FormPanel,
-    UrlField,
-    TextField,
-    EmailField,
-    RadioField,
-    TextAreaField,
-    ToggleField,
-    SliderField,
-    DatePickerField,
-    PasswordField,
-    SpinnerField,
-    CheckBoxField,
+    Fieldset,
+    Formpanel,
+    Urlfield,
+    Textfield,
+    Emailfield,
+    Radiofield,
+    Textareafield,
+    Togglefield,
+    Sliderfield,
+    Datepickerfield,
+    Passwordfield,
+    Spinnerfield,
+    Checkboxfield,
     Button,
-    SelectField,
+    Selectfield,
     Container,
-    Label,
-    Toolbar
+    Toolbar,
+    Colorfield
 } from '@sencha/ext-react-modern';
-import { ColorField } from '@sencha/ext-ux'
 
 Ext.require([
   'Ext.field.InputMask', // need to require this specifically for inputMask props to work
@@ -58,7 +57,7 @@ export default class FormPanelExample extends Component {
                     }
                 }}
             >
-                <FormPanel
+                <Formpanel
                     ref={form => this.form = form}
                     shadow
                     padding="20"
@@ -69,15 +68,15 @@ export default class FormPanelExample extends Component {
                         }
                     }}
                 >
-                    <FieldSet ref="personal" title="Personal Info" defaults={{labelAlign: "placeholder"}}>
-                        <TextField label="Name" required placeholder="This field is required" disabled={disabled}/>
-                        <PasswordField label="Password" required revealable disabled={disabled}/>
-                        <EmailField label="Email" placeholder="me@sencha.com" disabled={disabled}/>
-                        <TextField label="Phone Number" inputMask="(999) 999-9999" inputType="tel" disabled={disabled}/>
-                        <UrlField label="URL" placeholder="http://sencha.com" disabled={disabled}/>
-                        <SpinnerField label="Spinner" minValue={0} maxValue={1000} stepValue={1} cycle margin="15 0 0 0" labelAlign="top" disabled={disabled}/>
-                        <DatePickerField label="Start Date" disabled={disabled}/>
-                        <SelectField label="Rank"
+                    <Fieldset ref="personal" title="Personal Info" defaults={{labelAlign: "placeholder"}}>
+                        <Textfield label="Name" required placeholder="This field is required" disabled={disabled}/>
+                        <Passwordfield label="Password" required revealable disabled={disabled}/>
+                        <Emailfield label="Email" placeholder="me@sencha.com" disabled={disabled}/>
+                        <Textfield label="Phone Number" inputMask="(999) 999-9999" inputType="tel" disabled={disabled}/>
+                        <Urlfield label="URL" placeholder="http://sencha.com" disabled={disabled}/>
+                        <Spinnerfield label="Spinner" minValue={0} maxValue={1000} stepValue={1} cycle margin="15 0 0 0" labelAlign="top" disabled={disabled}/>
+                        <Datepickerfield label="Start Date" disabled={disabled}/>
+                        <Selectfield label="Rank"
                             disabled={disabled}
                             options={[
                                 { text: 'Master', value: 'master' },
@@ -85,16 +84,16 @@ export default class FormPanelExample extends Component {
                                 { text: 'Apprentice', value: 'apprentice' }
                             ]}
                         />
-                        <TextField label="With Error" errorMessage="This field is invalid" errorTarget="under" disabled={disabled}/>
-                        <SliderField label="Slider" disabled={disabled}/>
-                        <ToggleField label="Toggle" disabled={disabled}/>
-                        <TextAreaField label="Bio" maxRows={5} disabled={disabled}/>
-                    </FieldSet>
-                    <FieldSet title="Roles" layout={{type: 'vbox', align: 'left'}} margin="15 0" defaults={{labelAlign: "placeholder"}}>
-                        <CheckBoxField disabled={disabled} boxLabel="Admin"/>
-                        <CheckBoxField disabled={disabled} boxLabel="Power User"/>
-                    </FieldSet>
-                    <FieldSet
+                        <Textfield label="With Error" errorMessage="This field is invalid" errorTarget="under" disabled={disabled}/>
+                        <Sliderfield label="Slider" disabled={disabled}/>
+                        <Togglefield label="Toggle" disabled={disabled}/>
+                        <Textareafield label="Bio" maxRows={5} disabled={disabled}/>
+                    </Fieldset>
+                    <Fieldset title="Roles" layout={{type: 'vbox', align: 'left'}} margin="15 0" defaults={{labelAlign: "placeholder"}}>
+                        <Checkboxfield disabled={disabled} boxLabel="Admin"/>
+                        <Checkboxfield disabled={disabled} boxLabel="Power User"/>
+                    </Fieldset>
+                    <Fieldset
                         title="Favorite Color"
                         layout={{ type: 'vbox', align: 'left' }}
                         defaults={{
@@ -105,12 +104,12 @@ export default class FormPanelExample extends Component {
                             padding: 0
                         }}
                     >
-                        <RadioField name="color" disabled={disabled} boxLabel="Red" value="red"/>
-                        <RadioField name="color" disabled={disabled} boxLabel="Blue" value="blue"/>
-                        <RadioField name="color" disabled={disabled} boxLabel="Green" value="green"/>
-                        <RadioField name="color" disabled={disabled} boxLabel="Purple" value="purple"/>
-                    </FieldSet>
-                    <FieldSet
+                        <Radiofield name="color" disabled={disabled} boxLabel="Red" value="red"/>
+                        <Radiofield name="color" disabled={disabled} boxLabel="Blue" value="blue"/>
+                        <Radiofield name="color" disabled={disabled} boxLabel="Green" value="green"/>
+                        <Radiofield name="color" disabled={disabled} boxLabel="Purple" value="purple"/>
+                    </Fieldset>
+                    <Fieldset
                         title="Second Favorite Color"
                         layout={{ type: 'vbox', align: 'left'}}
                         viewModel={{
@@ -119,13 +118,13 @@ export default class FormPanelExample extends Component {
                             }
                         }}
                     >
-                        <ColorField bind="{color}" xtype="colorfield" disabled={disabled} />
-                    </FieldSet>
+                        <Colorfield bind="{color}" xtype="colorfield" disabled={disabled} />
+                    </Fieldset>
                     <Toolbar shadow={false} docked="bottom" layout={{ type: 'hbox', pack: 'right' }}>
                         <Button text={disabled ? 'Enable All' : 'Disable All'} margin="0 10 0 0" handler={this.toggleDisabled.bind(this)}/>
                         <Button text="Reset" handler={() => this.form.cmp.reset()}/>
                     </Toolbar>
-                </FormPanel>
+                </Formpanel>
             </Container>
         );
     }

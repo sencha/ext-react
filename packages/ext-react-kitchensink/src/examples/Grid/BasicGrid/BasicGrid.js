@@ -4,9 +4,8 @@ import { ExtGrid, ExtColumn } from '@sencha/ext-react-modern';
 import '../CompanyData';
 import model from '../CompanyModel';
 
-Ext.require({"xtype":"renderercell"})
 Ext.require([
-  'Ext.ExtGrid.plugin.HeaderReorder'
+  'Ext.grid.plugin.HeaderReorder'
 ]);
 
 export default class BasicExtGridExample extends Component {
@@ -19,6 +18,17 @@ export default class BasicExtGridExample extends Component {
       url: '/KitchenSink/Companys'
     }
   });
+
+  // store = {
+  //   xtype: 'store',
+  //   model: model,
+  //   autoLoad: true,
+  //   pageSize: 0,
+  //   proxy: {
+  //     type: 'ajax',
+  //     url: '/KitchenSink/Companys'
+  //   }
+  // };
 
   render() {
     return (
