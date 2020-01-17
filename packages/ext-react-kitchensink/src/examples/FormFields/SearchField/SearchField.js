@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container, Button, SearchField, TitleBar } from '@sencha/ext-react-modern'
+import { Panel, Container, Button, Searchfield, Titlebar } from '@sencha/ext-react-modern'
 
 export default class SearchFieldExample extends Component {
 
@@ -13,18 +13,18 @@ export default class SearchFieldExample extends Component {
                 }}
             >
                 <Container style={styles.heading}>alt</Container>
-                <TitleBar title="TitleBar" maxWidth="600" margin="0 0 30 0">
-                    <SearchField
+                <Titlebar title="TitleBar" maxWidth="600" margin="0 0 30 0">
+                    <Searchfield
                         align="right"
                         ui="alt"
                         width="200"
                         placeholder="Search"
                     />
-                </TitleBar>
+                </Titlebar>
 
                 <Container style={styles.heading}>faded</Container>
                 <Container layout="vbox" padding="20 20" style={{backgroundColor: 'white'}} margin="0 0 30 0" shadow>
-                    <SearchField
+                    <Searchfield
                         ui="faded"
                         placeholder="Search"
                     />
@@ -39,7 +39,7 @@ export default class SearchFieldExample extends Component {
                             $input-padding-big: 7px 7px 7px 15px
                         );
                     */}
-                    <SearchField
+                    <Searchfield
                         ui="solo ks-search-right-trigger"
                         shadow
                         placeholder="Search"

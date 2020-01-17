@@ -18,7 +18,7 @@ export default class Data extends Component {
           <Container data-days="7" html='<div data-days="7" class="handle">Expedited</div>'></Container>
           <Container data-days="21" html='<div data-days="21" class="handle">Standard</div>'></Container>
         </Container>
-        <Container ref="target" className="data-target">Drop delivery option here</Container>
+        <Container ref="target" className="data-target"><div>Drop delivery option here</div></Container>
       </Panel>
     )
   }

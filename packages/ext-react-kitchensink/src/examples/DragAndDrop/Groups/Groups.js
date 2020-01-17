@@ -14,15 +14,15 @@ export default class Groups extends Component {
                 shadow
             >
                 <Container className="group1">
-                    <Container ref="src1" className="group-source-group1 group-source">group1</Container>
-                    <Container ref="src2" className="group-source-group2 group-source">group2</Container>
-                    <Container ref="srcb" className="group-source-both group-source">group1, group2</Container>
+                    <Container ref="src1" className="group-source-group1 group-source"><div>group1</div></Container>
+                    <Container ref="src2" className="group-source-group2 group-source"><div>group2</div></Container>
+                    <Container ref="srcb" className="group-source-both group-source"><div>group1, group2</div></Container>
                 </Container>
 
                 <Container className="group2">
-                    <Container ref="tar1" className="group-target-group1 group-target">group1</Container>
-                    <Container ref="tar2" className="group-target-group2 group-target">group2</Container>
-                    <Container ref="tarb" className="group-target-both group-target">group1, group2</Container>
+                    <Container ref="tar1" className="group-target-group1 group-target"><div>group1</div></Container>
+                    <Container ref="tar2" className="group-target-group2 group-target"><div>group2</div></Container>
+                    <Container ref="tarb" className="group-target-both group-target"><div>group1, group2</div></Container>
                 </Container>
             </Panel>
         )
