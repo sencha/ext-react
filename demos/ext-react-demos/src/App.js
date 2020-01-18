@@ -6,6 +6,9 @@ import Home from './home/Home'
 import User from './user/User'
 import Grid from './grid/Grid'
 import GridRenderers from './gridrenderers/GridRenderers'
+import GridRowBody from './gridrowbody/GridRowBody'
+import gridsummarychangestate from './gridsummarychangestate/gridsummarychangestate'
+
 
 export default class App extends Component {
 
@@ -16,7 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <ExtPanel viewport="true" title="ext-react-demos" layout="fit">
-      <ExtContainer docked="left" width="250">
+      <ExtContainer docked="left" width="300">
         <ExtTreelist
           ui="nav"
           expanderFirst={false}
@@ -28,6 +31,8 @@ export default class App extends Component {
                 { id: '/user', text: 'User', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/grid', text: 'Grid', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/gridrenderers', text: 'GridRenderers', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/gridrowbody', text: 'GridRowBody', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/gridsummarychangestate', text: 'gridsummarychangestate', iconCls: 'x-fa fa-info', leaf: true },
               ]
             }
           }}
@@ -39,6 +44,8 @@ export default class App extends Component {
           <Route path="/user" component={User} />
           <Route path="/grid" component={Grid} />
           <Route path="/gridrenderers" component={GridRenderers} />
+          <Route path="/gridrowbody" component={GridRowBody} />
+          <Route path="/gridsummarychangestate" component={gridsummarychangestate} />
         </Switch>
       </ExtContainer>
     </ExtPanel>
