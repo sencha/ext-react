@@ -1,6 +1,6 @@
 ## What's new for @sencha/ext-react-classic
 
-last run: Thu Jan 16 2020 15:35:20 GMT-0500 (Eastern Standard Time)
+last run: Sun Jan 19 2020 16:21:59 GMT-0500 (Eastern Standard Time)
 
 ### What's new in version 7.1
 
