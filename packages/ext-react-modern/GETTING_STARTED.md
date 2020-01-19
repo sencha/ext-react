@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-modern
 
-last run: Thu Jan 16 2020 15:31:50 GMT-0500 (Eastern Standard Time)
+last run: Sun Jan 19 2020 17:17:04 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-modern and create-react-app
 
@@ -27,7 +27,7 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-modern-demo --template @sencha/ext-react-modern
+npx create-react-app --template @sencha/ext-react-modern ext-react-modern-demo
 ```
 
 create-react-app will create a new application using the ext-react-modern template

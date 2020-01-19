@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-classic
 
-last run: Thu Jan 16 2020 15:35:20 GMT-0500 (Eastern Standard Time)
+last run: Sun Jan 19 2020 16:21:59 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-classic and create-react-app
 
@@ -27,7 +27,7 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 - Run the following:
 
 ```sh
-npx create-react-app ext-react-classic-demo --template @sencha/ext-react-classic
+npx create-react-app --template @sencha/ext-react-classic ext-react-classic-demo
 ```
 
 create-react-app will create a new application using the ext-react-classic template
