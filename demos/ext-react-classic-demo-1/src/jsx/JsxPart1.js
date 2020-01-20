@@ -4,6 +4,7 @@ import { ExtContainer, ExtPanel, ExtButton } from '@sencha/ext-react-classic';
 class JsxPart1 extends Component {
 
   render() {
+    console.log('render')
     return (
       <ExtContainer layout="fit" padding="10" fitToParent="true">
         <ExtPanel
