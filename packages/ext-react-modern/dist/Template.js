@@ -22,7 +22,6 @@ var Template = Ext.define(null, {
    * @param  fn A function that takes data values as an object and returns a React.Element to be rendered.
    */
   constructor: function constructor(fn) {
-    console.log(fn);
     this.fn = fn;
   },
   // overrides Ext.Template
