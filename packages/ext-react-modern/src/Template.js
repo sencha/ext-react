@@ -22,31 +22,30 @@ var Template = Ext.define(null, {
    * @param  fn A function that takes data values as an object and returns a React.Element to be rendered.
    */
   constructor(fn) {
-    console.log(fn)
-      this.fn = fn;
+    this.fn = fn;
   },
 
   // overrides Ext.Template
   apply(values) {
-      return ReactDOMServer.renderToStaticMarkup(this.fn(values));
+    return ReactDOMServer.renderToStaticMarkup(this.fn(values));
   },
 
   // overrides Ext.Template
   doInsert(where, el, values, returnElement) {
-      const target = this.getCachedTarget();
-      this.doRender(values, target);
-      const dom = target.firstChild;
-      const result = Ext.dom.Helper.doInsert(el, dom, returnElement, where);
-      this.unmountChildrenOnRemove(dom);
-      return result;
+    const target = this.getCachedTarget();
+    this.doRender(values, target);
+    const dom = target.firstChild;
+    const result = Ext.dom.Helper.doInsert(el, dom, returnElement, where);
+    this.unmountChildrenOnRemove(dom);
+    return result;
   },
 
   // overrides Ext.Template
   overwrite(el, values, returnElement) {
-      const dom = Ext.getDom(el);
-      const result = this.doRender(values, dom);
-      this.unmountChildrenOnRemove(dom);
-      return returnElement ? new Ext.Element(dom) : dom;
+    const dom = Ext.getDom(el);
+    const result = this.doRender(values, dom);
+    this.unmountChildrenOnRemove(dom);
+    return returnElement ? new Ext.Element(dom) : dom;
   },
 
   /**
@@ -54,8 +53,8 @@ var Template = Ext.define(null, {
    * @return 
    */
   getCachedTarget() {
-      if (!this.cachedTarget) this.cachedTarget = document.createElement('div');
-      return this.cachedTarget;
+    if (!this.cachedTarget) this.cachedTarget = document.createElement('div');
+    return this.cachedTarget;
   },
 
   /**
@@ -66,9 +65,9 @@ var Template = Ext.define(null, {
    * @return  The newly rendered element
    */
   doRender(values, target) {
-      const reactElement = this.fn(values);
-      ReactDOM.render(reactElement, target);
-      return target.firstChild;
+    const reactElement = this.fn(values);
+    ReactDOM.render(reactElement, target);
+    return target.firstChild;
   },
 
   /**
@@ -76,33 +75,30 @@ var Template = Ext.define(null, {
    * @param  target A node containing a React tree
    */
   unmountChildrenOnRemove(target) {
-      const parent = target.parentNode;
-      const parentKey = '$extreactObserveRemoveChild';
-      const targetKey = '$extreactUnmountOnRemove';
-      target[targetKey] = true; // we tag the target with $extreactUnmountOnRemove so we know it has a React tree to unmount when removed
+    const parent = target.parentNode;
+    const parentKey = '$extreactObserveRemoveChild';
+    const targetKey = '$extreactUnmountOnRemove';
+    target[targetKey] = true; // we tag the target with $extreactUnmountOnRemove so we know it has a React tree to unmount when removed
 
-      if (!parent[parentKey]) { // we tag the parent with $extreactObserveRemoveChild so we can ensure we are only observing it once
-          parent[parentKey] = true;
+    if (!parent[parentKey]) { // we tag the parent with $extreactObserveRemoveChild so we can ensure we are only observing it once
+      parent[parentKey] = true;
 
-          const observer = new MutationObserver(mutations => {
-              mutations.forEach(({ removedNodes }) => {
-                  for (let i=0; i<removedNodes.length; i++) {
-                      let node = removedNodes[i];
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(({ removedNodes }) => {
+          for (let i=0; i<removedNodes.length; i++) {
+            let node = removedNodes[i];
 
-                      if (node[targetKey]) {
-                          ReactDOM.unmountComponentAtNode(node); // Unmount the React tree when the target dom node is removed.
-                      }
-                  }
-              })
-          });
+            if (node[targetKey]) {
+              ReactDOM.unmountComponentAtNode(node); // Unmount the React tree when the target dom node is removed.
+            }
+          }
+        })
+      });
 
-          observer.observe(parent, { childList: true });
-      }
+      observer.observe(parent, { childList: true });
+    }
   }
 });
 
 export default Template;
-
 // Hook Ext.XTemplate.get so that we can just pass a function that returns JSX in place of a XTemplate.
-
-
