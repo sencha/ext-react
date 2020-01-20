@@ -25,9 +25,10 @@ var JsxContainer = Ext.define('jsx', {
           part = JsxPartDefault;
           break;
       }
-
-      var element = React.createElement(part, { theTitle: this.extTitle }, null)
-      ReactDOM.render(element, Ext.getDom(this.container.dom))
+      this.element = React.createElement(part, { theTitle: this.extTitle }, null)
+    },
+    afterrender: function(h, e) {
+      ReactDOM.render(this.element, this.el.dom)
     }
   }
 })
