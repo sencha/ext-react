@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom';
+import './overrides';
+export { default as Template } from './Template';
 var Ext = window['Ext'];
 export function render(element, container, callback) {
   //console.log('in render')

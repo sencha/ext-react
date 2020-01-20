@@ -99,8 +99,13 @@ export default function (CustomElement) {
           else {
             var sPropVal = ''
             try {
-              sPropVal = JSON.stringify(this.props[prop])
-              newProps[prop] = sPropVal;
+              sPropVal = JSON.stringify(this.props[prop]); //functions are swallowed - mjg
+              if (prop == 'itemConfig') {
+                this.objectProps[prop] = this.props[prop];
+              }
+              else {
+                newProps[prop] = sPropVal;
+              }
             }
             catch(e) {
               this.objectProps[prop] =this.props[prop];
