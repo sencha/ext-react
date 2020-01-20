@@ -3,10 +3,11 @@ Ext._find = require('lodash.find');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "@sencha/ext-elements-all/src/ext-button.component";
-import "@sencha/ext-elements-all/src/ext-panel.component";
-import ExtPanel from "@sencha/ext-elements-all/react/ExtPanel";
-import Panel from "@sencha/ext-elements-all/reactOrig/Panel";
+import { ExtPanel } from "@sencha/ext-react-modern";
+//import "@sencha/ext-elements-all/src/ext-button.component";
+//import "@sencha/ext-elements-all/src/ext-panel.component";
+//import ExtPanel from "@sencha/ext-elements-all/react/ExtPanel";
+//import Panel from "@sencha/ext-elements-all/reactOrig/Panel";
 
 export class Hello extends React.Component {
     render() {
