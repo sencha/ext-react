@@ -10,7 +10,6 @@ var Ext = window['Ext'];
 var JsxContainer = Ext.define('jsx', {
   extend: 'Ext.container.Container',
   xtype: 'jsxcontainer',
-
   listeners: {
     beforerender: function(h, e) {
       var part;
