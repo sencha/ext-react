@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ExtDashboard } from "@sencha/ext-react-classic";
 import '../../jsx/JsxContainer';
 
-
 // import JsxPart1 from '../../jsx/JsxPart1';
 // import JsxPart2 from '../../jsx/JsxPart2';
 // import JsxPartDefault from '../../jsx/JsxPartDefault';
