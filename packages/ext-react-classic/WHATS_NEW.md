@@ -1,6 +1,6 @@
 ## What's new for @sencha/ext-react-classic
 
-last run: Mon Jan 20 2020 09:06:20 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 22 2020 14:57:55 GMT-0500 (Eastern Standard Time)
 
 ### What's new in version 7.1
 
@@ -56,6 +56,17 @@ extReactDidMount = ({cmp, cmpObj}) => {
 }
 ```
 
+#### event name case change
+for example: onActiveTabChange is now onActivetabchange
+
+#### event parameters now follow what is documented
+for example: for tab change event:
+
+```
+  onTabChange = ({sender, value, oldValue}) => {
+    
+  }
+```
 
 #### removal of ext-react-babel-plugin from .babelrc and/or package.json
 #### need a rood <div> around plain text

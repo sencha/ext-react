@@ -31,6 +31,7 @@ export default class NavTree extends Component {
         <SearchField flex={1} docked="top" ui="faded" onChange={this.filterNav} margin="7" />
         <TreeList
             ui="nav"
+            scrollable="true"
             store={store}
             expanderFirst={false}
             expanderOnly={false}

@@ -115,19 +115,25 @@ try {
     }
     var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
 
-    fs.copySync(`${from}/themes/`,`../../../${copyFolder}ext-runtime-${toolkit}/themes/`);
-    //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/themes folder`);
-
-    // fs.copySync(`${from}/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
+    // fs.copySync(`${from}/themes/`,`../../../${copyFolder}ext-runtime-${toolkit}/themes/`);
     // //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
+    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/themes folder`);
 
-    fs.copySync(`${from}/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
+    // fs.copySync(`${from}/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
+    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
 
-    fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/boot.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
+    // fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/boot.js`);
+    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
+
+
+    fs.copySync(`${from}/${toolkit}.${theme}.js`,`../../../${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
+
+
+
+
+
+
 
     // fs.copySync(`${from}/css.prod.js`,`../../../${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
     // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
@@ -153,27 +159,39 @@ try {
         if (toolkit == 'modern') {
           b =
           `
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js.js"></script>
+
+<!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-      <!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-      -->
+-->
           `
         }
         else {
           b =
           `
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js.js"></script>
+<!--
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.graphite.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.material.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.triton.js"></script>
+
+
+
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-      <!--
+
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.crisp.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.graphite.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.neptune.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.triton.js"></script>
-      -->
+-->
           `
         }
 

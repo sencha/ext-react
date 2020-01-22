@@ -245,7 +245,7 @@ class Layout extends Component {
               hideAnimation={{type: 'slideOut', direction: 'right', duration: 100, easing: 'ease' }}
               showAnimation={{type: 'slideIn', direction: 'left', duration: 100, easing: 'ease' }}
             >
-              {/* <Files files={files} /> */}
+              <Files files={files} />
             </Panel>
           )}
         </Container>
