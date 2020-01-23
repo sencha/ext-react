@@ -159,7 +159,7 @@ try {
         if (toolkit == 'modern') {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
 
 <!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
