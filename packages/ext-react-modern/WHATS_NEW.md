@@ -1,6 +1,6 @@
 ## What's new for @sencha/ext-react-modern
 
-last run: Tue Jan 21 2020 08:28:21 GMT-0500 (Eastern Standard Time)
+last run: Thu Jan 23 2020 16:51:42 GMT-0500 (Eastern Standard Time)
 
 ### What's new in version 7.1
 
@@ -13,6 +13,14 @@ last run: Tue Jan 21 2020 08:28:21 GMT-0500 (Eastern Standard Time)
 The @sencha/ext-react package has been deprecated
 
 #### deprecated packages - see git repo
+
+- deprecate-ext-react
+- deprecate-ext-react-babel-plugin
+- deprecate-ext-react-classic-demo
+- deprecate-ext-react-renderercell (this functionality now imbedded in ext-react-modern and ext-react-classic)
+- deprecate-ext-react-transition
+- deprecate-ext-react-webpack-plugin (now ext-webpack-plugin)
+
 #### launching an app
 
 Launching an ExtReact application has been simplified:
@@ -56,6 +64,17 @@ extReactDidMount = ({cmp, cmpObj}) => {
 }
 ```
 
+#### event name case change
+for example: onActiveTabChange is now onActivetabchange
+
+#### event parameters now follow what is documented
+for example: for tab change event:
+
+```
+  onTabChange = ({sender, value, oldValue}) => {
+
+  }
+```
 
 #### removal of ext-react-babel-plugin from .babelrc and/or package.json
 #### need a rood <div> around plain text

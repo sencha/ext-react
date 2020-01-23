@@ -101,7 +101,13 @@ if (fs.existsSync('../../../webpack.config.js')) {
 try {
     var theme;
     if(packageJsonApp.extTheme != undefined) {
-      var themes = ['material', 'neptune'];
+      var themes = [
+        'crisp',
+        'graphite',
+        'material',
+        'neptune',
+        'triton'
+      ];
       if(themes.includes(packageJsonApp.extTheme)) {
         theme = packageJsonApp.extTheme;
         console.log(`${prefix} "extTheme": ${theme} found in ./package.json`);
@@ -126,8 +132,10 @@ try {
     // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
 
 
-    fs.copySync(`${from}/${toolkit}.${theme}.js`,`../../../${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
+    //fs.copySync(`${from}/${toolkit}.${theme}.js`,`../../../${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
+    fs.copySync(`${from}/`,`../../../${copyFolder}ext-runtime-${toolkit}/`);
+    //console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/`);
 
 
 
@@ -172,7 +180,7 @@ try {
         else {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
 <!--
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.graphite.js"></script>

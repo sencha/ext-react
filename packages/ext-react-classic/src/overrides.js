@@ -1,6 +1,9 @@
 import Template from './Template';
 var Ext = window.Ext;
 
+try {
+  Ext.onReady(function () {
+
 var getTpl = Ext.XTemplate.getTpl;
 var originalGet = Ext.XTemplate.get;
 
@@ -37,4 +40,9 @@ Ext.Widget.prototype.isXType = function (xtype, shallow) {
 if (Ext.Component.prototype.isXType) {
   Ext.Component.prototype.isXType = Ext.Widget.prototype.isXType;
 }
-//# sourceMappingURL=overrides.js.map
+
+})
+}
+catch(e) {
+  console.log(e)
+}
