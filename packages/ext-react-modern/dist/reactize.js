@@ -8,6 +8,8 @@ import ReactDOM from 'react-dom'; //https://coryrylan.com/blog/using-web-compone
 //<script src="%PUBLIC_URL%/ext.all.js"></script>
 //<script src="%PUBLIC_URL%/ReactCell.js"></script>
 
+window['ExtFramework'] = 'react';
+
 function syncEvent(node, eventName, newEventHandler, me) {
   var eventname = eventName[0].toLowerCase() + eventName.substring(1);
   var eventStore = node.__events || (node.__events = {});
