@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 //<script src="%PUBLIC_URL%/ext.all.js"></script>
 //<script src="%PUBLIC_URL%/ReactCell.js"></script>
 
+window['ExtFramework'] = 'react';
+
 function syncEvent(node, eventName, newEventHandler, me) {
   const eventname = eventName[0].toLowerCase() + eventName.substring(1);
   const eventStore = node.__events || (node.__events = {});
