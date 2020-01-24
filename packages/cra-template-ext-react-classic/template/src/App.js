@@ -13,6 +13,13 @@ class App extends Component {
     this.store = { xtype: 'store', data: data }
   }
 
+  extReactDidMount = ({cmp, cmpObj}) => {
+    for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
+    console.log(this['gridExt'])
+    console.log(this.gridExt)
+    console.log(this.gridReact.cmp)
+  }
+
   renderSign = (value, context) => {
     var iValue = parseInt(value);
     var color;
@@ -22,7 +29,7 @@ class App extends Component {
       { color = 'red'; }
     return `<span style="color:${color};">
     ${value}
-    <i class="fa fa-camera-retro fa-lg"></i>
+    <i class="fa fa-percentage fa-lg"></i>
     </span>`
   }
 
@@ -38,18 +45,17 @@ class App extends Component {
         columns={[
           {text: "name", dataIndex: "name"},
           {text: "email", dataIndex: "email", flex: "1"},
-          {text: "% Change", dataIndex: "priceChangePct", align: "right", producesHTML: false, renderer: this.renderSign}
+          {
+            text: "% Change",
+            dataIndex: "priceChangePct",
+            align: "right",
+            producesHTML: false,
+            renderer: this.renderSign
+          }
         ]}
       >
       </ExtGrid>
     )
-  }
-
-  extReactDidMount = ({cmp, cmpObj}) => {
-    for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
-    console.log(this['gridExt'])
-    console.log(this.gridExt)
-    console.log(this.gridReact.cmp)
   }
 
 }
