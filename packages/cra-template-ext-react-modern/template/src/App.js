@@ -16,6 +16,22 @@ class App extends Component {
     //this.store = {xtype: 'store',data: data}
   }
 
+  componentDidMount = () => {
+    console.log('componentDidMount')
+    //console.log(this.grid.cmp)
+  }
+
+  extReactDidMount = detail => {
+    console.log('extReactDidMount')
+    //this.grid.cmp.setStore(this.store);
+  }
+
+  renderSign = (format, value) => (
+    <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
+        {Ext.util.Format.number(value, format)}
+    </span>
+  )
+
   render() {
     return (
       <ExtGrid
@@ -36,22 +52,6 @@ class App extends Component {
       </ExtGrid>
     )
   }
-
-  componentDidMount = () => {
-    console.log('componentDidMount')
-    //console.log(this.grid.cmp)
-  }
-
-  extReactDidMount = detail => {
-    console.log('extReactDidMount')
-    //this.grid.cmp.setStore(this.store);
-  }
-
-  renderSign = (format, value) => (
-    <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-        {Ext.util.Format.number(value, format)}
-    </span>
-  )
 
 }
 export default App;
