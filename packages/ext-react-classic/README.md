@@ -1,9 +1,9 @@
 ## Readme for @sencha/ext-react-classic
 
-last run: Thu Jan 23 2020 16:31:20 GMT-0500 (Eastern Standard Time)
+last run: Mon Jan 27 2020 13:41:46 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
-- [Getting Started](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-classic/GETTING_STARTED.md)
-- [What's New](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-classic/WHATS_NEW.md)
-- [EJECT](https://github.com/sencha/ext-react/blob/ext-react-7.1.x/packages/ext-react-classic/EJECT.md)
+- [Getting Started](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/GETTING_STARTED.md)
+- [What's New](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/WHATS_NEW.md)
+- [EJECT](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/EJECT.md)
