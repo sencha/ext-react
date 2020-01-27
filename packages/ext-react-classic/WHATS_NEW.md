@@ -1,6 +1,6 @@
 ## What's new for @sencha/ext-react-classic
 
-last run: Thu Jan 23 2020 16:31:20 GMT-0500 (Eastern Standard Time)
+last run: Mon Jan 27 2020 13:41:46 GMT-0500 (Eastern Standard Time)
 
 ### What's new in version 7.1
 
@@ -13,6 +13,14 @@ last run: Thu Jan 23 2020 16:31:20 GMT-0500 (Eastern Standard Time)
 The @sencha/ext-react package has been deprecated
 
 #### deprecated packages - see git repo
+
+- deprecate-ext-react
+- deprecate-ext-react-babel-plugin
+- deprecate-ext-react-classic-demo
+- deprecate-ext-react-renderercell (this functionality now imbedded in ext-react-modern and ext-react-classic)
+- deprecate-ext-react-transition
+- deprecate-ext-react-webpack-plugin (now ext-webpack-plugin)
+
 #### launching an app
 
 Launching an ExtReact application has been simplified:
@@ -64,7 +72,7 @@ for example: for tab change event:
 
 ```
   onTabChange = ({sender, value, oldValue}) => {
-    
+
   }
 ```
 

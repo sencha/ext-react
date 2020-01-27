@@ -151,54 +151,35 @@ try {
         var indexHtml = fs.readFileSync(`../../../${copyFolder}index.html`, 'utf8');
         var position = indexHtml.indexOf('</head>');
 
-    //     var styles = `
-    // <!--https://www.rapidtables.com/web/color/-->
-    // <style>
-    //   :root {
-    //     --base-color: #024059;
-    //     --base-foreground-color: white;
-    //     --background-color: white;
-    //     --color: black;
-    //   }
-    // </style>
-    //     `
-
         var b = ''
         if (toolkit == 'modern') {
           b =
           `
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}.all.css" rel="stylesheet" type="text/css"></link>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
-
 <!--
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.ios.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.material.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.triton.js"></script>
 -->
           `
         }
         else {
           b =
           `
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}.all.css" rel="stylesheet" type="text/css"></link>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
 <!--
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.aria.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp-touch.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.graphite.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.gray.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.material.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune-touch.js"></script>
       <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.triton.js"></script>
-
-
-
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.crisp.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.graphite.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.material.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.neptune.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/themes/css.${toolkit}.triton.js"></script>
 -->
           `
         }
@@ -215,11 +196,11 @@ try {
         const angularJson = JSON.parse(angular);
 
         //var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        var scriptBoot = `ext-runtime-${toolkit}/boot.js`;
-        var scriptEngine = `ext-runtime-${toolkit}/engine.js`;
-        var cssjs = `ext-runtime-${toolkit}/themes/css.${toolkit}.material.js`;
+        //var scriptBoot = `ext-runtime-${toolkit}/boot.js`;
+        var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
+        var cssjs = `ext-runtime-${toolkit}/${theme}/${theme}.all.css`;
         //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptBoot);
+        //angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptBoot);
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(cssjs);
 
