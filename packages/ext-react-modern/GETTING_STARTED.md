@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-modern
 
-last run: Tue Jan 28 2020 08:04:07 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 28 2020 09:57:42 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-modern and create-react-app
 
@@ -42,7 +42,7 @@ cd ext-react-modern-demo
 - To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
 ```sh
-<script src="%PUBLIC_URL%/ext-runtime-modern/themes/css.modern.material.js"></script>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 - To start the ExtReact application, run the following in a terminal window:
