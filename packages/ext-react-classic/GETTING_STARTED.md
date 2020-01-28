@@ -1,6 +1,6 @@
 ## Getting started with @sencha/ext-react-classic
 
-last run: Tue Jan 28 2020 08:14:19 GMT-0500 (Eastern Standard Time)
+last run: Tue Jan 28 2020 09:50:16 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-classic and create-react-app
 
@@ -42,7 +42,7 @@ cd ext-react-classic-demo
 - To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
 
 ```sh
-<script src="%PUBLIC_URL%/ext-runtime-classic/themes/css.classic.material.js"></script>
+<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 - To start the ExtReact application, run the following in a terminal window:

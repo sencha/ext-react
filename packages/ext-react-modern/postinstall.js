@@ -172,8 +172,6 @@ try {
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
       <!--
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/classic/classic-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/classic-sandbox/classic-sandbox-all.css" rel="stylesheet" type="text/css"></link>
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp/crisp-all.css" rel="stylesheet" type="text/css"></link>
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp-touch/crisp-touch-all.css" rel="stylesheet" type="text/css"></link>
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
@@ -200,18 +198,18 @@ try {
         //var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
         //var scriptBoot = `ext-runtime-${toolkit}/boot.js`;
         var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
-        var cssjs = `ext-runtime-${toolkit}/${theme}/${theme}.all.css`;
+        var cssjs = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
         //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
         //angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptBoot);
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(cssjs);
+        angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssjs);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
         //console.log(`${prefix} added ${style} to styles array in ./angular.json`);
-        console.log(`${prefix} added ${scriptBoot} to scripts array in ./angular.json`);
+        //console.log(`${prefix} added ${scriptBoot} to scripts array in ./angular.json`);
         console.log(`${prefix} added ${scriptEngine} to scripts array in ./angular.json`);
-        console.log(`${prefix} added ${cssjs} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${cssjs} to styles array in ./angular.json`);
         break;
       default:
     }
