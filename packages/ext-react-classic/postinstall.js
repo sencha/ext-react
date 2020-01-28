@@ -152,35 +152,37 @@ try {
         var position = indexHtml.indexOf('</head>');
 
         var b = ''
-        if (toolkit == 'modern') {
+       if (toolkit == 'modern') {
           b =
           `
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}.all.css" rel="stylesheet" type="text/css"></link>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
-<!--
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.ios.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.material.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.triton.js"></script>
--->
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <!--
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      -->
           `
         }
         else {
           b =
           `
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}.all.css" rel="stylesheet" type="text/css"></link>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.${theme}.js"></script>
-<!--
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.aria.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.crisp-touch.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.graphite.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.gray.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.material.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.neptune-touch.js"></script>
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.triton.js"></script>
--->
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <!--
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/classic/classic-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/classic-sandbox/classic-sandbox-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp/crisp-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp-touch/crisp-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/gray/gray-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune-touch/neptune-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      -->
           `
         }
 
