@@ -1,5 +1,4 @@
 const fs = require("fs-extra");
-//var productName
 var xtype
 var xtypeFileName
 var framework;
@@ -15,35 +14,23 @@ function doXtype() {
   console.log(`${prefix} ${xtypeFileName} copied to ./${copyFolder}ext-runtime`);
 }
 
-
 var packageNameThis = './package.json';
 var packageThis = fs.readFileSync(packageNameThis, 'utf8');
 const packageJsonThis = JSON.parse(packageThis);
 var prefix =(`${boldGreen(packageJsonThis.name + ':')}`)
 var dashCount = (packageJsonThis.name.match(/-/g) || []).length;
 
-//console.log(packageJsonThis.name)
-//console.log(dashCount)
 if (dashCount == 3) {
   var res = packageJsonThis.name.split('-');
-  //console.log(res)
   framework = res[1];
   toolkit = res[2];
   xtype = res[3];
-  //productName  = packageJsonThis.name;
-
-  //var last = packageJsonThis.name.lastIndexOf('-');
-  //productName  = packageJsonThis.name.substring(0,last);
-  //xtype = packageJsonThis.name.substring(productName.length+1);
   xtypeFileName = `ext.${xtype}.js`;
-
 }
 else {
   var res = packageJsonThis.name.split('-');
-  //console.log(res)
   framework = res[1];
   toolkit = res[2];
-  //productName  = packageJsonThis.name;
   xtype = '';
   xtypeFileName = ``;
 }
@@ -70,8 +57,6 @@ switch(framework) {
 
 if (fs.existsSync(`../../../${copyFolder}ext-runtime-${toolkit}`)) {
   console.log(`${prefix} ./${copyFolder}ext-runtime-${toolkit} exists`);
-  //if (xtype != '') {doXtype()}
-  //console.log('');
   return
 }
 
@@ -120,31 +105,8 @@ try {
       theme = 'material';
     }
     var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
-
-    // fs.copySync(`${from}/themes/`,`../../../${copyFolder}ext-runtime-${toolkit}/themes/`);
-    // //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/themes folder`);
-
-    // fs.copySync(`${from}/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
-    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
-
-    // fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/boot.js`);
-    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
-
-
-    //fs.copySync(`${from}/${toolkit}.${theme}.js`,`../../../${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
     fs.copySync(`${from}/`,`../../../${copyFolder}ext-runtime-${toolkit}/`);
-    //console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/${toolkit}.${theme}.js`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/`);
-
-
-
-
-
-
-
-    // fs.copySync(`${from}/css.prod.js`,`../../../${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
-    // console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
 
     switch(framework) {
       case 'react':
@@ -195,25 +157,18 @@ try {
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-        //var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        //var scriptBoot = `ext-runtime-${toolkit}/boot.js`;
         var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
-        var cssjs = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
-        //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
-        //angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptBoot);
+        var cssFile = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
-        angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssjs);
+        angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssFile);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
-        //console.log(`${prefix} added ${style} to styles array in ./angular.json`);
-        //console.log(`${prefix} added ${scriptBoot} to scripts array in ./angular.json`);
         console.log(`${prefix} added ${scriptEngine} to scripts array in ./angular.json`);
-        console.log(`${prefix} added ${cssjs} to styles array in ./angular.json`);
+        console.log(`${prefix} added ${cssFile} to styles array in ./angular.json`);
         break;
       default:
     }
     console.log('')
-    //if (xtype != '') {doXtype()}
 }
 catch(e) {console.log(e);}
