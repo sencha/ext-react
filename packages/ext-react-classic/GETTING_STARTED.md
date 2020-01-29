@@ -1,14 +1,12 @@
 ## Getting started for @sencha/ext-react-classic
 
-last run: Wed Jan 29 2020 15:02:46 GMT-0500 (Eastern Standard Time)
+last run: Wed Jan 29 2020 15:41:35 GMT-0500 (Eastern Standard Time)
 
 Getting started with @sencha/ext-react-classic and create-react-app
 
 ### Login to the Sencha npm repo
 
 * Note, you must be signed into the Sencha npm registry to access packages.
-See [Authenticating to Sencha's npm Registry](getting_started.html#getting_started_-_authenticating_to_sencha_s_npm_registry)
-for more information.
 
 production:
 
