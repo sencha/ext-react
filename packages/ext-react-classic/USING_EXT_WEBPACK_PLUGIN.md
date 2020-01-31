@@ -1,6 +1,6 @@
 ## Using ext-webpack-plugin for @sencha/ext-react-classic
 
-last run: Wed Jan 29 2020 17:19:32 GMT-0500 (Eastern Standard Time)
+last run: Fri Jan 31 2020 14:40:44 GMT-0500 (Eastern Standard Time)
 
 ### Adding ext-webpack-plugin to app
 
