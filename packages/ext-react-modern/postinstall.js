@@ -159,8 +159,14 @@ try {
 
         var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
         var cssFile = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
+        var options = angularJson.projects[packageJsonApp.name].architect.build.options;
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
-        angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssFile);
+        //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssFile);
+        options.styles.push(cssFile);
+        //options.styles.push(`//ext-runtime-${toolkit}/ios/ios-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/material/material-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/neptune/neptune-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/triton/triton-all.css`);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
