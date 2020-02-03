@@ -8,7 +8,7 @@ import Grid from './grid/Grid'
 import GridRenderers from './gridrenderers/GridRenderers'
 import GridRowBody from './gridrowbody/GridRowBody'
 import gridsummarychangestate from './gridsummarychangestate/gridsummarychangestate'
-
+import pivot from './components/pivot'
 
 export default class App extends Component {
 
@@ -33,6 +33,7 @@ export default class App extends Component {
                 { id: '/gridrenderers', text: 'GridRenderers', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/gridrowbody', text: 'GridRowBody', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/gridsummarychangestate', text: 'gridsummarychangestate', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/pivot', text: 'pivot', iconCls: 'x-fa fa-info', leaf: true },
               ]
             }
           }}
@@ -46,6 +47,7 @@ export default class App extends Component {
           <Route path="/gridrenderers" component={GridRenderers} />
           <Route path="/gridrowbody" component={GridRowBody} />
           <Route path="/gridsummarychangestate" component={gridsummarychangestate} />
+          <Route path="/pivot" component={pivot} />
         </Switch>
       </ExtContainer>
     </ExtPanel>

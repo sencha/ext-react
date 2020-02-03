@@ -1,0 +1,26 @@
+{
+  "framework": "ext",
+  "toolkit": "modern",
+  "requires": [
+    "d3",
+    "calendar"
+  ],
+  "overrides": [
+    "overrides",
+    "jsdom-environment.js"
+  ],
+  "packages": {
+    "dir": [
+      "../../node_modules/@sencha",
+      "../../modern/packages"
+    ]
+  },
+  "output": {
+    "base": ".",
+    "resources": {
+      "path": "./resources",
+      "shared": "./resources"
+    }
+  },
+  "theme": "theme-conference-app"
+}
