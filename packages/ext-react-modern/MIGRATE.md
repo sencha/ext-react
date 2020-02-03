@@ -1,12 +1,12 @@
 ## Migrate for @sencha/ext-react-modern
 
-last run: Mon Feb 03 2020 10:02:30 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 12:47:05 GMT-0500 (Eastern Standard Time)
 
 ## migrating/upgrading an ext-react application
 
 We want to make sure that your upgrade of ext-react is successful, so we would like to
 
-schedule a support call with you to walk through the update details.
+schedule a support call with you to walk through the upgrade details.
 
 ## submit a support tickit to notify us of your upgrade
 
