@@ -1,11 +1,11 @@
 ## Readme for @sencha/ext-react-classic
 
-last run: Mon Feb 03 2020 12:40:32 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 13:09:01 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-classic package to a React application
 
-- [Adding ExtReact components to an existing create-react-app project](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides/Adding_ExtReact_to_create-react-app_project.md)
-- [Creating a new create-react-app project with ExtReact components](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides/Creating_create-react-app_ExtReact.md)
+- [Adding ExtReact components to an existing create-react-app project](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/Adding_ExtReact_to_create-react-app_project.md)
+- [Creating a new create-react-app project with ExtReact components](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/Creating_create-react-app_ExtReact.md.md)
 - [Migrate/Upgrade from a previous version](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/MIGRATE.md)
 - [Understanding An App](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/UNDERSTANDING_AN_APP.md)
 - [Using ext-webpack-plugin](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic/USING_EXT_WEBPACK_PLUGIN.md)
