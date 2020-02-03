@@ -1,6 +1,6 @@
-## Creating a new create-react-app project with @sencha/ext-react-modern components
+## Creating a new create-react-app project with @sencha/ext-react-modern
 
-last run: Mon Feb 03 2020 12:47:05 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 13:19:12 GMT-0500 (Eastern Standard Time)
 
 ## Requirements
 Fetch your npm credentials and generate an application.

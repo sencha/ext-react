@@ -1,6 +1,6 @@
-## Creating a new create-react-app project with @sencha/ext-react-classic components
+## Creating a new create-react-app project with @sencha/ext-react-classic
 
-last run: Mon Feb 03 2020 12:40:32 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 13:09:01 GMT-0500 (Eastern Standard Time)
 
 ## Requirements
 Fetch your npm credentials and generate an application.

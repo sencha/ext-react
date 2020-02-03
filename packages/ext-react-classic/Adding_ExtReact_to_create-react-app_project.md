@@ -1,6 +1,6 @@
 ## Adding @sencha/ext-react-classic components to an existing create-react-app project
 
-last run: Mon Feb 03 2020 12:40:32 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 13:09:01 GMT-0500 (Eastern Standard Time)
 
 ## Requirements
 Fetch your npm credentials and generate an application.
@@ -27,7 +27,7 @@ To add @sencha/ext-react-classic to an existing application created with create-
 
 ```
 npm install @sencha/ext-react-classic
-``
+```
 
 This will create a 'public/ext-runtime-classic' folder, and also add several entries in the 'public/index.html'
 file.
@@ -41,7 +41,9 @@ The original index.html is backed up as 'public/indexBack.html'.
 
 ### Step 4: update src/index.js
 
-- comment out these lines...
+- make the following changes to src/index.js
+
+comment out these lines...
 
 ```sh
 //import ReactDOM from 'react-dom';
@@ -63,12 +65,12 @@ ExtReactDOM.render(<App />, document.getElementById('root'));
 import { ExtButton } from '@sencha/ext-react-classic';
 ```
 
-- modify 'render' method to use component:
+- modify 'render' method to use component(s):
 
 ```sh
   render() {
     return (
-      <ExtButton text="click me"></EctButton>
+      <ExtButton text="click me"></ExtButton>
     )
   }
 ```
@@ -95,7 +97,6 @@ here are all the classic themes available:
 <link href="%PUBLIC_URL%/ext-runtime-classic/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
 <link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
 <link href="%PUBLIC_URL%/ext-runtime-classic/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
-
 ```
 
 
