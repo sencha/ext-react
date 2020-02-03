@@ -1,11 +1,12 @@
 ## Readme for @sencha/ext-react-modern
 
-last run: Mon Feb 03 2020 10:02:30 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 12:47:05 GMT-0500 (Eastern Standard Time)
 
 This npm package contains the needed files to add the @sencha/ext-react-modern package to a React application
 
-- [Getting Started](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/GETTING_STARTED.md)
-- [Migrate](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/MIGRATE.md)
+- [Adding ExtReact components to an existing create-react-app project](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides/Adding_ExtReact_to_create-react-app_project.md)
+- [Creating a new create-react-app project with ExtReact components](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern//Users/marcgusmano/_git/sencha/ext-allshared/generate/filetemplates/react/guides/Creating_create-react-app_ExtReact.md)
+- [Migrate/Upgrade from a previous version](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/MIGRATE.md)
 - [Understanding An App](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/UNDERSTANDING_AN_APP.md)
 - [Using ext-webpack-plugin](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/USING_EXT_WEBPACK_PLUGIN.md)
 - [What's New](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/WHATS_NEW.md)
