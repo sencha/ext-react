@@ -1,6 +1,6 @@
 ## Understanding an app for @sencha/ext-react-classic
 
-last run: Mon Feb 03 2020 09:15:31 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 09:53:43 GMT-0500 (Eastern Standard Time)
 
 This guide will illustrate some of the key features of ExtReact within a React application.
 To get a starter application created,
