@@ -26,12 +26,12 @@ export default class ColorPickerExample extends Component {
 
   onChange(picker) {
     const color = picker.getValue();
-    console.log(color)
 
-    this.setState({
-      color,
-      exampleLabel: this.getLabel(color)
-    });
+    //mjg
+    // this.setState({
+    //   color,
+    //   exampleLabel: this.getLabel(color)
+    // });
   }
 
   render() {
@@ -45,7 +45,7 @@ export default class ColorPickerExample extends Component {
             hidden: Ext.platformTags.phone ? true : false,
             items: [
               {
-                //xtype: 'colorbutton',
+                xtype: 'colorbutton',
                 bind: '{color}',
                 width: Ext.platformTags.phone ? 25 : 15,
                 height: Ext.platformTags.phone ? 25 : 15,

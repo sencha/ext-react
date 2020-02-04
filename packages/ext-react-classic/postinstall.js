@@ -1,5 +1,4 @@
 const fs = require("fs-extra");
-//var productName
 var xtype
 var xtypeFileName
 var framework;
@@ -15,35 +14,23 @@ function doXtype() {
   console.log(`${prefix} ${xtypeFileName} copied to ./${copyFolder}ext-runtime`);
 }
 
-
 var packageNameThis = './package.json';
 var packageThis = fs.readFileSync(packageNameThis, 'utf8');
 const packageJsonThis = JSON.parse(packageThis);
 var prefix =(`${boldGreen(packageJsonThis.name + ':')}`)
 var dashCount = (packageJsonThis.name.match(/-/g) || []).length;
 
-//console.log(packageJsonThis.name)
-//console.log(dashCount)
 if (dashCount == 3) {
   var res = packageJsonThis.name.split('-');
-  //console.log(res)
   framework = res[1];
   toolkit = res[2];
   xtype = res[3];
-  //productName  = packageJsonThis.name;
-
-  //var last = packageJsonThis.name.lastIndexOf('-');
-  //productName  = packageJsonThis.name.substring(0,last);
-  //xtype = packageJsonThis.name.substring(productName.length+1);
   xtypeFileName = `ext.${xtype}.js`;
-
 }
 else {
   var res = packageJsonThis.name.split('-');
-  //console.log(res)
   framework = res[1];
   toolkit = res[2];
-  //productName  = packageJsonThis.name;
   xtype = '';
   xtypeFileName = ``;
 }
@@ -70,8 +57,6 @@ switch(framework) {
 
 if (fs.existsSync(`../../../${copyFolder}ext-runtime-${toolkit}`)) {
   console.log(`${prefix} ./${copyFolder}ext-runtime-${toolkit} exists`);
-  //if (xtype != '') {doXtype()}
-  //console.log('');
   return
 }
 
@@ -101,7 +86,13 @@ if (fs.existsSync('../../../webpack.config.js')) {
 try {
     var theme;
     if(packageJsonApp.extTheme != undefined) {
-      var themes = ['material', 'neptune'];
+      var themes = [
+        'crisp',
+        'graphite',
+        'material',
+        'neptune',
+        'triton'
+      ];
       if(themes.includes(packageJsonApp.extTheme)) {
         theme = packageJsonApp.extTheme;
         console.log(`${prefix} "extTheme": ${theme} found in ./package.json`);
@@ -114,46 +105,47 @@ try {
       theme = 'material';
     }
     var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
-    fs.copySync(`${from}/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    //fs.copySync(`../ext-runtime-${toolkit}-base/theme/${theme}`,`../../../${copyFolder}ext-runtime-${toolkit}/theme/${theme}`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/theme/${theme} folder`);
-
-    fs.copySync(`${from}/engine.js`,`../../../${copyFolder}ext-runtime-${toolkit}/engine.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/engine.js`);
-
-    fs.copySync(`${from}/boot.js`,`../../../${copyFolder}ext-runtime-${toolkit}/boot.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/boot.js`);
-
-    fs.copySync(`${from}/css.prod.js`,`../../../${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/css.prod.js`);
+    fs.copySync(`${from}/`,`../../../${copyFolder}ext-runtime-${toolkit}/`);
+    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/`);
 
     switch(framework) {
       case 'react':
         var indexHtml = fs.readFileSync(`../../../${copyFolder}index.html`, 'utf8');
-        //var position = indexHtml.indexOf('<title>');
         var position = indexHtml.indexOf('</head>');
-        var styles = `
-    <!--https://www.rapidtables.com/web/color/-->
-    <style>
-      :root {
-        --base-color: #024059;
-        --base-foreground-color: white;
-        --background-color: white;
-        --color: black;
-      }
-    </style>
-        `
-        var b =
-        `
-    <!--<link
-      href="%PUBLIC_URL%/ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css"
-      rel="stylesheet" type="text/css"
-    >-->
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/boot.js"></script>
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/engine.js"></script>
-    <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/css.prod.js"></script>
-${styles}
-        `
+
+        var b = ''
+       if (toolkit == 'modern') {
+          b =
+          `
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <!--
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      -->
+          `
+        }
+        else {
+          b =
+          `
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <!--
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp/crisp-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp-touch/crisp-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/gray/gray-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune-touch/neptune-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      -->
+          `
+        }
+
         fs.copySync(`../../../${copyFolder}index.html`,`../../../${copyFolder}indexBack.html`);
         var indexHtmlNew = indexHtml.substring(0, position) + b + indexHtml.substring(position);
         fs.writeFileSync(`../../../${copyFolder}index.html`, indexHtmlNew);
@@ -165,27 +157,24 @@ ${styles}
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-
-
-        var style = `ext-runtime-${toolkit}/theme/${theme}/${theme}-all.css`;
-        var script2 = `ext-runtime-${toolkit}/boot.js`;
-        var script = `ext-runtime-${toolkit}/engine.js`;
-        var cssjs = `ext-runtime-${toolkit}/css.prod.js`;
-        //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(style);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script2);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(script);
-        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(cssjs);
+        var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
+        var cssFile = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
+        var options = angularJson.projects[packageJsonApp.name].architect.build.options;
+        angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
+        //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssFile);
+        options.styles.push(cssFile);
+        //options.styles.push(`//ext-runtime-${toolkit}/ios/ios-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/material/material-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/neptune/neptune-all.css`);
+        //options.styles.push(`//ext-runtime-${toolkit}/triton/triton-all.css`);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
-        //console.log(`${prefix} added ${style} to styles array in ./angular.json`);
-        console.log(`${prefix} added ${script2} to scripts array in ./angular.json`);
-        console.log(`${prefix} added ${script} to scripts array in ./angular.json`);
-        console.log(`${prefix} added ${cssjs} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${scriptEngine} to scripts array in ./angular.json`);
+        console.log(`${prefix} added ${cssFile} to styles array in ./angular.json`);
         break;
       default:
     }
     console.log('')
-    //if (xtype != '') {doXtype()}
 }
 catch(e) {console.log(e);}

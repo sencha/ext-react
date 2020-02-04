@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 //<script src="%PUBLIC_URL%/ext.all.js"></script>
 //<script src="%PUBLIC_URL%/ReactCell.js"></script>
 
+window['ExtFramework'] = 'react';
+
 function syncEvent(node, eventName, newEventHandler, me) {
   const eventname = eventName[0].toLowerCase() + eventName.substring(1);
   const eventStore = node.__events || (node.__events = {});
@@ -64,25 +66,102 @@ export default function (CustomElement) {
       //console.log(this.props)
       var newProps = {};
       this.objectProps = {};
+      var className = '';
       for (const prop in this.props) {
         var t = typeof this.props[prop]
-        if (t != 'object') {
+
+        if (prop == 'className') {
+          className = ' ' + this.props[prop];
+        }
+        else if (t == 'function') {
+          if (prop == 'renderer' || prop == 'summaryRenderer') {
+            newProps[prop] = 'function';
+            this.objectProps[prop] = this.props[prop];
+          }
+          else {
+            newProps[prop] = this.props[prop];
+            this.objectProps[prop] = this.props[prop];
+          }
+        }
+        else if (t != 'object') {
           newProps[prop] = this.props[prop];
         }
         else {
           if (prop == 'style' || prop == 'children') {
           }
+          // else if (prop == 'columns') {
+          //   this.objectProps[prop] = this.props[prop];
+          // }
           else {
             var sPropVal = ''
             try {
-              sPropVal = JSON.stringify(this.props[prop])
-              newProps[prop] = sPropVal;
+
+              var JSONfn = {};
+              var hasFunction = false;
+              // if (!JSONfn) {
+              //     JSONfn = {};
+              // }
+
+              (function () {
+                JSONfn.stringify = function(obj) {
+                  return JSON.stringify(obj,function(key, value) {
+                    if (typeof value === 'function' ) {
+                      hasFunction = true;
+                      //console.log(key)
+                      return value.toString();
+                    }
+                    else {
+                      return value;
+                    }
+                  });
+                }
+
+                // JSONfn.parse = function(str) {
+                //   return JSON.parse(str,function(key, value){
+                //       if(typeof value != 'string') return value;
+                //       return ( value.substring(0,8) == 'function') ? eval('('+value+')') : value;
+                //   });
+                //}
+              }());
+
+              hasFunction = false;
+              var sPropValfn = JSONfn.stringify(this.props[prop]);
+              if (hasFunction == true) {
+                console.log(`${prop} has function`)
+                console.log(this.props[prop])
+                newProps[prop] = 'function';
+                this.objectProps[prop] = this.props[prop];
+              }
+              else {
+                newProps[prop] = sPropValfn;
+              }
+
+              // sPropVal = JSON.stringify(this.props[prop]); //functions are swallowed - mjg
+              // if (prop == 'itemConfig') {
+              //   this.objectProps[prop] = this.props[prop];
+              // }
+              // else {
+              //   newProps[prop] = sPropVal;
+              // }
+
+
             }
             catch(e) {
               this.objectProps[prop] =this.props[prop];
             }
           }
         }
+      }
+
+      //console.log(newProps['cls'])
+      //console.log(className)
+      if (newProps['cls'] == undefined) {
+        if (className != '') {
+          newProps['cls'] = className
+        }
+      }
+      else {
+        newProps['cls'] = newProps['cls'] + className
       }
 
       this.element = React.createElement(

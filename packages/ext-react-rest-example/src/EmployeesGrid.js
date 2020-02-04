@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Toolbar, SearchField, FormPanel, Column } from '@sencha/ext-modern';
+import { Grid, Toolbar, Searchfield, Column } from '@sencha/ext-react-modern';
 import { connect } from 'react-redux';
 import { updateCriteria } from './actions';
 
 Ext.require([
     'Ext.Function',
-    'Ext.grid.plugin.PagingToolbar'
+    'Ext.grid.plugin.PagingToolbar',
+    'Ext.data.proxy.Rest'
 ]);
 
 class EmployeesGrid extends Component {
@@ -37,7 +38,7 @@ class EmployeesGrid extends Component {
 
         if (prevProps.criteria !== criteria) {
             const filters = [];
-    
+
             for (let name in criteria) {
                 filters.push({
                     property: name,
@@ -65,12 +66,12 @@ class EmployeesGrid extends Component {
                 }}
             >
                 <Toolbar docked="top">
-                    <SearchField 
+                    <Searchfield
                         ref='query'
                         ui="faded"
-                        width="200" 
-                        onChange={this.search} 
-                        placeholder="Find by name..." 
+                        width="200"
+                        onChange={this.search}
+                        placeholder="Find by name..."
                     />
                 </Toolbar>
                 <Column text="ID" dataIndex="id" width={100}/>

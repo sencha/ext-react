@@ -17,7 +17,7 @@ export default class NavTree extends Component {
   }
 
   render() {
-    const { onSelectionChange, store, selection, ...props } = this.props;
+    const { onSelectionchange, store, selection, ...props } = this.props;
     return (
       <Panel
         {...props}
@@ -31,10 +31,11 @@ export default class NavTree extends Component {
         <SearchField flex={1} docked="top" ui="faded" onChange={this.filterNav} margin="7" />
         <TreeList
             ui="nav"
+            scrollable="true"
             store={store}
             expanderFirst={false}
             expanderOnly={false}
-            onSelectionchange={onSelectionChange}
+            onSelectionchange={onSelectionchange}
             selection={selection}
         />
       </Panel>

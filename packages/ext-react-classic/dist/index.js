@@ -1,11 +1,17 @@
 import ReactDOM from 'react-dom';
+import './overrides';
+export { default as Template } from './Template';
 var Ext = window['Ext'];
 export function render(element, container, callback) {
   //console.log('in render')
-  Ext.onReady(function () {
-    //console.log('before render')
-    ReactDOM.render(element, container, callback);
-  });
+  try {
+    Ext.onReady(function () {
+      //console.log('before render')
+      ReactDOM.render(element, container, callback);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 ;
 var ExtReactDOM = {

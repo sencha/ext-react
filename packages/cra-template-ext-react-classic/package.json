@@ -1,0 +1,23 @@
+{
+  "name": "@sencha/cra-template-ext-react-classic",
+  "version": "7.1.0",
+  "description": "cra-template-ext-react-classic",
+  "main": "template.json",
+  "license": "MIT",
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "clean-files": "rm -rf ./template/public ./template/src && rm -f ./template/README.md",
+    "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp README.md template/",
+    "prepublishOnly": "yarn clean-files && yarn copy-files",
+    "fix": "eslint --fix ./src/",
+    "lint": "eslint ./src/"
+  },
+  "dependencies": {}
+}

@@ -1,25 +1,17 @@
-import React, { Component } from 'react';
-import { Tree, TreeColumn } from '@sencha/ext-modern-treegrid';
-import store from './Store';
+import React, { Component } from "react";
+import { Tree, TreeColumn } from "@sencha/ext-react-modern";
+import store from "./Store";
 
 export default class CellEditingTreeExample extends Component {
-
-    render(){
+    render() {
         return (
-            <Tree 
+            <Tree
                 title="Cell Editing Tree"
                 store={store}
-                plugins={[
-                    {type:'gridcellediting'}
-                ]}
+                plugins={[{ type: "gridcellediting" }]}
             >
-                <TreeColumn
-                    text="Name"
-                    dataIndex="text"
-                    flex="1"
-                    editable
-                />
+                <TreeColumn text="Name" dataIndex="text" flex="1" editable />
             </Tree>
-        )
+        );
     }
 }

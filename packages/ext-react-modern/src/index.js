@@ -1,11 +1,22 @@
 import ReactDOM from 'react-dom';
+
+import './overrides';
+export { default as Template } from './Template';
+
 const Ext = window['Ext'];
 export function render(element, container, callback) {
   //console.log('in render')
+
+  try {
   Ext.onReady(function () {
     //console.log('before render')
     ReactDOM.render(element, container, callback);
   });
+  }
+  catch(e) {
+    console.log(e)
+  }
+
 };
 
 const ExtReactDOM = {
@@ -781,6 +792,7 @@ export const TabBar = ExtTabbar_;
 export const TabPanel = ExtTabpanel_;
 export const TextAreaField = ExtTextareafield_;
 export const TextColumn = ExtTextcolumn_;
+export const TreeColumn = ExtTreecolumn_;
 export const TextField = ExtTextfield_;
 export const TimeField = ExtTimefield_;
 export const TimePanel = ExtTimepanel_;

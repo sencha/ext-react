@@ -31,7 +31,9 @@ export default class ToolbarExample extends Component {
                     <Spacer/>
                     {!Ext.os.is.Phone && (
                         <SegmentedButton
-                        value={this.state.optionButton}
+                          onReady={({cmp, cmpObj}) => {
+                            cmp.setValue(this.state.optionButton)
+                          }}
                         >
                             <Button value="1" text="Option 1" pressed handler={this.buttonHandler.bind(this)}/>
                             <Button value="2" text="Option 2" handler={this.buttonHandler.bind(this)}/>

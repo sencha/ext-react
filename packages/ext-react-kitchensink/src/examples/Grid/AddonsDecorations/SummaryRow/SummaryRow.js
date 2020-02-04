@@ -10,20 +10,22 @@ Ext.require([
 
 export default class RowBodyGridExample extends Component {
 
-  store = Ext.create('Ext.data.Store', {
-    model,
+  store = {
+    xtype: 'store',
+    model: model,
     autoLoad: true,
     pageSize: 0,
     proxy: {
       type: 'ajax',
       url: 'resources/data/CompanyData.json'
     }
-  });
+  };
 
   render() {
     return (
       <Grid
           title="Summary Row Grid"
+          fitToParent="true"
           store={this.store}
           shadow
           plugins={{

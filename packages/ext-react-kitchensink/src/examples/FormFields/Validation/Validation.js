@@ -30,7 +30,7 @@ export default function ValidationExample() {
                     margin="0 0 20 0"
                     title="Using Validators"
                 >
-                    <div style={styles.hint}>Here we use validators from <code>Ext.data.validator</code> to validate user input.</div>
+                    <Container html="<div>Here we use validators from <code>Ext.data.validator</code> to validate user input.</div>"/>
                     <TextField
                         required
                         label="Required Field"
@@ -93,20 +93,22 @@ export default function ValidationExample() {
                             message: 'Only uppercase letters are allowed.'
                         }}
                     />
+                    {/*
+                    mjg
                     <TextField
                         label="Custom Format Function: Capitalized words"
                         validators={{
                             type: 'method',
                             fn: validateCapilization
                         }}
-                    />
+                    /> */}
                 </FormPanel>
                 <FormPanel
                     padding={10}
                     shadow
                     title="Assigning Error Messages Directly"
                 >
-                    <div style={styles.hint}>Here we assign error messages directly using the <code>errorMessage</code> and <code>error</code> props.</div>
+                    <Container html="<div>Here we assign error messages directly using the <code>errorMessage</code> and <code>error</code> props.</div>"/>
                     <TextField
                         label="Single Error"
                         errorMessage="The value you entered is invalid."
@@ -139,11 +141,4 @@ function validateCapilization(value) {
     }
 
     return true;
-}
-
-const styles = {
-    hint: {
-        fontSize:'13px',
-        color: '#666'
-    }
 }

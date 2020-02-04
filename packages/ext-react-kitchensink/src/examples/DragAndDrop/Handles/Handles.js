@@ -14,12 +14,12 @@ export default class Handles extends Component {
                 shadow
             >
                 <Container ref="handleRepeat" className="handle-repeat handle-source">
-                    <Container className="handle">Foo</Container>
-                    <Container className="handle">Bar</Container>
-                    <Container className="handle">Baz</Container>
+                    <Container className="handle"><div>Foo</div></Container>
+                    <Container className="handle"><div>Bar</div></Container>
+                    <Container className="handle"><div>Baz</div></Container>
                 </Container>
                 <Container ref="drag" className="handle-handles handle-source">
-                    <Container className="handle">Drag</Container>
+                    <Container className="handle"><div>Drag</div></Container>
                 </Container>
             </Panel>
         )
