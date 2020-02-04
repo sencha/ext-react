@@ -1,6 +1,6 @@
 ## Adding @sencha/ext-react-classic components to an existing create-react-app project
 
-last run: Mon Feb 03 2020 13:09:01 GMT-0500 (Eastern Standard Time)
+last run: Mon Feb 03 2020 14:14:43 GMT-0500 (Eastern Standard Time)
 
 ## Requirements
 Fetch your npm credentials and generate an application.
