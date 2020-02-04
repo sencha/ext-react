@@ -1,3 +1,5 @@
+7.2.x
+
 npx create-react-app --template @sencha/ext-react-modern app1
 
   onSelect = ({ sender, selected }) => {
@@ -49,6 +51,6 @@ git push upstream --tags
 
 git fetch upstream
 git merge upstream/master
-git merge upstream/ext-react-7.0.x
+git merge upstream/ext-react-7.2.x
 
 git remote add upstream https://github.com/sencha/guides.git
