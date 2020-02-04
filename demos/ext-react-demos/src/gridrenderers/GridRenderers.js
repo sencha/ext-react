@@ -38,10 +38,22 @@ export default class GridRenderers extends Component {
     return context.records.length + ' Names';
   }
 
+  rowTpl = (value, context) => (
+    <div >
+      <span>hi</span>
+      <ext-button shadow="true" text="hello"></ext-button>
+    </div>
+  )
+
   render() {
     return (
       <ExtGrid
         store={this.store}
+        itemConfig={{
+          body: {
+            //tpl: this.rowTpl
+          },
+        }}
         plugins= {{gridsummaryrow: true}}
       >
         <ExtColumn text="Name" dataIndex="name" flex={2} renderer={this.renderName1} summaryRenderer={this.renderSummaryName1}/>
