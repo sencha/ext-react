@@ -1,7 +1,5 @@
 ## Understanding an app for @sencha/ext-react-modern
 
-last run: Mon Feb 03 2020 13:19:12 GMT-0500 (Eastern Standard Time)
-
 This guide will illustrate some of the key features of ExtReact within a React application.
 To get a starter application created,
 follow the [Getting Started guide](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern/GETTING_STARTED.md).
@@ -160,4 +158,19 @@ The ExtColumn supports render functions as JSX
 ```
   renderName = (value, context) => (
     <div style={{height:'15px'}}>
-      <span>span - 
+      <span>span - { context.data.name }</span>
+      <ext-button shadow="true" text={ context.data.name }></ext-button>
+    </div>
+  )
+
+
+  render() {
+    return (
+      <ExtGrid
+
+      >
+        <ExtColumn text="Name" dataIndex="name" flex= renderer={ this.renderName }/>
+
+      </ExtGrid>
+    )
+  }
