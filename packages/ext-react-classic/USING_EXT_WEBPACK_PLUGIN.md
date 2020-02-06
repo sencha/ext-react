@@ -1,7 +1,5 @@
 ## Using ext-webpack-plugin for @sencha/ext-react-classic
 
-last run: Mon Feb 03 2020 14:14:43 GMT-0500 (Eastern Standard Time)
-
 ### Adding ext-webpack-plugin to app
 
 #### 1. install ExtReact Packages using npm

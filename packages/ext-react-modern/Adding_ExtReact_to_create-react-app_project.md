@@ -1,7 +1,5 @@
 ## Adding @sencha/ext-react-modern components to an existing create-react-app project
 
-last run: Mon Feb 03 2020 13:19:12 GMT-0500 (Eastern Standard Time)
-
 ## Requirements
 Fetch your npm credentials and generate an application.
 

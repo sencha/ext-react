@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Grid, Column, Toolbar, Button, PivotGrid } from "@sencha/ext-react-modern";
-import data from './mockdata';
+import { Container, Grid } from "@sencha/ext-react-modern";
+//import data from './mockdata';
 const Ext = window['Ext']
 
 Ext.require("Ext.grid.plugin.Summary");

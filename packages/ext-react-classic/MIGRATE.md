@@ -1,7 +1,5 @@
 ## Migrate for @sencha/ext-react-classic
 
-last run: Mon Feb 03 2020 14:14:43 GMT-0500 (Eastern Standard Time)
-
 ## migrating/upgrading an ext-react application
 
 We want to make sure that your upgrade of ext-react is successful, so we would like to
