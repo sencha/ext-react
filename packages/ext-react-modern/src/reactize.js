@@ -17,16 +17,6 @@ function syncEvent(node, eventName, newEventHandler, me) {
   }
   if (newEventHandler) {
     node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
-      //console.log('eventHandler')
-      //console.log(eventname)
-      //console.dir(e)
-      // if (eventname == 'cmpready') {
-      //   //console.dir('cmpready')
-      //   me.cmp = event.detail.cmp
-      //   me.ext = event.detail.cmp
-      //   return
-      // }
-
       if (eventname == 'ready') {
         me.cmp = event.detail.cmp
         me.ext = event.detail.cmp
@@ -38,14 +28,29 @@ function syncEvent(node, eventName, newEventHandler, me) {
 
 export default function (CustomElement) {
 
-  if (window['customelement'] == null) {
-    window['customelement'] = 'yes'
-    var overrides = function overrides() {
-      var Ext = window.Ext;
-      var Template;
-      try {
+  if (typeof CustomElement !== 'function') {
+    throw new Error('Given element is not a valid constructor');
+  }
+  const tagName = (new CustomElement()).tagName;
+
+  function toPascalCase(s) {
+    return s.match(/[a-z]+/gi)
+        .map(function (word) {
+            return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+        })
+        .join('')
+  }
+  const displayName = toPascalCase(tagName)
+
+  class ReactComponent extends React.Component {
+    constructor(props) {
+      super(props)
+      this.componentRef = React.createRef();
+
+      if (window['ExtReact'] == null) {
+        window['ExtReact'] = 'loaded'
         Ext.onReady(function () {
-          Template = Ext.define(null, {
+          var Template = Ext.define(null, {
             extend: 'Ext.Template',
             constructor: function constructor(fn) {
               this.fn = fn;
@@ -87,10 +92,8 @@ export default function (CustomElement) {
                 var observer = new MutationObserver(function (mutations) {
                   mutations.forEach(function (_ref) {
                     var removedNodes = _ref.removedNodes;
-
                     for (var i = 0; i < removedNodes.length; i++) {
                       var node = removedNodes[i];
-
                       if (node[targetKey]) {
                         ReactDOM.unmountComponentAtNode(node); // Unmount the React tree when the target dom node is removed.
                       }
@@ -103,46 +106,21 @@ export default function (CustomElement) {
               }
             }
           });
-        });
-
-        var getTpl = Ext.XTemplate.getTpl;
-        var originalGet = Ext.XTemplate.get;
-        Ext.XTemplate.get = function (fn) {
-          if (typeof fn === 'function') {
-            return new Template(fn);
-          } else {
-            return originalGet.apply(Ext.XTemplate, arguments);
-          }
-        };
-        Ext.XTemplate.getTpl = function () {
-          return getTpl.apply(Ext.XTemplate, arguments);
-        };
-        console.log('template override loaded')
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    setTimeout(overrides , 50);
-    }
-
-  if (typeof CustomElement !== 'function') {
-    throw new Error('Given element is not a valid constructor');
-  }
-  const tagName = (new CustomElement()).tagName;
-
-  function toPascalCase(s) {
-    return s.match(/[a-z]+/gi)
-        .map(function (word) {
-            return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+          var getTpl = Ext.XTemplate.getTpl;
+          var originalGet = Ext.XTemplate.get;
+          Ext.XTemplate.get = function (fn) {
+            if (typeof fn === 'function') {
+              return new Template(fn);
+            } else {
+              return originalGet.apply(Ext.XTemplate, arguments);
+            }
+          };
+          Ext.XTemplate.getTpl = function () {
+            return getTpl.apply(Ext.XTemplate, arguments);
+          };
+          //console.log('template override loaded')
         })
-        .join('')
-  }
-  const displayName = toPascalCase(tagName)
-
-  class ReactComponent extends React.Component {
-    constructor(props) {
-      super(props)
-      this.componentRef = React.createRef();
+      }
     }
 
     static get displayName() {
@@ -162,7 +140,7 @@ export default function (CustomElement) {
           className = ' ' + this.props[prop];
         }
         else if (t == 'function') {
-          newProps[prop] = 'function';
+          newProps[prop] = function() {} //'function';
           this.objectProps[prop] = this.props[prop];
 
           // if (prop == 'renderer' || prop == 'summaryRenderer') {
@@ -220,7 +198,7 @@ export default function (CustomElement) {
               if (hasFunction == true) {
                 console.log(`${prop} has function`)
                 console.log(this.props[prop])
-                newProps[prop] = 'function';
+                newProps[prop] = function() {} //'function';
                 this.objectProps[prop] = this.props[prop];
               }
               else {
