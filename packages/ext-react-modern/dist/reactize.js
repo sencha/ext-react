@@ -21,15 +21,6 @@ function syncEvent(node, eventName, newEventHandler, me) {
 
   if (newEventHandler) {
     node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
-      //console.log('eventHandler')
-      //console.log(eventname)
-      //console.dir(e)
-      // if (eventname == 'cmpready') {
-      //   //console.dir('cmpready')
-      //   me.cmp = event.detail.cmp
-      //   me.ext = event.detail.cmp
-      //   return
-      // }
       if (eventname == 'ready') {
         me.cmp = event.detail.cmp;
         me.ext = event.detail.cmp;
@@ -41,16 +32,35 @@ function syncEvent(node, eventName, newEventHandler, me) {
 }
 
 export default function (CustomElement) {
-  if (window['customelement'] == null) {
-    window['customelement'] = 'yes';
+  if (typeof CustomElement !== 'function') {
+    throw new Error('Given element is not a valid constructor');
+  }
 
-    var overrides = function overrides() {
-      var Ext = window.Ext;
-      var Template;
+  var tagName = new CustomElement().tagName;
 
-      try {
+  function toPascalCase(s) {
+    return s.match(/[a-z]+/gi).map(function (word) {
+      return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+    }).join('');
+  }
+
+  var displayName = toPascalCase(tagName);
+
+  var ReactComponent =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(ReactComponent, _React$Component);
+
+    function ReactComponent(props) {
+      var _this;
+
+      _this = _React$Component.call(this, props) || this;
+      _this.componentRef = React.createRef();
+
+      if (window['ExtReact'] == null) {
+        window['ExtReact'] = 'loaded';
         Ext.onReady(function () {
-          Template = Ext.define(null, {
+          var Template = Ext.define(null, {
             extend: 'Ext.Template',
             constructor: function constructor(fn) {
               this.fn = fn;
@@ -109,55 +119,24 @@ export default function (CustomElement) {
               }
             }
           });
+          var getTpl = Ext.XTemplate.getTpl;
+          var originalGet = Ext.XTemplate.get;
+
+          Ext.XTemplate.get = function (fn) {
+            if (typeof fn === 'function') {
+              return new Template(fn);
+            } else {
+              return originalGet.apply(Ext.XTemplate, arguments);
+            }
+          };
+
+          Ext.XTemplate.getTpl = function () {
+            return getTpl.apply(Ext.XTemplate, arguments);
+          }; //console.log('template override loaded')
+
         });
-        var getTpl = Ext.XTemplate.getTpl;
-        var originalGet = Ext.XTemplate.get;
-
-        Ext.XTemplate.get = function (fn) {
-          if (typeof fn === 'function') {
-            return new Template(fn);
-          } else {
-            return originalGet.apply(Ext.XTemplate, arguments);
-          }
-        };
-
-        Ext.XTemplate.getTpl = function () {
-          return getTpl.apply(Ext.XTemplate, arguments);
-        };
-
-        console.log('template override loaded');
-      } catch (e) {
-        console.log(e);
       }
-    };
 
-    setTimeout(overrides, 50);
-  }
-
-  if (typeof CustomElement !== 'function') {
-    throw new Error('Given element is not a valid constructor');
-  }
-
-  var tagName = new CustomElement().tagName;
-
-  function toPascalCase(s) {
-    return s.match(/[a-z]+/gi).map(function (word) {
-      return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-    }).join('');
-  }
-
-  var displayName = toPascalCase(tagName);
-
-  var ReactComponent =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(ReactComponent, _React$Component);
-
-    function ReactComponent(props) {
-      var _this;
-
-      _this = _React$Component.call(this, props) || this;
-      _this.componentRef = React.createRef();
       return _this;
     }
 
@@ -176,7 +155,9 @@ export default function (CustomElement) {
         if (prop == 'className') {
           className = ' ' + this.props[prop];
         } else if (t == 'function') {
-          newProps[prop] = 'function';
+          newProps[prop] = function () {}; //'function';
+
+
           this.objectProps[prop] = this.props[prop]; // if (prop == 'renderer' || prop == 'summaryRenderer') {
           //   newProps[prop] = 'function';
           //   this.objectProps[prop] = this.props[prop];
@@ -226,7 +207,10 @@ export default function (CustomElement) {
                 if (hasFunction == true) {
                   console.log(prop + " has function");
                   console.log(this.props[prop]);
-                  newProps[prop] = 'function';
+
+                  newProps[prop] = function () {}; //'function';
+
+
                   this.objectProps[prop] = this.props[prop];
                 } else {
                   newProps[prop] = sPropValfn;
