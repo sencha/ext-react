@@ -32,7 +32,7 @@
     "@sencha/ext": "^7.0.0",
     "@sencha/ext-classic": "^7.0.0",
     "@sencha/ext-classic-theme-triton": "^7.0.0",
-    "@sencha/ext-react-modern": "~7.1.0",
+    "@sencha/ext-react-modern: "~7.2.0",
     "@sencha/ext-react-renderercell": "~7.0.0",
     "@sencha/ext-react-transition": "~7.0.0",
     "prop-types": "^15.6.2",
