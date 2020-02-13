@@ -10,6 +10,7 @@ import GridRowBody from './gridrowbody/GridRowBody'
 import gridsummarychangestate from './gridsummarychangestate/gridsummarychangestate'
 import pivot from './components/pivot'
 import virtualgrid from './components/virtualgrid'
+import gridreconfigure from './components/gridreconfigure'
 
 export default class App extends Component {
 
@@ -36,6 +37,7 @@ export default class App extends Component {
                 { id: '/gridsummarychangestate', text: 'gridsummarychangestate', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/pivot', text: 'pivot', iconCls: 'x-fa fa-info', leaf: true },
                 { id: '/virtualgrid', text: 'virtualgrid', iconCls: 'x-fa fa-info', leaf: true },
+                { id: '/gridreconfigure', text: 'gridreconfigure', iconCls: 'x-fa fa-info', leaf: true },
               ]
             }
           }}
@@ -51,6 +53,7 @@ export default class App extends Component {
           <Route path="/gridsummarychangestate" component={gridsummarychangestate} />
           <Route path="/pivot" component={pivot} />
           <Route path="/virtualgrid" component={virtualgrid} />
+          <Route path="/gridreconfigure" component={gridreconfigure} />
         </Switch>
       </ExtContainer>
     </ExtPanel>
