@@ -1,6 +1,6 @@
 {
     "name": "@sencha/ext-react-modern-renderwhenready",
-    "version": "7.1.0",
+    "version": "7.2.0",
     "description": "A Demo",
     "main": "index.js",
     "scripts": {
@@ -35,7 +35,6 @@
         "@sencha/ext-modern-theme-material": "^7.0.0",
         "@sencha/ext-modern-treegrid": "^7.0.0",
         "@sencha/ext-react-modern": "^7.1.0",
-
         "@sencha/ext-ux": "^7.0.0",
         "d3": "5.14.2",
         "prop-types": "^15.7.2",
@@ -59,8 +58,7 @@
         "@babel/plugin-transform-runtime": "^7.7.6",
         "@babel/preset-env": "^7.7.7",
         "@babel/preset-react": "^7.7.4",
-
-        "@sencha/ext-webpack-plugin": "~7.1.0",
+        "@sencha/ext-webpack-plugin: "~7.2.0",
         "babel-loader": "^8.0.6",
         "base-href-webpack-plugin": "~2.0.0",
         "copy-webpack-plugin": "^5.1.1",
@@ -75,7 +73,6 @@
         "rimraf": "^3.0.0",
         "sass-loader": "^8.0.0",
         "style-loader": "^1.1.1",
-
         "webpack": "^4.41.4",
         "webpack-cli": "^3.3.10",
         "webpack-dev-server": "^3.10.1"

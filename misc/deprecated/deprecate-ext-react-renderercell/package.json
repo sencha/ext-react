@@ -42,7 +42,7 @@
     },
     "sencha": {
         "name": "renderercell",
-        "version": "7.1.0",
+        "version": "7.2.0",
         "compatVersion": "6.7.0",
         "namespace": "Ext",
         "type": "code",
