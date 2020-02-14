@@ -1,0 +1,810 @@
+Sencha Cmd 7.1.0.16 - Crash report
+================================================
+An error occurred while executing the following command: app watch --web-server false desktop development
+
+Diagnostic information:
+=======================
+                         app.archivePath : archive/${build.id}                               
+                      app.bootstrap.base : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic
+                       app.bootstrap.css : generatedFiles/bootstrap.css                      
+                  app.bootstrap.manifest : generatedFiles/${build.id}.json                   
+               app.bootstrap.microloader : generatedFiles/bootstrap.js                       
+   app.builds.desktop.sass.generated.src : ${build.id}/sass/save                             
+   app.builds.desktop.sass.generated.var : ${build.id}/sass/save.scss                        
+                app.builds.desktop.theme : theme-material                                    
+              app.builds.desktop.toolkit : classic                                           
+                        app.cache.deltas : ${build.id}/deltas                                
+                        app.cache.enable : false                                             
+                          app.classic.js :                                                   
+                   app.classic.js.length : 0                                                 
+                           app.classpath : app/shared/src,app/${build.id}/src                
+                         app.classpath.0 : app/shared/src                                    
+                         app.classpath.1 : app/${build.id}/src                               
+                    app.classpath.length : 2                                                 
+                          app.compressor : null                                              
+                          app.config.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app
+                app.cordova.cache.enable : false                                             
+                   app.cordova.config.id : com.domain.jsxInExtJSClassic                      
+                 app.cordova.config.name : jsxInExtJSClassic                                 
+                 app.cordova.config.path : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/cordova
+               app.cordova.config.target :                                                   
+              app.cordova.config.verbose : false                                             
+                   app.cordova.js.0.path : cordova.js                                        
+               app.cordova.js.0.priority : 1000                                              
+                 app.cordova.js.0.remote : true                                              
+                   app.cordova.js.length : 1                                                 
+                 app.cordova.microloader : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/Microloader.js
+      app.cordova.output.appCache.enable : false                                             
+                 app.cordova.output.base : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/cordova/www
+             app.cordova.output.manifest : ${build.id}.json                                  
+                 app.cordova.output.page : index.html                                        
+             app.development.watch.delay : 250                                               
+                                 app.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic
+              app.fashion.inliner.enable : false                                             
+           app.fashion.missingParameters : error                                             
+                           app.framework : ext                                               
+                                  app.id : 6a80914b-6432-4f7b-b52d-37b2ea3df874              
+                       app.indexHtmlPath : index.html                                        
+                        app.loader.cache : false                                             
+                   app.loader.cacheParam : _dc                                               
+                           app.modern.js :                                                   
+                    app.modern.js.length : 0                                                 
+                                app.name : jsxInExtJSClassic                                 
+                           app.namespace : jsxInExtJSClassic                                 
+              app.output.appCache.enable : false                                             
+                         app.output.base : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/build/${build.environment}/jsxInExtJSClassic
+                           app.output.js : generatedFiles/${build.id}/app.js                 
+                     app.output.manifest : generatedFiles/${build.id}.json                   
+           app.output.microloader.enable : true                                              
+                         app.output.page : index.html                                        
+               app.output.resources.path : ${build.id}/resources                             
+             app.output.resources.shared : resources                                         
+                           app.overrides : app/shared/overrides,app/${build.id}/overrides    
+                         app.overrides.0 : app/shared/overrides                              
+                         app.overrides.1 : app/${build.id}/overrides                         
+                    app.overrides.length : 2                                                 
+               app.phonegap.cache.enable : false                                             
+                  app.phonegap.config.id : com.domain.jsxInExtJSClassic                      
+                app.phonegap.config.name : jsxInExtJSClassic                                 
+                app.phonegap.config.path : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/phonegap
+              app.phonegap.config.remote : false                                             
+             app.phonegap.config.verbose : false                                             
+                  app.phonegap.js.0.path : cordova.js                                        
+              app.phonegap.js.0.priority : 1000                                              
+                app.phonegap.js.0.remote : true                                              
+                  app.phonegap.js.length : 1                                                 
+                app.phonegap.microloader : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/Microloader.js
+     app.phonegap.output.appCache.enable : false                                             
+                app.phonegap.output.base : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/phonegap/www
+            app.phonegap.output.manifest : ${build.id}.json                                  
+                app.phonegap.output.page : index.html                                        
+             app.production.cache.enable : true                                              
+          app.production.compressor.type : yui                                               
+             app.production.loader.cache : ${build.timestamp}                                
+   app.production.output.appCache.enable : true                                              
+     app.production.output.appCache.path : cache.appcache                                    
+                        app.sass.dynamic : true                                              
+                            app.sass.etc : sass/etc/all.scss                                 
+                          app.sass.etc.0 : sass/etc/all.scss                                 
+                     app.sass.etc.length : 1                                                 
+                        app.sass.fashion : true                                              
+                      app.sass.namespace : jsxInExtJSClassic                                 
+                            app.sass.src : app/shared/src/sass/src.scss,app/${build.id}/sass/src.scss
+                          app.sass.src.0 : app/shared/src/sass/src.scss                      
+                          app.sass.src.1 : app/${build.id}/sass/src.scss                     
+                     app.sass.src.length : 2                                                 
+                            app.sass.var : app/shared/sass/var.scss,app/${build.id}/sass/var.scss
+                          app.sass.var.0 : app/shared/sass/var.scss                          
+                          app.sass.var.1 : app/${build.id}/sass/var.scss                     
+                     app.sass.var.length : 2                                                 
+                 app.slicer.cache.enable : false                                             
+        app.slicer.js.0.isWidgetManifest : true                                              
+                    app.slicer.js.0.path : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/sass/example/custom.js
+                    app.slicer.js.length : 1                                                 
+       app.slicer.output.appCache.enable : false                                             
+                            app.template : classicdesktop                                    
+                             app.version : 1.0.0.0                                           
+                    buildenvironment.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic
+               buildenvironment.load.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic
+                          cmd.config.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist
+                                 cmd.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist
+                    cmd.framework.minver : 5.5.0                                             
+                   cmd.framework.version : 99.99                                             
+              cmd.merge.tool.args.araxis : -wait -merge -3 -a1 {base} {user} {generated} {out}
+              cmd.merge.tool.args.kdiff3 : {base} {user} {generated} -o {out}                
+             cmd.merge.tool.args.p4merge : {base} {user} {generated} {out}                   
+           cmd.merge.tool.args.smartsync : {user} {generated} {base}                         
+          cmd.merge.tool.args.sourcegear : --merge --result={out} {user} {base} {generated}  
+            cmd.merge.tool.args.tortoise : -base:{base} -theirs:{generated} -mine:{user} -merged:{out}
+                              cmd.minver : 3.0.0.0                                           
+                            cmd.platform : osx                                               
+                     cmd.unicode.escapes : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/unicode-escapes.json
+                             cmd.version : 7.1.0.16                                          
+                            cmd.web.port : 1841                                              
+                     config.skipDownload : true                                              
+                      config.skipInherit : false                                             
+                        ext.license.name : trial                                             
+                     framework.classpath : ${package.dir}/src                                
+                    framework.cmd.minver : 6.7.0                                             
+                   framework.cmd.version : 7.0.0                                             
+                 framework.compatVersion : 7.0.0                                             
+                    framework.config.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/plugins/ext/current
+                       framework.creator : Sencha                                            
+           framework.detailedDescription : Sencha Ext JS JavaScript Framework                
+                           framework.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext
+                       framework.extTier : pro                                               
+                        framework.format : 1                                                 
+                          framework.isV5 : true                                              
+                          framework.isV6 : true                                              
+                         framework.isV62 : true                                              
+                         framework.isV65 : true                                              
+     framework.language.js.input.version : ES5                                               
+                         framework.local : true                                              
+                          framework.name : ext                                               
+                     framework.namespace : Ext                                               
+                        framework.output : ${package.dir}/build                              
+                     framework.overrides : ${package.dir}/overrides                          
+                  framework.packages.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext/../ext-${toolkit.name}*,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext/../ext-core,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext/../ext-font-awesome,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext/../ext-font-ext
+                framework.resource.paths : resources                                         
+              framework.resource.paths.0 : resources                                         
+         framework.resource.paths.length : 1                                                 
+                      framework.sass.etc : ${package.dir}/sass/etc/all.scss                  
+                  framework.sass.fashion : true                                              
+                framework.sass.namespace : Ext                                               
+                      framework.sass.src : ${package.dir}/sass/src                           
+                      framework.sass.var : ${package.dir}/sass/var                           
+                       framework.summary : Ext JS                                            
+                          framework.type : framework                                         
+                       framework.version : 7.1.0.43                                          
+                       inspector.address : http://localhost:1839/                            
+                            minimal.mode : true                                              
+                    package.sass.dynamic : true                                              
+                          repo.local.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/repo
+                       shared.sencha.dir : true                                              
+        system.java.net.useSystemProxies : true                                              
+                          workspace.apps :                                                   
+                   workspace.apps.length : 0                                                 
+                     workspace.build.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/build
+                    workspace.config.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/workspace
+                           workspace.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic
+           workspace.frameworks.ext.path : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext
+                  workspace.packages.dir : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/packages/local,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/packages,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name},/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-treegrid,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-base,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-ios,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-material,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-aria,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-neutral,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-classic,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-gray,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-crisp,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-crisp-touch,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-neptune,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-neptune-touch,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-triton,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-graphite,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-${toolkit.name}-theme-material,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-calendar,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-charts,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-d3,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-exporter,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-pivot,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-pivot-d3,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-ux,/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-font-ios
+              workspace.packages.extract : /Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/packages/remote
+
+Exception information:
+=======================
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/plugin.xml:378: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:253: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/watch-impl.xml:87: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:387: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/init-impl.xml:436: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at com.sencha.ant.AntScript.execute(AntScript.java:121)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:253: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/watch-impl.xml:87: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:387: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/init-impl.xml:436: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/watch-impl.xml:87: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:387: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/init-impl.xml:436: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/build-impl.xml:387: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/init-impl.xml:436: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:197)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: The following error occurred while executing this line:
+/Volumes/BOOTCAMP/aaPlayground/jsx-in-ext-js-classic/node_modules/@sencha/ext-webpack-plugin/node_modules/@sencha/cmd/dist/ant/build/app/init-impl.xml:436: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:197)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:116)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:197)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+   Caused by: String index out of range: -1
+     at java.lang.String.substring(String.java:1954)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.createNodeFromToken(BasicClosureConverter.java:250)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.getNodeFromToken(BasicClosureConverter.java:274)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:761)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$52.convert(ClosureConverter.java:381)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:617)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$35.convert(ClosureConverter.java:262)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:375)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$9.convert(ClosureConverter.java:80)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:673)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$41.convert(ClosureConverter.java:304)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:887)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$68.convert(ClosureConverter.java:493)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:826)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$62.convert(ClosureConverter.java:451)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:887)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$68.convert(ClosureConverter.java:493)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:826)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$62.convert(ClosureConverter.java:451)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:394)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$11.convert(ClosureConverter.java:94)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:617)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$35.convert(ClosureConverter.java:262)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.convert(BasicClosureConverter.java:872)
+     at com.sencha.tools.compiler.ast.ClosureConverter$1$67.convert(ClosureConverter.java:486)
+     at com.sencha.tools.compiler.ast.BasicClosureConverter.doConvert(BasicClosureConverter.java:1112)
+     at com.sencha.tools.compiler.ast.AstUtil.parseClosure(AstUtil.java:144)
+     at com.sencha.tools.compiler.ast.AstUtil.parse(AstUtil.java:161)
+     at com.sencha.tools.compiler.ast.AstUtil.parse(AstUtil.java:196)
+     at com.sencha.tools.compiler.sources.SourceFile.createAstRoot(SourceFile.java:74)
+     at com.sencha.tools.compiler.sources.SourceFile.getAstRoot(SourceFile.java:83)
+     at com.sencha.tools.compiler.sources.SymbolData.loadFileSymbols(SymbolData.java:56)
+     at com.sencha.tools.compiler.sources.SymbolData.<init>(SymbolData.java:41)
+     at com.sencha.tools.compiler.sources.SourceFile.getSymbols(SourceFile.java:144)
+     at com.sencha.tools.compiler.sources.filters.TagFilter.test(TagFilter.java:36)
+     at com.sencha.tools.compiler.sources.filters.TagFilter.test(TagFilter.java:19)
+     at com.sencha.util.filters.Filter.isIncluded(Filter.java:23)
+     at com.sencha.tools.compiler.sources.ClassPathScope.processTransitiveDependencies(ClassPathScope.java:585)
+     at com.sencha.tools.compiler.sources.ClassPathScope.enableTransitiveDependencies(ClassPathScope.java:600)
+     at com.sencha.tools.compiler.sources.ClassPathScope.enableTransitiveDependencies(ClassPathScope.java:604)
+     at com.sencha.tools.page.AppJsonBuilder.load(AppJsonBuilder.java:224)
+     at com.sencha.command.compile.app.LoadAppCommand.execute(LoadAppCommand.java:60)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.compile.CompileCommands.dispatch(CompileCommands.java:332)
+     at com.sencha.cli.AbstractCommand.dispatch(AbstractCommand.java:124)
+     at com.sencha.ant.CompileTask$CompileToken.initialize(CompileTask.java:156)
+     at com.sencha.ant.CompileTask$CompileToken.dispatchCommand(CompileTask.java:163)
+     at com.sencha.ant.CompileTask.doExecute(CompileTask.java:123)
+     at com.sencha.ant.BaseAntTask.execute(BaseAntTask.java:34)
+     at com.sencha.ant.CompileTask.execute(CompileTask.java:36)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:197)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+     at com.sencha.ant.CallTask.execute(CallTask.java:137)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.taskdefs.Sequential.execute(Sequential.java:68)
+     at net.sf.antcontrib.logic.IfTask.execute(IfTask.java:217)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.TaskAdapter.execute(TaskAdapter.java:154)
+     at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+     at org.apache.tools.ant.Task.perform(Task.java:348)
+     at org.apache.tools.ant.Target.execute(Target.java:392)
+     at org.apache.tools.ant.Target.performTasks(Target.java:413)
+     at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+     at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+     at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+     at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+     at com.sencha.ant.AntScript.execute(AntScript.java:117)
+     at com.sencha.command.plugin.PluginManager.execute(PluginManager.java:104)
+     at com.sencha.command.plugin.PluginManager.executeReverseFirst(PluginManager.java:145)
+     at com.sencha.command.environment.BuildEnvironment.execute(BuildEnvironment.java:309)
+     at com.sencha.command.environment.AppOrPackageEnvironment.execute(AppOrPackageEnvironment.java:729)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.doExecute(BasePluginCommands.java:125)
+     at com.sencha.command.app.AppCommands$BuildCommand.execute(AppCommands.java:470)
+     at com.sencha.command.app.AppCommands$WatchCommand.execute(AppCommands.java:909)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+     at java.lang.reflect.Method.invoke(Method.java:483)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.command.BasePluginCommands$BasePluginCommand.dispatch(BasePluginCommands.java:289)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:80)
+     at com.sencha.command.Sencha.main(Sencha.java:151)
+

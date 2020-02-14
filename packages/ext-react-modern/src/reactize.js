@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Template2 from 'Template2';
 //https://coryrylan.com/blog/using-web-components-in-react
 //import ReactCell from './ReactCell.js';
 //<script src="%PUBLIC_URL%/css.all.js"></script>
@@ -50,6 +51,9 @@ export default function (CustomElement) {
       if (window['ExtReact'] == null) {
         window['ExtReact'] = 'loaded'
         Ext.onReady(function () {
+          console.log('before Template2')
+          console.log(Template2)
+          console.log('after Template2')
           var Template = Ext.define(null, {
             extend: 'Ext.Template',
             constructor: function constructor(fn) {

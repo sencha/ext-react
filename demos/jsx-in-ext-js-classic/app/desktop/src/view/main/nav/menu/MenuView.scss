@@ -1,0 +1,55 @@
+$panel-navigation-background-color: darken($base-color, 20%);
+$nav-base-color: lighten($panel-navigation-background-color, 20%);
+$nav-text-color: white;
+
+$nav-indicator-color: lighten($panel-navigation-background-color, 30%);
+$nav-indicator-color-over: lighten($panel-navigation-background-color, 40%);
+
+$nav-bg-color-over: lighten($nav-base-color, 10%);
+$nav-bg-color-selected: lighten($nav-base-color, 5%);
+
+$nav-text-color-over: lighten($nav-text-color, 20%);
+
+$nav-font-size: $font-size;
+
+@include treelist-ui(
+	$ui: 'nav',
+
+	$row-indicator-width: 5px,
+	$row-indicator-selected-color: $nav-indicator-color,
+	$row-indicator-selected-over-color: lighten($panel-navigation-background-color, 7%),
+	$row-indicator-over-color: $nav-indicator-color-over,
+
+	$padding: 0px 10px 0 10px,
+	$item-icon-width: 24px,
+	$item-text-icon-gap: 1px,
+	$item-expander-width: 24px,
+
+	$item-icon-font-size: $nav-font-size,
+	$item-text-font-size: $nav-font-size,
+	$item-expander-font-size: $nav-font-size,
+
+	$item-line-height : 35px,
+	$item-text-overflow: initial,
+
+	$background-color: $panel-navigation-background-color,
+	$item-icon-color: $nav-text-color,
+	$item-text-color: $nav-text-color,
+	$item-expander-color: $nav-text-color,
+	$item-icon-over-color: $nav-text-color-over,
+	$item-text-over-color: $nav-text-color-over,
+	$item-expander-over-color: $nav-text-color-over,
+
+	$item-expanded-child-background-color: $nav-base-color,
+
+	$item-expanded-background-color: transparent,
+
+	$row-over-background-color: $nav-bg-color-over,
+
+	$row-selected-background-color: $nav-bg-color-selected,
+	$toolstrip-background-color:  $nav-base-color,
+	$tool-selected-color: $nav-text-color-over,
+	$tool-selected-background-color: $nav-bg-color-over,
+	$tool-float-indicator-color: $nav-indicator-color-over,
+	$tool-float-indicator-width: 4px
+);
