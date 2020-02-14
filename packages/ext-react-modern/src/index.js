@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 
-import './overrides';
-export { default as Template } from './Template';
+//import './overrides';
+//export { default as Template } from './Template';
 
 const Ext = window['Ext'];
 export function render(element, container, callback) {
