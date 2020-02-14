@@ -18,9 +18,9 @@
     },
     "preferGlobal": true,
     "dependencies": {
-        "@sencha/ext-react-modern-boilerplate: "~7.2.0",
-        "@sencha/ext-react-modern-typescript-boilerplate: "~7.2.0",
-        "@sencha/ext-react-classic-boilerplate: "~7.2.0",
+        "@sencha/ext-react-modern-boilerplate": "~7.2.0",
+        "@sencha/ext-react-modern-typescript-boilerplate": "~7.2.0",
+        "@sencha/ext-react-classic-boilerplate": "~7.2.0",
         "react": "~16.12.0",
         "react-dom": "~16.12.0",
         "chalk": "^3.0.0",

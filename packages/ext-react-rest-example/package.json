@@ -30,10 +30,10 @@
     "dependencies": {
         "@babel/polyfill": "^7.8.3",
         "@babel/runtime": "^7.8.3",
-        "@sencha/ext: "~7.2.0",
-        "@sencha/ext-modern: "~7.2.0",
-        "@sencha/ext-modern-theme-material: "~7.2.0",
-        "@sencha/ext-modern-treegrid: "~7.2.0",
+        "@sencha/ext": "~7.2.0",
+        "@sencha/ext-modern": "~7.2.0",
+        "@sencha/ext-modern-theme-material": "~7.2.0",
+        "@sencha/ext-modern-treegrid": "~7.2.0",
         "@sencha/ext-react-modern": "^7.1.0",
         "express": "^4.11.1",
         "prop-types": "^15.7.2",
@@ -44,7 +44,7 @@
         "sqlite3": "^4.1.1"
     },
     "devDependencies": {
-        "@sencha/ext-webpack-plugin: "~7.2.0",
+        "@sencha/ext-webpack-plugin": "~7.2.0",
         "@babel/core": "^7.8.3",
         "@babel/preset-env": "^7.8.3",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
