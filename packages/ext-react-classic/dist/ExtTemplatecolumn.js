@@ -1,3 +1,3 @@
-import reactize from './reactize.js';
+import reactize from './runtime/reactize.js';
 import EWCTemplatecolumn from '@sencha/ext-web-components-classic/dist/ext-templatecolumn.component.js';
 export default reactize(EWCTemplatecolumn);
