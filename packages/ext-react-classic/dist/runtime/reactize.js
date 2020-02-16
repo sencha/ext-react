@@ -11,28 +11,6 @@ import { doReactCell } from '../overrides/ReactCell'; //https://coryrylan.com/bl
 //<script src="%PUBLIC_URL%/ReactCell.js"></script>
 
 window['ExtFramework'] = 'react';
-
-function syncEvent(node, eventName, newEventHandler, me) {
-  var eventname = eventName[0].toLowerCase() + eventName.substring(1);
-  var eventStore = node.__events || (node.__events = {});
-  var oldEventHandler = eventStore[eventname];
-
-  if (oldEventHandler) {
-    node.removeEventListener(eventname, oldEventHandler);
-  }
-
-  if (newEventHandler) {
-    node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
-      if (eventname == 'ready') {
-        me.cmp = event.detail.cmp;
-        me.ext = event.detail.cmp;
-      }
-
-      newEventHandler.call(this, e.detail);
-    });
-  }
-}
-
 export default function (CustomElement) {
   if (typeof CustomElement !== 'function') {
     throw new Error('Given element is not a valid constructor');
@@ -62,7 +40,10 @@ export default function (CustomElement) {
       if (window['ExtReact'] == null) {
         window['ExtReact'] = 'loaded';
         doTemplate();
-        doReactCell();
+
+        if (Ext.isModern == true) {
+          doReactCell();
+        }
       }
 
       return _this;
@@ -89,8 +70,7 @@ export default function (CustomElement) {
           newProps[prop] = this.props[prop];
         } else {
           if (prop == 'style' || prop == 'children') {} else {
-            var sPropVal = '';
-
+            //var sPropVal = ''
             try {
               var JSONfn = {};
               var hasFunction = false;
@@ -113,9 +93,8 @@ export default function (CustomElement) {
               var sPropValfn = JSONfn.stringify(this.props[prop]);
 
               if (hasFunction == true) {
-                console.log(prop + " has function");
-                console.log(this.props[prop]);
-
+                //console.log(`${prop} has function`)
+                //console.log(this.props[prop])
                 newProps[prop] = function () {}; //'function';
 
 
@@ -138,6 +117,9 @@ export default function (CustomElement) {
         newProps['cls'] = newProps['cls'] + className;
       }
 
+      this.defer = true;
+      newProps['createExtComponentDefer'] = this.defer; //console.log(newProps)
+
       this.element = React.createElement(tagName, _extends({}, newProps, {
         style: this.props.style,
         ref: this.componentRef
@@ -151,7 +133,8 @@ export default function (CustomElement) {
       this.cmp = node.cmp;
       var me = this;
       Object.keys(this.objectProps).forEach(function (name) {
-        node[name] = me.props[name];
+        //node[name] = me.props[name];
+        node.attributeObjects[name] = me.props[name];
       });
       Object.keys(this.props).forEach(function (name) {
         if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
@@ -162,7 +145,13 @@ export default function (CustomElement) {
           syncEvent(node, name.substring(2), me.props[name], me);
         } else {//node[name] = this.props[name];
         }
-      });
+      }); //this will do the ext.Create
+
+      if (this.defer == true) {
+        node.createExtComponent = 'true';
+      }
+
+      this.cmp = node.cmp; //console.log(this.cmp)
     };
 
     _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
@@ -194,4 +183,25 @@ export default function (CustomElement) {
     Object.defineProperty(ReactComponent.prototype, prop, Object.getOwnPropertyDescriptor(proto, prop));
   });
   return ReactComponent;
+}
+
+function syncEvent(node, eventName, newEventHandler, me) {
+  var eventname = eventName[0].toLowerCase() + eventName.substring(1);
+  var eventStore = node.__events || (node.__events = {});
+  var oldEventHandler = eventStore[eventname];
+
+  if (oldEventHandler) {
+    node.removeEventListener(eventname, oldEventHandler);
+  }
+
+  if (newEventHandler) {
+    node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
+      if (eventname == 'ready') {
+        me.cmp = event.detail.cmp;
+        me.ext = event.detail.cmp;
+      }
+
+      newEventHandler.call(this, e.detail);
+    });
+  }
 }

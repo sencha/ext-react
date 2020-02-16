@@ -13,7 +13,7 @@ class Dashboard extends Component {
     return (
       <ExtContainer viewport="true" layout="fit">
       <ExtDashboard
-fitToParent
+        fitToParent
         title = "The Dashboard"
         maxColumns = "2"
         parts = {{
