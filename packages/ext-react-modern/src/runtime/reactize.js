@@ -11,24 +11,6 @@ import { doReactCell } from '../overrides/ReactCell';
 
 window['ExtFramework'] = 'react';
 
-function syncEvent(node, eventName, newEventHandler, me) {
-  const eventname = eventName[0].toLowerCase() + eventName.substring(1);
-  const eventStore = node.__events || (node.__events = {});
-  const oldEventHandler = eventStore[eventname];
-  if (oldEventHandler) {
-    node.removeEventListener(eventname, oldEventHandler);
-  }
-  if (newEventHandler) {
-    node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
-      if (eventname == 'ready') {
-        me.cmp = event.detail.cmp
-        me.ext = event.detail.cmp
-      }
-      newEventHandler.call(this, e.detail);
-    });
-  }
-}
-
 export default function (CustomElement) {
 
   if (typeof CustomElement !== 'function') {
@@ -52,7 +34,9 @@ export default function (CustomElement) {
       if (window['ExtReact'] == null) {
         window['ExtReact'] = 'loaded'
         doTemplate();
-        doReactCell();
+        if (Ext.isModern == true) {
+          doReactCell();
+        }
       }
     }
 
@@ -66,6 +50,10 @@ export default function (CustomElement) {
       var className = '';
       for (const prop in this.props) {
         var t = typeof this.props[prop]
+
+        if (prop.substring(0,2) == 'on') {
+          continue;
+        }
 
         if (prop == 'className') {
           className = ' ' + this.props[prop];
@@ -81,7 +69,7 @@ export default function (CustomElement) {
           if (prop == 'style' || prop == 'children') {
           }
           else {
-            var sPropVal = ''
+            //var sPropVal = ''
             try {
 
               var JSONfn = {};
@@ -105,8 +93,8 @@ export default function (CustomElement) {
               hasFunction = false;
               var sPropValfn = JSONfn.stringify(this.props[prop]);
               if (hasFunction == true) {
-                console.log(`${prop} has function`)
-                console.log(this.props[prop])
+                //console.log(`${prop} has function`)
+                //console.log(this.props[prop])
                 newProps[prop] = function() {} //'function';
                 this.objectProps[prop] = this.props[prop];
               }
@@ -130,6 +118,10 @@ export default function (CustomElement) {
         newProps['cls'] = newProps['cls'] + className
       }
 
+      this.defer = true
+      newProps['createExtComponentDefer'] = this.defer
+      //console.log(newProps)
+
       this.element = React.createElement(
           tagName,
           {
@@ -145,12 +137,20 @@ export default function (CustomElement) {
     componentDidMount() {
       this.componentRef.current.text = this.props.text;
       const node = ReactDOM.findDOMNode(this);
-      this.cmp = node.cmp;
 
       var me = this;
       Object.keys(this.objectProps).forEach(function (name) {
-        node[name] = me.props[name];
+        if (me.defer == true) {
+          node.attributeObjects[name] = me.props[name];
+        }
+        else {
+          node[name] = me.props[name];
+        }
       });
+      if (this.defer == true) {
+        node.createExtComponent = 'true';
+      }
+      this.cmp = node.cmp;
 
       Object.keys(this.props).forEach(name => {
         if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
@@ -187,3 +187,23 @@ export default function (CustomElement) {
 
   return ReactComponent;
 }
+
+function syncEvent(node, eventName, newEventHandler, me) {
+  const eventname = eventName[0].toLowerCase() + eventName.substring(1);
+  const eventStore = node.__events || (node.__events = {});
+  const oldEventHandler = eventStore[eventname];
+  if (oldEventHandler) {
+    node.removeEventListener(eventname, oldEventHandler);
+  }
+  if (newEventHandler) {
+    node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
+      if (eventname == 'ready') {
+        me.cmp = event.detail.cmp
+        me.ext = event.detail.cmp
+      }
+      newEventHandler.call(this, e.detail);
+    });
+  }
+}
+
+
