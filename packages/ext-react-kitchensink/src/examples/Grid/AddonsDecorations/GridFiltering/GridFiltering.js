@@ -8,7 +8,8 @@ Ext.require([
 
 export default class GridFilteringExample extends Component {
 
-  store = Ext.create('Ext.data.Store', {
+  store = {
+    xtype: 'store',
     model,
     autoLoad: true,
     pageSize: 0,
@@ -16,7 +17,7 @@ export default class GridFilteringExample extends Component {
       type: 'ajax',
       url: '/KitchenSink/BigData'
     }
-  });
+  };
 
   nameSorter = (rec1, rec2) => {
     // Sort prioritizing surname over forename as would be expected.

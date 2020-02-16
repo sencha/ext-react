@@ -75,6 +75,9 @@ export default class HeterogeneousTreeExample extends Component {
             target = tree.getSelections()[0] || this.store.getRoot(),
             node;
 
+console.log(value)
+
+
         if (value) {
             if (this.store.getNodeById(value)) {
                 return Ext.Msg.alert(
@@ -113,7 +116,7 @@ export default class HeterogeneousTreeExample extends Component {
         }
     };
 
-    onFieldAction = (field, e) => {
+    onFieldAction = ({field, e}) => {
         if (e.ENTER === e.getKey()) {
             this.addItem();
         }
@@ -150,17 +153,13 @@ export default class HeterogeneousTreeExample extends Component {
                 title="Heterogeneous Geographical Tree"
                 rootVisible={false}
                 store={this.store}
-                listeners={{
-                    selectionchange: this.onSelectionChange
-                }}
+                onSelectionchange={this.onSelectionChange}
             >
                 <TreeColumn text="Name" dataIndex="name" flex="1" />
                 <ToolBar docked="bottom">
                     <TextField
                         ref={textfield => (this.textfield = textfield)}
-                        listeners={{
-                            action: "onFieldAction"
-                        }}
+                        onAction={this.onFieldAction}
                     />
                     <Button
                         ref={button => (this.button = button)}

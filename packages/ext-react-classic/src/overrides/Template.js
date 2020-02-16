@@ -1,3 +1,6 @@
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
+
 export function doTemplate() {
   var Template = Ext.define(null, {
     extend: 'Ext.Template',

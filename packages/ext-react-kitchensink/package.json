@@ -9,7 +9,7 @@
     "clean": "rimraf build",
     "dev": "webpack-dev-server --env.browser=yes --env.emit=yes --env.verbose=no",
     "buildlocal": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/",
-    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.1.0/kitchensink/"
+    "build": "npm run clean && cross-env webpack --env.environment=production --env.treeshake=yes --env.basehref=/ExtReact/7.2.0/kitchensink/"
   },
   "author": "Sencha, Inc.",
   "repository": {
