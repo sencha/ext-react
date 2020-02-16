@@ -98,6 +98,7 @@ class Layout extends Component {
   }
 
   onReady = ({cmp, cmpObj}) => {
+    console.log('onReady')
     this.breadcrumbCmp = cmp
     this.breadcrumbCmp.setSelection(this.props.node)
   }

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@sencha/ext-react-classic": "^7.1.0"
+    "@sencha/ext-react-classic": "^7.2.0"
   },
   "scripts": {
 

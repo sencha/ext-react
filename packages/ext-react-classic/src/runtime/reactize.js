@@ -51,6 +51,10 @@ export default function (CustomElement) {
       for (const prop in this.props) {
         var t = typeof this.props[prop]
 
+        if (prop.substring(0,2) == 'on') {
+          continue;
+        }
+
         if (prop == 'className') {
           className = ' ' + this.props[prop];
         }
@@ -133,13 +137,20 @@ export default function (CustomElement) {
     componentDidMount() {
       this.componentRef.current.text = this.props.text;
       const node = ReactDOM.findDOMNode(this);
-      this.cmp = node.cmp;
 
       var me = this;
       Object.keys(this.objectProps).forEach(function (name) {
-        //node[name] = me.props[name];
-        node.attributeObjects[name] = me.props[name];
+        if (me.defer == true) {
+          node.attributeObjects[name] = me.props[name];
+        }
+        else {
+          node[name] = me.props[name];
+        }
       });
+      if (this.defer == true) {
+        node.createExtComponent = 'true';
+      }
+      this.cmp = node.cmp;
 
       Object.keys(this.props).forEach(name => {
         if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
@@ -152,14 +163,6 @@ export default function (CustomElement) {
             //node[name] = this.props[name];
           }
       });
-
-      //this will do the ext.Create
-      if (this.defer == true) {
-        node.createExtComponent = 'true'
-      }
-
-      this.cmp = node.cmp;
-      //console.log(this.cmp)
     }
 
     componentDidUpdate(prevProps, prevState) {
