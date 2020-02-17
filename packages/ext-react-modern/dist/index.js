@@ -1,22 +1,4 @@
-import ReactDOM from 'react-dom'; //import './overrides';
-//export { default as Template } from './Template';
-
-var Ext = window['Ext'];
-export function render(element, container, callback) {
-  //console.log('in render')
-  try {
-    Ext.onReady(function () {
-      //console.log('before render')
-      ReactDOM.render(element, container, callback);
-    });
-  } catch (e) {
-    console.log(e);
-  }
-}
-;
-var ExtReactDOM = {
-  render: render
-};
+import ExtReactDOM from "./runtime/ExtReactDOM";
 export default ExtReactDOM;
 import ExtActionsheet_ from "./ExtActionsheet";
 import ExtAudio_ from "./ExtAudio";
