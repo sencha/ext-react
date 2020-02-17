@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { doTemplate } from '../overrides/Template';
+import { doReactXTemplate } from '../overrides/ReactXTemplate';
 import { doReactCell } from '../overrides/ReactCell';
 
 //https://coryrylan.com/blog/using-web-components-in-react
@@ -33,7 +33,7 @@ export default function (CustomElement) {
       this.componentRef = React.createRef();
       if (window['ExtReact'] == null) {
         window['ExtReact'] = 'loaded'
-        doTemplate();
+        doReactXTemplate();
         if (Ext.isModern == true) {
           doReactCell();
         }
@@ -120,7 +120,6 @@ export default function (CustomElement) {
 
       this.defer = true
       newProps['createExtComponentDefer'] = this.defer
-      //console.log(newProps)
 
       this.element = React.createElement(
           tagName,
@@ -148,7 +147,7 @@ export default function (CustomElement) {
         }
       });
       if (this.defer == true) {
-        node.createExtComponent = 'true';
+        node.doCreateExtComponent()
       }
       this.cmp = node.cmp;
 
