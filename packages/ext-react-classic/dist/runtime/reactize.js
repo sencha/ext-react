@@ -3,7 +3,7 @@ import _createClass from "@babel/runtime/helpers/createClass";
 import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { doTemplate } from '../overrides/Template';
+import { doReactXTemplate } from '../overrides/ReactXTemplate';
 import { doReactCell } from '../overrides/ReactCell'; //https://coryrylan.com/blog/using-web-components-in-react
 //import ReactCell from './ReactCell.js';
 //<script src="%PUBLIC_URL%/css.all.js"></script>
@@ -39,7 +39,7 @@ export default function (CustomElement) {
 
       if (window['ExtReact'] == null) {
         window['ExtReact'] = 'loaded';
-        doTemplate();
+        doReactXTemplate();
 
         if (Ext.isModern == true) {
           doReactCell();
@@ -122,8 +122,7 @@ export default function (CustomElement) {
       }
 
       this.defer = true;
-      newProps['createExtComponentDefer'] = this.defer; //console.log(newProps)
-
+      newProps['createExtComponentDefer'] = this.defer;
       this.element = React.createElement(tagName, _extends({}, newProps, {
         style: this.props.style,
         ref: this.componentRef
@@ -144,7 +143,7 @@ export default function (CustomElement) {
       });
 
       if (this.defer == true) {
-        node.createExtComponent = 'true';
+        node.doCreateExtComponent();
       }
 
       this.cmp = node.cmp;
