@@ -9,26 +9,14 @@ export default class ButtonExample extends Component {
         round: false
     };
 
-    //onStyleChange = (item) => this.setState({ style: item.value })
-
-    onStyleChange = (item, e) => {
-      console.log('here')
-      console.log(item)
-      console.log(item.getText())
-      console.log(e)
-      this.setState({ style: item.value })
-    }
-
-
-
-    onTypeChange = (item) => this.setState({ type: item.value })
+    onStyleChange = (item) => this.setState({ style: item.getText().toLowerCase() })
+    onTypeChange  = (item) => this.setState({ type:  item.getText().toLowerCase() })
     toggleRound = () => this.setState({ round: !this.state.round });
 
     render() {
         const { style, type, round } = this.state;
         const iconCls = type.indexOf('icon') !== -1 ? 'x-fa fa-heart' : null;
         const text = type.indexOf('text') !== -1;
-
         let menu, ui;
 
         if (style === 'menu') {
@@ -56,12 +44,12 @@ export default class ButtonExample extends Component {
                     width={Ext.isIE && 550}
                 >
                     <Button ui="action raised" text="Style">
-                        <Menu defaults={{ handler: this.onStyleChange, group: 'buttonstyle' }}>
-                            <MenuItem text="None" value="" iconCls={style === '' && 'x-font-icon md-icon-check'}/>
-                            <MenuItem handler={this.onStyleChange} text="Action" align="right" value="action" iconCls={style === 'action' && 'x-font-icon md-icon-check'}/>
-                            <MenuItem text="Decline" value="decline" iconCls={style === 'decline' && 'x-font-icon md-icon-check'}/>
-                            <MenuItem text="Confirm" value="confirm" iconCls={style === 'confirm' && 'x-font-icon md-icon-check'}/>
-                            <MenuItem text="Menu" value="menu" iconCls={style === 'menu' && 'x-font-icon md-icon-check'}/>
+                        <Menu groups="{{ option: 'style' }}" defaults={{ handler: this.onStyleChange, group: 'option', value: 'style' }}>
+                            <MenuItem group="option" value="style" text="None"     iconCls={style === '' && 'x-font-icon md-icon-check'}/>
+                            <MenuItem group="option" value="style" text="Action" align="right" iconCls={style === 'action' && 'x-font-icon md-icon-check'}/>
+                            <MenuItem group="option" value="style" text="Decline" iconCls={style === 'decline' && 'x-font-icon md-icon-check'}/>
+                            <MenuItem group="option" value="style" text="Confirm" iconCls={style === 'confirm' && 'x-font-icon md-icon-check'}/>
+                            <MenuItem group="option" value="style" text="Menu"    iconCls={style === 'menu' && 'x-font-icon md-icon-check'}/>
                         </Menu>
                     </Button>
                     <Button ui="action raised" text="Type">

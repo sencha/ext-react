@@ -202,8 +202,8 @@ function syncEvent(node, eventName, newEventHandler, me) {
   if (newEventHandler) {
     node.addEventListener(eventname, eventStore[eventname] = function handler(e) {
       if (eventname == 'ready') {
-        me.cmp = event.detail.cmp;
-        me.ext = event.detail.cmp;
+        me.cmp = e.detail.cmp;
+        me.ext = e.detail.cmp;
       }
 
       newEventHandler.call(this, e.detail);
