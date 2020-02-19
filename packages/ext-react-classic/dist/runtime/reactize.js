@@ -57,58 +57,43 @@ export default function (CustomElement) {
       var className = '';
 
       for (var prop in this.props) {
-        var t = typeof this.props[prop];
-
         if (prop.substring(0, 2) == 'on') {
+          continue;
+        }
+
+        if (prop == 'style' || prop == 'children') {
           continue;
         }
 
         if (prop == 'className') {
           className = ' ' + this.props[prop];
-        } else if (t == 'function') {
-          newProps[prop] = function () {}; //'function';
+          continue;
+        }
 
+        this.objectProps[prop] = this.props[prop];
 
-          this.objectProps[prop] = this.props[prop];
-        } else if (t != 'object') {
+        if (typeof this.props[prop] == 'function') {
+          newProps[prop] = function () {};
+        } else if (typeof this.props[prop] != 'object') {
           newProps[prop] = this.props[prop];
         } else {
-          if (prop == 'style' || prop == 'children') {} else {
-            //var sPropVal = ''
-            try {
-              var JSONfn = {};
-              var hasFunction = false;
+          try {
+            var JSONfn = {};
 
-              (function () {
-                JSONfn.stringify = function (obj) {
-                  return JSON.stringify(obj, function (key, value) {
-                    if (typeof value === 'function') {
-                      hasFunction = true; //console.log(key)
+            JSONfn.stringify = function (obj) {
+              return JSON.stringify(obj, function (key, value) {
+                if (typeof value === 'function') {
+                  return value.toString();
+                } else {
+                  return value;
+                }
+              });
+            };
 
-                      return value.toString();
-                    } else {
-                      return value;
-                    }
-                  });
-                };
-              })();
-
-              hasFunction = false;
-              var sPropValfn = JSONfn.stringify(this.props[prop]);
-
-              if (hasFunction == true) {
-                //console.log(`${prop} has function`)
-                //console.log(this.props[prop])
-                newProps[prop] = function () {}; //'function';
-
-
-                this.objectProps[prop] = this.props[prop];
-              } else {
-                newProps[prop] = sPropValfn;
-              }
-            } catch (e) {
-              this.objectProps[prop] = this.props[prop];
-            }
+            var sPropValfn = JSONfn.stringify(this.props[prop]);
+            newProps[prop] = sPropValfn;
+          } catch (e) {
+            newProps[prop] = this.props[prop];
           }
         }
       }
