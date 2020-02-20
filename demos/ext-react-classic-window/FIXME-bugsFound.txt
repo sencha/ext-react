@@ -1,0 +1,59 @@
+1) field regex validation is not working: If you define following textfield and error is appearing upon input change
+	(Uncaught TypeError: regex.test is not a function).
+
+	Please check -> ./src/components/form/Form.js:44
+
+		<ExtTextfield
+		  fieldLabel = 'Phone Number'
+		  name = 'phone'
+		  allowBlank = {false}
+		  regex = {/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im}
+		/>
+
+2) (Critical) Column functions like: renderer, getClass, isActionDisabled, are being called several times upon state
+	change (This is only happening in classic, and should not happen based on: https://reactjs.org/docs/rendering-elements.html &
+	https://reactjs.org/docs/rendering-elements.html#react-only-updates-whats-necessary) In order to test this, you need
+	to run the app -> npm start, a grid will appear, there is an action column with an envelope icon, please open the browser console
+	and then click on the icon a window should appear, you will see that the render method is being called 12 times and
+	there are only 3 records (look for the log -> Method renderSign has been called) and if you clean the console logs
+	and then close the window, the render method is being called 24 times. This is causing big slowness in more complex
+	views, we have a use case in which we have a view with a tab panel that have at least 8 grids and each grid have at least 8 columns
+	and each grid have at least 4 renderers. Note: the render method should not be called, and this does not happen in modern
+
+3) Browser is refreshing before the watch is finished (only happening in classic): In order to test this you need to start
+	the app, and then uncomment line. ./src/components/grid/Grid.js:105. You will see that the sencha app compile process start,
+	then it refresh the browser, but in the browser app wont render and following error appear:
+
+	Ext.require is not a function
+      at Module../App.js (App.js:7)
+      at __webpack_require__ (bootstrap:726)
+      at fn (bootstrap:100)
+      at Module../index.js (index.js:1)
+      at __webpack_require__ (bootstrap:726)
+      at fn (bootstrap:100)
+      at Object.0 (main.js?3de525dfb512234a75ae:114237)
+      at __webpack_require__ (bootstrap:726)
+      at bootstrap:793
+      at bootstrap:793
+
+4) Toolbar Dock top or button is not working: Please look for the Toolbar definition at: ./src/components/grid/Grid.js:116
+	and uncomment those lines. we want to have a top toolbar inside a grid without having unnesesary nesting. We know that we have have a wrapper panel for
+	the grid and add the toolbar (it is working fine). Just run the app and you will see the result.
+
+5) Panel Split property not working: Please look for Panel definition at: ./src/components/grid/Grid.js:127. We have defined a panel
+	with the split property, but the splitter is not showing in the UI
+
+6) Window listeners are not getting fired: Please look at ./src/components/window/Window.js:53 we are trying to log in
+	console the show, boxready, afterrender events and we have tried different ways and none one is working. Question - are all the events
+	of the components supported? is there any doc for ext react classic? Note - this is working in Modern
+
+---------------------------------------------------------------------------------------
+
+7) TextField onFocus and onBlur event is being fired twice: Please look for the
+form.js - blur and focus called twice
+
+8) tooltips on grid rows using a render and metadata
+
+
+
+

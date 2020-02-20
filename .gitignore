@@ -8,6 +8,9 @@ working
 npm-debug.log*
 lerna-debug.log
 
+**/public/ext-runtime-classic/
+**/public/ext-runtime-modern/
+
 
 # Save the .vscode configs
 !packages/ext-react-froala-example/.vscode
