@@ -118,6 +118,7 @@ export default function (CustomElement) {
       const node = ReactDOM.findDOMNode(this);
 
       var me = this;
+
       Object.keys(this.objectProps).forEach(function (name) {
         if (me.defer == true) {
           node.attributeObjects[name] = me.props[name];
@@ -126,10 +127,6 @@ export default function (CustomElement) {
           node[name] = me.props[name];
         }
       });
-      if (this.defer == true) {
-        node.doCreateExtComponent()
-      }
-      this.cmp = node.cmp;
 
       Object.keys(this.props).forEach(name => {
         if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
@@ -142,6 +139,12 @@ export default function (CustomElement) {
             //node[name] = this.props[name];
           }
       });
+
+      if (this.defer == true) {
+        node.doCreateExtComponent()
+      }
+      this.cmp = node.cmp;
+
     }
 
     componentDidUpdate(prevProps, prevState) {

@@ -126,12 +126,6 @@ export default function (CustomElement) {
           node[name] = me.props[name];
         }
       });
-
-      if (this.defer == true) {
-        node.doCreateExtComponent();
-      }
-
-      this.cmp = node.cmp;
       Object.keys(this.props).forEach(function (name) {
         if (name === 'children' || name === 'style' || name === 'viewport' || name === 'layout') {
           return;
@@ -142,6 +136,12 @@ export default function (CustomElement) {
         } else {//node[name] = this.props[name];
         }
       });
+
+      if (this.defer == true) {
+        node.doCreateExtComponent();
+      }
+
+      this.cmp = node.cmp;
     };
 
     _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
