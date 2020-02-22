@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { Titlebar, Container, Nestedlist, Panel, Button, BreadcrumbBar } from '@sencha/ext-react-modern'
-//import { Transition } from '@sencha/ext-react-transition'
-
 import NavTree from './NavTree';
 import NavView from './NavView';
 import Files from './Files';
 import * as actions from './actions';
-import Breadcrumbs from './Breadcrumbs';
 var REACT_VERSION = require('react').version
 
 Ext.require([
@@ -40,8 +37,6 @@ class Layout extends Component {
     this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
-      //this.selectedNode = this.props.selectedNavNode;
-
       if (node) {
         /**
          * Let's go to the parent's node without animation.
@@ -97,16 +92,8 @@ class Layout extends Component {
     return node.data.premium || this.isPremium(node.parentNode);
   }
 
-  onReady = ({cmp, cmpObj}) => {
-    console.log('onReady-breadcrumb')
-    //this.breadcrumbCmp = cmp
-    //this.breadcrumbCmp.setSelection(this.props.node)
-
-        this.breadcrumb.cmp.setSelection(this.props.node)
-  }
-
-  onButtonCreated = ({cmp}) => {
-    console.log('onButtonCreated')
+  onBreadcrumbCreated = ({cmp}) => {
+    this.breadcrumbCmp = cmp
   }
 
   changeBreadcrumbbar = ({sender, node, prevNode, eOpts}) => {
@@ -121,8 +108,7 @@ class Layout extends Component {
   onNavChange = (node) => {
     var nodeId = node.getId()
     location.hash = nodeId;
-    //this.breadcrumbCmp.setSelection(node)
-    //this.breadcrumb.cmp.setSelection(node)
+    this.breadcrumbCmp.setSelection(node)
   }
 
   render() {
@@ -180,12 +166,6 @@ class Layout extends Component {
               <Button
                 align="left"
                 iconCls="x-fa fa-bars"
-                onReady={this.onButtonCreated}
-                ref={menubutton => {
-                  console.log('menubutton ref is set')
-                  this.menubutton = menubutton
-                  console.log(this.menubutton)
-                }}
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
@@ -195,6 +175,16 @@ class Layout extends Component {
               align="right"></Container>
             </Titlebar>
             <Container layout="fit" flex={1}>
+              <BreadcrumbBar
+                ref={breadcrumb => {this.breadcrumb = breadcrumb}}
+                docked="top"
+                showIcons= "true"
+                store={navStore}
+                onCreated={this.onBreadcrumbCreated}
+                onChange={this.changeBreadcrumbbar}
+                useSplitButtons
+              >
+              </BreadcrumbBar>
               <NavTree
                 docked="left"
                 width="300"
@@ -204,32 +194,13 @@ class Layout extends Component {
                 }}
                 store={navStore}
                 selection={selectedNavNode}
-                ref={navtree => {
-                  console.log('navtree ref is set')
-                  this.navtree = navtree
-                }}
                 onSelectionchange={({treelist, record, eOpts}) => {
-                  console.log('selectionchange in navtree')
                   var node = record;
                   this.onNavChange(node)
                 }}
                 collapsed={!showTree}
               />
-              <BreadcrumbBar
-                  ref={breadcrumb => {
-                    console.log('breadcrumb ref is set')
-                    this.breadcrumb = breadcrumb
-                    console.log(this.breadcrumb)
-                  }}
 
-                  docked="top"
-                  showIcons= "true"
-                  store={navStore}
-                  onReady={this.onReady}
-                  onChange={this.changeBreadcrumbbar}
-                  useSplitButtons
-              >
-              </BreadcrumbBar>
               { component
                 ? (
                   <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
@@ -247,13 +218,13 @@ class Layout extends Component {
           </Container>
           { files && (
             <Button
-                align="right"
-                iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
-                ui="fab"
-                top={Ext.os.is.Desktop ? 43 : 35}
-                right={21}
-                zIndex={1000}
-                onTap={actions.toggleCode}
+              align="right"
+              iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
+              ui="fab"
+              top={Ext.os.is.Desktop ? 43 : 35}
+              right={21}
+              zIndex={1000}
+              onTap={actions.toggleCode}
             />
           )}
           { files && (

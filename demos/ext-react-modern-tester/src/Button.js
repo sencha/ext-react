@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import { Button, Container } from '@sencha/ext-react-modern';
+import { ExtButton, ExtContainer } from '@sencha/ext-react-modern';
 
-export default class AppButton extends Component {
+export default class Button extends Component {
 
   state = { message: null }
 
   render() {
     return (
-      <Container padding="10">
-        <Button
+      <ExtContainer padding="10">
+        <ExtButton
             text="Say Hello"
             onTap={this.sayHello}
             ui="action raised"
         />
-        <Button
+        <ExtButton
             text="Say Goodbye"
             onTap={this.sayGoodbye}
         />
-        <Container padding="10" html={ this.state.message }></Container>
-      </Container>
+        <ExtContainer padding="10" html={ this.state.message }></ExtContainer>
+      </ExtContainer>
     )
   }
 
