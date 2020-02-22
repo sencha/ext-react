@@ -33,8 +33,8 @@ export default class BasicExtGridExample extends Component {
   render() {
     return (
       <ExtGrid title="Stock Prices" store={this.store} scrollable shadow grouped>
-        <ExtColumn text="Company" dataIndex="name" width="150"/>
-        <ExtColumn text="Price" width="85" dataIndex="price" formatter='usMoney'/>
+        {/* <ExtColumn text="Company" dataIndex="name" width="150"/>
+        <ExtColumn text="Price" width="85" dataIndex="price" formatter='usMoney'/> */}
         {/* <ExtColumn
           text="Change"
           width="100"
@@ -44,12 +44,18 @@ export default class BasicExtGridExample extends Component {
         <ExtColumn
           text="% Change"
           dataIndex="priceChangePct"
-          renderer={this.renderSign.bind(this, '0.00')}
+          renderer={ this.renderSign2 }
         />
-        <ExtColumn text="Last Updated" width="125" dataIndex="lastChange" formatter='date("m/d/Y")'/>
+                  {/* renderer={ this.renderSign.bind(this, '0.00') } */}
+        {/* <ExtColumn text="Last Updated" width="125" dataIndex="lastChange" formatter='date("m/d/Y")'/> */}
     </ExtGrid>
     )
   }
+
+  renderSign2 (format, value) {
+    return 'a'
+  }
+
 
  renderSign = (format, value) => (
       <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
