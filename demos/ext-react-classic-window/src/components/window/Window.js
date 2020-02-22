@@ -20,14 +20,16 @@ class Window extends Component {
     let currentRecord = this.props.currentRecord || {};
     console.count(`Render Window has been called`);
 
-    if (this.windowref2 !== undefined) {
-      this.windowref2.cmp.show()
-    }
+    // if (this.windowref2 !== undefined) {
+    //   this.windowref2.cmp.show()
+    // }
 
     return (
       <ExtWindow
+        onBeforedestroy = {this.props.onClose}
+        onBoxready = {() => {console.log('onBoxready')}}
         autoShow = {true}
-        closeAction='method-destroy'
+        closeAction='destroy'
         title = 'Current record'
         ref={windowref2 => this.windowref2 = windowref2}
         modal = {true}
