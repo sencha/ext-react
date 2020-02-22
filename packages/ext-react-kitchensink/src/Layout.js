@@ -98,9 +98,15 @@ class Layout extends Component {
   }
 
   onReady = ({cmp, cmpObj}) => {
-    console.log('onReady')
-    this.breadcrumbCmp = cmp
-    this.breadcrumbCmp.setSelection(this.props.node)
+    console.log('onReady-breadcrumb')
+    //this.breadcrumbCmp = cmp
+    //this.breadcrumbCmp.setSelection(this.props.node)
+
+        this.breadcrumb.cmp.setSelection(this.props.node)
+  }
+
+  onButtonCreated = ({cmp}) => {
+    console.log('onButtonCreated')
   }
 
   changeBreadcrumbbar = ({sender, node, prevNode, eOpts}) => {
@@ -115,7 +121,8 @@ class Layout extends Component {
   onNavChange = (node) => {
     var nodeId = node.getId()
     location.hash = nodeId;
-    this.breadcrumbCmp.setSelection(node)
+    //this.breadcrumbCmp.setSelection(node)
+    //this.breadcrumb.cmp.setSelection(node)
   }
 
   render() {
@@ -173,6 +180,12 @@ class Layout extends Component {
               <Button
                 align="left"
                 iconCls="x-fa fa-bars"
+                onReady={this.onButtonCreated}
+                ref={menubutton => {
+                  console.log('menubutton ref is set')
+                  this.menubutton = menubutton
+                  console.log(this.menubutton)
+                }}
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
@@ -191,19 +204,29 @@ class Layout extends Component {
                 }}
                 store={navStore}
                 selection={selectedNavNode}
+                ref={navtree => {
+                  console.log('navtree ref is set')
+                  this.navtree = navtree
+                }}
                 onSelectionchange={({treelist, record, eOpts}) => {
+                  console.log('selectionchange in navtree')
                   var node = record;
                   this.onNavChange(node)
                 }}
                 collapsed={!showTree}
               />
               <BreadcrumbBar
+                  ref={breadcrumb => {
+                    console.log('breadcrumb ref is set')
+                    this.breadcrumb = breadcrumb
+                    console.log(this.breadcrumb)
+                  }}
+
                   docked="top"
                   showIcons= "true"
                   store={navStore}
                   onReady={this.onReady}
                   onChange={this.changeBreadcrumbbar}
-                  ref="appBreadcrumb"
                   useSplitButtons
               >
               </BreadcrumbBar>
