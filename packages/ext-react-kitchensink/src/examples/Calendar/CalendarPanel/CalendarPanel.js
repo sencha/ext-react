@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Calendar } from '@sencha/ext-react-modern';
+import { ExtCalendar } from '@sencha/ext-react-modern';
 import '../data';
 
 export default class CalendarExample extends Component {
@@ -16,7 +16,7 @@ export default class CalendarExample extends Component {
 
     render() {
         return (
-            <Calendar
+            <ExtCalendar
                 shadow
                 views={{
                     day: {
@@ -31,7 +31,7 @@ export default class CalendarExample extends Component {
                         weight: 15,
                         dayHeaderFormat: 'D d',
                         firstDayOfWeek: 1,
-                        visibleDays: 5                    
+                        visibleDays: 5
                     }
                 }}
                 timezoneOffset={0}

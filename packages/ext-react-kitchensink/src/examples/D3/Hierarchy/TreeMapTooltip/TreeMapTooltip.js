@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from '@sencha/ext-react-modern';
-import { D3_TreeMap } from '@sencha/ext-d3';
+import { ExtD3TreeMap } from '@sencha/ext-react-modern';
 import onTooltip from './tooltip';
 import './styles.css';
 
@@ -40,7 +40,7 @@ export default class TreeMapTooltip extends Component {
     render() {
         return (
             <Panel shadow layout="fit">
-                <D3_TreeMap
+                <ExtD3TreeMap
                     rootVisible={false}
                     interactions={{
                         type: 'panzoom',

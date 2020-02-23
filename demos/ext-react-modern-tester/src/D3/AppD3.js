@@ -1,9 +1,16 @@
+
 import React, { Component } from 'react';
-import { Panel } from '@sencha/ext-modern';
+import { Panel } from '@sencha/ext-react-modern';
+//import { ExtD3Tree } from '@sencha/ext-react-modern';
+//import treeDataReader from './Salary';
+import { ExtD3_Tree } from '@sencha/ext-react-modern';
+import  './Salary';
+
+
 import * as d3 from 'd3'
 window.d3 = d3
-import { D3_Tree } from '@sencha/ext-d3';
-import treeDataReader from './Salary';
+const Ext = window['Ext']
+
 
 Ext.require([
     'Ext.d3.interaction.PanZoom',
@@ -18,16 +25,20 @@ export default class AppD3 extends Component {
         root: { text: 'States' },
         proxy: {
             type: 'ajax',
-            url: 'resources/data/tree/salary.json',
+            url: 'salary.json',
             reader: {
                 type: 'salary'
             }
         }
     })
 
+
+
+
     getNodeText = (tree, node) => {
         const record = node.data;
         let text = record.data.text;
+        console.log(text)
         if (node.depth > 1) {
             text += ' (' + Ext.util.Format.currency(record.data.salary, '$', 0) + ')';
         }
@@ -42,8 +53,32 @@ export default class AppD3 extends Component {
 
     render() {
         return (
-            <Panel shadow layout="fit">
-                <D3_Tree
+            <Panel viewport="true" title="D3" shadow layout="fit">
+              <ExtD3_Tree
+          store={this.store}
+          colorAxis={{ field: 'id' }}
+          interactions={{
+            type: 'panzoom',
+            zoom: {
+              extent: [0.3, 3],
+              doubleTap: false
+            }
+          }}
+          padding={10}
+          nodeSize={[300, 40]}
+          nodeRadius={10}
+          nodeText={this.getNodeText}
+          tooltip={{ renderer: this.onTooltip }}
+          platformConfig={{
+            desktop: {
+              nodeSize: [250, 20],
+              nodeRadius: 5
+            }
+          }}
+
+
+              />
+                {/* <D3_tree
                     store={this.store}
                     colorAxis={{ field: 'id' }}
                     interactions={{
@@ -64,7 +99,7 @@ export default class AppD3 extends Component {
                             nodeRadius: 5
                         }
                     }}
-                />
+                /> */}
             </Panel>
         )
     }

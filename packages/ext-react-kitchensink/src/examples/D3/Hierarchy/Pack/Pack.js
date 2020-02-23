@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from '@sencha/ext-react-modern';
-import { D3_Pack } from '@sencha/ext-d3';
+import { ExtD3Pack } from '@sencha/ext-react-modern';
 
 export default class Pack extends Component {
 
@@ -49,7 +49,7 @@ export default class Pack extends Component {
     render() {
         return (
             <Panel shadow layout="fit">
-                <D3_Pack
+                <ExtD3Pack
                     padding="20"
                     store={this.store}
                     tooltip={{renderer: this.onTooltip}}

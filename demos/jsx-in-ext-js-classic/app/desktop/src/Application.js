@@ -1,3 +1,19 @@
+Ext.define('jsxInExtJSClassic.view.home.ReactView', {
+  extend: 'Ext.container.Container',
+  xtype: 'reactview',
+  width: '100%',
+  height: '100%',
+  listeners: {
+    afterrender: function(h, e) {
+      Ext.ReactDOM.render(
+        Ext.React.createElement(this.part, {  }, null),
+        this.el.dom
+      )
+    }
+  }
+})
+
+
 Ext.define('jsxInExtJSClassic.Application', {
 	extend: 'Ext.app.Application',
 	name: 'jsxInExtJSClassic',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Toolbar, Spacer, Button } from '@sencha/ext-react-modern';
 import createData from './createData';
-import { PivotHeatMap } from '@sencha/ext-pivot-d3';
+import { ExtPivotHeatMap } from '@sencha/ext-react-modern';
 
 export default class PivotHeatMapExample extends Component {
     constructor() {
@@ -56,7 +56,7 @@ export default class PivotHeatMapExample extends Component {
                     <Spacer/>
                     <Button iconCls="x-fa fa-refresh" handler={this.refreshData} text="Refresh Data"/>
                 </Toolbar>
-                <PivotHeatMap
+                <ExtPivotHeatMap
                     matrix={{
                         store: this.store,
                         leftAxis: {

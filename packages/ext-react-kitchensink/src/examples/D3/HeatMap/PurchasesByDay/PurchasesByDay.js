@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Panel } from '@sencha/ext-react-modern';
-import { D3_HeatMap } from '@sencha/ext-d3';
+import { ExtD3HeatMap } from '@sencha/ext-react-modern';
 import storeData from './storeData';
 
 export default class PurchasesByDay extends Component {
@@ -36,7 +36,7 @@ export default class PurchasesByDay extends Component {
 
         return (
             <Panel shadow layout="fit">
-                <D3_HeatMap
+                <ExtD3HeatMap
                     store={this.store}
                     padding="20 20 40 60"
                     platformConfig={{

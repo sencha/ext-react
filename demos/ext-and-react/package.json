@@ -29,12 +29,12 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "@sencha/ext-react-modern": "^7.1.0",
-    "@sencha/ext-modern: "~7.2.0",
-    "@sencha/ext-modern-theme-material: "~7.2.0",
+    "@sencha/ext-modern": "~7.2.0",
+    "@sencha/ext-modern-theme-material": "~7.2.0",
     "@sencha/ext": "~7.1.0"
   },
   "devDependencies": {
-    "@sencha/ext-webpack-plugin: "~7.2.0",
+    "@sencha/ext-webpack-plugin": "~7.2.0",
     "html-webpack-plugin": "^3.2.0",
     "base-href-webpack-plugin": "~2.0.0",
     "cross-env": "^6.0.3",

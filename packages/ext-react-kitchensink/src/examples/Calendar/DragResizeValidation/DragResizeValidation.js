@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar_Day } from '@sencha/ext-react-modern';
-import { Panel } from '@sencha/ext-react-modern';
+import { ExtCalendarDay } from '@sencha/ext-react-modern';
+import { ExtPanel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarValidationExample extends Component {
@@ -35,11 +35,11 @@ export default class CalendarValidationExample extends Component {
 
     render() {
         return (
-            <Panel
+            <ExtPanel
                 layout="fit"
                 shadow
             >
-                <Calendar_Day
+                <ExtCalendarDay
                     startTime={8}
                     endTime={18}
                     visibleDays={2}
@@ -54,7 +54,7 @@ export default class CalendarValidationExample extends Component {
                         validateeventresize: this.confirmAction,
                         validateeventerase: this.confirmAction
                     }} />
-            </Panel>
+            </ExtPanel>
         )
     }
 }

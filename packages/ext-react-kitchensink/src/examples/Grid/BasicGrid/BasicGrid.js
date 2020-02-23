@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { ExtGrid, ExtColumn } from '@sencha/ext-react-modern';
 import '../CompanyData';

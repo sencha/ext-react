@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Button } from '@sencha/ext-modern';
+import { Container, Button } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-react-modern';
 import createData from './createData';
+const Ext = window['Ext']
 
 Ext.require([
   'Ext.chart.series.Area',
@@ -99,8 +100,9 @@ export default class App extends Component {
         });
 
         return (
-            
+
             <Cartesian
+                viewport="true"
                 height="500px"
                 ref="chart"
             ></Cartesian>
