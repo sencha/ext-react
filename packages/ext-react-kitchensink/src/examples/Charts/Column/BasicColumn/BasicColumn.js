@@ -58,6 +58,7 @@ export default class BasicColumnChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="20 10"
                     store={this.store}

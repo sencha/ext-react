@@ -39,6 +39,7 @@ export default class MultiaxisColumn extends Component {
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     innerPadding={{ left: 20, right: 20}}

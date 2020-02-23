@@ -38,6 +38,7 @@ export default class NegativeValues extends Component {
         return (
             <Container padding={!Ext.os.is.Phone && 10} layout="vbox">
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     flex={2}
                     ref="chart"

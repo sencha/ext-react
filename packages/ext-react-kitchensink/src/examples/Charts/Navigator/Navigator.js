@@ -55,6 +55,7 @@ export default class NavigatorExample extends Component {
                     theme={theme}
                 />
                 {/* <ChartNavigator
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     ref={(navigator) => {this.navigator = navigator}}
                     navigator={{ axis: 'bottom' }}

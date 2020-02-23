@@ -46,6 +46,7 @@ export default class Basic3DColumnChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     theme={theme}

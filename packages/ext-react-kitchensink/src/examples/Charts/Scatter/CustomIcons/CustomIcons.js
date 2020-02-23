@@ -39,6 +39,7 @@ export default class CustomIcons extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="20 20 10 10"
                     legend={{ type: 'sprite' }}

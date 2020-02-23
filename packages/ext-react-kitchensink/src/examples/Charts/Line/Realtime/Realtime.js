@@ -35,6 +35,7 @@ export default class Realtime extends Component {
     render() {
         return (
             <Cartesian
+                downloadServerUrl='http://svg.sencha.io'
                 shadow
                 ref="chart"
                 store={this.store}

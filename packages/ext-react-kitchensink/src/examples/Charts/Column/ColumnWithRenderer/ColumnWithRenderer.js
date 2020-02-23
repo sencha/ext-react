@@ -31,6 +31,7 @@ export default class ColumnWithRenderer extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar onRefreshClick={this.refreshData}/>
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="20 20 10 10"
                     innerPadding="0 10 0 10"

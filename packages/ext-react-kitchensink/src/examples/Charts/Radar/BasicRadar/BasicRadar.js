@@ -32,6 +32,7 @@ export default class BasicScatterChartExample extends Component {
                     theme={theme}
                 />
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding={25}
                     store={this.store}

@@ -42,6 +42,7 @@ export default class StackedBarChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     flipXY={true}
                     store={this.store}

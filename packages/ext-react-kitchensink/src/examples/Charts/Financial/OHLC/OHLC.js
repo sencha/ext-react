@@ -68,6 +68,7 @@ export default class OHLCChartExample extends Component {
                     onlyMidnight
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     ref="chart"
                     store={this.store}

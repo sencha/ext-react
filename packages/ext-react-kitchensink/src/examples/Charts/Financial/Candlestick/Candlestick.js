@@ -90,8 +90,8 @@ export default class CandlestickChartExample extends Component {
           onlyMidnight/>
 
         <Cartesian
+          downloadServerUrl='http://svg.sencha.io'
           shadow
-          downloadServerUrl ="http://svg.sencha.io"
           ref={chart => this.chart = chart}
           store={this.store}
           theme={theme}

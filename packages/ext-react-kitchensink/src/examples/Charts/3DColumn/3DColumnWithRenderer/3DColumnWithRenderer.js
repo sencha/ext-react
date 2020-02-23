@@ -17,7 +17,7 @@ export default class ThreeDColumnWithRenderer extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="vbox">
                 <ChartToolbar maxHeight={50} downloadChartRef={this.refs.chart}/>
                 <Cartesian
-                downloadServerUrl ="http://svg.sencha.io"
+                        downloadServerUrl ="http://svg.sencha.io"
                         shadow
                         flex={2}
                         ref="chart"

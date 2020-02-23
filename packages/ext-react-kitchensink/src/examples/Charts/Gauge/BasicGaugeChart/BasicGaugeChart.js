@@ -48,6 +48,7 @@ export default class BasicGaugeChartExample extends Component {
                         }]}
                     />
                     <Polar
+                        downloadServerUrl='http://svg.sencha.io'
                         innerPadding={20}
                         store={this.store}
                         flex={1}
