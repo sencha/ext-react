@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Panel, Tree } from '@sencha/ext-react-modern';
-import { D3_Sunburst } from '@sencha/ext-d3';
+import { ExtD3Sunburst } from '@sencha/ext-react-modern';
 
 Ext.require([
     'Ext.util.Format',
-    'Ext.plugin.Responsive'
+    'Ext.Responsive'
 ]);
 
 export default class Sunburst extends Component {
@@ -63,7 +63,7 @@ export default class Sunburst extends Component {
         return (
             <Panel
                 shadow
-                plugins="responsive"
+                //plugins="responsive"
                 layout={Ext.platformTags.phone ? 'vbox' : 'hbox'}
                 responsiveConfig={{
                     'width > 600': {
@@ -92,7 +92,7 @@ export default class Sunburst extends Component {
                         }
                     }}
                 />
-                <D3_Sunburst
+                <ExtD3Sunburst
                     flex={1}
                     padding={20}
                     store={this.store}

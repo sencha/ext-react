@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Toolbar, Button } from '@sencha/ext-react-modern';
-import { D3_HeatMap } from '@sencha/ext-d3';
+import { ExtD3HeatMap } from '@sencha/ext-react-modern';
 import { refreshData, refreshSize } from './createData';
 
 export default class SalesPerEmployee extends Component {
@@ -44,7 +44,7 @@ export default class SalesPerEmployee extends Component {
                     <Button iconCls="x-fa fa-refresh" handler={this.refreshData} text="Refresh Data"/>
                     <Button iconCls="x-fa fa-table" handler={this.refreshSize} text="Refresh Size"/>
                 </Toolbar>
-                <D3_HeatMap
+                <ExtD3HeatMap
                     store={this.store}
                     padding="30 30 40 100"
                     flex={1}

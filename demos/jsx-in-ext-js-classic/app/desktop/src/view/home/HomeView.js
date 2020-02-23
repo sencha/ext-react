@@ -1,16 +1,8 @@
-Ext.define('jsxInExtJSClassic.view.home.jsx', {
-  extend: 'Ext.container.Container',
-  xtype: 'jsxcontainer',
-  width: '100%',
-  listeners: {
-    afterrender: function(h, e) {
-      Ext.ReactDOM.render(
-        Ext.React.createElement(this.part, {  }, null),
-        this.el.dom
-      )
-    }
-  }
-})
+Ext.require([
+  'Ext.grid.filters.Filters',
+  'Ext.grid.column.Action',
+  'Ext.form.Panel'
+])
 
 Ext.define('jsxInExtJSClassic.view.home.HomeView',{
 	xtype: 'homeview',
@@ -21,7 +13,7 @@ Ext.define('jsxInExtJSClassic.view.home.HomeView',{
 	extend: 'Ext.panel.Panel',
   layout: 'vbox',
   items: [
-    {xtype: 'jsxcontainer', part: Ext.jsx.Part1, flex: 1},
-    {xtype: 'jsxcontainer', part: Ext.jsx.JsxPart4, flex: 1}
+    {xtype: 'reactview', part: Ext.components.react.Part1, flex: 1},
+    {xtype: 'reactview', part: Ext.components.react.JsxPart4, flex: 1}
   ]
 });

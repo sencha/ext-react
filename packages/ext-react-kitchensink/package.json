@@ -39,7 +39,7 @@
     "react-froala-wysiwyg": "^3.1.0",
     "@sencha/ext-ux": "~7.2.0",
     "@sencha/ext-modern-theme-material": "~7.2.0",
-    "d3": "5.15.0",
+    "d3": "4.7.4",
     "highlight.js": "~9.18.1",
     "highlightjs": "~9.16.2",
     "history": "~4.10.1",

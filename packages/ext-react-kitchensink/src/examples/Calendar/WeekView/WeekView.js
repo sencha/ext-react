@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar_Week, Calendar_List } from '@sencha/ext-react-modern';
-import { Panel } from '@sencha/ext-react-modern';
+import { ExtCalendarWeek, ExtCalendarList } from '@sencha/ext-react-modern';
+import { ExtPanel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarWeekViewExample extends Component {
@@ -38,7 +38,7 @@ export default class CalendarWeekViewExample extends Component {
 
   render() {
       return (
-        <Panel
+        <ExtPanel
             shadow
             title={Ext.Date.format(new Date(), 'F Y')}
             layout="hbox"
@@ -63,16 +63,16 @@ export default class CalendarWeekViewExample extends Component {
               }]
             }}
         >
-                <Panel
+                <ExtPanel
                     title={'Calendars'}
                     ui={'light'}
                     width={150}
                     bodyPadding={5}
                     hidden={Ext.os.is.Phone}
                 >
-                    <Calendar_List store={this.store}/>
-                </Panel>
-                <Calendar_Week
+                    <ExtCalendarList store={this.store}/>
+                </ExtPanel>
+                <ExtCalendarWeek
                     store={this.store}
                     flex={1}
                     timezoneOffset={0}
@@ -81,7 +81,7 @@ export default class CalendarWeekViewExample extends Component {
                     firstDayOfWeek={this.state.firstDayOfWeek}
                     visibleDays={this.state.visibleDays}
                 />
-            </Panel>
+            </ExtPanel>
       )
   }
 }

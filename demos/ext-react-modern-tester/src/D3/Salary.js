@@ -1,10 +1,14 @@
-export default Ext.define('KitchenSink.reader.Salary', {
+/*eslint no-undef: "warn"*/
+//const Salary = Salary
+const Ext = window['Ext'];
+
+export default Ext.define('Salary', {
     extend: 'Ext.data.reader.Json',
 
     alias: 'reader.salary',
 
     getResponseData: function(...args) {
-        const data = KitchenSink.reader.Salary.superclass.getResponseData.call(this, ...args)
+        const data = Salary.superclass.getResponseData.call(this, ...args)
         return this.addTreeHierarchy(data);
     },
 
@@ -19,7 +23,7 @@ export default Ext.define('KitchenSink.reader.Salary', {
             parentItem;
 
         Ext.Array.each(data, function (item) {
-            if (item[fieldName] != currentValue) {
+            if (item[fieldName] !== currentValue) {
                 currentValue = item[fieldName];
                 parentItem = {};
                 parentItem[fieldName] = currentValue;

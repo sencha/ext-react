@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar_Day } from '@sencha/ext-react-modern';
-import { Panel } from '@sencha/ext-react-modern';
+import { ExtCalendarDay } from '@sencha/ext-react-modern';
+import { ExtPanel } from '@sencha/ext-react-modern';
 import './data';
 
 export default class CalendarTimezoneSupportExample extends Component {
@@ -26,7 +26,7 @@ export default class CalendarTimezoneSupportExample extends Component {
         const { timezoneOffset } = this.state;
 
         return(
-            <Panel
+            <ExtPanel
                 shadow
                 title={ Ext.Date.format(new Date(),'F Y') }
                 layout="fit"
@@ -58,7 +58,7 @@ export default class CalendarTimezoneSupportExample extends Component {
                         }]
                     }]
                 }}>
-                <Calendar_Day
+                <ExtCalendarDay
                     startTime= {6}
                     endTime = {22}
                     visibleDays = {2}
@@ -67,7 +67,7 @@ export default class CalendarTimezoneSupportExample extends Component {
                     showNowMarker = {false}
                     value = {new Date()}
                     store = {this.store}/>
-            </Panel>
+            </ExtPanel>
         )
     }
 }

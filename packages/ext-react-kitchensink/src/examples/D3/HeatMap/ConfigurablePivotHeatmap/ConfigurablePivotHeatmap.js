@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Toolbar, Spacer } from '@sencha/ext-react-modern';
-import { PivotD3Container } from '@sencha/ext-pivot-d3';
+import { ExtPivotD3Container } from '@sencha/ext-react-modern';
 import salesData from './salesData';
 
 Ext.require('Ext.pivot.d3.HeatMap');
@@ -94,12 +94,12 @@ export default class ConfigurablePivotHeatmap extends Component {
         const { theme } = this.state;
 
         return (
-            <PivotD3Container
+            <ExtPivotD3Container
                 ref="mainCtn"
                 shadow
                 layout="fit"
-                onBeforeMoveConfigField={this.onBeforeAddConfigField}
-                onShowConfigFieldSettings={this.onShowFieldSettings}
+                onBeforemoveconfigfield={this.onBeforeAddConfigField}
+                onShowconfigfieldsettings={this.onShowFieldSettings}
                 matrix={{
                     store: this.store,
                     aggregate: [{
@@ -242,7 +242,7 @@ export default class ConfigurablePivotHeatmap extends Component {
                     <Spacer/>
                     <Button handler={this.showConfigurator} text="Show configurator"/>
                 </Toolbar>
-            </PivotD3Container>
+            </ExtPivotD3Container>
         )
     }
 }

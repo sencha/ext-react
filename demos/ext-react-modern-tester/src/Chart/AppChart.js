@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Button } from '@sencha/ext-modern';
+import { Container, Button } from '@sencha/ext-react-modern';
 import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from './ChartToolbar';
 import createData from './createData';
+const Ext = window['Ext']
 
 Ext.require([
   'Ext.chart.series.Area',
@@ -48,8 +49,10 @@ render() {
     var { theme } = this.state
     console.log(theme)
 
+    //<Button text={theme}></Button>
+
     return (
-        <Container layout="vbox">
+        <Container viewport="true" layout="fit">
             <ChartToolbar
               //ref="charttoolbar"
                 onTestClick={this.test}
@@ -57,11 +60,11 @@ render() {
                 onRefreshClick={this.refresh}
                 theme={theme}
             />
-            <Button text={theme}>
-            </Button>
+
 
             <Cartesian
-              flex={1}
+
+            
                 store={this.store}
                 theme={theme}
                 series={[
@@ -77,7 +80,7 @@ render() {
                     type: 'numeric',
                     position: 'left',
                     fields: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'],
-                }, 
+                },
                 {
                     type: 'category',
                     position: 'bottom',

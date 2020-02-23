@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from '@sencha/ext-react-modern';
-import { D3_Sunburst } from '@sencha/ext-d3';
+import { ExtD3Sunburst } from '@sencha/ext-react-modern';
 
 export default class ZoomableSunburst extends Component {
 
@@ -45,7 +45,7 @@ export default class ZoomableSunburst extends Component {
     render() {
         return (
             <Panel shadow layout="fit">
-                <D3_Sunburst
+                <ExtD3Sunburst
                     padding={20}
                     store={this.store}
                     tooltip={{ renderer: this.onTooltip }}
