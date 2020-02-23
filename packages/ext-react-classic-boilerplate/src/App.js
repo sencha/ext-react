@@ -6,23 +6,21 @@ var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {
 
-  title = "Sencha ExtReactClassic 7.1 Boilerplate" + REACT_VERSION;
+  title = "Sencha ExtReactClassic 7.2 Boilerplate" + REACT_VERSION;
   state = { person: null };
-  store = Ext.create('Ext.data.Store', {data});
+  store = Ext.create('Ext.data.Store', { data });
 
   onRowClick = ({sender, record, element, rowIndex, e}) => {
     this.setState({person: record.data});
   }
 
   onSavePerson = (person) => {
-    console.log('onSavePerson')
     Ext.toast(`Person ${person.name} saved.`);
     this.store.getById(person.id).set(person, { dirty: false });
     this.setState({ person: null });
   }
 
   onPersonDialogClose = () => {
-    console.log('onPersonDialogClose')
     this.setState({ person: null });
   }
 
@@ -38,7 +36,7 @@ export default class App extends Component {
   render() {
     const { person } = this.state;
     return (
-      <ExtPanel title={this.title}>
+      <ExtPanel viewport="true" title={this.title}>
         { person && (
           <Person
             person={person}

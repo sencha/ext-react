@@ -10,7 +10,7 @@ var REACT_VERSION = require('react').version
 
 class Layout extends Component {
 
-    title = "Sencha ExtReact 7.1 Modern Boilerplate - React v" + REACT_VERSION
+    title = "Sencha ExtReact 7.2 Modern Boilerplate - React v" + REACT_VERSION
 
     state = {
         showAppMenu: false

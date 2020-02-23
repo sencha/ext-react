@@ -4,6 +4,15 @@ git fetch upstream
 git merge upstream/master
 git merge upstream/ext-react-7.2.x
 
+
+const find = require('find-process');
+          find('name', 'java')
+          .then(function (list) {
+            console.log(list);
+          }, function (err) {
+            console.log(err.stack || err);
+          })
+
 npx create-react-app --template @sencha/ext-react-modern app1
 
   onSelect = ({ sender, selected }) => {
