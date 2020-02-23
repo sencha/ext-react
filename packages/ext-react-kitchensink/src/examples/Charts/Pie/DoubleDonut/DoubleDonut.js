@@ -26,6 +26,7 @@ export default class DoubleDonut extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding={20}
                     innerPadding={20}

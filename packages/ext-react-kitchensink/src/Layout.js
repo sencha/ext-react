@@ -187,7 +187,7 @@ class Layout extends Component {
               </BreadcrumbBar>
               <NavTree
                 docked="left"
-                width="300"
+                width="400"
                 resizable={{
                   edges: 'east',
                   dynamic: true

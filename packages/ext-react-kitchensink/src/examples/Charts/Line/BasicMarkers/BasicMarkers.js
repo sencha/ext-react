@@ -37,6 +37,7 @@ export default class BasicMarkers extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="20 20 0 10"
                     theme={theme}

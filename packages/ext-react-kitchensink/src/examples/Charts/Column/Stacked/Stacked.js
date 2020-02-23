@@ -55,6 +55,7 @@ export default class Stacked extends Component {
                     stacked={stacked}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     ref="chart"
                     store={this.store}

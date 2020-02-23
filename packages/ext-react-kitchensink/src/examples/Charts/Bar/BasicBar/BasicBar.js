@@ -46,6 +46,7 @@ export default class BasicBarChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="70 40 0"
                     platformConfig={{

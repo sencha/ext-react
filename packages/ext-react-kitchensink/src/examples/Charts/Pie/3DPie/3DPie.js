@@ -37,6 +37,7 @@ export default class ThreeDPie extends Component {
                     theme={theme}
                 />
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     innerPadding={60}
                     platformConfig={{

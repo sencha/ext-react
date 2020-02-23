@@ -37,6 +37,7 @@ export default class BoxPlotExample extends Component {
                     onlyMidnight
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     theme={theme}
                     captions={{

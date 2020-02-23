@@ -40,6 +40,7 @@ export default class BasicPieChartExample extends Component {
                     theme={theme}
                 />
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     innerPadding={Ext.os.is.Desktop ? 40 : 10}
                     store={this.store}

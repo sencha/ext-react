@@ -32,6 +32,7 @@ export default class BasicScatterChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="40 40 60 40"
                     store={this.store}

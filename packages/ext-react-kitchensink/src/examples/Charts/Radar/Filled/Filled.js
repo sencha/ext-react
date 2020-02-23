@@ -37,6 +37,7 @@ export default class Filled extends Component {
                     theme={theme}
                 />
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     interactions="rotate"
                     legend={{ type: 'sprite' }}

@@ -50,8 +50,8 @@ export default class BasicAreaChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
-                    shadow
                     downloadServerUrl='http://svg.sencha.io'
+                    shadow
                     store={this.store}
                     theme={theme}
                     insetPadding="25 35 0 10"
