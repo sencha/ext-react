@@ -26,6 +26,7 @@ export default function Layout({ children }) {
 
                   {/* <Redirect from='/' to='/schedule' exact/> */}
               {/* <Route path="/schedule/:id?" component={Schedule}/> */}
+
               <Route path="/speakers/:id?" component={Speakers}/>
               {/* <Route path="/calendar/:id?" component={Calendar}/>
               <Route path="/attendees" component={Attendees}/> */}

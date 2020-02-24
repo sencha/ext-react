@@ -1,0 +1,461 @@
+[
+  {
+    "id": 158,
+    "avatar_url": "resources/avatars/01.jpg",
+    "name": "Alice Simmons",
+    "title": "Developer",
+    "company": "Cyber Purchasing",
+    "bio": "Alice has more than 8 years of programming experience, and she has written two JavaScript programming textbooks. She speaks at technology conferences and runs a JavaScript meetup group.",
+    "sessions": ["57b78648a1663"]
+  },
+  {
+    "id": 195,
+    "avatar_url": "resources/avatars/02.jpg",
+    "name": "Stephanie Gomez",
+    "title": "UX Designer",
+    "company": "Saucy",
+    "bio": "Stephanie is a UX Designer at Saucy, where she leads the product design team. She holds a Bachelor of Fine Arts in Design from College of Oregon.",
+    "sessions": ["57b77c1067ce8"]
+  },
+  {
+    "id": 259,
+    "avatar_url": "resources/avatars/03.jpg",
+    "name": "Benjamin Banks",
+    "title": "CEO",
+    "company": "Saucy",
+    "bio": "Benjamin has operational expertise in sales, marketing, and product development. Benjamins has a Bachelor of Science Degree in Business Administration from the Georgia University.",
+    "sessions": ["57ee3b239aa2d"]
+  },
+  {
+    "id": 258,
+    "avatar_url": "resources/avatars/04.jpg",
+    "name": "Laura Russell",
+    "title": "Team Lead",
+    "company": "Lelandsoft",
+    "bio": "Laura has 8 years of experience in the creative software industry. She has experience in building desktop apps and low-level programming on multiple platforms using C++ and Python.",
+    "sessions": ["57ee3b239aa2d"]
+  },
+  {
+    "id": 256,
+    "avatar_url": "resources/avatars/05.jpg",
+    "name": "Donald Rodriguez",
+    "title": "Support Engineer",
+    "company": "Saucy",
+    "bio": "Donald is a member of the engineering team and enjoys interacting with the Saucy community. He has development experience in JavaScript, Java, and C++.",
+    "sessions": ["57c49562bd1ba"]
+  },
+  {
+    "id": 226,
+    "avatar_url": "resources/avatars/06.jpg",
+    "name": "Philip Harper",
+    "title": "Senior UI Engineer",
+    "company": "Innvolas",
+    "bio": "Philip is a Senior UI Engineer and has been there for five years running. He has more than 9 years of application development experience, with a focus on web and mobile applications. He enjoys rock climbing, parachuting, and spelunking.",
+    "sessions": ["57ec58e69417a"]
+  },
+  {
+    "id": 250,
+    "avatar_url": "resources/avatars/07.jpg",
+    "name": "Frances Cox",
+    "title": "Development Engineer",
+    "company": "Saucy",
+    "bio": "Frances is a Development Engineer on the Saucy JavaScript team. She has worked on Java enterprise apps with web front-ends for about 6 years. In her spare time, she likes to play in her rock band and go parasailing.",
+    "sessions": ["57f3e44e8eebb"]
+  },
+  {
+    "id": 168,
+    "avatar_url": "resources/avatars/08.jpg",
+    "name": "Eric White",
+    "title": "Sales Engineer",
+    "company": "Saucy",
+    "bio": "Eric is a Sales Engineer. He provides pre-sales technical assistance for Saucy products. He has more than 9 years of experience developing innovative, web-based applications using a variety of technologies. He specializes in C# and JavaScript.",
+    "sessions": ["57bf72af58196"]
+  },
+  {
+    "id": 118,
+    "avatar_url": "resources/avatars/09.jpg",
+    "name": "Judith Riley",
+    "title": "Software Engineer",
+    "company": "Saucy",
+    "bio": "Judith is a Software Engineer at Saucy on the JavaScript development team. She has 12 years of experience as a developer and has focused most of her career on web development with skills in HTML5, JavaScript, and CSS. Prior to joining Saucy, Judith worked for companies in the healthcare and financial services industries.",
+    "sessions": ["57db02eb633b0"]
+  },
+  {
+    "id": 46,
+    "avatar_url": "resources/avatars/10.jpg",
+    "name": "Betty Hamilton",
+    "title": "Director of Engineering",
+    "company": "Saucy",
+    "bio": "Betty is the Engineering Director at Saucy. She has more than 11 years of software engineering experience on a broad range of platforms. Her experience includes designing web applications, network protocols, and device drivers. She loves to go hiking and biking in her spare time.",
+    "sessions": ["57b77ab44ab51"]
+  },
+  {
+    "id": 190,
+    "avatar_url": "resources/avatars/11.jpg",
+    "name": "Billy Powell",
+    "title": "President and CEO",
+    "company": "Cynterment",
+    "bio": "Billy has more than 17 years of experience in the IT field, including application development and network support. He has a Bachelor of Science degree from New Western University.",
+    "sessions": ["57d7701932d5f"]
+  },
+  {
+    "id": 225,
+    "avatar_url": "resources/avatars/12.jpg",
+    "name": "Melissa Sanders",
+    "title": "Software Developer",
+    "company": "WolfeSprint",
+    "bio": "Melissa is a software developer, focusing on building and designing web applications. Melissa speaks at JavaScript meetups and events. She enjoy motocross racing in her spare time.",
+    "sessions": ["57eb16d901948"]
+  },
+  {
+    "id": 127,
+    "avatar_url": "resources/avatars/13.jpg",
+    "name": "Philip Evans",
+    "title": "Team Leader",
+    "company": "SimpleRobot",
+    "bio": "Philip has more than 22 years of experience as an IT professional. He has developed and designed web and mobile applications. He frequently gives talks at JavaScript meetups. He spends his spare time ocean kayaking.",
+    "sessions": ["57b7809d858cc"]
+  },
+  {
+    "id": 128,
+    "avatar_url": "resources/avatars/14.jpg",
+    "name": "Theresa Reyes",
+    "title": "Software Architect",
+    "company": "OutFocus",
+    "bio": "Theresa has 5 years of experience developing web applications. She regularly speaks at open source conferences and meetups. She enjoys skiing, camping, and kite-surfing.",
+    "sessions": ["57b7809da3955"]
+  },
+  {
+    "id": 129,
+    "avatar_url": "resources/avatars/15.jpg",
+    "name": "Peter Berry",
+    "title": "System Architect",
+    "company": "Firstence",
+    "bio": "Peter has more than 20 years of IT experience, and the last 10 have been focused on web applications. He speaks at web app conferences and meetups. He enjoys french cooking and training for ironman.",
+    "sessions": ["57b7809dc2edf"]
+  },
+  {
+    "id": 47,
+    "avatar_url": "resources/avatars/16.jpg",
+    "name": "Pat Castillo",
+    "title": "Director of Product Management",
+    "company": "Saucy",
+    "bio": "Pat is director of product management at Saucy. She builds new product strategies and develops market opportunities. She has a BS degree from State University of Tallahassee.",
+    "sessions": ["57ee3b239aa2d"]
+  },
+  {
+    "id": 227,
+    "avatar_url": "resources/avatars/17.jpg",
+    "name": "Harry Patterson",
+    "title": "IT Director",
+    "company": "OrangeCamel",
+    "bio": "Harry has more than 18 years of experience in IT. Harry has a a BS degree in Computer Science. He enjoys playing cricket and ice hockey.",
+    "sessions": ["57ec58e69417a"]
+  },
+  {
+    "id": 183,
+    "avatar_url": "resources/avatars/18.jpg",
+    "name": "Diana Woods",
+    "title": "Software Engineer",
+    "company": "Advanced Mix",
+    "bio": "Diana is a software engineer focusing on building web app front-ends. Diana likes to work on new technologies, especially for the web and mobile. She spends her spare time curling and fencing.",
+    "sessions": ["57b78648cc3d2"]
+  },
+  {
+    "id": 164,
+    "avatar_url": "resources/avatars/19.jpg",
+    "name": "Doris Gutierrez",
+    "title": "Principal Software Engineer",
+    "company": "TestDrive Future",
+    "bio": "Doris is a Principal Software Engineer who focuses on software design, development, and consulting. She develops web app back-ends and has experience in JavaScript, Java, C#, and node.js. She enjoys horseback riding and rowing.",
+    "sessions": ["57b7864933d05"]
+  },
+  {
+    "id": 272,
+    "avatar_url": "resources/avatars/20.jpg",
+    "name": "Cheryl Peterson",
+    "title": "Principal Architect",
+    "company": "Saucy",
+    "bio": "Cheryl is a Principal Architect at Saucy where she helps companies design and develop web apps. She has more than 8 years of experience in web app development and testing. She enjoys sailing and playing rugby.",
+    "sessions": ["57e967cb7a729"]
+  },
+  {
+    "id": 140,
+    "avatar_url": "resources/avatars/21.jpg",
+    "name": "Nicholas Fisher",
+    "title": "COO",
+    "company": "Technology Cache",
+    "bio": "Nicholas is COO of Technology Cache and has more than 12 years of experience in running software companies. He enjoys bowling and cycling.",
+    "sessions": ["57b7850891753"]
+  },
+  {
+    "id": 131,
+    "avatar_url": "resources/avatars/22.jpg",
+    "name": "Deborah Jackson",
+    "title": "Chief Software Architect",
+    "company": "Think Lighter",
+    "bio": "Deborah has 14 years of experience in developing front-end and back-end systems. Her programming skills include JavaScript, C#, and Java. She enjoys parasailing and canoeing.",
+    "sessions": ["57b7834b7b59c"]
+  },
+  {
+    "id": 192,
+    "avatar_url": "resources/avatars/23.jpg",
+    "name": "Shawn Greene",
+    "title": "Principal Software Engineer",
+    "company": "Saucy",
+    "bio": "Shawn is a Principal Software Engineer at Saucy. He has been working in website design and web application development for nearly 12 years. He's working in the automotive and entertainment industries. Shawn enjoys playing darts and badminton.",
+    "sessions": ["57b77bd849b6b"]
+  },
+  {
+    "id": 161,
+    "avatar_url": "resources/avatars/24.jpg",
+    "name": "Gary Reid",
+    "title": "Technical Marketing Manager",
+    "company": "Saucy",
+    "bio": "Gary is a Technical Marketing Manager at Saucy. He has development experience in web and mobile applications. In his spare time, he enjoys watercolor painting and traing for triathalons.",
+    "sessions": ["57b78508e6f4b"]
+  },
+  {
+    "id": 132,
+    "avatar_url": "resources/avatars/25.jpg",
+    "name": "Ronald Wallace",
+    "title": "Software Engineer",
+    "company": "Information Loft",
+    "bio": "Ronald has experience working on website development and design as well as NodeJS applictions and enterprise web applications. He enjoys spending time in nature and horseback riding.",
+    "sessions": ["57b7834ba1bf9"]
+  },
+  {
+    "id": 169,
+    "avatar_url": "resources/avatars/26.jpg",
+    "name": "Bonnie Sanders",
+    "title": "Sr. UI Developer",
+    "company": "Interactive Cool",
+    "bio": "Bonnie is a Web UI Developer. She focuses on delivering the best user experience using the latest web tech. She enjoys snowboarding and bungee jumping.",
+    "sessions": ["57bf73a21855c"]
+  },
+  {
+    "id": 219,
+    "avatar_url": "resources/avatars/27.jpg",
+    "name": "Brian Armstrong",
+    "title": "Programmer",
+    "company": "Lelandsoft",
+    "bio": "Brian is a programmer at Lelandsoft. He has experience in several programming languages including C#, Java, and Python, but he enjoys coding in JavaScript the most. He has 6 years of development experience. He also enjoys base jumping and wingsuit flying.",
+    "sessions": ["57e97e844e3ba"]
+  },
+  {
+    "id": 252,
+    "avatar_url": "resources/avatars/28.jpg",
+    "name": "Heather Ford",
+    "title": "Sales Engineer",
+    "company": "Saucy",
+    "bio": "Heather is a sales engineer at Saucy. She has experience in both front-end and back-end development. She has also written two books on web app development. She enjoys rock climbing and sandboarding.",
+    "sessions": ["57f52245c6c93"]
+  },
+  {
+    "id": 193,
+    "avatar_url": "resources/avatars/29.jpg",
+    "name": "Joshua Fuller",
+    "title": "Sales Engineer",
+    "company": "Saucy",
+    "bio": "Joshua is a Sales Engineer with Saucy and has more than 8 years of experience in the software services industry. He has experience in JavaScript, CSS, and NodeJS. He also enjoys downhill mountain biking and parachuting.",
+    "sessions": ["57dc303243052"]
+  },
+  {
+    "id": 269,
+    "avatar_url": "resources/avatars/30.jpg",
+    "name": "Diane Moore",
+    "title": "Software Engineer",
+    "company": "Saucy",
+    "bio": "Diane is a Software Engineer at Saucy. Over the last 12 years, she’s worked on a number of enterprise application projects using her experience in C#, Java, and most recently JavaScript. She also enjoy base jumping and golf.",
+    "sessions": ["580e95c2da3eb"]
+  },
+  {
+    "id": 48,
+    "avatar_url": "resources/avatars/31.jpg",
+    "name": "Norma Flores",
+    "title": "Sr. Engineering Manager",
+    "company": "Saucy",
+    "bio": "Norma is the Senior Engineering Manager at Saucy. She has more than 12 years of experience in building enterprise applications. She enjoys judo and tennis in her spare time.",
+    "sessions": ["57ee3b239aa2d"]
+  },
+  {
+    "id": 221,
+    "avatar_url": "resources/avatars/32.jpg",
+    "name": "Kathy Bryant",
+    "title": "Senior Solutions Engineer",
+    "company": "Saucy",
+    "bio": "Kathy is a Senior Solutions Engineer at Saucy, where she develops large enterprise applications. She has experience building apps in ASP, ASP.NET, C#, and JavaScript. Kathy enjoys cycling, softball, and training for marathons.",
+    "sessions": ["57eaf54a04b4d"]
+  },
+  {
+    "id": 139,
+    "avatar_url": "resources/avatars/33.jpg",
+    "name": "Harry Tucker",
+    "title": "Founder",
+    "company": "SoftwareFLower",
+    "bio": "Harry has almost 10 years of web app development experience. He speaks at JavaScript conferences and meetups. He also enjoys zorbing and kitesurfing.",
+    "sessions": ["57b7843a58535"]
+  },
+  {
+    "id": 133,
+    "avatar_url": "resources/avatars/34.jpg",
+    "name": "Peter Gray",
+    "title": "CEO",
+    "company": "Insight Country",
+    "bio": "Peter is CEO of Insight Country. He has more than 12 years of experience in sales, services, and support. He enjoys motocross racing and mountainboarding.",
+    "sessions": ["57b78439cba52"]
+  },
+  {
+    "id": 218,
+    "avatar_url": "resources/avatars/35.jpg",
+    "name": "Howard Hawkins",
+    "title": "Senior Software Engineer",
+    "company": "Saucy",
+    "bio": "Howard is a Senior Software Engineer at Saucy. He has experience in JavaScript, NodeJS, and C#. He also enjoys rock climbing and cave diving.",
+    "sessions": ["5807f0f50cd0c"]
+  },
+  {
+    "id": 160,
+    "avatar_url": "resources/avatars/36.jpg",
+    "name": "Rose Cooper",
+    "title": "Solution Architect",
+    "company": "Amaze Exchange",
+    "bio": "Rose is a solutions architect at Amaze Exchange. She has more than 12 years of development experience in building enterprise applications. She enjoys playing pool and weightlifting.",
+    "sessions": ["57b786490433b"]
+  },
+  {
+    "id": 260,
+    "avatar_url": "resources/avatars/37.jpg",
+    "name": "Sara Walker",
+    "title": "Senior Programmer",
+    "company": "Addendum Apps",
+    "bio": "Sara is the co-creator of Addendum Apps and a Senior Programmer. She has experience designing and developing web apps for large companies. She enjoys kayaking and caving in her spare time.",
+    "sessions": ["57eb16d83d244"]
+  },
+  {
+    "id": 49,
+    "avatar_url": "resources/avatars/38.jpg",
+    "name": "James Roberts",
+    "title": "Sr. Software Architect",
+    "company": "Saucy",
+    "bio": "James has 15 years of experience in the IT industry. He has built large enterprise apps to run remote services teams. He spend his spare time doing nature photography and training for ironman.",
+    "sessions": ["57b779ba882ce"]
+  },
+  {
+    "id": 222,
+    "avatar_url": "resources/avatars/39.jpg",
+    "name": "Beverly Spencer",
+    "title": "Sales Engineer",
+    "company": "Saucy",
+    "bio": "Beverly is a Sales Engineer at Saucy and has been a software developer for more than 9 years. She has experience as a front-end developer. Beverly graduated from Thulmen University.",
+    "sessions": ["57e993a8931fe"]
+  },
+  {
+    "id": 249,
+    "avatar_url": "resources/avatars/40.jpg",
+    "name": "Raymond Kelley",
+    "title": "Founder",
+    "company": "Redefine Television",
+    "bio": "Raymond is one of the founders of Redefine Television, working on web and mobile apps for the entertainment industry. He also enjoys badminton and chess.",
+    "sessions": ["57f29732a2fed"]
+  },
+  {
+    "id": 157,
+    "avatar_url": "resources/avatars/41.jpg",
+    "name": "Amy Davis",
+    "title": "CTO",
+    "company": "WolfeSprint",
+    "bio": "Amy is a developer and architect, and she's the CTO at WolfeSrpint. She speaks at developer conferences and meetups. She enjoys snowboarding and base jumping in her spare time.",
+    "sessions": ["57b78508e6f4b"]
+  },
+  {
+    "id": 217,
+    "avatar_url": "resources/avatars/42.jpg",
+    "name": "Norma Olson",
+    "title": "Senior Software Engineer",
+    "company": "Saucy",
+    "bio": "Norma is a Senior Software Engineer at Saucy. She has more than 20 years of coding experience including developing rich user interfaces on both mobile and desktop platforms. She also enjoys playing handball and driving in formula 1 racing.",
+    "sessions": ["57e969e7e6712"]
+  },
+  {
+    "id": 159,
+    "avatar_url": "resources/avatars/43.jpg",
+    "name": "Stephen Morris",
+    "title": "CTO",
+    "company": "Think Vendors",
+    "bio": "Stephen is the Founder and CTO of Think Vendors, a software engineering services provider. He has experience in software development and testing. He also enjoys doing parkour and ice climbing.",
+    "sessions": ["57b78648cc3d2"]
+  },
+  {
+    "id": 261,
+    "avatar_url": "resources/avatars/44.jpg",
+    "name": "Daniel Fisher",
+    "title": "CTO",
+    "company": "QRU",
+    "bio": "Daniel is the founder and CTO of QRU, a software services company. He has worked on many enterprise app development projects and has experience in JavaScript, Java, and C#. He enjoys playing netball and doing gymnastics.",
+    "sessions": ["57f29731e9b87"]
+  },
+  {
+    "id": 134,
+    "avatar_url": "resources/avatars/45.jpg",
+    "name": "Ronald Richardson",
+    "title": "Software Engineer",
+    "company": "Sevler",
+    "bio": "Ronald is a software engineer Sevler. His expertise is in web development, and he prefers to code in JavaScript. He enjoys playing ultimate frisbee and the tuba.",
+    "sessions": ["57b7843a02b51"]
+  },
+  {
+    "id": 224,
+    "avatar_url": "resources/avatars/46.jpg",
+    "name": "Maria Bailey",
+    "title": "Senior Engineer",
+    "company": "Saucy",
+    "bio": "Maria is a Senior Engineer at Saucy. She has been programming for more than 20 years and has worked on web apps for more than 6 years. She also enjoys cycling and archery.",
+    "sessions": ["57ec0b3ceecce"]
+  },
+  {
+    "id": 264,
+    "avatar_url": "resources/avatars/47.jpg",
+    "name": "Jonathan Morgan",
+    "title": "Director of Application Development",
+    "company": "Approach Music",
+    "bio": "Jonathan is Director of Application Development at Approach Music. He focuses on building end-to-end enterprise web apps. He loves to work on application design and development. He spends his free time fencing and rowing.",
+    "sessions": ["5804faf328678"]
+  },
+  {
+    "id": 194,
+    "avatar_url": "resources/avatars/48.jpg",
+    "name": "Scott Long",
+    "title": "Sr. Developer",
+    "company": "Up And To The Right Tech",
+    "bio": "Scott is a Sr. Programmer at Up And To The Right Tech, where he develops apps using HTML, CSS, and JavaScript. He focuses primarily on mobile app development using web tech. He also enjoys wingsuit flying and kitesurfing.",
+    "sessions": ["57d9ba88de4c9"]
+  },
+  {
+    "id": 220,
+    "avatar_url": "resources/avatars/49.jpg",
+    "name": "Betty Murphy",
+    "title": "Lead UI Developer and Designer",
+    "company": "Lelandsoft",
+    "bio": "Betty has experience in development, UI design, and marketing. She has 9 years of experience in JavaScript and HTML programming. She also enjoys slacklining and heli-skiing.",
+    "sessions": ["57e97e844e3ba"]
+  },
+  {
+    "id": 119,
+    "avatar_url": "resources/avatars/50.jpg",
+    "name": "Howard Stevens",
+    "title": "Product Manager",
+    "company": "Saucy",
+    "bio": "Howard is a Product Manager at Saucy and is passionate about innovations in mobile and web technologies. He has an MBA from DeJohn University and an MS in Computer Science. He enjoys swimming and badminton.",
+    "sessions": ["57b77f834cd1c"]
+  },
+  {
+    "id": 135,
+    "avatar_url": "resources/avatars/51.jpg",
+    "name": "Jose Washington",
+    "title": "GIS Analyst/Developer",
+    "company": "CityNetSoft",
+    "bio": "Jose has 11 years of programming experience in C# and ASP.NET. He also has four years of JavaScript experience. He loves to focus on building mobile apps that make people's lives easier to manage. He enjoys canyoning and mountainboarding.",
+    "sessions": ["57b7843a2d59a"]
+  }
+]

@@ -1,0 +1,9 @@
+.footer {
+	position: absolute;
+	color: white;
+	bottom: 0;
+	left: 225px;												/* leftWidth */
+	width: calc(100% - 225px);					/* 100% - leftWidth */
+	height: 30px;
+	background: #0b2431; 
+}

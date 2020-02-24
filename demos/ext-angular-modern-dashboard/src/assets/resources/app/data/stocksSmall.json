@@ -1,0 +1,179 @@
+{
+  "name": "Root",
+  "children": [
+    {
+      "name": "Utilities",
+      "children": [
+        {
+          "name": "Gas Utilities",
+          "children": [
+            {
+              "name": "OKE",
+              "description": "ONEOK Inc.",
+              "cap": 5.59024621044
+            },
+            {
+              "name": "GAS",
+              "description": "AGL Resources Inc.",
+              "cap": 5.59024621044
+            },
+            {
+              "name": "CNP",
+              "description": "CenterPoint Energy, Inc.",
+              "cap": 6.0561000613100004
+            }
+          ],
+          "cap": 21.625426129860003
+        },
+        {
+          "name": "Diversified Utilities",
+          "children": [
+            {
+              "name": "NI",
+              "description": "NiSource Inc.",
+              "cap": 2.9422348476
+            },
+            {
+              "name": "NRG",
+              "description": "NRG Energy, Inc.",
+              "cap": 4.11912878664
+            },
+            {
+              "name": "ES",
+              "description": "Eversource Energy",
+              "cap": 10.003598481840001
+            },
+            {
+              "name": "PEG",
+              "description": "Public Service Enterprise Group Inc.",
+              "cap": 13.509761675230001
+            },
+            {
+              "name": "SRE",
+              "description": "Sempra Energy",
+              "cap": 14.93184185157
+            },
+            {
+              "name": "EXC",
+              "description": "Exelon Corporation",
+              "cap": 17.776002204250002
+            }
+          ],
+          "cap": 93.71017989606
+        },
+        {
+          "name": "Electric Utilities",
+          "children": [
+            {
+              "name": "POM",
+              "description": "Pepco Holdings, Inc.",
+              "cap": 7.06136363424
+            },
+            {
+              "name": "TE",
+              "description": "TECO Energy, Inc.",
+              "cap": 5.12439235957
+            },
+            {
+              "name": "PNW",
+              "description": "Pinnacle West Capital Corporation",
+              "cap": 6.0561000613100004
+            },
+            {
+              "name": "SCG",
+              "description": "SCANA Corp.",
+              "cap": 6.252249051150001
+            },
+            {
+              "name": "AES",
+              "description": "The AES Corporation",
+              "cap": 6.669065654560001
+            },
+            {
+              "name": "CMS",
+              "description": "CMS Energy Corp.",
+              "cap": 7.8459595936
+            },
+            {
+              "name": "AEE",
+              "description": "Ameren Corporation",
+              "cap": 8.23825757328
+            },
+            {
+              "name": "ETR",
+              "description": "Entergy Corporation",
+              "cap": 10.24878471914
+            },
+            {
+              "name": "FE",
+              "description": "FirstEnergy Corp.",
+              "cap": 11.64634627175
+            },
+            {
+              "name": "DTE",
+              "description": "DTE Energy Company",
+              "cap": 11.91605113278
+            },
+            {
+              "name": "WEC",
+              "description": "WEC Energy Group, Inc.",
+              "cap": 13.2400568142
+            },
+            {
+              "name": "XEL",
+              "description": "Xcel Energy Inc.",
+              "cap": 14.56406249562
+            },
+            {
+              "name": "ED",
+              "description": "Consolidated Edison, Inc.",
+              "cap": 16.47651514656
+            },
+            {
+              "name": "EIX",
+              "description": "Edison International",
+              "cap": 16.47651514656
+            },
+            {
+              "name": "PPL",
+              "description": "PPL Corporation",
+              "cap": 17.84955807544
+            },
+            {
+              "name": "PCG",
+              "description": "PG&E Corporation",
+              "cap": 20.301420448440002
+            },
+            {
+              "name": "AEP",
+              "description": "American Electric Power Co., Inc.",
+              "cap": 22.94943181128
+            },
+            {
+              "name": "SO",
+              "description": "Southern Company",
+              "cap": 34.424147716920004
+            },
+            {
+              "name": "D",
+              "description": "Dominion Resources, Inc.",
+              "cap": 36.900528713650004
+            },
+            {
+              "name": "NEE",
+              "description": "NextEra Energy, Inc.",
+              "cap": 37.95482953404
+            },
+            {
+              "name": "DUK",
+              "description": "Duke Energy Corporation",
+              "cap": 41.11773199521
+            }
+          ],
+          "cap": 395.43636351744004
+        }
+      ],
+      "cap": 564.61486725444
+    }
+	]
+}

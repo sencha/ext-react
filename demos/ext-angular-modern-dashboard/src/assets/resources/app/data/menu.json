@@ -1,0 +1,23 @@
+{
+	root: {
+		expanded: true,
+		children: [
+			{ text: 'Dashboard', iconCls: 'x-fa fa-dashboard',xtype: 'dashboardview',	leaf: true },
+			{ text: 'Agencies', iconCls: 'x-fa fa-institution', xtype: 'agenciesview', leaf: true },
+			{ text: 'Spending Detail', iconCls: 'x-fa fa-dollar', xtype: 'spendingdetailview', leaf: true },
+			{ text: 'Spending Reports', iconCls: 'x-fa fa-bar-chart', expanded: false, selectable: false,
+				children: [
+					{ text: 'By Type Of Investment', iconCls: 'x-fa fa-cog', rowCls: 'menu-child', xtype: 'agencybyinvestment', leaf: true },
+					{ text: 'By IT Portfolio', iconCls: 'x-fa fa-cog', rowCls: 'menu-child', xtype: 'asbitp', leaf: true }
+				]
+			},
+			{ text: 'Ad-hoc Analysis', iconCls: 'x-fa fa-cogs', expanded: false, selectable: false,
+				children: [
+					{ text: 'Pivot Configurator', iconCls: 'x-fa fa-cog', rowCls: 'menu-child', xtype: 'configurator', leaf: true },
+					{ text: 'Pivot with Chart', iconCls: 'x-fa fa-cog', rowCls: 'menu-child', xtype: 'pivotchart', leaf: true },
+					{ text: 'Pivot Heat Map', iconCls: 'x-fa fa-cog', rowCls: 'menu-child', xtype: 'pivotheatmap', leaf: true }
+				]
+			}
+		]
+	}
+}

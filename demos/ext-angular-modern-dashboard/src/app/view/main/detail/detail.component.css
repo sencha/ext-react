@@ -1,0 +1,9 @@
+.detail {
+	position: absolute;
+	color: black;
+	background-color: #EDEDED;
+	top: 50px;
+	right:0;
+	width: 300px;
+	height: calc(100% - 50px - 30px);
+}

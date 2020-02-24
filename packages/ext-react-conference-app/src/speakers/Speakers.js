@@ -70,8 +70,6 @@ class Speakers extends Component {
 
     render() {
         const { record, match, ...props } = this.props;
-        console.log(this.store)
-
         return (
             <Container
                 activeItem={match.params.id ? 1 : 0}
