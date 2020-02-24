@@ -1,0 +1,68 @@
+{
+  "name": "ext-angular-dashboard",
+  "version": "7.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": false,
+  "dependencies": {
+    "@sencha/ext-angular": "~7.1.0",
+    "@sencha/ext": "~7.2.0",
+    "@sencha/ext-modern": "~7.2.0",
+    "@sencha/ext-modern-treegrid": "~7.2.0",
+
+    "@sencha/ext-calendar": "~7.2.0",
+    "@sencha/ext-charts": "~7.2.0",
+    "@sencha/ext-d3": "~7.2.0",
+    "@sencha/ext-exporter": "~7.2.0",
+    "@sencha/ext-pivot": "~7.2.0",
+    "@sencha/ext-pivot-d3": "~7.2.0",
+    "@sencha/ext-ux": "~7.2.0",
+
+    "@sencha/ext-modern-theme-material": "~7.2.0",
+
+    "d3": "4.5.0",
+    "@angular/animations": "^7.0.3",
+    "@angular/common": "^7.0.3",
+    "@angular/compiler": "^7.0.3",
+    "@angular/core": "^7.0.3",
+    "@angular/forms": "^7.0.3",
+    "@angular/http": "^7.0.3",
+    "@angular/platform-browser": "^7.0.3",
+    "@angular/platform-browser-dynamic": "^7.0.3",
+    "@angular/router": "^7.0.3",
+    "core-js": "^2.5.7",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^7.0.0",
+    "@angular-builders/dev-server":"^7.0.0",
+    "@sencha/ext-angular-webpack-plugin": "~6.7.0",
+
+    "@angular-devkit/build-angular": "~0.10.5",
+    "@angular/cli": "~7.0.5",
+    "@angular/compiler-cli": "^7.0.3",
+    "@angular/language-service": "^7.0.3",
+    "@types/jasmine": "~2.8.11",
+    "@types/jasminewd2": "~2.0.6",
+    "@types/node": "~10.12.5",
+    "codelyzer": "~4.5.0",
+    "jasmine-core": "~3.3.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.1.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.4",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "protractor": "~5.4.1",
+    "ts-node": "~7.0.1",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.6"
+  }
+}

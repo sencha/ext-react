@@ -1,0 +1,58 @@
+.header {
+	position: absolute;
+	color: white;
+	top: 0;
+	left: 225px;												/* leftWidth */
+	width: calc(100% - 225px);					/* 100% - leftWidth */
+	height: 50px;
+	background-color: #025b80;
+}
+
+ .topnav {
+	left: 225px;
+	width: calc(100% - 225px);					/* 100% - leftWidth */
+	border-radius: 0;
+	background-color: #01579B;
+	color: white; 
+	padding: 6px;
+	z-index: 2; 
+	box-shadow: 0 0 10px rgba(51, 51, 51, 0.4);
+}
+.topnav .text-center {
+	text-align: center;
+	padding-left: 0;
+	cursor: pointer; 
+}
+.topnav .top-right-nav .buy-now a {
+	color: #999; 
+}
+.topnav .top-right-nav .dropdown-menu {
+	top: 40px;
+	right: -5px;
+	left: auto; 
+}
+.topnav .top-right-nav .dropdown-menu .message-preview .media .media-body .media-heading {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0; 
+}
+.topnav .top-right-nav .dropdown-menu .message-preview .media .media-body p {
+	margin: 0; 
+}
+.topnav .top-right-nav .dropdown-menu .message-preview .media .media-body p.last {
+	font-size: 13px;
+	margin-bottom: 0; 
+}
+.topnav .top-right-nav .dropdown-menu hr {
+	margin-top: 1px;
+	margin-bottom: 4px; 
+}
+
+.navbar-brand {
+    color: black;
+    float: left;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+} 

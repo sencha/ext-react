@@ -1,0 +1,1647 @@
+[
+  {
+    "id": "57eda8798a95e",
+    "type": "break",
+    "title": "Registration/Hospitality Desk Open",
+    "description": "",
+    "date": "Monday, November 7",
+    "start_time": "7:00 AM",
+    "end_time": "9:00 PM",
+    "location": {
+        "id": 1,
+        "name": "Registration Desks between Ironwood & Juniper Ballrooms, Level 3"
+    },
+    "hashtag": "",
+    "order_index": 1,
+    "startDate": "2016-11-07T12:00:00.000Z",
+    "endDate": "2016-11-08T02:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57f6ddc31ff4d",
+    "type": "break",
+    "title": "Training Breakfast",
+    "description": "",
+    "date": "Monday, November 7",
+    "start_time": "7:00 AM",
+    "end_time": "9:00 AM",
+    "location": {
+        "id": 2,
+        "name": "Ironwood Ballroom 2-3, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 2,
+    "startDate": "2016-11-07T12:00:00.000Z",
+    "endDate": "2016-11-07T14:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eda879a06bd",
+    "type": "training",
+    "title": "Saucy Jumpstart Training",
+    "description": "<p>This half-day session will help you build great universal apps. It provides an introduction to key concepts including architecture, data binding, data package, as well as exposure to key components such as grids, charts, and more.</p>\n<br>\n<strong>Add-on Cost: $250; Morning Session</strong>",
+    "date": "Monday, November 7",
+    "start_time": "9:00 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 3,
+    "startDate": "2016-11-07T14:00:00.000Z",
+    "endDate": "2016-11-07T17:00:00.000Z",
+    "categoryName": "Training",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eda879d2dd1",
+    "type": "training",
+    "title": "Saucy App Camp",
+    "description": "<p>This is a full-day, hands-on session where you will learn to build a universal application with the latest release of Saucy. You’ll build a brand new application from the ground up and learn about key concepts and innovations.</p>\n<p>This App Camp is structured in a lecture/lab format where you will follow the instructor on your laptop to build a modern desktop and mobile application using Saucy. \n<p>You must bring your own laptop to participate in the event. Setup instructions will be sent in advance, so you can set up your laptop environment prior to the event.</p>\n<br>\n<strong>Add-on Cost: $450; Full-Day Session</strong>",
+    "date": "Monday, November 7",
+    "start_time": "9:00 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 4,
+    "startDate": "2016-11-07T14:00:00.000Z",
+    "endDate": "2016-11-07T22:00:00.000Z",
+    "categoryName": "Training",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eda87a37747",
+    "type": "training",
+    "title": "Saucy Mobile Jumpstart Bootcamp",
+    "description": "<p>Get started with the mobile framework in this full-day session. Learn how to use the rich set of UI components.</p>\n<br>\n<strong>Add-on Cost: $450; Full-Day Session</strong>",
+    "date": "Monday, November 7",
+    "start_time": "9:00 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 5,
+        "name": "Starvine 1"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 5,
+    "startDate": "2016-11-07T14:00:00.000Z",
+    "endDate": "2016-11-07T22:00:00.000Z",
+    "categoryName": "Training",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eda87a639f1",
+    "type": "training",
+    "title": "Saucy Test Training",
+    "description": "<p>This full-day, hands-on session will teach you best practices for testing your Saucy applications. You’ll learn how to write unit tests and integrate testing into your development process.</p>\n<br>\n<strong>Add-on Cost: $450; Full-Day Session</strong>",
+    "date": "Monday, November 7",
+    "start_time": "9:00 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 6,
+    "startDate": "2016-11-07T14:00:00.000Z",
+    "endDate": "2016-11-07T22:00:00.000Z",
+    "categoryName": "Training",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57f7d3648283f",
+    "type": "break",
+    "title": "Training Lunch",
+    "description": "",
+    "date": "Monday, November 7",
+    "start_time": "12:00 PM",
+    "end_time": "1:00 PM",
+    "location": {
+        "id": 7,
+        "name": "Ironwood Ballroom 2-3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 7,
+    "startDate": "2016-11-07T17:00:00.000Z",
+    "endDate": "2016-11-07T18:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eda87a0ba0c",
+    "type": "training",
+    "title": "Saucy Advanced Concepts",
+    "description": "<p>This half-day session gives you hands-on experience with the newest capabilities in Saucy. This session covers advanced techniques and best practices for building universal applications. Topics include innovations in the latest Saucy release as well as a deep dive on tools that will increase your productivity.</p>\n<br>\n<strong>Add-on Cost: $250; Afternoon Session</strong>",
+    "date": "Monday, November 7",
+    "start_time": "1:00 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 8,
+    "startDate": "2016-11-07T18:00:00.000Z",
+    "endDate": "2016-11-07T22:00:00.000Z",
+    "categoryName": "Training",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57dc303243052",
+    "type": "session",
+    "title": "Tech Talk: Saucy and Pointy 2 – Use the Best of Both to Build Your Apps",
+    "description": "In this tech talk, we’ll build the same application twice – first with Saucy and then with Pointy 2. We’ll compare and contrast the approaches of both frameworks, and you’ll be able to see the results on the spot. You’ll learn about the new bridge we’ve created that enables you to to use Saucy components in your Pointy 2 based apps. If you’re a Pointy 2 user, you’ll see how you can use that framework to assemble the basic building blocks of an app and then add the powerful Saucy components to complete your data-centric, cross-platform apps.",
+    "date": "Monday, November 7",
+    "start_time": "1:00 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 9,
+    "startDate": "2016-11-07T18:00:00.000Z",
+    "endDate": "2016-11-07T22:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Joshua Fuller"
+  },
+  {
+    "id": "57ed855d9b0f9",
+    "type": "activity",
+    "title": "Welcome Reception",
+    "description": "Join us Monday night to kick off SaucyCon in style. This is the perfect opportunity for you to hang out in a relaxed, fun gathering as you gear up for the packed 2-day conference. Talk with fellow attendees and the Saucy Team, as well as meet our sponsors.",
+    "date": "Monday, November 7",
+    "start_time": "6:00 PM",
+    "end_time": "9:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "",
+    "order_index": 10,
+    "startDate": "2016-11-07T23:00:00.000Z",
+    "endDate": "2016-11-08T02:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee3b2331e29",
+    "type": "break",
+    "title": "Registration/Hospitality Desk Open",
+    "description": "",
+    "date": "Tuesday, November 8",
+    "start_time": "7:00 AM",
+    "end_time": "6:00 PM",
+    "location": {
+        "id": 10,
+        "name": "Registration Desks between Ironwood & Juniper Ballrooms"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 12,
+    "startDate": "2016-11-08T12:00:00.000Z",
+    "endDate": "2016-11-08T23:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee3b237afcb",
+    "type": "break",
+    "title": "Breakfast",
+    "description": "",
+    "date": "Tuesday, November 8",
+    "start_time": "7:00 AM",
+    "end_time": "9:00 AM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 13,
+    "startDate": "2016-11-08T12:00:00.000Z",
+    "endDate": "2016-11-08T14:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee3b2358285",
+    "type": "activity",
+    "title": "Community Pavilion",
+    "description": "Make the Community Pavilion your home base for SaucyCon. Visit our sponsors, exchange ideas with fellow attendees, recharge yourself and your equipment, and put your skills to the test at corn hole, ping pong, and foosball.",
+    "date": "Tuesday, November 8",
+    "start_time": "7:00 AM",
+    "end_time": "9:00 AM",
+    "location": {
+        "id": 11,
+        "name": "Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 14,
+    "startDate": "2016-11-08T12:00:00.000Z",
+    "endDate": "2016-11-08T14:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57fb1aa3e0b32",
+    "type": "activity",
+    "title": "Saucy Zone",
+    "description": "Get direct access to the Saucy Team to discuss your questions and the talk about the latest product info. You can also pick up a preview copy of a brand new Saucy book written by our partner and sponsor RootBridge Software.",
+    "date": "Tuesday, November 8",
+    "start_time": "8:00 AM",
+    "end_time": "9:00 AM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 15,
+    "startDate": "2016-11-08T13:00:00.000Z",
+    "endDate": "2016-11-08T14:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee3b239aa2d",
+    "type": "session",
+    "title": "Keynote",
+    "description": "",
+    "date": "Tuesday, November 8",
+    "start_time": "9:00 AM",
+    "end_time": "11:30 AM",
+    "location": {
+        "id": 12,
+        "name": "Juniper 1-3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 16,
+    "startDate": "2016-11-08T14:00:00.000Z",
+    "endDate": "2016-11-08T16:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Benjamin Banks, Laura Russell, Pat Castillo, and Norma Flores"
+  },
+  {
+    "id": "57fed8d31c605",
+    "type": "activity",
+    "title": "Community Pavilion",
+    "description": "Make the Community Pavilion your home base for SaucyCon. Visit our sponsors, exchange ideas with fellow attendees, recharge yourself and your equipment, and put your skills to the test at corn hole, ping pong, and foosball.",
+    "date": "Tuesday, November 8",
+    "start_time": "11:30 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 11,
+        "name": "Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 17,
+    "startDate": "2016-11-08T16:30:00.000Z",
+    "endDate": "2016-11-08T22:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57fb1aa3c0c00",
+    "type": "activity",
+    "title": "Ask Saucy",
+    "description": "Get a private 30-minute technical consultation with a Saucy expert. You can use this time for a simple code review, guidance on application architecture and layout, or assistance with custom components. By appointment; space is limited.",
+    "date": "Tuesday, November 8",
+    "start_time": "11:30 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 18,
+    "startDate": "2016-11-08T16:30:00.000Z",
+    "endDate": "2016-11-08T22:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57fed8d3a5ce9",
+    "type": "activity",
+    "title": "Saucy Zone",
+    "description": "Get direct access to the Saucy Team to discuss your questions and the talk about the latest product info. You can also pick up a preview copy of a brand new Saucy book written by our partner and sponsor RootBridge Software.",
+    "date": "Tuesday, November 8",
+    "start_time": "11:30 AM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 19,
+    "startDate": "2016-11-08T16:30:00.000Z",
+    "endDate": "2016-11-08T22:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee3b23c204f",
+    "type": "break",
+    "title": "Lunch",
+    "description": "",
+    "date": "Tuesday, November 8",
+    "start_time": "11:30 AM",
+    "end_time": "12:30 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 20,
+    "startDate": "2016-11-08T16:30:00.000Z",
+    "endDate": "2016-11-08T17:30:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "58101aa20d75a",
+    "type": "activity",
+    "title": "Women Coders Lunch",
+    "description": "This is a networking lunch for women who are attending SaucyCon. Join us for lunch on Tuesday to connect with other women in tech. We'll have a lively discussion and some fun too!",
+    "date": "Tuesday, November 8",
+    "start_time": "11:30 AM",
+    "end_time": "12:30 PM",
+    "location": {
+        "id": 13,
+        "name": "Ironwood 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 21,
+    "startDate": "2016-11-08T16:30:00.000Z",
+    "endDate": "2016-11-08T17:30:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b77ab44ab51",
+    "type": "session",
+    "title": "Modernizing the Saucy Class System",
+    "description": "JavaScript is advancing and ES2015 (formerly ES6) is the foundation of its future. Saucy is committed to delivering cutting-edge technology for your applications, and supporting the evolution of JavaScript is a central part of that commitment. The expansive feature set of ES2015 formally enables coding paradigms: modules to better organize your code, classes to cleanly declare reusable units of functionality, and so much more. In this session, you'll see how Saucy is embracing these new language and toolset features, and how they will expand your development horizons.",
+    "date": "Tuesday, November 8",
+    "start_time": "12:30 PM",
+    "end_time": "1:20 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 22,
+    "startDate": "2016-11-08T17:30:00.000Z",
+    "endDate": "2016-11-08T18:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Betty Hamilton"
+  },
+  {
+    "id": "57b77bd849b6b",
+    "type": "session",
+    "title": "The Changing Landscape of JavaScript Unit Testing",
+    "description": "Testing JavaScript applications can be difficult. In addition to testing application functionality, testers need to worry about browser compatibility, how to define tests, the environment under which tests will be run, integration into automation platforms, and the workflow of developers and testers. This presentation will discuss how Saucy Test provides development teams with a testing platform that addresses these challenges while minimizing the effort required to deploy and use testing tools--meaning that your team can focus on delivering awesome user experiences rather than fighting with their testing infrastructure.",
+    "date": "Tuesday, November 8",
+    "start_time": "12:30 PM",
+    "end_time": "1:20 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 23,
+    "startDate": "2016-11-08T17:30:00.000Z",
+    "endDate": "2016-11-08T18:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Shawn Greene"
+  },
+  {
+    "id": "57d7701932d5f",
+    "type": "session",
+    "title": "Creating a Flexible and Usable Industry-Specific Solution",
+    "description": "Come hear how we used agile development and Saucy tools to meet our design requirements, to create a system that is highly configurable, flexible, and exceeds the expectations of our customers. Learn how to use an adaptive/responsive design to be able to support two very different types of users, with a single application, and using the same set of libraries.",
+    "date": "Tuesday, November 8",
+    "start_time": "12:30 PM",
+    "end_time": "1:20 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 24,
+    "startDate": "2016-11-08T17:30:00.000Z",
+    "endDate": "2016-11-08T18:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Billy Powell"
+  },
+  {
+    "id": "57db02eb633b0",
+    "type": "session",
+    "title": "Saucy 5 - Bolder, Better, Faster, Stronger",
+    "description": "Saucy 5 is a bold new release designed from the ground up to usher in the future of web development. It’s better because it offers responsive design, true mobile widgets, material design, and a radical new theming system. We’ve gone to the metal to make it faster by using CSS3, HTML5, and lightweight DOM access.",
+    "date": "Tuesday, November 8",
+    "start_time": "12:30 PM",
+    "end_time": "1:20 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 25,
+    "startDate": "2016-11-08T17:30:00.000Z",
+    "endDate": "2016-11-08T18:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Judith Riley"
+  },
+  {
+    "id": "57b779ba882ce",
+    "type": "session",
+    "title": "The Saucy Grid",
+    "description": "The Saucy Grid has been a powerhouse for years, used by thousands of enterprises to deliver robust, data-rich applications to the web. The latest version leverages the full power of HTML5 and CSS3 to provide an extremely flexible and efficient grid for the modern era. In this session, we'll explore some of the key architectural advantages.",
+    "date": "Tuesday, November 8",
+    "start_time": "1:30 PM",
+    "end_time": "2:20 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 26,
+    "startDate": "2016-11-08T18:30:00.000Z",
+    "endDate": "2016-11-08T19:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "James Roberts"
+  },
+  {
+    "id": "57b77c1067ce8",
+    "type": "session",
+    "title": "Theming Made Easy for Your Saucy Apps",
+    "description": "Theme faster than ever before, and now with a click of a button. This presentation will discuss new tools and quick-theming technologies that enable development teams to easily create beautiful, consistently-branded user experiences.",
+    "date": "Tuesday, November 8",
+    "start_time": "1:30 PM",
+    "end_time": "2:20 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 27,
+    "startDate": "2016-11-08T18:30:00.000Z",
+    "endDate": "2016-11-08T19:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Stephanie Gomez"
+  },
+  {
+    "id": "57b78648cc3d2",
+    "type": "session",
+    "title": "How Saucy Test Helps Automate Functional Testing",
+    "description": "Have you ever wondered which tool or technique you should choose to automate functional testing of your JavaScript applications? Are you looking for a reliable way to track and gather reports from testing on all sorts of web browsers and mobile devices? We will share our experience, and explain and demonstrate how Saucy Test helped us to automate and track verification of modern applications and their various components on multiple web browsers and devices.",
+    "date": "Tuesday, November 8",
+    "start_time": "1:30 PM",
+    "end_time": "2:20 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 28,
+    "startDate": "2016-11-08T18:30:00.000Z",
+    "endDate": "2016-11-08T19:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Diana Woods, and Stephen Morris"
+  },
+  {
+    "id": "57c49562bd1ba",
+    "type": "session",
+    "title": "Designing Responsive Layouts with Saucy 5",
+    "description": "With Saucy 5, we’re adding a responsive grid system to support responsive design across all mobile devices. In this session, we’ll show you how you can declare your responsive layouts. We’ll also show you how we’ve made Saucy 5 more performant across all devices by replacing the programmatic styling and sizing with fully responsive CSS.",
+    "date": "Tuesday, November 8",
+    "start_time": "1:30 PM",
+    "end_time": "2:20 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 29,
+    "startDate": "2016-11-08T18:30:00.000Z",
+    "endDate": "2016-11-08T19:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Donald Rodriguez"
+  },
+  {
+    "id": "57b7809d858cc",
+    "type": "session",
+    "title": "Refine Enterprise Applications by Focusing on User Experience",
+    "description": "When looking at large scale and data heavy enterprise applications, we often notice a lack of user experience (UX) design. People today are spoiled with user friendly and modern applications to aid them in their daily tasks for everything from shopping to social networking to ordering a cab; however, they don’t get the same user friendly experience in their work applications. Saucy is a superb framework for developing data heavy applications, and it provides a large set of user friendly and customizable components to manage and visualize enterprise data. We will look at real-world examples of custom Saucy components that are built to provide a great user experience, but also with code maintenance and refactoring in mind.",
+    "date": "Tuesday, November 8",
+    "start_time": "2:30 PM",
+    "end_time": "3:20 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 30,
+    "startDate": "2016-11-08T19:30:00.000Z",
+    "endDate": "2016-11-08T20:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Philip Evans"
+  },
+  {
+    "id": "57bf72af21619",
+    "type": "session",
+    "title": "Saucy 5 - Going Crazy for Modern Theming",
+    "description": "Our all-new theming system lets you take full advantage of modern web standards, including CSS3 to achieve a variety of sophisticated rendering techniques. Developers, graphic designers, and usability experts alike can modify a theme because there are no special tools required. Everything is centralized, and you can preview changes in an instant. Let us show you why theming with Saucy has never been easier — or more powerful!",
+    "date": "Tuesday, November 8",
+    "start_time": "2:30 PM",
+    "end_time": "3:20 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 31,
+    "startDate": "2016-11-08T19:30:00.000Z",
+    "endDate": "2016-11-08T20:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ec0b3ceecce",
+    "type": "session",
+    "title": "The Modern Toolchain",
+    "description": "JavaScript not only powers the web but now servers, desktop applications, and all the tooling that brings them to life. In this session, we'll look at the future of tools for Saucy. Building off the power of NPM, this future is open and extensible for JavaScript developers. Tools are the backbone of every application, so come to this session to stay ahead of the curve!",
+    "date": "Tuesday, November 8",
+    "start_time": "2:30 PM",
+    "end_time": "3:20 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 32,
+    "startDate": "2016-11-08T19:30:00.000Z",
+    "endDate": "2016-11-08T20:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Maria Bailey"
+  },
+  {
+    "id": "580e95c2da3eb",
+    "type": "session",
+    "title": "Saucy Test Above and Beyond",
+    "description": "Success in test automation goes much further than being able to run tests in your local browsers. In this session, we’ll discuss how Saucy Test can help you to implement strategies for team collaboration, continuous integration, back-end interaction, legacy test code reuse, result review workflow, cloud-based browser farms, image comparison, and more.",
+    "date": "Tuesday, November 8",
+    "start_time": "2:30 PM",
+    "end_time": "3:20 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 33,
+    "startDate": "2016-11-08T19:30:00.000Z",
+    "endDate": "2016-11-08T20:20:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Diane Moore"
+  },
+  {
+    "id": "57f7d3681ad54",
+    "type": "break",
+    "title": "Break",
+    "description": "",
+    "date": "Tuesday, November 8",
+    "start_time": "3:20 PM",
+    "end_time": "3:40 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 34,
+    "startDate": "2016-11-08T20:20:00.000Z",
+    "endDate": "2016-11-08T20:40:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b786490433b",
+    "type": "session",
+    "title": "Developing and Delivering Quality Code Frequently",
+    "description": "The use of automated tests, continuous integration (CI) and open source tools such as Jenkins, git, Selenium, Appium, and test frameworks, over the use of proprietary tools have become keys to success for delivering quality code, ensuring a pipeline is clean, and to implement true CD. We will offer best practices for leveraging modern technologies to develop, test and deliver maintainable, quality code. You will learn the advantages of testing software early and frequently, best practices to leverage modern technologies for test automation and CI, how to avoid shipping bad code, and how to create maintainable code while keeping it “non-legacy”. You will also learn the how and why of creating a robust developer feedback mechanism for sustained success.",
+    "date": "Tuesday, November 8",
+    "start_time": "3:40 PM",
+    "end_time": "4:30 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 35,
+    "startDate": "2016-11-08T20:40:00.000Z",
+    "endDate": "2016-11-08T21:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Rose Cooper"
+  },
+  {
+    "id": "57e969e7e6712",
+    "type": "session",
+    "title": "Theming the Modern Toolkit",
+    "description": "Saucy makes theming and styling your applications easier than ever before.  Learn how to use the new iOS and Material themes, and how to leverage the Saucy theming APIs to make your application look amazing on any device.",
+    "date": "Tuesday, November 8",
+    "start_time": "3:40 PM",
+    "end_time": "4:30 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 36,
+    "startDate": "2016-11-08T20:40:00.000Z",
+    "endDate": "2016-11-08T21:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Norma Olson"
+  },
+  {
+    "id": "580ffe6283141",
+    "type": "session",
+    "title": "Design Methods for Better Product Development",
+    "description": "Stop developing in the dark. Use design-thinking methods to illuminate the path to better products. Whether you’re on a team that works closely with designers or you work alone, using a design-first approach can help you save time and resources in your development process. As more companies take a design-focused approach to product development, it’s helpful for people in all parts of an organization to become familiar with design. In this session, we’ll discuss basic design principles including design thinking, user experience, visual design, designer-developer communication, and design critique.",
+    "date": "Tuesday, November 8",
+    "start_time": "3:40 PM",
+    "end_time": "4:30 PM",
+    "location": {
+        "id": 15,
+        "name": "Stavine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 37,
+    "startDate": "2016-11-08T20:40:00.000Z",
+    "endDate": "2016-11-08T21:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57f29732a2fed",
+    "type": "session",
+    "title": "Forms Modernization: Automatically Converting Your Forms to Saucy Apps",
+    "description": "Is your organization stuck on legacy Forms technology? The time and cost of migration is only part of the risk associated with converting old logic, then you have to think about UI/UX and mobile platforms. In this session, you'll learn how we automatically convert Forms into Saucy based web and mobile applications, how the architecture can be maintained into the future, and how to approach projects so you can rapidly deliver value to your organization and users.",
+    "date": "Tuesday, November 8",
+    "start_time": "3:40 PM",
+    "end_time": "4:30 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 38,
+    "startDate": "2016-11-08T20:40:00.000Z",
+    "endDate": "2016-11-08T21:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Raymond Kelley"
+  },
+  {
+    "id": "57b77cf83cd99",
+    "type": "session",
+    "title": "Mobile First? Desktop First? Or Should You Think Universal App!",
+    "description": "Developers are building mobile first, and then making progressive enhancements, so the app is available on desktop. Should you be taking either a mobile or desktop first approach, or thinking about Universal Apps to deliver the right user experiences. This approach maximizes the shareability of code across these experiences. In this presentation, we’ll explore case studies that show the benefits of each approach.",
+    "date": "Tuesday, November 8",
+    "start_time": "4:40 PM",
+    "end_time": "5:30 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 39,
+    "startDate": "2016-11-08T21:40:00.000Z",
+    "endDate": "2016-11-08T22:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b7843a02b51",
+    "type": "session",
+    "title": "JavaScript is Great but Stop Writing It",
+    "description": "JavaScript is a wonderful and powerful language allowing expression and dynamic interaction both in and out of the browser. It is one of the most pervasive and accessible languages to date. However, there is a dark side to JavaScript. Developers don't always understand JavaScript/HTML/CSS, so they frequently end up solving problems by coding away in JavaScript when they could, and potentially should, be solved elsewhere. As an unfortunate side effect to this issue, unfamiliarity with the language causes developers to write a lot of code which can have mistakes and be difficult to read and understand. This talk is not about never writing JavaScript. It is about writing JavaScript when you actually need to and in a minimal fashion.",
+    "date": "Tuesday, November 8",
+    "start_time": "4:40 PM",
+    "end_time": "5:30 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 40,
+    "startDate": "2016-11-08T21:40:00.000Z",
+    "endDate": "2016-11-08T22:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Ronald Richardson"
+  },
+  {
+    "id": "57e967cb7a729",
+    "type": "session",
+    "title": "Advanced Techniques for Building Native Desktop Apps with Saucy",
+    "description": "By combining the cores of Chrome and Node.js, Electron opens the escape hatch on the itty-bitty living space of the web browser and gives your Saucy application many of the phenomenal cosmic powers of native applications. In this session, you'll learn some of the key techniques Saucy has used to build native desktop applications, based on Electron​​.​​ If native desktop apps are tempting you, and you want to leverage your HTML5/CSS3 expertise, you don't want to miss this session!",
+    "date": "Tuesday, November 8",
+    "start_time": "4:40 PM",
+    "end_time": "5:30 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 41,
+    "startDate": "2016-11-08T21:40:00.000Z",
+    "endDate": "2016-11-08T22:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Cheryl Peterson"
+  },
+  {
+    "id": "57f3e44e8eebb",
+    "type": "session",
+    "title": "Writing Functional Tests with Saucy Test Futures API and WebDriver",
+    "description": "The Futures API helps target Saucy components and elements directly and allows for easily writing tests, which wait for application elements to reach certain states. It eliminates the need for writing multiple lines of code to test a feature. Integration with WebDriver in Saucy Test adds new features as well as extends some old features to support this new architecture. Come walk through the changes, learn how to deal with typical multi-page test cases, as well as dive into the details of our integration with WebDriver.",
+    "date": "Tuesday, November 8",
+    "start_time": "4:40 PM",
+    "end_time": "5:30 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 42,
+    "startDate": "2016-11-08T21:40:00.000Z",
+    "endDate": "2016-11-08T22:30:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Frances Cox"
+  },
+  {
+    "id": "57ee3b2478845",
+    "type": "activity",
+    "title": "SaucyCon Party",
+    "description": "We’ve got a fun-filled SaucyCon pool party planned for you. Join us for an evening of great food, drinks, and entertainment. You can challenge your fellow attendees with a game of darts, foosball, or a remote controlled speedboat race. You can also enjoy a freshly blended margarita, powered by the sweat of your own brow, with our margarita bike. It’s a fun-filled night you won’t want to miss.",
+    "date": "Tuesday, November 8",
+    "start_time": "6:30 PM",
+    "end_time": "10:00 PM",
+    "location": {
+        "id": 16,
+        "name": "Palms Pool at the Aria Resort & Casino"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 43,
+    "startDate": "2016-11-08T23:30:00.000Z",
+    "endDate": "2016-11-09T03:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee9f637a9b6",
+    "type": "break",
+    "title": "Registration/Hospitality Desk Open",
+    "description": "",
+    "date": "Wednesday, November 9",
+    "start_time": "7:00 AM",
+    "end_time": "6:00 PM",
+    "location": {
+        "id": 10,
+        "name": "Registration Desks between Ironwood & Juniper Ballrooms"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 45,
+    "startDate": "2016-11-09T12:00:00.000Z",
+    "endDate": "2016-11-09T23:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee9f6402af5",
+    "type": "break",
+    "title": "Breakfast",
+    "description": "",
+    "date": "Wednesday, November 9",
+    "start_time": "7:00 AM",
+    "end_time": "9:00 AM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 46,
+    "startDate": "2016-11-09T12:00:00.000Z",
+    "endDate": "2016-11-09T14:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee9f63b7a1b",
+    "type": "activity",
+    "title": "Community Pavilion",
+    "description": "Make the Community Pavilion your home base for SaucyCon. Visit our sponsors, exchange ideas with fellow attendees, recharge yourself and your equipment, and put your skills to the test at corn hole, ping pong, and foosball.",
+    "date": "Wednesday, November 9",
+    "start_time": "7:00 AM",
+    "end_time": "1:00 PM",
+    "location": {
+        "id": 11,
+        "name": "Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 47,
+    "startDate": "2016-11-09T12:00:00.000Z",
+    "endDate": "2016-11-09T18:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57fb177e6e994",
+    "type": "activity",
+    "title": "Ask Saucy",
+    "description": "Get a private 30-minute technical consultation with a Saucy expert. You can use this time for a simple code review, guidance on application architecture and layout, or assistance with custom components. By appointment; space is limited.",
+    "date": "Wednesday, November 9",
+    "start_time": "8:00 AM",
+    "end_time": "1:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 48,
+    "startDate": "2016-11-09T13:00:00.000Z",
+    "endDate": "2016-11-09T18:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57fb177ec25ac",
+    "type": "activity",
+    "title": "Saucy Zone",
+    "description": "Get direct access to the Saucy Team to discuss your questions and the talk about the latest product info. You can also pick up a preview copy of a brand new Saucy book written by our partner and sponsor RootBridge Software.",
+    "date": "Wednesday, November 9",
+    "start_time": "8:00 AM",
+    "end_time": "1:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 49,
+    "startDate": "2016-11-09T13:00:00.000Z",
+    "endDate": "2016-11-09T18:00:00.000Z",
+    "categoryName": "Activity",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b77f834cd1c",
+    "type": "session",
+    "title": "Web Development at the Speed of Thought: Succeeding in the App Economy",
+    "description": "The Agile development has brought down the software delivery timelines from what used to be 12 to 18 months to a mere 2 to 4 months cycle. According to Forrester, software development is reaching a zero day event as feedback driven development is taking over requirements driven development. Because of this change, organizations need tools to optimize on the frequency of software delivery. In this presentation, we’ll explore unique ways to improve speed of app development using Saucy’s tools for visual drag-and-drop based app building and theming.",
+    "date": "Wednesday, November 9",
+    "start_time": "9:00 AM",
+    "end_time": "9:50 AM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 50,
+    "startDate": "2016-11-09T14:00:00.000Z",
+    "endDate": "2016-11-09T14:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Howard Stevens"
+  },
+  {
+    "id": "57b7843a58535",
+    "type": "session",
+    "title": "Expect the Unexpected: How to Deal with Errors in Sencha Applications",
+    "description": "Dealing with unexpected exceptions on the server side is something we've all done for ages. Now it's time to apply the same quality goals and monitoring to our JS codebase. This is especially important for Sencha applications where the front-end usually contains 100k+ lines of code. I'll demonstrate various powerful monitoring techniques and tricks that we are using ourselves at Bryntum.",
+    "date": "Wednesday, November 9",
+    "start_time": "9:00 AM",
+    "end_time": "9:50 AM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 51,
+    "startDate": "2016-11-09T14:00:00.000Z",
+    "endDate": "2016-11-09T14:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Harry Tucker"
+  },
+  {
+    "id": "57b7850891753",
+    "type": "session",
+    "title": "A Data-driven Saucy Application for the Embedded World",
+    "description": "We selected Saucy, not only for its wide range of enterprise-grade components and better time-to-market, but also its sustainability and stability. We will present in detail a real-time and data-centric application designed to help people manage large facilities, buildings, and homes in a smart way. It notably features D3.js dashboards, user-friendly device mapping, and automatic alerts on suspicious power consumptions.",
+    "date": "Wednesday, November 9",
+    "start_time": "9:00 AM",
+    "end_time": "9:50 AM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 52,
+    "startDate": "2016-11-09T14:00:00.000Z",
+    "endDate": "2016-11-09T14:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Nicholas Fisher"
+  },
+  {
+    "id": "57b78508e6f4b",
+    "type": "session",
+    "title": "Turbocharge Your Saucy App Performance",
+    "description": "Web applications are becoming increasingly data intensive and complex. Yet, users demand a great user experience, including blazingly fast speeds, across many device types. In this talk, we will show you how you can dramatically improve the performance of your web applications by using Saucy.",
+    "date": "Wednesday, November 9",
+    "start_time": "9:00 AM",
+    "end_time": "9:50 AM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 53,
+    "startDate": "2016-11-09T14:00:00.000Z",
+    "endDate": "2016-11-09T14:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Gary Reid, and Amy Davis"
+  },
+  {
+    "id": "5807f0f50cd0c",
+    "type": "session",
+    "title": "Saucy Architecture Best Practices",
+    "description": "Starting your application on the right foot is important. You’re probably excited to start coding, but it’s important to think about the architecture you’ll need. In this session, we’ll cover architectural best practices including how to start architecting your application and using the Saucy router to your advantage.",
+    "date": "Wednesday, November 9",
+    "start_time": "9:00 AM",
+    "end_time": "9:50 AM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 54,
+    "startDate": "2016-11-09T14:00:00.000Z",
+    "endDate": "2016-11-09T14:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Howard Hawkins"
+  },
+  {
+    "id": "57f6ddc729999",
+    "type": "break",
+    "title": "Break",
+    "description": "",
+    "date": "Wednesday, November 9",
+    "start_time": "9:50 AM",
+    "end_time": "10:10 AM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 55,
+    "startDate": "2016-11-09T14:50:00.000Z",
+    "endDate": "2016-11-09T15:10:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b77bd861eba",
+    "type": "session",
+    "title": "Add Magic to Your Saucy Apps with D3 Visualizations",
+    "description": "Saucy provides easy-to-use charting components that satisfy common needs, but sometimes you want to deliver an exceptional, unique user experience. This presentation will discuss how Saucy leverages the popular and extremely powerful D3 library to create sophisticated, data-driven visualizations. This functionality helps your users understand the story behind their data, so they can make informed decisions.",
+    "date": "Wednesday, November 9",
+    "start_time": "10:10 AM",
+    "end_time": "11:00 AM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 56,
+    "startDate": "2016-11-09T15:10:00.000Z",
+    "endDate": "2016-11-09T16:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b7809da3955",
+    "type": "session",
+    "title": "Building Enterprise Saucy Apps",
+    "description": "Our solution combines the best of both worlds: we use Saucy for its JavaScript and Sass build expertise; while Mouven manages artifacts, dependencies, and integration with other tools like compilers. In this session, we'll show you how our plugin offers the deepest integration of Saucy into your Mouven build process available today and takes modular Saucy development to the next level.",
+    "date": "Wednesday, November 9",
+    "start_time": "10:10 AM",
+    "end_time": "11:00 AM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 57,
+    "startDate": "2016-11-09T15:10:00.000Z",
+    "endDate": "2016-11-09T16:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Theresa Reyes"
+  },
+  {
+    "id": "57b7834ba1bf9",
+    "type": "session",
+    "title": "Develop, Test, and Deploy Your Saucy Applications with Stocker",
+    "description": "Do you work on a team where you are forced to use a specific operating system, a specific program or even a specific toolchain to work on your project, just because it depends on a specific environment? Imagine running your toolchain, Saucy application, back-end server, and even your database - all in a standardized format that can be transported and reused, throughout your process. In this session, you will learn how to automate a typical workflow, including developing, testing, and deploying, by using Stocker and common continuous integration solutions.",
+    "date": "Wednesday, November 9",
+    "start_time": "10:10 AM",
+    "end_time": "11:00 AM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 58,
+    "startDate": "2016-11-09T15:10:00.000Z",
+    "endDate": "2016-11-09T16:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Ronald Wallace"
+  },
+  {
+    "id": "57d9ba88de4c9",
+    "type": "session",
+    "title": "Cross-Platform Mobile App Development",
+    "description": "The promise of hybrid mobile app development is quite alluring. As a web developer, you use your Saucy dev skills to build cross-platform mobile applications for iOS/Android/Windows with a single code base. Join us to see how to build enterprise cross-platform mobile apps using Saucy and other products, and leverage device capabilities.",
+    "date": "Wednesday, November 9",
+    "start_time": "10:10 AM",
+    "end_time": "11:00 AM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 59,
+    "startDate": "2016-11-09T15:10:00.000Z",
+    "endDate": "2016-11-09T16:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Scott Long"
+  },
+  {
+    "id": "57ec58e69417a",
+    "type": "session",
+    "title": "Accessibility, Teamwork, and Saucy: A Customer Success Story",
+    "description": "Demand for accessible applications is on the rise, and many enterprise software developers are faced with the need to meet accessibility requirements in their products. To address this daunting problem, we collaborated with Saucy to make its framework more accessible and share the benefits. In this session, we'll detail the steps we took and the spectacular results we achieved.",
+    "date": "Wednesday, November 9",
+    "start_time": "10:10 AM",
+    "end_time": "11:00 AM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 60,
+    "startDate": "2016-11-09T15:10:00.000Z",
+    "endDate": "2016-11-09T16:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Philip Harper, and Harry Patterson"
+  },
+  {
+    "id": "57b7809dc2edf",
+    "type": "session",
+    "title": "Handle Real World Data with Confidence",
+    "description": "In a dream world, any Web developer would also be in charge of designing the way data is loaded and saved to the servers. Luckily, Saucy has a pretty impressive data package that helps us with this task. To connect real model data to a view model, mess around with it, validate it, and then save it back to the server is crucial for any modern application. I will help you understand how some of the key features of the Saucy classes work together to handle many of the real world challenges.",
+    "date": "Wednesday, November 9",
+    "start_time": "11:10 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 61,
+    "startDate": "2016-11-09T16:10:00.000Z",
+    "endDate": "2016-11-09T17:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Peter Berry"
+  },
+  {
+    "id": "57b78439cba52",
+    "type": "session",
+    "title": "Integrating Geospatial Maps and Big Data",
+    "description": "Come explore new components that will allow you, as developers, to visualize and interact with geospatial data in real time. We will show you how easy it is to enable visualizations and explore large location datasets at unprecedented scale. Come learn how to use these new open source components to build interactive geospatial visualizations that deliver solutions, value, and insights to your customers.",
+    "date": "Wednesday, November 9",
+    "start_time": "11:10 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 62,
+    "startDate": "2016-11-09T16:10:00.000Z",
+    "endDate": "2016-11-09T17:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Peter Gray"
+  },
+  {
+    "id": "57b7864933d05",
+    "type": "session",
+    "title": "How to Give Your Saucy App Real-time Web Performance",
+    "description": "Does your Saucy app use server polling to retrieve data updates? Wouldn’t your users prefer to receive data updates in real-time? Come to this session to learn about the options for giving your Saucy app real-time web performance.",
+    "date": "Wednesday, November 9",
+    "start_time": "11:10 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 63,
+    "startDate": "2016-11-09T16:10:00.000Z",
+    "endDate": "2016-11-09T17:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Doris Gutierrez"
+  },
+  {
+    "id": "57d97722ec691",
+    "type": "session",
+    "title": "Saucy and React",
+    "description": "Learn about the new bridge we’ve created that enables you to use the Saucy components in your React based apps. We’ve integrated the frameworks, so you can manage data and respond to events using React while rendering UI controls using Saucy with React's tag-based JSX syntax. Come to this session to learn how to build a data-intensive, cross-platform app with Saucy and React.",
+    "date": "Wednesday, November 9",
+    "start_time": "11:10 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 64,
+    "startDate": "2016-11-09T16:10:00.000Z",
+    "endDate": "2016-11-09T17:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57dae3f35548f",
+    "type": "session",
+    "title": "Enterprise Applications and Client Customizations",
+    "description": "This session will cover a real-world example of an enterprise application that supports client customizations. We'll show how we built the application using Saucy. We'll include a detailed working example of how we solved our problem, some of the challenges we faced, and our approach. We'll talk about the new features we used, examples of custom components, and how to use a designer on your project.",
+    "date": "Wednesday, November 9",
+    "start_time": "11:10 AM",
+    "end_time": "12:00 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 65,
+    "startDate": "2016-11-09T16:10:00.000Z",
+    "endDate": "2016-11-09T17:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57ee9f66ec91a",
+    "type": "break",
+    "title": "Lunch",
+    "description": "",
+    "date": "Wednesday, November 9",
+    "start_time": "12:00 PM",
+    "end_time": "1:00 PM",
+    "location": {
+        "id": 9,
+        "name": "Community Pavilion, Ironwood Ballroom, Level 3"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 66,
+    "startDate": "2016-11-09T17:00:00.000Z",
+    "endDate": "2016-11-09T18:00:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57b7843a2d59a",
+    "type": "session",
+    "title": "Developing Mobile Apps using Saucy",
+    "description": "This session will cover why we selected Saucy. It has significantly reduced our development time and application performance is optimal. We will also discuss the challenges we encountered. We'll show you how we used the Saucy components to display data on mobile devices.",
+    "date": "Wednesday, November 9",
+    "start_time": "1:00 PM",
+    "end_time": "1:50 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 67,
+    "startDate": "2016-11-09T18:00:00.000Z",
+    "endDate": "2016-11-09T18:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Jose Washington"
+  },
+  {
+    "id": "57b7834b7b59c",
+    "type": "session",
+    "title": "Building Saucy using LOVEOAS",
+    "description": "Newer REST-based APIs are starting to use LOVEOAS. We've integrated a LOVEOAS layer in the Saucy framework and into the Saucy model and store system. We will be showing the techniques we used to accomplish this in a way that keeps the Saucy model and store usage the same as the standard mechanism.",
+    "date": "Wednesday, November 9",
+    "start_time": "1:00 PM",
+    "end_time": "1:50 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 68,
+    "startDate": "2016-11-09T18:00:00.000Z",
+    "endDate": "2016-11-09T18:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Deborah Jackson"
+  },
+  {
+    "id": "57b78648a1663",
+    "type": "session",
+    "title": "Using Saucy for Cross-platform Development on Mobile",
+    "description": "I will share my experience of using Saucy for cross-platform app development on mobile and desktop devices. Using examples from recent projects, I will provide tips for those who aren't yet familiar or experienced with mobile development. By the end of the session, you will know how to think like a mobile developer, develop apps with mobile user experience in mind, and manage data on devices with limited resources.",
+    "date": "Wednesday, November 9",
+    "start_time": "1:00 PM",
+    "end_time": "1:50 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 69,
+    "startDate": "2016-11-09T18:00:00.000Z",
+    "endDate": "2016-11-09T18:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": [
+      {
+      "id": 158,
+      "name": "Alice Simmons"
+      }
+    ],
+    "speakerNames": "Alice Simmons"
+    },
+    {
+    "id": "57bf73a21855c",
+    "type": "session",
+    "title": "Improve Workflow-Driven Applications with Saucy Draw Package",
+    "description": "It can be difficult for users to understand and modify workflow procedures in their applications. The job lifecycle of workflow-driven applications may change based on some specific procedures. We know that people can memorize images, shapes, and colors more easily than raw data. Using Saucy Draw package, we created a dynamic, easy to use, workflow diagram modeler. We delivered a distinct solution that overcomes the challenges our users encountered. With our modeler, users can drag and drop, resize, label, and connect workflow steps with minimal effort. This ensures that users can visualize and design workflows in a more natural and innovative way.",
+    "date": "Wednesday, November 9",
+    "start_time": "1:00 PM",
+    "end_time": "1:50 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 70,
+    "startDate": "2016-11-09T18:00:00.000Z",
+    "endDate": "2016-11-09T18:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Bonnie Sanders"
+  },
+  {
+    "id": "57d86e7fdd0d2",
+    "type": "session",
+    "title": "Want to Use Saucy Components with Pointy 2? Here’s How to Increase the Power of Your Apps!",
+    "description": "Have you ever wished you could use Saucy's powerful components in your Pointy 2 apps? Now you can. Learn about the new bridge we’ve created that enables you to use the Saucy components in your Pointy 2 based apps. We’ve integrated the frameworks, so Saucy components recognize the Pointy 2 directives and appropriately respond to events. If you’re a Pointy 2 user, there is no reason why you can’t use it to assemble the basic building blocks of an app and then add the powerful Saucy components to complete your data-centric, cross-platform applications.",
+    "date": "Wednesday, November 9",
+    "start_time": "1:00 PM",
+    "end_time": "1:50 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 71,
+    "startDate": "2016-11-09T18:00:00.000Z",
+    "endDate": "2016-11-09T18:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57e97e844e3ba",
+    "type": "session",
+    "title": "Building a Faceted Catalog of Video Game Assets",
+    "description": "We've created a platform for product assets, footage, and animations across the entire company. Ease of search and good UX were incredibly important for our team. This is where the Web and a powerful JavaScript framework came in; we chose Saucy for its robustness and scalability. In this session, we'll showcase two different applications and dive into the technical aspects of designing the UI for a faceted search system.",
+    "date": "Wednesday, November 9",
+    "start_time": "2:00 PM",
+    "end_time": "2:50 PM",
+    "location": {
+        "id": 8,
+        "name": "Juniper 4"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 72,
+    "startDate": "2016-11-09T19:00:00.000Z",
+    "endDate": "2016-11-09T19:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Brian Armstrong, and Betty Murphy"
+  },
+  {
+    "id": "57e993a8931fe",
+    "type": "session",
+    "title": "Using Saucy Components to Turn Big Data into Actionable Intelligence",
+    "description": "The growth of data has rapidly outpaced our ability to draw actionable intelligence from it. Driving business value with big data requires more than just big data technologies. Over the course of its evolution, a vast majority of developers have used Saucy components in their homegrown reporting and analytics solutions. We are now able to handle very large volumes of data in custom analytical applications. In this session, we’ll look at the core components of Saucy that make it a perfect fit for customized big data applications, and showcase an app built using these components that handles millions of records in the browser.",
+    "date": "Wednesday, November 9",
+    "start_time": "2:00 PM",
+    "end_time": "2:50 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 73,
+    "startDate": "2016-11-09T19:00:00.000Z",
+    "endDate": "2016-11-09T19:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Beverly Spencer"
+  },
+  {
+    "id": "57e9bd935d08c",
+    "type": "session",
+    "title": "A Look Ahead: Surveying Next-Gen Modern Browser APIs",
+    "description": "Using modern browsers, developers can now create web apps with capabilities that were only possible in native or hybrid apps. Web apps can now access hardware devices such as microphones, cameras, GPS, accelerometers, VR displays, and many others, without using any plugins. Using Web Bluetooth, web app developers can now communicate with nearly any type of hardware device. In this session, we’ll survey a sample of the W3C standards that give developers access to next-gen capabilities via web apps. Topics will include Service Worker, Push API, WebRTC, Web Bluetooth, Web Crypto, Web Speech, Web Notifications, and others.",
+    "date": "Wednesday, November 9",
+    "start_time": "2:00 PM",
+    "end_time": "2:50 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 74,
+    "startDate": "2016-11-09T19:00:00.000Z",
+    "endDate": "2016-11-09T19:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "5804faf328678",
+    "type": "session",
+    "title": "Modern RESTful API Framework for Building Saucy Applications",
+    "description": "SleetRest is a project that was built as the server-side counterpart to Saucy. In this session, we'll review Saucy protocol support. You'll also see extensions that allow the client to safely query the server for specific data and shape the response. We'll cover advanced features, including security, constraints, and metadata service.",
+    "date": "Wednesday, November 9",
+    "start_time": "2:00 PM",
+    "end_time": "2:50 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 75,
+    "startDate": "2016-11-09T19:00:00.000Z",
+    "endDate": "2016-11-09T19:50:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Jonathan Morgan"
+  },
+  {
+    "id": "57f7d36fe564e",
+    "type": "break",
+    "title": "Break",
+    "description": "",
+    "date": "Wednesday, November 9",
+    "start_time": "2:50 PM",
+    "end_time": "3:10 PM",
+    "location": {
+        "id": 17,
+        "name": "Starvine Foyer"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 76,
+    "startDate": "2016-11-09T19:50:00.000Z",
+    "endDate": "2016-11-09T20:10:00.000Z",
+    "categoryName": "Break",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57e9730f28bfa",
+    "type": "session",
+    "title": "Being Productive with the New Saucy Tools",
+    "description": "Would you like to share code or quickly test some code? Saucy Tools have changed the way we save code in the cloud and share it. In this session, you'll learn about Saucy Tools, new features, and how you can use it to be more productive.",
+    "date": "Wednesday, November 9",
+    "start_time": "3:10 PM",
+    "end_time": "4:00 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 77,
+    "startDate": "2016-11-09T20:10:00.000Z",
+    "endDate": "2016-11-09T21:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  },
+  {
+    "id": "57eaf54a04b4d",
+    "type": "session",
+    "title": "Upgrading Your Saucy Apps",
+    "description": "How can I upgrade my Saucy application without doing a total rewrite? That's just one of the questions we'll answer in this session where we'll demonstrate the optimal way to upgrade a Saucy application. Detailed examples, recommended best practices, and a completely upgraded Saucy application will be demonstrated showing the techniques used to perform the upgrade.",
+    "date": "Wednesday, November 9",
+    "start_time": "3:10 PM",
+    "end_time": "4:00 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 78,
+    "startDate": "2016-11-09T20:10:00.000Z",
+    "endDate": "2016-11-09T21:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Kathy Bryant"
+  },
+  {
+    "id": "57f52245c6c93",
+    "type": "session",
+    "title": "Learn the Top 10 ECMAScript Features",
+    "description": "In this session, we will cover the top 10 new features of ECMAScript, their benefits, and go through code examples of how to use them. We will also talk about ECMAScript compatibilities and incompatibilities with the most widely used browsers today, and how you should plan on developing your applications with ECMAScript.",
+    "date": "Wednesday, November 9",
+    "start_time": "3:10 PM",
+    "end_time": "4:00 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 79,
+    "startDate": "2016-11-09T20:10:00.000Z",
+    "endDate": "2016-11-09T21:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Heather Ford"
+  },
+  {
+    "id": "57f29731e9b87",
+    "type": "session",
+    "title": "Saucy App Modernization Showcase",
+    "description": "Many companies would like to do away with their legacy apps, but the process of applying a new UI technology can be daunting. In this session, we will walk through the process we use and share some app modernization success stories.",
+    "date": "Wednesday, November 9",
+    "start_time": "3:10 PM",
+    "end_time": "4:00 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 80,
+    "startDate": "2016-11-09T20:10:00.000Z",
+    "endDate": "2016-11-09T21:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Daniel Fisher"
+  },
+  {
+    "id": "57bf72af58196",
+    "type": "session",
+    "title": "A Saucy Dashboard for Visualizing and Interacting with IoT Data",
+    "description": "Big data and Internet of Things (IoT) connectivity is increasingly forcing enterprises to find solutions to organize and visualize large amounts of incoming data. To allow rapid decision-making for everything from immediate actions in tactical situations to strategic analysis and reporting, developers need the ability to provide a flexible dashboard that allows users to visualize critical insights from all that data, on any screen and device. This session will demonstrate a dashboard app that provides big data analysis capabilities and interacts with IoT devices via Saucy constructed components.",
+    "date": "Wednesday, November 9",
+    "start_time": "4:10 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 6,
+        "name": "Starvine 6-7"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 81,
+    "startDate": "2016-11-09T21:10:00.000Z",
+    "endDate": "2016-11-09T22:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Eric White"
+  },
+  {
+    "id": "57eb16d901948",
+    "type": "session",
+    "title": "How to Auto Generate a Back-end in Minutes",
+    "description": "Connecting your JavaScript app to a database is tedious. Back-end developers spend hours modeling the database, securing connections, writing SQL, optimizing queries, deploying to a server, and fixing bugs. In this session, you'll learn how we give your front-end team a tool to automatically generate a full back-end. In minutes, a REST API between a Saucy Grid application and a relational database can be created.",
+    "date": "Wednesday, November 9",
+    "start_time": "4:10 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 14,
+        "name": "Starvine 1-2"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 82,
+    "startDate": "2016-11-09T21:10:00.000Z",
+    "endDate": "2016-11-09T22:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Melissa Sanders"
+  },
+  {
+    "id": "57eb16d83d244",
+    "type": "session",
+    "title": "Handling Undo-Redo in Enterprise Saucy Applications",
+    "description": "Undo and redo is a very common but not trivial feature, requested in most types of modern web applications. An application may define complex data processing rules involving data from different stores, which is tricky to handle when undoing an operation. We'll show you how to accurately revert data to any previous state with a simple undo() call.",
+    "date": "Wednesday, November 9",
+    "start_time": "4:10 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 4,
+        "name": "Starvine 3-5"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 83,
+    "startDate": "2016-11-09T21:10:00.000Z",
+    "endDate": "2016-11-09T22:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": "Sara Walker"
+  },
+  {
+    "id": "57eed956af5af",
+    "type": "session",
+    "title": "Testing in Isolation - Keeping the Pipeline and Codebase Clean",
+    "description": "Automated testing is critical to ensure that shipping code is quality code. Developers need to address any test failures before their code can be put in the main branch and shipped. We will be present how testing in isolation can improve quality, increase developer velocity, and allow for organizations to more comfortably embrace and leverage Continuous Delivery. You’ll learn the advantages of shifting testing left, the importance of early developer of feedback, and how to best leverage automated testing in a Continuous Deployment pipeline.",
+    "date": "Wednesday, November 9",
+    "start_time": "4:10 PM",
+    "end_time": "5:00 PM",
+    "location": {
+        "id": 3,
+        "name": "Starvine 10-11"
+    },
+    "hashtag": "SaucyCon",
+    "order_index": 84,
+    "startDate": "2016-11-09T21:10:00.000Z",
+    "endDate": "2016-11-09T22:00:00.000Z",
+    "categoryName": "Session",
+    "speakers": "",
+    "speakerNames": false
+  }
+]

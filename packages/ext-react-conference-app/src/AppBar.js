@@ -29,7 +29,7 @@ function AppBar({
             { !Ext.os.is.Phone && (
                 <div>
                     <div className="sencha-logo"/>
-                    <a href="#" className="app-title">{selectedNavNode && false ? selectedNavNode.get('text') : 'Sencha ExtReactModern 7.1 Conference App'} - React v{REACT_VERSION}</a>
+                    <a href="#" className="app-title">{selectedNavNode && false ? selectedNavNode.get('text') : 'Sencha ExtReactModern 7.2 Conference App'} - React v{REACT_VERSION}</a>
                 </div>
             ) }
 

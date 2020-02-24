@@ -1,0 +1,74 @@
+<div style="padding:20px;margin:0;">
+
+
+
+	<div class="row" style="height:300px">
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">A Pie Chart</div>
+					<ExtPolar downloadServerUrl ="http://svg.sencha.io" [config]='polarConfig' fitToParent=true></ExtPolar>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">Agency List</div>
+				<ExtList [config]='listConfig' fitToParent=true></ExtList>
+			</div>
+		</div>
+
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">Who Has Logged On? <button style="margin-top:-5px;margin-right:5px;float:right;" (click)="onStopAutoPlay()">Stop</button></div>
+				<ExtCarousel	[config]='carouselConfig' (ready)='readyCarousel($event)' fitToParent=true></ExtCarousel>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row" style="height:300px">
+
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="home-panel" style="height:280px;">
+				<div class="home-panel-title">Bar Chart</div>
+				<ExtCartesian downloadServerUrl ="http://svg.sencha.io" [config]='cartesianConfig' fitToParent=true></ExtCartesian>
+			</div>
+		</div>
+
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">All Spending By Type of Investment</div>
+				<ExtPivotgrid [config]='pivotgridConfig' fitToParent=true></ExtPivotgrid>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row" style="height:300px">
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">Flag Day - Wednesday, June 14 2017</div>
+				<div class="placeholder"></div>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">D3 Tree Map</div>
+				<ExtD3_treemap [config]='d3Config' fitToParent=true></ExtD3_treemap>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="home-panel" style="height:280px">
+				<div class="home-panel-title">Today's Candidate Calendar</div>
+				<ExtCalendar_day	[config]='calendarConfig' (ready)='readyCalendar($event)' fitToParent=true></ExtCalendar_day>
+			</div>
+		</div>
+
+	</div>
+
+</div>
