@@ -117,7 +117,7 @@ try {
        if (toolkit == 'modern') {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js"></script>
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
       <!--
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
@@ -130,7 +130,7 @@ try {
         else {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.js"></script>
+      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js"></script>
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
       <!--
       <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
@@ -157,7 +157,7 @@ try {
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-        var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.js`;
+        var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js`;
         var cssFile = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
         var options = angularJson.projects[packageJsonApp.name].architect.build.options;
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
