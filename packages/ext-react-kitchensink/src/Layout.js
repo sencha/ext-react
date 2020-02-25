@@ -33,7 +33,32 @@ class Layout extends Component {
       linear-gradient(90deg, #f5f5f5 1.1px, transparent 0)
   `;
 
+  onBreadcrumbCreated = ({cmp}) => {
+    console.log('onBreadcrumbCreated')
+    this.breadcrumbCmp = cmp
+  }
+
+  onSelectionchange=({treelist, record, eOpts}) => {
+    console.log('onSelectionchange')
+    var node = record;
+    this.onNavChange(node)
+  }
+
+  onNavChange = (node) => {
+    console.log('onNavChange')
+    var nodeId = node.getId()
+    location.hash = nodeId;
+    this.breadcrumbCmp.setSelection(node)
+  }
+
+  nav(node) {
+    console.log('nav')
+    var nodeId = node.getId();
+    location.hash = nodeId;
+  }
+
   componentDidMount() {
+    console.log('componentDidMount')
     this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
     if (Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
@@ -69,6 +94,7 @@ class Layout extends Component {
   }
 
   componentDidUpdate(previousProps) {
+    console.log('componentDidUpdate')
     if(Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
       const nav = this.phoneNav.cmp;
@@ -92,23 +118,8 @@ class Layout extends Component {
     return node.data.premium || this.isPremium(node.parentNode);
   }
 
-  onBreadcrumbCreated = ({cmp}) => {
-    this.breadcrumbCmp = cmp
-  }
-
   changeBreadcrumbbar = ({sender, node, prevNode, eOpts}) => {
     this.nav(node)
-  }
-
-  nav(node) {
-    var nodeId = node.getId();
-    location.hash = nodeId;
-  }
-
-  onNavChange = (node) => {
-    var nodeId = node.getId()
-    location.hash = nodeId;
-    this.breadcrumbCmp.setSelection(node)
   }
 
   render() {
@@ -177,15 +188,18 @@ class Layout extends Component {
             <Container layout="fit" flex={1}>
               <BreadcrumbBar
                 ref={breadcrumb => {this.breadcrumb = breadcrumb}}
+                onCreated={this.onBreadcrumbCreated}
+                onChange={this.changeBreadcrumbbar}
                 docked="top"
                 showIcons= "true"
                 store={navStore}
-                onCreated={this.onBreadcrumbCreated}
-                onChange={this.changeBreadcrumbbar}
                 useSplitButtons
               >
               </BreadcrumbBar>
               <NavTree
+                onSelectionchange={this.onSelectionchange}
+                selection={selectedNavNode}
+                collapsed={!showTree}
                 docked="left"
                 width="400"
                 resizable={{
@@ -193,12 +207,6 @@ class Layout extends Component {
                   dynamic: true
                 }}
                 store={navStore}
-                selection={selectedNavNode}
-                onSelectionchange={({treelist, record, eOpts}) => {
-                  var node = record;
-                  this.onNavChange(node)
-                }}
-                collapsed={!showTree}
               />
 
               { component
