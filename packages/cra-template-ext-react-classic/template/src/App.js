@@ -16,8 +16,6 @@ class App extends Component {
   extReactDidMount = ({cmp, cmpObj}) => {
     for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
     console.log(this['gridExt'])
-    console.log(this.gridExt)
-    console.log(this.gridReact.cmp)
   }
 
   renderSign = (value, context) => {

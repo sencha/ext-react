@@ -17,12 +17,12 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log('componentDidMount')
+    //console.log('componentDidMount')
     //console.log(this.grid.cmp)
   }
 
   extReactDidMount = detail => {
-    console.log('extReactDidMount')
+    //console.log('extReactDidMount')
     //this.grid.cmp.setStore(this.store);
   }
 
