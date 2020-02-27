@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Column, RendererCell, SegmentedButton, WidgetCell } from '@sencha/ext-react-modern';
+import { Grid, Column, RendererCell, SegmentedButton, ExtWidgetcell } from '@sencha/ext-react-modern';
 import ActionsCell from './ActionsCell';
 import '../../CompanyData';
 
@@ -14,6 +14,33 @@ export default class RendererCellExample extends Component {
         }
     });
 
+    readyColumn = ({cmp, cmpObj}) => {
+      this.ColumnCmp = cmp;
+      this.ColumnCmp.setCell({
+        xtype: 'widgetcell',
+        forceWidth: 'true',
+        widget: {
+          xtype: 'segmentedbutton',
+          maxWidth: '300',
+          allowDepress: 'true',
+          items: [
+            {
+              text: 'Buy',
+              handler: this.buyHandler.bind(this)
+            },
+            {
+              text: 'Sell',
+              handler: this.sellHandler.bind(this)
+            },
+            {
+              text: 'Watch',
+              handler: this.watchHandler.bind(this)
+            }
+          ]
+        }
+      });
+    }
+
     render() {
         return (
             <Grid title="Stock Prices" store={this.store} shadow grouped>
@@ -21,28 +48,29 @@ export default class RendererCellExample extends Component {
                 <Column text="Price" width="85" dataIndex="price" formatter='usMoney'/>
                 <Column text="Change" width="100" dataIndex="priceChange" renderer={this.renderNumberCell.bind(this, '0.00')}/>
                 <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderNumberCell.bind(this, '0.00%')}/>
-                <Column text="Actions" flex={1} minWidth={210}>
-                    <WidgetCell>
-                     <SegmentedButton
-                      maxWidth={300}
-                      allowDepress = {true}
-                      items = {[
-                        {
-                          text: 'Buy',
-                          handler : this.buyHandler
-                        },
-                        {
-                          text: 'Sell',
-                          handler : this.sellHandler
-                        },
-                        {
-                          text: 'Watch',
-                          handler : this.watchHandler
+                <Column text="Actions" flex={1} minWidth={210} onReady={this.readyColumn}>
+                  {/* <ExtWidgetcell
+                      widget={{
+                        xtype: 'segmentedbutton',
+                        maxWidth: 300,
+                        allowDepress: true,
+                        items: [
+                          {
+                            text: 'Buy',
+                            handler : this.buyHandler
+                          },
+                          {
+                            text: 'Sell',
+                            handler : this.sellHandler
+                          },
+                          {
+                            text: 'Watch',
+                            handler : this.watchHandler
                           }
                         ]
-                      }
-                     />
-                    </WidgetCell>
+                      }}
+                    >
+                    </ExtWidgetcell> */}
                 </Column>
             </Grid>
         )
