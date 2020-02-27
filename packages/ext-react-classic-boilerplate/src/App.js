@@ -6,7 +6,7 @@ var REACT_VERSION = ' - React v' + require('react').version
 
 export default class App extends Component {
 
-  title = "Sencha ExtReactClassic 7.2 Boilerplate" + REACT_VERSION;
+  title = "aaSencha ExtReactClassic 7.2 Boilerplate" + REACT_VERSION;
   state = { person: null };
   store = Ext.create('Ext.data.Store', { data });
 

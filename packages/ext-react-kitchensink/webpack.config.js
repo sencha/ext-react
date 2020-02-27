@@ -112,7 +112,9 @@ module.exports = function (env) {
       optimization: { noEmitOnErrors: true },
       node: false,
       devServer: {
-        contentBase: outputFolder,
+        //contentBase: outputFolder,
+        contentBase: path.resolve(__dirname, './build'),
+        //contentBase: path.resolve(__dirname, './src'),
         hot: !isProd,
         historyApiFallback: true,
         host: '0.0.0.0',
