@@ -26,9 +26,7 @@ export default function (CustomElement) {
 
   var displayName = toPascalCase(tagName);
 
-  var ReactComponent =
-  /*#__PURE__*/
-  function (_React$Component) {
+  var ReactComponent = /*#__PURE__*/function (_React$Component) {
     _inheritsLoose(ReactComponent, _React$Component);
 
     function ReactComponent(props) {
