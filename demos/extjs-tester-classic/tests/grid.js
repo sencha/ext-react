@@ -1,6 +1,9 @@
 
 Ext.onReady(function() {
 
+  Ext.tip.QuickTipManager.init();
+  Ext.QuickTips.init();
+
   var data = [
     { name: 'Marc', v: true, email: 'marc@gmail.com',priceChangePct: .25 },
     { name: 'Nick', v: true, email: 'nick@gmail.com',priceChangePct: .35 },
@@ -24,7 +27,7 @@ Ext.onReady(function() {
     console.count(`Method renderSign has been called ${value}`);
 
     if (iValue > 0) { color = 'green'; }
-    return `<span style="color:${color};">${value}<i class="fa fa-camera-retro fa-lg"></i></span>`
+    return `<span data-qtip="Hola" style="color:${color};">${value}<i class="fa fa-camera-retro fa-lg"></i></span>`
   };
 
   var o = {
