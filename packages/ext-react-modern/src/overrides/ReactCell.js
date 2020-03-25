@@ -27,7 +27,7 @@ export function doReactCell() {
           if (typeof markup === 'object') {
             result = ReactDOM.render(markup, me.bodyElement.dom);
             if (result == null) {
-              markup.type.prototype.rootDOM =  me.bodyElement.dom
+              //markup.type.prototype.rootDOM =  me.bodyElement.dom
             }
             else {
               if (result.cmp != undefined) {
@@ -65,9 +65,11 @@ export function doReactCell() {
       },
 
       doDestroy: function () {
-        this.widget = null;
         ReactDOM.unmountComponentAtNode(this.bodyElement.dom);
-        //this.callParent();
+        this.setColumn(null);
+        this.setRecord(null);
+        var el = document.getElementById(this.id);
+        el.parentNode.removeChild(el);
       },
 
       privates: {

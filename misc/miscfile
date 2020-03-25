@@ -1,5 +1,7 @@
 7.2.x
 
+npm outdated
+
 git fetch upstream
 git merge upstream/master
 git merge upstream/ext-react-7.2.x

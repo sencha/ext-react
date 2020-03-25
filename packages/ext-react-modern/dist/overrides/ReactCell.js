@@ -30,8 +30,7 @@ export function doReactCell() {
         if (typeof markup === 'object') {
           result = ReactDOM.render(markup, me.bodyElement.dom);
 
-          if (result == null) {
-            markup.type.prototype.rootDOM = me.bodyElement.dom;
+          if (result == null) {//markup.type.prototype.rootDOM =  me.bodyElement.dom
           } else {
             if (result.cmp != undefined) {
               result.cmp.setRenderTo(me.bodyElement.dom);
@@ -69,8 +68,11 @@ export function doReactCell() {
       }
     },
     doDestroy: function doDestroy() {
-      this.widget = null;
-      ReactDOM.unmountComponentAtNode(this.bodyElement.dom); //this.callParent();
+      ReactDOM.unmountComponentAtNode(this.bodyElement.dom);
+      this.setColumn(null);
+      this.setRecord(null);
+      var el = document.getElementById(this.id);
+      el.parentNode.removeChild(el);
     },
     privates: {
       setWidgetWidth: function setWidgetWidth(width) {
