@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
-var Ext = window['Ext'];
+import ReactDOM from 'react-dom'; //const Ext = window['Ext'];
+
 export function render(element, container, callback) {
   try {
     Ext.onReady(function () {

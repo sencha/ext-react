@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-const Ext = window['Ext'];
+//const Ext = window['Ext'];
 
 export function render(element, container, callback) {
   try {

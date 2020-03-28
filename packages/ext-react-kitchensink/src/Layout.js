@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { Titlebar, Container, Nestedlist, Panel, Button, BreadcrumbBar } from '@sencha/ext-react-modern'
+import { ExtPanel, Titlebar, Container, Nestedlist, Panel, Button, BreadcrumbBar } from '@sencha/ext-react-modern'
 import NavTree from './NavTree';
 import NavView from './NavView';
 import Files from './Files';
@@ -47,8 +47,51 @@ class Layout extends Component {
   onNavChange = (node) => {
     console.log('onNavChange')
     var nodeId = node.getId()
+    console.log(nodeId)
     location.hash = nodeId;
-    this.breadcrumbCmp.setSelection(node)
+    if (this.breadcrumbCmp != undefined) {
+      this.breadcrumbCmp.setSelection(node)
+    }
+  }
+
+  onPhoneNavChange = (node) => {
+    console.log('onNavChange')
+    var nodeId = node.getId()
+    console.log(nodeId)
+
+
+
+    const nav = this.phoneNav.cmp;
+    const anim = nav.getLayout().getAnimation();
+    anim.disable();
+
+    if(node.isLeaf()) {
+      //this.oldhash = nodeId
+      console.log(this.oldhash)
+      //location.hash = nodeId;
+      this.phoneNav.cmp.setHidden(true)
+      this.phonedetail.cmp.setHidden(false)
+      console.log('a')
+      nav.goToLeaf(node);
+    } else {
+      this.phoneNav.cmp.setHidden(false)
+      this.phonedetail.cmp.setHidden(true)
+      console.log('b')
+      nav.goToNode(node);
+    }
+
+    anim.enable();
+
+  }
+
+  goBack() {
+    console.log('goBack')
+    console.log(this.oldhash)
+    //location.hash = this.oldhash;
+
+    location.hash = '/';
+    this.phoneNav.cmp.setHidden(false)
+    this.phonedetail.cmp.setHidden(true)
   }
 
   nav(node) {
@@ -59,8 +102,10 @@ class Layout extends Component {
 
   componentDidMount() {
     console.log('componentDidMount')
-    this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
-    if (Ext.os.is.Phone) {
+    if (this.rightContainer != undefined) {
+      this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
+    }
+    if (Ext.os.is.Phone == 't') {
       const node = this.props.selectedNavNode;
       if (node) {
         /**
@@ -123,6 +168,7 @@ class Layout extends Component {
   }
 
   render() {
+    //console.log('in render')
     const {
       selectedNavNode,
       component,
@@ -135,17 +181,26 @@ class Layout extends Component {
       layout
     } = this.props;
 
+    //console.log(component)
+
     const example = component && React.createElement(component);
 
     if (Ext.os.is.Phone) {
       // phone layout
       return (
+        <Container layout="fit" viewport="true">
+
         <Nestedlist
           ref={phoneNav => this.phoneNav = phoneNav}
           store={navStore}
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
-          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 7.0 Kitchen Sink'
-          onItemTap={(self, list, index, target, node) => this.onNavChange(node && node.getId())}
+          xtitle='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 7.2 Kitchen Sink'
+
+          onLeafitemtap={({sender, list, index, target, record}) => {
+            //console.log('here')
+            //console.log(record)
+            this.onPhoneNavChange(record)
+          }}
           onBack={(self, node) => {
               // There is no easy way to grab the node that will be used after NestedList switches to previous List.
               // The 'node' here will always be the 'previous' node, which means we can just strip the last /* from the
@@ -157,7 +212,7 @@ class Layout extends Component {
                   return <div>{item.text} { item.premium && <div className="x-fa fa-star app-premium-indicator"></div> }</div>
               }
           }}
-          fullscreen
+
         >
           <Container rel="detailCard" layout="fit">
               { component && (
@@ -167,6 +222,23 @@ class Layout extends Component {
               ) }
           </Container>
         </Nestedlist>
+
+
+          <Container hidden="true" ref={phonedetail => this.phonedetail = phonedetail} key={selectedNavNode.get('text')} layout="fit">
+          <Titlebar docked="top" shadow style={{zIndex: 2}}>
+                      <Button
+                        align="left"
+                        iconCls="x-fa fa-angle-left"
+                        handler={this.goBack}
+                      />
+                      <Container html="ExtReact 7.2">
+                      </Container>
+          </Titlebar>
+            { layout === 'fit' ? example : <Container scrollable={layout==='center'}>{ example }</Container> }
+          </Container>
+
+
+        </Container>
       )
     } else if (!Ext.os.is.Phone) {
       // desktop + tablet layout
