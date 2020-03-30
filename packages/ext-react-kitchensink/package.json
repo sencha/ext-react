@@ -23,7 +23,7 @@
   "homepage": "https://github.com/sencha/ext-react#readme",
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "@babel/runtime": "^7.8.7",
+    "@babel/runtime": "^7.9.2",
     "@sencha/ext-react-modern": "~7.2.0",
     "@sencha/ext": "~7.2.0",
     "@sencha/ext-modern": "~7.2.0",
