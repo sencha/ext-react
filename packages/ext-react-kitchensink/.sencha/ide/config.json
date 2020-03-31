@@ -1,0 +1,59 @@
+/*
+ * By default the Sencha Ext JS plugin indexes all JavaScript files in your project.  Use this file to
+ * index additional directories outside of your project, exclude directories within the project from indexing, and
+ * configure apps that were not created using Sencha Cmd.
+ *
+ * Both relative and explicit paths are supported.  Relative paths are relative to the project's root directory.
+ *
+ * For example, if your project looks like...
+ *
+ *  (project root)
+ *    .sencha
+ *      ide
+ *        config.json  <= this file
+ *    assets
+ *      build
+ *        all.js
+ *
+ * ...you can exclude the build directory from indexing using:
+ *
+ *  "exclude": [
+ *    "assets/build"
+ *  ]
+ */
+{
+    // List directories outside of the project root which should be included when indexing.  Paths may be relative
+    // to the project root or absolute.
+    /*
+    "include": [
+        "path/to/dir/to/index"
+    ],
+    */
+
+    // List directories inside the project root which should be excluded from indexing.  Paths may be relative
+    // to the project root or absolute.
+    /*
+    "exclude": [
+        "path/to/dir/to/exclude"
+    ],
+    */
+
+    // List apps within the project root or included directories that were not built with Sencha Cmd.
+    // This is only required for apps that were not built with Sencha Cmd.  This lets the plugin know the correct root
+    // namespace, sdk version, and toolkit (only applies to Ext 6 apps) for apps that do not follow the standard Sencha
+    // structure.
+    /*
+    "apps": [
+        {
+            "name": "AppRootNamespace",
+            "path": "path/to/app",
+            "toolkit": "classic | modern",
+            "sdk": {
+                 "path": "path/to/sdk",
+                 "version": "sdk version",
+                 "framework": "extjs | touch"
+            }
+        }
+    ]
+    */
+}
