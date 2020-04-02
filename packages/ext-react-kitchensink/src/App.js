@@ -34,6 +34,7 @@ history.listen(location => store.dispatch(routeDidChange(location)));
 // load the component for the initial route
 store.dispatch(routeDidChange(history.location));
 
+
 export default class App extends Component {
 
   render() {
