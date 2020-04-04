@@ -32,15 +32,13 @@
     "url": "git+https://github.com/sencha/ext-react-classic.git"
   },
   "peerDependencies": {
-    "@sencha/ext-web-components-classic": "~7.2.0",
     "react": "~16.13.1",
     "react-dom": "~16.13.1"
   },
   "dependencies": {
-
+    "@sencha/ext-web-components-classic": "~7.2.0"
   },
   "devDependencies": {
-    "@sencha/ext-web-components-classic": "~7.2.0",
     "fs-extra": "~9.0.0",
     "react": "~16.13.1",
     "react-dom": "~16.13.1",
