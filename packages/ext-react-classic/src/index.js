@@ -1,4 +1,4 @@
-import ExtReactDOM from "./runtime/ExtReactDOM";
+import ExtReactDOM from "./common/ExtReactDOM";
 export default ExtReactDOM;
 import ExtButton_ from "./ExtButton";
 import ExtCycle_ from "./ExtCycle";

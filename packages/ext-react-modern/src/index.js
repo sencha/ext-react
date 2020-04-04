@@ -1,4 +1,4 @@
-import ExtReactDOM from "./runtime/ExtReactDOM";
+import ExtReactDOM from "./common/ExtReactDOM";
 export default ExtReactDOM;
 import ExtActionsheet_ from "./ExtActionsheet";
 import ExtAudio_ from "./ExtAudio";
