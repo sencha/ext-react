@@ -37,12 +37,13 @@
     "react-dom": "~16.13.1"
   },
   "dependencies": {
-    "@sencha/ext-web-components-modern": "~7.2.0",
+
   },
   "devDependencies": {
+    "@sencha/ext-web-components-modern": "~7.2.0",
     "fs-extra": "~9.0.0",
     "react": "~16.13.1",
-    "react-dom": "~16.13.1"
+    "react-dom": "~16.13.1",
     "webpack-bundle-analyzer": "~3.6.1",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
