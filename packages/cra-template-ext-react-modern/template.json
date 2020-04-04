@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "@sencha/ext-react-modern": "^7.2.0"
+    "@sencha/ext-react-modern": "^7.2.0",
+    "@sencha/ext-modern-enterprise": "^7.2.0",
+    "@sencha/ext-modern-material": "^7.2.0"
   },
   "scripts": {
 

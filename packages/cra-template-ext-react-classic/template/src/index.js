@@ -1,3 +1,6 @@
+import '@sencha/ext-classic-enterprise';
+import '@sencha/ext-classic-material';
+//import '@sencha/ext-classic-triton';
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import ExtReactDOM from '@sencha/ext-react-classic';
