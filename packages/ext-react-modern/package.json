@@ -9,9 +9,8 @@
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist && webpack",
     "prepare": "npm run build",
-
+    "postinstall": "npm run build & node ./postinstall.js",
     "xprepublish": "npm run build",
-    "xpostinstall": "npm run build & node ./postinstall.js",
     "xbuild": "npm run babel & npm run buildwebpack",
     "xwatch": "npx babel ./src --out-dir ./dist --watch",
     "xbabel": "npx babel ./src --out-dir ./dist",
@@ -57,11 +56,9 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/plugin-syntax-import-meta": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
-
     "@babel/preset-react": "^7.9.4",
     "@types/react": "^16.9.32",
     "@types/react-dom": "~16.9.6",
-
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.0.4",
     "babel-loader": "^8.1.0",

@@ -9,10 +9,10 @@ function boldGreen (s) {
   var endMarker = `\x1b[0m`
   return (`${boldgreencolor}${s}${endMarker}`)
 }
-function doXtype() {
-  fs.copySync(`../ext-web-components-${xtype}/ext-runtime/${xtypeFileName}`,`../../../${copyFolder}ext-runtime/${xtypeFileName}`);
-  console.log(`${prefix} ${xtypeFileName} copied to ./${copyFolder}ext-runtime`);
-}
+// function doXtype() {
+//   fs.copySync(`../ext-web-components-${xtype}/ext-runtime/${xtypeFileName}`,`../../../${copyFolder}ext-runtime/${xtypeFileName}`);
+//   console.log(`${prefix} ${xtypeFileName} copied to ./${copyFolder}ext-runtime`);
+// }
 
 var packageNameThis = './package.json';
 var packageThis = fs.readFileSync(packageNameThis, 'utf8');
@@ -104,7 +104,8 @@ try {
     else {
       theme = 'material';
     }
-    var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
+    //var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
+    var from = `../ext-${toolkit}-runtime`;
     fs.copySync(`${from}/`,`../../../${copyFolder}ext-runtime-${toolkit}/`);
     console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/`);
 
