@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tree, Container, Toolbar, Button } from '@sencha/ext-modern';
+import { Tree, Container, Toolbar, Button } from '@sencha/ext-react-modern';
 
 Ext.require([
     'Ext.data.TreeStore',
@@ -51,7 +51,7 @@ export default class TreeReorderExample extends Component {
             this.refs.treeToolbar.cmp.enable();
         });
     }
-    
+
     onResetClick = () => {
         this.store.reload();
     }

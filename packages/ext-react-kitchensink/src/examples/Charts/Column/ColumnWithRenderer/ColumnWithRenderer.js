@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 import { seriesG1Renderer, seriesG2Renderer } from './renderer';
@@ -31,6 +31,7 @@ export default class ColumnWithRenderer extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar onRefreshClick={this.refreshData}/>
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="20 20 10 10"
                     innerPadding="0 10 0 10"

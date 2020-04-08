@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-modern';
+import { Container, TitleBar, Button, Sheet, Panel } from '@sencha/ext-react-modern';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { medium, large } from './responsiveFormulas';
 import Home from './Home/Home';
@@ -47,11 +47,11 @@ class Layout extends React.Component<LayoutProps, LayoutState> {
             onItemClick: this.navigate,
             selection: location.pathname
         }
-
+        //- Ext JS v${Ext.versions.extjs.version}`}
 
         return (
-            <Container fullscreen layout="fit">
-                <TitleBar title={`ExtReact TypeScript Boilerplate  - React v${REACT_VERSION} - Ext JS v${Ext.versions.extjs.version}`} docked="top">
+            <Container fullscreen layout="fit" viewport="true">
+                <TitleBar title={`ExtReactModern 7.1 TypeScript Boilerplate  - React v${REACT_VERSION}`} docked="top">
                     {Ext.platformTags.phone && (
                         <Button align="left" iconCls="x-fa fa-bars" handler={this.toggleAppMenu} ripple={false}/>
                     )}

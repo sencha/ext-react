@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Panel, FormPanel, TextField, UrlField, EmailField, NumberField, DatePickerField } from '@sencha/ext-modern';
+import { Container, Panel, FormPanel, TextField, UrlField, EmailField, NumberField, DatePickerField } from '@sencha/ext-react-modern';
 
 Ext.require("Ext.data.validator.*");
 
@@ -30,7 +30,7 @@ export default function ValidationExample() {
                     margin="0 0 20 0"
                     title="Using Validators"
                 >
-                    <div style={styles.hint}>Here we use validators from <code>Ext.data.validator</code> to validate user input.</div>
+                    <Container html="<div>Here we use validators from <code>Ext.data.validator</code> to validate user input.</div>"/>
                     <TextField
                         required
                         label="Required Field"
@@ -47,7 +47,7 @@ export default function ValidationExample() {
                         label="Email"
                         validators="email"
                     />
-                    <TextField 
+                    <TextField
                         label="Phone Number"
                         inputMask="(999) 999-9999" // field is validated by this automatically
                     />
@@ -93,20 +93,22 @@ export default function ValidationExample() {
                             message: 'Only uppercase letters are allowed.'
                         }}
                     />
+                    {/*
+                    mjg
                     <TextField
                         label="Custom Format Function: Capitalized words"
                         validators={{
                             type: 'method',
                             fn: validateCapilization
                         }}
-                    />
+                    /> */}
                 </FormPanel>
                 <FormPanel
                     padding={10}
                     shadow
                     title="Assigning Error Messages Directly"
                 >
-                    <div style={styles.hint}>Here we assign error messages directly using the <code>errorMessage</code> and <code>error</code> props.</div>
+                    <Container html="<div>Here we assign error messages directly using the <code>errorMessage</code> and <code>error</code> props.</div>"/>
                     <TextField
                         label="Single Error"
                         errorMessage="The value you entered is invalid."
@@ -125,9 +127,9 @@ export default function ValidationExample() {
             </Container>
         </Container>
     )
-} 
+}
 
-// A method validator function returns the error message when 
+// A method validator function returns the error message when
 // invalid, true when valid.
 function validateCapilization(value) {
     const words = value.split(/\s+/);
@@ -139,11 +141,4 @@ function validateCapilization(value) {
     }
 
     return true;
-}
-
-const styles = {
-    hint: {
-        fontSize:'13px',
-        color: '#666'
-    }
 }

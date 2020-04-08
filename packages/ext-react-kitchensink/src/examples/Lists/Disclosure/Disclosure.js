@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { List } from '@sencha/ext-modern';
+import { List } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.MessageBox');
 
 export default class DisclosureListExample extends Component {
 
-    store = Ext.create('Ext.data.Store', { 
+    store = Ext.create('Ext.data.Store', {
         autoLoad: true,
         proxy: {
             type: 'rest',

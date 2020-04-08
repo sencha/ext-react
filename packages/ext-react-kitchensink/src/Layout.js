@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { TitleBar, Container, NestedList, Panel, Button } from '@sencha/ext-modern'
-import { Transition } from '@sencha/ext-react-transition'
-
-//import hljs, { highlightBlock } from 'highlightjs';
+import { ExtPanel, Titlebar, Container, Nestedlist, Panel, Button, BreadcrumbBar } from '@sencha/ext-react-modern'
 import NavTree from './NavTree';
 import NavView from './NavView';
 import Files from './Files';
 import * as actions from './actions';
-import Breadcrumbs from './Breadcrumbs';
 var REACT_VERSION = require('react').version
 
 Ext.require([
@@ -20,10 +16,97 @@ Ext.require([
 
 class Layout extends Component {
 
-  componentDidMount() {
-    if (Ext.os.is.Phone) {
-      const node = this.props.selectedNavNode;
+  bodyStyle = `
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    alignItems: center;
+    justifyContent: center;
+    backgroundSize: 20px 20px;
+    borderWidth: 0px;
+    backgroundColor: #e8e8e8;
+    backgroundImage:
+      linear-gradient(0deg, #f5f5f5 1.1px, transparent 0),
+      linear-gradient(90deg, #f5f5f5 1.1px, transparent 0)
+  `;
 
+  onBreadcrumbCreated = ({cmp}) => {
+    console.log('onBreadcrumbCreated')
+    this.breadcrumbCmp = cmp
+  }
+
+  onSelectionchange=({treelist, record, eOpts}) => {
+    console.log('onSelectionchange')
+    var node = record;
+    this.onNavChange(node)
+  }
+
+  onNavChange = (node) => {
+    console.log('onNavChange')
+    var nodeId = node.getId()
+    console.log(nodeId)
+    location.hash = nodeId;
+    if (this.breadcrumbCmp != undefined) {
+      this.breadcrumbCmp.setSelection(node)
+    }
+  }
+
+  onPhoneNavChange = (node) => {
+    console.log('onNavChange')
+    var nodeId = node.getId()
+    console.log(nodeId)
+
+
+
+    const nav = this.phoneNav.cmp;
+    const anim = nav.getLayout().getAnimation();
+    anim.disable();
+
+    if(node.isLeaf()) {
+      //this.oldhash = nodeId
+      console.log(this.oldhash)
+      //location.hash = nodeId;
+      this.phoneNav.cmp.setHidden(true)
+      this.phonedetail.cmp.setHidden(false)
+      console.log('a')
+      nav.goToLeaf(node);
+    } else {
+      this.phoneNav.cmp.setHidden(false)
+      this.phonedetail.cmp.setHidden(true)
+      console.log('b')
+      nav.goToNode(node);
+    }
+
+    anim.enable();
+
+  }
+
+  goBack() {
+    console.log('goBack')
+    console.log(this.oldhash)
+    //location.hash = this.oldhash;
+
+    location.hash = '/';
+    this.phoneNav.cmp.setHidden(false)
+    this.phonedetail.cmp.setHidden(true)
+  }
+
+  nav(node) {
+    console.log('nav')
+    var nodeId = node.getId();
+    location.hash = nodeId;
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount')
+    if (this.rightContainer != undefined) {
+      this.rightContainer.cmp.updateHtml('Build: ' + BUILD_VERSION);
+    }
+    if (Ext.os.is.Phone == 't') {
+      const node = this.props.selectedNavNode;
       if (node) {
         /**
          * Let's go to the parent's node without animation.
@@ -56,6 +139,7 @@ class Layout extends Component {
   }
 
   componentDidUpdate(previousProps) {
+    console.log('componentDidUpdate')
     if(Ext.os.is.Phone) {
       const node = this.props.selectedNavNode;
       const nav = this.phoneNav.cmp;
@@ -70,12 +154,6 @@ class Layout extends Component {
     }
   }
 
-  onNavChange = (nodeId) => {
-    if(nodeId === '' || nodeId) {
-      location.hash = nodeId;
-    }
-  }
-
   onTitleClick = () => {
     location.hash = '/';
   }
@@ -85,7 +163,12 @@ class Layout extends Component {
     return node.data.premium || this.isPremium(node.parentNode);
   }
 
+  changeBreadcrumbbar = ({sender, node, prevNode, eOpts}) => {
+    this.nav(node)
+  }
+
   render() {
+    //console.log('in render')
     const {
       selectedNavNode,
       component,
@@ -98,17 +181,26 @@ class Layout extends Component {
       layout
     } = this.props;
 
+    //console.log(component)
+
     const example = component && React.createElement(component);
 
     if (Ext.os.is.Phone) {
       // phone layout
       return (
-        <NestedList
+        <Container layout="fit" viewport="true">
+
+        <Nestedlist
           ref={phoneNav => this.phoneNav = phoneNav}
           store={navStore}
           className={component && this.isPremium(selectedNavNode) ? 'app-premium-component' : ''}
-          title='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 7.0 Kitchen Sink'
-          onItemTap={(self, list, index, target, node) => this.onNavChange(node && node.getId())}
+          xtitle='<i class="ext ext-sencha" style="position: relative; top: 1px; margin-right: 4px"></i> ExtReact 7.2 Kitchen Sink'
+
+          onLeafitemtap={({sender, list, index, target, record}) => {
+            //console.log('here')
+            //console.log(record)
+            this.onPhoneNavChange(record)
+          }}
           onBack={(self, node) => {
               // There is no easy way to grab the node that will be used after NestedList switches to previous List.
               // The 'node' here will always be the 'previous' node, which means we can just strip the last /* from the
@@ -120,7 +212,7 @@ class Layout extends Component {
                   return <div>{item.text} { item.premium && <div className="x-fa fa-star app-premium-indicator"></div> }</div>
               }
           }}
-          fullscreen
+
         >
           <Container rel="detailCard" layout="fit">
               { component && (
@@ -129,66 +221,96 @@ class Layout extends Component {
                   </Container>
               ) }
           </Container>
-        </NestedList>
+        </Nestedlist>
+
+
+          <Container hidden="true" ref={phonedetail => this.phonedetail = phonedetail} key={selectedNavNode.get('text')} layout="fit">
+          <Titlebar docked="top" shadow style={{zIndex: 2}}>
+                      <Button
+                        align="left"
+                        iconCls="x-fa fa-angle-left"
+                        handler={this.goBack}
+                      />
+                      <Container html="ExtReact 7.2">
+                      </Container>
+          </Titlebar>
+            { layout === 'fit' ? example : <Container scrollable={layout==='center'}>{ example }</Container> }
+          </Container>
+
+
+        </Container>
       )
-    } else {
+    } else if (!Ext.os.is.Phone) {
       // desktop + tablet layout
       return (
-        <Container layout="hbox" cls="main-background">
+        <Container layout="hbox" cls="main-background" viewport="true">
           <Container layout="fit" flex={4}>
-            <TitleBar docked="top" shadow style={{zIndex: 2}}>
+            <Titlebar docked="top" shadow style={{zIndex: 2}}>
               <Button
                 align="left"
                 iconCls="x-fa fa-bars"
                 handler={actions.toggleTree}
               />
               <div className="ext ext-sencha" style={{margin: '0 5px 0 7px', fontSize: '20px', width: '20px'}}/>
-              <a href="#" className="app-title">Sencha Extreact 7.0 Kitchen Sink - React v{REACT_VERSION}</a>
-            </TitleBar>
+              <a href="#" className="app-title">Sencha ExtReactModern Kitchen Sink - React v{REACT_VERSION}</a>
+              <Container
+              ref={rightContainer => this.rightContainer = rightContainer}
+              align="right"></Container>
+            </Titlebar>
             <Container layout="fit" flex={1}>
+              <BreadcrumbBar
+                ref={breadcrumb => {this.breadcrumb = breadcrumb}}
+                onCreated={this.onBreadcrumbCreated}
+                onChange={this.changeBreadcrumbbar}
+                docked="top"
+                showIcons= "true"
+                store={navStore}
+                useSplitButtons
+              >
+              </BreadcrumbBar>
               <NavTree
+                onSelectionchange={this.onSelectionchange}
+                selection={selectedNavNode}
+                collapsed={!showTree}
                 docked="left"
-                width="300"
+                width="400"
                 resizable={{
                   edges: 'east',
                   dynamic: true
                 }}
                 store={navStore}
-                selection={selectedNavNode}
-                onSelectionChange={(tree, node) => this.onNavChange(node && node.getId())}
-                collapsed={!showTree}
               />
-              <Breadcrumbs docked="top" node={selectedNavNode}/>
-              <Transition type="slide" bindDirectionToLocation padding="30">
-                { component ? (
-                  <Container layout={layout} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
-                    { layout === 'fit' ? (
-                        <Container padding="30" layout="fit">{ example }</Container>
-                    ) : (
-                        example
-                    )}
-                  </Container>
-                ) : selectedNavNode ? (
-                  <NavView key={selectedNavNode.id} node={selectedNavNode}/>
-                ) : null }
-              </Transition>
+
+              { component
+                ? (
+                  <Panel layout={layout} bodyStyle={this.bodyStyle} scrollable key={selectedNavNode.id} autoSize={layout !== 'fit'}>
+                    { layout === 'fit'
+                      ? (<Container padding="10" layout="fit">{ example }</Container>)
+                      : (example)
+                    }
+                  </Panel>
+                )
+                : selectedNavNode
+                  ? (<NavView key={selectedNavNode.id} node={selectedNavNode}/>)
+                  : null
+              }
             </Container>
           </Container>
           { files && (
             <Button
-                align="right"
-                iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
-                ui="fab"
-                top={Ext.os.is.Desktop ? 20 : 35}
-                right={21}
-                zIndex={1000}
-                handler={actions.toggleCode}
+              align="right"
+              iconCls={'x-font-icon ' + (showCode ? 'md-icon-close' : 'md-icon-code') }
+              ui="fab"
+              top={Ext.os.is.Desktop ? 43 : 35}
+              right={21}
+              zIndex={1000}
+              onTap={actions.toggleCode}
             />
           )}
           { files && (
             <Panel
               resizable={{ edges: 'west', dynamic: true }}
-              flex={2}
+              width={700}
               layout="fit"
               collapsed={!showCode}
               header={false}

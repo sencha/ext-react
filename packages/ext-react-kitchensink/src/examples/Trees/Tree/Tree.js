@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tree } from '@sencha/ext-modern';
+import { Tree } from '@sencha/ext-react-modern';
 import data from './data';
 
 export default class TreeExample extends Component {

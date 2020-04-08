@@ -1,0 +1,8 @@
+@include extjs-button-toolbar-small-ui(
+  $ui: 'toolbutton',
+  $font-size: 24px,
+  $padding: 5px 10px 5px 10px,
+	$background-color: transparent,
+	$glyph-color: white,
+  $border-color: transparent
+);

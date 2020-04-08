@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar_Month, Calendar_List } from '@sencha/ext-calendar';
-import { Panel } from '@sencha/ext-modern';
+import { ExtCalendarMonth, ExtCalendarList } from '@sencha/ext-react-modern';
+import { Panel } from '@sencha/ext-react-modern';
 import '../data';
 
 export default class CalendarMonthViewExample extends Component {
@@ -15,7 +15,7 @@ export default class CalendarMonthViewExample extends Component {
 
     render(){
         return (
-            <Panel 
+            <Panel
                 shadow
                 title={Ext.Date.format(new Date(),'F Y')}
                 layout="hbox"
@@ -28,9 +28,9 @@ export default class CalendarMonthViewExample extends Component {
                     bodyPadding={5}
                     hidden={Ext.os.is.Phone}
                 >
-                    <Calendar_List store={this.store}/>
+                    <ExtCalendarList store={this.store}/>
                 </Panel>
-                <Calendar_Month
+                <ExtCalendarMonth
                     flex= {1}
                     visibleWeeks={null}
                     timezoneOffset={0}

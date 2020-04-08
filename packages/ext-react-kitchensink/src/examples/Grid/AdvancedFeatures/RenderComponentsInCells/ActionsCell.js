@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button } from '@sencha/ext-modern';
+import { Container, Button } from '@sencha/ext-react-modern';
 
 export default class ActionsCell extends Component {
 

@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
-import { Grid, Column, } from '@sencha/ext-modern';
+import { ExtGrid, ExtColumn, } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 export default class RowBodyGridExample extends Component {
 
-  store = Ext.create('Ext.data.Store', {
-    model,
+  store = {
+    xtype: 'store',
+    model: model,
     autoLoad: true,
       pageSize: 0,
       proxy: {
           type: 'ajax',
           url: 'resources/data/CompanyData.json'
-      } 
-  });   
+      }
+  };
 
   tpl = data => (
     <div>
@@ -21,32 +22,31 @@ export default class RowBodyGridExample extends Component {
       <div style={{marginTop:'1em'}}>{data.desc}</div>
     </div>
   );
-    
-render() {
-    return (
-      <Grid
-          title="Row Body Grid"
-          store={this.store}
-          shadow
-          itemConfig={{
-              body:{
-                  tpl: this.tpl
-              }
-          }}
-      >
-        <Column text="Company" dataIndex="name" width="150"/>
-        <Column text="Price" dataIndex="price" width="75" formatter="usMoney"/>
-        <Column text="Change" width="100" dataIndex="priceChange" renderer={this.renderSign.bind(this, '0.00')}/>
-        <Column text="% Change" dataIndex="priceChangePct" renderer={this.renderSign.bind(this, '0.00')}/>
-        <Column text="Last Updated" dataIndex="priceLastChange" width="125" formatter="date('m/d/Y')" />
-      </Grid>
-    )
-  }
-    
- renderSign = (format, value) => (
-        <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
-            {Ext.util.Format.number(value, format)}
-        </span>
+
+  renderSign = (format, value) => (
+    <span style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : ''}}>
+      {Ext.util.Format.number(value, format)}
+    </span>
   )
 
+  render() {
+    return (
+      <ExtGrid
+        title="Row Body Grid"
+        store={this.store}
+        shadow
+        itemConfig={{
+          body:{
+            tpl: this.tpl
+          }
+        }}
+      >
+        <ExtColumn text="Company" dataIndex="name" width="150"/>
+        <ExtColumn text="Price" dataIndex="price" width="75" formatter="usMoney"/>
+        <ExtColumn text="Change" width="100" dataIndex="priceChange" renderer={this.renderSign.bind(this, '0.00')}/>
+        <ExtColumn text="% Change" dataIndex="priceChangePct" renderer={this.renderSign.bind(this, '0.00')}/>
+        <ExtColumn text="Last Updated" dataIndex="priceLastChange" width="125" formatter="date('m/d/Y')" />
+      </ExtGrid>
+    )
+  }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
+import { Container, Panel } from '@sencha/ext-react-modern';
 import ScheduleList from '../schedule/ScheduleList';
 import { connect } from 'react-redux';
 //import { setTitle } from '../actions';

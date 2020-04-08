@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import storeData from './storeData';
 
@@ -24,6 +24,7 @@ export default class SplineMarkers extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     theme={theme}

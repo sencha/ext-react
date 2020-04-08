@@ -1,0 +1,55 @@
+// //https://www.sencha.com/blog/build-a-completely-custom-ext-js-theme-in-less-than-10-minutes/
+// //Defining Colors
+
+// $white_chocolate:      #A99386;
+// $milk_chocolate :      #523027;
+// $caramel_chocolate:    #9C6D51;
+// $dark_chocolate :      #5D4446;
+// $silver_spoons:        #a79c8e;
+// $strawberry_chocolate: #f1bbba;
+// $strawberry_mousse:    #EB9F9F;
+
+// // ***** Sencha Sass Variable Below *****
+
+// // Global Colors
+// $base-color : $dark_chocolate; 
+// $neutral_color : $white_chocolate;
+// $body_background_color : lighten($caramel_chocolate,50%);
+
+// // Window Colors
+// $window_body_background_color : $white_chocolate;
+// $window_header_background_color: $dark_chocolate;
+
+// // Panel Colors
+// $panel_body_background_color : lighten($white_chocolate,45%);
+// $panel_header_background_color: $dark_chocolate;
+ 
+// // Grid Colors
+// $grid-row-cell-focus-color: $strawberry_mousse;
+// $grid-row-cell-selected-background-color: $strawberry_chocolate;
+// $grid-row-cell-focus-background-color: lighten($strawberry_chocolate, 15%);
+
+// // Buttons
+// $button-default-base-color : $milk_chocolate;
+// $button_toolbar_color : $milk_chocolate;
+
+// // Progress Bars
+// $progress_bar_background_color: $strawberry_mousse; 
+
+// // Toolbar
+// $toolbar-background-color: lighten($white_chocolate,30%);
+
+// // Tab Panel
+// $tab_base_color: $milk_chocolate;
+// $tab_color: lighten($white_chocolate,25%);
+// $tab_font_size: 18px;
+
+// // ***** Fonts  **********
+
+// // Importing Google Fonts
+// @import url(http://fonts.googleapis.com/css?family=Chewy);
+
+// $chewy: 'Chewy', cursive;
+// $font-family: $chewy;
+// $font-size: 14px;
+// $color: $white_chocolate;

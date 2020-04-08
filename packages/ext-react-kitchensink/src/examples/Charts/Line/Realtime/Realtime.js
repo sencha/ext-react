@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import addNewData from './addNewData';
 
 const interval = 1000;
@@ -35,6 +35,7 @@ export default class Realtime extends Component {
     render() {
         return (
             <Cartesian
+                downloadServerUrl='http://svg.sencha.io'
                 shadow
                 ref="chart"
                 store={this.store}

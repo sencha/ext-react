@@ -1,16 +1,46 @@
 <!doctype html>
 <html>
 <head>
-    <title>Sencha Extreact 7.0 Kitchen Sink</title>
+    <title>ExtReact 7.2 Kitchen Sink</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
-    <script src="resources/code.js?<%= webpack.hash %>"></script>
+    <script src="resources/code.js"></script>
     <link rel="stylesheet" type="text/css" href="resources/loader.css"/>
     <link rel="shortcut icon" href="resources/favicon.ico">
   </head>
+  <script>
+        //https://examples-test.sencha.com/ExtReact/7.0.0/kitchensink/frame-index.html#?basecolor=slategray&title=React UI Toolkit
+        //http://localhost:1841/?basecolor=navy&title=React UI Toolkit
+        //https://www.rapidtables.com/web/color/red-color.html
+        const params = new URLSearchParams(window.location.search);
+        const basecolor = params.get("basecolor");
+        window['title'] = params.get("title");
+        var d = document.documentElement.style
+        if (basecolor != null) {
+            d.setProperty('--base-color', basecolor);
+            d.setProperty('--color', basecolor);
+        }
+
+
+
+        // var h = parent.document.location.href
+        // if (h.includes("react-ui")) {
+        //     const basecolor = 'navy';
+        //     window['title'] = 'React UI Toolkit';
+        //     var d = document.documentElement.style
+        //     d.setProperty('--base-color', basecolor);
+        //     d.setProperty('--color', basecolor);
+        // }
+        // else {
+        //     window['title'] = 'Sencha ExtReact 7.0 Kitchen Sink';
+        // }
+
+  </script>
+
 <body>
-  <div id="loadingSplash">
+  <div id="root"></div>
+  <!-- <div id="loadingSplash">
     <div id="loadingSplashTop"></div>
     <div id="loadingSplashBottom"></div>
     <div class="loading-fading-circle" id="loadingSplashCircles">
@@ -27,6 +57,6 @@
       <div class="loading-circle-11 loading-circle"></div>
       <div class="loading-circle-12 loading-circle"></div>
     </div>
-  </div>
+  </div> -->
 </body>
 </html>

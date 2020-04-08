@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Polar } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Polar } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Spie extends Component {
@@ -29,6 +29,7 @@ export default class Spie extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="fit">
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     theme={theme}

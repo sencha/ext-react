@@ -1,84 +1,74 @@
 {
-  "name": "@sencha/ext-react-rest-example",
-  "private": true,
-  "version": "7.0.0",
-  "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf build",
-    "dev": "webpack-dev-server --env.browser=yes --env.verbose=no",
-    "start": "node server",
-    "debug": "node --nolazy --debug-brk=5858 server",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production",
-    "prod": "cross-env NODE_ENV=production node server"
-  },
-  "extbuild": {
-    "defaultprofile": "",
-    "defaultenvironment": "development",
-    "defaultverbose": "no"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sencha/ext-react.git"
-  },
-  "author": "Sencha, Inc.",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sencha/ext-react/issues"
-  },
-  "homepage": "https://github.com/sencha/ext-react#readme",
-  "dependencies": {
-    "@sencha/ext-react-renderercell": "^7.0.0",
-    "@sencha/ext-react-transition": "^7.0.0",
-
-    "@babel/polyfill": "^7.4.4",
-    "@babel/runtime": "^7.4.4",
-
-    "@sencha/ext": "^7.0.0",
-    "@sencha/ext-modern": "^7.0.0",
-    "@sencha/ext-modern-theme-material": "^7.0.0",
-    "@sencha/ext-modern-treegrid": "^7.0.0",
-    "@sencha/ext-react": "^7.0.0",
-
-
-    "express": "^4.16.4",
-    "prop-types": "^15.7.2",
-    "react": "~16.8.6",
-    "react-dom": "~16.8.6",
-    "react-redux": "~7.0.3",
-    "redux": "^4.0.1",
-    "sqlite3": "^4.0.6"
-  },
-  "devDependencies": {
-    "@sencha/ext-react-babel-plugin": "^7.0.0",
-    "@sencha/ext-webpack-plugin": "~7.0.0",
-
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-function-sent": "^7.2.0",
-    "@babel/plugin-proposal-json-strings": "^7.2.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-syntax-import-meta": "^7.2.0",
-
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "cross-env": "^5.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "portfinder": "^1.0.20",
-    "react-hot-loader": "^4.8.4",
-    "react-test-renderer": "^16.8.6",
-    "rimraf": "^2.6.3",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
-    "webpack-dev-middleware": "^3.6.2",
-    "webpack-dev-server": "^3.3.1",
-    "webpack-shell-plugin": "^0.5.0"
-  }
+    "name": "@sencha/ext-react-rest-example",
+    "private": true,
+    "version": "7.2.0",
+    "description": "An example showing the use of ExtReact stores and proxies with a rest API.",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf build",
+        "dev": "webpack-dev-server --env.browser=yes --env.verbose=no",
+        "start": "node server",
+        "debug": "node --nolazy --debug-brk=5858 server",
+        "build": "npm run clean && cross-env NODE_ENV=production webpack --env.environment=production",
+        "prod": "cross-env NODE_ENV=production node server"
+    },
+    "extbuild": {
+        "defaultprofile": "",
+        "defaultenvironment": "development",
+        "defaultverbose": "no"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sencha/ext-react.git"
+    },
+    "author": "Sencha, Inc.",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sencha/ext-react/issues"
+    },
+    "homepage": "https://github.com/sencha/ext-react#readme",
+    "dependencies": {
+        "@babel/polyfill": "^7.8.3",
+        "@babel/runtime": "^7.8.4",
+        "@sencha/ext": "~7.2.0",
+        "@sencha/ext-modern": "~7.2.0",
+        "@sencha/ext-modern-theme-material": "~7.2.0",
+        "@sencha/ext-modern-treegrid": "~7.2.0",
+        "@sencha/ext-react-modern": "^7.1.0",
+        "express": "^4.17.1",
+        "prop-types": "^15.7.2",
+        "react": "~16.12.0",
+        "react-dom": "~16.12.0",
+        "react-redux": "~7.2.0",
+        "redux": "^4.0.5",
+        "sqlite3": "^4.1.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.3",
+        "@babel/preset-env": "^7.8.3",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-proposal-decorators": "^7.8.3",
+        "@babel/plugin-transform-runtime": "^7.8.3",
+        "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
+        "@babel/plugin-proposal-function-sent": "^7.8.3",
+        "@babel/plugin-proposal-json-strings": "^7.8.3",
+        "@babel/plugin-proposal-numeric-separator": "^7.8.3",
+        "@babel/plugin-proposal-throw-expressions": "^7.8.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+        "@babel/plugin-syntax-import-meta": "^7.8.3",
+        "@babel/preset-react": "~7.8.3",
+        "@sencha/ext-webpack-plugin": "~7.2.0",
+        "babel-loader": "^8.0.6",
+        "cross-env": "^7.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "portfinder": "^1.0.25",
+        "react-hot-loader": "^4.12.19",
+        "react-test-renderer": "^16.12.0",
+        "rimraf": "^3.0.2",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-middleware": "^3.7.2",
+        "webpack-dev-server": "^3.10.3",
+        "webpack-shell-plugin": "^0.5.0"
+    }
 }

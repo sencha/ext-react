@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ToolBar, ToggleField, TimePanel } from '@sencha/ext-modern';
+import { Container, ToolBar, ToggleField, TimePanel } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.panel.Time');
 
@@ -38,7 +38,7 @@ export default class TimePanelExample extends Component {
 				}
 				scrollable={true}
             >
-                <ToolBar 
+                <ToolBar
 				    docked="top"
 				    ui="transparent"
 				    style="align-self:center; margin-top:10px;"

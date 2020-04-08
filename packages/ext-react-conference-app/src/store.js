@@ -1,6 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { routerReducer, routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createHashHistory'
+//import createHistory from 'history/createHashHistory'
+const createHistory = require("history").createHashHistory
+
 
 import thunk from 'redux-thunk';
 import root from './reducer';
@@ -8,7 +10,7 @@ import schedule from './schedule/reducer';
 import speakers from './speakers/reducer';
 import event from './event/reducer';
 
-import { routeChanged } from './actions'; 
+import { routeChanged } from './actions';
 
 const initialState = { };
 

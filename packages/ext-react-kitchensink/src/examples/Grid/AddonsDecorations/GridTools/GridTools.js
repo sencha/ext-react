@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Column, GridCell } from '@sencha/ext-modern';
+import { Grid, Column, GridCell } from '@sencha/ext-react-modern';
 
 export default class GridToolsExample extends Component {
 
@@ -81,9 +81,9 @@ export default class GridToolsExample extends Component {
           }
         }}
       >
-        <Column 
-          text="Name" 
-          dataIndex="name" 
+        <Column
+          text="Name"
+          dataIndex="name"
           flex={1}
           maxWidth="200"
           cell={{
@@ -94,9 +94,9 @@ export default class GridToolsExample extends Component {
             }
           }}
         />
-        <Column 
-          text="Cuisine" 
-          dataIndex="cuisine" 
+        <Column
+          text="Cuisine"
+          dataIndex="cuisine"
           flex={1}
           maxWidth="150"
           cell={{
@@ -107,9 +107,9 @@ export default class GridToolsExample extends Component {
             }
           }}
         />
-        <Column 
-          text="Actions" 
-          width="80" 
+        <Column
+          text="Actions"
+          width="80"
           cell={{
             tools:{
               search: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormPanel, CheckBoxField } from '@sencha/ext-modern';
+import { FormPanel, CheckBoxField } from '@sencha/ext-react-modern';
 
 export default function CheckBoxFieldExample() {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Button, Container, ToolTip } from '@sencha/ext-modern';
+import { Panel, Button, Container, ToolTip } from '@sencha/ext-react-modern';
 
 export default class ToolTipExample extends Component {
   render() {
@@ -14,9 +14,9 @@ export default class ToolTipExample extends Component {
       return (
           <Panel layout="vbox" shadow bodyPadding="20" defaults={containerDefaults}>
               <Container layout={{
-              type: Ext.platformTags.phone ? 'vbox' : 'hbox', 
-              align: 'start', 
-              pack: 'center' 
+              type: Ext.platformTags.phone ? 'vbox' : 'hbox',
+              align: 'start',
+              pack: 'center'
           }} defaults={buttonDefaults}>
                   <Button text="Basic Tip" height="30" width="100">
                     <ToolTip>A simple tooltip</ToolTip>
@@ -29,9 +29,9 @@ export default class ToolTipExample extends Component {
                   </Button>
               </Container>
               <Container layout={{
-              type: Ext.platformTags.phone ? 'vbox' : 'hbox', 
-              align: 'start', 
-              pack: 'center' 
+              type: Ext.platformTags.phone ? 'vbox' : 'hbox',
+              align: 'start',
+              pack: 'center'
           }} defaults={buttonDefaults}>
                   <Button text="Anchor Right, Rich Content">
                       <ToolTip showOnTap align="tl-tr" anchorToTarget anchor>
@@ -51,9 +51,9 @@ export default class ToolTipExample extends Component {
                   </Button>
               </Container>
               <Container layout={{
-              type: Ext.platformTags.phone ? 'vbox' : 'hbox', 
-              align: 'start', 
-              pack: 'center' 
+              type: Ext.platformTags.phone ? 'vbox' : 'hbox',
+              align: 'start',
+              pack: 'center'
           }}>
                   <div style={{...styles.qTipItem, ...styles.color1}} data-qtip="This tip is inline" data-qshowOnTap="true">Inline Tip</div>
                   <div style={{...styles.qTipItem, ...styles.color2}} data-qtip="This tip has a fixed width" data-qwidth="400" data-qshowOnTap="true">Fixed width inline tip</div>

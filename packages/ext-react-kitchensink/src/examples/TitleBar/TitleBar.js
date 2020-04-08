@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SearchField, TitleBar, Container, Button, Menu, MenuItem } from '@sencha/ext-modern';
+import { SearchField, TitleBar, Container, Button, Menu, MenuItem } from '@sencha/ext-react-modern';
 
 export default class TitleBarExample extends Component {
 

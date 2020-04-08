@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-modern';
+import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-react-modern';
 import { generateData, randomDate } from '../generateSaleData';
 import SaleModel from '../SaleModel';
 
 export default class Collapsible extends Component {
-  
+
   constructor() {
     super();
     this.loadData();
@@ -54,11 +54,11 @@ export default class Collapsible extends Component {
                 {
                   dataIndex: 'person',
                   header: 'Person'
-                }, 
+                },
                 {
                   dataIndex: 'company',
                   header: 'Company'
-                }, 
+                },
                 {
                   dataIndex: 'year',
                   header: 'Year'
@@ -68,7 +68,7 @@ export default class Collapsible extends Component {
                 {
                   dataIndex: 'country',
                   header: 'Country'
-                }, 
+                },
                 {
                   dataIndex: 'month',
                   labelRenderer: this.monthLabelRenderer,

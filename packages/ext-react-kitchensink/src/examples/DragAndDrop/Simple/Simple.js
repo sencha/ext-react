@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 
 Ext.require(['Ext.drag.*']);
 
@@ -23,13 +23,14 @@ export default class Simple extends Component {
   render() {
     const {dragText} = this.state;
     return (
-      <Panel 
+      <Panel
         padding={5}
         shadow
         ref="dragContainer"
+        onReady={ this.extReactDidMount }
       >
-        <Container 
-          ref="dragItem" 
+        <Container
+          ref="dragItem"
           style={{
             width: '130px',
             height: '130px',
@@ -48,7 +49,7 @@ export default class Simple extends Component {
     )
   }
 
-  componentDidMount() {
+  extReactDidMount = () => {
     this.source = new Ext.drag.Source({
       element: this.refs.dragItem.cmp.el,
       constrain: this.refs.dragContainer.cmp.el,
@@ -58,6 +59,10 @@ export default class Simple extends Component {
       }
     });
   }
+
+  // componentDidMount = () => {
+  //   extReactDidMount = () => {
+  //   }
 
   componentWillUnmount() {
     Ext.destroy(this.source);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Toolbar, Button, Spacer } from '@sencha/ext-modern';
-import { PivotD3Container } from '@sencha/ext-pivot-d3';
+import { Toolbar, Button, Spacer } from '@sencha/ext-react-modern';
+import { ExtPivotD3Container } from '@sencha/ext-react-modern';
 import createData from './createData';
 import './styles.css';
 
@@ -72,16 +72,16 @@ export default class ConfigurablePivotTreeMap extends Component {
         if(align) {
             align.hide();
         }
-    }    
+    }
 
     render() {
         return (
-            <PivotD3Container
+            <ExtPivotD3Container
                 shadow
                 ref="mainCtn"
-                onShowConfigPanel={this.onShowConfigPanel}
-                onBeforeMoveConfigField={this.onBeforeAddConfigField}
-                onShowConfigFieldSettings={this.onShowFieldSettings}
+                onShowconfigpanel={this.onShowConfigPanel}
+                onBeforemoveconfigfield={this.onBeforeAddConfigField}
+                onShowconfigfieldsettings={this.onShowFieldSettings}
                 matrix={{
                     store: this.store,
                     aggregate: [{
@@ -193,7 +193,7 @@ export default class ConfigurablePivotTreeMap extends Component {
                     <Spacer/>
                     <Button text="Show configurator" handler={this.showConfigurator.bind(this)}/>
                 </Toolbar>
-            </PivotD3Container>
+            </ExtPivotD3Container>
         )
     }
 }

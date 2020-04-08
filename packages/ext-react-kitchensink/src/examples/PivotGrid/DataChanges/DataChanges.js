@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-modern';
+import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@sencha/ext-react-modern';
 import SaleModel from '../SaleModel';
 import { generateData, randomItem } from '../generateSaleData';
 
@@ -12,11 +12,11 @@ export default class DataChanges extends Component {
     proxy: { type: 'memory' }
   })
 
-  addData = () => { 
-    this.store.add(generateData(1)); 
+  addData = () => {
+    this.store.add(generateData(1));
   }
 
-  updateData = () => { 
+  updateData = () => {
     const data = generateData(1)[0],
         record = randomItem(this.store.data.items);
     if(record) {
@@ -46,7 +46,7 @@ export default class DataChanges extends Component {
                 dataIndex: 'value',
                 header: 'Total',
                 aggregator: 'sum'
-              }, 
+              },
               {
                 dataIndex: 'value',
                 header: 'Count',
@@ -57,7 +57,7 @@ export default class DataChanges extends Component {
               {
                 dataIndex: 'year',
                 header: 'Year'
-              }, 
+              },
               {
                 dataIndex: 'person',
                 header: 'Person'

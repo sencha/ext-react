@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
-import { ColorSelector } from '@sencha/ext-ux';
+import { Container, Panel } from '@sencha/ext-react-modern';
+import { Colorselector } from '@sencha/ext-react-modern';
 
-Ext.require([
-  'Ext.ux.colorpick.*'
-]);
+// Ext.require([
+//   'Ext.ux.colorpick.*'
+// ]);
 
 export default class ColorPickerExample extends Component {
   constructor(props) {
@@ -27,10 +27,11 @@ export default class ColorPickerExample extends Component {
   onChange(picker) {
     const color = picker.getValue();
 
-    this.setState({
-      color,
-      exampleLabel: this.getLabel(color)
-    });
+    //mjg
+    // this.setState({
+    //   color,
+    //   exampleLabel: this.getLabel(color)
+    // });
   }
 
   render() {
@@ -58,20 +59,20 @@ export default class ColorPickerExample extends Component {
             type: 'vbox'
           }}
           title='Color Picker Components'
-          xtype='color-selector'
+          //xtype='colorselector'
           viewModel={{
             data: {
                 color: this.state.color
             }
           }}>
-          <ColorSelector
+          <Colorselector
             bind="{color}"
-            xtype="colorselector"
+            //xtype="colorselector"
           />
           <Panel
             title={this.state.exampleLabel}
             ui="light"
-            xtype="panel"
+            //xtype="panel"
           />
         </Panel>
       </Container>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel, Toolbar, CheckBoxField } from '@sencha/ext-modern';
+import { Container, Panel, Toolbar, CheckBoxField } from '@sencha/ext-react-modern';
 import { mediumText } from '../../dummy';
 
 Ext.require('Ext.panel.Resizer');

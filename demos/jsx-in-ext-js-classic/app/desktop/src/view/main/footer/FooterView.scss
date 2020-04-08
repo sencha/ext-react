@@ -1,0 +1,15 @@
+.footerview { 
+	color: $color;
+  background-color: $base-color;
+  border-top: 1px solid darken($base-color, 10%);
+  box-shadow: 2px -2px 8px 0 rgba(0, 0, 0, 0.4);
+
+}
+
+@include extjs-button-toolbar-small-ui(
+  $ui: 'footerbutton',
+	$background-color: transparent,
+	$color: $color,
+	$glyph-color: $color,
+  $border-color: transparent
+);

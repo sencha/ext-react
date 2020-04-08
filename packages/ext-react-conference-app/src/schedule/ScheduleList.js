@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { List } from '@sencha/ext-modern';
+import { List } from '@sencha/ext-react-modern';
 import { toggleFavorite } from './actions';
 import { connect } from 'react-redux';
 //import days from '../util/days';
@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { createTpl } from './EventTpl';
 
 class ScheduleList extends Component {
-    
+
     static propTypes = {
         dataStore: PropTypes.any.isRequired,
         onFavoriteClick: PropTypes.func,
@@ -21,10 +21,10 @@ class ScheduleList extends Component {
     constructor({ showTime }) {
         super();
 
-        this.itemTpl = createTpl({ 
-            getQuery: this.getQuery, 
-            showTime, 
-            onFavoriteClick: this.onFavoriteClick 
+        this.itemTpl = createTpl({
+            getQuery: this.getQuery,
+            showTime,
+            onFavoriteClick: this.onFavoriteClick
         });
     }
 
@@ -52,7 +52,7 @@ class ScheduleList extends Component {
         const { event, query, dataStore, onSelect, pinHeaders, ...listProps } = this.props;
 
         return (
-            <List 
+            <List
                 ref={this.listRef}
                 hideMode="offsets"
                 {...listProps}

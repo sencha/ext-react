@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Grouped extends Component {
@@ -31,11 +31,12 @@ export default class Grouped extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="vbox">
                 <ChartToolbar maxHeight={50} downloadChartRef={this.refs.chart}/>
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     flex={2}
                     store={this.store}
                     theme="Muted"
-                    ref="chart" 
+                    ref="chart"
                     insetPadding="70 40 0 10"
                     interactions="itemhighlight"
                     animation={{ duration: 200 }}

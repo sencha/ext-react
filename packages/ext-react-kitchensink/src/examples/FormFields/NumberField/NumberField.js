@@ -1,12 +1,12 @@
 import React from 'react';
-import { NumberField, FormPanel } from '@sencha/ext-modern';
+import { NumberField, FormPanel } from '@sencha/ext-react-modern';
 
 export default function SpinnerFieldExample() {
     return (
         <FormPanel shadow>
-            <NumberField 
+            <NumberField
                 decimals={2}
-                label="Number" 
+                label="Number"
                 width="150"
             />
         </FormPanel>

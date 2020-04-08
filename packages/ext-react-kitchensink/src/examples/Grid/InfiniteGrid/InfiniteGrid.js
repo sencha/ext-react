@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-react-modern';
 import './VirtualForm';
 
 Ext.require([
-    'Ext.grid.filters.Plugin'
+  'Ext.grid.filters.Plugin'
 ]);
 
 export default class InfiniteGridExample extends Component {
@@ -14,11 +14,11 @@ export default class InfiniteGridExample extends Component {
 				scrollable={true}
 				height={500}
 			    width={600}
-			    plugins={
-			    	{
-			    		gridfilters: true
-			    	}
-			    }
+			    // plugins={
+			    // 	{
+			    // 		gridfilters: true
+			    // 	}
+			    // }
 				store={
 					{
 						type: 'virtualforum'

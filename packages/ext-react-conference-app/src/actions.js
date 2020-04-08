@@ -6,9 +6,10 @@ export const ROUTE_CHANGED = 'ROOT::ROUTE_CHANGED';
 
 /**
  * Show/hide the menu
- * @param {Boolean} show 
+ * @param {Boolean} show
  */
 export function toggleMenu(show) {
+  console.log('t')
     return {
         type: TOGGLE_MENU,
         show
@@ -39,8 +40,8 @@ export function routeChanged() {
 
 /**
  * Updates the contents of the titlebar
- * @param {*} title 
- * @param {*} showBackButton 
+ * @param {*} title
+ * @param {*} showBackButton
  */
 export function setTitle(title, backButtonURL) {
     return {

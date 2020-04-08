@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Toolbar, Column, SearchField } from '@sencha/ext-modern';
+import { Grid, Toolbar, Column, SearchField } from '@sencha/ext-react-modern';
 import data from './data';
 import { small, medium } from '../responsiveFormulas';
 
@@ -18,15 +18,15 @@ export default class Home extends React.Component<void, any> {
         return (
             <Grid store={this.store}>
                 <Toolbar docked="top">
-                    <SearchField 
-                        ui="faded" 
-                        ref={field => this.query = field} 
-                        placeholder="Search..." 
+                    <SearchField
+                        ui="faded"
+                        ref={field => this.query = field}
+                        placeholder="Search..."
                         onChange={this.onSearch.bind(this)}
                         responsiveConfig={{
-                            [small]: { 
+                            [small]: {
                                 flex: 1
-                            }, 
+                            },
                             [medium]: {
                                 flex: undefined
                             }
@@ -44,10 +44,10 @@ export default class Home extends React.Component<void, any> {
                     dataIndex="email"
                     flex={3}
                     resizable
-                    responsiveConfig={{ 
-                        [small]: { 
+                    responsiveConfig={{
+                        [small]: {
                             hidden: true
-                        }, 
+                        },
                         [medium]: {
                             hidden: false
                         }
@@ -68,14 +68,14 @@ export default class Home extends React.Component<void, any> {
      * Filter the store when the user types in the search box
      */
     onSearch = () => {
-        const query = this.query.cmp.getValue().toLowerCase(); 
+        const query = this.query.cmp.getValue().toLowerCase();
         this.store.clearFilter();
 
         if (query.length) this.store.filterBy(record => {
             const { name, email, phone } = record.data;
 
-            return name.toLowerCase().indexOf(query) !== -1 || 
-                email.toLowerCase().indexOf(query) !== -1 || 
+            return name.toLowerCase().indexOf(query) !== -1 ||
+                email.toLowerCase().indexOf(query) !== -1 ||
                 phone.toLowerCase().indexOf(query) !== -1;
         });
     }

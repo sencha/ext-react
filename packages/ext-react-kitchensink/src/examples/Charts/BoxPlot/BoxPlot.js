@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../ChartToolbar';
 import data from './data';
 
@@ -37,6 +37,7 @@ export default class BoxPlotExample extends Component {
                     onlyMidnight
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     theme={theme}
                     captions={{
@@ -87,7 +88,7 @@ export default class BoxPlotExample extends Component {
                         type: 'scatter',
                         xField: 'field',
                         yField: 'age'
-                    }]}              
+                    }]}
                 />
             </Container>
         )

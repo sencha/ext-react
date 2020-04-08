@@ -14,7 +14,7 @@ const initialState = {
     mode: 'full',
     layout: 'fit',
     showCode: false,
-    showTree: false
+    showTree: true
 };
 
 export default function(state = initialState, action) {
@@ -23,7 +23,7 @@ export default function(state = initialState, action) {
       const { location } = action;
       const { navStore } = state;
       const node = navStore.getNodeById(location.pathname);
-      
+
       return {
         ...state,
         component: node && node.get('component'),
@@ -33,6 +33,7 @@ export default function(state = initialState, action) {
       }
     }
     case TOGGLE_CODE: {
+      
       return { ...state, showCode: !state.showCode };
     }
     case TOGGLE_TREE: {

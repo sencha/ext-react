@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filterChange } from './actions';
-import { Grid, Column, TitleBar, SearchField, Label } from '@sencha/ext-modern';
+import { Grid, Column, TitleBar, SearchField, Label } from '@sencha/ext-react-modern';
 import data from './data';
 
 Ext.require(['Ext.grid.plugin.PagingToolbar']);
@@ -31,7 +31,7 @@ class Employees extends Component {
 
     render() {
         const { dispatch } = this.props;
-    
+
         return (
             <Grid
                 store={this.store}
@@ -41,7 +41,7 @@ class Employees extends Component {
                 }}
             >
                 <TitleBar title="Employees" docked="top" ui="titlebar-search">
-                    <SearchField 
+                    <SearchField
                         ui="alt"
                         align="right"
                         placeholder="Search..."

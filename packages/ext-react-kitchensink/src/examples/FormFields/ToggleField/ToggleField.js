@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormPanel, ToggleField } from '@sencha/ext-modern';
+import { FormPanel, ToggleField } from '@sencha/ext-react-modern';
 
 export default function ToggleFieldExample() {
     return (

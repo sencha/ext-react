@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 
 Ext.require([
@@ -46,6 +46,7 @@ export default class BasicBarChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding="70 40 0"
                     platformConfig={{
@@ -94,7 +95,7 @@ export default class BasicBarChartExample extends Component {
                         }
                     }}
                 />
-            </Container>            
+            </Container>
         )
     }
 }

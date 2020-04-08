@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -56,6 +56,7 @@ export default class WithRenderer extends Component {
                     onlyMidnight
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     theme={theme}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, ActionSheet, Container, Button, SparkLineLine, RendererCell, Column, TextColumn, CheckColumn, NumberColumn, DateColumn, Rating, GridSummaryRow, WidgetCell } from '@sencha/ext-modern';
+import { Grid, ActionSheet, Container, Button, SparkLineLine, RendererCell, Column, TextColumn, CheckColumn, NumberColumn, DateColumn, Rating, GridSummaryRow, WidgetCell } from '@sencha/ext-react-modern';
 import model from './GridModel';
 import './data';
 import './style.css';
@@ -62,9 +62,9 @@ export default class BigDataGridExample extends Component {
             xtype: 'gridsummaryrow'
           }}
           itemConfig={{
-          // ViewModel is required to use bind property 
+          // ViewModel is required to use bind property
           viewModel: {
-            
+
           },
             body: {
               tpl: this.rowBodyTpl
@@ -137,7 +137,7 @@ export default class BigDataGridExample extends Component {
                       horizontal: 'Right'
                     }
                   }
-              }, 
+              },
               {
                 text: 'All',
                 dataIndex: 'rating',
@@ -153,7 +153,7 @@ export default class BigDataGridExample extends Component {
               }
             ]
           }
-          /> 
+          />
           <DateColumn
               text="Date of Birth"
               dataIndex="dob"
@@ -243,8 +243,8 @@ export default class BigDataGridExample extends Component {
                   formatter='number("0.00")'
               />
           </Column>
-          <Column 
-              text="Rating<br/>This Year" 
+          <Column
+              text="Rating<br/>This Year"
               dataIndex="ratingThisYear"
               groupable={false}
               formatter='round(1)'
@@ -265,7 +265,7 @@ export default class BigDataGridExample extends Component {
              }}
             //renderer={this.renderRatingThisYear}
           />
-          
+
 
 
           <TextColumn
@@ -379,7 +379,7 @@ export default class BigDataGridExample extends Component {
     } else {
       count = store.getCount();
     }
-    
+
     Ext.Msg.confirm('Verify All',
       'Are you sure you want to verify all ' + count + ' items?',
       answer => {
@@ -426,13 +426,13 @@ export default class BigDataGridExample extends Component {
 
   renderRatingThisYear = (value) => (
     //value && <Rating value={value} tip='Set to {tracking:plural("Star")}'/>
-    value 
+    value
   )
 
   renderSparkline = (rating) => (
-    <SparkLineLine 
-      height={16} 
-      values={rating} 
+    <SparkLineLine
+      height={16}
+      values={rating}
       tipTpl='Price: {y:number("0.00")}'
     />
   )
@@ -449,7 +449,7 @@ export default class BigDataGridExample extends Component {
 
   renderVerifyAll = (value, record, dataIndex, cell) => (
     <Container>
-      <Button 
+      <Button
         ui="action"
         text="All"
         handler={this.onVerifyAll.bind(this, cell)}

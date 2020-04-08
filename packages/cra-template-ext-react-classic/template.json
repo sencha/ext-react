@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@sencha/ext-react-classic": "^7.2.0",
+    "@sencha/ext-classic-runtime": "^7.2.0",
+    "@sencha/ext-classic-enterprise": "^7.2.0",
+    "@sencha/ext-classic-material": "^7.2.0"
+  },
+  "scripts": {
+
+  }
+}

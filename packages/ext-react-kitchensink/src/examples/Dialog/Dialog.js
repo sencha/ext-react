@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog, Container, Button } from '@sencha/ext-modern';
+import { Dialog, Container, Button } from '@sencha/ext-react-modern';
 
 export default class DialogExample extends Component {
 
@@ -13,7 +13,7 @@ export default class DialogExample extends Component {
         return (
             <Container>
                 <Button text="Show Dialog" handler={this.showDialog} ui="action raised"/>
-                <Dialog 
+                <Dialog
                     displayed={showDialog}
                     title="Dialog"
                     closable
@@ -24,8 +24,8 @@ export default class DialogExample extends Component {
                     maxWidth="200"
                     defaultFocus="#ok"
                     onHide={() => this.setState({ showDialog: false })}
-                    html = {`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+                    html = {`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commodo consequat.`}
                 >
                     <Button text="Cancel" handler={this.onCancel}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Column, Grid } from '@sencha/ext-modern';
+import { Column, Grid } from '@sencha/ext-react-modern';
 import model from '../../CompanyModel';
 
 Ext.require([
@@ -8,15 +8,16 @@ Ext.require([
 
 export default class GridFilteringExample extends Component {
 
-  store = Ext.create('Ext.data.Store', {
+  store = {
+    xtype: 'store',
     model,
     autoLoad: true,
     pageSize: 0,
     proxy: {
       type: 'ajax',
       url: '/KitchenSink/BigData'
-    } 
-  });
+    }
+  };
 
   nameSorter = (rec1, rec2) => {
     // Sort prioritizing surname over forename as would be expected.
@@ -45,14 +46,14 @@ export default class GridFilteringExample extends Component {
         store={this.store}
         title='Grid Filters'
       >
-        <Column 
+        <Column
           dataIndex='employeeNo'
           filter='number'
           flex={1}
           minWidth={100}
           text='Id'
         />
-        <Column 
+        <Column
           dataIndex='fullName'
           filter='string'
           minWidth={150}

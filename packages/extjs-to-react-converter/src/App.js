@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Container, TextAreaField, Panel, Toolbar, Button, TitleBar, Spacer, SliderField, Label, SpinnerField } from '@sencha/ext-modern';
+import { Container, Toolbar, Button, TitleBar, Spacer, Label, SpinnerField } from '@sencha/ext-react-modern';
 import transpile from './transpile';
 import prettier from 'prettier-standalone';
 import Clipboard from 'clipboard';
 
 const savedWidth = localStorage.getItem('width');
 
-// Enable responsiveConfig app-wide. You can remove this if you don't plan to build a responsive UI.
 Ext.require([
     'Ext.Toast'
 ]);
@@ -18,9 +17,6 @@ function format(output, printWidth) {
     }).replace(/;\s*$/, '');
 }
 
-/**
- * The main application view
- */
 export default class App extends Component {
 
     state = {
@@ -38,8 +34,8 @@ export default class App extends Component {
             foo()
         }
     },
-    items: [{ 
-        xtype: 'toolbar', 
+    items: [{
+        xtype: 'toolbar',
         items: [{
             xtype: 'button',
             text: 'Menu',
@@ -83,31 +79,31 @@ export default class App extends Component {
         const { input, output, error, width } = this.state;
 
         return (
-            <Container fullscreen layout="hbox">
+            <Container viewport="true" fullscreen layout="hbox">
                 <TitleBar docked="top" title="Ext JS to React Converter"/>
                 <Container flex={1} layout="fit" style={{ borderWidth: "0 1px 0 0", borderStyle: "solid", borderColor: "#CCC" }}>
-                    <Toolbar docked="top">Ext JS</Toolbar>
-                    <textarea 
+                    <Toolbar docked="top"><div>Ext JS</div></Toolbar>
+                    <textarea
                         style={styles.code}
-                        value={input} 
-                        placeholder="Paste Ext JS code here..." 
-                        ref={field => this.sourceField = field} 
-                        onChange={e => this.onSourceChange(e.target.value)} 
+                        value={input}
+                        placeholder="Paste Ext JS code here..."
+                        ref={field => this.sourceField = field}
+                        onChange={e => this.onSourceChange(e.target.value)}
                     />
                 </Container>
                 <Container flex={1} layout="fit" scrollable>
-                    <Toolbar docked="top"> 
+                    <Toolbar docked="top">
                         <div>React</div>
                         <Spacer/>
-                        <Button 
-                            align="right" 
-                            text="Copy" 
+                        <Button
+                            align="right"
+                            text="Copy"
                             iconCls="x-fa fa-clipboard"
                             handler={() => Ext.toast('Copied to clipboard')}
                             className="copy-btn"
                         />
                     </Toolbar>
-                    <textarea 
+                    <textarea
                         style={{ ...styles.code, color: error ? 'red' : '', whiteSpace: error ? 'pre-wrap' : 'pre' }}
                         value={error || format(output, width)}
                         ref={field => this.outputField = field}
@@ -123,7 +119,7 @@ export default class App extends Component {
             </Container>
         )
     }
-    
+
 }
 
 const styles = {

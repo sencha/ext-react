@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid, Container, Toolbar, SegmentedButton, Button} from '@sencha/ext-modern';
+import {Grid, Container, Toolbar, SegmentedButton, Button} from '@sencha/ext-react-modern';
 import model from './GridModel';
 
 export default class ReconfigureGridExample extends Component {
@@ -57,9 +57,9 @@ export default class ReconfigureGridExample extends Component {
     onChange = (segmented, value) => {
         const config = this.configs[value];
 
-        this.setState({ 
-            columns: config.columns, 
-            store: this[config.store]() 
+        this.setState({
+            columns: config.columns,
+            store: this[config.store]()
         });
     }
 
@@ -162,7 +162,7 @@ export default class ReconfigureGridExample extends Component {
 
         if (columns) {
             gridConfig = {
-                columns, 
+                columns,
                 store
             }
         }
@@ -179,7 +179,7 @@ export default class ReconfigureGridExample extends Component {
                         <Button text="Show Offices" value="Offices"/>
                         <Button text="Show Employees" value="Employees"/>
                     </SegmentedButton>
-                </Toolbar>                
+                </Toolbar>
             </Grid>
         )
     }

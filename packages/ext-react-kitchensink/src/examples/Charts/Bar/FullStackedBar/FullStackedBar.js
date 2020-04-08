@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class FullStackedBar extends Component {
@@ -58,6 +58,7 @@ export default class FullStackedBar extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding={'20 20 10 10'}
                     store={this.store}

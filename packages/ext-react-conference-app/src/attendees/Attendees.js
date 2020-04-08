@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setTitle } from '../actions';
-import WorldMap from './WorldMap';
+//import WorldMap from './WorldMap';
 
 class Attendees extends Component {
 
@@ -33,43 +33,44 @@ class Attendees extends Component {
 
   render() {
     return (
-      <WorldMap
-        store={this.store}
-        colorAxis={{
-          scale: {
-            type: 'log',
-            range: ['#99ccff', '#0050a1']
-          },
-          field: 'cnt'
-        }}
-        mapAxis={{
-          field: 'Work_Country',
-          hidden: !Ext.platformTags.phone
-        }}
-        interactions={Ext.platformTags.phone ? {
-          type: 'panzoom',
-          zoom: {
-            extent: [0.3, 3],
-            doubleTap: false
-          },
-          pan: {
-            constrain: false
-          }
-        } : null}
-        legend={{
-          docked: 'right',
-          items: {
-            count: 5,
-            slice: [1],
-            reverse: true,
-            size: {
-                x: 40,
-                y: 20
-            }
-          }
-        }}
-        onScenesetup={this.onSceneSetup}
-      />
+      <div>world map</div>
+      // <WorldMap
+      //   store={this.store}
+      //   colorAxis={{
+      //     scale: {
+      //       type: 'log',
+      //       range: ['#99ccff', '#0050a1']
+      //     },
+      //     field: 'cnt'
+      //   }}
+      //   mapAxis={{
+      //     field: 'Work_Country',
+      //     hidden: !Ext.platformTags.phone
+      //   }}
+      //   interactions={Ext.platformTags.phone ? {
+      //     type: 'panzoom',
+      //     zoom: {
+      //       extent: [0.3, 3],
+      //       doubleTap: false
+      //     },
+      //     pan: {
+      //       constrain: false
+      //     }
+      //   } : null}
+      //   legend={{
+      //     docked: 'right',
+      //     items: {
+      //       count: 5,
+      //       slice: [1],
+      //       reverse: true,
+      //       size: {
+      //           x: 40,
+      //           y: 20
+      //       }
+      //     }
+      //   }}
+      //   onScenesetup={this.onSceneSetup}
+      // />
     )
   }
 }

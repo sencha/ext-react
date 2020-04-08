@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TabPanel, Panel } from '@sencha/ext-modern';
-import hljs, { highlightBlock } from 'highlightjs';
-
-// JSX syntax highlighting
+import { TabPanel, Panel } from '@sencha/ext-react-modern';
+import hljs from 'highlightjs';
 import 'highlightjs/styles/atom-one-dark.css';
-import H_js from './H_js';
-hljs.registerLanguage('js', H_js);
-
 Ext.require('Ext.panel.Resizer');
-
-function codeClassFor(file)  {
-  if (file.endsWith('.css')) {
-    return 'css';
-  } else {
-    return 'js xml'
-  }
-}
 
 export default class Files extends Component {
 
@@ -24,56 +11,51 @@ export default class Files extends Component {
     files: PropTypes.object
   }
 
-  componentWillMount() {
-    this._refs = {};
-  }
-
-  componentDidMount() {
+  extReactDidMount = detail => {
     this.highlightCode();
   }
 
   componentDidUpdate(prev) {
     if (this.props.files !== prev.files) {
-        this.highlightCode();
+      this.highlightCode();
     }
   }
 
   highlightCode() {
-    if (this.tabs) for (let el of this.tabs.cmp.el.query('.code')) {
-      highlightBlock(el);
-    }
+    document.querySelectorAll("pre code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
   }
 
   render() {
     const { files } = this.props;
 
     return (
-      <TabPanel 
+      <TabPanel
         ref={(tabs) => {this.tabs = tabs}}
+        onReady={this.extReactDidMount}
         shadow
-        tabBar={{
-            layout: {
-                pack: 'left'
-            }
-        }}
+        tabBar={{layout: {pack: 'left'}}}
       >
         { Object.keys(files).map((file, i) => (
-          <Panel 
+          <Panel
             key={i}
             scrollable={true}
             title={file}
             layout="fit"
             ui="code-panel"
+            userSelectable={{ element: true, bodyElement: true }}
             tab={{
               ui: 'app-code-tab',
               flex: 0,
-              minWidth: 120
+              padding: "0 5 0 0",
+              minWidth: 220,
+              maxWidth: 250
             }}
-            userSelectable
-            html={`<pre><code id="${file}" class="code ${codeClassFor(file)}">${files[file].replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`}
+            html={`<pre style="user-select: text;"><code id="${file}" class="code">${files[file].replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`}
           />
         ))}
-      </TabPanel> 
+      </TabPanel>
     )
   }
 

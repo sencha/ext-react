@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import { storeData, colors } from './data';
 
@@ -17,9 +17,10 @@ export default class ThreeDColumnWithRenderer extends Component {
             <Container padding={!Ext.os.is.Phone && 10} layout="vbox">
                 <ChartToolbar maxHeight={50} downloadChartRef={this.refs.chart}/>
                 <Cartesian
+                        downloadServerUrl ="http://svg.sencha.io"
                         shadow
-                        flex={2} 
-                        ref="chart" 
+                        flex={2}
+                        ref="chart"
                         store={this.store}
                         theme="muted"
                         interactions={{

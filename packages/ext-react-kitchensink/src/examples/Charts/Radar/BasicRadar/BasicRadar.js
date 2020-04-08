@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Polar } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Polar } from '@sencha/ext-react-modern';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -11,7 +11,7 @@ Ext.require([
 ]);
 
 export default class BasicScatterChartExample extends Component {
-    
+
     store = Ext.create('Ext.data.Store', {
         data
     });
@@ -32,6 +32,7 @@ export default class BasicScatterChartExample extends Component {
                     theme={theme}
                 />
                 <Polar
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     insetPadding={25}
                     store={this.store}

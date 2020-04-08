@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
+import { Container, Panel } from '@sencha/ext-react-modern';
 
 export default class TouchEventsExample extends Component {
 
@@ -60,7 +60,7 @@ export default class TouchEventsExample extends Component {
       >
       <Container>{ events.map((e, i) => <div key={i}>{e}</div>) }</Container>
       </Panel>
-      
+
     )
 
 

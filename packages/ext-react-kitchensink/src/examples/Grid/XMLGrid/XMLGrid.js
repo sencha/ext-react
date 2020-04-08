@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Grid, Column } from '@sencha/ext-modern';
+import { Grid, Column } from '@sencha/ext-react-modern';
 
 export default class XmlGridExample extends Component {
-  
+
   store = Ext.create('Ext.data.Store', {
     autoLoad: true,
     fields:[
       {name: 'Author', mapping: '@author.name'},
-      'Title', 
-      'Manufacturer', 
+      'Title',
+      'Manufacturer',
       'ProductGroup'
     ],
     proxy:{

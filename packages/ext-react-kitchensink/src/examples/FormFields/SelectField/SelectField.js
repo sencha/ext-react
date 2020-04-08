@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormPanel, SelectField } from '@sencha/ext-modern';
+import { FormPanel, SelectField } from '@sencha/ext-react-modern';
 
 Ext.require('Ext.Toast');
 
 export default function SelectFieldExample() {
     return (
         <FormPanel shadow>
-            <SelectField 
-                label="Select"  
+            <SelectField
+                label="Select"
                 width="200"
                 onChange={(field, newValue) => Ext.toast(`You selected the item with value ${newValue}`)}
                 options={[

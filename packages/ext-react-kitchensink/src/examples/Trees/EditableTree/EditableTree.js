@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { TextColumn } from '@sencha/ext-modern';
-import { Tree, TreeColumn } from '@sencha/ext-modern-treegrid';
+//import { TextColumn, TreeColumn } from '@sencha/ext-react-modern';
+import { Tree } from '@sencha/ext-react-modern';
 import store from './Store.js';
 
 Ext.require([

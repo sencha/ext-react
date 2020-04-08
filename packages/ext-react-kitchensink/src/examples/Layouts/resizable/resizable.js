@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 import colors from '../../colors';
 
 Ext.require('Ext.panel.Resizable');
@@ -7,13 +7,13 @@ Ext.require('Ext.panel.Resizable');
 export default function ResizableExample() {
     return (
         <Panel shadow layout="fit">
-           <Panel 
+           <Panel
                 title="Dock Left"
-                docked="left" 
+                docked="left"
                 width={200}
                 layout="center"
-                resizable={{ 
-                    split: true, 
+                resizable={{
+                    split: true,
                     edges: 'east',
                     dynamic: true
                 }}
@@ -21,38 +21,38 @@ export default function ResizableExample() {
                 <code>dynamic: true</code>
             </Panel>
             <Panel title="Unresizable region" flex={1}/>
-            <Panel 
-                docked="right" 
+            <Panel
+                docked="right"
                 title="Dock Right"
                 width={200}
                 collapsible="right"
                 layout="center"
-                resizable={{ 
-                    split: true, 
-                    edges: 'west' 
-                }} 
+                resizable={{
+                    split: true,
+                    edges: 'west'
+                }}
             >
                 <code>collapsible</code>
             </Panel>
-            <Panel 
-                docked="top" 
+            <Panel
+                docked="top"
                 title="Dock Top"
                 height={150}
-                resizable={{ 
-                    split: true, 
-                    edges: 'south' 
-                }} 
+                resizable={{
+                    split: true,
+                    edges: 'south'
+                }}
             />
-            <Panel 
-                docked="bottom" 
+            <Panel
+                docked="bottom"
                 title="Dock Bottom"
                 height={150}
                 layout="center"
-                resizable={{ 
-                    split: true, 
+                resizable={{
+                    split: true,
                     edges: 'north',
-                    snap: 50 
-                }} 
+                    snap: 50
+                }}
             >
                 <code>snap: 50</code>
             </Panel>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Container } from '@sencha/ext-modern';
+import { Panel, Container } from '@sencha/ext-react-modern';
 import './styles.css';
 
 Ext.require(['Ext.drag.*']);
@@ -8,18 +8,18 @@ export default class Handles extends Component {
 
     render() {
         return (
-            <Panel 
-                ref="mainPanel" 
+            <Panel
+                ref="mainPanel"
                 padding={5}
                 shadow
             >
                 <Container ref="handleRepeat" className="handle-repeat handle-source">
-                    <Container className="handle">Foo</Container>
-                    <Container className="handle">Bar</Container>
-                    <Container className="handle">Baz</Container>
+                    <Container className="handle"><div>Foo</div></Container>
+                    <Container className="handle"><div>Bar</div></Container>
+                    <Container className="handle"><div>Baz</div></Container>
                 </Container>
                 <Container ref="drag" className="handle-handles handle-source">
-                    <Container className="handle">Drag</Container>
+                    <Container className="handle"><div>Drag</div></Container>
                 </Container>
             </Panel>
         )

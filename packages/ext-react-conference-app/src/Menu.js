@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Sheet, TreeList, Panel, TitleBar, Button } from '@sencha/ext-modern';
+import { Container, Sheet, TreeList, Panel, TitleBar, Button } from '@sencha/ext-react-modern';
 import { connect } from 'react-redux';
 import { toggleMenu } from './actions';
 
@@ -20,12 +20,16 @@ class Menu extends Component {
         this.props.dispatch(toggleMenu());
     };
 
-    onSelectionChange = (tree, item) => {
-        const record = item.node;
+    //onSelectionChange = (tree, item) => {
+    onSelectionChange = ({sender, info, eOpts}) => {
+        const record = info.node;
         if (record && !location.hash.startsWith('#' + record.getId())) {
             location.hash = record.getId();
         }
-        this.props.dispatch(toggleMenu(false));
+        else {
+          //console.log('else')
+        }
+        //this.props.dispatch(toggleMenu(false));
     };
 
     render() {
@@ -36,8 +40,8 @@ class Menu extends Component {
                 ui="nav"
                 store={store}
                 selection={selection}
-                plugins="responsive"
-                onItemClick={this.onSelectionChange}
+
+                onItemclick={this.onSelectionChange}
                 expanderFirst={false}
                 responsiveConfig={{
                     'width < 1080': {
@@ -53,7 +57,7 @@ class Menu extends Component {
                         width: 250
                     }
                 }}
-            />            
+            />
         );
 
         if (Ext.os.is.Phone) {

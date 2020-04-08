@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Panel } from '@sencha/ext-modern'
+import { Panel } from '@sencha/ext-react-modern'
 
 import Layout from './Layout';
 import { Router, Route } from 'react-router-dom'
@@ -33,6 +33,7 @@ history.listen(location => store.dispatch(routeDidChange(location)));
 
 // load the component for the initial route
 store.dispatch(routeDidChange(history.location));
+
 
 export default class App extends Component {
 

@@ -4,7 +4,7 @@ export const TOGGLE_TREE = 'TOGGLE_TREE';
 
 /**
  * To be fired when a new client side route is loaded
- * @param {Location} location 
+ * @param {Location} location
  */
 export function routeDidChange(location) {
     return {

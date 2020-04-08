@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Panel } from '@sencha/ext-modern';
-import { Polar } from '@sencha/ext-charts';
+import { Container, Panel } from '@sencha/ext-react-modern';
+import { Polar } from '@sencha/ext-react-modern';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -9,7 +9,7 @@ Ext.require([
 ]);
 
 export default class BasicGaugeChartExample extends Component {
-    
+
     constructor() {
         super();
         this.refresh();
@@ -48,6 +48,7 @@ export default class BasicGaugeChartExample extends Component {
                         }]}
                     />
                     <Polar
+                        downloadServerUrl='http://svg.sencha.io'
                         innerPadding={20}
                         store={this.store}
                         flex={1}
@@ -108,8 +109,8 @@ export default class BasicGaugeChartExample extends Component {
                             }],
                             renderer: this.chartRenderer
                         }]}
-                    />  
-                </Panel>              
+                    />
+                </Panel>
             </Container>
         )
     }
@@ -158,5 +159,5 @@ export default class BasicGaugeChartExample extends Component {
             }
             return changes;
         }
-    }    
+    }
 }

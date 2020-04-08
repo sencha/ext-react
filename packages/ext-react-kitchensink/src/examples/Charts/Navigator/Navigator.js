@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { ChartNavigator } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+//import { ChartNavigator } from '@sencha/ext-react-modern';
 import createData from './createData';
 import ChartToolbar from '../ChartToolbar';
 
@@ -54,7 +54,8 @@ export default class NavigatorExample extends Component {
                     onToggleZoomOnPan={this.toggleZoomOnPan}
                     theme={theme}
                 />
-                <ChartNavigator
+                {/* <ChartNavigator
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     ref={(navigator) => {this.navigator = navigator}}
                     navigator={{ axis: 'bottom' }}
@@ -130,7 +131,7 @@ export default class NavigatorExample extends Component {
                             }
                         }],
                     }}
-                />
+                /> */}
             </Container>
         )
     }

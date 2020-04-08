@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
 export default class Bubble extends Component {
-    
+
     constructor() {
         super();
         this.refreshData();
@@ -27,7 +27,7 @@ export default class Bubble extends Component {
     changeTheme = theme => this.setState({ theme })
 
     interpolate = (lambda, minSrc, maxSrc, minDst, maxDst) => minDst + (maxDst - minDst) * Math.max(0, Math.min(1, (lambda - minSrc) / (maxSrc - minSrc)))
-    
+
     interpolateColor = (lambda, minSrc, maxSrc) => {
         let fromHSL = Ext.util.Color.fly('blue').getHSL(),
             toHSL = Ext.util.Color.fly('red').getHSL();
@@ -63,6 +63,7 @@ export default class Bubble extends Component {
                     onlyMidnight
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     store={this.store}
                     theme={theme}

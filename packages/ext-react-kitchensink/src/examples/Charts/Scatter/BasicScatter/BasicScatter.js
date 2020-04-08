@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '@sencha/ext-modern';
-import { Cartesian } from '@sencha/ext-charts';
+import { Container } from '@sencha/ext-react-modern';
+import { Cartesian } from '@sencha/ext-react-modern';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -12,7 +12,7 @@ Ext.require([
 ]);
 
 export default class BasicScatterChartExample extends Component {
-    
+
     constructor() {
         super();
         this.refresh();
@@ -50,6 +50,7 @@ export default class BasicScatterChartExample extends Component {
                     theme={theme}
                 />
                 <Cartesian
+                    downloadServerUrl='http://svg.sencha.io'
                     shadow
                     ref="chart"
                     insetPadding="20 20 10 10"

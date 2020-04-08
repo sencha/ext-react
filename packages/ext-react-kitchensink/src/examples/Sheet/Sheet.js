@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormPanel, Panel, Button, Sheet, Container, SegmentedButton, Label, TitleBar } from '@sencha/ext-modern';
+import { FormPanel, Panel, Button, Sheet, Container, SegmentedButton, Label, TitleBar } from '@sencha/ext-react-modern';
 
 export default class MenuExample extends Component {
 
@@ -14,25 +14,25 @@ export default class MenuExample extends Component {
         this.setState({
             displayed: !this.state.displayed
         })
-    } 
+    }
 
     render() {
         const { displayed, direct, modal, reveal } = this.state;
 
         const formFieldDefaults = {
             margin: '0 0 10 0'
-        };  
+        };
 
         const menuItemDefaults = {
             width: direct === 'left' || direct === 'right' ? 250 : undefined
         };
-        
+
         return (
             <Container padding={10} maxWidth="500">
-                <Sheet 
-                    side={direct} 
-                    modal={modal} 
-                    reveal={reveal} 
+                <Sheet
+                    side={direct}
+                    modal={modal}
+                    reveal={reveal}
                     displayed={displayed} onHide={() => this.setState({ displayed: false })}
                     layout="vbox"
                     padding="15 0"
@@ -41,17 +41,17 @@ export default class MenuExample extends Component {
                     <Button text="New Item" iconCls="x-fa fa-pencil" handler={this.toggleMenu} {...menuItemDefaults}/>
                     <Button text="Star" iconCls="x-fa fa-star" handler={this.toggleMenu} {...menuItemDefaults}/>
                 </Sheet>
-                
+
                 <Panel shadow ui="instructions">
                     <div><b>Sheet</b> is a component which allows you to easily display sliding menus from any side of the screen. You can show the menu by clicking the "Show Menu" button below or by swiping from the edge of the screen.</div>
                 </Panel>
 
                 <Panel layout={{type: 'vbox', align: 'left'}} shadow margin="20 0 0 0" padding="15" shadow>
-                    <Button 
-                        ui="action" 
-                        enableToggle={true} 
-                        pressed={displayed} 
-                        text={displayed ? 'Hide Menu' : 'Show Menu'} 
+                    <Button
+                        ui="action"
+                        enableToggle={true}
+                        pressed={displayed}
+                        text={displayed ? 'Hide Menu' : 'Show Menu'}
                         handler={this.toggleMenu}
                         {...formFieldDefaults}
                     />

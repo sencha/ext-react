@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, DatePanel } from '@sencha/ext-modern';
+import { Container, DatePanel } from '@sencha/ext-react-modern';
 
 export default class BasicDatePanelExample extends Component {
 

@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, TitleBar } from '@sencha/ext-modern';
+import { Button, TitleBar } from '@sencha/ext-react-modern';
 import { toggleMenu, toggleSearch } from './actions';
 import SearchField from './SearchField';
 const REACT_VERSION = require('react').version
 
-function AppBar({ 
-    dispatch, 
-    title, 
-    selectedNavNode, 
-    children, 
-    backButtonURL, 
-    events 
+function AppBar({
+    dispatch,
+    title,
+    selectedNavNode,
+    children,
+    backButtonURL,
+    events
 }) {
     return (
-        <TitleBar 
+        <TitleBar
             docked="top"
             titleAlign="left"
             shadow
@@ -29,7 +29,7 @@ function AppBar({
             { !Ext.os.is.Phone && (
                 <div>
                     <div className="sencha-logo"/>
-                    <a href="#" className="app-title">{selectedNavNode && false ? selectedNavNode.get('text') : 'Sencha ExtReact 7.0 Conference App'} - React v{REACT_VERSION}</a>
+                    <a href="#" className="app-title">{selectedNavNode && false ? selectedNavNode.get('text') : 'Sencha ExtReactModern 7.2 Conference App'} - React v{REACT_VERSION}</a>
                 </div>
             ) }
 

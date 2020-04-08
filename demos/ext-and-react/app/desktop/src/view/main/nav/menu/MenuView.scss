@@ -1,0 +1,49 @@
+//.x-treelist-nav .x-treelist-item-selected .x-treelist-item-text
+//{
+//  color: $accent-foreground-color;
+//}
+
+@include treelist-ui(
+  $ui: 'nav',
+  $background-color: darken($base-color, 20%),
+  $padding: 5px 10px 0 10px,
+
+  $toolstrip-background-color:  $base-light-color,
+
+  $tool-float-indicator-color: $base-light-color,
+  $tool-float-indicator-width: 4px,
+  $tool-selected-color: $base-light-color,
+  $tool-selected-background-color: $base-light-color,
+
+  $row-indicator-width: 5px,
+  $row-indicator-selected-color: $accent-color,
+  $row-indicator-selected-over-color: $accent-light-color,
+  $row-indicator-over-color: $accent-dark-color,
+
+  $item-icon-width: 24px,
+  $item-text-icon-gap: 1px,
+  $item-expander-width: 24px,
+
+  $item-icon-font-size: 16px,
+  $item-text-font-size: 16px,
+  $item-expander-font-size: 16px,
+
+  $item-line-height : 35px,
+  $item-text-overflow: initial,
+
+  $item-icon-color: $base-foreground-color,
+  $item-text-color: $base-foreground-color,
+  $item-text-over-color: $base-foreground-color,
+
+  $item-expander-color: $base-foreground-color,
+  $item-icon-over-color: $base-foreground-color,
+
+  $item-expander-over-color: $base-light-color,
+
+  $item-expanded-child-background-color: $base-light-color,
+  $item-expanded-background-color: transparent,
+
+  $row-over-background-color: $reverse-background-color,
+
+  $row-selected-background-color: $base-color
+);

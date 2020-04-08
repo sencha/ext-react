@@ -1,13 +1,13 @@
 import React from 'react';
 import { create } from 'react-test-renderer'
-import { reactify } from '@sencha/ext-react';
+import { reactify } from '@sencha/ext-react-modern';
 
 const Container = reactify('Container');
 const Button = reactify('Button');
 const [ Grid, Column, Toolbar, Panel ] = reactify('Grid', 'Column', 'Toolbar', 'Panel');
 
 describe('ReactTestRenderer snapshots', () => {
-    
+
     it('should support html child elements', () => {
 
         const TestComponent = () => (
@@ -40,7 +40,7 @@ describe('ReactTestRenderer snapshots', () => {
         }
 
         const TestComponent = () => (
-            <Grid 
+            <Grid
                 title="Employees"
                 store={store}
                 foo = {new Foo()}
@@ -56,7 +56,7 @@ describe('ReactTestRenderer snapshots', () => {
         });
 
         const TestComponent = () => (
-            <Grid 
+            <Grid
                 title="Employees"
                 store={store}
             >
@@ -88,7 +88,7 @@ describe('ReactTestRenderer snapshots', () => {
             render() {
                 return (
                     <MyStatelessComponent/>
-                )        
+                )
             }
         }
 
