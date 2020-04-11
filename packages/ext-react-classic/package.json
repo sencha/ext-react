@@ -7,7 +7,7 @@
     "ext-react": "./bin/ext-react.js"
   },
   "scripts": {
-    "build": "npx babel ./src --out-dir ./dist && webpack",
+    "build": "npx babel ./src --out-dir ./dist",
     "prepare": "npm run build",
     "postinstall": "npm run build & node ./postinstall.js",
     "xprepublish": "npm run build",

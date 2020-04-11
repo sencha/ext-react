@@ -20,6 +20,8 @@ const packageJsonThis = JSON.parse(packageThis);
 var prefix =(`${boldGreen(packageJsonThis.name + ':')}`)
 var dashCount = (packageJsonThis.name.match(/-/g) || []).length;
 
+
+
 if (dashCount == 3) {
   var res = packageJsonThis.name.split('-');
   framework = res[1];
@@ -33,6 +35,11 @@ else {
   toolkit = res[2];
   xtype = '';
   xtypeFileName = ``;
+}
+
+if (!fs.existsSync(`../ext-${toolkit}-runtime`)) {
+  console.log('does not exist')
+  return
 }
 
 var copyFolder = '';
