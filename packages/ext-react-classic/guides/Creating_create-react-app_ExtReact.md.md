@@ -42,12 +42,4 @@ cd ext-react-classic-demo
 npm start
 ```
 
-### Step 4 (optional): Changing the theme for an @sencha/ext-react-classic app
-
-- To change the theme, edit 'public/index.html' and uncomment one of the links below this line:
-
-```sh
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
-```
-
 The ExtReact application will load in a browser window!
