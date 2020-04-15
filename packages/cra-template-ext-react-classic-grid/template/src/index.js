@@ -1,8 +1,8 @@
-import '@sencha/ext-classic-enterprise-engine';
-import '@sencha/ext-classic-enterprise-material';
+import '@sencha/ext-classic-grid-engine';
+import '@sencha/ext-classic-grid-material';
 import React from 'react';
 //import ReactDOM from 'react-dom';
-import ExtReactDOM from '@sencha/ext-react-classic-enterprise';
+import ExtReactDOM from '@sencha/ext-react-classic-grid';
 //import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
