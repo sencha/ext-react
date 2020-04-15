@@ -5,7 +5,6 @@ class App extends Component {
 
   extReactDidMount = ({cmp, cmpObj}) => {
     for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
-    console.log(this['gridExt'])
   }
 
   renderSign = (value, context) => {
@@ -15,10 +14,7 @@ class App extends Component {
       { color = 'green'; }
     else
       { color = 'red'; }
-    return `<span style="color:${color};">
-    ${value}
-    <i class="fa fa-percentage fa-lg"></i>
-    </span>`
+    return `<span style="color:${color};">${value}%</span>`
   }
 
   render() {
@@ -42,13 +38,7 @@ class App extends Component {
         columns={[
           {text: "name", dataIndex: "name"},
           {text: "email", dataIndex: "email", flex: "1"},
-          {
-            text: "% Change",
-            dataIndex: "priceChangePct",
-            align: "right",
-            producesHTML: false,
-            renderer: this.renderSign
-          }
+          {text: "% Change", dataIndex: "priceChangePct", align: "right", renderer: this.renderSign}
         ]}
       >
       </ExtGrid>
