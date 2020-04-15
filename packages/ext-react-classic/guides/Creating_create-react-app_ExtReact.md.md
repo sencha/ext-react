@@ -27,6 +27,12 @@ npm login --registry=https://npm.sencha.com --scope=@sencha
 npx create-react-app --template @sencha/ext-react-classic ext-react-classic-demo
 ```
 
+or this (only uses the ExtGrid component)
+
+```sh
+npx create-react-app --template @sencha/ext-react-classic-grid ext-react-classic-grid-demo
+```
+
 create-react-app will create a new application using the ext-react-classic template
 (from the sencha/ext-react git repo)
 
