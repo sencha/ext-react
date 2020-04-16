@@ -33,19 +33,17 @@ export default class App extends Component {
         </AppBar>
 
         <Container>
-            <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
-            <img alt="" src="./files/footer-logo.png"/>
-            <img alt="" width="60px" src="./files/logo_raw.svg"/>
-
-              ExtReact and Material UI
-            </Typography>
+          <Typography component="h1" variant="h3" align="center" color="textPrimary" >
+            <img style={{margin:'20px'}} alt="" src="./files/footer-logo.png"/>
+            ExtReact and Material UI
+            <img style={{margin:'20px'}} alt="" width="60px" src="./files/logo_raw.svg"/>
+          </Typography>
         </Container>
-
 
         <ExtGrid
           width="400px"
-          height="400px"
-          title="The Grid"
+          height="300px"
+          title="ExtReact Grid"
           store={
             {
               xtype: 'store',
