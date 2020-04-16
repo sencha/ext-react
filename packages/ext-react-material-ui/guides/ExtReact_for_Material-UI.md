@@ -1,6 +1,4 @@
-## ExtReact and Material-UI
-
-## Creating a new create-react-app project with @sencha/ext-react-classic-material-ui
+## Creating a new project with ExtReact for Material-UI
 
 ## Requirements
 Fetch your npm credentials and generate an application.
@@ -29,7 +27,7 @@ early adopter:
 npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@sencha
 ```
 
-### Step 3: Create a React application with create-react-app and 'ExtReact Material-UI' template
+### Step 3: Create a React application with create-react-app and 'ExtReact for Material-UI' template
 
 - Run the following:
 
