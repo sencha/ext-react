@@ -6,13 +6,10 @@ Fetch your npm credentials and generate an application.
 ### Step 1: Retrieve npm Repo Access Credentials
 To gain access to the Sencha npm repository:
 
-1. [Start a free trial of ExtReact](https://www.sencha.com/products/extreact/evaluate/).
-2. [Purchase ExtReact or Ext JS Enterprise](https://www.sencha.com/store/).
+1. [Start a free trial of ExtReact for Material UI](https://www.sencha.com/products/extreactmaterialui/evaluate/).
+2. [Purchase ExtReact for Material UI (ExtReact)](https://www.sencha.com/store/).
 
-* **Note:** Ext JS enterprise customers already have access to ExtReact.
-* **Note:** Existing customers use your support portal credentials. But switch the username, `@` character with `'..'` two periods, so the username would look something like this after it's converted: `name..gmail.com`.
-
-Login to the npm repository
+#### Login to the npm repository
 Once you have your credentials login to the npm repo.
 
 production:
@@ -29,39 +26,48 @@ npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@senc
 
 ### Step 3: Create a React starter app
 
-To get started with ExtReact for Material-UI, first create a starter application with create-react-app.  More details on create-react-app are [available here](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
+To get started with ExtReact for Material-UI, first create a starter application with create-react-app.
 
-Open up terminal (mac) or command (window) and navigate to the folder where you want to create your application
+More details on create-react-app are [available here](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
 
-To create a generic starter app:
+Open up terminal (mac) or command (window) and navigate to the folder where you want to create your application.
+
+There are 2 options for generating the starter app:
+
+#### Option 1 - Create a finished starter app (this will allow you to skip Step 4)
+
+```
+npx create-react-app --template @sencha/ext-react-material-ui my-ext-react-material-ui-app
+
+```
+
+#### Option 2 - Create a generic starter app (you will then need to complete Step 4)
 
 ```
 npx create-react-app my-ext-react-material-ui-app
 ```
 
+The application generation will take a few minutes and will generate the application in a folder called 'my-ext-react-material-ui-app'
 
-To create a finished starter app:
-
-```
-npx create-react-app --template @sencha/ext-react-material-ui ext-react-material-ui-demo
-
-```
-
-This will take a few minutes and will generate a new atarter react app in a folder called 'my-ext-react-material-ui-app'
-
-To run the starter app to create a generic app type the following:
+Change your directory to the created app folder:
 
 ```
 cd my-ext-react-material-ui-app
-yarn start
 ```
 
+### If you chose Option 1 above, proceed to Step 6
+
+for the generic starter option, run the following:
+
+```
+npm start
+```
+
+The following will appear in a browser window:
 
 ![Starter React App](starter.png)
 
-### Step 4: Adding ExtReact for Material-UI
-
-There are 2 ways to get the starter application using ExtReact for Material
+### Step 4: Open your Editor or IDE to Add ExtReact for Material-UI
 
 To add ExtReact for Material-UI to this starter application, open your text editor or IDE in the 'my-ext-react-material-ui-app' folder.
 
@@ -71,15 +77,17 @@ If you use Visual Studio Code, stop the running application (ctrl+C) in the term
 code .
 ```
 
-The image shows Visual Studio code with the root folder and  expanded 'public' and 'src' folder.  We will make changes to these folders to enable ExtReact for Material UI.
+The image shows Visual Studio code with the root folder and expanded 'public' and 'src' folders.
+
+We will make changes to these folders to enable ExtReact for Material UI.
 
 ![VSC](vsc.png)
 
-### Step 5: Add the ExtReact and Material-UI npm packages
+### Step 5: Add the ExtReact and Material-UI npm packages, and starter code
 
-If you used the template starter app, continue to step 6
+#### Note: If you used the template starter app, continue to Step 6
 
-Add the following to the dependencies section of package,json
+Open package.json in the root of the app, and add the following to the dependencies section:
 
 ```
     "@material-ui/core": "~4.9.10",
@@ -89,13 +97,13 @@ Add the following to the dependencies section of package,json
     "@sencha/ext-react-material-ui-theme": "^7.2.1",
 ```
 
-in the command window:
+Then, in the command window, run the following:
 
 ```
 npm install
 ```
 
-Create a file named src/theme.js:
+Next, create a file named src/theme.js and add the following code:
 
 ```
 import { red } from '@material-ui/core/colors';
@@ -119,7 +127,7 @@ const theme = createMuiTheme({
 export default theme;
 ```
 
-src/index.js:
+Edit the existing src/index.js and update it with the following code:
 
 ```
 import '@sencha/ext-react-material-ui-engine';
@@ -149,7 +157,7 @@ document.documentElement.style.setProperty("--base-color", baseColor);
 serviceWorker.unregister();
 ```
 
-src/App.js
+Edit the existing src/App.js and update it with the following code:
 
 ```
 import React, { Component } from 'react';
@@ -175,7 +183,6 @@ export default class App extends Component {
             <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
             <img alt="" src="./files/footer-logo.png"/>
             <img alt="" width="60px" src="./files/logo_raw.svg"/>
-
               ExtReact and Material UI
             </Typography>
         </Container>
@@ -215,10 +222,12 @@ export default class App extends Component {
 
 ### Step 6: Run the ExtReact for Material-UI app
 
+To see the application running in a browser, thpe the following in the terminal/command window:
+
 ```
 npm start
 ```
 
-you will see this:
+A browser window will load, and you will see the application:
 
 ![final](final.png)
