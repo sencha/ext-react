@@ -63,6 +63,7 @@ export default class App extends Component {
               text: "% Change",
               dataIndex: "priceChangePct",
               align: "right",
+              cell: { encodeHtml: false, xtype: 'reactcell' },
               renderer: this.renderSign.bind(this, '0.00')
             }
           ]}
