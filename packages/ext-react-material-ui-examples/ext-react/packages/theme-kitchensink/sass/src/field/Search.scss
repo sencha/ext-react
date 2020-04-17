@@ -1,0 +1,35 @@
+@include titlebar-ui(
+    $ui: 'titlebar-search',
+    $title-padding: 0 0 0 10px,
+    $padding: 8px
+);
+
+.x-searchfield-titlebar-search {
+    .x-searchtrigger {
+        width: 32px
+    }
+    .x-input-wrap-el {
+        border-radius: 3px;
+        transition: background-color 0.25s;
+    }
+    .x-input-el {
+        margin-bottom: 0 !important;
+        color: $base-foreground-color;
+        border-radius: 3px;
+    }
+    .x-icon-el {
+        color: darken($base-foreground-color, 10%) !important;
+        &:hover {
+            color: $base-foreground-color !important;
+        }
+    }
+    .x-cleartrigger:hover {
+        color: $base-foreground-color
+    }
+}
+
+@include textfield-ui(
+    $ui: 'ks-search-right-trigger',
+    $input-padding: 10px 10px 10px 15px,
+    $input-padding-big: 7px 7px 7px 15px
+);

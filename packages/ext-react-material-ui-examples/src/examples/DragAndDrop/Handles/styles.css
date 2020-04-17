@@ -1,0 +1,48 @@
+.handle-source {
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    color: #FFF;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.handle-source .handle {
+    cursor: move;
+    background-color: #6CAE3F;
+    border-radius: 5px;
+    padding: 3px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.handle-proxy {
+    color: #FFF;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    background-color: #43A047;
+    border-radius: 5px;
+}
+
+.handle-handles {
+    background-color: #FFEB3B;
+    top: 10px;
+    left: 10px;
+}
+
+.handle-handles .handle {
+    background-color: #039BE5;
+}
+
+.handle-repeat {
+    background-color: #FF5722;
+    top: 10px;
+    left: 10px;
+}

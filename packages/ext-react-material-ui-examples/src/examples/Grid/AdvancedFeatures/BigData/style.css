@@ -1,0 +1,17 @@
+.under4 {
+    color: #c83c3c;
+}
+.under5 {
+    color: #ffa532;
+}
+.under6 {
+    color: #1e3285;
+}
+.over6 {
+    color: #2d802d;
+}
+
+.big-data-ratings-cell {
+    font-weight: bold;
+    font-size: 35;
+}
