@@ -2,6 +2,8 @@
 
 Welcome to ExtReact for Material-UI, a collection of data-centric, React components that are the perfect compliment to [Material-UI.com](https://material-ui.com/)
 
+### Currently ExtReact for Material-UI is delivered to customers through the general ExtReact product.
+
 <img src="examples.png" xheight="400" xwidth="800" >
 
 Click here to [Get Started with ExtReact for Material-UI](ExtReact_for_Material-UI_GETTING_STARTED.md)

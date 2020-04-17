@@ -6,8 +6,10 @@ Fetch your npm credentials and generate an application.
 ### Step 1: Retrieve npm Repo Access Credentials
 To gain access to the Sencha npm repository:
 
-1. [Start a free trial of ExtReact for Material UI](https://www.sencha.com/products/extreactmaterialui/evaluate/).
-2. [Purchase ExtReact for Material UI (ExtReact)](https://www.sencha.com/store/).
+Currently ExtReact for Material-UI is delivered to customers through the general ExtReact product.
+
+1. [Start a free trial of ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/products/extreactmaterialui/evaluate/).
+2. [Purchase ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/store/).
 
 #### Login to the npm repository
 Once you have your credentials login to the npm repo.
@@ -34,7 +36,7 @@ Open up terminal (mac) or command (window) and navigate to the folder where you 
 
 There are 2 options for generating the starter app:
 
-#### Option 1 - Create a finished starter app (this will allow you to skip Step 4)
+#### Option 1 - Create a finished starter app (this will allow you to skip Step 6)
 
 ```
 npx create-react-app --template @sencha/ext-react-material-ui my-ext-react-material-ui-app
