@@ -1,0 +1,52 @@
+.drag-file-ct .x-innerhtml {
+    pointer-events: none;
+}
+
+.drag-file-fadeout {
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.drag-file-label {
+    font-size: 18px;
+    padding-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.drag-file-icon {
+    font-family: FontAwesome;
+    display: block;
+    font-size: 64px;
+    padding-top: 19px;
+    display: none;
+    min-height: 56px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.active.drag-file-icon {
+    display: block;
+}
+.active.drag-file-icon:after {
+    content: "\f058";
+    color: #8BC34A;
+}
+
+.dropped.drag-file-icon {
+    display: block;
+}
+.dropped.drag-file-icon:after {
+    content: "\f013";
+    color: #9E9E9E;
+}
+
+.nosupport.drag-file-icon {
+    display: block;
+}
+.nosupport.drag-file-icon:after {
+    content: "\f119";
+    color: #9E9E9E;
+}

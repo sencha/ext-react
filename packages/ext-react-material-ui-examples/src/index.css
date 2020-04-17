@@ -1,0 +1,17 @@
+code.hljs {
+  overflow: visible;
+}
+
+code {
+  font-family: Menlo, monospace;
+  font-size: 13px;
+}
+
+.code-panel .x-innerhtml {
+  background-color: #282c34
+}
+
+.instructions {
+  padding: 20px;
+  font-size: 15px;
+}

@@ -1,0 +1,53 @@
+.data-source {
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    color: #FFF;
+    background-color: #FF5722;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.x-phone .data-source {
+    max-width: 120px;
+    width: 40vw;
+}
+
+.data-source .handle {
+    cursor: move;
+    background-color: #43A047;
+    padding: 3px;
+    width: 90px;
+    margin: 10px 0 5px 15px;
+    border-radius: 5px;
+}
+
+.data-target {
+    width: 200px;
+    height: 120px;
+    padding: 5px;
+    border: 5px dotted #2196F3;
+    float: left;
+    user-select: none;
+}
+
+.x-phone .data-target {
+    width: 55vw;
+}
+
+.data-target-valid {
+    background-color: #FFF59D;
+}
+
+.data-proxy {
+    color: #FFF;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    background-color: #43A047;
+    padding: 5px;
+    border-radius: 5px;
+}

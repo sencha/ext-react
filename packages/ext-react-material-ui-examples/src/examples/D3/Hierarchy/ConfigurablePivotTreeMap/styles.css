@@ -1,0 +1,30 @@
+.cfgpivottreemap-tip {
+    border: 2px solid dimgray;
+}
+.cfgpivottreemap-tip .x-panel-tooltip-body-el {
+    background: #e67e22;
+    white-space: nowrap;
+    color: white;
+    font-weight: 300;
+}
+
+.cfgpivottreemap-tip-title {
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    background: #d35400;
+    font-size: 16px;
+    line-height: 16px;
+    height: 30px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cfgpivottreemap-tip-symbol {
+    font-weight: bold;
+}
+
+.cfgpivottreemap-tip-company {
+    font-weight: bold;
+}
