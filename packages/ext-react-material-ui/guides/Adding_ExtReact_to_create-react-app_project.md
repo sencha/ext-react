@@ -1,4 +1,4 @@
-## Adding @sencha/ext-react-classic-material-ui components to an existing create-react-app project
+## Adding @sencha/ext-react-modern-material-ui components to an existing create-react-app project
 
 ## Requirements
 Fetch your npm credentials and generate an application.
@@ -19,20 +19,20 @@ Once you have your credentials login to the npm repo.
 npm login --registry=https://npm.sencha.com --scope=@sencha
 ```
 
-### Step 3: install @sencha/ext-react-classic
+### Step 3: install @sencha/ext-react-modern
 
-To add @sencha/ext-react-classic-material-ui to an existing application created with create-react-app, run the following in the root folder of the React app:
+To add @sencha/ext-react-modern-material-ui to an existing application created with create-react-app, run the following in the root folder of the React app:
 
 ```
-npm install @sencha/ext-react-classic
+npm install @sencha/ext-react-modern
 ```
 
-This will create a 'public/ext-runtime-classic' folder, and also add several entries in the 'public/index.html'
+This will create a 'public/ext-runtime-modern' folder, and also add several entries in the 'public/index.html'
 file.
 
 ```
-<script src="%PUBLIC_URL%/ext-runtime-classic/classic.engine.js"></script>
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<script src="%PUBLIC_URL%/ext-runtime-modern/modern.engine.js"></script>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 The original index.html is backed up as 'public/indexBack.html'.
@@ -51,16 +51,16 @@ comment out these lines...
 ...and add these lines:
 
 ```sh
-import ExtReactDOM from '@sencha/ext-react-classic';
+import ExtReactDOM from '@sencha/ext-react-modern';
 ExtReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-### Step 5: update a component to use @sencha/ext-react-classic
+### Step 5: update a component to use @sencha/ext-react-modern
 
 - add the import(s) to the top of the component js file:
 
 ```sh
-import { ExtButton } from '@sencha/ext-react-classic';
+import { ExtButton } from '@sencha/ext-react-modern';
 ```
 
 - modify 'render' method to use component(s):
@@ -73,28 +73,29 @@ import { ExtButton } from '@sencha/ext-react-classic';
   }
 ```
 
-### Step 6 (optional): Changing the theme for an @sencha/ext-react-classic app
+### Step 6 (optional): Changing the theme for an @sencha/ext-react-modern app
 
-in the 'public/ext-runtime-classic' folder, you will notice several theme folders.  To change
+in the 'public/ext-runtime-modern' folder, you will notice several theme folders.  To change
 and use one of these themes, find the following line:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 notice that this line points to the material folder and material-all.css file.  For example, to change to triton, update to the following:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 
-here are all the classic themes available:
+
+
+here are all the modern themes available:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
-<link href="%PUBLIC_URL%/ext-runtime-classic/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
 ```
-
-

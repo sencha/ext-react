@@ -1,8 +1,8 @@
-## Understanding an app for @sencha/ext-react-classic-material-ui
+## Understanding an app for @sencha/ext-react-modern-material-ui
 
 This guide will illustrate some of the key features of ExtReact within a React application.
 To get a starter application created,
-follow the [Getting Started guide](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-classic-material-ui/GETTING_STARTED.md).
+follow the [Getting Started guide](https://github.com/sencha/ext-react/blob/ext-react-7.1.1/packages/ext-react-modern-material-ui/GETTING_STARTED.md).
 
 ## adding ExtReact to an existing React application
 
@@ -10,15 +10,15 @@ To add ExtReact to an existing application created with create-react-app, run th
 in the root folder of the React app:
 
 ```
-npm install @sencha/ext-react-classic
+npm install @sencha/ext-react-modern
 ``
 
-This will create a 'public/ext-runtime-classic' folder, and also add several entries in the 'public/index.html'
+This will create a 'public/ext-runtime-modern' folder, and also add several entries in the 'public/index.html'
 file.
 
 ```
-<script src="%PUBLIC_URL%/ext-runtime-classic/classic.engine.js"></script>
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<script src="%PUBLIC_URL%/ext-runtime-modern/modern.engine.js"></script>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 The original index.html is backed up as public.indexBack.html'
@@ -26,30 +26,31 @@ The original index.html is backed up as public.indexBack.html'
 
 ## Changing the theme for an ExtReact app
 
-in the 'public/ext-runtime-classic' folder, you will notice several theme folders.  To change
+in the 'public/ext-runtime-modern' folder, you will notice several theme folders.  To change
 and use one of these themes, find the following line:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 notice that this line points to the material folder and material-all.css file.  For example, to change to triton, update to the following:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
 ```
 
 
-here are all the classic themes available:
+
+
+here are all the modern themes available:
 
 ```
-<link href="%PUBLIC_URL%/ext-runtime-classic/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
-<link href="%PUBLIC_URL%/ext-runtime-classic/material/material-all.css" rel="stylesheet" type="text/css"></link>
-<link href="%PUBLIC_URL%/ext-runtime-classic/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/material/material-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+<link href="%PUBLIC_URL%/ext-runtime-modern/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
 
 ```
-
-
 
 
 
@@ -67,7 +68,7 @@ Original render (commented out)
 
 Updated render (for ExtReact)
 ```
-import ExtReactDOM from '@sencha/ext-react-classic';
+import ExtReactDOM from '@sencha/ext-react-modern';
 ExtReactDOM.render(<App />, document.getElementById('root'));
 ```
 
@@ -76,14 +77,14 @@ ExtReactDOM.render(<App />, document.getElementById('root'));
 To use an ExtReact component, and it's needed import statements
 
 ```
-import { ExtPanel } from "@sencha/ext-react-classic";
-import { ExtButton } from "@sencha/ext-react-classic";
+import { ExtPanel } from "@sencha/ext-react-modern";
+import { ExtButton } from "@sencha/ext-react-modern";
 ```
 
 This can also be combined on 1 line
 
 ```
-import { ExtPanel, ExtButton } from "@sencha/ext-react-classic";
+import { ExtPanel, ExtButton } from "@sencha/ext-react-modern";
 ```
 
 ## understanding the ExtReact 'ready' event

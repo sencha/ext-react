@@ -1,4 +1,4 @@
-## What's new for @sencha/ext-react-classic-material-ui
+## What's new for @sencha/ext-react-modern-material-ui
 
 ### What's new in version 7.2.0
 
