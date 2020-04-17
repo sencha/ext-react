@@ -34,7 +34,7 @@ More details on create-react-app are [available here](https://reactjs.org/docs/c
 
 Open up terminal (mac) or command (window) and navigate to the folder where you want to create your application.
 
-There are 2 options for generating the starter app:
+There are 2 options for generating the starter app (select one):
 
 #### Option 1 - Create a finished starter app (this will allow you to skip Step 6)
 
@@ -42,6 +42,17 @@ There are 2 options for generating the starter app:
 npx create-react-app --template @sencha/ext-react-material-ui my-ext-react-material-ui-app
 
 ```
+
+The application generation will take a few minutes and will generate the application in a folder called 'my-ext-react-material-ui-app'
+
+Change your directory to the created app folder:
+
+```
+cd my-ext-react-material-ui-app
+```
+
+### If you chose Option 1 above, proceed to Step 6
+
 
 #### Option 2 - Create a generic starter app (you will then need to complete Step 4)
 
@@ -56,8 +67,6 @@ Change your directory to the created app folder:
 ```
 cd my-ext-react-material-ui-app
 ```
-
-### If you chose Option 1 above, proceed to Step 6
 
 for the generic starter option, run the following:
 
