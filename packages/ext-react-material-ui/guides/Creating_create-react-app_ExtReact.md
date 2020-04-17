@@ -1,4 +1,4 @@
-## Creating a new create-react-app project with @sencha/ext-react-classic-material-ui
+## Creating a new create-react-app project with @sencha/ext-react-modern-material-ui
 
 ## Requirements
 Fetch your npm credentials and generate an application.
@@ -24,22 +24,22 @@ npm login --registry=https://npm.sencha.com --scope=@sencha
 - Run the following:
 
 ```sh
-npx create-react-app --template @sencha/ext-react-classic-material-ui ext-react-classic-material-ui-demo
+npx create-react-app --template @sencha/ext-react-modern-material-ui ext-react-modern-material-ui-demo
 ```
 
 or this (only uses the ExtGrid component)
 
 ```sh
-npx create-react-app --template @sencha/ext-react-classic-material-ui-grid ext-react-classic-material-ui-grid-demo
+npx create-react-app --template @sencha/ext-react-modern-material-ui-grid ext-react-modern-material-ui-grid-demo
 ```
 
-create-react-app will create a new application using the ext-react-classic-material-ui template
+create-react-app will create a new application using the ext-react-modern-material-ui template
 (from the sencha/ext-react git repo)
 
 - When create-react-app is completed, Run the following:
 
 ```sh
-cd ext-react-classic-material-ui-demo
+cd ext-react-modern-material-ui-demo
 ```
 
 - To start the ExtReact application, run the following in a terminal window:

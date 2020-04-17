@@ -1,4 +1,4 @@
-## Using ext-webpack-plugin for @sencha/ext-react-classic-material-ui
+## Using ext-webpack-plugin for @sencha/ext-react-modern-material-ui
 
 ### Adding ext-webpack-plugin to app
 
