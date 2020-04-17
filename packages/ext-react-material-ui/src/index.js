@@ -31,7 +31,6 @@ import ExtPivotd3container_ from "./ExtPivotd3container";
 import ExtPivotheatmap_ from "./ExtPivotheatmap";
 import ExtPivottreemap_ from "./ExtPivottreemap";
 import ExtPivotgrid_ from "./ExtPivotgrid";
-import ExtTreepanel_ from "./ExtTreepanel";
 
 export const ExtCalendar_list = ExtCalendar_list_;
 export const ExtCalendar_day = ExtCalendar_day_;
@@ -64,7 +63,6 @@ export const ExtPivotd3container = ExtPivotd3container_;
 export const ExtPivotheatmap = ExtPivotheatmap_;
 export const ExtPivottreemap = ExtPivottreemap_;
 export const ExtPivotgrid = ExtPivotgrid_;
-export const ExtTreepanel = ExtTreepanel_;
 
 export const Calendar_list = ExtCalendar_list_;
 export const Calendar_day = ExtCalendar_day_;
@@ -97,7 +95,6 @@ export const Pivotd3container = ExtPivotd3container_;
 export const Pivotheatmap = ExtPivotheatmap_;
 export const Pivottreemap = ExtPivottreemap_;
 export const Pivotgrid = ExtPivotgrid_;
-export const Treepanel = ExtTreepanel_;
 
 
 export const ActionSheet = ExtActionsheet_;
