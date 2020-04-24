@@ -1,0 +1,7183 @@
+{
+ "xtype": "pivotgrid",
+ "reactname": "ExtPivotgrid",
+ "events": [
+  {
+   "name": "activate",
+   "text": "Fires whenever item within the Container is activated.\n",
+   "parameters": [
+    "newActiveItem",
+    "sender",
+    "oldActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,128,24",
+      "text": "411,128,38,42",
+      "type": "411,128,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,129,31",
+      "text": "411,129,36,24",
+      "type": "411,129,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,130,24",
+      "text": "411,130,38,42",
+      "type": "411,130,16"
+     }
+    }
+   ],
+   "nameprimary": "activate(newActiveItem,sender,oldActiveItem)"
+  },
+  {
+   "name": "activeItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    }
+   ],
+   "nameprimary": "activeItemchange(sender,value,oldValue)"
+  },
+  {
+   "name": "add",
+   "parameters": [],
+   "nameprimary": "add()"
+  },
+  {
+   "name": "added",
+   "text": "Fires after a Component had been added to a Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,819,31",
+      "text": "410,819,38,33",
+      "type": "410,819,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Parent Container\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,820,31",
+      "text": "410,820,41,17",
+      "type": "410,820,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item within the Container.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,821,24",
+      "text": "410,821,30,44",
+      "type": "410,821,16"
+     }
+    }
+   ],
+   "nameprimary": "added(sender,container,index)"
+  },
+  {
+   "name": "beforeactiveItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeactiveItemchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforebottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforebottomchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforecenteredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforecenteredchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforecomplete",
+   "text": "Fires after a change has been made to the field, but before the change is reflected in the\nunderlying field.  Saving the change to the field can be canceled by returning false from\nthe handler of this event. Note that if the value has not changed and ignoreNoChange = true,\nthe editing will still end but this event will not fire since no edit actually occurred.\n",
+   "parameters": [
+    "editor",
+    "value",
+    "startValue",
+    "The"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,660,28",
+      "type": "527,660,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current field value\n",
+     "type": "Object",
+     "src": {
+      "name": "527,661,24",
+      "text": "527,661,30,24",
+      "type": "527,661,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "startValue",
+     "text": "The original field value\n",
+     "type": "Object",
+     "src": {
+      "name": "527,662,24",
+      "text": "527,662,35,25",
+      "type": "527,662,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "The",
+     "text": "location where actionable mode was successfully started\n",
+     "type": "Ext.grid.Location",
+     "src": {
+      "name": "527,663,35",
+      "text": "527,663,39,56",
+      "type": "527,663,16"
+     }
+    }
+   ],
+   "nameprimary": "beforecomplete(editor,value,startValue,The)"
+  },
+  {
+   "name": "beforedisabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedisabledchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforedockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedockedchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeedit",
+   "text": "Fires before row editing is triggered. Return `false` from event handler to prevent\nthe editing.\n\nThis event is only fired if the {@link Ext.grid.rowedit.Plugin} plugin is\nconfigured on the grid.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "588,38,31",
+      "type": "588,38,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The editing location.\n",
+     "type": "Ext.grid.Location",
+     "items": [
+      {
+       "$type": "property",
+       "name": "editor",
+       "text": "The editor component.\n",
+       "type": "Ext.grid.rowedit.RowEditor",
+       "src": {
+        "name": "588,40,53",
+        "text": "588,40,60,22",
+        "type": "588,40,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "588,39,35",
+      "text": "588,39,44,22",
+      "type": "588,39,16"
+     }
+    }
+   ],
+   "nameprimary": "beforeedit(sender,location)"
+  },
+  {
+   "name": "beforegroupcollapse",
+   "text": "Fires before a group collapse starts. Return `false` to cancel the collapse.\n",
+   "parameters": [
+    "sender",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,823,35",
+      "type": "453,823,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "type": "Ext.dataview.ListGroup",
+     "src": {
+      "name": "453,824,40",
+      "type": "453,824,16"
+     }
+    }
+   ],
+   "nameprimary": "beforegroupcollapse(sender,group)"
+  },
+  {
+   "name": "beforegroupexpand",
+   "text": "Fires before a group expand starts. Return `false` to cancel the expand.\n",
+   "parameters": [
+    "sender",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,832,35",
+      "type": "453,832,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "type": "Ext.dataview.ListGroup",
+     "src": {
+      "name": "453,833,40",
+      "type": "453,833,16"
+     }
+    }
+   ],
+   "nameprimary": "beforegroupexpand(sender,group)"
+  },
+  {
+   "name": "beforeheightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeheightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforehiddenchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehide",
+   "text": "Fires before the Component is hidden. Hide may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,737,31",
+      "text": "410,737,38,33",
+      "type": "410,737,16"
+     }
+    }
+   ],
+   "nameprimary": "beforehide(sender)"
+  },
+  {
+   "name": "beforeleftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeleftchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeorientationchange",
+   "text": "Fires before orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "beforeorientationchange()"
+  },
+  {
+   "name": "beforerightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforerightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforescrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforescrollablechange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeselectionextend",
+   "text": "An event fired when an extension block is extended\nusing a drag gesture. Only fired when the grid's\n`{@link Ext.grid.Grid.selectable #cfg!selectable}` is configured with the\n{@link Ext.grid.selection.Model#cfg!extensible extensible} config.\n",
+   "parameters": [
+    "grid",
+    "An",
+    "extension"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "grid",
+     "text": "The owning grid.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "591,237,31",
+      "text": "591,237,36,17",
+      "type": "591,237,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "An",
+     "text": "object which encapsulates a contiguous\nselection block.\n",
+     "type": "Ext.dataview.selection.Selection",
+     "src": {
+      "name": "591,238,50",
+      "text": "591,238,53,39:591,239,8,17",
+      "type": "591,238,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "extension",
+     "text": "An object describing the type and size of extension.\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "type",
+       "text": "`\"rows\"` or `\"columns\"`\n",
+       "type": "String",
+       "src": {
+        "name": "591,241,34",
+        "text": "591,241,39,24",
+        "type": "591,241,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "start",
+       "text": "The start (top left) cell of the\nextension area.\n",
+       "type": "Ext.grid.Location",
+       "src": {
+        "name": "591,242,45",
+        "text": "591,242,51,33:591,243,8,16",
+        "type": "591,242,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "end",
+       "text": "The end (bottom right) cell of the\nextension area.\n",
+       "type": "Ext.grid.Location",
+       "src": {
+        "name": "591,244,45",
+        "text": "591,244,49,35:591,245,8,16",
+        "type": "591,244,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "columns",
+       "optional": true,
+       "text": "The number of columns extended (-ve means on\nthe left side).\n",
+       "type": "number",
+       "src": {
+        "name": "591,246,35",
+        "text": "591,246,44,45:591,247,8,16",
+        "type": "591,246,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "rows",
+       "optional": true,
+       "text": "The number of rows extended (-ve means on the top\nside).\n",
+       "type": "number",
+       "src": {
+        "name": "591,248,35",
+        "text": "591,248,41,50:591,249,8,7",
+        "type": "591,248,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "591,240,24",
+      "text": "591,240,34,53",
+      "type": "591,240,16"
+     }
+    }
+   ],
+   "nameprimary": "beforeselectionextend(grid,An,extension)"
+  },
+  {
+   "name": "beforeshow",
+   "text": "Fires before the Component is shown. Show may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,725,31",
+      "text": "410,725,38,33",
+      "type": "410,725,16"
+     }
+    }
+   ],
+   "nameprimary": "beforeshow(sender)"
+  },
+  {
+   "name": "beforestartedit",
+   "text": "Fires when editing is initiated, but before the value changes.  Editing can be canceled by\nreturning false from the handler of this event.\n",
+   "parameters": [
+    "editor",
+    "boundEl",
+    "value",
+    "The"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,637,28",
+      "type": "527,637,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "boundEl",
+     "text": "The underlying element bound to this editor\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "527,638,33",
+      "text": "527,638,41,44",
+      "type": "527,638,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The field value being set\n",
+     "type": "Object",
+     "src": {
+      "name": "527,639,24",
+      "text": "527,639,30,26",
+      "type": "527,639,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "The",
+     "text": "location where actionable mode was successfully started\n",
+     "type": "Ext.grid.Location",
+     "src": {
+      "name": "527,640,35",
+      "text": "527,640,39,56",
+      "type": "527,640,16"
+     }
+    }
+   ],
+   "nameprimary": "beforestartedit(editor,boundEl,value,The)"
+  },
+  {
+   "name": "beforestorechange",
+   "text": "This event fires when `{@link #cfg!store}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.dataview.Abstract"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforestorechange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforetofront",
+   "text": "Fires before a {@link #cfg!floated #cfg-floated} component is brought to the front of the visual stack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,320,31",
+      "text": "689,320,36,23",
+      "type": "689,320,16"
+     }
+    }
+   ],
+   "nameprimary": "beforetofront(sender)"
+  },
+  {
+   "name": "beforetopchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforetopchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforewidthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforewidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "blur",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} loses focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,91,31",
+      "type": "283,91,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The blur event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,92,33",
+      "text": "283,92,39,16",
+      "type": "283,92,16"
+     }
+    }
+   ],
+   "nameprimary": "blur(sender,event)"
+  },
+  {
+   "name": "bottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    }
+   ],
+   "nameprimary": "bottomchange(sender,value,oldValue)"
+  },
+  {
+   "name": "canceledit",
+   "text": "Fires after editing has been canceled and the editor's value has been reset.\n",
+   "parameters": [
+    "editor",
+    "value",
+    "startValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,681,28",
+      "type": "527,681,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The user-entered field value that was discarded\n",
+     "type": "Object",
+     "src": {
+      "name": "527,682,24",
+      "text": "527,682,30,48",
+      "type": "527,682,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "startValue",
+     "text": "The original field value that was set back into the editor after\ncancel\n",
+     "type": "Object",
+     "src": {
+      "name": "527,683,24",
+      "text": "527,683,35,65:527,684,8,7",
+      "type": "527,683,16"
+     }
+    }
+   ],
+   "nameprimary": "canceledit(editor,value,startValue)"
+  },
+  {
+   "name": "cellselection",
+   "text": "Fires when cell selection is being used and cells are selected or deselected.\n",
+   "parameters": [
+    "grid",
+    "selection"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "grid",
+     "text": "this Grid\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,620,31",
+      "text": "527,620,36,10",
+      "type": "527,620,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selection",
+     "text": "An object which encapsulates the\nselected cell range(s).\n",
+     "type": "Ext.grid.selection.Rows",
+     "src": {
+      "name": "527,621,41",
+      "text": "527,621,51,33:527,622,8,24",
+      "type": "527,621,16"
+     }
+    }
+   ],
+   "nameprimary": "cellselection(grid,selection)"
+  },
+  {
+   "name": "centeredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    }
+   ],
+   "nameprimary": "centeredchange(sender,value,oldValue)"
+  },
+  {
+   "name": "childdoubletap",
+   "text": "Fires when a child is double tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,931,35",
+      "text": "453,931,40,11",
+      "type": "453,931,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,932,35",
+      "text": "453,932,44,28",
+      "type": "453,932,16"
+     }
+    }
+   ],
+   "nameprimary": "childdoubletap(sender,location)"
+  },
+  {
+   "name": "childlongpress",
+   "text": "Fires when a child is long-pressed.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,904,35",
+      "text": "453,904,40,11",
+      "type": "453,904,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,905,35",
+      "text": "453,905,44,28",
+      "type": "453,905,16"
+     }
+    }
+   ],
+   "nameprimary": "childlongpress(sender,location)"
+  },
+  {
+   "name": "childmouseenter",
+   "text": "Fires when the mouse pointer enters a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,940,35",
+      "text": "453,940,40,11",
+      "type": "453,940,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,941,35",
+      "text": "453,941,44,28",
+      "type": "453,941,16"
+     }
+    }
+   ],
+   "nameprimary": "childmouseenter(sender,location)"
+  },
+  {
+   "name": "childmouseleave",
+   "text": "Fires when the mouse pointer leaves a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,949,35",
+      "text": "453,949,40,11",
+      "type": "453,949,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,950,35",
+      "text": "453,950,44,28",
+      "type": "453,950,16"
+     }
+    }
+   ],
+   "nameprimary": "childmouseleave(sender,location)"
+  },
+  {
+   "name": "childsingletap",
+   "text": "Fires when a child is single tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,922,35",
+      "text": "453,922,40,11",
+      "type": "453,922,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,923,35",
+      "text": "453,923,44,28",
+      "type": "453,923,16"
+     }
+    }
+   ],
+   "nameprimary": "childsingletap(sender,location)"
+  },
+  {
+   "name": "childtap",
+   "text": "Fires when a child is tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,895,35",
+      "text": "453,895,40,11",
+      "type": "453,895,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,896,35",
+      "text": "453,896,44,28",
+      "type": "453,896,16"
+     }
+    }
+   ],
+   "nameprimary": "childtap(sender,location)"
+  },
+  {
+   "name": "childtaphold",
+   "text": "Fires when a child is tap-held.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,913,35",
+      "text": "453,913,40,11",
+      "type": "453,913,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,914,35",
+      "text": "453,914,44,28",
+      "type": "453,914,16"
+     }
+    }
+   ],
+   "nameprimary": "childtaphold(sender,location)"
+  },
+  {
+   "name": "childtouchcancel",
+   "text": "Fires when a touch is cancelled.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,886,35",
+      "text": "453,886,40,11",
+      "type": "453,886,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,887,35",
+      "text": "453,887,44,28",
+      "type": "453,887,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchcancel(sender,location)"
+  },
+  {
+   "name": "childtouchend",
+   "text": "Fires when a touch ends on a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,877,35",
+      "text": "453,877,40,11",
+      "type": "453,877,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,878,35",
+      "text": "453,878,44,28",
+      "type": "453,878,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchend(sender,location)"
+  },
+  {
+   "name": "childtouchmove",
+   "text": "Fires when a touch move occurs on a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,868,35",
+      "text": "453,868,40,11",
+      "type": "453,868,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,869,35",
+      "text": "453,869,44,28",
+      "type": "453,869,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchmove(sender,location)"
+  },
+  {
+   "name": "childtouchstart",
+   "text": "Fires when a child is first touched.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This list.\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,859,35",
+      "text": "453,859,40,11",
+      "type": "453,859,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.list.Location",
+     "src": {
+      "name": "453,860,35",
+      "text": "453,860,44,28",
+      "type": "453,860,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchstart(sender,location)"
+  },
+  {
+   "name": "columnadd",
+   "text": "Fires whenever a column is added to the Grid.\n",
+   "parameters": [
+    "sender",
+    "column",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,565,31",
+      "text": "527,565,36,19",
+      "type": "527,565,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The added column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,566,40",
+      "text": "527,566,47,18",
+      "type": "527,566,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the added column.\n",
+     "type": "Number",
+     "src": {
+      "name": "527,567,24",
+      "text": "527,567,30,31",
+      "type": "527,567,16"
+     }
+    }
+   ],
+   "nameprimary": "columnadd(sender,column,index)"
+  },
+  {
+   "name": "columnhide",
+   "text": "Fires whenever a column is hidden in the Grid.\n",
+   "parameters": [
+    "sender",
+    "column"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,596,31",
+      "text": "527,596,36,19",
+      "type": "527,596,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The shown column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,597,40",
+      "text": "527,597,47,18",
+      "type": "527,597,16"
+     }
+    }
+   ],
+   "nameprimary": "columnhide(sender,column)"
+  },
+  {
+   "name": "columnmenucreated",
+   "text": "Fired when a column first creates its column menu. This is to allow plugins\nto access and manipulate the column menu.\n\nThere will be the two sort items, and a column hide/show item with a child menu of\ncheckboxes. After this, developers may add custom enu items.\n\nMenu items may be configured with a `{@link #cfg!weight weight}` config, and those with the lowest weight\ngravitate to the top.\n\nThe sort ascending, sort descending, and hide columns items have weight -3, -2, and -1\n",
+   "parameters": [
+    "grid",
+    "column",
+    "menu"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "grid",
+     "text": "This Grid\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "551,957,31",
+      "text": "551,957,36,10",
+      "type": "551,957,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The column creating the menu\n",
+     "type": "Ext.grid.Column",
+     "src": {
+      "name": "551,958,33",
+      "text": "551,958,40,29",
+      "type": "551,958,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "menu",
+     "text": "The column's new menu\n",
+     "type": "Ext.menu.Menu",
+     "src": {
+      "name": "551,959,31",
+      "text": "551,959,36,22",
+      "type": "551,959,16"
+     }
+    }
+   ],
+   "nameprimary": "columnmenucreated(grid,column,menu)"
+  },
+  {
+   "name": "columnmove",
+   "text": "Fires whenever a column is moved in the grid.\n",
+   "parameters": [
+    "sender",
+    "column",
+    "fromIndex",
+    "toIndex"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,573,31",
+      "text": "527,573,36,19",
+      "type": "527,573,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The moved column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,574,40",
+      "text": "527,574,47,18",
+      "type": "527,574,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "fromIndex",
+     "text": "The index the column was moved from.\n",
+     "type": "Number",
+     "src": {
+      "name": "527,575,24",
+      "text": "527,575,34,37",
+      "type": "527,575,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "toIndex",
+     "text": "The index the column was moved to.\n",
+     "type": "Number",
+     "src": {
+      "name": "527,576,24",
+      "text": "527,576,32,35",
+      "type": "527,576,16"
+     }
+    }
+   ],
+   "nameprimary": "columnmove(sender,column,fromIndex,toIndex)"
+  },
+  {
+   "name": "columnremove",
+   "text": "Fires whenever a column is removed from the Grid.\n",
+   "parameters": [
+    "sender",
+    "column"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,582,31",
+      "text": "527,582,36,19",
+      "type": "527,582,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The removed column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,583,40",
+      "text": "527,583,47,20",
+      "type": "527,583,16"
+     }
+    }
+   ],
+   "nameprimary": "columnremove(sender,column)"
+  },
+  {
+   "name": "columnresize",
+   "text": "Fires whenever a column is resized in the Grid.\n",
+   "parameters": [
+    "sender",
+    "column",
+    "width"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,603,31",
+      "text": "527,603,36,19",
+      "type": "527,603,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The resized column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,604,40",
+      "text": "527,604,47,20",
+      "type": "527,604,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "width",
+     "text": "The new column width.\n",
+     "type": "Number",
+     "src": {
+      "name": "527,605,24",
+      "text": "527,605,30,22",
+      "type": "527,605,16"
+     }
+    }
+   ],
+   "nameprimary": "columnresize(sender,column,width)"
+  },
+  {
+   "name": "columnselection",
+   "text": "Fires when column selection is being used and columns are selected or deselected.\n",
+   "parameters": [
+    "grid",
+    "selection"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "grid",
+     "text": "this Grid\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,628,31",
+      "text": "527,628,36,10",
+      "type": "527,628,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selection",
+     "text": "An object which encapsulates the\nselected columns.\n",
+     "type": "Ext.grid.selection.Columns",
+     "src": {
+      "name": "527,629,44",
+      "text": "527,629,54,33:527,630,8,18",
+      "type": "527,629,16"
+     }
+    }
+   ],
+   "nameprimary": "columnselection(grid,selection)"
+  },
+  {
+   "name": "columnshow",
+   "text": "Fires whenever a column is shown in the Grid.\n",
+   "parameters": [
+    "sender",
+    "column"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,589,31",
+      "text": "527,589,36,19",
+      "type": "527,589,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The shown column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,590,40",
+      "text": "527,590,47,18",
+      "type": "527,590,16"
+     }
+    }
+   ],
+   "nameprimary": "columnshow(sender,column)"
+  },
+  {
+   "name": "columnsort",
+   "text": "Fires whenever a column is sorted in the Grid.\n",
+   "parameters": [
+    "sender",
+    "column",
+    "direction"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Grid instance.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "527,611,31",
+      "text": "527,611,36,19",
+      "type": "527,611,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "column",
+     "text": "The sorted column.\n",
+     "type": "Ext.grid.column.Column",
+     "src": {
+      "name": "527,612,40",
+      "text": "527,612,47,19",
+      "type": "527,612,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "direction",
+     "text": "The direction of the sort on this Column. Either 'asc'\nor 'desc'.\n",
+     "type": "String",
+     "src": {
+      "name": "527,613,24",
+      "text": "527,613,34,55:527,614,8,11",
+      "type": "527,613,16"
+     }
+    }
+   ],
+   "nameprimary": "columnsort(sender,column,direction)"
+  },
+  {
+   "name": "complete",
+   "text": "Fires after editing is complete and any changed value has been written to the underlying\nfield.\n",
+   "parameters": [
+    "editor",
+    "value",
+    "startValue",
+    "The"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,671,28",
+      "type": "527,671,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current field value\n",
+     "type": "Object",
+     "src": {
+      "name": "527,672,24",
+      "text": "527,672,30,24",
+      "type": "527,672,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "startValue",
+     "text": "The original field value\n",
+     "type": "Object",
+     "src": {
+      "name": "527,673,24",
+      "text": "527,673,35,25",
+      "type": "527,673,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "The",
+     "text": "location where actionable mode was successfully started\n",
+     "type": "Ext.grid.Location",
+     "src": {
+      "name": "527,674,35",
+      "text": "527,674,39,56",
+      "type": "527,674,16"
+     }
+    }
+   ],
+   "nameprimary": "complete(editor,value,startValue,The)"
+  },
+  {
+   "name": "deactivate",
+   "text": "Fires whenever item within the Container is deactivated.\n",
+   "parameters": [
+    "oldActiveItem",
+    "sender",
+    "newActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,136,24",
+      "text": "411,136,38,42",
+      "type": "411,136,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,137,31",
+      "text": "411,137,36,24",
+      "type": "411,137,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,138,24",
+      "text": "411,138,38,42",
+      "type": "411,138,16"
+     }
+    }
+   ],
+   "nameprimary": "deactivate(oldActiveItem,sender,newActiveItem)"
+  },
+  {
+   "name": "deselect",
+   "text": "Fires whenever an item is deselected\n",
+   "parameters": [
+    "sender",
+    "records"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,188,39",
+      "type": "440,188,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "records",
+     "text": "The records being deselected\n",
+     "type": "Ext.data.Model[]",
+     "src": {
+      "name": "440,189,34",
+      "text": "440,189,42,29",
+      "type": "440,189,16"
+     }
+    }
+   ],
+   "nameprimary": "deselect(sender,records)"
+  },
+  {
+   "name": "destroy",
+   "text": "Fires when the component is destroyed\n",
+   "parameters": [],
+   "nameprimary": "destroy()"
+  },
+  {
+   "name": "disabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    }
+   ],
+   "nameprimary": "disabledchange(sender,value,oldValue)"
+  },
+  {
+   "name": "disclose",
+   "text": "Fires whenever a disclosure is handled\n",
+   "parameters": [
+    "list",
+    "record",
+    "target",
+    "index",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "list",
+     "text": "The List instance\n",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,959,35",
+      "text": "453,959,40,18",
+      "type": "453,959,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "453,960,32",
+      "text": "453,960,39,34",
+      "type": "453,960,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element disclosed\n",
+     "type": "HTMLElement",
+     "src": {
+      "name": "453,961,29",
+      "text": "453,961,36,22",
+      "type": "453,961,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item disclosed\n",
+     "type": "Number",
+     "src": {
+      "name": "453,962,24",
+      "text": "453,962,30,32",
+      "type": "453,962,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "453,963,33",
+      "text": "453,963,39,17",
+      "type": "453,963,16"
+     }
+    }
+   ],
+   "nameprimary": "disclose(list,record,target,index,event)"
+  },
+  {
+   "name": "dockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    }
+   ],
+   "nameprimary": "dockedchange(sender,value,oldValue)"
+  },
+  {
+   "name": "edit",
+   "text": "Fires after editing.\n\nThis event is only fired if the {@link Ext.grid.rowedit.Plugin} plugin is\nconfigured on the grid.\n\nUsage example:\n\n     {\n         xtype: 'grid',\n         plugins: 'rowedit',\n\n         listeners: {\n             edit: function(grid, location) {\n                 // commit the changes right after editing finished\n                 location.record.commit();\n             }\n         }\n     }\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "588,65,31",
+      "type": "588,65,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The editing location.\n",
+     "type": "Ext.grid.Location",
+     "items": [
+      {
+       "$type": "property",
+       "name": "editor",
+       "text": "The editor component.\n",
+       "type": "Ext.grid.rowedit.RowEditor",
+       "src": {
+        "name": "588,67,53",
+        "text": "588,67,60,22",
+        "type": "588,67,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "588,66,35",
+      "text": "588,66,44,22",
+      "type": "588,66,16"
+     }
+    }
+   ],
+   "nameprimary": "edit(sender,location)"
+  },
+  {
+   "name": "erased",
+   "text": "Fires when the component is no longer displayed in the DOM.  Listening to this event will\ndegrade performance not recommend for general use.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,806,31",
+      "text": "410,806,38,33",
+      "type": "410,806,16"
+     }
+    }
+   ],
+   "nameprimary": "erased(sender)"
+  },
+  {
+   "name": "floatingchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,755,31",
+      "text": "410,755,38,33",
+      "type": "410,755,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,756,25",
+      "text": "410,756,36,51:410,757,8,134",
+      "type": "410,756,16"
+     }
+    }
+   ],
+   "nameprimary": "floatingchange(sender,positioned)"
+  },
+  {
+   "name": "focus",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} receives focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component/Ext.Widget",
+     "src": {
+      "name": "283,84,42",
+      "type": "283,84,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focus event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,85,33",
+      "text": "283,85,39,17",
+      "type": "283,85,16"
+     }
+    }
+   ],
+   "nameprimary": "focus(sender,event)"
+  },
+  {
+   "name": "focusenter",
+   "text": "Fires when focus enters this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,98,31",
+      "type": "283,98,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusenter event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,99,33",
+      "text": "283,99,39,22",
+      "type": "283,99,16"
+     }
+    }
+   ],
+   "nameprimary": "focusenter(sender,event)"
+  },
+  {
+   "name": "focusleave",
+   "text": "Fires when focus leaves this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,105,31",
+      "type": "283,105,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusleave event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,106,33",
+      "text": "283,106,39,22",
+      "type": "283,106,16"
+     }
+    }
+   ],
+   "nameprimary": "focusleave(sender,event)"
+  },
+  {
+   "name": "fullscreen",
+   "text": "Fires whenever a Component with the fullscreen config is instantiated\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,749,31",
+      "text": "410,749,38,33",
+      "type": "410,749,16"
+     }
+    }
+   ],
+   "nameprimary": "fullscreen(sender)"
+  },
+  {
+   "name": "groupcollapse",
+   "text": "Fires when a group collapse starts.\n",
+   "parameters": [
+    "sender",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,841,35",
+      "type": "453,841,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "type": "Ext.dataview.ListGroup",
+     "src": {
+      "name": "453,842,40",
+      "type": "453,842,16"
+     }
+    }
+   ],
+   "nameprimary": "groupcollapse(sender,group)"
+  },
+  {
+   "name": "groupexpand",
+   "text": "Fires when a group expand starts.\n",
+   "parameters": [
+    "sender",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "453,850,35",
+      "type": "453,850,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "type": "Ext.dataview.ListGroup",
+     "src": {
+      "name": "453,851,40",
+      "type": "453,851,16"
+     }
+    }
+   ],
+   "nameprimary": "groupexpand(sender,group)"
+  },
+  {
+   "name": "heightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    }
+   ],
+   "nameprimary": "heightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    }
+   ],
+   "nameprimary": "hiddenchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hide",
+   "text": "Fires whenever the Component is hidden\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,743,31",
+      "text": "410,743,38,33",
+      "type": "410,743,16"
+     }
+    }
+   ],
+   "nameprimary": "hide(sender)"
+  },
+  {
+   "name": "initialize",
+   "text": "Fires when the component has been initialized\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,792,31",
+      "text": "410,792,38,33",
+      "type": "410,792,16"
+     }
+    }
+   ],
+   "nameprimary": "initialize(sender)"
+  },
+  {
+   "name": "itemaction",
+   "text": "Fires whenever a swipe action has been triggered from a list item.\n",
+   "parameters": [
+    "sender",
+    "index",
+    "record",
+    "action"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.List",
+     "src": {
+      "name": "465,15,35",
+      "type": "465,15,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the swipped item.\n",
+     "type": "Number",
+     "src": {
+      "name": "465,16,24",
+      "text": "465,16,30,31",
+      "type": "465,16,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item.\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "465,17,32",
+      "text": "465,17,39,35",
+      "type": "465,17,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "action",
+     "text": "The triggered action key.\n",
+     "type": "String",
+     "src": {
+      "name": "465,18,24",
+      "text": "465,18,31,26",
+      "type": "465,18,16"
+     }
+    }
+   ],
+   "nameprimary": "itemaction(sender,index,record,action)"
+  },
+  {
+   "name": "itemdoubletap",
+   "text": "Fires whenever an item is doubletapped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,129,39",
+      "type": "440,129,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item doubletapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,130,24",
+      "text": "440,130,30,35",
+      "type": "440,130,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem doubletapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,131,51",
+      "text": "440,131,58,37",
+      "type": "440,131,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,132,32",
+      "text": "440,132,39,34",
+      "type": "440,132,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,133,33",
+      "text": "440,133,35,17",
+      "type": "440,133,16"
+     }
+    }
+   ],
+   "nameprimary": "itemdoubletap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemlongpress",
+   "text": "Fires whenever an item's longpress event fires\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,93,39",
+      "type": "440,93,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,94,24",
+      "text": "440,94,30,30",
+      "type": "440,94,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,95,51",
+      "text": "440,95,58,32",
+      "type": "440,95,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,96,32",
+      "text": "440,96,39,34",
+      "type": "440,96,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,97,33",
+      "text": "440,97,35,17",
+      "type": "440,97,16"
+     }
+    }
+   ],
+   "nameprimary": "itemlongpress(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemmouseenter",
+   "text": "Fires whenever the mouse pointer moves over an item\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,153,39",
+      "type": "440,153,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item\n",
+     "type": "Number",
+     "src": {
+      "name": "440,154,24",
+      "text": "440,154,30,22",
+      "type": "440,154,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,155,51",
+      "text": "440,155,58,24",
+      "type": "440,155,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,156,32",
+      "text": "440,156,39,34",
+      "type": "440,156,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,157,33",
+      "text": "440,157,35,17",
+      "type": "440,157,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseenter(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemmouseleave",
+   "text": "Fires whenever the mouse pointer leaves an item\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,165,39",
+      "type": "440,165,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item\n",
+     "type": "Number",
+     "src": {
+      "name": "440,166,24",
+      "text": "440,166,30,22",
+      "type": "440,166,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,167,51",
+      "text": "440,167,58,24",
+      "type": "440,167,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,168,32",
+      "text": "440,168,39,34",
+      "type": "440,168,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,169,33",
+      "text": "440,169,35,17",
+      "type": "440,169,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseleave(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemsingletap",
+   "text": "Fires whenever an item is singletapped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,117,39",
+      "type": "440,117,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item singletapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,118,24",
+      "text": "440,118,30,35",
+      "type": "440,118,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem singletapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,119,51",
+      "text": "440,119,58,37",
+      "type": "440,119,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,120,32",
+      "text": "440,120,39,34",
+      "type": "440,120,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,121,33",
+      "text": "440,121,35,17",
+      "type": "440,121,16"
+     }
+    }
+   ],
+   "nameprimary": "itemsingletap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemswipe",
+   "text": "Fires whenever an item is swiped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,141,39",
+      "type": "440,141,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item swiped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,142,24",
+      "text": "440,142,30,29",
+      "type": "440,142,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem swiped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,143,51",
+      "text": "440,143,58,31",
+      "type": "440,143,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,144,32",
+      "text": "440,144,39,34",
+      "type": "440,144,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,145,33",
+      "text": "440,145,35,17",
+      "type": "440,145,16"
+     }
+    }
+   ],
+   "nameprimary": "itemswipe(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtap",
+   "text": "Fires whenever an item is tapped. Add `x-item-no-tap` CSS class to a child of list\nitem to suppress `{@link #event!itemtap itemtap}` events on that child. This can be useful when items\ncontain components such as Buttons.\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,81,39",
+      "type": "440,81,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item tapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,82,24",
+      "text": "440,82,30,29",
+      "type": "440,82,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem tapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,83,51",
+      "text": "440,83,58,31",
+      "type": "440,83,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,84,32",
+      "text": "440,84,39,34",
+      "type": "440,84,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,85,33",
+      "text": "440,85,35,17",
+      "type": "440,85,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtaphold",
+   "text": "Fires whenever an item's taphold event fires\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,105,39",
+      "type": "440,105,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,106,24",
+      "text": "440,106,30,30",
+      "type": "440,106,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,107,51",
+      "text": "440,107,58,32",
+      "type": "440,107,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,108,32",
+      "text": "440,108,39,34",
+      "type": "440,108,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,109,33",
+      "text": "440,109,35,17",
+      "type": "440,109,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtaphold(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchcancel",
+   "text": "Fires whenever an item touch is cancelled\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,67,39",
+      "type": "440,67,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,68,24",
+      "text": "440,68,30,30",
+      "type": "440,68,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,69,51",
+      "text": "440,69,58,32",
+      "type": "440,69,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,70,32",
+      "text": "440,70,39,34",
+      "type": "440,70,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,71,33",
+      "text": "440,71,35,17",
+      "type": "440,71,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchcancel(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchend",
+   "text": "Fires whenever an item is touched\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,55,39",
+      "type": "440,55,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,56,24",
+      "text": "440,56,30,30",
+      "type": "440,56,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,57,51",
+      "text": "440,57,58,32",
+      "type": "440,57,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,58,32",
+      "text": "440,58,39,34",
+      "type": "440,58,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,59,33",
+      "text": "440,59,35,17",
+      "type": "440,59,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchend(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchmove",
+   "text": "Fires whenever an item is moved\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,43,39",
+      "type": "440,43,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item moved\n",
+     "type": "Number",
+     "src": {
+      "name": "440,44,24",
+      "text": "440,44,30,28",
+      "type": "440,44,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem moved\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,45,51",
+      "text": "440,45,58,30",
+      "type": "440,45,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,46,32",
+      "text": "440,46,39,34",
+      "type": "440,46,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,47,33",
+      "text": "440,47,35,17",
+      "type": "440,47,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchmove(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchstart",
+   "text": "Fires whenever an item is touched\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,31,39",
+      "type": "440,31,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,32,24",
+      "text": "440,32,30,30",
+      "type": "440,32,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,33,51",
+      "text": "440,33,58,32",
+      "type": "440,33,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,34,32",
+      "text": "440,34,39,34",
+      "type": "440,34,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,35,33",
+      "text": "440,35,35,17",
+      "type": "440,35,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchstart(sender,index,target,record,e)"
+  },
+  {
+   "name": "leftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    }
+   ],
+   "nameprimary": "leftchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    }
+   ],
+   "nameprimary": "maxHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    }
+   ],
+   "nameprimary": "maxWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    }
+   ],
+   "nameprimary": "minHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    }
+   ],
+   "nameprimary": "minWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "move",
+   "parameters": [],
+   "nameprimary": "move()"
+  },
+  {
+   "name": "moved",
+   "text": "Fires when a component si moved within its Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "toIndex",
+    "fromIndex"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,835,31",
+      "text": "410,835,38,33",
+      "type": "410,835,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,836,31",
+      "text": "410,836,41,36",
+      "type": "410,836,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "toIndex",
+     "text": "The new index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,837,24",
+      "text": "410,837,32,27",
+      "type": "410,837,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "fromIndex",
+     "text": "The old index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,838,24",
+      "text": "410,838,34,27",
+      "type": "410,838,16"
+     }
+    }
+   ],
+   "nameprimary": "moved(sender,container,toIndex,fromIndex)"
+  },
+  {
+   "name": "navigate",
+   "text": "Fires whenever the user navigates to a new location.\n\nIn regular dataviews, a location encapsulates one view item, and its associated record.\n\nIn grids, a location encapsulates one cell, and its associated data field.\n",
+   "parameters": [
+    "sender",
+    "to",
+    "from"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,207,39",
+      "type": "440,207,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "to",
+     "text": "The location navigated to.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "440,208,39",
+      "text": "440,208,42,27",
+      "type": "440,208,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "from",
+     "text": "The location where navigation came from.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "440,209,39",
+      "text": "440,209,44,41",
+      "type": "440,209,16"
+     }
+    }
+   ],
+   "nameprimary": "navigate(sender,to,from)"
+  },
+  {
+   "name": "orientationchange",
+   "text": "Fires when orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "orientationchange()"
+  },
+  {
+   "name": "painted",
+   "text": "Fires whenever this Element actually becomes visible (painted) on the screen. This is\nuseful when you need to perform 'read' operations on the DOM element, i.e: calculating\nnatural sizes and positioning.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!painted painted}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "sender",
+    "element"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,798,31",
+      "text": "410,798,38,33",
+      "type": "410,798,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element)\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,799,29",
+      "text": "410,799,37,45",
+      "type": "410,799,16"
+     }
+    }
+   ],
+   "nameprimary": "painted(sender,element)"
+  },
+  {
+   "name": "pivotbeforereconfigure",
+   "text": "Fires before the matrix is reconfigured.\n\nReturn false to stop reconfiguring the matrix.\n",
+   "parameters": [
+    "matrix",
+    "config"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,221,39",
+      "text": "1035,221,46,31",
+      "type": "1035,221,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "config",
+     "text": "Object used to reconfigure the matrix\n",
+     "type": "Object",
+     "src": {
+      "name": "1035,222,24",
+      "text": "1035,222,31,38",
+      "type": "1035,222,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotbeforereconfigure(matrix,config)"
+  },
+  {
+   "name": "pivotbeforerequest",
+   "text": "Available only when using a {@link Ext.pivot.matrix.Remote} matrix.\nFires before requesting data from the server side.\nReturn false if you don't want to make the Ajax request.\n",
+   "parameters": [
+    "matrix",
+    "params"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,618,39",
+      "text": "1035,618,46,31",
+      "type": "1035,618,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Params sent by the Ajax request\n",
+     "type": "Object",
+     "src": {
+      "name": "1035,619,24",
+      "text": "1035,619,31,32",
+      "type": "1035,619,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotbeforerequest(matrix,params)"
+  },
+  {
+   "name": "pivotbuildtotals",
+   "text": "Fires before grand total records are created in the pivot store.\nPush additional objects to the array if you need to create additional grand totals.\n",
+   "parameters": [
+    "matrix",
+    "totals"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,285,39",
+      "text": "1035,285,46,31",
+      "type": "1035,285,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "totals",
+     "text": "Array of objects that will be used to create grand total records\nin the pivot store. Each object should have:\n",
+     "type": "Array",
+     "items": [
+      {
+       "$type": "property",
+       "name": "title",
+       "text": "Name your grand total\n",
+       "type": "String",
+       "src": {
+        "name": "1035,288,31",
+        "text": "1035,288,37,22",
+        "type": "1035,288,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "values",
+       "text": "Values used to generate the pivot store record\n",
+       "type": "Object",
+       "src": {
+        "name": "1035,289,31",
+        "text": "1035,289,38,47",
+        "type": "1035,289,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,286,23",
+      "text": "1035,286,30,65:1035,287,8,45",
+      "type": "1035,286,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotbuildtotals(matrix,totals)"
+  },
+  {
+   "name": "pivotcolumnsbuilt",
+   "text": "Fires after the matrix built the columns.\n",
+   "parameters": [
+    "matrix",
+    "columns"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,268,39",
+      "text": "1035,268,46,31",
+      "type": "1035,268,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "columns",
+     "text": "The built columns\n",
+     "type": "Array",
+     "src": {
+      "name": "1035,269,23",
+      "text": "1035,269,31,18",
+      "type": "1035,269,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotcolumnsbuilt(matrix,columns)"
+  },
+  {
+   "name": "pivotdone",
+   "text": "Fires when the matrix finished processing the records\n",
+   "parameters": [
+    "matrix"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,253,39",
+      "text": "1035,253,46,31",
+      "type": "1035,253,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotdone(matrix)"
+  },
+  {
+   "name": "pivotgroupcelldoubletap",
+   "text": "Fires when a double tap is detected on a pivot group cell.\nThe pivot group cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,394,39",
+        "text": "1035,394,44,20",
+        "type": "1035,394,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,395,43",
+        "text": "1035,395,48,24",
+        "type": "1035,395,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,396,31",
+        "text": "1035,396,39,26",
+        "type": "1035,396,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,397,44",
+        "text": "1035,397,53,15",
+        "type": "1035,397,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,398,31",
+        "text": "1035,398,38,25",
+        "type": "1035,398,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,399,44",
+        "text": "1035,399,52,14",
+        "type": "1035,399,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,400,31",
+        "text": "1035,400,43,30",
+        "type": "1035,400,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,401,47",
+        "text": "1035,401,54,21",
+        "type": "1035,401,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,393,24",
+      "text": "1035,393,31,36",
+      "type": "1035,393,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,402,33",
+      "text": "1035,402,35,13",
+      "type": "1035,402,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupcelldoubletap(params,e)"
+  },
+  {
+   "name": "pivotgroupcelltap",
+   "text": "Fires when a tap is detected on a pivot group cell.\nThe pivot group cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,376,39",
+        "text": "1035,376,44,20",
+        "type": "1035,376,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,377,43",
+        "text": "1035,377,48,24",
+        "type": "1035,377,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,378,31",
+        "text": "1035,378,39,26",
+        "type": "1035,378,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,379,44",
+        "text": "1035,379,53,15",
+        "type": "1035,379,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,380,31",
+        "text": "1035,380,38,25",
+        "type": "1035,380,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,381,44",
+        "text": "1035,381,52,14",
+        "type": "1035,381,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,382,31",
+        "text": "1035,382,43,30",
+        "type": "1035,382,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,383,47",
+        "text": "1035,383,54,21",
+        "type": "1035,383,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,375,24",
+      "text": "1035,375,31,36",
+      "type": "1035,375,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,384,33",
+      "text": "1035,384,35,13",
+      "type": "1035,384,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupcelltap(params,e)"
+  },
+  {
+   "name": "pivotgroupcelltaphold",
+   "text": "Fires when a tap hold is detected on a pivot group cell.\nThe pivot group cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,412,39",
+        "text": "1035,412,44,20",
+        "type": "1035,412,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,413,43",
+        "text": "1035,413,48,24",
+        "type": "1035,413,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,414,31",
+        "text": "1035,414,39,26",
+        "type": "1035,414,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,415,44",
+        "text": "1035,415,53,15",
+        "type": "1035,415,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,416,31",
+        "text": "1035,416,38,25",
+        "type": "1035,416,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,417,44",
+        "text": "1035,417,52,14",
+        "type": "1035,417,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,418,31",
+        "text": "1035,418,43,30",
+        "type": "1035,418,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,419,47",
+        "text": "1035,419,54,21",
+        "type": "1035,419,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,411,24",
+      "text": "1035,411,31,36",
+      "type": "1035,411,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,420,33",
+      "text": "1035,420,35,13",
+      "type": "1035,420,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupcelltaphold(params,e)"
+  },
+  {
+   "name": "pivotgroupcollapse",
+   "text": "Fires when a pivot group is collapsed. Could be a row or col pivot group.\n\nThe same event is fired when all groups are collapsed but no group param is provided.\n",
+   "parameters": [
+    "matrix",
+    "type",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,317,39",
+      "text": "1035,317,46,31",
+      "type": "1035,317,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "type",
+     "text": "Either 'row' or 'col'\n",
+     "type": "String",
+     "src": {
+      "name": "1035,318,24",
+      "text": "1035,318,29,22",
+      "type": "1035,318,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "text": "The axis item\n",
+     "type": "Ext.pivot.axis.Item",
+     "src": {
+      "name": "1035,319,37",
+      "text": "1035,319,43,14",
+      "type": "1035,319,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupcollapse(matrix,type,group)"
+  },
+  {
+   "name": "pivotgroupdoubletap",
+   "text": "Fires when a double tap is detected on a pivot group element.\nThe pivot group element is the one that belongs to the columns generated for the left axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,346,39",
+        "text": "1035,346,44,20",
+        "type": "1035,346,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,347,43",
+        "text": "1035,347,48,24",
+        "type": "1035,347,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,348,31",
+        "text": "1035,348,39,26",
+        "type": "1035,348,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,349,44",
+        "text": "1035,349,53,15",
+        "type": "1035,349,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,350,47",
+        "text": "1035,350,54,21",
+        "type": "1035,350,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,345,24",
+      "text": "1035,345,31,36",
+      "type": "1035,345,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,351,33",
+      "text": "1035,351,35,13",
+      "type": "1035,351,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupdoubletap(params,e)"
+  },
+  {
+   "name": "pivotgroupexpand",
+   "text": "Fires when a pivot group is expanded. Could be a row or col pivot group.\n\nThe same event is fired when all groups are expanded but no group param is provided.\n",
+   "parameters": [
+    "matrix",
+    "type",
+    "group"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,306,39",
+      "text": "1035,306,46,31",
+      "type": "1035,306,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "type",
+     "text": "Either 'row' or 'col'\n",
+     "type": "String",
+     "src": {
+      "name": "1035,307,24",
+      "text": "1035,307,29,22",
+      "type": "1035,307,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "group",
+     "text": "The axis item\n",
+     "type": "Ext.pivot.axis.Item",
+     "src": {
+      "name": "1035,308,37",
+      "text": "1035,308,43,14",
+      "type": "1035,308,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgroupexpand(matrix,type,group)"
+  },
+  {
+   "name": "pivotgrouptap",
+   "text": "Fires when a tap is detected on a pivot group element.\nThe pivot group element is the one that belongs to the columns generated for the left axis\ndimensions.\n\nReturn false if you want to prevent expanding/collapsing that group.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,331,39",
+        "text": "1035,331,44,20",
+        "type": "1035,331,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,332,43",
+        "text": "1035,332,48,24",
+        "type": "1035,332,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,333,31",
+        "text": "1035,333,39,26",
+        "type": "1035,333,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,334,44",
+        "text": "1035,334,53,15",
+        "type": "1035,334,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,335,47",
+        "text": "1035,335,54,21",
+        "type": "1035,335,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,330,24",
+      "text": "1035,330,31,36",
+      "type": "1035,330,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,336,33",
+      "text": "1035,336,35,13",
+      "type": "1035,336,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgrouptap(params,e)"
+  },
+  {
+   "name": "pivotgrouptaphold",
+   "text": "Fires when a tap hold is detected on a pivot group element.\nThe pivot group element is the one that belongs to the columns generated for the left axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,361,39",
+        "text": "1035,361,44,20",
+        "type": "1035,361,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,362,43",
+        "text": "1035,362,48,24",
+        "type": "1035,362,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,363,31",
+        "text": "1035,363,39,26",
+        "type": "1035,363,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,364,44",
+        "text": "1035,364,53,15",
+        "type": "1035,364,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,365,47",
+        "text": "1035,365,54,21",
+        "type": "1035,365,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,360,24",
+      "text": "1035,360,31,36",
+      "type": "1035,360,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,366,33",
+      "text": "1035,366,35,13",
+      "type": "1035,366,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotgrouptaphold(params,e)"
+  },
+  {
+   "name": "pivotitemcelldoubletap",
+   "text": "Fires when a double tap is detected on a pivot item cell.\nThe pivot item cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,493,39",
+        "text": "1035,493,44,20",
+        "type": "1035,493,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,494,43",
+        "text": "1035,494,48,24",
+        "type": "1035,494,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,495,31",
+        "text": "1035,495,39,26",
+        "type": "1035,495,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,496,44",
+        "text": "1035,496,53,15",
+        "type": "1035,496,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,497,31",
+        "text": "1035,497,38,25",
+        "type": "1035,497,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,498,44",
+        "text": "1035,498,52,14",
+        "type": "1035,498,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,499,31",
+        "text": "1035,499,43,30",
+        "type": "1035,499,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,500,47",
+        "text": "1035,500,54,21",
+        "type": "1035,500,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,492,24",
+      "text": "1035,492,31,36",
+      "type": "1035,492,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,501,33",
+      "text": "1035,501,35,13",
+      "type": "1035,501,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemcelldoubletap(params,e)"
+  },
+  {
+   "name": "pivotitemcelltap",
+   "text": "Fires when a tap is detected on a pivot item cell.\nThe pivot item cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,475,39",
+        "text": "1035,475,44,20",
+        "type": "1035,475,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,476,43",
+        "text": "1035,476,48,24",
+        "type": "1035,476,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,477,31",
+        "text": "1035,477,39,26",
+        "type": "1035,477,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,478,44",
+        "text": "1035,478,53,15",
+        "type": "1035,478,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,479,31",
+        "text": "1035,479,38,25",
+        "type": "1035,479,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,480,44",
+        "text": "1035,480,52,14",
+        "type": "1035,480,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,481,31",
+        "text": "1035,481,43,30",
+        "type": "1035,481,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,482,47",
+        "text": "1035,482,54,21",
+        "type": "1035,482,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,474,24",
+      "text": "1035,474,31,36",
+      "type": "1035,474,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,483,33",
+      "text": "1035,483,35,13",
+      "type": "1035,483,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemcelltap(params,e)"
+  },
+  {
+   "name": "pivotitemcelltaphold",
+   "text": "Fires when a tap hold is detected on a pivot item cell.\nThe pivot item cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,511,39",
+        "text": "1035,511,44,20",
+        "type": "1035,511,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,512,43",
+        "text": "1035,512,48,24",
+        "type": "1035,512,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,513,31",
+        "text": "1035,513,39,26",
+        "type": "1035,513,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,514,44",
+        "text": "1035,514,53,15",
+        "type": "1035,514,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,515,31",
+        "text": "1035,515,38,25",
+        "type": "1035,515,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topItem",
+       "text": "Top axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,516,44",
+        "text": "1035,516,52,14",
+        "type": "1035,516,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,517,31",
+        "text": "1035,517,43,30",
+        "type": "1035,517,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,518,47",
+        "text": "1035,518,54,21",
+        "type": "1035,518,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,510,24",
+      "text": "1035,510,31,36",
+      "type": "1035,510,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,519,33",
+      "text": "1035,519,35,13",
+      "type": "1035,519,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemcelltaphold(params,e)"
+  },
+  {
+   "name": "pivotitemdoubletap",
+   "text": "Fires when a double tap is detected on a pivot item element.\nThe pivot item element is the one that belongs to the columns generated for the left axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,445,39",
+        "text": "1035,445,44,20",
+        "type": "1035,445,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,446,43",
+        "text": "1035,446,48,24",
+        "type": "1035,446,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,447,31",
+        "text": "1035,447,39,26",
+        "type": "1035,447,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,448,44",
+        "text": "1035,448,53,15",
+        "type": "1035,448,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,449,47",
+        "text": "1035,449,54,21",
+        "type": "1035,449,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,444,24",
+      "text": "1035,444,31,36",
+      "type": "1035,444,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,450,33",
+      "text": "1035,450,35,13",
+      "type": "1035,450,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemdoubletap(params,e)"
+  },
+  {
+   "name": "pivotitemtap",
+   "text": "Fires when a tap is detected on a pivot item element.\nThe pivot item element is the one that belongs to the columns generated for the left axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,430,39",
+        "text": "1035,430,44,20",
+        "type": "1035,430,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,431,43",
+        "text": "1035,431,48,24",
+        "type": "1035,431,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,432,31",
+        "text": "1035,432,39,26",
+        "type": "1035,432,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,433,44",
+        "text": "1035,433,53,15",
+        "type": "1035,433,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,434,47",
+        "text": "1035,434,54,21",
+        "type": "1035,434,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,429,24",
+      "text": "1035,429,31,36",
+      "type": "1035,429,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,435,33",
+      "text": "1035,435,35,13",
+      "type": "1035,435,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemtap(params,e)"
+  },
+  {
+   "name": "pivotitemtaphold",
+   "text": "Fires when a tap hold is detected on a pivot item element.\nThe pivot item element is the one that belongs to the columns generated for the left axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,460,39",
+        "text": "1035,460,44,20",
+        "type": "1035,460,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,461,43",
+        "text": "1035,461,48,24",
+        "type": "1035,461,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,462,31",
+        "text": "1035,462,39,26",
+        "type": "1035,462,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftItem",
+       "text": "Left axis item\n",
+       "type": "Ext.pivot.axis.Item",
+       "src": {
+        "name": "1035,463,44",
+        "text": "1035,463,53,15",
+        "type": "1035,463,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,464,47",
+        "text": "1035,464,54,21",
+        "type": "1035,464,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,459,24",
+      "text": "1035,459,31,36",
+      "type": "1035,459,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,465,33",
+      "text": "1035,465,35,13",
+      "type": "1035,465,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotitemtaphold(params,e)"
+  },
+  {
+   "name": "pivotmodelbuilt",
+   "text": "Fires after the matrix built the store model.\n",
+   "parameters": [
+    "matrix",
+    "model"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,260,39",
+      "text": "1035,260,46,31",
+      "type": "1035,260,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "model",
+     "text": "The built model\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "1035,261,32",
+      "text": "1035,261,38,16",
+      "type": "1035,261,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotmodelbuilt(matrix,model)"
+  },
+  {
+   "name": "pivotprogress",
+   "text": "Fires during records processing.\n",
+   "parameters": [
+    "matrix",
+    "index",
+    "total"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,244,39",
+      "text": "1035,244,46,31",
+      "type": "1035,244,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "Current index of record that is processed\n",
+     "type": "Integer",
+     "src": {
+      "name": "1035,245,25",
+      "text": "1035,245,31,42",
+      "type": "1035,245,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "total",
+     "text": "Total number of records to process\n",
+     "type": "Integer",
+     "src": {
+      "name": "1035,246,25",
+      "text": "1035,246,31,35",
+      "type": "1035,246,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotprogress(matrix,index,total)"
+  },
+  {
+   "name": "pivotreconfigure",
+   "text": "Fires when the matrix is reconfigured.\n",
+   "parameters": [
+    "matrix",
+    "config"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,229,39",
+      "text": "1035,229,46,31",
+      "type": "1035,229,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "config",
+     "text": "Object used to reconfigure the matrix\n",
+     "type": "Object",
+     "src": {
+      "name": "1035,230,24",
+      "text": "1035,230,31,38",
+      "type": "1035,230,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotreconfigure(matrix,config)"
+  },
+  {
+   "name": "pivotrecordbuilt",
+   "text": "Fires after the matrix built a pivot store record.\n",
+   "parameters": [
+    "matrix",
+    "record"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,276,39",
+      "text": "1035,276,46,31",
+      "type": "1035,276,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The built record\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "1035,277,32",
+      "text": "1035,277,39,17",
+      "type": "1035,277,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotrecordbuilt(matrix,record)"
+  },
+  {
+   "name": "pivotrequestexception",
+   "text": "Available only when using a {@link Ext.pivot.matrix.Remote} matrix.\nFires if there was any Ajax exception or the success value in the response was false.\n",
+   "parameters": [
+    "matrix",
+    "response"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,627,39",
+      "text": "1035,627,46,31",
+      "type": "1035,627,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "response",
+     "text": "The Ajax response object\n",
+     "type": "Object",
+     "src": {
+      "name": "1035,628,24",
+      "text": "1035,628,33,25",
+      "type": "1035,628,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotrequestexception(matrix,response)"
+  },
+  {
+   "name": "pivotstart",
+   "text": "Fires when the matrix starts processing the records.\n",
+   "parameters": [
+    "matrix"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,237,39",
+      "text": "1035,237,46,31",
+      "type": "1035,237,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotstart(matrix)"
+  },
+  {
+   "name": "pivotstorebuilt",
+   "text": "Fires after the matrix built the pivot store.\n",
+   "parameters": [
+    "matrix",
+    "store"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "matrix",
+     "text": "Reference to the Matrix object\n",
+     "type": "Ext.pivot.matrix.Base",
+     "src": {
+      "name": "1035,296,39",
+      "text": "1035,296,46,31",
+      "type": "1035,296,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "store",
+     "text": "The built store\n",
+     "type": "Ext.data.Store",
+     "src": {
+      "name": "1035,297,32",
+      "text": "1035,297,38,16",
+      "type": "1035,297,16"
+     }
+    }
+   ],
+   "nameprimary": "pivotstorebuilt(matrix,store)"
+  },
+  {
+   "name": "pivottotalcelldoubletap",
+   "text": "Fires when a double tap is detected on a pivot grand total cell.\nThe pivot total cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,587,39",
+        "text": "1035,587,44,20",
+        "type": "1035,587,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,588,43",
+        "text": "1035,588,48,24",
+        "type": "1035,588,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,589,31",
+        "text": "1035,589,39,26",
+        "type": "1035,589,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,590,31",
+        "text": "1035,590,38,25",
+        "type": "1035,590,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,591,31",
+        "text": "1035,591,43,30",
+        "type": "1035,591,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,592,47",
+        "text": "1035,592,54,21",
+        "type": "1035,592,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,586,24",
+      "text": "1035,586,31,36",
+      "type": "1035,586,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,593,33",
+      "text": "1035,593,35,13",
+      "type": "1035,593,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotalcelldoubletap(params,e)"
+  },
+  {
+   "name": "pivottotalcelltap",
+   "text": "Fires when a tap is detected on a pivot grand total cell.\nThe pivot total cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,571,39",
+        "text": "1035,571,44,20",
+        "type": "1035,571,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,572,43",
+        "text": "1035,572,48,24",
+        "type": "1035,572,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,573,31",
+        "text": "1035,573,39,26",
+        "type": "1035,573,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,574,31",
+        "text": "1035,574,38,25",
+        "type": "1035,574,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,575,31",
+        "text": "1035,575,43,30",
+        "type": "1035,575,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,576,47",
+        "text": "1035,576,54,21",
+        "type": "1035,576,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,570,24",
+      "text": "1035,570,31,36",
+      "type": "1035,570,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,577,33",
+      "text": "1035,577,35,13",
+      "type": "1035,577,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotalcelltap(params,e)"
+  },
+  {
+   "name": "pivottotalcelltaphold",
+   "text": "Fires when a double tap is detected on a pivot grand total cell.\nThe pivot total cell is the one that belongs to the columns generated for the top axis\ndimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,603,39",
+        "text": "1035,603,44,20",
+        "type": "1035,603,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,604,43",
+        "text": "1035,604,48,24",
+        "type": "1035,604,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,605,31",
+        "text": "1035,605,39,26",
+        "type": "1035,605,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "topKey",
+       "text": "Key of the top axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,606,31",
+        "text": "1035,606,38,25",
+        "type": "1035,606,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "dimensionId",
+       "text": "Id of the aggregate dimension\n",
+       "type": "String",
+       "src": {
+        "name": "1035,607,31",
+        "text": "1035,607,43,30",
+        "type": "1035,607,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,608,47",
+        "text": "1035,608,54,21",
+        "type": "1035,608,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,602,24",
+      "text": "1035,602,31,36",
+      "type": "1035,602,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,609,33",
+      "text": "1035,609,35,13",
+      "type": "1035,609,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotalcelltaphold(params,e)"
+  },
+  {
+   "name": "pivottotaldoubletap",
+   "text": "Fires when a double tap is detected on a pivot grand total element.\nThe pivot grand total element is the one that belongs to the columns generated for the left\naxis dimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,543,39",
+        "text": "1035,543,44,20",
+        "type": "1035,543,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,544,43",
+        "text": "1035,544,48,24",
+        "type": "1035,544,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,545,31",
+        "text": "1035,545,39,26",
+        "type": "1035,545,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,546,47",
+        "text": "1035,546,54,21",
+        "type": "1035,546,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,542,24",
+      "text": "1035,542,31,36",
+      "type": "1035,542,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,547,33",
+      "text": "1035,547,35,13",
+      "type": "1035,547,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotaldoubletap(params,e)"
+  },
+  {
+   "name": "pivottotaltap",
+   "text": "Fires when a tap is detected on a pivot grand total element.\nThe pivot grand total element is the one that belongs to the columns generated for the left\naxis dimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,529,39",
+        "text": "1035,529,44,20",
+        "type": "1035,529,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,530,43",
+        "text": "1035,530,48,24",
+        "type": "1035,530,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,531,31",
+        "text": "1035,531,39,26",
+        "type": "1035,531,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,532,47",
+        "text": "1035,532,54,21",
+        "type": "1035,532,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,528,24",
+      "text": "1035,528,31,36",
+      "type": "1035,528,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,533,33",
+      "text": "1035,533,35,13",
+      "type": "1035,533,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotaltap(params,e)"
+  },
+  {
+   "name": "pivottotaltaphold",
+   "text": "Fires when a tap hold is detected on a pivot grand total element.\nThe pivot grand total element is the one that belongs to the columns generated for the left\naxis dimensions.\n",
+   "parameters": [
+    "params",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "params",
+     "text": "Object with following configuration\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "grid",
+       "text": "Pivot grid instance\n",
+       "type": "Ext.pivot.Grid",
+       "src": {
+        "name": "1035,557,39",
+        "text": "1035,557,44,20",
+        "type": "1035,557,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "cell",
+       "text": "The target of the event\n",
+       "type": "Ext.grid.cell.Cell",
+       "src": {
+        "name": "1035,558,43",
+        "text": "1035,558,48,24",
+        "type": "1035,558,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "leftKey",
+       "text": "Key of the left axis item\n",
+       "type": "String",
+       "src": {
+        "name": "1035,559,31",
+        "text": "1035,559,39,26",
+        "type": "1035,559,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "column",
+       "text": "Column header object\n",
+       "type": "Ext.grid.column.Column",
+       "src": {
+        "name": "1035,560,47",
+        "text": "1035,560,54,21",
+        "type": "1035,560,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "1035,556,24",
+      "text": "1035,556,31,36",
+      "type": "1035,556,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "Event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "1035,561,33",
+      "text": "1035,561,35,13",
+      "type": "1035,561,16"
+     }
+    }
+   ],
+   "nameprimary": "pivottotaltaphold(params,e)"
+  },
+  {
+   "name": "positionedchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,764,31",
+      "text": "410,764,38,33",
+      "type": "410,764,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,765,25",
+      "text": "410,765,36,51:410,766,8,134",
+      "type": "410,765,16"
+     }
+    }
+   ],
+   "nameprimary": "positionedchange(sender,positioned)"
+  },
+  {
+   "name": "refresh",
+   "text": "Fires whenever the DataView is refreshed\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,196,39",
+      "type": "440,196,16"
+     }
+    }
+   ],
+   "nameprimary": "refresh(sender)"
+  },
+  {
+   "name": "remove",
+   "parameters": [],
+   "nameprimary": "remove()"
+  },
+  {
+   "name": "removed",
+   "text": "Fires when a component is removed from a Container\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,827,31",
+      "text": "410,827,38,33",
+      "type": "410,827,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,828,31",
+      "text": "410,828,41,36",
+      "type": "410,828,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item that was removed.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,829,24",
+      "text": "410,829,30,40",
+      "type": "410,829,16"
+     }
+    }
+   ],
+   "nameprimary": "removed(sender,container,index)"
+  },
+  {
+   "name": "renderedchange",
+   "text": "Fires whenever an item is rendered into a container or derendered\nfrom a Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "rendered"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,120,31",
+      "text": "411,120,36,24",
+      "type": "411,120,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item in the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,121,24",
+      "text": "411,121,29,27",
+      "type": "411,121,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "rendered",
+     "text": "The current rendered status of the item.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "411,122,25",
+      "text": "411,122,34,41",
+      "type": "411,122,16"
+     }
+    }
+   ],
+   "nameprimary": "renderedchange(sender,item,rendered)"
+  },
+  {
+   "name": "resize",
+   "text": "Important note: For the best performance on mobile devices, use this only when you\nabsolutely need to monitor a Element's size.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!resize resize}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "element",
+    "info"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element).\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,812,29",
+      "text": "410,812,37,46",
+      "type": "410,812,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "info",
+     "text": "The component's new size parameters.\n",
+     "type": "Object",
+     "src": {
+      "name": "410,813,24",
+      "text": "410,813,29,37",
+      "type": "410,813,16"
+     }
+    }
+   ],
+   "nameprimary": "resize(element,info)"
+  },
+  {
+   "name": "rightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    }
+   ],
+   "nameprimary": "rightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "scrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    }
+   ],
+   "nameprimary": "scrollablechange(sender,value,oldValue)"
+  },
+  {
+   "name": "select",
+   "text": "Fires whenever an item is selected\n",
+   "parameters": [
+    "sender",
+    "selected"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,177,39",
+      "type": "440,177,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selected",
+     "text": "The selected record(s). If {@link #cfg!selectable #selectable} {@link Ext.dataview.selection.Model#cfg!mode mode}\nis `single`, this will be a single {@link Ext.data.Model}. If\n{@link Ext.dataview.selection.Model#cfg!mode mode} is `simple` or `multi`, this will be an array\nof {@link Ext.data.Model}.\n",
+     "type": "Ext.data.Model/Ext.data.Model[]",
+     "src": {
+      "name": "440,178,49",
+      "text": "440,179,8,291",
+      "type": "440,178,16"
+     }
+    }
+   ],
+   "nameprimary": "select(sender,selected)"
+  },
+  {
+   "name": "selectionextenderdrag",
+   "text": "An event fired when an extension block is dragged to encompass\na new range. Only fired when the grid's `{@link Ext.grid.Grid.selectable #cfg!selectable}`\nis configured with the {@link Ext.grid.selection.Model#cfg!extensible extensible} config.\n",
+   "parameters": [
+    "grid",
+    "An",
+    "extension"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "grid",
+     "text": "The owning grid.\n",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "591,257,31",
+      "text": "591,257,36,17",
+      "type": "591,257,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "An",
+     "text": "object which encapsulates a contiguous\nselection block.\n",
+     "type": "Ext.dataview.selection.Selection",
+     "src": {
+      "name": "591,258,50",
+      "text": "591,258,53,39:591,259,8,17",
+      "type": "591,258,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "extension",
+     "text": "An object describing the type and size of extension.\n",
+     "type": "Object",
+     "items": [
+      {
+       "$type": "property",
+       "name": "type",
+       "text": "`\"rows\"` or `\"columns\"`\n",
+       "type": "String",
+       "src": {
+        "name": "591,261,34",
+        "text": "591,261,39,24",
+        "type": "591,261,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "overCell",
+       "text": "The grid cell over which the mouse is being dragged.\n",
+       "type": "HTMLElement",
+       "src": {
+        "name": "591,262,39",
+        "text": "591,262,48,53",
+        "type": "591,262,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "start",
+       "text": "The start (top left) cell of the extension area.\n",
+       "type": "Ext.grid.Location",
+       "src": {
+        "name": "591,263,45",
+        "text": "591,263,51,49",
+        "type": "591,263,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "end",
+       "text": "The end (bottom right) cell of the extension area.\n",
+       "type": "Ext.grid.Location",
+       "src": {
+        "name": "591,264,45",
+        "text": "591,264,49,51",
+        "type": "591,264,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "columns",
+       "optional": true,
+       "text": "The number of columns extended (-ve means on the\nleft side).\n",
+       "type": "number",
+       "src": {
+        "name": "591,265,35",
+        "text": "591,265,44,49:591,266,8,12",
+        "type": "591,265,16"
+       }
+      },
+      {
+       "$type": "property",
+       "name": "rows",
+       "optional": true,
+       "text": "The number of rows extended (-ve means on the top side).\n",
+       "type": "number",
+       "src": {
+        "name": "591,267,35",
+        "text": "591,267,41,57",
+        "type": "591,267,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "591,260,24",
+      "text": "591,260,34,53",
+      "type": "591,260,16"
+     }
+    }
+   ],
+   "nameprimary": "selectionextenderdrag(grid,An,extension)"
+  },
+  {
+   "name": "show",
+   "text": "Fires whenever the Component is shown\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,731,31",
+      "text": "410,731,38,33",
+      "type": "410,731,16"
+     }
+    }
+   ],
+   "nameprimary": "show(sender)"
+  },
+  {
+   "name": "specialkey",
+   "text": "Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. You can\ncheck\n{@link Ext.event.Event#method!getKey Ext.event.Event#getKey} to determine which key was pressed.\n",
+   "parameters": [
+    "editor",
+    "field",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,693,28",
+      "type": "527,693,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "field",
+     "text": "The field attached to this editor\n",
+     "type": "Ext.form.field.Field",
+     "src": {
+      "name": "527,694,38",
+      "text": "527,694,44,34",
+      "type": "527,694,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "527,695,33",
+      "text": "527,695,39,17",
+      "type": "527,695,16"
+     }
+    }
+   ],
+   "nameprimary": "specialkey(editor,field,event)"
+  },
+  {
+   "name": "startedit",
+   "text": "Fires when this editor is displayed\n",
+   "parameters": [
+    "editor",
+    "boundEl",
+    "value",
+    "The"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "editor",
+     "type": "Ext.Editor",
+     "src": {
+      "name": "527,647,28",
+      "type": "527,647,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "boundEl",
+     "text": "The underlying element bound to this editor\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "527,648,33",
+      "text": "527,648,41,44",
+      "type": "527,648,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The starting field value\n",
+     "type": "Object",
+     "src": {
+      "name": "527,649,24",
+      "text": "527,649,30,25",
+      "type": "527,649,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "The",
+     "text": "location where actionable mode was successfully started\n",
+     "type": "Ext.grid.Location",
+     "src": {
+      "name": "527,650,35",
+      "text": "527,650,39,56",
+      "type": "527,650,16"
+     }
+    }
+   ],
+   "nameprimary": "startedit(editor,boundEl,value,The)"
+  },
+  {
+   "name": "storechange",
+   "text": "This event fires when `{@link #cfg!store}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.dataview.Abstract"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    }
+   ],
+   "nameprimary": "storechange(sender,value,oldValue)"
+  },
+  {
+   "name": "tofront",
+   "text": "Fires when a {@link #cfg!floated #cfg-floated} component has been brought to the front of the visual\nstack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,327,31",
+      "text": "689,327,36,23",
+      "type": "689,327,16"
+     }
+    }
+   ],
+   "nameprimary": "tofront(sender)"
+  },
+  {
+   "name": "topchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    }
+   ],
+   "nameprimary": "topchange(sender,value,oldValue)"
+  },
+  {
+   "name": "updatedata",
+   "text": "Fires whenever the data of the component is updated\n",
+   "parameters": [
+    "sender",
+    "newData"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,2411,39",
+      "text": "410,2411,46,33",
+      "type": "410,2411,24"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newData",
+     "text": "The new data\n",
+     "type": "Object",
+     "src": {
+      "name": "410,2412,32",
+      "text": "410,2412,40,13",
+      "type": "410,2412,24"
+     }
+    }
+   ],
+   "nameprimary": "updatedata(sender,newData)"
+  },
+  {
+   "name": "validateedit",
+   "text": "Fires after editing, but before the value is set in the record. Return `false`\nfrom the event handler to prevent the change.\n\nThis event is only fired if the {@link Ext.grid.rowedit.Plugin} plugin is\nconfigured on the grid.\n\n     {\n         xtype: 'grid',\n         plugins: 'rowedit',\n\n         listeners: {\n             edit: function(grid, location) {\n                 var changes = location.editor.getChanges();\n\n                 // validate the fields affected in changes...\n             }\n         }\n     }\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.grid.Grid",
+     "src": {
+      "name": "588,92,31",
+      "type": "588,92,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The editing location.\n",
+     "type": "Ext.grid.Location",
+     "items": [
+      {
+       "$type": "property",
+       "name": "editor",
+       "text": "The editor component.\n",
+       "type": "Ext.grid.rowedit.RowEditor",
+       "src": {
+        "name": "588,94,53",
+        "text": "588,94,60,22",
+        "type": "588,94,16"
+       }
+      }
+     ],
+     "src": {
+      "name": "588,93,35",
+      "text": "588,93,44,22",
+      "type": "588,93,16"
+     }
+    }
+   ],
+   "nameprimary": "validateedit(sender,location)"
+  },
+  {
+   "name": "widthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    }
+   ],
+   "nameprimary": "widthchange(sender,value,oldValue)"
+  }
+ ],
+ "eventNames": [
+  "activate",
+  "activeItemchange",
+  "add",
+  "added",
+  "beforeactiveItemchange",
+  "beforebottomchange",
+  "beforecenteredchange",
+  "beforecomplete",
+  "beforedisabledchange",
+  "beforedockedchange",
+  "beforeedit",
+  "beforegroupcollapse",
+  "beforegroupexpand",
+  "beforeheightchange",
+  "beforehiddenchange",
+  "beforehide",
+  "beforeleftchange",
+  "beforemaxHeightchange",
+  "beforemaxWidthchange",
+  "beforeminHeightchange",
+  "beforeminWidthchange",
+  "beforeorientationchange",
+  "beforerightchange",
+  "beforescrollablechange",
+  "beforeselectionextend",
+  "beforeshow",
+  "beforestartedit",
+  "beforestorechange",
+  "beforetofront",
+  "beforetopchange",
+  "beforewidthchange",
+  "blur",
+  "bottomchange",
+  "canceledit",
+  "cellselection",
+  "centeredchange",
+  "childdoubletap",
+  "childlongpress",
+  "childmouseenter",
+  "childmouseleave",
+  "childsingletap",
+  "childtap",
+  "childtaphold",
+  "childtouchcancel",
+  "childtouchend",
+  "childtouchmove",
+  "childtouchstart",
+  "columnadd",
+  "columnhide",
+  "columnmenucreated",
+  "columnmove",
+  "columnremove",
+  "columnresize",
+  "columnselection",
+  "columnshow",
+  "columnsort",
+  "complete",
+  "deactivate",
+  "deselect",
+  "destroy",
+  "disabledchange",
+  "disclose",
+  "dockedchange",
+  "edit",
+  "erased",
+  "floatingchange",
+  "focus",
+  "focusenter",
+  "focusleave",
+  "fullscreen",
+  "groupcollapse",
+  "groupexpand",
+  "heightchange",
+  "hiddenchange",
+  "hide",
+  "initialize",
+  "itemaction",
+  "itemdoubletap",
+  "itemlongpress",
+  "itemmouseenter",
+  "itemmouseleave",
+  "itemsingletap",
+  "itemswipe",
+  "itemtap",
+  "itemtaphold",
+  "itemtouchcancel",
+  "itemtouchend",
+  "itemtouchmove",
+  "itemtouchstart",
+  "leftchange",
+  "maxHeightchange",
+  "maxWidthchange",
+  "minHeightchange",
+  "minWidthchange",
+  "move",
+  "moved",
+  "navigate",
+  "orientationchange",
+  "painted",
+  "pivotbeforereconfigure",
+  "pivotbeforerequest",
+  "pivotbuildtotals",
+  "pivotcolumnsbuilt",
+  "pivotdone",
+  "pivotgroupcelldoubletap",
+  "pivotgroupcelltap",
+  "pivotgroupcelltaphold",
+  "pivotgroupcollapse",
+  "pivotgroupdoubletap",
+  "pivotgroupexpand",
+  "pivotgrouptap",
+  "pivotgrouptaphold",
+  "pivotitemcelldoubletap",
+  "pivotitemcelltap",
+  "pivotitemcelltaphold",
+  "pivotitemdoubletap",
+  "pivotitemtap",
+  "pivotitemtaphold",
+  "pivotmodelbuilt",
+  "pivotprogress",
+  "pivotreconfigure",
+  "pivotrecordbuilt",
+  "pivotrequestexception",
+  "pivotstart",
+  "pivotstorebuilt",
+  "pivottotalcelldoubletap",
+  "pivottotalcelltap",
+  "pivottotalcelltaphold",
+  "pivottotaldoubletap",
+  "pivottotaltap",
+  "pivottotaltaphold",
+  "positionedchange",
+  "refresh",
+  "remove",
+  "removed",
+  "renderedchange",
+  "resize",
+  "rightchange",
+  "scrollablechange",
+  "select",
+  "selectionextenderdrag",
+  "show",
+  "specialkey",
+  "startedit",
+  "storechange",
+  "tofront",
+  "topchange",
+  "updatedata",
+  "validateedit",
+  "widthchange"
+ ]
+}

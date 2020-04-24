@@ -1,0 +1,11 @@
+{
+ "name": "Ext.pivot.d3.HeatMap",
+ "xtype": "pivotheatmap",
+ "reactname": "ExtPivotheatmap",
+ "alias": "widget.pivotheatmap",
+ "extended": "Ext.d3.HeatMap,Ext.d3.svg.Svg,Ext.d3.Component,Ext.d3.ComponentBase,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.d3.HeatMap",
+ "mixed": "Ext.Mixin,Ext.d3.mixin.ToolTip,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.state.Stateful",
+ "requires": "Ext.pivot.matrix.Local,Ext.pivot.matrix.Remote",
+ "text": "This component extends the D3 HeatMap to work with a pivot matrix.\n\nBasically this component needs a pivot matrix to be configured. The values\ncalculated by the pivot matrix are distributed as following:\n\n - `leftAxis` maps to HeatMap `{@link #cfg!xAxis xAxis}`\n - `topAxis` maps to HeatMap `{@link #cfg!yAxis yAxis}`\n - `aggregate` maps to HeatMap `{@link #cfg!colorAxis colorAxis}`\n\nThe pivot matrix should be configured with maximum one dimension per\n`leftAxis`, `topAxis` or `aggregate`.\n"
+}

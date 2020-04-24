@@ -1,0 +1,10 @@
+{
+ "name": "Ext.pivot.d3.Container",
+ "xtype": "pivotd3container",
+ "reactname": "ExtPivotd3container",
+ "alias": "widget.pivotd3container",
+ "extended": "Ext.pivot.d3.AbstractContainer,Ext.panel.Panel,Ext.Container,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.pivot.d3.AbstractContainer",
+ "mixed": "Ext.Mixin,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Container,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.FocusableContainer,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.mixin.Queryable,Ext.mixin.Toolable,Ext.panel.Buttons,Ext.state.Stateful",
+ "text": "This container can host D3 components that need a pivot configurator\nplugin.\n"
+}

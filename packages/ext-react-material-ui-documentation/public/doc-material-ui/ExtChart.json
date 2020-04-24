@@ -1,0 +1,12 @@
+{
+ "name": "Ext.chart.CartesianChart",
+ "xtype": "chart",
+ "reactname": "ExtChart",
+ "alias": "widget.cartesian,widget.chart",
+ "extended": "Ext.chart.AbstractChart,Ext.draw.Container,Ext.draw.ContainerBase,Ext.Container,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extenders": "Ext.chart.navigator.NavigatorBase",
+ "extends": "Ext.chart.AbstractChart",
+ "mixed": "Ext.Mixin,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Container,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.FocusableContainer,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.mixin.Queryable,Ext.state.Stateful",
+ "requires": "Ext.chart.grid.HorizontalGrid,Ext.chart.grid.VerticalGrid",
+ "text": "Represents a chart that uses cartesian coordinates.\nA cartesian chart has two directions, X direction and Y direction.\nThe series and axes are coordinated along these directions.\nBy default the x direction is horizontal and y direction is vertical,\nYou can swap the direction by setting the {@link #cfg!flipXY #flipXY} config to `true`.\n\nCartesian series often treats x direction an y direction differently.\nIn most cases, data on x direction are assumed to be monotonically increasing.\nBased on this property, cartesian series can be trimmed and summarized properly\nto gain a better performance.\n\nPlease check out the summary for the {@link Ext.chart.AbstractChart} as well,\nfor helpful tips and important details.\n"
+}

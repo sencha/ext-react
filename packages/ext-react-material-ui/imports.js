@@ -24,6 +24,7 @@ import { ExtD3_treemap } from './dist/ExtD3_treemap';
 import { ExtD3_svg } from './dist/ExtD3_svg';
 import { ExtD3 } from './dist/ExtD3';
 import { ExtGrid } from './dist/ExtGrid';
+import { ExtTree } from './dist/ExtTree';
 import { ExtTreelist } from './dist/ExtTreelist';
 import { ExtPivotd3container } from './dist/ExtPivotd3container';
 import { ExtPivotheatmap } from './dist/ExtPivotheatmap';

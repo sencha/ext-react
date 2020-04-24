@@ -1,0 +1,50 @@
+        <div className="border" style={{xminHeight:'348px',display:'flex',flexDirection:'column',flexGrow:'0',flexShrink:'0',flexBasis:'auto'}}>
+              <AppBar position="static">
+                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+                  {/* <Tab label="Examples" {...a11yProps(0)} /> */}
+                  <Tab label="Properties" {...a11yProps(0)} />
+                  <Tab label="Methods" {...a11yProps(1)} />
+                  <Tab label="Events" {...a11yProps(2)} />
+                </Tabs>
+              </AppBar>
+
+              {/* <TabPanelExample
+                value={value}
+                index={0}
+                names={propertyNames}
+                data={properties}
+                typeSelectedIndex={propertySelectedIndex}
+                onClick={onPropertyClick}
+              /> */}
+
+              <TabPanel
+              style={{minHeight:'300px',maxHeight:'300px',display:'flex',flexGrow:'0',flexShrink:'0',flexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
+                value={value}
+                index={0}
+                names={propertyNames}
+                data={properties}
+                typeSelectedIndex={propertySelectedIndex}
+                onClick={onPropertyClick}
+              />
+              <TabPanel
+                style={{minHeight:'300px',maxHeight:'300px',display:'flex',flexGrow:'0',flexShrink:'0',flexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
+
+                value={value}
+                index={1}
+                names={methodNames}
+                data={methods}
+                typeSelectedIndex={methodSelectedIndex}
+                onClick={onMethodClick}
+              />
+              <TabPanel
+                style={{minHeight:'300px',height:'300px',display:'flex',flexGrow:'1',flexShrink:'0',flexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
+
+                value={value}
+                index={2}
+                names={eventNames}
+                data={events}
+                typeSelectedIndex={eventSelectedIndex}
+                onClick={onEventClick}
+              />
+            </div>
+

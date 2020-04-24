@@ -1,0 +1,79 @@
+{
+ "xtype": "calendar-multiview",
+ "reactname": "ExtCalendar-multiview",
+ "properties": [
+  {
+   "name": "compact",
+   "nameprimary": "compact: Boolean - getCompact()/setCompact()",
+   "text": "`true` to display this view in compact mode, typically used\nfor smaller form factors.  Setting to `true` applies any configured\n{@link #cfg!compactOptions #cfg-compactOptions}.\n<br>The compact config is applied to all configured {@link #cfg!views #cfg-views}.\n",
+   "accessor": true,
+   "type": "Boolean",
+   "value": "false"
+  },
+  {
+   "name": "compactOptions",
+   "nameprimary": "compactOptions: Object - getCompactOptions()/setCompactOptions()",
+   "text": "A series of config options for this class to set when this class is in\n{@link #cfg!compact #cfg-compact} mode.\n<br>The compactOptions config is applied to all configured {@link #cfg!views #cfg-views}.\n",
+   "accessor": true,
+   "type": "Object",
+   "value": "null"
+  },
+  {
+   "name": "defaultView",
+   "nameprimary": "defaultView: String",
+   "text": "The key of the item from {@link #cfg!views #views} to use as the default.\n",
+   "type": "String",
+   "value": "null"
+  },
+  {
+   "name": "layout",
+   "nameprimary": "layout: Object/String - getLayout()/setLayout()",
+   "text": "Configuration for this Container's layout. Example:\n\n    @example\n    Ext.create({\n        xtype: 'container',\n        layout: {\n            type: 'hbox',\n            align: 'middle'\n        },\n        items: [{\n            xtype: 'panel',\n            flex: 1,\n            bodyStyle: {\n                background: \"#000\",\n                color:\"#fff\"\n            }\n        }, {\n           xtype: 'panel',\n           flex: 2,\n           bodyStyle: {\n               background: \"#f00\",\n               color:\"#fff\"\n           }\n        }]\n    });\n",
+   "accessor": true,
+   "type": "Object/String",
+   "value": "'fit'"
+  },
+  {
+   "name": "store",
+   "nameprimary": "store: Object/Ext.calendar.store.Calendars - getStore()/setStore()",
+   "text": "A {@link Ext.calendar.store.Calendars} instance or\nconfiguration\n<br>The store config is applied to all configured {@link #cfg!views #cfg-views}.\n",
+   "accessor": true,
+   "type": "Object/Ext.calendar.store.Calendars",
+   "value": "null"
+  },
+  {
+   "name": "timezoneOffset",
+   "nameprimary": "timezoneOffset: Number - getTimezoneOffset()/setTimezoneOffset()",
+   "text": "The timezone offset to display this calendar in. The value should be\nspecified in the same way as the native Date offset. That is, the number\nof minutes between UTC and local time. For example the offset for UTC+10\nwould be -600 (10 hours * 60 minutes ahead).\n\nDefaults to the current browser offset.\n<br>The timezoneOffset config is applied to all configured {@link #cfg!views #cfg-views}.\n",
+   "accessor": true,
+   "type": "Number",
+   "value": "undefined"
+  },
+  {
+   "name": "value",
+   "nameprimary": "value: Date - getValue()/setValue()",
+   "text": "The value for the current view.\n\n    value: new Date('10-02-2016') // to set the date to Oct 2nd 2016\n<br>The value config is applied to all configured {@link #cfg!views #cfg-views}.\n",
+   "accessor": true,
+   "type": "Date",
+   "value": "undefined"
+  },
+  {
+   "name": "views",
+   "nameprimary": "views: Object - getViews()/setViews()",
+   "text": "The calendar views to have available, each item in this configuration\n(labelled by a key) is to contain the configuration for the view, a class that\nextends {@link Ext.calendar.panel.Base}.\n\nExample with a day and week view:\n\n    views: {\n        day: {\n            xtype: 'calendar-day'\n        },\n        week: {\n            xtype: 'calendar-week'\n        }\n    }\n\nThe \"day\" and \"week\" keys would be the eligible values for the\n{@link #cfg!defaultView #cfg-defaultView} and the param string to pass to\n{@link #method!setView #method-setView}.\n",
+   "accessor": true,
+   "type": "Object",
+   "value": "null"
+  }
+ ],
+ "propertyNames": [
+  "compact",
+  "compactOptions",
+  "defaultView",
+  "layout",
+  "store",
+  "timezoneOffset",
+  "value",
+  "views"
+ ]
+}
