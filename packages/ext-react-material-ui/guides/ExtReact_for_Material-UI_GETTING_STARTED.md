@@ -8,8 +8,8 @@ To gain access to the Sencha npm repository:
 
 Currently ExtReact for Material-UI is delivered to customers through the general ExtReact product.
 
-1. [Start a free trial of ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/products/extreactmaterialui/evaluate/).
-2. [Purchase ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/store/).
+1. [Start a free trial of ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/products/extreact/evaluate/).
+2. [Purchase ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/store/extreact/).
 
 #### Login to the npm repository
 Once you have your credentials login to the npm repo.
@@ -32,7 +32,7 @@ Run the following:
 npx create-react-app --template @sencha/ext-react-material-ui my-ext-react-material-ui-app
 ```
 
-The application generation will take a few minutes and will generate the application in a folder called 'my-ext-react-material-ui-app'
+The application generation will take a few minutes and will generate in a folder called 'my-ext-react-material-ui-app'
 
 Change your directory to the created app folder:
 
