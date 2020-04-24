@@ -1,0 +1,38 @@
+{
+ "xtype": "pivotd3container",
+ "reactname": "ExtPivotd3container",
+ "properties": [
+  {
+   "name": "configurator",
+   "nameprimary": "configurator: Ext.pivot.plugin.Configurator - getConfigurator()/setConfigurator()",
+   "text": "\nConfiguration object for the pivot Configurator plugin.\n",
+   "accessor": true,
+   "from": "Ext.pivot.d3.AbstractContainer",
+   "type": "Ext.pivot.plugin.Configurator",
+   "value": "null"
+  },
+  {
+   "name": "drawing",
+   "nameprimary": "drawing: Ext.Component - getDrawing()/setDrawing()",
+   "text": "\nConfiguration object for the item that will be added to this container\n",
+   "accessor": true,
+   "from": "Ext.pivot.d3.AbstractContainer",
+   "type": "Ext.Component",
+   "value": "{\n    xtype: 'pivotheatmap'\n}"
+  },
+  {
+   "name": "matrix",
+   "nameprimary": "matrix: Ext.pivot.matrix.Base - getMatrix()/setMatrix()",
+   "text": "\nThis is the pivot matrix used by the pivot D3 container. All axis and aggregate\ndimensions should be defined here.\n\nNeeded by this pivot container so that the configurator plugin can call getMatrix.\n\nThis matrix is also used by the {@link #cfg!drawing #drawing}.\n",
+   "accessor": true,
+   "from": "Ext.pivot.d3.AbstractContainer",
+   "type": "Ext.pivot.matrix.Base",
+   "value": "{\n    type: 'local'\n}"
+  }
+ ],
+ "propertyNames": [
+  "configurator",
+  "drawing",
+  "matrix"
+ ]
+}

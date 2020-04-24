@@ -1,0 +1,12 @@
+{
+ "name": "Ext.list.Tree",
+ "xtype": "treelist",
+ "reactname": "ExtTreelist",
+ "alias": "widget.treelist",
+ "extended": "Ext.Gadget,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.Gadget",
+ "mixed": "Ext.Mixin,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.ItemRippler,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.state.Stateful",
+ "mixins": "Ext.mixin.ItemRippler",
+ "requires": "Ext.list.RootTreeItem",
+ "text": "A lightweight component to display data in a simple tree structure using a\n{@link Ext.data.TreeStore}.\n\nSimple Treelist using inline data:\n\n    @example\n    Ext.create({\n        xtype: 'treelist',\n        store: {\n            root: {\n            expanded: true,\n                children: [{\n                    text: 'detention',\n                    leaf: true,\n                    iconCls: 'x-fa fa-frown-o'\n                }, {\n                    text: 'homework',\n                    expanded: true,\n                    iconCls: 'x-fa fa-folder',\n                    children: [{\n                        text: 'book report',\n                        leaf: true,\n                        iconCls: 'x-fa fa-book'\n                    }, {\n                        text: 'algebra',\n                        leaf: true,\n                        iconCls: 'x-fa fa-graduation-cap'\n                    }]\n                }, {\n                    text: 'buy lottery tickets',\n                    leaf: true,\n                    iconCls: 'x-fa fa-usd'\n                }]\n            }\n        },\n        renderTo: Ext.getBody()\n    });\n\nTo collapse the Treelist for use in a smaller navigation view see {@link #cfg!micro #micro}.\nParent Treelist node expansion may be refined using the {@link #cfg!singleExpand #singleExpand} and\n{@link #cfg!expanderOnly #expanderOnly} config options.  Treelist nodes will be selected when clicked /\ntapped excluding clicks on the expander unless {@link #cfg!selectOnExpander #selectOnExpander} is set to\n`true`.\n"
+}

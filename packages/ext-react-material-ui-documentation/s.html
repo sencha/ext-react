@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <title>ExtReact for Material UI Docs</title>
+  </head>
+  <style>
+html, body, .viewport, .my-box{
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+
+
+.content-box {
+  background: blue;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.box-shrink {
+  flex: 0 1 auto;
+  background: green;
+  padding: 5px;
+  margin: 5px;
+}
+.box-grow {
+  flex: 1 0 auto;
+  background: green;
+  padding: 5px;
+  margin: 5px;
+}
+video {
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+  </style>
+  <body>
+    <div class="my-box col">
+      <div class="box-shrink">
+        small sized static content
+      </div>
+      <div class="content-box box-grow">
+        <video controls>
+          <source src="http://techslides.com/demos/sample-videos/small.webm" type="video/webm">
+        </video>
+      </div>
+      <div class="box-shrink">
+        small sized static content
+      </div>
+    </div>
+  </body>
+</html>

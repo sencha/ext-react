@@ -1,0 +1,147 @@
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import Box from '@material-ui/core/Box';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+import Nav from './Nav';
+import Aside from './Aside';
+
+import { TabPanelExample } from './TabPanelExample';
+import { TabPanel } from './TabPanel';
+
+export const App = () => {
+  const [items, setItems] = useState(null);
+  const [menuSelectedIndex, setMenuSelectedIndex] = useState(0);
+  const [name, setName] = useState('');
+  const [reactname, setReactname] = useState('');
+  const [text, setText] = useState('');
+  const [textformatted, setTextformatted] = useState('');
+  const [value, setValue] = useState(0);
+  const [propertyNames, setPropertyNames] = useState([]);
+  const [properties, setProperties] = useState([]);
+  const [propertySelectedIndex, setPropertySelectedIndex] = useState('');
+  const [methodNames, setMethodNames] = useState([]);
+  const [methods, setMethods] = useState([]);
+  const [methodSelectedIndex, setMethodSelectedIndex] = useState('');
+  const [eventNames, setEventNames] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [eventSelectedIndex, setEventSelectedIndex] = useState('');
+
+  useEffect(() => {
+    axios
+      .get("doc-material-ui/all.json")
+      .then(({ data }) => {
+        setItems(data);
+        onMenuClick(0, 'ExtCalendar')
+      });
+  }, []);
+
+  const onMenuClick = (index, name) => {
+    setMenuSelectedIndex(index)
+    axios
+    .get("doc-material-ui/" + name + ".json")
+    .then(({ data }) => {
+      setName(data.name)
+      setReactname(data.reactname)
+
+      setPropertyNames(data.propertyNames)
+      setMethodNames(data.methodNames)
+      setEventNames(data.eventNames)
+
+      setProperties(data.properties)
+      setMethods(data.methods)
+      setEvents(data.events)
+
+       if (name == 'ExtTree') {
+        console.log(data.text)
+      }
+
+      var afterExtJS = data.text.replace( new RegExp( /```javascript\n[ ]*@example[(][ ]*{[ ]*framework:[ ]*'extjs'(.|\n)*?```/g ) , require("./replacer").replacerExtJS )
+      //var afterReact = afterExtJS.replace( new RegExp( /```javascript\n[ ]*@example[(][ ]*{[ ]*framework:[ ]*'ext-react'(.|\n)*?```/g ) , require("./replacer").replacerReact )
+      //var afterAngular = afterReact.replace( new RegExp( /```javascript\n[ ]*@example[(][ ]*{[ ]*framework:[ ]*'ext-angular'(.|\n)*?```/g ) , require("./replacer").replacerAngular )
+      //var afterHTML = afterAngular.replace( new RegExp( /```html(.|\n)*?(.|\n)*?```/g ) , require("./replacer").replacerHTML )
+      //var afterWebComponents = afterHTML.replace( new RegExp( /```javascript\n[ ]*@example[(][ ]*{[ ]*framework:[ ]*'ext-web-components'(.|\n)*?```/g ) , require("./replacer").replacerWebComponents )
+      //var afterAll = afterWebComponents
+      var afterAll = afterExtJS
+
+
+      //var res = afterAll.substring(0, afterAll.indexOf(`\n\n`))
+      //var restOfText = '<div style="user-select: text;">' + afterAll.slice(afterAll.indexOf(`\n\n`)+2) + '</div>'
+
+      //var m = afterAll.slice(afterAll.indexOf(`\n\n`)+2)
+      var textformatted = <div style={{height:'5px',color: 'green',userSelect: 'text'}}>{afterAll}</div>
+      setTextformatted(textformatted)
+
+      setText(data.text)
+    });
+  }
+
+  const a11yProps = (index) => {
+  //a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  //handleChange = (event, newValue) => {
+    //setValue(newValue);
+    // this.setState({
+    //   value: newValue
+    // });
+  };
+
+
+  const onPropertyClick = (event, index, name, properties) => {
+  }
+
+  const onMethodClick = (event, index, name, methods) => {
+  }
+
+  const onEventClick = (event, index, name, events) => {
+  }
+
+  return items ? (
+    <React.Fragment>
+      <Box className="header border">
+
+      </Box>
+      <Box  className="root border" xstyle={{display:'flex',flexGrow:'1',flexShrink:'1',flexBasis:'auto',flexDirection:'row',justifyContent:'space-between'}}>
+        <Box  className="nav border" xstyle={{width:'300px',display:'flex',flexGrow:'1',flexShrink:'0',flexBasis:'300px',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}>
+          <Nav
+            items={items}
+            onMenuClick={onMenuClick}
+          />
+        </Box>
+        <Box  className="main border" xstyle={{display:'flex',flexDirection:'column',flexGrow:'1',flexShrink:'1',flexBasis:'auto',overflow:'auto',justifyContent:'space-between'}}>
+          main
+        </Box>
+        <Box className="aside border" xstyle={{width:'400px',display:'flex',flexGrow:'1',flexShrink:'0',flexBasis:'400px',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}} >
+          <Aside
+            value={value}
+            handleChange={handleChange}
+            propertyNames={propertyNames}
+            properties={properties}
+            onPropertyClick={onPropertyClick}
+            methodNames={methodNames}
+            methods={methods}
+            onMethodClick={onMethodClick}
+            eventNames={eventNames}
+            events={events}
+            onEventClick={onEventClick}
+          />
+        </Box>
+      </Box>
+      <Box className="footer border">footer</Box>
+    </React.Fragment>
+  ) : (
+    <div>Loading...</div>
+  );
+}

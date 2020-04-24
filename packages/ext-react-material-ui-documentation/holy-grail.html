@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Holy Grail</title>
+    <style>
+      header, footer,
+      nav, article, aside {
+        border: 1px solid black;
+        padding: 0.25em;
+        margin: 0.25em;
+        border-radius: 0.25em;
+      }
+
+      html, body, .viewport {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      .vbox {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hbox {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .space-between {
+        justify-content: space-between;
+      }
+
+      header, footer {
+        height: 100px;
+      }
+
+      .main {
+        flex: 1;
+      }
+
+      article {
+        flex: 5;
+      }
+
+      aside, nav {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body class="vbox viewport">
+    <header>Header</header>
+    <section class="main hbox space-between">
+      <nav>Nav</nav>
+      <article>Article</article>
+      <aside>Aside</aside>
+    </section>
+    <footer>Footer</footer>
+  </body>
+</html>
