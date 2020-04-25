@@ -1,9 +1,13 @@
 .mid {
   padding-left: 15px;
+  color: #ffffff;
+  font-size:16px;
 }
 
 .example {
   padding-left: 30px;
+  color: #ffffff;
+  font-size:14px;
 }
 
 
@@ -104,6 +108,12 @@ body {
   flex: none !important;
   height: 100px;
   min-height: 100px;
+}
+
+.h300 {
+  flex: none !important;
+  height: 300px;
+  min-height: 300px;
 }
 
 

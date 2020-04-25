@@ -19,7 +19,7 @@ export default class Title extends Component {
     const { reactname, importtext } = this.props;
     return (
       <React.Fragment>
-        <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{reactname} {reactname != '' && <span>Component -&gt;</span>}</div>
+        <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{reactname} {reactname !== '' && <span>Component -&gt;</span>}</div>
         <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{importtext}</div>
       </React.Fragment>
     )
