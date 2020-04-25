@@ -10,7 +10,8 @@ import React from 'react';
 import ExtReactDOM from '@sencha/ext-react-material-ui';
 import './index.css';
 import { App } from './App';
-import { AppRecent } from './AppRecent';
+//import NestedList from './NestedList';
+//import { AppRecent } from './AppRecent';
 //import { Live } from './Live';
 import * as serviceWorker from './serviceWorker';
 ExtReactDOM.render(
