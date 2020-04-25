@@ -5,9 +5,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 export default class Nav extends Component {
 
-  componentDidMount() {
-  }
-
   onClick = (index, name) => {
     this.setState({selectedIndex: index});
     this.props.onMenuClick(index, name)

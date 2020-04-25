@@ -13,14 +13,14 @@
 var theme = {
   plain: {
     fontSize: '16px',
-    backgroundColor: "white",
-    color: "black"
+    backgroundColor: "#024059",
+    color: "#ffffff"
   },
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
       style: {
-        color: "black"
+        color: "#6c6783"
       }
     },
     {
@@ -32,25 +32,25 @@ var theme = {
     {
       types: ["tag", "operator", "number"],
       style: {
-        color: "black"
+        color: "lightblue"
       }
     },
     {
       types: ["property", "function"],
       style: {
-        color: "black"
+        color: "yellow"
       }
     },
     {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: "black"
+        color: "#eeebff"
       }
     },
     {
       types: ["attr-name"],
       style: {
-        color: "black"
+        color: "#c4b9fe"
       }
     },
     {
@@ -71,7 +71,7 @@ var theme = {
         "variable"
       ],
       style: {
-        color: "black"
+        color: "#ffcc99"
       }
     },
     {
@@ -101,7 +101,7 @@ var theme = {
     {
       types: ["important"],
       style: {
-        color: "black"
+        color: "#c4b9fe"
       }
     }
   ]

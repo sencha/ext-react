@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ExtGrid } from "@sencha/ext-react-material-ui";
 
-export default class GridPage extends Component {
+export default class AnotherCalendar extends Component {
   render() {
     return (
       <ExtGrid
