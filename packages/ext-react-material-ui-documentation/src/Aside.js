@@ -69,6 +69,13 @@ export default class Aside extends Component {
     </div>
     <div style={{flex: '1', display: 'flex', flexDirection: 'column', overflow: 'auto'}}>
 
+
+
+
+
+
+
+
       <TabPanel
       style={{display: 'flex',flex:'1',xheight:'5px'}}
       xstyle={{xminHeight:'300px',xmaxHeight:'300px',display:'flex',flex:'1',xflexGrow:'0',xflexShrink:'0',xflexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}

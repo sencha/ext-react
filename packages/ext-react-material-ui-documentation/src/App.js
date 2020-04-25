@@ -15,10 +15,13 @@ import Box from '@material-ui/core/Box';
 import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
+import ReactMarkdown from 'react-markdown'
 
 export const App = () => {
+  const [guide, setGuide] = useState('');
   const [examplename, setExamplename] = useState('');
-  const [code, setCode] = useState({});
+  const [overviewcode, setOverviewcode] = useState('');
+  const [code, setCode] = useState('');
   const [reactname, setReactname] = useState('');
   const [importtext, setImporttext] = useState('');
   const [text, setText] = useState('');
@@ -29,23 +32,37 @@ export const App = () => {
   const [methods, setMethods] = useState([]);
   const [eventNames, setEventNames] = useState([]);
   const [events, setEvents] = useState([]);
-  const [maintab, setMaintab] = useState(2);
-  const [aside, setAside] = useState(0);
+  const [maintab, setMaintab] = useState(0);
+  const [aside] = useState(0);
 
- // useEffect(() => {
+ useEffect(() => {
+  onMenuClick('Home', 0, 'home', 'Home')
     // axios
     //   .get("doc-material-ui/all.json")
     //   .then(({ data }) => {
     //     //setItems(data);
     //     //onMenuClick(0, 'ExtCalendar')
     //   });
-  //}, []);
+  }, []);
 
   const onMenuClick = (name, key, type, reactname) => {
+    console.log(name)
+    console.log(key)
+    console.log(type)
+    console.log(reactname)
+
+
+
     switch (type) {
       case 'overview':
         setMaintab(0);
         setReactname(reactname)
+        var codeitempath = './code/' + reactname + '/Overview.js'
+        axios
+        .get(codeitempath)
+        .then(({ data }) => {
+          setOverviewcode(data)
+        });
         setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
         axios
         .get("doc-material-ui/" + reactname + ".json")
@@ -74,17 +91,39 @@ export const App = () => {
       case 'example':
         setMaintab(1);
         setReactname(reactname)
-        var codeitem = reactname + '/' + name + '.js'
-        console.log(window._code[codeitem])
-        setCode(window._code[codeitem])
+        axios
+        .get('./code/' + reactname + '/' + name + '.js')
+        .then(({ data }) => {
+          setCode(data)
+        });
         setExamplename(name)
-        break;
-      case 'home':
-        setMaintab(2);
         break;
       case 'guide':
         setMaintab(3);
+        axios
+        .get(require('./guides/' + reactname + '/' + name + '.md'))
+        .then(({ data }) => {
+          setGuide(data)
+        });
         break;
+
+        case 'home':
+          setMaintab(3);
+          axios
+          .get(require("./guides/Home/Home.md"))
+          .then(({ data }) => {
+            setGuide(data)
+          });
+          break;
+
+      case 'welcome':
+          setMaintab(3);
+          axios
+          .get(require("./guides/Home/Welcome.md"))
+          .then(({ data }) => {
+            setGuide(data)
+          });
+          break;
       default:
         break;
     }
@@ -139,17 +178,32 @@ export const App = () => {
             {/* title */}
             {/* detail section */}
             {maintab === 0 &&
-            <Box className="hbox border">
+            <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
-              <Box className="vbox">
-                <pre style={{fontSize:'18px',fontFamily:'Roboto',padding:'30px'}}>
+              <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray'}}>
+                <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
                   {text}
                 </pre>
               </Box>
               {/* text section */}
               {/* property method event section */}
-              <Box className="vbox">
-                <Box className="vbox">
+
+
+
+
+              <Box className="vbox" style={{margin:'20px 20px 20px 10px',background:'white',border:'1px solid gray'}}>
+
+                <Box className="h300" style={{}}>
+                  <LiveProvider
+                    code={overviewcode}
+                    scope={scope}
+                    theme={theme}
+                  >
+                   <LivePreview style={{height:'260px',margin:'20px',border:'1px solid gray'}}/>
+                  </LiveProvider>
+                </Box>
+
+                {/* <Box className="vbox"> */}
                   <Aside
                     asidevalue={asidevalue}
                     handleAsideValueChange={handleAsideValueChange}
@@ -163,7 +217,7 @@ export const App = () => {
                     events={events}
                     onEventClick={onEventClick}
                   />
-                </Box>
+                {/* </Box> */}
               </Box>
               {/* property method event section */}
             </Box>
@@ -172,8 +226,9 @@ export const App = () => {
             {/* examples section */}
             {maintab === 1 &&
             <Box className="hbox border" style={{background:'lightgray'}}>
+              {/* example code */}
               <div className="vbox ">
-                <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray',}}>
+                <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
                   {reactname} - {examplename}
                 </Box>
                 <LiveProvider
@@ -190,15 +245,16 @@ export const App = () => {
               </div>
               {/* example code */}
             </Box>
+
             }
-            {maintab === 2 &&
+            {/* {maintab === 2 &&
               <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
                 Welcome to the ExtReact for Material Documentation
               </Box>
-            }
+            } */}
             {maintab === 3 &&
-              <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
-                Guide
+              <Box className="vbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
+                <ReactMarkdown source={guide} />
               </Box>
             }
             {/* examples section */}

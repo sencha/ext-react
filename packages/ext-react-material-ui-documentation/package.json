@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "react-markdown": "~4.3.1",
     "react-live": "~2.2.2",
     "prismjs": "~1.20.0",
     "babel-plugin-prismjs": "~2.0.1",
