@@ -1,0 +1,11 @@
+{
+ "name": "Ext.d3.canvas.Canvas",
+ "xtype": "d3-canvas",
+ "reactname": "ExtD3_canvas",
+ "alias": "widget.d3-canvas",
+ "extended": "Ext.d3.Component,Ext.d3.ComponentBase,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.d3.Component",
+ "mixed": "Ext.Mixin,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.state.Stateful",
+ "requires": "Ext.d3.canvas.HiDPI",
+ "text": "The base class of every Canvas D3 Component that can also be used standalone.\nFor example:\n\n    @example\n    Ext.create({\n        renderTo: document.body,\n\n        width: 300,\n        height: 300,\n\n        xtype: 'd3-canvas',\n\n        listeners: {\n            sceneresize: function (component, canvas, size) {\n                var barCount = 10,\n                    barWidth = size.width / barCount,\n                    barHeight = size.height,\n                    context = canvas.getContext('2d'),\n                    colors = d3.scaleOrdinal(d3.schemeCategory20),\n                    i = 0;\n\n                for (; i < barCount; i++) {\n                    context.fillStyle = colors(i);\n                    context.fillRect(i * barWidth, 0, barWidth, barHeight);\n                }\n            }\n        }\n    });\n"
+}

@@ -14,6 +14,12 @@ import { App } from './App';
 //import { AppRecent } from './AppRecent';
 //import { Live } from './Live';
 import * as serviceWorker from './serviceWorker';
+
+
+import * as d3 from 'd3'
+window.d3 = d3
+
+
 ExtReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />

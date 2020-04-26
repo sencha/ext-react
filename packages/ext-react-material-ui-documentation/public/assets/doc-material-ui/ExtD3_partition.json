@@ -1,0 +1,11 @@
+{
+ "name": "Ext.d3.hierarchy.partition.Partition",
+ "xtype": "d3-partition",
+ "reactname": "ExtD3_partition",
+ "alias": "widget.d3-partition",
+ "extended": "Ext.d3.hierarchy.Hierarchy,Ext.d3.svg.Svg,Ext.d3.Component,Ext.d3.ComponentBase,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extenders": "Ext.d3.hierarchy.partition.Sunburst",
+ "extends": "Ext.d3.hierarchy.Hierarchy",
+ "mixed": "Ext.Mixin,Ext.d3.mixin.ToolTip,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.state.Stateful",
+ "text": "Abstract class for D3 components\nwith the [Partition layout](https://github.com/mbostock/d3/wiki/Partition-Layout).\n"
+}
