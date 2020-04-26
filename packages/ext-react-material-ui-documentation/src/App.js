@@ -18,6 +18,7 @@ import Aside from './Aside';
 import ReactMarkdown from 'react-markdown'
 
 export const App = () => {
+  const [version, setVersion] = useState('7.2.1.0');
   const [guide, setGuide] = useState('');
   const [examplename, setExamplename] = useState('');
   const [overviewcode, setOverviewcode] = useState('');
@@ -36,6 +37,9 @@ export const App = () => {
   const [aside] = useState(0);
 
  useEffect(() => {
+
+  //setVersion(process.env.REACT_APP_VERSION)
+
   onMenuClick('Home', 0, 'home', 'Home')
     // axios
     //   .get("doc-material-ui/all.json")
@@ -173,6 +177,7 @@ export const App = () => {
               <Title
                 reactname={reactname}
                 importtext={importtext}
+                version={version}
               />
             </Box>
             {/* title */}
