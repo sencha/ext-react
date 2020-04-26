@@ -1,0 +1,11 @@
+{
+ "name": "Ext.calendar.panel.Day",
+ "xtype": "calendar-day",
+ "reactname": "ExtCalendar_day",
+ "alias": "widget.calendar-day",
+ "extended": "Ext.calendar.panel.Days,Ext.calendar.panel.Base,Ext.calendar.panel.AbstractBase,Ext.Panel,Ext.Container,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.calendar.panel.Days",
+ "mixed": "Ext.Mixin,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Container,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.FocusableContainer,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.mixin.Queryable,Ext.mixin.Toolable,Ext.panel.Buttons,Ext.state.Stateful",
+ "requires": "Ext.calendar.view.Day",
+ "text": "For an overview of calendar panels see {@link Ext.calendar.panel.Base}\n\nA panel for display a single day. Composes a\n{@link Ext.calendar.view.Day} with a\n{@link Ext.calendar.header.Base}.\n\nThe Day panel operates the same as its parent {@link Ext.calendar.panel.Days}\npanel with one notable difference: the {@link #cfg!visibleDays #cfg-visibleDays} for the Day panel is\n`1` resulting in only a single day displayed at a time.\n\n### Alternative Classes\n\nTo display more than a single day consider using the {@link Ext.calendar.panel.Days}\nor {@link Ext.calendar.panel.Week} views.\n"
+}

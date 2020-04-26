@@ -7,7 +7,7 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import { getMenu } from './menudata'
+//import { getMenu } from './menudata'
 
 class NestedList extends React.Component {
   state = {
@@ -30,7 +30,9 @@ class NestedList extends React.Component {
   };
 
   render() {
-    const menu = getMenu();
+    const menu = this.props.menu;
+    //const menu = JSON.parse(menudata)
+    //console.log(menu)
     const { menuSelectedIndex } = this.state;
     return (
       <div>
@@ -48,7 +50,7 @@ class NestedList extends React.Component {
                   {
                     return (
                       <div key={miditem.id}>
-                        <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id)} key={(100*rootitem.id)+(10*miditem.id)} onClick={this.handleMidClick.bind(this,miditem.name,(100*rootitem.id)+(10*miditem.id),miditem.type,rootitem.name)}>
+                        <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id)} key={(100*rootitem.id)+(10*miditem.id)} onClick={this.handleMidClick.bind(this,miditem.name,(100*rootitem.id)+(10*miditem.id),miditem.type,miditem.name)}>
                           <ListItemText primary={<Typography className="mid" >{miditem.name}</Typography>}/>
                           {miditem.subitems ? (this.state[miditem.name] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)):(<div></div>)}
                         </ListItem>

@@ -1,0 +1,3601 @@
+{
+ "xtype": "calendar-list",
+ "reactname": "ExtCalendar_list",
+ "events": [
+  {
+   "name": "activate",
+   "text": "Fires whenever item within the Container is activated.\n",
+   "parameters": [
+    "newActiveItem",
+    "sender",
+    "oldActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,128,24",
+      "text": "411,128,38,42",
+      "type": "411,128,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,129,31",
+      "text": "411,129,36,24",
+      "type": "411,129,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,130,24",
+      "text": "411,130,38,42",
+      "type": "411,130,16"
+     }
+    }
+   ],
+   "nameprimary": "activate(newActiveItem,sender,oldActiveItem)"
+  },
+  {
+   "name": "activeItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    }
+   ],
+   "nameprimary": "activeItemchange(sender,value,oldValue)"
+  },
+  {
+   "name": "add",
+   "parameters": [],
+   "nameprimary": "add()"
+  },
+  {
+   "name": "added",
+   "text": "Fires after a Component had been added to a Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,819,31",
+      "text": "410,819,38,33",
+      "type": "410,819,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Parent Container\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,820,31",
+      "text": "410,820,41,17",
+      "type": "410,820,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item within the Container.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,821,24",
+      "text": "410,821,30,44",
+      "type": "410,821,16"
+     }
+    }
+   ],
+   "nameprimary": "added(sender,container,index)"
+  },
+  {
+   "name": "beforeactiveItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeactiveItemchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforebottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforebottomchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforecenteredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforecenteredchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforedisabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedisabledchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforedockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedockedchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeheightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeheightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforehiddenchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehide",
+   "text": "Fires before the Component is hidden. Hide may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,737,31",
+      "text": "410,737,38,33",
+      "type": "410,737,16"
+     }
+    }
+   ],
+   "nameprimary": "beforehide(sender)"
+  },
+  {
+   "name": "beforeleftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeleftchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeorientationchange",
+   "text": "Fires before orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "beforeorientationchange()"
+  },
+  {
+   "name": "beforerightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforerightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforescrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforescrollablechange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeshow",
+   "text": "Fires before the Component is shown. Show may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,725,31",
+      "text": "410,725,38,33",
+      "type": "410,725,16"
+     }
+    }
+   ],
+   "nameprimary": "beforeshow(sender)"
+  },
+  {
+   "name": "beforestorechange",
+   "text": "This event fires when `{@link #cfg!store}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.dataview.Abstract"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforestorechange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforetofront",
+   "text": "Fires before a {@link #cfg!floated #cfg-floated} component is brought to the front of the visual stack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,320,31",
+      "text": "689,320,36,23",
+      "type": "689,320,16"
+     }
+    }
+   ],
+   "nameprimary": "beforetofront(sender)"
+  },
+  {
+   "name": "beforetopchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforetopchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforewidthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforewidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "blur",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} loses focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,91,31",
+      "type": "283,91,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The blur event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,92,33",
+      "text": "283,92,39,16",
+      "type": "283,92,16"
+     }
+    }
+   ],
+   "nameprimary": "blur(sender,event)"
+  },
+  {
+   "name": "bottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    }
+   ],
+   "nameprimary": "bottomchange(sender,value,oldValue)"
+  },
+  {
+   "name": "centeredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    }
+   ],
+   "nameprimary": "centeredchange(sender,value,oldValue)"
+  },
+  {
+   "name": "childdoubletap",
+   "text": "Fires when a child is double tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,381,39",
+      "text": "446,381,44,15",
+      "type": "446,381,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,382,39",
+      "text": "446,382,48,28",
+      "type": "446,382,16"
+     }
+    }
+   ],
+   "nameprimary": "childdoubletap(sender,location)"
+  },
+  {
+   "name": "childlongpress",
+   "text": "Fires when a child is long-pressed.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,354,39",
+      "text": "446,354,44,15",
+      "type": "446,354,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,355,39",
+      "text": "446,355,48,28",
+      "type": "446,355,16"
+     }
+    }
+   ],
+   "nameprimary": "childlongpress(sender,location)"
+  },
+  {
+   "name": "childmouseenter",
+   "text": "Fires when the mouse pointer enters a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,390,39",
+      "text": "446,390,44,15",
+      "type": "446,390,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,391,39",
+      "text": "446,391,48,28",
+      "type": "446,391,16"
+     }
+    }
+   ],
+   "nameprimary": "childmouseenter(sender,location)"
+  },
+  {
+   "name": "childmouseleave",
+   "text": "Fires when the mouse pointer leaves a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,399,39",
+      "text": "446,399,44,15",
+      "type": "446,399,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,400,39",
+      "text": "446,400,48,28",
+      "type": "446,400,16"
+     }
+    }
+   ],
+   "nameprimary": "childmouseleave(sender,location)"
+  },
+  {
+   "name": "childsingletap",
+   "text": "Fires when a child is single tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,372,39",
+      "text": "446,372,44,15",
+      "type": "446,372,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,373,39",
+      "text": "446,373,48,28",
+      "type": "446,373,16"
+     }
+    }
+   ],
+   "nameprimary": "childsingletap(sender,location)"
+  },
+  {
+   "name": "childtap",
+   "text": "Fires when a child is tapped.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,345,39",
+      "text": "446,345,44,15",
+      "type": "446,345,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,346,39",
+      "text": "446,346,48,28",
+      "type": "446,346,16"
+     }
+    }
+   ],
+   "nameprimary": "childtap(sender,location)"
+  },
+  {
+   "name": "childtaphold",
+   "text": "Fires when a child is tap-held.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,363,39",
+      "text": "446,363,44,15",
+      "type": "446,363,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,364,39",
+      "text": "446,364,48,28",
+      "type": "446,364,16"
+     }
+    }
+   ],
+   "nameprimary": "childtaphold(sender,location)"
+  },
+  {
+   "name": "childtouchcancel",
+   "text": "Fires when a touch is cancelled.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,336,39",
+      "text": "446,336,44,15",
+      "type": "446,336,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,337,39",
+      "text": "446,337,48,28",
+      "type": "446,337,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchcancel(sender,location)"
+  },
+  {
+   "name": "childtouchend",
+   "text": "Fires when a touch ends on a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,327,39",
+      "text": "446,327,44,15",
+      "type": "446,327,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,328,39",
+      "text": "446,328,48,28",
+      "type": "446,328,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchend(sender,location)"
+  },
+  {
+   "name": "childtouchmove",
+   "text": "Fires when a touch move occurs on a child.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,318,39",
+      "text": "446,318,44,15",
+      "type": "446,318,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,319,39",
+      "text": "446,319,48,28",
+      "type": "446,319,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchmove(sender,location)"
+  },
+  {
+   "name": "childtouchstart",
+   "text": "Fires when a child is first touched.\n",
+   "parameters": [
+    "sender",
+    "location"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "This dataview.\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "446,309,39",
+      "text": "446,309,44,15",
+      "type": "446,309,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "location",
+     "text": "The location for the event.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "446,310,39",
+      "text": "446,310,48,28",
+      "type": "446,310,16"
+     }
+    }
+   ],
+   "nameprimary": "childtouchstart(sender,location)"
+  },
+  {
+   "name": "deactivate",
+   "text": "Fires whenever item within the Container is deactivated.\n",
+   "parameters": [
+    "oldActiveItem",
+    "sender",
+    "newActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,136,24",
+      "text": "411,136,38,42",
+      "type": "411,136,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,137,31",
+      "text": "411,137,36,24",
+      "type": "411,137,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,138,24",
+      "text": "411,138,38,42",
+      "type": "411,138,16"
+     }
+    }
+   ],
+   "nameprimary": "deactivate(oldActiveItem,sender,newActiveItem)"
+  },
+  {
+   "name": "deselect",
+   "text": "Fires whenever an item is deselected\n",
+   "parameters": [
+    "sender",
+    "records"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,188,39",
+      "type": "440,188,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "records",
+     "text": "The records being deselected\n",
+     "type": "Ext.data.Model[]",
+     "src": {
+      "name": "440,189,34",
+      "text": "440,189,42,29",
+      "type": "440,189,16"
+     }
+    }
+   ],
+   "nameprimary": "deselect(sender,records)"
+  },
+  {
+   "name": "destroy",
+   "text": "Fires when the component is destroyed\n",
+   "parameters": [],
+   "nameprimary": "destroy()"
+  },
+  {
+   "name": "disabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    }
+   ],
+   "nameprimary": "disabledchange(sender,value,oldValue)"
+  },
+  {
+   "name": "dockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    }
+   ],
+   "nameprimary": "dockedchange(sender,value,oldValue)"
+  },
+  {
+   "name": "erased",
+   "text": "Fires when the component is no longer displayed in the DOM.  Listening to this event will\ndegrade performance not recommend for general use.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,806,31",
+      "text": "410,806,38,33",
+      "type": "410,806,16"
+     }
+    }
+   ],
+   "nameprimary": "erased(sender)"
+  },
+  {
+   "name": "floatingchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,755,31",
+      "text": "410,755,38,33",
+      "type": "410,755,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,756,25",
+      "text": "410,756,36,51:410,757,8,134",
+      "type": "410,756,16"
+     }
+    }
+   ],
+   "nameprimary": "floatingchange(sender,positioned)"
+  },
+  {
+   "name": "focus",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} receives focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component/Ext.Widget",
+     "src": {
+      "name": "283,84,42",
+      "type": "283,84,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focus event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,85,33",
+      "text": "283,85,39,17",
+      "type": "283,85,16"
+     }
+    }
+   ],
+   "nameprimary": "focus(sender,event)"
+  },
+  {
+   "name": "focusenter",
+   "text": "Fires when focus enters this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,98,31",
+      "type": "283,98,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusenter event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,99,33",
+      "text": "283,99,39,22",
+      "type": "283,99,16"
+     }
+    }
+   ],
+   "nameprimary": "focusenter(sender,event)"
+  },
+  {
+   "name": "focusleave",
+   "text": "Fires when focus leaves this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,105,31",
+      "type": "283,105,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusleave event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,106,33",
+      "text": "283,106,39,22",
+      "type": "283,106,16"
+     }
+    }
+   ],
+   "nameprimary": "focusleave(sender,event)"
+  },
+  {
+   "name": "fullscreen",
+   "text": "Fires whenever a Component with the fullscreen config is instantiated\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,749,31",
+      "text": "410,749,38,33",
+      "type": "410,749,16"
+     }
+    }
+   ],
+   "nameprimary": "fullscreen(sender)"
+  },
+  {
+   "name": "heightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    }
+   ],
+   "nameprimary": "heightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    }
+   ],
+   "nameprimary": "hiddenchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hide",
+   "text": "Fires whenever the Component is hidden\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,743,31",
+      "text": "410,743,38,33",
+      "type": "410,743,16"
+     }
+    }
+   ],
+   "nameprimary": "hide(sender)"
+  },
+  {
+   "name": "initialize",
+   "text": "Fires when the component has been initialized\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,792,31",
+      "text": "410,792,38,33",
+      "type": "410,792,16"
+     }
+    }
+   ],
+   "nameprimary": "initialize(sender)"
+  },
+  {
+   "name": "itemdoubletap",
+   "text": "Fires whenever an item is doubletapped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,129,39",
+      "type": "440,129,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item doubletapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,130,24",
+      "text": "440,130,30,35",
+      "type": "440,130,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem doubletapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,131,51",
+      "text": "440,131,58,37",
+      "type": "440,131,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,132,32",
+      "text": "440,132,39,34",
+      "type": "440,132,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,133,33",
+      "text": "440,133,35,17",
+      "type": "440,133,16"
+     }
+    }
+   ],
+   "nameprimary": "itemdoubletap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemlongpress",
+   "text": "Fires whenever an item's longpress event fires\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,93,39",
+      "type": "440,93,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,94,24",
+      "text": "440,94,30,30",
+      "type": "440,94,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,95,51",
+      "text": "440,95,58,32",
+      "type": "440,95,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,96,32",
+      "text": "440,96,39,34",
+      "type": "440,96,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,97,33",
+      "text": "440,97,35,17",
+      "type": "440,97,16"
+     }
+    }
+   ],
+   "nameprimary": "itemlongpress(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemmouseenter",
+   "text": "Fires whenever the mouse pointer moves over an item\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,153,39",
+      "type": "440,153,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item\n",
+     "type": "Number",
+     "src": {
+      "name": "440,154,24",
+      "text": "440,154,30,22",
+      "type": "440,154,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,155,51",
+      "text": "440,155,58,24",
+      "type": "440,155,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,156,32",
+      "text": "440,156,39,34",
+      "type": "440,156,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,157,33",
+      "text": "440,157,35,17",
+      "type": "440,157,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseenter(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemmouseleave",
+   "text": "Fires whenever the mouse pointer leaves an item\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,165,39",
+      "type": "440,165,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item\n",
+     "type": "Number",
+     "src": {
+      "name": "440,166,24",
+      "text": "440,166,30,22",
+      "type": "440,166,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,167,51",
+      "text": "440,167,58,24",
+      "type": "440,167,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,168,32",
+      "text": "440,168,39,34",
+      "type": "440,168,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,169,33",
+      "text": "440,169,35,17",
+      "type": "440,169,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseleave(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemsingletap",
+   "text": "Fires whenever an item is singletapped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,117,39",
+      "type": "440,117,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item singletapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,118,24",
+      "text": "440,118,30,35",
+      "type": "440,118,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem singletapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,119,51",
+      "text": "440,119,58,37",
+      "type": "440,119,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,120,32",
+      "text": "440,120,39,34",
+      "type": "440,120,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,121,33",
+      "text": "440,121,35,17",
+      "type": "440,121,16"
+     }
+    }
+   ],
+   "nameprimary": "itemsingletap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemswipe",
+   "text": "Fires whenever an item is swiped\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,141,39",
+      "type": "440,141,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item swiped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,142,24",
+      "text": "440,142,30,29",
+      "type": "440,142,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem swiped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,143,51",
+      "text": "440,143,58,31",
+      "type": "440,143,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,144,32",
+      "text": "440,144,39,34",
+      "type": "440,144,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,145,33",
+      "text": "440,145,35,17",
+      "type": "440,145,16"
+     }
+    }
+   ],
+   "nameprimary": "itemswipe(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtap",
+   "text": "Fires whenever an item is tapped. Add `x-item-no-tap` CSS class to a child of list\nitem to suppress `{@link #event!itemtap itemtap}` events on that child. This can be useful when items\ncontain components such as Buttons.\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,81,39",
+      "type": "440,81,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item tapped\n",
+     "type": "Number",
+     "src": {
+      "name": "440,82,24",
+      "text": "440,82,30,29",
+      "type": "440,82,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem tapped\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,83,51",
+      "text": "440,83,58,31",
+      "type": "440,83,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,84,32",
+      "text": "440,84,39,34",
+      "type": "440,84,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,85,33",
+      "text": "440,85,35,17",
+      "type": "440,85,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtap(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtaphold",
+   "text": "Fires whenever an item's taphold event fires\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,105,39",
+      "type": "440,105,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,106,24",
+      "text": "440,106,30,30",
+      "type": "440,106,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,107,51",
+      "text": "440,107,58,32",
+      "type": "440,107,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,108,32",
+      "text": "440,108,39,34",
+      "type": "440,108,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,109,33",
+      "text": "440,109,35,17",
+      "type": "440,109,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtaphold(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchcancel",
+   "text": "Fires whenever an item touch is cancelled\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,67,39",
+      "type": "440,67,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,68,24",
+      "text": "440,68,30,30",
+      "type": "440,68,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,69,51",
+      "text": "440,69,58,32",
+      "type": "440,69,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,70,32",
+      "text": "440,70,39,34",
+      "type": "440,70,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,71,33",
+      "text": "440,71,35,17",
+      "type": "440,71,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchcancel(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchend",
+   "text": "Fires whenever an item is touched\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,55,39",
+      "type": "440,55,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,56,24",
+      "text": "440,56,30,30",
+      "type": "440,56,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,57,51",
+      "text": "440,57,58,32",
+      "type": "440,57,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,58,32",
+      "text": "440,58,39,34",
+      "type": "440,58,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,59,33",
+      "text": "440,59,35,17",
+      "type": "440,59,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchend(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchmove",
+   "text": "Fires whenever an item is moved\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,43,39",
+      "type": "440,43,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item moved\n",
+     "type": "Number",
+     "src": {
+      "name": "440,44,24",
+      "text": "440,44,30,28",
+      "type": "440,44,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem moved\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,45,51",
+      "text": "440,45,58,30",
+      "type": "440,45,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,46,32",
+      "text": "440,46,39,34",
+      "type": "440,46,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,47,33",
+      "text": "440,47,35,17",
+      "type": "440,47,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchmove(sender,index,target,record,e)"
+  },
+  {
+   "name": "itemtouchstart",
+   "text": "Fires whenever an item is touched\n",
+   "parameters": [
+    "sender",
+    "index",
+    "target",
+    "record",
+    "e"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,31,39",
+      "type": "440,31,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item touched\n",
+     "type": "Number",
+     "src": {
+      "name": "440,32,24",
+      "text": "440,32,30,30",
+      "type": "440,32,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "target",
+     "text": "The element or DataItem touched\n",
+     "type": "Ext.dom.Element/Ext.dataview.DataItem",
+     "src": {
+      "name": "440,33,51",
+      "text": "440,33,58,32",
+      "type": "440,33,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "record",
+     "text": "The record associated to the item\n",
+     "type": "Ext.data.Model",
+     "src": {
+      "name": "440,34,32",
+      "text": "440,34,39,34",
+      "type": "440,34,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "e",
+     "text": "The event object\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "440,35,33",
+      "text": "440,35,35,17",
+      "type": "440,35,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtouchstart(sender,index,target,record,e)"
+  },
+  {
+   "name": "leftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    }
+   ],
+   "nameprimary": "leftchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    }
+   ],
+   "nameprimary": "maxHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    }
+   ],
+   "nameprimary": "maxWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    }
+   ],
+   "nameprimary": "minHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    }
+   ],
+   "nameprimary": "minWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "move",
+   "parameters": [],
+   "nameprimary": "move()"
+  },
+  {
+   "name": "moved",
+   "text": "Fires when a component si moved within its Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "toIndex",
+    "fromIndex"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,835,31",
+      "text": "410,835,38,33",
+      "type": "410,835,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,836,31",
+      "text": "410,836,41,36",
+      "type": "410,836,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "toIndex",
+     "text": "The new index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,837,24",
+      "text": "410,837,32,27",
+      "type": "410,837,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "fromIndex",
+     "text": "The old index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,838,24",
+      "text": "410,838,34,27",
+      "type": "410,838,16"
+     }
+    }
+   ],
+   "nameprimary": "moved(sender,container,toIndex,fromIndex)"
+  },
+  {
+   "name": "navigate",
+   "text": "Fires whenever the user navigates to a new location.\n\nIn regular dataviews, a location encapsulates one view item, and its associated record.\n\nIn grids, a location encapsulates one cell, and its associated data field.\n",
+   "parameters": [
+    "sender",
+    "to",
+    "from"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,207,39",
+      "type": "440,207,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "to",
+     "text": "The location navigated to.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "440,208,39",
+      "text": "440,208,42,27",
+      "type": "440,208,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "from",
+     "text": "The location where navigation came from.\n",
+     "type": "Ext.dataview.Location",
+     "src": {
+      "name": "440,209,39",
+      "text": "440,209,44,41",
+      "type": "440,209,16"
+     }
+    }
+   ],
+   "nameprimary": "navigate(sender,to,from)"
+  },
+  {
+   "name": "orientationchange",
+   "text": "Fires when orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "orientationchange()"
+  },
+  {
+   "name": "painted",
+   "text": "Fires whenever this Element actually becomes visible (painted) on the screen. This is\nuseful when you need to perform 'read' operations on the DOM element, i.e: calculating\nnatural sizes and positioning.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!painted painted}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "sender",
+    "element"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,798,31",
+      "text": "410,798,38,33",
+      "type": "410,798,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element)\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,799,29",
+      "text": "410,799,37,45",
+      "type": "410,799,16"
+     }
+    }
+   ],
+   "nameprimary": "painted(sender,element)"
+  },
+  {
+   "name": "positionedchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,764,31",
+      "text": "410,764,38,33",
+      "type": "410,764,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,765,25",
+      "text": "410,765,36,51:410,766,8,134",
+      "type": "410,765,16"
+     }
+    }
+   ],
+   "nameprimary": "positionedchange(sender,positioned)"
+  },
+  {
+   "name": "refresh",
+   "text": "Fires whenever the DataView is refreshed\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,196,39",
+      "type": "440,196,16"
+     }
+    }
+   ],
+   "nameprimary": "refresh(sender)"
+  },
+  {
+   "name": "remove",
+   "parameters": [],
+   "nameprimary": "remove()"
+  },
+  {
+   "name": "removed",
+   "text": "Fires when a component is removed from a Container\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,827,31",
+      "text": "410,827,38,33",
+      "type": "410,827,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,828,31",
+      "text": "410,828,41,36",
+      "type": "410,828,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item that was removed.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,829,24",
+      "text": "410,829,30,40",
+      "type": "410,829,16"
+     }
+    }
+   ],
+   "nameprimary": "removed(sender,container,index)"
+  },
+  {
+   "name": "renderedchange",
+   "text": "Fires whenever an item is rendered into a container or derendered\nfrom a Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "rendered"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,120,31",
+      "text": "411,120,36,24",
+      "type": "411,120,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item in the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,121,24",
+      "text": "411,121,29,27",
+      "type": "411,121,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "rendered",
+     "text": "The current rendered status of the item.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "411,122,25",
+      "text": "411,122,34,41",
+      "type": "411,122,16"
+     }
+    }
+   ],
+   "nameprimary": "renderedchange(sender,item,rendered)"
+  },
+  {
+   "name": "resize",
+   "text": "Important note: For the best performance on mobile devices, use this only when you\nabsolutely need to monitor a Element's size.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!resize resize}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "element",
+    "info"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element).\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,812,29",
+      "text": "410,812,37,46",
+      "type": "410,812,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "info",
+     "text": "The component's new size parameters.\n",
+     "type": "Object",
+     "src": {
+      "name": "410,813,24",
+      "text": "410,813,29,37",
+      "type": "410,813,16"
+     }
+    }
+   ],
+   "nameprimary": "resize(element,info)"
+  },
+  {
+   "name": "rightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    }
+   ],
+   "nameprimary": "rightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "rowselection",
+   "text": "Fires when a selection changes and a {@link Ext.data.virtual.Store} is\nbeing used.\n",
+   "parameters": [
+    "view",
+    "selection"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "view",
+     "text": "this DataView\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "474,52,39",
+      "text": "474,52,44,14",
+      "type": "474,52,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selection",
+     "text": "An object whicn encapsulates the selected\nrow range(s).\n",
+     "type": "Ext.dataview.selection.Rows",
+     "src": {
+      "name": "474,53,45",
+      "text": "474,53,55,42:474,54,8,14",
+      "type": "474,53,16"
+     }
+    }
+   ],
+   "nameprimary": "rowselection(view,selection)"
+  },
+  {
+   "name": "scrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    }
+   ],
+   "nameprimary": "scrollablechange(sender,value,oldValue)"
+  },
+  {
+   "name": "select",
+   "text": "Fires whenever an item is selected\n",
+   "parameters": [
+    "sender",
+    "selected"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "440,177,39",
+      "type": "440,177,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selected",
+     "text": "The selected record(s). If {@link #cfg!selectable #selectable} {@link Ext.dataview.selection.Model#cfg!mode mode}\nis `single`, this will be a single {@link Ext.data.Model}. If\n{@link Ext.dataview.selection.Model#cfg!mode mode} is `simple` or `multi`, this will be an array\nof {@link Ext.data.Model}.\n",
+     "type": "Ext.data.Model/Ext.data.Model[]",
+     "src": {
+      "name": "440,178,49",
+      "text": "440,179,8,291",
+      "type": "440,178,16"
+     }
+    }
+   ],
+   "nameprimary": "select(sender,selected)"
+  },
+  {
+   "name": "selectionchange",
+   "text": "Fires when a selection changes.\n",
+   "parameters": [
+    "view",
+    "records",
+    "selected",
+    "selection"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "view",
+     "text": "this DataView\n",
+     "type": "Ext.dataview.DataView",
+     "src": {
+      "name": "474,40,39",
+      "text": "474,40,44,14",
+      "type": "474,40,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "records",
+     "text": "The records whose selection has changed.\n",
+     "type": "Ext.data.Model[]",
+     "src": {
+      "name": "474,41,34",
+      "text": "474,41,42,41",
+      "type": "474,41,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selected",
+     "text": "`true` if the records are now selected, `false` if not.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "474,42,25",
+      "text": "474,42,34,56",
+      "type": "474,42,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "selection",
+     "text": "An object whicn encapsulates the\nselection.\n",
+     "type": "Ext.dataview.selection.Selection",
+     "src": {
+      "name": "474,43,50",
+      "text": "474,43,60,33:474,44,8,11",
+      "type": "474,43,16"
+     }
+    }
+   ],
+   "nameprimary": "selectionchange(view,records,selected,selection)"
+  },
+  {
+   "name": "show",
+   "text": "Fires whenever the Component is shown\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,731,31",
+      "text": "410,731,38,33",
+      "type": "410,731,16"
+     }
+    }
+   ],
+   "nameprimary": "show(sender)"
+  },
+  {
+   "name": "storechange",
+   "text": "This event fires when `{@link #cfg!store}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.dataview.Abstract"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!store store}`.",
+     "type": "Ext.data.Store/Object",
+     "src": {
+      "type": "440,508,18"
+     }
+    }
+   ],
+   "nameprimary": "storechange(sender,value,oldValue)"
+  },
+  {
+   "name": "tofront",
+   "text": "Fires when a {@link #cfg!floated #cfg-floated} component has been brought to the front of the visual\nstack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,327,31",
+      "text": "689,327,36,23",
+      "type": "689,327,16"
+     }
+    }
+   ],
+   "nameprimary": "tofront(sender)"
+  },
+  {
+   "name": "topchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    }
+   ],
+   "nameprimary": "topchange(sender,value,oldValue)"
+  },
+  {
+   "name": "updatedata",
+   "text": "Fires whenever the data of the component is updated\n",
+   "parameters": [
+    "sender",
+    "newData"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,2411,39",
+      "text": "410,2411,46,33",
+      "type": "410,2411,24"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newData",
+     "text": "The new data\n",
+     "type": "Object",
+     "src": {
+      "name": "410,2412,32",
+      "text": "410,2412,40,13",
+      "type": "410,2412,24"
+     }
+    }
+   ],
+   "nameprimary": "updatedata(sender,newData)"
+  },
+  {
+   "name": "widthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    }
+   ],
+   "nameprimary": "widthchange(sender,value,oldValue)"
+  }
+ ],
+ "eventNames": [
+  "activate",
+  "activeItemchange",
+  "add",
+  "added",
+  "beforeactiveItemchange",
+  "beforebottomchange",
+  "beforecenteredchange",
+  "beforedisabledchange",
+  "beforedockedchange",
+  "beforeheightchange",
+  "beforehiddenchange",
+  "beforehide",
+  "beforeleftchange",
+  "beforemaxHeightchange",
+  "beforemaxWidthchange",
+  "beforeminHeightchange",
+  "beforeminWidthchange",
+  "beforeorientationchange",
+  "beforerightchange",
+  "beforescrollablechange",
+  "beforeshow",
+  "beforestorechange",
+  "beforetofront",
+  "beforetopchange",
+  "beforewidthchange",
+  "blur",
+  "bottomchange",
+  "centeredchange",
+  "childdoubletap",
+  "childlongpress",
+  "childmouseenter",
+  "childmouseleave",
+  "childsingletap",
+  "childtap",
+  "childtaphold",
+  "childtouchcancel",
+  "childtouchend",
+  "childtouchmove",
+  "childtouchstart",
+  "deactivate",
+  "deselect",
+  "destroy",
+  "disabledchange",
+  "dockedchange",
+  "erased",
+  "floatingchange",
+  "focus",
+  "focusenter",
+  "focusleave",
+  "fullscreen",
+  "heightchange",
+  "hiddenchange",
+  "hide",
+  "initialize",
+  "itemdoubletap",
+  "itemlongpress",
+  "itemmouseenter",
+  "itemmouseleave",
+  "itemsingletap",
+  "itemswipe",
+  "itemtap",
+  "itemtaphold",
+  "itemtouchcancel",
+  "itemtouchend",
+  "itemtouchmove",
+  "itemtouchstart",
+  "leftchange",
+  "maxHeightchange",
+  "maxWidthchange",
+  "minHeightchange",
+  "minWidthchange",
+  "move",
+  "moved",
+  "navigate",
+  "orientationchange",
+  "painted",
+  "positionedchange",
+  "refresh",
+  "remove",
+  "removed",
+  "renderedchange",
+  "resize",
+  "rightchange",
+  "rowselection",
+  "scrollablechange",
+  "select",
+  "selectionchange",
+  "show",
+  "storechange",
+  "tofront",
+  "topchange",
+  "updatedata",
+  "widthchange"
+ ]
+}
