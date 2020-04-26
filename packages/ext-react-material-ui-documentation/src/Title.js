@@ -16,11 +16,12 @@ export default class Title extends Component {
 
   render() {
     //const { selectedIndex } = this.state;
-    const { reactname, importtext } = this.props;
+    const { reactname, importtext, version } = this.props;
     return (
       <React.Fragment>
         <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{reactname} {reactname !== '' && <span>Component -&gt;</span>}</div>
         <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{importtext}</div>
+        <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{version}</div>
       </React.Fragment>
     )
   }
