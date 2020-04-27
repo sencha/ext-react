@@ -15,7 +15,7 @@ import {
 } from 'react-live'
 import theme from'./dark'
 import Box from '@material-ui/core/Box';
-//import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
@@ -41,27 +41,13 @@ export const App = () => {
   const [methods, setMethods] = useState([]);
   const [eventNames, setEventNames] = useState([]);
   const [events, setEvents] = useState([]);
-  const [maintab, setMaintab] = useState(3);
+  const [maintab, setMaintab] = useState(5);
   const [aside] = useState(0);
 
   const logoExtReact = `${process.env.PUBLIC_URL}/assets/images/footer-logo.png`
   const logoMaterialUI = `${process.env.PUBLIC_URL}/assets/images/logo_raw.svg`
 
   useEffect(() => {
-
-  //   const getMenu = async () => {
-  //     let res = await axios.get("./assets/menu/menu.json");
-  //     // let { data } = res.data;
-  //     // this.setState({ users: data });
-  //     setMenu(data);
-  //     onMenuClick('Home', 0, 'home', 'Home')
-  // };
-
-  // getMenu()
-
-
-
-
     //setVersion(process.env.REACT_APP_VERSION)
     axios
       .get("./assets/menu/menu.json")
@@ -69,77 +55,165 @@ export const App = () => {
         setMenu(data);
         onMenuClick('Home', 0, 'home', 'Home')
       });
-
-    // axios
-    //   .get("./assets/code/ExtGrid/data.json")
-    //   .then(({ data }) => {
-    //     setGriddata(data);
-    //     onMenuClick('Home', 0, 'home', 'Home')
-    //   });
-
-    // axios
-    //   .get("./assets/code/ExtD3_heatmap/data.json")
-    //   .then(({ data }) => {
-    //     setHeatmapdata(data);
-    //     onMenuClick('Home', 0, 'home', 'Home')
-    //   });
-
   }, []);
 
   const onMenuClick = (name, key, type, reactname) => {
-    // console.log(name)
-    // console.log(key)
-    // console.log(type)
-    // console.log(reactname)
     var folder = ''
     var examplename = ''
+    function useNull() {return null;}
+
     switch (type) {
       case 'overview':
         setOverviewcode('')
         setMaintab(5);
         folder = reactname
         examplename = 'Overview'
-
-        var overviewText = "./assets/doc-material-ui/" + reactname + ".json"
         var overviewCode = './assets/code/' + folder + '/' + examplename + '.js'
         var overviewData = './assets/code/' + folder + '/' + examplename + '.json'
         var generalData = './assets/code/' + folder + '/data.json';
+        var overviewText = "./assets/doc-material-ui/" + reactname + ".json"
         var properties = "./assets/doc-material-ui/" + reactname + "Properties.json"
         var methods = "./assets/doc-material-ui/" + reactname + "Methods.json"
         var events = "./assets/doc-material-ui/" + reactname + "Events.json"
-
-        function useNull() {return null;}
         axios.all([
-          axios.get(overviewText).catch(useNull),
           axios.get(overviewCode).catch(useNull),
           axios.get(overviewData).catch(useNull),
           axios.get(generalData).catch(useNull),
+          axios.get(overviewText).catch(useNull),
           axios.get(properties).catch(useNull),
           axios.get(methods).catch(useNull),
           axios.get(events).catch(useNull),
-        ]).then(axios.spread(function (resOverviewText, resOverviewCode, resOverviewData, resGeneralData, resProperties, resMethods, resEvents) {
-          var theData = []
-          if (resOverviewData != null) {
-            theData = resOverviewData.data
-          }
-          else if (resGeneralData != null) {
-            theData = resGeneralData.data
-          }
-          setReactname(reactname)
-          setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
-          setData(theData)
-          setText(resOverviewText.data.text)
-          setPropertyNames(resProperties.data.propertyNames)
-          setProperties(resProperties.data.properties)
-          setMethodNames(resMethods.data.methodNames)
-          setMethods(resMethods.data.methods)
-          setEventNames(resEvents.data.eventNames)
-          setEvents(resEvents.data.events)
-          setOverviewcode(resOverviewCode.data)
-          setMaintab(0);
-        }));
+        ]).then(axios.spread(function (
+            resOverviewCode,
+            resOverviewData,
+            resGeneralData,
+            resOverviewText,
+            resProperties,
+            resMethods,
+            resEvents
+          ) {
+            var theData = []
+            if (resOverviewData != null) {
+              theData = resOverviewData.data
+            }
+            else if (resGeneralData != null) {
+              theData = resGeneralData.data
+            }
+            setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
+            function replacerCfgLink(match) {
+              var b = '~~' + match + '~~'
+              return b
+              // //console.log(match)
+              // var s = match.indexOf('!')
+              // var e = match.lastIndexOf('#')
+              // var val = match.substring(s+1,e-1)
+              // return `<a href="javascript:sendToContext('cfg','${val}');">${val}</a>`
+              //return `<span class="tooltip" xstyle="background:lightgray;border-bottom: 1px dotted black;">${val}<span class="tooltiptext">Tooltip text</span></span>`
+            }
+
+            function replacerOtherLink(match) {
+              var start = match.lastIndexOf('.');
+              var end = match.length;
+              var val = match.substring(start+1,end-1)
+              var a = '**' + val + '**'
+              var b = '~~' + match + '~~'
+              return a + ' ' + b
+            }
+
+
+            var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link #cfg(.)*?[}]/g) , replacerCfgLink )
+
+            //var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link.*[}]/g) , replacerCfgLink )
+            setText(afterCfgLink)
+
+            //setText(resOverviewText.data.text)
+
+
+
+            setPropertyNames(resProperties.data.propertyNames)
+            setProperties(resProperties.data.properties)
+            setMethodNames(resMethods.data.methodNames)
+            setMethods(resMethods.data.methods)
+            setEventNames(resEvents.data.eventNames)
+            setEvents(resEvents.data.events)
+
+            setReactname(reactname)
+            setData(theData)
+            setOverviewcode(resOverviewCode.data)
+            setMaintab(0);
+          }));
         return
+
+
+        break;
+        case 'example':
+          setCode('')
+          setMaintab(5);
+          folder = 'Ext' + reactname
+          examplename = name
+          var exampleCode = './assets/code/' + folder + '/' + examplename + '.js'
+          var exampleData = './assets/code/' + folder + '/' + examplename + '.json'
+          var general2Data = './assets/code/' + folder + '/data.json';
+          axios.all([
+            axios.get(exampleCode).catch(useNull),
+            axios.get(exampleData).catch(useNull),
+            axios.get(general2Data).catch(useNull),
+          ]).then(axios.spread(function (
+            resExampleCode,
+            resExampleData,
+            resGeneral2Data,
+          ) {
+            var theData = []
+            if (resExampleData != null) {
+              theData = resExampleData.data
+            }
+            else if (resGeneral2Data != null) {
+              theData = resGeneral2Data.data
+            }
+            setExamplename(name)
+            setReactname(reactname)
+            setData(theData)
+            setCode(resExampleCode.data)
+            setMaintab(0);
+          }));
+        break;
+
+        case 'guide':
+          setMaintab(3);
+          if (reactname != 'Home') {
+            reactname = 'Ext' + reactname
+          }
+          axios
+          //.get(require('./guides/' + reactname + '/' + name + '.md'))
+          .get('./assets/guides/' + reactname + '/' + name + '.md')
+          .then(({ data }) => {
+            setGuide(data)
+          });
+          break;
+
+        case 'home':
+            setMaintab(3);
+            axios
+            //.get(require("./guides/Home/Home.md"))
+            .get("./assets/guides/Home/Home.md")
+            .then(({ data }) => {
+              setGuide(data)
+            });
+            break;
+
+        case 'welcome':
+            setMaintab(3);
+            axios
+            //.get(require("./guides/Home/Welcome.md"))
+            .get("./assets/guides/Home/Welcome.md")
+            .then(({ data }) => {
+              setGuide(data)
+            });
+            break;
+        default:
+          break;
+
 
 
 
@@ -173,184 +247,167 @@ export const App = () => {
 
 
         // });
-        break;
 
 
-      case 'overview2':
-        //setOverviewcode('')
-        setMaintab(0);
-        setReactname(reactname)
-        setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
-
-
-
-        folder = reactname
-        examplename = 'Overview'
-        //refactor
-        console.log('a')
-        axios.get('./assets/code/' + folder + '/' + examplename + '.json')
-          .then(({ data }) => {
-            console.log('b')
-            setData(data)
-            console.log('b2')
-
-            axios
-            .get('./assets/code/' + folder+ '/' + examplename + '.js')
-            .then(({ data }) => {
-              setOverviewcode(data)
-            });
-
-
-
-          })
-          .catch(function (error) {
-            console.log('c')
-            //console.clear()
-            //console.log('\n'.repeat('1'));
-            axios.get('./assets/code/' + folder + '/data.json')
-            .then(({ data }) => {
-              console.log('d')
-
-
-
-              setData(data)
-              axios
-              .get('./assets/code/' + folder + '/' + examplename + '.js')
-              .then(({ data }) => {
-                console.log('e')
-                setOverviewcode(data)
-              });
-
-
-
-            })
-            .catch(function (error) {
-              //console.clear()
-              //console.log('\n'.repeat('1'));
-              console.log('f')
-              setData([])
-
-
-
-              axios
-              .get('./assets/code/' + folder+ '/' + examplename + '.js')
-              .then(({ data }) => {
-                setOverviewcode(data)
-              });
-
-
-            })
-          })
-          console.log('b3')
-        //refactor
+          // case 'example':
+          //   setCode('')
+          //   setMaintab(1);
+          //   setReactname(reactname)
+          //   setExamplename(name)
 
 
 
 
 
-        axios
-        .get("./assets/doc-material-ui/" + reactname + ".json")
-        .then(({ data }) => {
-          setText(data.text)
-        });
-        axios
-        .get("./assets/doc-material-ui/" + reactname + "Properties.json")
-        .then(({ data }) => {
-          setPropertyNames(data.propertyNames)
-          setProperties(data.properties)
-        });
-        axios
-        .get("./assets/doc-material-ui/" + reactname + "Methods.json")
-        .then(({ data }) => {
-          setMethodNames(data.methodNames)
-          setMethods(data.methods)
-        });
-        axios
-        .get("./assets/doc-material-ui/" + reactname + "Events.json")
-        .then(({ data }) => {
-          setEventNames(data.eventNames)
-          setEvents(data.events)
-        });
-        break;
-      case 'example':
-        setCode('')
-        setMaintab(1);
-        setReactname(reactname)
-        setExamplename(name)
+
+          //   folder = 'Ext' + reactname
+          //   examplename = name
+          //   //refactor
+          //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
+          //     .then(({ data }) => {
+          //       setData(data)
+          //     })
+          //     .catch(function (error) {
+          //       console.clear()
+          //       console.log('\n'.repeat('1'));
+          //       axios.get('./assets/code/' + folder + '/data.json')
+          //       .then(({ data }) => {
+          //         setData(data)
+
+
+          //         axios
+          //         .get('./assets/code/' + folder + '/' + examplename + '.js')
+          //         .then(({ data }) => {
+          //           setCode(data)
+          //         });
+
+
+          //       })
+          //       .catch(function (error) {
+          //         console.clear()
+          //         console.log('\n'.repeat('1'));
+          //          setData([])
+
+          //          axios
+          //          .get('./assets/code/' + folder + '/' + examplename + '.js')
+          //          .then(({ data }) => {
+          //            setCode(data)
+          //          });
+
+          //       })
+          //     })
+          //   //refactor
+
+          //   break;
 
 
 
 
-        folder = 'Ext' + reactname
-        examplename = name
-        //refactor
-        axios.get('./assets/code/' + folder + '/' + examplename + '.json')
-          .then(({ data }) => {
-            setData(data)
-          })
-          .catch(function (error) {
-            console.clear()
-            console.log('\n'.repeat('1'));
-            axios.get('./assets/code/' + folder + '/data.json')
-            .then(({ data }) => {
-              setData(data)
 
 
-              axios
-              .get('./assets/code/' + folder + '/' + examplename + '.js')
-              .then(({ data }) => {
-                setCode(data)
-              });
+
+      // case 'overview2':
+      //   //setOverviewcode('')
+      //   setMaintab(0);
+      //   setReactname(reactname)
+      //   setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
 
-            })
-            .catch(function (error) {
-              console.clear()
-              console.log('\n'.repeat('1'));
-               setData([])
 
-               axios
-               .get('./assets/code/' + folder + '/' + examplename + '.js')
-               .then(({ data }) => {
-                 setCode(data)
-               });
+      //   folder = reactname
+      //   examplename = 'Overview'
+      //   //refactor
+      //   console.log('a')
+      //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
+      //     .then(({ data }) => {
+      //       console.log('b')
+      //       setData(data)
+      //       console.log('b2')
 
-            })
-          })
-        //refactor
+      //       axios
+      //       .get('./assets/code/' + folder+ '/' + examplename + '.js')
+      //       .then(({ data }) => {
+      //         setOverviewcode(data)
+      //       });
 
-        break;
-      case 'guide':
-        setMaintab(3);
-        axios
-        //.get(require('./guides/' + reactname + '/' + name + '.md'))
-        .get('./assets/guides/' + reactname + '/' + name + '.md')
-        .then(({ data }) => {
-          setGuide(data)
-        });
-        break;
 
-        case 'home':
-          setMaintab(3);
-          axios
-          //.get(require("./guides/Home/Home.md"))
-          .get("./assets/guides/Home/Home.md")
-          .then(({ data }) => {
-            setGuide(data)
-          });
-          break;
 
-      case 'welcome':
-          setMaintab(3);
-          axios
-          //.get(require("./guides/Home/Welcome.md"))
-          .get("./assets/guides/Home/Welcome.md")
-          .then(({ data }) => {
-            setGuide(data)
-          });
-          break;
-      default:
-        break;
+      //     })
+      //     .catch(function (error) {
+      //       console.log('c')
+      //       //console.clear()
+      //       //console.log('\n'.repeat('1'));
+      //       axios.get('./assets/code/' + folder + '/data.json')
+      //       .then(({ data }) => {
+      //         console.log('d')
+
+
+
+      //         setData(data)
+      //         axios
+      //         .get('./assets/code/' + folder + '/' + examplename + '.js')
+      //         .then(({ data }) => {
+      //           console.log('e')
+      //           setOverviewcode(data)
+      //         });
+
+
+
+      //       })
+      //       .catch(function (error) {
+      //         //console.clear()
+      //         //console.log('\n'.repeat('1'));
+      //         console.log('f')
+      //         setData([])
+
+
+
+      //         axios
+      //         .get('./assets/code/' + folder+ '/' + examplename + '.js')
+      //         .then(({ data }) => {
+      //           setOverviewcode(data)
+      //         });
+
+
+      //       })
+      //     })
+      //     console.log('b3')
+      //   //refactor
+
+
+
+
+
+      //   axios
+      //   .get("./assets/doc-material-ui/" + reactname + ".json")
+      //   .then(({ data }) => {
+      //     setText(data.text)
+      //   });
+      //   axios
+      //   .get("./assets/doc-material-ui/" + reactname + "Properties.json")
+      //   .then(({ data }) => {
+      //     setPropertyNames(data.propertyNames)
+      //     setProperties(data.properties)
+      //   });
+      //   axios
+      //   .get("./assets/doc-material-ui/" + reactname + "Methods.json")
+      //   .then(({ data }) => {
+      //     setMethodNames(data.methodNames)
+      //     setMethods(data.methods)
+      //   });
+      //   axios
+      //   .get("./assets/doc-material-ui/" + reactname + "Events.json")
+      //   .then(({ data }) => {
+      //     setEventNames(data.eventNames)
+      //     setEvents(data.events)
+      //   });
+      //   break;
+
+
+
+
+
+
     }
   }
 
@@ -378,10 +435,6 @@ export const App = () => {
       {/* main */}
       <Box className="hbox">
         {/* nav */}
-
-
-
-
         <Box className="w300 vbox">
           <Box className="hTitleleft">
             {/* <Avatar alt="" variant="square" src={logoExtReact} />
@@ -395,15 +448,10 @@ export const App = () => {
             <NestedList menu={menu} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
-
         {/* nav */}
-
         {/* <Box className="w300 vbox">
           splitter
         </Box> */}
-
-
-
         {/* center */}
         <Box className="hbox">
           {/* title and detail */}
@@ -421,10 +469,13 @@ export const App = () => {
             {maintab === 0 &&
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
-              <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray'}}>
-                <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
+              <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray',padding:'20px'}}>
+
+              <ReactMarkdown source={text}/>
+
+                {/* <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
                   {text}
-                </pre>
+                </pre> */}
               </Box>
               {/* text section */}
               {/* property method event section */}
@@ -475,8 +526,10 @@ export const App = () => {
             {/* detail section */}
             {/* examples section */}
             {maintab === 3 &&
-              <Box className="vbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
-                <ReactMarkdown source={guide} />
+              <Box className="vbox" style={{background:'lightgray'}}>
+                <div className="vbox " style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'1px solid gray'}}>
+                  <ReactMarkdown source={guide}/>
+                </div>
               </Box>
             }
             {maintab === 1 &&
@@ -509,8 +562,15 @@ export const App = () => {
 
             }
             {maintab === 5 &&
-              <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
-               Loading
+              // <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray',background:'lightgray'}}>
+              <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
+                <div style={{display:'flex',flexDirection:'column'}}>
+                  <div style={{display:'flex',flexDirection:'row'}}>
+                    <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoExtReact} />
+                    <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoMaterialUI} />
+                  </div>
+                  <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div>
+               </div>
               </Box>
             }
             {/* examples section */}
