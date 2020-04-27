@@ -50,4 +50,5 @@ npm start
 
 A browser window will load, and you will see the application:
 
-![final](final.png)
+<img src="./final.png" alt="a"></img>
+![final](./final.png)
