@@ -2,6 +2,8 @@ import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -42,6 +44,11 @@ class NestedList extends React.Component {
               <div key={rootitem.id}>
                 <ListItem button selected={menuSelectedIndex === (100*rootitem.id)} key={(100*rootitem.id)} onClick={this.handleRootClick.bind(this,rootitem.name,(100*rootitem.id),rootitem.type,rootitem.name)}>
                   <ListItemText primary={<Typography style={{color: '#ffffff',fontSize:'18px' }}>{rootitem.name}</Typography>} />
+                  {rootitem.count !== 0 &&
+                  <ListItemAvatar>
+                  <Avatar style={{height:'30px',width:'30px',color:'black',background:'white'}}>{rootitem.count}</Avatar>
+                  </ListItemAvatar>
+                  }
                   {this.state[rootitem.name] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)}
                 </ListItem>
                 <Collapse key={rootitem.items.id} component="li" in={this.state[rootitem.name]} timeout="auto" unmountOnExit>

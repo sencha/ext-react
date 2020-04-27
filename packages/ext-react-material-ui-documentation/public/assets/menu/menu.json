@@ -1,5 +1,5 @@
 [
-  { "id": 0, "name": "Home", "type": "home",
+  { "id": 0, "name": "Home", "count": 0, "type": "home",
     "items": [
       { "id": 1, "name": "Welcome", "type": "welcome" },
       { "id": 2, "name": "Guides", "type": "guidemid",
@@ -10,7 +10,7 @@
       }
     ]
   },
-  { "id": 1, "name": "Grid", "type": "root",
+  { "id": 1, "name": "Grid", "count": 1,  "type": "root",
     "items": [
       { "id": 1, "name": "ExtGrid", "type": "overview" },
 
@@ -26,16 +26,16 @@
           { "id": 2, "name": "Row Editing", "type": "example" }
         ]
       },
-      { "id": 4, "name": "Column Examples",
+      { "id": 4, "name": "Column Examples", "type": "examplemid",
         "subitems": [
-          { "id": 1, "name": "Columns" },
-          { "id": 2, "name": "Filtering" },
-          { "id": 3, "name": "Cell Editing" }
+          { "id": 1, "name": "Columns", "type": "example" },
+          { "id": 2, "name": "Filtering", "type": "example" },
+          { "id": 3, "name": "Cell Editing", "type": "example" }
         ]
       }
     ]
   },
-  { "id": 2, "name": "Pivotgrid", "type": "root",
+  { "id": 2, "name": "Pivotgrid", "count": 4,  "type": "root",
     "items": [
       { "id": 1, "name": "ExtPivotgrid", "type": "overview" },
       { "id": 2, "name": "ExtPivotd3container", "type": "overview" },
@@ -48,36 +48,35 @@
       }
     ]
   },
-  { "id": 3, "name": "ExtTree", "type": "root",
+  { "id": 3, "name": "Tree", "count": 2,  "type": "root",
     "items": [
-      { "id": 1, "name": "ExtD3-canvas" },
-      { "id": 2, "name": "ExtD3-heatmap" },
-      { "id": 3, "name": "Examples",
+      { "id": 1, "name": "ExtTree", "type": "overview" },
+      { "id": 2, "name": "ExtTreelist", "type": "overview" },
+      { "id": 3, "name": "Examples", "type": "examplemid",
         "subitems": [
-          { "id": 1, "name": "D3 1" },
-          { "id": 2, "name": "D3 2" }
+          { "id": 1, "name": "Overview", "type": "example" }
         ]
       }
     ]
   },
-  { "id": 4, "name": "ExtChart", "type": "root",
+  { "id": 4, "name": "Chart", "count": 2,  "type": "root",
     "items": [
-      { "id": 1, "name": "ExtD3-canvas" },
-      { "id": 2, "name": "ExtD3-heatmap" },
-      { "id": 3, "name": "Examples",
+      { "id": 1, "name": "ExtChart", "type": "overview" },
+      { "id": 2, "name": "ExtPolar", "type": "overview" },
+      { "id": 3, "name": "Examples", "type": "examplemid",
         "subitems": [
-          { "id": 1, "name": "D3 1" },
-          { "id": 2, "name": "D3 2" }
+          { "id": 1, "name": "ExtChart Overview", "type": "example" },
+          { "id": 2, "name": "ExtPolar Overview", "type": "example" }
         ]
       }
     ]
   },
-  { "id": 5, "name": "D3", "type": "root",
+  { "id": 5, "name": "D3", "count": 10,  "type": "root",
     "items": [
       { "id": 1, "name": "ExtD3", "type": "overview" },
       { "id": 2, "name": "ExtD3_canvas", "type": "overview" },
       { "id": 3, "name": "ExtD3_heatmap", "type": "overview" },
-      { "id": 4, "name": "ExtD3_horizontal-tree", "type": "overview" },
+      { "id": 4, "name": "ExtD3_horizontal_tree", "type": "overview" },
       { "id": 5, "name": "ExtD3_pack", "type": "overview" },
       { "id": 6, "name": "ExtD3_partition", "type": "overview" },
       { "id": 7, "name": "ExtD3_sunburst", "type": "overview" },
@@ -86,16 +85,27 @@
       { "id": 10, "name": "ExtD3_treemap", "type": "overview" },
       { "id": 11, "name": "Examples", "type": "examplemid",
         "subitems": [
-          { "id": 1, "name": "Overview" }
+          { "id": 1, "name": "Overview", "type": "example" }
         ]
       }
     ]
   },
-  { "id": 6, "name": "ExtCalendar", "type": "root",
+  { "id": 6, "name": "ExtCalendar", "count": 13,  "type": "root",
     "items": [
       { "id": 1, "name": "ExtCalendar", "type": "overview" },
-      { "id": 2, "name": "ExtCalendar-day", "type": "overview" },
-      { "id": 3, "name": "Examples", "type": "examplemid",
+      { "id": 2, "name": "ExtCalendar_day", "type": "overview" },
+      { "id": 3, "name": "ExtCalendar_days", "type": "overview" },
+      { "id": 4, "name": "ExtCalendar_dayview", "type": "overview" },
+      { "id": 5, "name": "ExtCalendar_daysview", "type": "overview" },
+      { "id": 6, "name": "ExtCalendar_list", "type": "overview" },
+      { "id": 7, "name": "ExtCalendar_month", "type": "overview" },
+      { "id": 8, "name": "ExtCalendar_monthview", "type": "overview" },
+      { "id": 9, "name": "ExtCalendar_multiview", "type": "overview" },
+      { "id": 10, "name": "ExtCalendar_week", "type": "overview" },
+      { "id": 11, "name": "ExtCalendar_weeks", "type": "overview" },
+      { "id": 12, "name": "ExtCalendar_weekview", "type": "overview" },
+      { "id": 13, "name": "ExtCalendar_weeksview", "type": "overview" },
+      { "id": 14, "name": "Examples", "type": "examplemid",
         "subitems": [
           { "id": 1, "name": "Overview", "type": "example" },
           { "id": 2, "name": "Basic Calendar", "type": "example" },

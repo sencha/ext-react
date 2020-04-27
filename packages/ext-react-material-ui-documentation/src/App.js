@@ -4,7 +4,9 @@ import {
   ExtCalendar,
   ExtD3,
   ExtD3_heatmap,
-  ExtPivotgrid
+  ExtPivotgrid,
+  ExtChart,
+  ExtPolar
 } from "@sencha/ext-react-material-ui";
 import axios from "axios";
 import {
@@ -99,6 +101,7 @@ export const App = () => {
             else if (resGeneralData != null) {
               theData = resGeneralData.data
             }
+            console.clear()
             setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
             function replacerCfgLink(match) {
@@ -111,7 +114,6 @@ export const App = () => {
               // return `<a href="javascript:sendToContext('cfg','${val}');">${val}</a>`
               //return `<span class="tooltip" xstyle="background:lightgray;border-bottom: 1px dotted black;">${val}<span class="tooltiptext">Tooltip text</span></span>`
             }
-
             function replacerOtherLink(match) {
               var start = match.lastIndexOf('.');
               var end = match.length;
@@ -120,17 +122,10 @@ export const App = () => {
               var b = '~~' + match + '~~'
               return a + ' ' + b
             }
-
-
             var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link #cfg(.)*?[}]/g) , replacerCfgLink )
-
             //var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link.*[}]/g) , replacerCfgLink )
             setText(afterCfgLink)
-
             //setText(resOverviewText.data.text)
-
-
-
             setPropertyNames(resProperties.data.propertyNames)
             setProperties(resProperties.data.properties)
             setMethodNames(resMethods.data.methodNames)
@@ -143,9 +138,6 @@ export const App = () => {
             setOverviewcode(resOverviewCode.data)
             setMaintab(0);
           }));
-        return
-
-
         break;
         case 'example':
           setCode('')
@@ -171,14 +163,14 @@ export const App = () => {
             else if (resGeneral2Data != null) {
               theData = resGeneral2Data.data
             }
+            console.clear()
             setExamplename(name)
             setReactname(reactname)
             setData(theData)
             setCode(resExampleCode.data)
-            setMaintab(0);
+            setMaintab(1);
           }));
         break;
-
         case 'guide':
           setMaintab(3);
           if (reactname != 'Home') {
@@ -201,7 +193,6 @@ export const App = () => {
               setGuide(data)
             });
             break;
-
         case 'welcome':
             setMaintab(3);
             axios
@@ -424,7 +415,16 @@ export const App = () => {
   const onEventClick = (event, index, name, events) => {
   }
 
-  const scope = { data, ExtGrid, ExtCalendar, ExtD3, ExtD3_heatmap, ExtPivotgrid };
+  const scope = {
+    data,
+    ExtGrid,
+    ExtCalendar,
+    ExtD3,
+    ExtD3_heatmap,
+    ExtPivotgrid,
+    ExtChart,
+    ExtPolar
+   };
 
   return menu.length ? (
     <React.Fragment>
@@ -470,9 +470,7 @@ export const App = () => {
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
               <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray',padding:'20px'}}>
-
-              <ReactMarkdown source={text}/>
-
+                <ReactMarkdown source={text}/>
                 {/* <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
                   {text}
                 </pre> */}

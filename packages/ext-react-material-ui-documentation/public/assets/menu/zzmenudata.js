@@ -119,7 +119,9 @@ export function getMenu() {
 //   "ExtCalendar-weeks",
 //   "ExtCalendar-weeksview",
 //   "ExtCalendar-weekview",
+
 //   "ExtChart",
+
 //   "ExtD3",
 //   "ExtD3-canvas",
 //   "ExtD3-heatmap",
@@ -130,11 +132,14 @@ export function getMenu() {
 //   "ExtD3-svg",
 //   "ExtD3-tree",
 //   "ExtD3-treemap",
+
 //   "ExtGrid",
+
 //   "ExtPivotd3container",
 //   "ExtPivotgrid",
 //   "ExtPivotheatmap",
 //   "ExtPivottreemap",
+
 //   "ExtPolar",
 //   "ExtTree",
 //   "ExtTreelist"
