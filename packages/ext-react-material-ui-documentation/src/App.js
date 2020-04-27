@@ -21,7 +21,8 @@ import Avatar from '@material-ui/core/Avatar';
 import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
-import ReactMarkdown from 'react-markdown'
+//import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 import SplitPane from 'react-split-pane'
 //import { set } from 'd3';
 
@@ -470,7 +471,7 @@ export const App = () => {
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
               <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray',padding:'20px'}}>
-                <ReactMarkdown source={text}/>
+                <ReactMarkdown source={text} escapeHtml={false}/>
                 {/* <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
                   {text}
                 </pre> */}
@@ -525,8 +526,8 @@ export const App = () => {
             {/* examples section */}
             {maintab === 3 &&
               <Box className="vbox" style={{background:'lightgray'}}>
-                <div className="vbox " style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'1px solid gray'}}>
-                  <ReactMarkdown source={guide}/>
+                <div className="vbox2" style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'1px solid gray'}}>
+                  <ReactMarkdown source={guide} escapeHtml={false}/>
                 </div>
               </Box>
             }
