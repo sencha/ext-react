@@ -3,6 +3,12 @@
 //import data from './data';
 
 class Rows extends React.Component {
+
+  constructor() {
+    super()
+    console.log(data)
+  }
+
   render() {
     return (
       <ExtGrid
@@ -33,4 +39,5 @@ class Rows extends React.Component {
       />
     )
   }
+
 }

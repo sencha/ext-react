@@ -1,0 +1,67 @@
+
+    async function go(theJs, theJson1, theJson2) {
+      console.log(theJs)
+      console.log(theJson1)
+      console.log(theJson2)
+      // var axiosArray = []
+      // axiosArray.push(axios.get(theJs))
+      // axiosArray.push(axios.get(theJson1))
+      // axiosArray.push(axios.get(theJson2))
+
+      // await axios.all(axiosArray).then(axios.spread((...responses) => {
+      //   const responseOne = responses[0]
+      //   const responseTwo = responses[1]
+      //   const responesThree = responses[2]
+      //   // use/access the results
+      // })).catch(errors => {
+      //   console.log(errors)
+      //   // react on errors.
+      // })
+
+      function useNull() {
+        return null;
+      }
+
+      axios.all([
+        axios.get(theJs).catch(useNull),
+       axios.get(theJson1).catch(useNull),
+       axios.get(theJson2).catch(useNull)
+  ]).then(axios.spread(function (res1, res2, res3) {
+    console.log(res1)
+    console.log(res2)
+    console.log(res3)
+      // res1, res2, and res3 contains the response or null if they failed
+  }));
+
+
+
+
+      console.log('here')
+
+
+    //   for(const item in array) {
+    //     const axiosArray = []
+    //     array.push (axios.get('some/api/' + item))
+    // }
+
+    //   const promise1 = axios.get(theJs);
+    //   const promise2 = axios.get(theJson1);
+    //   const promise3 = axios.get(theJson2);
+
+    //   Promise.all([promise1, promise2, promise3]).then(function(values) {
+    //     console.log(values);
+    //   });
+
+
+      // const jsPromise = axios(theJs);
+      // const jsonForCategoryPromise = axios(theJsonForCategory);
+      // const jsonForAppPromise = axios(theJsonForApp);
+      // // await all n promises to come back and destructure the result into their own variables
+      // const [jsreturn, jsonforcategoryreturn, jsonforappreturn] = await Promise.all([jsPromise, jsonForCategoryPromise,jsonForAppPromise]);
+      // console.log(jsreturn, jsonforcategoryreturn, jsonforappreturn);
+
+
+      //console.log(jsreturn.data, jsonforcategoryreturn.data, jsonforappreturn.data); // cool, {...}, {....}
+
+    }
+

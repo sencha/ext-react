@@ -35,16 +35,15 @@
       }
     ]
   },
-  { "id": 2, "name": "ExtPivotGrid", "type": "root",
+  { "id": 2, "name": "Pivotgrid", "type": "root",
     "items": [
-      { "id": 1, "name": "ExtPivotGrid" },
-      { "id": 2, "name": "ExtPivotd3container" },
-      { "id": 3, "name": "ExtPivotheatmap" },
-      { "id": 4, "name": "ExtPivottreemap" },
-      { "id": 5, "name": "Examples",
+      { "id": 1, "name": "ExtPivotgrid", "type": "overview" },
+      { "id": 2, "name": "ExtPivotd3container", "type": "overview" },
+      { "id": 3, "name": "ExtPivotheatmap", "type": "overview" },
+      { "id": 4, "name": "ExtPivottreemap", "type": "overview" },
+      { "id": 5, "name": "Examples", "type": "examplemid",
         "subitems": [
-          { "id": 1, "name": "D3 1" },
-          { "id": 2, "name": "D3 2" }
+          { "id": 1, "name": "Overview", "type": "example" }
         ]
       }
     ]

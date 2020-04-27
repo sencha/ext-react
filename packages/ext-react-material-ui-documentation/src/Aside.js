@@ -55,7 +55,7 @@ export default class Aside extends Component {
 
 
       <React.Fragment>
-
+<div className="shadow" style={{background:'white',border:'1px solid gray',margin:'10px 20px 20px 20px',flex: '1', display: 'flex', flexDirection: 'column', overflow: 'auto'}}>
 
     <div style={{height: '50px'}}>
       <AppBar position="static">
@@ -108,6 +108,7 @@ export default class Aside extends Component {
       />
     </div>
 
+    </div>
     </React.Fragment>
 
 

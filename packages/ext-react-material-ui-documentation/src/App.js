@@ -3,7 +3,8 @@ import {
   ExtGrid,
   ExtCalendar,
   ExtD3,
-  ExtD3_heatmap
+  ExtD3_heatmap,
+  ExtPivotgrid
 } from "@sencha/ext-react-material-ui";
 import axios from "axios";
 import {
@@ -19,6 +20,7 @@ import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
 import ReactMarkdown from 'react-markdown'
+import SplitPane from 'react-split-pane'
 //import { set } from 'd3';
 
 export const App = () => {
@@ -46,6 +48,20 @@ export const App = () => {
   const logoMaterialUI = `${process.env.PUBLIC_URL}/assets/images/logo_raw.svg`
 
   useEffect(() => {
+
+  //   const getMenu = async () => {
+  //     let res = await axios.get("./assets/menu/menu.json");
+  //     // let { data } = res.data;
+  //     // this.setState({ users: data });
+  //     setMenu(data);
+  //     onMenuClick('Home', 0, 'home', 'Home')
+  // };
+
+  // getMenu()
+
+
+
+
     //setVersion(process.env.REACT_APP_VERSION)
     axios
       .get("./assets/menu/menu.json")
@@ -77,10 +93,91 @@ export const App = () => {
     // console.log(reactname)
     var folder = ''
     var examplename = ''
-
     switch (type) {
       case 'overview':
         setOverviewcode('')
+        setMaintab(5);
+        folder = reactname
+        examplename = 'Overview'
+
+        var overviewText = "./assets/doc-material-ui/" + reactname + ".json"
+        var overviewCode = './assets/code/' + folder + '/' + examplename + '.js'
+        var overviewData = './assets/code/' + folder + '/' + examplename + '.json'
+        var generalData = './assets/code/' + folder + '/data.json';
+        var properties = "./assets/doc-material-ui/" + reactname + "Properties.json"
+        var methods = "./assets/doc-material-ui/" + reactname + "Methods.json"
+        var events = "./assets/doc-material-ui/" + reactname + "Events.json"
+
+        function useNull() {return null;}
+        axios.all([
+          axios.get(overviewText).catch(useNull),
+          axios.get(overviewCode).catch(useNull),
+          axios.get(overviewData).catch(useNull),
+          axios.get(generalData).catch(useNull),
+          axios.get(properties).catch(useNull),
+          axios.get(methods).catch(useNull),
+          axios.get(events).catch(useNull),
+        ]).then(axios.spread(function (resOverviewText, resOverviewCode, resOverviewData, resGeneralData, resProperties, resMethods, resEvents) {
+          var theData = []
+          if (resOverviewData != null) {
+            theData = resOverviewData.data
+          }
+          else if (resGeneralData != null) {
+            theData = resGeneralData.data
+          }
+          setReactname(reactname)
+          setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
+          setData(theData)
+          setText(resOverviewText.data.text)
+          setPropertyNames(resProperties.data.propertyNames)
+          setProperties(resProperties.data.properties)
+          setMethodNames(resMethods.data.methodNames)
+          setMethods(resMethods.data.methods)
+          setEventNames(resEvents.data.eventNames)
+          setEvents(resEvents.data.events)
+          setOverviewcode(resOverviewCode.data)
+          setMaintab(0);
+        }));
+
+        return
+
+
+
+
+
+
+
+
+        // console.log('./assets/code/' + folder + '/' + examplename + '.js')
+
+        // axios
+        // .get('./assets/code/' + folder+ '/' + examplename + '.js')
+        // .then(({ data }) => {
+        //   var overviewcode = data
+        //   console.log(overviewcode)
+        //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
+        //   .then(({ data }) => {
+        //     setMaintab(0);
+        //     setReactname(reactname)
+        //     setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
+        //     console.log(data)
+        //     setData(data)
+        //     console.log(overviewcode)
+        //     setOverviewcode(overviewcode)
+
+        //     console.log('b')
+
+        //   })
+
+
+
+
+        // });
+        break;
+
+
+      case 'overview2':
+        //setOverviewcode('')
         setMaintab(0);
         setReactname(reactname)
         setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
@@ -90,14 +187,29 @@ export const App = () => {
         folder = reactname
         examplename = 'Overview'
         //refactor
+        console.log('a')
         axios.get('./assets/code/' + folder + '/' + examplename + '.json')
           .then(({ data }) => {
+            console.log('b')
             setData(data)
+            console.log('b2')
+
+            axios
+            .get('./assets/code/' + folder+ '/' + examplename + '.js')
+            .then(({ data }) => {
+              setOverviewcode(data)
+            });
+
+
+
           })
           .catch(function (error) {
+            console.log('c')
             //console.clear()
+            //console.log('\n'.repeat('1'));
             axios.get('./assets/code/' + folder + '/data.json')
             .then(({ data }) => {
+              console.log('d')
 
 
 
@@ -105,6 +217,7 @@ export const App = () => {
               axios
               .get('./assets/code/' + folder + '/' + examplename + '.js')
               .then(({ data }) => {
+                console.log('e')
                 setOverviewcode(data)
               });
 
@@ -113,6 +226,8 @@ export const App = () => {
             })
             .catch(function (error) {
               //console.clear()
+              //console.log('\n'.repeat('1'));
+              console.log('f')
               setData([])
 
 
@@ -126,6 +241,7 @@ export const App = () => {
 
             })
           })
+          console.log('b3')
         //refactor
 
 
@@ -173,6 +289,8 @@ export const App = () => {
             setData(data)
           })
           .catch(function (error) {
+            console.clear()
+            console.log('\n'.repeat('1'));
             axios.get('./assets/code/' + folder + '/data.json')
             .then(({ data }) => {
               setData(data)
@@ -187,6 +305,8 @@ export const App = () => {
 
             })
             .catch(function (error) {
+              console.clear()
+              console.log('\n'.repeat('1'));
                setData([])
 
                axios
@@ -247,7 +367,7 @@ export const App = () => {
   const onEventClick = (event, index, name, events) => {
   }
 
-  const scope = { data, ExtGrid, ExtCalendar, ExtD3, ExtD3_heatmap };
+  const scope = { data, ExtGrid, ExtCalendar, ExtD3, ExtD3_heatmap, ExtPivotgrid };
 
   return menu.length ? (
     <React.Fragment>
@@ -258,6 +378,10 @@ export const App = () => {
       {/* main */}
       <Box className="hbox">
         {/* nav */}
+
+
+
+
         <Box className="w300 vbox">
           <Box className="hTitleleft">
             {/* <Avatar alt="" variant="square" src={logoExtReact} />
@@ -266,11 +390,20 @@ export const App = () => {
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI Documentation</div>
           </Box>
+
           <Box className="vbox senchablue">
             <NestedList menu={menu} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
+
         {/* nav */}
+
+        {/* <Box className="w300 vbox">
+          splitter
+        </Box> */}
+
+
+
         {/* center */}
         <Box className="hbox">
           {/* title and detail */}
@@ -299,17 +432,19 @@ export const App = () => {
 
 
 
-              <Box className="vbox" style={{margin:'20px 20px 20px 10px',background:'white',border:'1px solid gray'}}>
+              {/* style={{flex:'1',margin:'20px',border:'1px solid gray'}} */}
 
-                <Box className="hbox" style={{}}>
+              <Box className="vbox">
+
+                <Box className="hbox shadow" style={{flex:'1',margin:'20px 20px 10px 20px',border:'1px solid gray',background:'white'}}>
                   {overviewcode !== '' &&
                   <LiveProvider
                     code={overviewcode}
                     scope={scope}
                     theme={theme}
                   >
-                   <LivePreview style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
-                   <LiveError/>
+                   <LivePreview style={{flex:'1'}}/>
+                   <LiveError style={{flex:'1'}}/>
                   </LiveProvider>
                   }
                   {overviewcode === '' &&
@@ -360,6 +495,7 @@ export const App = () => {
                   <div className="hbox">
                     <LiveEditor className="shadow" style={{flex:'1',overflow:'auto',margin:'20px 0 20px 20px',border:'1px solid gray',whiteSpace:'inherit'}}/>
                     <LivePreview className="shadow" style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
+
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>
@@ -372,16 +508,17 @@ export const App = () => {
             </Box>
 
             }
-            {/* {maintab === 2 &&
+            {maintab === 5 &&
               <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray'}}>
-                Welcome to the ExtReact for Material Documentation
+               Loading
               </Box>
-            } */}
+            }
             {/* examples section */}
           </Box>
           {/* title and detail */}
         </Box>
         {/* center */}
+
         {/* aside */}
         {aside === 1 &&
         <Box className="w300 vbox border">aside</Box>
