@@ -2,7 +2,7 @@
   { "id": 0, "name": "Home", "count": 0, "type": "home",
     "items": [
       { "id": 1, "name": "Welcome", "type": "welcome" },
-      { "id": 2, "name": "Guides", "type": "guidemid",
+      { "id": 3, "name": "Guides", "type": "guidemid",
         "subitems": [
           { "id": 1, "name": "Getting Started", "type": "guide" },
           { "id": 2, "name": "Getting Started - Detailed", "type": "guide" }
