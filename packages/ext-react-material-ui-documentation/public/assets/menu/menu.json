@@ -1,24 +1,24 @@
 [
-  { "id": 0, "title": "Rows Example", "name": "Home", "count": 0, "type": "home",
+  { "id": 0, "title": "Home", "name": "Home", "count": 0, "type": "home",
     "items": [
-      { "id": 1, "title": "Rows Example", "name": "Welcome", "component": "ExtGrid", "type": "welcome" },
-      { "id": 3, "title": "Rows Example", "name": "Guides", "type": "guidemid",
+      { "id": 1, "title": "Welcome", "name": "Welcome", "type": "welcome" },
+      { "id": 3, "title": "Guides", "name": "Guides", "type": "guidemid",
         "subitems": [
-          { "id": 1, "title": "Rows Example", "name": "Getting Started", "component": "ExtGrid", "type": "guide" },
-          { "id": 2, "title": "Rows Example", "name": "Getting Started - Detailed", "component": "ExtGrid", "type": "guide" }
+          { "id": 1, "name": "Getting Started", "type": "guide" },
+          { "id": 2, "name": "Getting Started - Detailed", "type": "guide" }
         ]
       }
     ]
   },
-  { "id": 1, "title": "Rows Example", "name": "Grid", "count": 1,  "type": "root",
+  { "id": 1, "title": "Grid", "name": "Grid", "count": 1,  "type": "root",
     "items": [
-      { "id": 1, "title": "Rows Example", "name": "ExtGrid", "component": "ExtGrid", "type": "overview" },
+      { "id": 1, "name": "ExtGrid", "type": "overview" },
       { "id": 2, "title": "Rows Example", "name": "Rows", "component": "ExtGrid", "type": "example" },
 
-      { "id": 3, "title": "Rows Example", "name": "ExtGrid Guides", "type": "guidemid",
+      { "id": 3, "name": "ExtGrid Guides", "type": "guidemid",
         "subitems": [
-          { "id": 1, "title": "Rows Example", "name": "Widget Integration", "component": "ExtGrid", "type": "guide" },
-          { "id": 2, "title": "Rows Example", "name": "Grid Configurations", "component": "ExtGrid", "type": "guide" }
+          { "id": 1, "name": "Widget Integration", "type": "guide" },
+          { "id": 2, "name": "Grid Configurations", "type": "guide" }
         ]
       },
       { "id": 4, "name": "Row Examples", "type": "examplemid",
@@ -32,6 +32,85 @@
           { "id": 1, "title": "Rows Example", "name": "Columns", "component": "ExtGrid", "type": "example" },
           { "id": 2, "title": "Rows Example", "name": "Filtering", "component": "ExtGrid", "type": "example" },
           { "id": 3, "title": "Rows Example", "name": "Cell Editing", "component": "ExtGrid", "type": "example" }
+        ]
+      }
+    ]
+  },
+  { "id": 2, "title": "Pivotgrid", "name": "Pivotgrid", "count": 4,  "type": "root",
+    "items": [
+      { "id": 1, "name": "ExtPivotgrid", "type": "overview" },
+      { "id": 2, "name": "ExtPivotd3container", "type": "overview" },
+      { "id": 3, "name": "ExtPivotheatmap", "type": "overview" },
+      { "id": 4, "name": "ExtPivottreemap", "type": "overview" },
+      { "id": 5, "name": "Examples", "type": "examplemid",
+        "subitems": [
+          { "id": 1, "name": "Overview", "type": "example" }
+        ]
+      }
+    ]
+  },
+  { "id": 3, "title": "Tree", "name": "Tree", "count": 2,  "type": "root",
+    "items": [
+      { "id": 1, "name": "ExtTree", "type": "overview" },
+      { "id": 2, "name": "ExtTreelist", "type": "overview" },
+      { "id": 3, "name": "Examples", "type": "examplemid",
+        "subitems": [
+          { "id": 1, "name": "Overview", "type": "example" }
+        ]
+      }
+    ]
+  },
+  { "id": 4, "title": "Chart", "name": "Chart", "count": 2,  "type": "root",
+    "items": [
+      { "id": 1, "name": "ExtChart", "type": "overview" },
+      { "id": 2, "name": "ExtPolar", "type": "overview" },
+      { "id": 3, "name": "Examples", "type": "examplemid",
+        "subitems": [
+          { "id": 1, "name": "ExtChart Overview", "type": "example" },
+          { "id": 2, "name": "ExtPolar Overview", "type": "example" }
+        ]
+      }
+    ]
+  },
+  { "id": 5, "title": "D3", "name": "D3", "count": 10,  "type": "root",
+    "items": [
+      { "id": 1, "name": "ExtD3", "type": "overview" },
+      { "id": 2, "name": "ExtD3_canvas", "type": "overview" },
+      { "id": 3, "name": "ExtD3_heatmap", "type": "overview" },
+      { "id": 4, "name": "ExtD3_horizontal_tree", "type": "overview" },
+      { "id": 5, "name": "ExtD3_pack", "type": "overview" },
+      { "id": 6, "name": "ExtD3_partition", "type": "overview" },
+      { "id": 7, "name": "ExtD3_sunburst", "type": "overview" },
+      { "id": 8, "name": "ExtD3_svg", "type": "overview" },
+      { "id": 9, "name": "ExtD3_tree", "type": "overview" },
+      { "id": 10, "name": "ExtD3_treemap", "type": "overview" },
+      { "id": 11, "name": "Examples", "type": "examplemid",
+        "subitems": [
+          { "id": 1, "name": "Overview", "type": "example" }
+        ]
+      }
+    ]
+  },
+  { "id": 6, "title": "Calendar", "name": "Calendar", "count": 13,  "type": "root",
+    "items": [
+      { "id": 1, "name": "ExtCalendar", "type": "overview" },
+      { "id": 2, "name": "ExtCalendar_day", "type": "overview" },
+      { "id": 3, "name": "ExtCalendar_days", "type": "overview" },
+      { "id": 4, "name": "ExtCalendar_dayview", "type": "overview" },
+      { "id": 5, "name": "ExtCalendar_daysview", "type": "overview" },
+      { "id": 6, "name": "ExtCalendar_list", "type": "overview" },
+      { "id": 7, "name": "ExtCalendar_month", "type": "overview" },
+      { "id": 8, "name": "ExtCalendar_monthview", "type": "overview" },
+      { "id": 9, "name": "ExtCalendar_multiview", "type": "overview" },
+      { "id": 10, "name": "ExtCalendar_week", "type": "overview" },
+      { "id": 11, "name": "ExtCalendar_weeks", "type": "overview" },
+      { "id": 12, "name": "ExtCalendar_weekview", "type": "overview" },
+      { "id": 13, "name": "ExtCalendar_weeksview", "type": "overview" },
+      { "id": 14, "name": "Examples", "type": "examplemid",
+        "subitems": [
+          { "id": 1, "name": "Overview", "type": "example" },
+          { "id": 2, "name": "Basic Calendar", "type": "example" },
+          { "id": 3, "name": "Another Calendar", "type": "example" }
         ]
       }
     ]

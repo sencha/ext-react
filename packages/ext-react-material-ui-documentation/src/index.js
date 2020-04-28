@@ -1,6 +1,7 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
-import ExtReactDOM from '@sencha/ext-react-material-ui';
+//import ExtReactDOM from '@sencha/ext-react-material-ui';
+import ExtReactDOM from '@sencha/ext-react-material-ui/dist/common/ExtReactDOM';
 import '@sencha/ext-react-material-ui-engine';
 import '@sencha/ext-react-material-ui-theme';
 
@@ -11,10 +12,13 @@ import theme from './theme';
 
 import './index.css';
 import { App } from './App';
+import { Simple } from './Simple';
 //import NestedList from './NestedList';
 //import { AppRecent } from './AppRecent';
 //import { Live } from './Live';
 import * as serviceWorker from './serviceWorker';
+
+
 
 
 import * as d3 from 'd3'
