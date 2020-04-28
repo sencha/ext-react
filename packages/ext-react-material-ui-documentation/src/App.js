@@ -60,7 +60,7 @@ export const App = () => {
       });
   }, []);
 
-  const onMenuClick = (name, key, type, reactname) => {
+  const onMenuClick = (name, key, type, reactname, component) => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -143,11 +143,15 @@ export const App = () => {
         case 'example':
           setCode('')
           setMaintab(5);
-          folder = 'Ext' + reactname
+          folder = component; //'Ext' + reactname
           examplename = name
           var exampleCode = './assets/code/' + folder + '/' + examplename + '.js'
           var exampleData = './assets/code/' + folder + '/' + examplename + '.json'
           var general2Data = './assets/code/' + folder + '/data.json';
+
+
+          console.log(exampleCode)
+
           axios.all([
             axios.get(exampleCode).catch(useNull),
             axios.get(exampleData).catch(useNull),
@@ -164,7 +168,7 @@ export const App = () => {
             else if (resGeneral2Data != null) {
               theData = resGeneral2Data.data
             }
-            console.clear()
+            //console.clear()
             setExamplename(name)
             setReactname(reactname)
             setData(theData)

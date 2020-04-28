@@ -1,3 +1,6 @@
+import React from 'react';
+//import ReactDOM from 'react-dom';
+import ExtReactDOM from '@sencha/ext-react-material-ui';
 import '@sencha/ext-react-material-ui-engine';
 import '@sencha/ext-react-material-ui-theme';
 
@@ -5,9 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
 
-import React from 'react';
-//import ReactDOM from 'react-dom';
-import ExtReactDOM from '@sencha/ext-react-material-ui';
+
 import './index.css';
 import { App } from './App';
 //import NestedList from './NestedList';
