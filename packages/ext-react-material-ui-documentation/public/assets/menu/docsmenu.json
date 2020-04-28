@@ -4,8 +4,8 @@
       { "id": 1, "title": "Welcome", "name": "Welcome", "type": "welcome" },
       { "id": 3, "title": "Guides", "name": "Guides", "type": "guidemid",
         "items": [
-          { "id": 1, "name": "Getting Started", "type": "guide" },
-          { "id": 2, "name": "Getting Started - Detailed", "type": "guide" }
+          { "id": 1, "title": "Getting Started", "name": "Getting Started", "type": "guide" },
+          { "id": 2, "title": "Getting Started - Detailed", "name": "Getting Started - Detailed", "type": "guide" }
         ]
       }
     ]

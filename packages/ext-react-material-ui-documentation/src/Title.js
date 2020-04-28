@@ -16,13 +16,16 @@ export default class Title extends Component {
 
   render() {
     //const { selectedIndex } = this.state;
-    const { reactname, importtext, version } = this.props;
+    const { title, reactname, importtext, version } = this.props;
     return (
-      <React.Fragment>
-        <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{reactname} {reactname !== '' && <span>Component -&gt;</span>}</div>
-        <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{importtext}</div>
-        <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{version}</div>
-      </React.Fragment>
+
+        <div className="hbox">
+          <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{title}</div>
+          <div style={{fontSize:'24px',margin:'10px 10px 10px 10px'}}>{reactname} {reactname !== '' && <span>Component -&gt;</span>}</div>
+          <div style={{fontSize:'24px',margin:'10px 10px 10px 15px'}}>{importtext}</div>
+          <div style={{fontSize:'24px',margin:'10px 10px 10px 15px',justifyContent:'right',flex:'1',textAlign:'right'}}>{version}</div>
+        </div>
+
     )
   }
 
