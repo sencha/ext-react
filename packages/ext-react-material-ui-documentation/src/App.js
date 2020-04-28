@@ -23,10 +23,15 @@ import Title from './Title';
 import Aside from './Aside';
 //import ReactMarkdown from 'react-markdown'
 import ReactMarkdown from 'react-markdown/with-html'
-import SplitPane from 'react-split-pane'
+//import SplitPane from 'react-split-pane'
 //import { set } from 'd3';
 
 export const App = () => {
+  const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
+
+  const [rootopen, setRootopen] = useState(false);
+  const [show, setShow] = useState('docs');
+  const [textforshow, setTextforshow] = useState('Documentation');
   const [data, setData] = useState([]);
   const [version] = useState('7.2.1.0');
   const [menu, setMenu] = useState([]);
@@ -50,17 +55,70 @@ export const App = () => {
   const logoExtReact = `${process.env.PUBLIC_URL}/assets/images/footer-logo.png`
   const logoMaterialUI = `${process.env.PUBLIC_URL}/assets/images/logo_raw.svg`
 
+
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
   useEffect(() => {
     //setVersion(process.env.REACT_APP_VERSION)
+    //http://localhost:3000/?show=examples#home
+    var menu = "./assets/menu/docsmenu.json"
+    var showparm = getUrlParameter('show')
+    //console.log(showparm.trim())
+    if (showparm.trim() === '') {
+      showparm = 'docs'
+      setTextforshow('Documentation')
+      menu = "./assets/menu/docsmenu.json"
+    }
+    else if (showparm.trim() === 'examples') {
+      showparm = 'examples'
+      setTextforshow('Examples')
+      menu = "./assets/menu/examplesmenu.json"
+      setRootopen(true)
+    }
+    else {
+      showparm = 'docs'
+      setTextforshow('Documentation')
+      menu = "./assets/menu/docsmenu.json"
+      setRootopen(false)
+    }
+    //console.log(showparm)
+    setShow(showparm)
+
+
+
+    //var hash = window.location.hash.substring(1);
+    //console.log(hash)
+
+
+
     axios
-      .get("./assets/menu/menu.json")
+      .get(menu)
       .then(({ data }) => {
         setMenu(data);
-        onMenuClick('Home', 0, 'home', 'Home')
+       // setMenuSelectedIndex(100)
+       // window.location.hash = 'home'
+
+        if(showparm === 'docs') {
+          onMenuClick('Home', 0, 'home', 'Home')
+        }
+        else {
+          onMenuClick('Examples', 0, 'exampleshome', 'Examples', 'Examples')
+        }
+
+        //onMenuClick('Home', 0, 'home', 'Home')
       });
   }, []);
 
   const onMenuClick = (name, key, type, reactname, component) => {
+    // console.log(key)
+    // if (rootopen == true) {
+    //   setRootopen(false)
+    // }
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -102,7 +160,7 @@ export const App = () => {
             else if (resGeneralData != null) {
               theData = resGeneralData.data
             }
-            console.clear()
+            //console.clear()
             setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
             function replacerCfgLink(match) {
@@ -115,14 +173,15 @@ export const App = () => {
               // return `<a href="javascript:sendToContext('cfg','${val}');">${val}</a>`
               //return `<span class="tooltip" xstyle="background:lightgray;border-bottom: 1px dotted black;">${val}<span class="tooltiptext">Tooltip text</span></span>`
             }
-            function replacerOtherLink(match) {
-              var start = match.lastIndexOf('.');
-              var end = match.length;
-              var val = match.substring(start+1,end-1)
-              var a = '**' + val + '**'
-              var b = '~~' + match + '~~'
-              return a + ' ' + b
-            }
+            // function replacerOtherLink(match) {
+            //   var start = match.lastIndexOf('.');
+            //   var end = match.length;
+            //   var val = match.substring(start+1,end-1)
+            //   var a = '**' + val + '**'
+            //   var b = '~~' + match + '~~'
+            //   return a + ' ' + b
+            // }
+
             var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link #cfg(.)*?[}]/g) , replacerCfgLink )
             //var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link.*[}]/g) , replacerCfgLink )
             setText(afterCfgLink)
@@ -148,10 +207,6 @@ export const App = () => {
           var exampleCode = './assets/code/' + folder + '/' + examplename + '.js'
           var exampleData = './assets/code/' + folder + '/' + examplename + '.json'
           var general2Data = './assets/code/' + folder + '/data.json';
-
-
-          console.log(exampleCode)
-
           axios.all([
             axios.get(exampleCode).catch(useNull),
             axios.get(exampleData).catch(useNull),
@@ -178,7 +233,7 @@ export const App = () => {
         break;
         case 'guide':
           setMaintab(3);
-          if (reactname != 'Home') {
+          if (reactname !== 'Home') {
             reactname = 'Ext' + reactname
           }
           axios
@@ -188,6 +243,17 @@ export const App = () => {
             setGuide(data)
           });
           break;
+
+        case 'exampleshome':
+          setMaintab(3);
+          axios
+          //.get(require("./guides/Home/exampleshomeome.md"))
+          .get("./assets/guides/Home/exampleshome.md")
+          .then(({ data }) => {
+            setGuide(data)
+          });
+          break;
+
 
         case 'home':
             setMaintab(3);
@@ -209,201 +275,6 @@ export const App = () => {
             break;
         default:
           break;
-
-
-
-
-
-
-
-
-
-        // console.log('./assets/code/' + folder + '/' + examplename + '.js')
-
-        // axios
-        // .get('./assets/code/' + folder+ '/' + examplename + '.js')
-        // .then(({ data }) => {
-        //   var overviewcode = data
-        //   console.log(overviewcode)
-        //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
-        //   .then(({ data }) => {
-        //     setMaintab(0);
-        //     setReactname(reactname)
-        //     setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
-        //     console.log(data)
-        //     setData(data)
-        //     console.log(overviewcode)
-        //     setOverviewcode(overviewcode)
-
-        //     console.log('b')
-
-        //   })
-
-
-
-
-        // });
-
-
-          // case 'example':
-          //   setCode('')
-          //   setMaintab(1);
-          //   setReactname(reactname)
-          //   setExamplename(name)
-
-
-
-
-
-
-          //   folder = 'Ext' + reactname
-          //   examplename = name
-          //   //refactor
-          //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
-          //     .then(({ data }) => {
-          //       setData(data)
-          //     })
-          //     .catch(function (error) {
-          //       console.clear()
-          //       console.log('\n'.repeat('1'));
-          //       axios.get('./assets/code/' + folder + '/data.json')
-          //       .then(({ data }) => {
-          //         setData(data)
-
-
-          //         axios
-          //         .get('./assets/code/' + folder + '/' + examplename + '.js')
-          //         .then(({ data }) => {
-          //           setCode(data)
-          //         });
-
-
-          //       })
-          //       .catch(function (error) {
-          //         console.clear()
-          //         console.log('\n'.repeat('1'));
-          //          setData([])
-
-          //          axios
-          //          .get('./assets/code/' + folder + '/' + examplename + '.js')
-          //          .then(({ data }) => {
-          //            setCode(data)
-          //          });
-
-          //       })
-          //     })
-          //   //refactor
-
-          //   break;
-
-
-
-
-
-
-
-      // case 'overview2':
-      //   //setOverviewcode('')
-      //   setMaintab(0);
-      //   setReactname(reactname)
-      //   setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
-
-
-
-      //   folder = reactname
-      //   examplename = 'Overview'
-      //   //refactor
-      //   console.log('a')
-      //   axios.get('./assets/code/' + folder + '/' + examplename + '.json')
-      //     .then(({ data }) => {
-      //       console.log('b')
-      //       setData(data)
-      //       console.log('b2')
-
-      //       axios
-      //       .get('./assets/code/' + folder+ '/' + examplename + '.js')
-      //       .then(({ data }) => {
-      //         setOverviewcode(data)
-      //       });
-
-
-
-      //     })
-      //     .catch(function (error) {
-      //       console.log('c')
-      //       //console.clear()
-      //       //console.log('\n'.repeat('1'));
-      //       axios.get('./assets/code/' + folder + '/data.json')
-      //       .then(({ data }) => {
-      //         console.log('d')
-
-
-
-      //         setData(data)
-      //         axios
-      //         .get('./assets/code/' + folder + '/' + examplename + '.js')
-      //         .then(({ data }) => {
-      //           console.log('e')
-      //           setOverviewcode(data)
-      //         });
-
-
-
-      //       })
-      //       .catch(function (error) {
-      //         //console.clear()
-      //         //console.log('\n'.repeat('1'));
-      //         console.log('f')
-      //         setData([])
-
-
-
-      //         axios
-      //         .get('./assets/code/' + folder+ '/' + examplename + '.js')
-      //         .then(({ data }) => {
-      //           setOverviewcode(data)
-      //         });
-
-
-      //       })
-      //     })
-      //     console.log('b3')
-      //   //refactor
-
-
-
-
-
-      //   axios
-      //   .get("./assets/doc-material-ui/" + reactname + ".json")
-      //   .then(({ data }) => {
-      //     setText(data.text)
-      //   });
-      //   axios
-      //   .get("./assets/doc-material-ui/" + reactname + "Properties.json")
-      //   .then(({ data }) => {
-      //     setPropertyNames(data.propertyNames)
-      //     setProperties(data.properties)
-      //   });
-      //   axios
-      //   .get("./assets/doc-material-ui/" + reactname + "Methods.json")
-      //   .then(({ data }) => {
-      //     setMethodNames(data.methodNames)
-      //     setMethods(data.methods)
-      //   });
-      //   axios
-      //   .get("./assets/doc-material-ui/" + reactname + "Events.json")
-      //   .then(({ data }) => {
-      //     setEventNames(data.eventNames)
-      //     setEvents(data.events)
-      //   });
-      //   break;
-
-
-
-
-
-
     }
   }
 
@@ -446,11 +317,12 @@ export const App = () => {
             <Avatar alt="" variant="square" src={logoMaterialUI} /> */}
             <img style={{margin:'12px 2px 2px 82px'}} alt="" src={logoExtReact}/>
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
-            <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI Documentation</div>
+            <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
 
           <Box className="vbox senchablue">
-            <NestedList menu={menu} onMenuClick={onMenuClick}/>
+            {/* <NestedList menu={menu} menuSelectedIndex={menuSelectedIndex} onMenuClick={onMenuClick}/> */}
+            <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
         {/* nav */}

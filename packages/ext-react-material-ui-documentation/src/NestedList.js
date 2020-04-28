@@ -13,7 +13,9 @@ import Typography from "@material-ui/core/Typography";
 
 class NestedList extends React.Component {
   state = {
-    menuSelectedIndex: 0
+ //   menuSelectedIndex: this.props.menuSelectedIndex,
+    menuSelectedIndex: 0,
+ //   grid: false
   };
 
   handleClick = (name, key, type, reactname, component) => {
@@ -39,6 +41,10 @@ class NestedList extends React.Component {
   render() {
     const menu = this.props.menu;
     const { menuSelectedIndex } = this.state;
+    const { rootopen } = this.props;
+    //console.log(this.props)
+
+    //console.log(menuSelectedIndex)
     return (
       <div>
         <List>
@@ -49,12 +55,12 @@ class NestedList extends React.Component {
                   <ListItemText primary={<Typography style={{color: '#ffffff',fontSize:'18px' }}>{rootitem.title}</Typography>} />
                   {rootitem.count !== 0 &&
                   <ListItemAvatar>
-                  <Avatar style={{height:'30px',width:'30px',color:'black',background:'white'}}>{rootitem.count}</Avatar>
+                    <Avatar style={{height:'30px',width:'30px',color:'black',background:'white'}}>{rootitem.count}</Avatar>
                   </ListItemAvatar>
                   }
-                  {this.state[rootitem.title] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)}
+                  {this.state[rootitem.title] || rootopen ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)}
                 </ListItem>
-                <Collapse key={rootitem.items.id} component="li" in={this.state[rootitem.title]} timeout="auto" unmountOnExit>
+                <Collapse key={rootitem.items.id} component="li" in={this.state[rootitem.title] || rootopen} timeout="auto" unmountOnExit>
                 <List>
                 {rootitem.items.map((miditem, index2) =>
                   {
@@ -65,7 +71,7 @@ class NestedList extends React.Component {
                           {miditem.items ? (this.state[miditem.title] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)):(<div></div>)}
                         </ListItem>
                         {miditem.items ? (
-                          <Collapse key={miditem.subitems.id} component="li" in={this.state[miditem.title]} timeout="auto" unmountOnExit>
+                          <Collapse key={miditem.items.id} component="li" in={this.state[miditem.title]} timeout="auto" unmountOnExit>
                           <List>
                           {miditem.items.map((subitem, index3) => {
                             return (
