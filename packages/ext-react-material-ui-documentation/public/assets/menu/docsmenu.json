@@ -1,13 +1,9 @@
 [
   { "id": 0, "title": "Home", "name": "Home", "componentname": "Home", "count": 0,"type": "home",
     "items": [
-      { "id": 1, "title": "Welcome", "name": "Welcome", "componentname": "", "type": "welcome" },
-      { "id": 3, "title": "Guides", "name": "Guides", "componentname": "", "type": "guidemid",
-        "items": [
-          { "id": 1, "title": "Getting Started", "name": "Getting Started", "componentname": "", "type": "guide" },
-          { "id": 2, "title": "Getting Started - Detailed", "name": "Getting Started - Detailed", "componentname": "", "type": "guide" }
-        ]
-      }
+      { "id": 1, "title": "Getting Started", "name": "Getting Started", "componentname": "Home", "type": "guide" },
+      { "id": 2, "title": "Getting Started - Detailed", "name": "Getting Started - Detailed", "componentname": "Home", "type": "guide" },
+      { "id": 3, "title": "Adding to App", "name": "Adding", "componentname": "Home", "type": "guide" }
     ]
   },
   { "id": 1, "title": "Grid", "name": "Grid", "count": 1,  "type": "root",
@@ -17,8 +13,8 @@
 
       { "id": 3, "title": "ExtGrid Guides", "name": "ExtGrid Guides", "componentname": "", "type": "guidemid",
         "items": [
-          { "id": 1, "title": "Widget Integration", "name": "Widget Integration", "componentname": "", "type": "guide" },
-          { "id": 2, "title": "Grid Configurations", "name": "Grid Configurations", "componentname": "", "type": "guide" }
+          { "id": 1, "title": "Widget Integration", "name": "Widget Integration", "componentname": "ExtGrid", "type": "guide" },
+          { "id": 2, "title": "Grid Configurations", "name": "Grid Configurations", "componentname": "ExtGrid", "type": "guide" }
         ]
       },
       { "id": 4, "title": "Row Examples", "name": "Row Examples", "componentname": "", "type": "examplemid",

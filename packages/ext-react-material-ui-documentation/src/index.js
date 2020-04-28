@@ -12,7 +12,7 @@ import theme from './theme';
 
 import './index.css';
 import { App } from './App';
-import { Simple } from './Simple';
+//import { Simple } from './Simple';
 //import NestedList from './NestedList';
 //import { AppRecent } from './AppRecent';
 //import { Live } from './Live';
