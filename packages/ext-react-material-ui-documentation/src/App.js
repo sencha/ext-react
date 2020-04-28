@@ -67,7 +67,7 @@ export const App = () => {
   const [overviewcode, setOverviewcode] = useState('');
   const [code, setCode] = useState('');
   const [reactname, setReactname] = useState('');
-  const [importtext, setImporttext] = useState('');
+  //const [importtext, setImporttext] = useState('');
   const [text, setText] = useState('');
   const [asidevalue, setAsidevalue] = useState(0);
   const [propertyNames, setPropertyNames] = useState([]);
@@ -119,21 +119,21 @@ export const App = () => {
        // setMenuSelectedIndex(100)
        // window.location.hash = 'home'
         if(showparm === 'docs') {
-          onMenuClick('Home', 0, 'home', 'Home', 'Home', 'Home')
+          onMenuClick('Home Name', 'home', 'ExtHome', 'ExtHome', 'Home')
         }
         else {
-          onMenuClick('Examples', 0, 'exampleshome', 'Examples', 'Examples', 'Examples')
+          onMenuClick('Examples Name', 'exampleshome', 'ExtExampleshome', 'Examples', 'Examples')
         }
       });
   }, []);
 
 
   const onMenuClick = (name, type, reactname, componentname, title) => {
-    console.log(name)
-    console.log(type)
-    console.log(reactname)
-    console.log(componentname)
-    console.log(title)
+    // console.log(name)
+    // console.log(type)
+    // console.log(reactname)
+    // console.log(componentname)
+    // console.log(title)
 
     // console.log(key)
     // if (rootopen == true) {
@@ -187,7 +187,9 @@ export const App = () => {
               theData = resGeneralData.data
             }
             //console.clear()
-            setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
+
+            //setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
+            setTitle(`${reactname}  -> import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
             function replacerCfgLink(match) {
               var b = '~~' + match + '~~'
@@ -381,8 +383,6 @@ export const App = () => {
             <Box className="hTitle hbox">
               <Title
                 title={title}
-                reactname={reactname}
-                importtext={importtext}
                 version={version}
               />
             </Box>
@@ -509,6 +509,15 @@ export const App = () => {
       {/* <Box className="h50 border footer"></Box> */}
      </React.Fragment>
   ) : (
-    <div>Loading...</div>
+    // <div>Loading...</div>
+    <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
+    <div style={{display:'flex',flexDirection:'column'}}>
+      <div style={{display:'flex',flexDirection:'row'}}>
+        <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoExtReact} />
+        <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoMaterialUI} />
+      </div>
+      <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div>
+   </div>
+  </Box>
   );
 }
