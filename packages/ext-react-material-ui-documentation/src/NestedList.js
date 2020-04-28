@@ -18,24 +18,31 @@ class NestedList extends React.Component {
  //   grid: false
   };
 
-  handleClick = (name, key, type, reactname, component, title) => {
+  handleClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, component, title)
+    console.log(key)
+    console.log(type)
+    this.props.onMenuClick(name, type, reactname, componentname, title)
   };
 
-  handleRootClick = (name, key, type, reactname, title) => {
+  handleRootClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, 'reactname', title)
+    console.log(key)
+    console.log(type)
+    //this.props.onMenuClick(name, type, reactname, 'reactname', title)
   };
 
-  handleMidClick = (name, key, type, reactname, title) => {
-    this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, 'mid', title)
-  };
+  // handleMidClick = (name, key, type, reactname, title) => {
+  //   this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
+  //console.log(key)
+  //   //this.props.onMenuClick(name, type, reactname, 'mid', title)
+  // };
 
-  handleExampleClick = (name, key, type, reactname, component, title) => {
+  handleExampleClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, component)
+    console.log(key)
+    console.log(type)
+    //this.props.onMenuClick(name, type, reactname, componentname)
   };
 
   render() {
@@ -51,7 +58,7 @@ class NestedList extends React.Component {
           {menu.map((rootitem, index1) => {
             return (
               <div key={rootitem.id}>
-                <ListItem button selected={menuSelectedIndex === (100*rootitem.id)} key={(100*rootitem.id)} onClick={this.handleRootClick.bind(this,rootitem.name,(100*rootitem.id),rootitem.type,rootitem.component,rootitem.title)}>
+                <ListItem button selected={menuSelectedIndex === (100*rootitem.id)} key={(100*rootitem.id)} onClick={this.handleClick.bind(this, rootitem.name, (100*rootitem.id), rootitem.type, rootitem.name, rootitem.componentname, rootitem.title)}>
                   <ListItemText primary={<Typography style={{color: '#ffffff',fontSize:'18px' }}>{rootitem.title}</Typography>} />
                   {rootitem.count !== 0 &&
                   <ListItemAvatar>
@@ -66,7 +73,7 @@ class NestedList extends React.Component {
                   {
                     return (
                       <div key={miditem.id}>
-                        <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id)} key={(100*rootitem.id)+(10*miditem.id)} onClick={this.handleClick.bind(this,miditem.name,(100*rootitem.id)+(10*miditem.id),miditem.type,miditem.name,miditem.component)}>
+                        <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id)} key={(100*rootitem.id)+(10*miditem.id)} onClick={this.handleClick.bind(this,miditem.name, (100*rootitem.id)+(10*miditem.id), miditem.type, miditem.name, miditem.componentname, miditem.title)}>
                           <ListItemText primary={<Typography className="mid" >{miditem.title}</Typography>}/>
                           {miditem.items ? (this.state[miditem.title] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)):(<div></div>)}
                         </ListItem>
@@ -75,7 +82,7 @@ class NestedList extends React.Component {
                           <List>
                           {miditem.items.map((subitem, index3) => {
                             return (
-                              <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id+(1*subitem.id))} key={(100*rootitem.id)+(10*miditem.id)+(1*subitem.id)} onClick={this.handleExampleClick.bind(this,subitem.name,(100*rootitem.id)+(10*miditem.id)+(1*subitem.id),subitem.type,rootitem.name,subitem.component)}>
+                              <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id+(1*subitem.id))} key={(100*rootitem.id)+(10*miditem.id)+(1*subitem.id)} onClick={this.handleClick.bind(this, subitem.name, (100*rootitem.id)+(10*miditem.id)+(1*subitem.id), subitem.type, subitem.name, subitem.componentname, subitem.title)}>
                                 <ListItemText primary={<Typography className="example" >{subitem.title}</Typography>} />
                               </ListItem>
                             )
