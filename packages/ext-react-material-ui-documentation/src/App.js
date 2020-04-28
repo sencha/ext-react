@@ -27,8 +27,11 @@ import ReactMarkdown from 'react-markdown/with-html'
 //import { set } from 'd3';
 
 export const App = () => {
+  var homepage = `${process.env.PUBLIC_URL}/`
+
   const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
 
+  const [title, setTitle] = useState('');
   const [rootopen, setRootopen] = useState(false);
   const [show, setShow] = useState('docs');
   const [textforshow, setTextforshow] = useState('Documentation');
@@ -66,24 +69,25 @@ export const App = () => {
   useEffect(() => {
     //setVersion(process.env.REACT_APP_VERSION)
     //http://localhost:3000/?show=examples#home
-    var menu = "./assets/menu/docsmenu.json"
+
+    var menu = homepage + "assets/menu/docsmenu.json"
     var showparm = getUrlParameter('show')
     //console.log(showparm.trim())
     if (showparm.trim() === '') {
       showparm = 'docs'
       setTextforshow('Documentation')
-      menu = "./assets/menu/docsmenu.json"
+      menu = homepage + "assets/menu/docsmenu.json"
     }
     else if (showparm.trim() === 'examples') {
       showparm = 'examples'
       setTextforshow('Examples')
-      menu = "./assets/menu/examplesmenu.json"
+      menu = homepage + "assets/menu/examplesmenu.json"
       setRootopen(true)
     }
     else {
       showparm = 'docs'
       setTextforshow('Documentation')
-      menu = "./assets/menu/docsmenu.json"
+      menu = homepage + "assets/menu/docsmenu.json"
       setRootopen(false)
     }
     //console.log(showparm)
@@ -104,17 +108,17 @@ export const App = () => {
        // window.location.hash = 'home'
 
         if(showparm === 'docs') {
-          onMenuClick('Home', 0, 'home', 'Home')
+          onMenuClick('Home', 0, 'home', 'Home', 'Home', 'Home')
         }
         else {
-          onMenuClick('Examples', 0, 'exampleshome', 'Examples', 'Examples')
+          onMenuClick('Examples', 0, 'exampleshome', 'Examples', 'Examples', 'Examples')
         }
 
         //onMenuClick('Home', 0, 'home', 'Home')
       });
   }, []);
 
-  const onMenuClick = (name, key, type, reactname, component) => {
+  const onMenuClick = (name, key, type, reactname, component, title) => {
     // console.log(key)
     // if (rootopen == true) {
     //   setRootopen(false)
@@ -122,6 +126,9 @@ export const App = () => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
+    if (title != undefined) {
+      setTitle(title)
+    }
 
     switch (type) {
       case 'overview':
@@ -129,13 +136,13 @@ export const App = () => {
         setMaintab(5);
         folder = reactname
         examplename = 'Overview'
-        var overviewCode = './assets/code/' + folder + '/' + examplename + '.js'
-        var overviewData = './assets/code/' + folder + '/' + examplename + '.json'
-        var generalData = './assets/code/' + folder + '/data.json';
-        var overviewText = "./assets/doc-material-ui/" + reactname + ".json"
-        var properties = "./assets/doc-material-ui/" + reactname + "Properties.json"
-        var methods = "./assets/doc-material-ui/" + reactname + "Methods.json"
-        var events = "./assets/doc-material-ui/" + reactname + "Events.json"
+        var overviewCode = homepage + './assets/code/' + folder + '/' + examplename + '.js'
+        var overviewData = homepage + './assets/code/' + folder + '/' + examplename + '.json'
+        var generalData = homepage + './assets/code/' + folder + '/data.json';
+        var overviewText = homepage + "./assets/doc-material-ui/" + reactname + ".json"
+        var properties = homepage + "./assets/doc-material-ui/" + reactname + "Properties.json"
+        var methods = homepage + "./assets/doc-material-ui/" + reactname + "Methods.json"
+        var events = homepage + "./assets/doc-material-ui/" + reactname + "Events.json"
         axios.all([
           axios.get(overviewCode).catch(useNull),
           axios.get(overviewData).catch(useNull),
@@ -204,9 +211,9 @@ export const App = () => {
           setMaintab(5);
           folder = component; //'Ext' + reactname
           examplename = name
-          var exampleCode = './assets/code/' + folder + '/' + examplename + '.js'
-          var exampleData = './assets/code/' + folder + '/' + examplename + '.json'
-          var general2Data = './assets/code/' + folder + '/data.json';
+          var exampleCode = homepage + './assets/code/' + folder + '/' + examplename + '.js'
+          var exampleData = homepage + './assets/code/' + folder + '/' + examplename + '.json'
+          var general2Data = homepage + './assets/code/' + folder + '/data.json';
           axios.all([
             axios.get(exampleCode).catch(useNull),
             axios.get(exampleData).catch(useNull),
@@ -238,7 +245,7 @@ export const App = () => {
           }
           axios
           //.get(require('./guides/' + reactname + '/' + name + '.md'))
-          .get('./assets/guides/' + reactname + '/' + name + '.md')
+          .get(homepage + './assets/guides/' + reactname + '/' + name + '.md')
           .then(({ data }) => {
             setGuide(data)
           });
@@ -248,7 +255,7 @@ export const App = () => {
           setMaintab(3);
           axios
           //.get(require("./guides/Home/exampleshomeome.md"))
-          .get("./assets/guides/Home/exampleshome.md")
+          .get(homepage + "./assets/guides/Home/exampleshome.md")
           .then(({ data }) => {
             setGuide(data)
           });
@@ -259,7 +266,7 @@ export const App = () => {
             setMaintab(3);
             axios
             //.get(require("./guides/Home/Home.md"))
-            .get("./assets/guides/Home/Home.md")
+            .get(homepage + "./assets/guides/Home/Home.md")
             .then(({ data }) => {
               setGuide(data)
             });
@@ -268,7 +275,7 @@ export const App = () => {
             setMaintab(3);
             axios
             //.get(require("./guides/Home/Welcome.md"))
-            .get("./assets/guides/Home/Welcome.md")
+            .get(homepage + "./assets/guides/Home/Welcome.md")
             .then(({ data }) => {
               setGuide(data)
             });
@@ -336,6 +343,7 @@ export const App = () => {
             {/* title */}
             <Box className="hTitle hbox">
               <Title
+                title={title}
                 reactname={reactname}
                 importtext={importtext}
                 version={version}

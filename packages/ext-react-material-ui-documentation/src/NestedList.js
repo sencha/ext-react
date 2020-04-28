@@ -18,22 +18,22 @@ class NestedList extends React.Component {
  //   grid: false
   };
 
-  handleClick = (name, key, type, reactname, component) => {
+  handleClick = (name, key, type, reactname, component, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, component)
+    this.props.onMenuClick(name, key, type, reactname, component, title)
   };
 
-  handleRootClick = (name, key, type, reactname) => {
+  handleRootClick = (name, key, type, reactname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, 'reactname')
+    this.props.onMenuClick(name, key, type, reactname, 'reactname', title)
   };
 
-  handleMidClick = (name, key, type, reactname) => {
+  handleMidClick = (name, key, type, reactname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    this.props.onMenuClick(name, key, type, reactname, 'mid')
+    this.props.onMenuClick(name, key, type, reactname, 'mid', title)
   };
 
-  handleExampleClick = (name, key, type, reactname, component) => {
+  handleExampleClick = (name, key, type, reactname, component, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
     this.props.onMenuClick(name, key, type, reactname, component)
   };
