@@ -26,6 +26,13 @@ ExtReact for Material-UI allows you to add many data-centric components to your 
 
 ## Resources
 
-- [Examples](http://se.sencha.com/ext-react-material-ui-examples/)
-- [ExtReact for Material UI Documentation](https://docs.sencha.com/extreact/7.2.0/modern/Ext.grid.Grid.html)
+- [Examples](https://examples.sencha.com/ExtReact/7.2.0/ext-react-material-ui-documentation/)
+- [ExtReact for Material UI Documentation](https://examples.sencha.com/ExtReact/7.2.0/ext-react-material-ui-documentation/)
 - [Material UI Documentation](https://material-ui.com/)
+
+## @sencha/ext-react-material-ui
+
+This npm package contains the needed files to add the @sencha/ext-react-material-ui package to a React application
+- [Getting Started](https://github.com/sencha/ext-react/blob/ext-react-7.2.1/packages/ext-react-material-ui/guides/ExtReact_for_Material-UI_GETTING_STARTED.md)
+- [Getting Started - Detailed Version](https://github.com/sencha/ext-react/blob/ext-react-7.2.1/packages/ext-react-material-ui/guides/ExtReact_for_Material-UI_GETTING_STARTED_DETAILED.md)
+- - [Adding to exinging Material-UI Application](https://github.com/sencha/ext-react/blob/ext-react-7.2.1/packages/ext-react-material-ui/guides/ExtReact_for_Material-UI_ADDING.md)

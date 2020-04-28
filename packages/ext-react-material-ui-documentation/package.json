@@ -1,6 +1,6 @@
 {
   "name": "ext-react-material-ui-documentation",
-  "homepage": "/ExtReact/7.2.0/ext-react-material-ui-documentation/",
+  "xhomepage": "/ExtReact/7.2.0/ext-react-material-ui-documentation/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
