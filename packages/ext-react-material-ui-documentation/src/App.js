@@ -129,16 +129,16 @@ export const App = () => {
 
 
   const onMenuClick = (name, type, reactname, componentname, title) => {
-    // console.log(name)
-    // console.log(type)
-    // console.log(reactname)
-    // console.log(componentname)
-    // console.log(title)
+    console.log(name)
+    console.log(type)
+    console.log(reactname)
+    console.log(componentname)
+    console.log(title)
 
     // console.log(key)
-    // if (rootopen == true) {
-    //   setRootopen(false)
-    // }
+    if (rootopen == true) {
+      setRootopen(false)
+    }
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -261,11 +261,11 @@ export const App = () => {
         break;
         case 'guide':
           setMaintab(3);
-          if (reactname !== 'Home') {
-            reactname = 'Ext' + reactname
-          }
+          // if (reactname !== 'Home') {
+          //   reactname = 'Ext' + reactname
+          // }
           axios
-          .get(homepage + 'assets/guides/' + reactname + '/' + name + '.md')
+          .get(homepage + 'assets/guides/' + componentname + '/' + name + '.md')
           .then(({ data }) => {
             setGuide(data)
           });
@@ -286,14 +286,14 @@ export const App = () => {
               setGuide(data)
             });
             break;
-        case 'welcome':
-            setMaintab(3);
-            axios
-            .get(homepage + "assets/guides/Home/Welcome.md")
-            .then(({ data }) => {
-              setGuide(data)
-            });
-            break;
+        // case 'welcome':
+        //     setMaintab(3);
+        //     axios
+        //     .get(homepage + "assets/guides/Home/Welcome.md")
+        //     .then(({ data }) => {
+        //       setGuide(data)
+        //     });
+        //     break;
         default:
           break;
     }
@@ -361,7 +361,7 @@ export const App = () => {
           <Box className="hTitleleft">
             {/* <Avatar alt="" variant="square" src={logoExtReact} />
             <Avatar alt="" variant="square" src={logoMaterialUI} /> */}
-            <img style={{margin:'12px 2px 2px 82px'}} alt="" src={logoExtReact}/>
+            <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>

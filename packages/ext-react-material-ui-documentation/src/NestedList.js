@@ -20,15 +20,15 @@ class NestedList extends React.Component {
 
   handleClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    console.log(key)
-    console.log(type)
+    //console.log(key)
+    //console.log(type)
     this.props.onMenuClick(name, type, reactname, componentname, title)
   };
 
   handleRootClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    console.log(key)
-    console.log(type)
+    //console.log(key)
+    //console.log(type)
     //this.props.onMenuClick(name, type, reactname, 'reactname', title)
   };
 
@@ -40,8 +40,8 @@ class NestedList extends React.Component {
 
   handleExampleClick = (name, key, type, reactname, componentname, title) => {
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
-    console.log(key)
-    console.log(type)
+    //console.log(key)
+    //console.log(type)
     //this.props.onMenuClick(name, type, reactname, componentname)
   };
 
