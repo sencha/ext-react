@@ -119,7 +119,7 @@ export const App = () => {
        // setMenuSelectedIndex(100)
        // window.location.hash = 'home'
         if(showparm === 'docs') {
-          onMenuClick('Home Name', 'home', 'ExtHome', 'ExtHome', 'Home')
+          onMenuClick('Home Name', 'home', 'Home', 'Home', 'Home')
         }
         else {
           onMenuClick('Examples Name', 'exampleshome', 'ExtExampleshome', 'Examples', 'Examples')
