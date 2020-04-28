@@ -1,12 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import {
-  ExtGrid,
   ExtCalendar,
-  ExtD3,
-  ExtD3_heatmap,
-  ExtPivotgrid,
+  ExtCalendar_day,
+  ExtCalendar_days,
+  ExtCalendar_daysview,
+  ExtCalendar_dayview,
+  ExtCalendar_list,
+  ExtCalendar_month,
+  ExtCalendar_monthview,
+  ExtCalendar_multiview,
+  ExtCalendar_week,
+  ExtCalendar_weeks,
+  ExtCalendar_weeksview,
+  ExtCalendar_weekview,
   ExtChart,
-  ExtPolar
+  ExtD3,
+  ExtD3_canvas,
+  ExtD3_heatmap,
+  ExtD3_horizontal_tree,
+  ExtD3_pack,
+  ExtD3_partition,
+  ExtD3_sunburst,
+  ExtD3_svg,
+  ExtD3_tree,
+  ExtD3_treemap,
+  ExtGrid,
+  ExtPivotd3container,
+  ExtPivotgrid,
+  ExtPivotheatmap,
+  ExtPivottreemap,
+  ExtPolar,
+  ExtTree,
+  ExtTreelist
 } from "@sencha/ext-react-material-ui";
 import axios from "axios";
 import {
@@ -14,7 +39,7 @@ import {
   LiveEditor,
   LiveError,
   LivePreview
-} from 'react-live'
+} from 'react-live';
 import theme from'./dark'
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
@@ -24,16 +49,15 @@ import Aside from './Aside';
 //import ReactMarkdown from 'react-markdown'
 import ReactMarkdown from 'react-markdown/with-html'
 //import SplitPane from 'react-split-pane'
-//import { set } from 'd3';
 
 export const App = () => {
-  var homepage = `${process.env.PUBLIC_URL}/`
-
-  const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
-
+  const homepage = `${process.env.PUBLIC_URL}/`;
+  const logoExtReact = homepage + `assets/images/footer-logo.png`;
+  const logoMaterialUI = homepage + `assets/images/logo_raw.svg`;
+  //const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
   const [title, setTitle] = useState('');
   const [rootopen, setRootopen] = useState(false);
-  const [show, setShow] = useState('docs');
+  //const [setShow] = useState('docs');
   const [textforshow, setTextforshow] = useState('Documentation');
   const [data, setData] = useState([]);
   const [version] = useState('7.2.1.0');
@@ -55,10 +79,6 @@ export const App = () => {
   const [maintab, setMaintab] = useState(5);
   const [aside] = useState(0);
 
-  const logoExtReact = `${process.env.PUBLIC_URL}/assets/images/footer-logo.png`
-  const logoMaterialUI = `${process.env.PUBLIC_URL}/assets/images/logo_raw.svg`
-
-
   function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -72,7 +92,6 @@ export const App = () => {
 
     var menu = homepage + "assets/menu/docsmenu.json"
     var showparm = getUrlParameter('show')
-    //console.log(showparm.trim())
     if (showparm.trim() === '') {
       showparm = 'docs'
       setTextforshow('Documentation')
@@ -90,35 +109,32 @@ export const App = () => {
       menu = homepage + "assets/menu/docsmenu.json"
       setRootopen(false)
     }
-    //console.log(showparm)
-    setShow(showparm)
-
-
-
+    //setShow(showparm)
     //var hash = window.location.hash.substring(1);
     //console.log(hash)
-
-
-
     axios
       .get(menu)
       .then(({ data }) => {
         setMenu(data);
        // setMenuSelectedIndex(100)
        // window.location.hash = 'home'
-
         if(showparm === 'docs') {
           onMenuClick('Home', 0, 'home', 'Home', 'Home', 'Home')
         }
         else {
           onMenuClick('Examples', 0, 'exampleshome', 'Examples', 'Examples', 'Examples')
         }
-
-        //onMenuClick('Home', 0, 'home', 'Home')
       });
   }, []);
 
-  const onMenuClick = (name, key, type, reactname, component, title) => {
+
+  const onMenuClick = (name, type, reactname, componentname, title) => {
+    console.log(name)
+    console.log(type)
+    console.log(reactname)
+    console.log(componentname)
+    console.log(title)
+
     // console.log(key)
     // if (rootopen == true) {
     //   setRootopen(false)
@@ -126,8 +142,11 @@ export const App = () => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
-    if (title != undefined) {
+    if (title !== undefined) {
       setTitle(title)
+    }
+    else {
+      setTitle('')
     }
 
     switch (type) {
@@ -136,13 +155,13 @@ export const App = () => {
         setMaintab(5);
         folder = reactname
         examplename = 'Overview'
-        var overviewCode = homepage + './assets/code/' + folder + '/' + examplename + '.js'
-        var overviewData = homepage + './assets/code/' + folder + '/' + examplename + '.json'
-        var generalData = homepage + './assets/code/' + folder + '/data.json';
-        var overviewText = homepage + "./assets/doc-material-ui/" + reactname + ".json"
-        var properties = homepage + "./assets/doc-material-ui/" + reactname + "Properties.json"
-        var methods = homepage + "./assets/doc-material-ui/" + reactname + "Methods.json"
-        var events = homepage + "./assets/doc-material-ui/" + reactname + "Events.json"
+        var overviewCode = homepage + 'assets/code/' + folder + '/' + examplename + '.js'
+        var overviewData = homepage + 'assets/code/' + folder + '/' + examplename + '.json'
+        var generalData = homepage + 'assets/code/' + folder + '/data.json';
+        var overviewText = homepage + "assets/doc-material-ui/" + reactname + ".json"
+        var properties = homepage + "assets/doc-material-ui/" + reactname + "Properties.json"
+        var methods = homepage + "assets/doc-material-ui/" + reactname + "Methods.json"
+        var events = homepage + "assets/doc-material-ui/" + reactname + "Events.json"
         axios.all([
           axios.get(overviewCode).catch(useNull),
           axios.get(overviewData).catch(useNull),
@@ -209,11 +228,11 @@ export const App = () => {
         case 'example':
           setCode('')
           setMaintab(5);
-          folder = component; //'Ext' + reactname
+          folder = componentname; //'Ext' + reactname
           examplename = name
-          var exampleCode = homepage + './assets/code/' + folder + '/' + examplename + '.js'
-          var exampleData = homepage + './assets/code/' + folder + '/' + examplename + '.json'
-          var general2Data = homepage + './assets/code/' + folder + '/data.json';
+          var exampleCode = homepage + 'assets/code/' + folder + '/' + examplename + '.js'
+          var exampleData = homepage + 'assets/code/' + folder + '/' + examplename + '.json'
+          var general2Data = homepage + 'assets/code/' + folder + '/data.json';
           axios.all([
             axios.get(exampleCode).catch(useNull),
             axios.get(exampleData).catch(useNull),
@@ -244,29 +263,23 @@ export const App = () => {
             reactname = 'Ext' + reactname
           }
           axios
-          //.get(require('./guides/' + reactname + '/' + name + '.md'))
-          .get(homepage + './assets/guides/' + reactname + '/' + name + '.md')
+          .get(homepage + 'assets/guides/' + reactname + '/' + name + '.md')
           .then(({ data }) => {
             setGuide(data)
           });
           break;
-
         case 'exampleshome':
           setMaintab(3);
           axios
-          //.get(require("./guides/Home/exampleshomeome.md"))
-          .get(homepage + "./assets/guides/Home/exampleshome.md")
+          .get(homepage + "assets/guides/Home/exampleshome.md")
           .then(({ data }) => {
             setGuide(data)
           });
           break;
-
-
         case 'home':
             setMaintab(3);
             axios
-            //.get(require("./guides/Home/Home.md"))
-            .get(homepage + "./assets/guides/Home/Home.md")
+            .get(homepage + "assets/guides/Home/Home.md")
             .then(({ data }) => {
               setGuide(data)
             });
@@ -274,8 +287,7 @@ export const App = () => {
         case 'welcome':
             setMaintab(3);
             axios
-            //.get(require("./guides/Home/Welcome.md"))
-            .get(homepage + "./assets/guides/Home/Welcome.md")
+            .get(homepage + "assets/guides/Home/Welcome.md")
             .then(({ data }) => {
               setGuide(data)
             });
@@ -300,13 +312,38 @@ export const App = () => {
 
   const scope = {
     data,
-    ExtGrid,
     ExtCalendar,
-    ExtD3,
-    ExtD3_heatmap,
-    ExtPivotgrid,
+    ExtCalendar_day,
+    ExtCalendar_days,
+    ExtCalendar_daysview,
+    ExtCalendar_dayview,
+    ExtCalendar_list,
+    ExtCalendar_month,
+    ExtCalendar_monthview,
+    ExtCalendar_multiview,
+    ExtCalendar_week,
+    ExtCalendar_weeks,
+    ExtCalendar_weeksview,
+    ExtCalendar_weekview,
     ExtChart,
-    ExtPolar
+    ExtD3,
+    ExtD3_canvas,
+    ExtD3_heatmap,
+    ExtD3_horizontal_tree,
+    ExtD3_pack,
+    ExtD3_partition,
+    ExtD3_sunburst,
+    ExtD3_svg,
+    ExtD3_tree,
+    ExtD3_treemap,
+    ExtGrid,
+    ExtPivotd3container,
+    ExtPivotgrid,
+    ExtPivotheatmap,
+    ExtPivottreemap,
+    ExtPolar,
+    ExtTree,
+    ExtTreelist
    };
 
   return menu.length ? (
