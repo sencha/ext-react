@@ -38,8 +38,6 @@ class NestedList extends React.Component {
 
   render() {
     const menu = this.props.menu;
-    //const menu = JSON.parse(menudata)
-    //console.log(menu)
     const { menuSelectedIndex } = this.state;
     return (
       <div>
@@ -64,12 +62,12 @@ class NestedList extends React.Component {
                       <div key={miditem.id}>
                         <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id)} key={(100*rootitem.id)+(10*miditem.id)} onClick={this.handleClick.bind(this,miditem.name,(100*rootitem.id)+(10*miditem.id),miditem.type,miditem.name,miditem.component)}>
                           <ListItemText primary={<Typography className="mid" >{miditem.title}</Typography>}/>
-                          {miditem.subitems ? (this.state[miditem.title] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)):(<div></div>)}
+                          {miditem.items ? (this.state[miditem.title] ? (<ExpandLess style={{fontWeight:'bold',color:'white'}}/>) : (<ExpandMore style={{fontWeight:'bold',color:'white'}}/>)):(<div></div>)}
                         </ListItem>
-                        {miditem.subitems ? (
+                        {miditem.items ? (
                           <Collapse key={miditem.subitems.id} component="li" in={this.state[miditem.title]} timeout="auto" unmountOnExit>
                           <List>
-                          {miditem.subitems.map((subitem, index3) => {
+                          {miditem.items.map((subitem, index3) => {
                             return (
                               <ListItem button selected={menuSelectedIndex === (100*rootitem.id)+(10*miditem.id+(1*subitem.id))} key={(100*rootitem.id)+(10*miditem.id)+(1*subitem.id)} onClick={this.handleExampleClick.bind(this,subitem.name,(100*rootitem.id)+(10*miditem.id)+(1*subitem.id),subitem.type,rootitem.name,subitem.component)}>
                                 <ListItemText primary={<Typography className="example" >{subitem.title}</Typography>} />
