@@ -341,6 +341,7 @@ export const App = () => {
             {/* <Avatar alt="" variant="square" src={logoExtReact} />
             <Avatar alt="" variant="square" src={logoMaterialUI} /> */}
             <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
+            &nbsp;&nbsp;for
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
