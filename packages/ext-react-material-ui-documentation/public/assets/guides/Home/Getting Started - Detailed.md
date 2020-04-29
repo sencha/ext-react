@@ -14,10 +14,22 @@ Currently ExtReact for Material-UI is delivered to customers through the general
 #### Login to the npm repository
 Once you have your credentials login to the npm repo.
 
-production:
+Trial:
+
+```sh
+npm login --registry https://sencha.myget.org/F/trial/npm/ --scope=@sencha
+```
+
+Production:
 
 ```sh
 npm login --registry=https://npm.sencha.com/ --scope=@sencha
+```
+
+Early Adopter:
+
+```sh
+npm login --registry=https://sencha.myget.org/F/early-adopter/npm/ --scope=@sencha
 ```
 
 ### Step 2: Create a React starter app
