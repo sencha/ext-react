@@ -6,12 +6,11 @@ Fetch your npm credentials and generate an application.
 ### Step 1: Retrieve npm Repositorary Access Credentials
 To gain access to the Sencha npm repository:
 
-1. [Start a free trial of ExtReact](https://www.sencha.com/products/extreact/evaluate/).
-2. [Purchase ExtReact](https://www.sencha.com/store/).
+1. [Start a free trial of ExtReact for Material-UI (which is in the ExtReact product)](https://sencha.com/products/extreact/extreact-for-material-ui/evaluate/).
+2. [Purchase ExtReact (which is in the ExtReact product)](https://www.sencha.com/store/).
 
 ### Step 2: Login to the npm repository
 Once you have your credentials login to the npm repo.
-
 
 Trial
 

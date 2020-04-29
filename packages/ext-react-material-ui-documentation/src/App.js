@@ -89,15 +89,9 @@ export const App = () => {
   useEffect(() => {
     //setVersion(process.env.REACT_APP_VERSION)
     //http://localhost:3000/?show=examples#home
-
-    var menu = homepage + "assets/menu/docsmenu.json"
+    var menu = ''
     var showparm = getUrlParameter('show')
-    if (showparm.trim() === '') {
-      showparm = 'docs'
-      setTextforshow('Documentation')
-      menu = homepage + "assets/menu/docsmenu.json"
-    }
-    else if (showparm.trim() === 'examples') {
+    if (showparm.trim() === 'examples') {
       showparm = 'examples'
       setTextforshow('Examples')
       menu = homepage + "assets/menu/examplesmenu.json"
@@ -116,8 +110,8 @@ export const App = () => {
       .get(menu)
       .then(({ data }) => {
         setMenu(data);
-       // setMenuSelectedIndex(100)
-       // window.location.hash = 'home'
+        // setMenuSelectedIndex(100)
+        // window.location.hash = 'home'
         if(showparm === 'docs') {
           onMenuClick('Home Name', 'home', 'Home', 'Home', 'Home')
         }
@@ -129,13 +123,11 @@ export const App = () => {
 
 
   const onMenuClick = (name, type, reactname, componentname, title) => {
-    console.log(name)
-    console.log(type)
-    console.log(reactname)
-    console.log(componentname)
-    console.log(title)
-
-    // console.log(key)
+    // console.log(name)
+    // console.log(type)
+    // console.log(reactname)
+    // console.log(componentname)
+    // console.log(title)
     if (rootopen == true) {
       setRootopen(false)
     }
@@ -148,7 +140,6 @@ export const App = () => {
     else {
       setTitle('')
     }
-
     switch (type) {
       case 'overview':
         setOverviewcode('')
@@ -261,9 +252,6 @@ export const App = () => {
         break;
         case 'guide':
           setMaintab(3);
-          // if (reactname !== 'Home') {
-          //   reactname = 'Ext' + reactname
-          // }
           axios
           .get(homepage + 'assets/guides/' + componentname + '/' + name + '.md')
           .then(({ data }) => {
@@ -286,14 +274,6 @@ export const App = () => {
               setGuide(data)
             });
             break;
-        // case 'welcome':
-        //     setMaintab(3);
-        //     axios
-        //     .get(homepage + "assets/guides/Home/Welcome.md")
-        //     .then(({ data }) => {
-        //       setGuide(data)
-        //     });
-        //     break;
         default:
           break;
     }
@@ -351,8 +331,7 @@ export const App = () => {
   return menu.length ? (
     <React.Fragment>
       {/* header */}
-      {/* <Box className="hHeader"></Box> */}
-      {/* <Box className="h64 header"></Box> */}
+      {/* <Box className="h64 header hHeader"></Box> */}
       {/* header */}
       {/* main */}
       <Box className="hbox">
@@ -365,26 +344,20 @@ export const App = () => {
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
-
           <Box className="vbox senchablue">
             {/* <NestedList menu={menu} menuSelectedIndex={menuSelectedIndex} onMenuClick={onMenuClick}/> */}
             <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
         {/* nav */}
-        {/* <Box className="w300 vbox">
-          splitter
-        </Box> */}
+        {/* <Box className="w300 vbox">splitter</Box> */}
         {/* center */}
         <Box className="hbox">
           {/* title and detail */}
           <Box className="vbox">
             {/* title */}
             <Box className="hTitle hbox">
-              <Title
-                title={title}
-                version={version}
-              />
+              <Title title={title} version={version}/>
             </Box>
             {/* title */}
             {/* detail section */}
@@ -399,21 +372,10 @@ export const App = () => {
               </Box>
               {/* text section */}
               {/* property method event section */}
-
-
-
-
-              {/* style={{flex:'1',margin:'20px',border:'1px solid gray'}} */}
-
               <Box className="vbox">
-
                 <Box className="hbox shadow" style={{flex:'1',margin:'20px 20px 10px 20px',border:'1px solid gray',background:'white'}}>
                   {overviewcode !== '' &&
-                  <LiveProvider
-                    code={overviewcode}
-                    scope={scope}
-                    theme={theme}
-                  >
+                  <LiveProvider code={overviewcode} scope={scope} theme={theme}>
                    <LivePreview style={{flex:'1'}}/>
                    <LiveError style={{flex:'1'}}/>
                   </LiveProvider>
@@ -421,11 +383,8 @@ export const App = () => {
                   {overviewcode === '' &&
                     <div className="hbox" style={{margin:'20px 20px 20px 10px'}}>Loading...</div>
                   }
-
                 </Box>
-
-                {/* <Box className="vbox"> */}
-                  <Aside
+                   <Aside
                     asidevalue={asidevalue}
                     handleAsideValueChange={handleAsideValueChange}
                     propertyNames={propertyNames}
@@ -438,7 +397,6 @@ export const App = () => {
                     events={events}
                     onEventClick={onEventClick}
                   />
-                {/* </Box> */}
               </Box>
               {/* property method event section */}
             </Box>
@@ -460,15 +418,10 @@ export const App = () => {
                   {reactname} - {examplename}
                 </Box>
                 {code !== '' &&
-                <LiveProvider
-                  code={code}
-                  scope={scope}
-                  theme={theme}
-                >
+                <LiveProvider code={code} scope={scope} theme={theme}>
                   <div className="hbox">
                     <LiveEditor className="shadow" style={{flex:'1',overflow:'auto',margin:'20px 0 20px 20px',border:'1px solid gray',whiteSpace:'inherit'}}/>
                     <LivePreview className="shadow" style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
-
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>
@@ -479,10 +432,8 @@ export const App = () => {
               </div>
               {/* example code */}
             </Box>
-
             }
             {maintab === 5 &&
-              // <Box className="hbox" style={{padding:'20px',borderLeft:'1px solid gray',background:'lightgray'}}>
               <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
                 <div style={{display:'flex',flexDirection:'column'}}>
                   <div style={{display:'flex',flexDirection:'row'}}>
@@ -498,7 +449,6 @@ export const App = () => {
           {/* title and detail */}
         </Box>
         {/* center */}
-
         {/* aside */}
         {aside === 1 &&
         <Box className="w300 vbox border">aside</Box>
@@ -509,7 +459,6 @@ export const App = () => {
       {/* <Box className="h50 border footer"></Box> */}
      </React.Fragment>
   ) : (
-    // <div>Loading...</div>
     <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
     <div style={{display:'flex',flexDirection:'column'}}>
       <div style={{display:'flex',flexDirection:'row'}}>

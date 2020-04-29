@@ -1,4 +1,4 @@
-# Getting Started with ExtReact for Material-UI
+# Getting Started with ExtReact for Material-UI - Detailed
 
 ## Requirements
 Fetch your npm credentials and generate an application.
@@ -8,7 +8,7 @@ To gain access to the Sencha npm repository:
 
 Currently ExtReact for Material-UI is delivered to customers through the general ExtReact product.
 
-1. [Start a free trial of ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/products/extreact/evaluate/).
+1. [Start a free trial of ExtReact for Material UI (which is in the ExtReact product)](https://sencha.com/products/extreact/extreact-for-material-ui/evaluate/).
 2. [Purchase ExtReact for Material UI (which is in the ExtReact product)](https://www.sencha.com/store/extreact/).
 
 #### Login to the npm repository

@@ -1,7 +1,5 @@
 # Welcome to the ExtReact for Material UI documentation
 
-
-
 ## A perfect collection of complementary components for Material-UI
 
 ### Professionally built and tested UI components
