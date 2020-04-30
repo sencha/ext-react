@@ -172,6 +172,7 @@ export const App = () => {
             else if (resGeneralData != null) {
               theData = resGeneralData.data
             }
+            console.log(theData)
             //console.clear()
             setTitle(`${reactname}  -> import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 

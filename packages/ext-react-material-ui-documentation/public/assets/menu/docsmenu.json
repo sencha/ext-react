@@ -42,7 +42,8 @@
       { "id": 2, "title": "ExtTreelist", "name": "ExtTreelist", "componentname": "", "type": "overview" },
       { "id": 3, "title": "Examples", "name": "Examples", "componentname": "", "type": "examplemid",
         "items": [
-          { "id": 1, "title": "Overview", "name": "Overview", "componentname": "ExtTree", "type": "example" }
+          { "id": 1, "title": "ExtTree Overview", "name": "Overview", "componentname": "ExtTree", "type": "example" },
+          { "id": 2, "title": "ExtTreelist Overview", "name": "Overview", "componentname": "ExtTreelist", "type": "example" }
         ]
       }
     ]
@@ -53,8 +54,8 @@
       { "id": 2, "title": "ExtPolar", "name": "ExtPolar", "componentname": "", "type": "overview" },
       { "id": 3, "title": "Examples", "name": "Examples", "componentname": "", "type": "examplemid",
         "items": [
-          { "id": 1, "title": "ExtChart Overview", "name": "ExtChart Overview", "componentname": "ExtChart", "type": "example" },
-          { "id": 2, "title": "ExtPolar Overview", "name": "ExtPolar Overview", "componentname": "ExtPolar", "type": "example" }
+          { "id": 1, "title": "ExtChart Overview", "name": "Overview", "componentname": "ExtChart", "type": "example" },
+          { "id": 2, "title": "ExtPolar Overview", "name": "Overview", "componentname": "ExtPolar", "type": "example" }
         ]
       }
     ]

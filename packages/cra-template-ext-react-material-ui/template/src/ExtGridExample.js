@@ -7,6 +7,14 @@ export default class ExtGridExample extends Component {
 
   constructor() {
     super()
+    this.store = {
+      xtype: 'store',
+      data: [
+        { name: 'Marc',email: 'marc@gmail.com',priceChangePct: -.25 },
+        { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
+        { name: 'Andy', email: 'andy@gmail.com',priceChangePct: 1.45 }
+      ]
+    }
   }
 
   renderSign = (format, value) => (
@@ -20,16 +28,7 @@ export default class ExtGridExample extends Component {
       <ExtGrid
         height="300px"
         title="ExtReact Grid"
-        store={
-          {
-            xtype: 'store',
-            data: [
-              { name: 'Marc',email: 'marc@gmail.com',priceChangePct: -.25 },
-              { name: 'Nick', email: 'nick@gmail.com',priceChangePct: .35 },
-              { name: 'Andy', email: 'andy@gmail.com',priceChangePct: 1.45 }
-            ]
-          }
-        }
+        store={this.store}
         columns={[
           {
             text: "name",
