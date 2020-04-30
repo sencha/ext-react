@@ -1,27 +1,33 @@
 [
   {
-    "country": "USA",
-    "year": "1980",
-    "value": 119
+      "text": "Comedy",
+      "children": [
+          { "leaf": true, "text": "30 Rock" },
+          { "leaf": true, "text": "Arrested Development" },
+          { "leaf": true, "text": "Bob\"s Burgers" },
+          { "leaf": true, "text": "Curb your Enthusiasm" },
+          { "leaf": true, "text": "Futurama" }
+      ]
   },
   {
-    "country": "USA",
-    "year": "1979",
-    "value": 205
+      "text": "Drama",
+      "children": [
+          { "leaf": true, "text": "Breaking Bad", },
+          { "leaf": true, "text": "Game of Thrones" },
+          { "leaf": true, "text": "Lost" },
+          { "leaf": true, "text": "Preacher" },
+          { "leaf": true, "text": "The Wire" }
+      ]
   },
   {
-    "country": "United Kingdom",
-    "year": "1980",
-    "value": 159
-  },
-  {
-    "country": "United Kingdom",
-    "year": "1980",
-    "value": 200
-  },
-  {
-    "country": "United Kingdom",
-    "year": "1979",
-    "value": 105
+      "text": "Science Fiction",
+      "children": [
+          { "leaf": true, "text": "Black Mirror" },
+          { "leaf": true, "text": "Doctor Who" },
+          { "leaf": true, "text": "Eureka" },
+          { "leaf": true, "text": "Futurama" },
+          { "leaf": true, "text": "The Twilight Zone" },
+          { "leaf": true, "text": "X-Files" }
+      ]
   }
 ]
