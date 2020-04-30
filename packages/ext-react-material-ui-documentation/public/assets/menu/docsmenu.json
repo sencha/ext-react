@@ -9,25 +9,16 @@
   { "id": 1, "title": "Grid", "name": "Grid", "count": 1,  "type": "root",
     "items": [
       { "id": 1, "title": "ExtGrid", "name": "ExtGrid", "componentname": "ExtGrid", "type": "overview" },
-      { "id": 2, "title": "Rows Example", "name": "Rows", "componentname": "ExtGrid", "type": "example" },
-
-      { "id": 3, "title": "ExtGrid Guides", "name": "ExtGrid Guides", "componentname": "", "type": "guidemid",
+      { "id": 2, "title": "ExtGrid Guides", "name": "ExtGrid Guides", "componentname": "", "type": "guidemid",
         "items": [
-          { "id": 1, "title": "Widget Integration", "name": "Widget Integration", "componentname": "ExtGrid", "type": "guide" },
+          { "id": 1, "title": "Using Components in Grids", "name": "Using Components in Grids", "componentname": "ExtGrid", "type": "guide" },
           { "id": 2, "title": "Grid Configurations", "name": "Grid Configurations", "componentname": "ExtGrid", "type": "guide" }
         ]
       },
       { "id": 4, "title": "Row Examples", "name": "Row Examples", "componentname": "", "type": "examplemid",
         "items": [
-          { "id": 1, "title": "Rows Example", "name": "Rows", "componentname": "ExtGrid", "type": "example" },
-          { "id": 2, "title": "Rows Example", "name": "Row Editing", "componentname": "ExtGrid", "type": "example" }
-        ]
-      },
-      { "id": 5, "title": "Column Examples", "name": "Column Examples", "componentname": "", "type": "examplemid",
-        "items": [
-          { "id": 1, "title": "Rows Example", "name": "Columns", "componentname": "ExtGrid", "type": "example" },
-          { "id": 2, "title": "Rows Example", "name": "Filtering", "componentname": "ExtGrid", "type": "example" },
-          { "id": 3, "title": "Rows Example", "name": "Cell Editing", "componentname": "ExtGrid", "type": "example" }
+          { "id": 1, "title": "Rows", "name": "Rows", "componentname": "ExtGrid", "type": "example" },
+          { "id": 2, "title": "Row Editing", "name": "Row Editing", "componentname": "ExtGrid", "type": "example" }
         ]
       }
     ]

@@ -1,4 +1,4 @@
-## Adding @sencha/ext-react-material-ui components to an existing Material-UI project created with create-react-app
+## Adding ExtReact for Material-UI components to an existing Material-UI project
 
 ## Requirements
 Fetch your npm credentials and generate an application.

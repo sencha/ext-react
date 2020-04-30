@@ -1,4 +1,4 @@
-# Welcome to the ExtReact for Material UI examples
+# Welcome to the ExtReact for Material-UI examples
 
 ## A perfect collection of complementary components for Material-UI
 
@@ -6,7 +6,7 @@
 
 - Data & Pivot Grid, Charts, D3, Calendar, Trees and more!
 - Data-centric components to build scalable enterprise-grade apps
-- Easy integration into React apps built with Material UI
+- Easy integration into React apps built with Material-UI
 
 Open the Home menu to see these guides...
 - Getting Started
