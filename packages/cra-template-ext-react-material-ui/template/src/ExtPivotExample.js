@@ -1,22 +1,15 @@
-//import React from 'react';
-//import { ExtPivotgrid } from "@sencha/ext-react-material-ui";
+import React, { Component } from 'react';
+import { ExtPivotgrid } from "@sencha/ext-react-material-ui";
+import data from './ExtPivotData.json';
 
-class Overview extends React.Component {
+export default class ExtPivotExample extends Component {
 
   constructor() {
     super()
-    console.log(data)
-
     this.store={
       type: 'store',
-      // fields: [
-      //   { name: 'date', type: 'date', dateFormat: 'Y-m-d' },
-      //   'bucket',
-      //   'count'
-      // ],
       data: data
       }
-
     this.matrix = {
       type: 'local',
       store: this.store,
@@ -43,7 +36,8 @@ class Overview extends React.Component {
   render() {
     return (
       <ExtPivotgrid
-        fitToParent
+        title="PivotGrid"
+        height="400px"
         matrix={this.matrix}
       ></ExtPivotgrid>
     )

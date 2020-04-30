@@ -1,12 +1,14 @@
-//import React from 'react';
-//import { ExtD3_heatmap } from "@sencha/ext-react-material-ui";
-//import data from './data';
+import React, { Component } from 'react';
+import { ExtD3_heatmap } from "@sencha/ext-react-material-ui";
+import * as d3 from 'd3'
+import data from './ExtD3Data';
+window.d3 = d3
 
-class Overview extends React.Component {
+export default class ExtD3Example extends Component {
 
   constructor() {
     super()
-    this.store={
+    this.store = {
       xtype: 'store',
       fields: [
         { name: 'date', type: 'date', dateFormat: 'Y-m-d' },
@@ -17,18 +19,10 @@ class Overview extends React.Component {
     }
   }
 
-  onTooltip (component, tooltip, datum) {
-    var d = datum.data,
-        field = component.getColorAxis().getField(),
-        date = Ext.Date.monthNames[d.date.getMonth()] + ' ' + d.date.getDate();
-    tooltip.setHtml(d[field] + ' customers purchased a total of $'
-        + d.bucket + ' to $' + (d.bucket + 100) + '<br> of goods on ' + date);
-  }
-
   render() {
     return (
       <ExtD3_heatmap
-        fitToParent
+        height="400px"
         store={this.store}
         padding= {{
           top: 20,
@@ -94,6 +88,5 @@ class Overview extends React.Component {
       />
     )
   }
+
 }
-
-
