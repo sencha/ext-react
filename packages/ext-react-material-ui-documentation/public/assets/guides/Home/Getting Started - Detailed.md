@@ -62,7 +62,7 @@ npm start
 
 The following will appear in a browser window:
 
-![Starter React App](starter.png)
+<img style="width:100%;" src="./starter.png" alt="a"></img>
 
 ### Step 3: Open your Editor or IDE to Add ExtReact for Material-UI
 
@@ -78,7 +78,7 @@ The image shows Visual Studio code with the root folder and expanded 'public' an
 
 We will make changes to these folders to enable ExtReact for Material UI.
 
-![VSC](vsc.png)
+<img style="width:100%;" src="./vsc.png" alt="a"></img>
 
 ### Step 4: Add the ExtReact and Material-UI npm packages, and starter code
 
@@ -225,4 +225,4 @@ npm start
 
 A browser window will load, and you will see the application:
 
-![final](final.png)
+<img style="width:100%;" src="./final2.png" alt="a"></img>

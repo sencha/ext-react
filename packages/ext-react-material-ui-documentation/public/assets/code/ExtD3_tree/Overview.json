@@ -1,72 +1,66 @@
-[
-  {
-      "date": "2012-07-20",
-      "bucket": 800,
-      "count": 119
-  },
-  {
-      "date": "2012-07-20",
-      "bucket": 900,
-      "count": 123
-  },
-  {
-      "date": "2012-07-20",
-      "bucket": 1000,
-      "count": 173
-  },
-  {
-      "date": "2012-07-20",
-      "bucket": 1100,
-      "count": 226
-  },
-  {
-      "date": "2012-07-20",
-      "bucket": 1200,
-      "count": 284
-  },
-  {
-      "date": "2012-07-21",
-      "bucket": 800,
-      "count": 123
-  },
-  {
-      "date": "2012-07-21",
-      "bucket": 900,
-      "count": 165
-  },
-  {
-      "date": "2012-07-21",
-      "bucket": 1000,
-      "count": 237
-  },
-  {
-      "date": "2012-07-21",
-      "bucket": 1100,
-      "count": 278
-  },
-  {
-      "date": "2012-07-21",
-      "bucket": 1200,
-      "count": 338
-  },
-   {
-      "date": "2012-07-22",
-      "bucket": 900,
-      "count": 154
-  },
-  {
-      "date": "2012-07-22",
-      "bucket": 1000,
-      "count": 241
-  },
-  {
-      "date": "2012-07-22",
-      "bucket": 1100,
-      "count": 246
-  },
-  {
-      "date": "2012-07-22",
-      "bucket": 1200,
-      "count": 300
-  }
-]
+{
+  "expanded": true,
+  "text": "All",
+  "iconCls": "x-fa fa-sitemap",
+  "children": [{
+      "text": "Home",
+      "iconCls": "x-fa fa-home",
+      "children": [{
+          "text": "Messages",
+          "iconCls": "x-fa fa-inbox",
+          "leaf": true
+      }, {
+          "text": "Archive",
+          "iconCls": "x-fa fa-database",
+          "children": [{
+              "text": "First",
+              "iconCls": "x-fa fa-sliders",
+              "leaf": true
+          }, {
+              "text": "No Icon",
+              "iconCls": null,
+              "leaf": true
+          }]
+      }, {
+          "text": "Music",
+          "iconCls": "x-fa fa-music",
+          "leaf": true
+      }, {
+          "text": "Video",
+          "iconCls": "x-fa fa-film",
+          "leaf": true
+      }]
+  }, {
+      "text": "Users",
+      "iconCls": "x-fa fa-user",
+      "children": [{
+          "text": "Tagged",
+          "iconCls": "x-fa fa-tag",
+          "leaf": true
+      }, {
+          "text": "Inactive",
+          "iconCls": "x-fa fa-trash",
+          "leaf": true
+      }]
+  }, {
+      "text": "Groups",
+      "iconCls": "x-fa fa-group",
+      "leaf": true
+  }, {
+      "text": "Settings",
+      "iconCls": "x-fa fa-wrench",
+      "children": [{
+          "text": "Sharing",
+          "iconCls": "x-fa fa-share-alt",
+          "leaf": true
+      }, {
+          "text": "Notifications",
+          "iconCls": "x-fa fa-flag",
+          "leaf": true
+      }, {
+          "text": "Network",
+          "iconCls": "x-fa fa-signal",
+          "leaf": true
+      }]
+  }]
+}

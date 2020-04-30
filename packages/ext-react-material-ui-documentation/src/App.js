@@ -46,18 +46,19 @@ import Avatar from '@material-ui/core/Avatar';
 import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
-//import ReactMarkdown from 'react-markdown'
 import ReactMarkdown from 'react-markdown/with-html'
 //import SplitPane from 'react-split-pane'
 
 export const App = () => {
+  //const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
+  //const [setShow] = useState('docs');
+  //const [importtext, setImporttext] = useState('');
+
   const homepage = `${process.env.PUBLIC_URL}/`;
   const logoExtReact = homepage + `assets/images/footer-logo.png`;
   const logoMaterialUI = homepage + `assets/images/logo_raw.svg`;
-  //const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
   const [title, setTitle] = useState('');
   const [rootopen, setRootopen] = useState(false);
-  //const [setShow] = useState('docs');
   const [textforshow, setTextforshow] = useState('Documentation');
   const [data, setData] = useState([]);
   const [version] = useState('7.2.1.0');
@@ -67,7 +68,6 @@ export const App = () => {
   const [overviewcode, setOverviewcode] = useState('');
   const [code, setCode] = useState('');
   const [reactname, setReactname] = useState('');
-  //const [importtext, setImporttext] = useState('');
   const [text, setText] = useState('');
   const [asidevalue, setAsidevalue] = useState(0);
   const [propertyNames, setPropertyNames] = useState([]);
@@ -123,11 +123,6 @@ export const App = () => {
 
 
   const onMenuClick = (name, type, reactname, componentname, title) => {
-    // console.log(name)
-    // console.log(type)
-    // console.log(reactname)
-    // console.log(componentname)
-    // console.log(title)
     if (rootopen == true) {
       setRootopen(false)
     }
@@ -178,8 +173,6 @@ export const App = () => {
               theData = resGeneralData.data
             }
             //console.clear()
-
-            //setImporttext(`import { ${reactname} } from "@sencha/ext-react-material-ui";`)
             setTitle(`${reactname}  -> import { ${reactname} } from "@sencha/ext-react-material-ui";`)
 
             function replacerCfgLink(match) {
@@ -338,8 +331,6 @@ export const App = () => {
         {/* nav */}
         <Box className="w300 vbox">
           <Box className="hTitleleft">
-            {/* <Avatar alt="" variant="square" src={logoExtReact} />
-            <Avatar alt="" variant="square" src={logoMaterialUI} /> */}
             <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
             &nbsp;&nbsp;for
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
@@ -367,9 +358,6 @@ export const App = () => {
               {/* text section */}
               <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray',padding:'20px'}}>
                 <ReactMarkdown source={text} escapeHtml={false}/>
-                {/* <pre style={{fontSize:'14px',fontFamily:'Roboto',padding:'30px'}}>
-                  {text}
-                </pre> */}
               </Box>
               {/* text section */}
               {/* property method event section */}
@@ -416,7 +404,7 @@ export const App = () => {
               {/* example code */}
               <div className="vbox ">
                 <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
-                  {reactname} - {examplename}
+                  <div style={{fontSize:'18px',margin:'20px 20px 20px 20px',}}>{examplename} Example</div>
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
