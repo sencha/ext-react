@@ -12,3 +12,7 @@ Open the Home menu to see these guides...
 - Getting Started
 - Getting Started - Detailed Version
 - Adding to existing Material-UI Application
+
+Links
+- [Product Page](https://www.sencha.com/products/extreact/extreact-for-material-ui/)
+- [Trial](https://www.sencha.com/products/extreact/extreact-for-material-ui/evaluate/)
