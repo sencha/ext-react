@@ -64,7 +64,7 @@ export const App = () => {
   const [rootopen, setRootopen] = useState(false);
   const [textforshow, setTextforshow] = useState('Documentation');
   const [data, setData] = useState([]);
-  const [version] = useState('7.2.1.0');
+  const [version, setVersion] = useState('7.2.1.0');
   const [menu, setMenu] = useState([]);
   const [guide, setGuide] = useState('');
   const [examplename, setExamplename] = useState('');
@@ -89,8 +89,11 @@ export const App = () => {
   };
 
   useEffect(() => {
-    //setVersion(process.env.REACT_APP_VERSION)
     //http://localhost:3000/?show=examples#home
+    console.log(process.env.REACT_APP_VERSION)
+    setVersion(process.env.REACT_APP_VERSION)
+
+
     var menu = ''
     var showparm = getUrlParameter('show')
     if (showparm.trim() === 'examples') {
