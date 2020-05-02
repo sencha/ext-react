@@ -10,6 +10,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 //import { getMenu } from './menudata'
+//https://v0.material-ui.com/#/components/list
 
 class NestedList extends React.Component {
   state = {
@@ -19,6 +20,7 @@ class NestedList extends React.Component {
   };
 
   handleClick = (name, key, type, reactname, componentname, title) => {
+    console.log(key)
     this.setState({ [name]: !this.state[name], menuSelectedIndex: key });
     //console.log(key)
     //console.log(type)
@@ -51,12 +53,16 @@ class NestedList extends React.Component {
     const { rootopen } = this.props;
     //console.log(this.props)
 
+    //console.log(menuopen)
+    //var menuSelectedIndex = menuopen
     //console.log(menuSelectedIndex)
     return (
+
       <div>
         <List>
           {menu.map((rootitem, index1) => {
             return (
+
               <div key={rootitem.id}>
                 <ListItem button selected={menuSelectedIndex === (100*rootitem.id)} key={(100*rootitem.id)} onClick={this.handleClick.bind(this, rootitem.name, (100*rootitem.id), rootitem.type, rootitem.name, rootitem.componentname, rootitem.title)}>
                   <ListItemText primary={<Typography style={{color: '#ffffff',fontSize:'18px' }}>{rootitem.title}</Typography>} />

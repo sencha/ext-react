@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {
   ExtCalendar,
@@ -33,6 +34,7 @@ import {
   ExtTree,
   ExtTreelist
 } from "@sencha/ext-react-material-ui";
+import ReactMarkdown from 'react-markdown/with-html'
 import axios from "axios";
 import {
   LiveProvider,
@@ -40,19 +42,20 @@ import {
   LiveError,
   LivePreview
 } from 'react-live';
-import theme from'./dark'
+
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
+
+import theme from'./dark'
 import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
-import ReactMarkdown from 'react-markdown/with-html'
-//import SplitPane from 'react-split-pane'
 
 export const App = () => {
   //const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
   //const [setShow] = useState('docs');
   //const [importtext, setImporttext] = useState('');
+    //const [reactname, setReactname] = useState('');
 
   const homepage = `${process.env.PUBLIC_URL}/`;
   const logoExtReact = homepage + `assets/images/footer-logo.png`;
@@ -67,7 +70,6 @@ export const App = () => {
   const [examplename, setExamplename] = useState('');
   const [overviewcode, setOverviewcode] = useState('');
   const [code, setCode] = useState('');
-  const [reactname, setReactname] = useState('');
   const [text, setText] = useState('');
   const [asidevalue, setAsidevalue] = useState(0);
   const [propertyNames, setPropertyNames] = useState([]);
@@ -80,7 +82,7 @@ export const App = () => {
   const [aside] = useState(0);
 
   function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -121,9 +123,8 @@ export const App = () => {
       });
   }, []);
 
-
   const onMenuClick = (name, type, reactname, componentname, title) => {
-    if (rootopen == true) {
+    if (rootopen === true) {
       setRootopen(false)
     }
     var folder = ''
@@ -205,8 +206,6 @@ export const App = () => {
             setMethods(resMethods.data.methods)
             setEventNames(resEvents.data.eventNames)
             setEvents(resEvents.data.events)
-
-            setReactname(reactname)
             setData(theData)
             setOverviewcode(resOverviewCode.data)
             setMaintab(0);
@@ -238,7 +237,7 @@ export const App = () => {
             }
             //console.clear()
             setExamplename(name)
-            setReactname(reactname)
+            //setReactname(reactname)
             setData(theData)
             setCode(resExampleCode.data)
             setMaintab(1);
@@ -320,7 +319,7 @@ export const App = () => {
     ExtPolar,
     ExtTree,
     ExtTreelist
-   };
+  };
 
   return menu.length ? (
     <React.Fragment>
@@ -338,12 +337,10 @@ export const App = () => {
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
           <Box className="vbox senchablue">
-            {/* <NestedList menu={menu} menuSelectedIndex={menuSelectedIndex} onMenuClick={onMenuClick}/> */}
             <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
         {/* nav */}
-        {/* <Box className="w300 vbox">splitter</Box> */}
         {/* center */}
         <Box className="hbox">
           {/* title and detail */}
@@ -357,24 +354,24 @@ export const App = () => {
             {maintab === 0 &&
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
-              <Box className="vbox" style={{margin:'20px 10px 20px 20px',background:'white',border:'1px solid gray',padding:'20px'}}>
+              <Box className="vbox shadow" style={{margin:'20px 10px 20px 20px',background:'white',border:'0px solid gray',padding:'20px'}}>
                 <ReactMarkdown source={text} escapeHtml={false}/>
               </Box>
               {/* text section */}
               {/* property method event section */}
               <Box className="vbox">
-                <Box className="hbox shadow" style={{flex:'1',margin:'20px 20px 10px 20px',border:'1px solid gray',background:'white'}}>
+                <Box className="hbox shadow" style={{flex:'1',margin:'20px 20px 10px 20px',border:'0px solid gray',background:'white'}}>
                   {overviewcode !== '' &&
                   <LiveProvider code={overviewcode} scope={scope} theme={theme}>
-                   <LivePreview style={{flex:'1'}}/>
-                   <LiveError style={{flex:'1'}}/>
+                    <LivePreview style={{flex:'1'}}/>
+                    <LiveError style={{flex:'1'}}/>
                   </LiveProvider>
                   }
                   {overviewcode === '' &&
                     <div className="hbox" style={{margin:'20px 20px 20px 10px'}}>Loading...</div>
                   }
                 </Box>
-                   <Aside
+                  <Aside
                     asidevalue={asidevalue}
                     handleAsideValueChange={handleAsideValueChange}
                     propertyNames={propertyNames}
@@ -395,7 +392,7 @@ export const App = () => {
             {/* examples section */}
             {maintab === 3 &&
               <Box className="vbox" style={{background:'lightgray'}}>
-                <div className="vbox2" style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'1px solid gray'}}>
+                <div className="vbox2 shadow" style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'0px solid gray'}}>
                   <ReactMarkdown source={guide} escapeHtml={false}/>
                 </div>
               </Box>
@@ -431,7 +428,7 @@ export const App = () => {
                     <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoMaterialUI} />
                   </div>
                   <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div>
-               </div>
+                </div>
               </Box>
             }
             {/* examples section */}
@@ -447,7 +444,7 @@ export const App = () => {
       </Box>
       {/* main */}
       {/* <Box className="h50 border footer"></Box> */}
-     </React.Fragment>
+    </React.Fragment>
   ) : (
     <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
     <div style={{display:'flex',flexDirection:'column'}}>
@@ -456,7 +453,7 @@ export const App = () => {
         <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoMaterialUI} />
       </div>
       <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div>
-   </div>
+    </div>
   </Box>
   );
 }
