@@ -112,7 +112,7 @@ export const App = () => {
 
   useEffect(() => {
     //http://localhost:3000/?show=examples#home
-    var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height
+    var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].clientHeight
     console.log(h)
     var newH = h.substring(0,h.length-2)
     var hInt = parseInt(newH)
