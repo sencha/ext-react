@@ -33,7 +33,15 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   </head>
-  <body>
+
+  <script>
+    function onResize() {
+      var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height
+      console.log(h)
+    }
+  </script>
+
+  <body onresize="onResize()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="overlay" style="display:none"></div>
     <div class="viewport root" id="root"> </div>
