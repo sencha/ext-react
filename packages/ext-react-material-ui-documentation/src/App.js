@@ -114,9 +114,9 @@ export const App = () => {
     //http://localhost:3000/?show=examples#home
     var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].clientHeight
     console.log(h)
-    var newH = h.substring(0,h.length-2)
-    var hInt = parseInt(newH)
-    var newHInt = hInt - 10
+    //var newH = h.substring(0,h.length-2)
+    //var hInt = parseInt(newH)
+    var newHInt = h - 10
     console.log(newHInt)
     window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height = newHInt + 'px'
 
