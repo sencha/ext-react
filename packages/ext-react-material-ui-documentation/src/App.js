@@ -127,11 +127,11 @@ window.frameElement.style.overflow = 'hidden'
 
 
 
-    var h = window.frameElement.clientHeight
-    console.log(h)
-       var newHInt = h - 10
-    console.log(newHInt)
-    window.frameElement.style.height = newHInt + 'px'
+    // var h = window.frameElement.clientHeight
+    // console.log(h)
+    //    var newHInt = h - 10
+    // console.log(newHInt)
+    // window.frameElement.style.height = newHInt + 'px'
 
 
 
