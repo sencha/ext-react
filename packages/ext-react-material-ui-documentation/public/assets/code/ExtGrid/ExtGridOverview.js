@@ -1,37 +1,30 @@
 //import React from 'react';
 //import { ExtGrid } from "@sencha/ext-react-material-ui";
 
-class RowEditing extends React.Component {
+class Rows extends React.Component {
+
   constructor() {
     super()
-    this.plugins = {
-      rowedit: {
-          // selectOnEdit: true
-          autoConfirm: false
+    this.store = {
+      autoLoad: true,
+      proxy: {
+        type: 'ajax',
+        url: codefolder + 'ExtGrid/Overview.json'
       }
     }
   }
-
-
 
   render() {
     return (
       <ExtGrid
         fitToParent
-        title="ExtGrid - Row Editing"
-        plugins={this.plugins}
-        store={
-          {
-            xtype: 'store',
-            data: data
-          }
-        }
+        title='ExtGrid Overview'
+        store={ this.store }
         columns={
           [
             {
               text: "name",
               dataIndex: "name",
-              editable: true,
               cell: { encodeHtml: false, xtype: 'reactcell' },
               renderer: v => <strong>{v}</strong>
             },
@@ -46,4 +39,5 @@ class RowEditing extends React.Component {
       />
     )
   }
+
 }

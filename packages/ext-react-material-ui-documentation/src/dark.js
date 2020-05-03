@@ -12,7 +12,7 @@
 //var theme: PrismTheme = {
 var theme = {
   plain: {
-    fontSize: '16px',
+    fontSize: '14px',
     backgroundColor: "white",
     color: "black"
   },

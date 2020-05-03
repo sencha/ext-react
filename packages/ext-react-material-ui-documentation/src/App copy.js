@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {
   ExtCalendar,
@@ -46,54 +47,41 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 
 import theme from'./theme2'
+import NestedList from './NestedList';
 import Title from './Title';
 import Aside from './Aside';
 
 export const App = () => {
-  const Ext = window['Ext']
-  //const [navstore, setNavstore] = useState({});
-  //const [selection, setSelection] = useState('');
+  //const [menuSelectedIndex, setMenuSelectedIndex] = useState(110);
+  //const [setShow] = useState('docs');
+  //const [importtext, setImporttext] = useState('');
+    //const [reactname, setReactname] = useState('');
+
   const homepage = `${process.env.PUBLIC_URL}/`;
   const datafolder = homepage + 'assets/data/';
   const codefolder = homepage + 'assets/code/';
   const logoExtReact = homepage + `assets/images/footer-logo.png`;
   const logoMaterialUI = homepage + `assets/images/logo_raw.svg`;
-//  const [rootopen, setRootopen] = useState(false);
-  //const [textforshow, setTextforshow] = useState('Documentation');
-  //const [data, setData] = useState([]);
-  //const [version, setVersion] = useState('7.2.1.0');
-  //const [menu, setMenu] = useState([]);
+  const [title, setTitle] = useState('');
+  const [rootopen, setRootopen] = useState(false);
+  const [textforshow, setTextforshow] = useState('Documentation');
+  const [data, setData] = useState([]);
+  const [version, setVersion] = useState('7.2.1.0');
+  const [menu, setMenu] = useState([]);
+  const [guide, setGuide] = useState('');
+  const [examplename, setExamplename] = useState('');
+  const [overviewcode, setOverviewcode] = useState('');
+  const [code, setCode] = useState('');
+  const [text, setText] = useState('');
   const [asidevalue, setAsidevalue] = useState(0);
+  const [propertyNames, setPropertyNames] = useState([]);
+  const [properties, setProperties] = useState([]);
+  const [methodNames, setMethodNames] = useState([]);
+  const [methods, setMethods] = useState([]);
+  const [eventNames, setEventNames] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [maintab, setMaintab] = useState(5);
   const [aside] = useState(0);
-
-  const [initialRequest, setInitialRequest] = useState({
-    version: '7.2.1.0',
-    textforshow: '',
-    menu: [],
-    navstore: {},
-    selection: {}
-  })
-
-
-  const [pageRequest, setPageRequest] = useState({
-    title: '',
-    hash: '',
-    componentname: '',
-    examplename: '',
-    text: '',
-    overviewcode: '',
-    code: '',
-    guide: '',
-
-    propertynames: [],
-    properties: [],
-    methodnames: [],
-    methods: [],
-    eventnames: [],
-    events: [],
-
-    maintab: 0
-  });
 
   function getUrlParameter(name) {
     name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
@@ -102,93 +90,96 @@ export const App = () => {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   };
 
-  function on() {
-    document.getElementById("overlay").style.display = "block";
-  }
-
-  function off() {
-    document.getElementById("overlay").style.display = "none";
-  }
-
   useEffect(() => {
     //http://localhost:3000/?show=examples#home
+    console.log(process.env.REACT_APP_VERSION)
+    setVersion(process.env.REACT_APP_VERSION)
+
+
     var menu = ''
     var showparm = getUrlParameter('show')
-    var textForShow = ""
     if (showparm.trim() === 'examples') {
-      textForShow = 'Examples'
+      showparm = 'examples'
+      setTextforshow('Examples')
       menu = homepage + "assets/menu/examplesmenu.json"
+      setRootopen(true)
     }
     else {
-      textForShow = 'Documentation'
+      showparm = 'docs'
+      setTextforshow('Documentation')
       menu = homepage + "assets/menu/docsmenu.json"
+      setRootopen(false)
     }
+    //setShow(showparm)
+    //var hash = window.location.hash.substring(1);
+    //console.log(hash)
     axios
       .get(menu)
       .then(({ data }) => {
-        var navStore =  Ext.create('Ext.data.TreeStore', {
-          rootVisible: true,
-          root: { text: 'All', children: data }
-        })
-        var hash = window.location.hash.substr(1);
-        if (hash === '') {
-          hash = 'Home'
+        setMenu(data);
+        // setMenuSelectedIndex(100)
+        // window.location.hash = 'home'
+        if(showparm === 'docs') {
+          onMenuClick('Home Name', 'home', 'Home', 'Home', 'Home')
         }
-        var node = navStore.findNode('hash', hash);
-        var appversion = '7.2.1.0';
-        if (process.env.REACT_APP_VERSION !== undefined) {
-          appversion = process.env.REACT_APP_VERSION;
+        else {
+          onMenuClick('Examples Name', 'exampleshome', 'ExtExampleshome', 'Examples', 'Examples')
         }
-        setInitialRequest({
-          version: appversion,
-          textforshow: textForShow,
-          menu: data,
-          navstore: navStore,
-          selection: node
-        });
-      })
+      });
   }, []);
 
-  const onSelectionchange=({treelist, record, eOpts}) => {
-    if (record.data.leaf === true) {
-      on()
+  const onMenuClick = (name, type, reactname, componentname, title) => {
+    if (rootopen === true) {
+      setRootopen(false)
     }
-    else {
-      return
-    }
-    var type = record.data.type;
-    var hash = record.data.hash;
-    var componentname = record.data.componentname;
-    window.location.hash = '#' + hash;
-    onMenuClick(type, hash, componentname)
-  }
-
-  const onMenuClick = (type, hash, componentname) => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
+    if (title !== undefined) {
+      setTitle(title)
+    }
+    else {
+      setTitle('')
+    }
     switch (type) {
       case 'overview':
-        folder = componentname
+        setOverviewcode('')
+        setMaintab(5);
+        folder = reactname
         examplename = 'Overview'
-        var overviewCode = homepage + 'assets/code/' + folder + '/' + componentname + examplename + '.js'
-        var overviewText = homepage + "assets/doc-material-ui/" + componentname + ".json"
-        var properties = homepage + "assets/doc-material-ui/" + componentname + "Properties.json"
-        var methods = homepage + "assets/doc-material-ui/" + componentname + "Methods.json"
-        var events = homepage + "assets/doc-material-ui/" + componentname + "Events.json"
+        var overviewCode = homepage + 'assets/code/' + folder + '/' + examplename + '.js'
+        var overviewData = homepage + 'assets/code/' + folder + '/' + examplename + '.json'
+        var generalData = homepage + 'assets/code/' + folder + '/data.json';
+        var overviewText = homepage + "assets/doc-material-ui/" + reactname + ".json"
+        var properties = homepage + "assets/doc-material-ui/" + reactname + "Properties.json"
+        var methods = homepage + "assets/doc-material-ui/" + reactname + "Methods.json"
+        var events = homepage + "assets/doc-material-ui/" + reactname + "Events.json"
         axios.all([
           axios.get(overviewCode).catch(useNull),
+          axios.get(overviewData).catch(useNull),
+          axios.get(generalData).catch(useNull),
           axios.get(overviewText).catch(useNull),
           axios.get(properties).catch(useNull),
           axios.get(methods).catch(useNull),
           axios.get(events).catch(useNull),
         ]).then(axios.spread(function (
             resOverviewCode,
+            resOverviewData,
+            resGeneralData,
             resOverviewText,
             resProperties,
             resMethods,
             resEvents
           ) {
+            var theData = []
+            if (resOverviewData != null) {
+              theData = resOverviewData.data
+            }
+            else if (resGeneralData != null) {
+              theData = resGeneralData.data
+            }
+            setTitle(`${reactname}  -> import { ${reactname} } from "@sencha/ext-react-material-ui";`)
+
             function replacerCfgLink(match) {
               var b = '~~' + match + '~~'
               return b
@@ -207,78 +198,78 @@ export const App = () => {
             //   var b = '~~' + match + '~~'
             //   return a + ' ' + b
             // }
+
             var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link #cfg(.)*?[}]/g) , replacerCfgLink )
             //var afterCfgLink = resOverviewText.data.text.replace( new RegExp( /[{]@link.*[}]/g) , replacerCfgLink )
-            setPageRequest({
-              title: `${componentname}  -> import { ${componentname} } from "@sencha/ext-react-material-ui";`,
-              hash: hash,
-              examplename: examplename,
-              componentname: componentname,
-              text: afterCfgLink,
-              overviewcode: resOverviewCode.data,
-              propertynames: resProperties.data.propertyNames,
-              properties: resProperties.data.properties,
-              methodnames: resMethods.data.methodNames,
-              methods: resMethods.data.methods,
-              eventnames: resEvents.data.eventNames,
-              events: resEvents.data.events,
-              maintab: 0
-            });
-            off()
+            setText(afterCfgLink)
+            //setText(resOverviewText.data.text)
+            setPropertyNames(resProperties.data.propertyNames)
+            setProperties(resProperties.data.properties)
+            setMethodNames(resMethods.data.methodNames)
+            setMethods(resMethods.data.methods)
+            setEventNames(resEvents.data.eventNames)
+            setEvents(resEvents.data.events)
+            setData(theData)
+            setOverviewcode(resOverviewCode.data)
+            setMaintab(0);
           }));
         break;
         case 'example':
-          folder = componentname;
-          examplename = hash;
+          setCode('')
+          setMaintab(5);
+          folder = componentname; //'Ext' + reactname
+          examplename = name
           var exampleCode = homepage + 'assets/code/' + folder + '/' + examplename + '.js'
+          var exampleData = homepage + 'assets/code/' + folder + '/' + examplename + '.json'
+          var general2Data = homepage + 'assets/code/' + folder + '/data.json';
           axios.all([
             axios.get(exampleCode).catch(useNull),
+            axios.get(exampleData).catch(useNull),
+            axios.get(general2Data).catch(useNull),
           ]).then(axios.spread(function (
             resExampleCode,
+            resExampleData,
+            resGeneral2Data,
           ) {
-            setPageRequest({
-              hash: hash,
-              examplename: examplename,
-              componentname: componentname,
-              code: resExampleCode.data,
-              maintab: 1
-            });
-            off()
+            var theData = []
+            if (resExampleData != null) {
+              theData = resExampleData.data
+            }
+            else if (resGeneral2Data != null) {
+              theData = resGeneral2Data.data
+            }
+            //console.clear()
+            setExamplename(name)
+            //setReactname(reactname)
+            setData(theData)
+            setCode(resExampleCode.data)
+            setMaintab(1);
           }));
         break;
         case 'guide':
+          setMaintab(3);
           axios
-          .get(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
+          .get(homepage + 'assets/guides/' + componentname + '/' + name + '.md')
           .then(({ data }) => {
-            setPageRequest({
-              guide: data,
-              maintab: 3
-            });
-            off()
+            setGuide(data)
           });
           break;
         case 'exampleshome':
+          setMaintab(3);
           axios
           .get(homepage + "assets/guides/Home/exampleshome.md")
           .then(({ data }) => {
-            setPageRequest({
-              guide: data,
-              maintab: 3
-            });
-            off()
+            setGuide(data)
           });
           break;
         case 'home':
-          axios
-          .get(homepage + "assets/guides/Home/Home.md")
-          .then(({ data }) => {
-            setPageRequest({
-              guide: data,
-              maintab: 3
+            setMaintab(3);
+            axios
+            .get(homepage + "assets/guides/Home/Home.md")
+            .then(({ data }) => {
+              setGuide(data)
             });
-            off()
-          });
-          break;
+            break;
         default:
           break;
     }
@@ -301,6 +292,7 @@ export const App = () => {
     homepage,
     datafolder,
     codefolder,
+    data,
     ExtCalendar,
     ExtCalendar_day,
     ExtCalendar_days,
@@ -335,44 +327,15 @@ export const App = () => {
     ExtTreelist
   };
 
-  const{
-    version,
-    textforshow,
-    menu,
-    navstore,
-    selection
-  } = initialRequest;
-
-  const {
-    title,
-    hash,
-    examplename,
-    componentname,
-    text,
-    overviewcode,
-    code,
-    guide,
-
-    propertynames,
-    properties,
-    methodnames,
-    methods,
-    eventnames,
-    events,
-
-    maintab
-  } = pageRequest;
-
   return menu.length ? (
     <React.Fragment>
-      {console.log('render')}
       {/* header */}
       {/* <Box className="h64 header hHeader"></Box> */}
       {/* header */}
       {/* main */}
       <Box className="hbox">
         {/* nav */}
-        <Box className="wMenu vbox">
+        <Box className="w300 vbox">
           <Box className="hTitleleft">
             <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
             &nbsp;&nbsp;for
@@ -380,16 +343,7 @@ export const App = () => {
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
           <Box className="vbox senchablue">
-            {/* <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/> */}
-            <ExtTreelist
-              ui="nav"
-              scrollable="true"
-              store={navstore}
-              expanderFirst={false}
-              expanderOnly={false}
-              onSelectionchange={onSelectionchange}
-              selection={selection}
-            />
+            <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/>
           </Box>
         </Box>
         {/* nav */}
@@ -426,13 +380,13 @@ export const App = () => {
                   <Aside
                     asidevalue={asidevalue}
                     handleAsideValueChange={handleAsideValueChange}
-                    propertyNames={propertynames}
+                    propertyNames={propertyNames}
                     properties={properties}
                     onPropertyClick={onPropertyClick}
-                    methodNames={methodnames}
+                    methodNames={methodNames}
                     methods={methods}
                     onMethodClick={onMethodClick}
-                    eventNames={eventnames}
+                    eventNames={eventNames}
                     events={events}
                     onEventClick={onEventClick}
                   />
@@ -454,7 +408,7 @@ export const App = () => {
               {/* example code */}
               <div className="vbox ">
                 <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
-                  <div style={{fontSize:'18px',margin:'20px 20px 20px 20px',}}>{examplename}  ({componentname}/{hash}.js)</div>
+                  <div style={{fontSize:'18px',margin:'20px 20px 20px 20px',}}>{examplename} Example</div>
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
@@ -490,7 +444,7 @@ export const App = () => {
         {/* center */}
         {/* aside */}
         {aside === 1 &&
-        <Box className="wMenu vbox border">aside</Box>
+        <Box className="w300 vbox border">aside</Box>
         }
         {/* aside */}
       </Box>
@@ -504,7 +458,7 @@ export const App = () => {
         <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoExtReact} />
         <Avatar alt="" style={{height:'100px',width:'100px',padding:'10px'}} variant="square" src={logoMaterialUI} />
       </div>
-      {/* <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div> */}
+      <div style={{textAlign:'center',fontSize:'28px',fontStyle:'italic'}}>Loading...</div>
     </div>
   </Box>
   );
