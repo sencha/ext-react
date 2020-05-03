@@ -20,33 +20,43 @@
 }
 
 .x-treelist-nav {
-  background-color: #024059 !important;
+  background-color: #024059;
+  background-position: 24px 0%;
+  padding: 0 0 0 0;
 }
 
 .x-treelist-nav .x-treelist-item-expanded {
-  background-color: #1B5369 !important;
+  background-color: #1B5369;
 }
 
 .x-treelist-nav .x-treelist-item-text {
-  color: white  !important;
+  color: white;
+  margin-left: 40px;
+  margin-right: 24px;
+  font-size: 16px;
+  line-height: 44px;
 }
 
 .x-treelist-nav .x-treelist-item-selected > .x-treelist-row {
-  color: white !important;
-  background-color: #34667A !important;
+  color: white;
+  background-color: #34667A;
 }
 
 .x-treelist-nav .x-treelist-row-over {
-  color: white !important;
-  background-color: #99B2BC !important;
+  color: white;
+  background-color: #99B2BC;
 }
 
 .x-treelist-nav .x-treelist-item-expander {
-  color: white !important;
+  color: white;
+  font-size: 22px;
+  width: 24px;
 }
 
 .x-treelist-nav .x-treelist-item-icon, .x-treelist-nav .x-treelist-item-tool {
-  color: white !important;
+  color: white;
+  font-size: 18px;
+  width: 24px;
 }
 
 
