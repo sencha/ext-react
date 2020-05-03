@@ -1,27 +1,17 @@
 [
-  { "id": 0, "title": "Examples", "name": "Examples", "count": 0, "type": "exampleshome",
-    "items": [
-      { "id": 3, "title": "ExtGrid Rows Example", "name": "Rows", "componentname": "ExtGrid", "type": "example" },
-      { "id": 4, "title": "ExtGrid Row Editing", "name": "Row Editing", "componentname": "ExtGrid", "type": "example" },
-
-      { "id": 5, "title": "Rows Example", "name": "Columns", "componentname": "ExtGrid", "type": "example" },
-      { "id": 6, "title": "Rows Example", "name": "Filtering", "componentname": "ExtGrid", "type": "example" },
-      { "id": 7, "title": "Rows Example", "name": "Cell Editing", "componentname": "ExtGrid", "type": "example" },
-
-      { "id": 8, "title": "ExtPivotgrid Overview", "name": "Overview", "componentname": "ExtPivotgrid", "type": "example" },
-
-      { "id": 9, "title": "ExtTree Overview", "name": "Overview", "componentname": "ExtTree", "type": "example" },
-      { "id": 10, "title": "ExtTreelist Overview", "name": "Overview", "componentname": "ExtTreelist", "type": "example" },
-
-      { "id": 11, "title": "ExtChart Overview", "name": "Overview", "componentname": "ExtChart", "type": "example" },
-      { "id": 12, "title": "ExtPolar Overview", "name": "Overview", "componentname": "ExtPolar", "type": "example" },
-
-      { "id": 13, "title": "ExtD3_heatmap Overview", "name": "Overview", "componentname": "ExtD3_heatmap", "type": "example" },
-
-      { "id": 14, "title": "ExtCalendar Overview", "name": "Overview", "componentname": "ExtCalendar", "type": "example" },
-
-      { "id": 15, "title": "ExtCalendar Basic", "name": "Basic Calendar", "componentname": "ExtCalendar", "type": "example" },
-      { "id": 16, "title": "ExtCalendar Another", "name": "Another Calendar", "componentname": "ExtCalendar", "type": "example" }
+  { "text": "Examples", "type": "exampleshome", "hash": "Examples", "iconCls": "fas fa-home", "componentname": "Examples",
+    "children": [
+      { "type": "guide",   "hash": "Home",                 "text": "Home",                  "componentname": "Home",         "leaf": true },
+      { "type": "example", "hash": "ExtGridRows",          "text": "ExtGrid Rows Example",  "componentname": "ExtGrid",      "leaf": true },
+      { "type": "example", "hash": "ExtGridOverview",      "text": "Grid Overview Example", "componentname": "ExtGrid",      "leaf": true },
+      { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true },
+      { "type": "example", "hash": "ExtPivotgridOverview", "text": "ExtPivotgrid Overview", "componentname": "ExtPivotgrid", "leaf": true },
+      { "type": "example", "hash": "ExtTreeOverview",      "text": "ExtTree Overview",      "componentname": "ExtTree",      "leaf": true },
+      { "type": "example", "hash": "ExtTreelistOverview",  "text": "ExtTreelist Overview",  "componentname": "ExtTreelist",  "leaf": true },
+      { "type": "example", "hash": "ExtChartOverview",     "text": "ExtChart Overview",     "componentname": "ExtChart",     "leaf": true },
+      { "type": "example", "hash": "ExtPolarOverview",     "text": "ExtPolar Overview",     "componentname": "ExtPolar",     "leaf": true },
+      { "type": "example", "hash": "ExtD3_heatmapOverview","text": "ExtD3_heatmap Overview","componentname": "ExtD3_heatmap","leaf": true },
+      { "type": "example", "hash": "ExtCalendarOverview",  "text": "ExtCalendar Overview",  "componentname": "ExtCalendar",  "leaf": true }
     ]
   }
 ]

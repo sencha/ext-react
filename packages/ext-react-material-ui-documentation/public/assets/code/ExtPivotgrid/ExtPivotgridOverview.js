@@ -5,17 +5,27 @@ class Overview extends React.Component {
 
   constructor() {
     super()
-    console.log(data)
 
-    this.store={
-      type: 'store',
-      // fields: [
-      //   { name: 'date', type: 'date', dateFormat: 'Y-m-d' },
-      //   'bucket',
-      //   'count'
-      // ],
-      data: data
+    this.store = {
+      autoLoad: true,
+      proxy: {
+        type: 'ajax',
+        url: codefolder + 'ExtPivotgrid/Overview.json'
       }
+    }
+
+
+    // this.store={
+
+
+    //   type: 'store',
+    //   // fields: [
+    //   //   { name: 'date', type: 'date', dateFormat: 'Y-m-d' },
+    //   //   'bucket',
+    //   //   'count'
+    //   // ],
+    //   data: data
+    //   }
 
     this.matrix = {
       type: 'local',

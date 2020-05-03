@@ -6,14 +6,17 @@ class Overview extends React.Component {
 
   constructor() {
     super()
-    this.store={
-      xtype: 'store',
+    this.store = {
+      autoLoad: true,
       fields: [
         { name: 'date', type: 'date', dateFormat: 'Y-m-d' },
         'bucket',
         'count'
       ],
-      data: data
+      proxy: {
+        type: 'ajax',
+        url: datafolder + 'heatmap.json'
+      }
     }
   }
 

@@ -1,3 +1,65 @@
+:xxroot {
+  --base-color: yellow;
+  --base-foreground-color: white;
+  --background-color: white;
+  --color: black;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.x-treelist-nav {
+  background-color: #024059;
+  background-position: 24px 0%;
+  padding: 0 0 0 0;
+}
+
+.x-treelist-nav .x-treelist-item-expanded {
+  background-color: #1B5369;
+}
+
+.x-treelist-nav .x-treelist-item-text {
+  color: white;
+  margin-left: 40px;
+  margin-right: 24px;
+  font-size: 16px;
+  line-height: 44px;
+}
+
+.x-treelist-nav .x-treelist-item-selected > .x-treelist-row {
+  color: white;
+  background-color: #34667A;
+}
+
+.x-treelist-nav .x-treelist-row-over {
+  color: white;
+  background-color: #99B2BC;
+}
+
+.x-treelist-nav .x-treelist-item-expander {
+  color: white;
+  font-size: 22px;
+  width: 24px;
+}
+
+.x-treelist-nav .x-treelist-item-icon, .x-treelist-nav .x-treelist-item-tool {
+  color: white;
+  font-size: 18px;
+  width: 24px;
+}
+
+
 pre {
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   padding: 10px 10px 10px 10px;
@@ -80,10 +142,10 @@ body {
   flex-direction: column;
 }
 
-.w300 {
+.wMenu {
   flex: none !important;
-  width: 300px;
-  min-width: 300px;
+  width: 350px;
+  min-width: 350px;
 }
 
 .w150 {

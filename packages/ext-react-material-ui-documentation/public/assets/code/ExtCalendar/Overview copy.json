@@ -1,0 +1,22 @@
+[
+  {
+    "id": 2,
+    "title": "Donald",
+    // "data": [
+    //   {"calendarId": 2, "title": "Press Event", "startDate": "2020-05-02T09:00:00.000Z", "endDate": "2020-05-02T11:00:00.000Z"},
+    //   {"calendarId": 2, "title": "Briefing", "startDate": "2017-08-02T11:30:00.000Z", "endDate": "2017-08-02T15:00:00.000Z"},
+    //   {"calendarId": 2, "title": "Briefing", "startDate": "2017-09-27T08:30:00.000Z", "endDate": "2017-09-27T15:00:00.000Z"}
+    // ]
+
+    // "eventStore": {
+    //   "proxy": {
+    //     "type": "memory",
+    //     "data": [
+    //       {"calendarId": 2, "title": "Press Event", "startDate": "2020-05-02T09:00:00.000Z", "endDate": "2020-05-02T11:00:00.000Z"},
+    //       {"calendarId": 2, "title": "Briefing", "startDate": "2017-08-02T11:30:00.000Z", "endDate": "2017-08-02T15:00:00.000Z"},
+    //       {"calendarId": 2, "title": "Briefing", "startDate": "2017-09-27T08:30:00.000Z", "endDate": "2017-09-27T15:00:00.000Z"}
+    //     ]
+    //   }
+    // }
+  }
+]

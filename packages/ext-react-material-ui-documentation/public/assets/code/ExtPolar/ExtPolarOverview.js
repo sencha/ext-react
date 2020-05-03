@@ -6,11 +6,14 @@ class Overview extends React.Component {
 
   constructor() {
     super()
-    this.store={
-      xtype: 'store',
+    this.store = {
+      autoLoad: true,
       fields: ['os', 'data1', 'data2'],
-      data: data
+      proxy: {
+        type: 'ajax',
+        url: datafolder + 'polar.json'
       }
+    }
   }
 
   onAxisLabelRender(axis, label, layoutContext){
