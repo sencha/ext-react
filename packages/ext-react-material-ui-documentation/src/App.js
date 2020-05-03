@@ -112,6 +112,14 @@ export const App = () => {
 
   useEffect(() => {
     //http://localhost:3000/?show=examples#home
+    var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height
+    console.log(h)
+    var newH = h.substring(0,h.length-2)
+    var hInt = parseInt(newH)
+    var newHInt = hInt - 10
+    console.log(newHInt)
+    window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height = newHInt + 'px'
+
     var menu = ''
     var showparm = getUrlParameter('show')
     var textForShow = ""
