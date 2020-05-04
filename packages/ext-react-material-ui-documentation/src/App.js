@@ -44,8 +44,8 @@ import {
 
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
-import CodeIcon from '@material-ui/icons/CodeOutlined';
-import EditIcon from '@material-ui/icons/EditOutlined';
+//import CodeIcon from '@material-ui/icons/CodeOutlined';
+//import EditIcon from '@material-ui/icons/EditOutlined';
 import Icon from '@material-ui/core/Icon';
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
@@ -96,6 +96,7 @@ export const App = () => {
     text: '',
     overviewcode: '',
     code: '',
+    desc: '',
     guide: '',
 
     propertynames: [],
@@ -239,17 +240,28 @@ export const App = () => {
           folder = componentname;
           examplename = hash;
           var exampleCode = homepage + 'assets/code/' + folder + '/' + examplename + '.js'
+          var exampleDesc = homepage + 'assets/code/' + folder + '/' + examplename + '.md'
           axios.all([
             axios.get(exampleCode).catch(useNull),
+            axios.get(exampleDesc).catch(useNull),
           ]).then(axios.spread(function (
             resExampleCode,
+            resExampleDesc,
           ) {
+            var desc;
+            if (resExampleDesc == null) {
+              desc = 'description coming soon'
+            }
+            else {
+              desc = resExampleDesc.data
+            }
             setPageRequest({
               title: text,
               hash: hash,
               examplename: examplename,
               componentname: componentname,
               code: resExampleCode.data,
+              desc: desc,
               maintab: EXAMPLE
             });
             off()
@@ -347,6 +359,7 @@ export const App = () => {
     text,
     overviewcode,
     code,
+    desc,
     guide,
 
     propertynames,
@@ -373,7 +386,7 @@ export const App = () => {
             <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
             {/* &nbsp;&nbsp;for */}
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
-            <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
+            {/* <div style={{margin:'2px 2px 10px 70px'}} >{textforshow}</div> */}
           </Box>
           <Box className="vbox senchablue">
             {/* <NestedList menu={menu} rootopen={rootopen} onMenuClick={onMenuClick}/> */}
@@ -449,8 +462,15 @@ export const App = () => {
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* example code */}
               <div className="vbox ">
-                <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
+
+               {/* <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
+                <ReactMarkdown source={desc} escapeHtml={false}/>
                   <div style={{fontSize:'18px',margin:'20px 20px 20px 20px',}}>{examplename}  ({componentname}/{hash}.js)</div>
+                </Box> */}
+
+
+                <Box className='h100' style={{paddingLeft:'15px',margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
+                <ReactMarkdown source={desc} escapeHtml={false}/>
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
@@ -481,7 +501,7 @@ export const App = () => {
                       </div>
                       <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'0 0 0 0',border:'0px solid gray',whiteSpace:'inherit'}}/>
                     </div>
-                    <LivePreview className="shadow" style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
+                    <LivePreview className="shadow" style={{background:'darkgray',padding:'10px',flex:'1',margin:'20px',border:'1px solid gray'}}/>
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>

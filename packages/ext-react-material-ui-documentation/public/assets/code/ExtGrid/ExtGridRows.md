@@ -1,0 +1,1 @@
+Rows of data are loaded from the data 'store'.

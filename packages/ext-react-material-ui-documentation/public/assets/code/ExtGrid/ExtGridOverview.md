@@ -1,0 +1,1 @@
+ExtGrid is an excellent way of showing large amounts of tabular data on the client side. Essentially a supercharged <table\>, Grid makes it easy to fetch, sort and filter large amounts of data.

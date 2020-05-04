@@ -7,21 +7,48 @@ class Overview extends React.Component {
   constructor() {
     super()
     this.treestore = Ext.create('Ext.data.TreeStore', {
-      rootVisible: true,
-      root: data
+
+      proxy: {
+        type: 'ajax',
+        url: datafolder + 'tree.json',
+        reader: {
+            type: 'json',
+            rootProperty: 'children'
+        }
+      },
+      autoLoad: true,
+      root: {
+          text: 'Root',
+          id: 'data',
+          expanded: true
+      },
+      folderSort: true,
+      sorters: [{
+          property: 'text',
+          direction: 'ASC'
+      }]
+      // root: {
+      //   text: 'Genre',
+      //   expanded: true,
+      //   children: data
+      // }
     });
   }
 
   render() {
     return (
+
+      <>
       <ExtTreelist
-        fitToParent
-        expanderOnly={false}
-        store={this.treestore}
-        micro={false}
-        expanderFirst={true}
-        ui={'nav'}
-      />
+      fitToParent
+      ui="nav"
+      scrollable="true"
+      store={this.treestore}
+      expanderFirst={false}
+      expanderOnly={false}
+
+    />
+      </>
     )
   }
 }
