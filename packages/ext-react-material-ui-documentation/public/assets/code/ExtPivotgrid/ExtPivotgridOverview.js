@@ -54,6 +54,7 @@ class Overview extends React.Component {
     return (
       <ExtPivotgrid
         fitToParent
+        title="ExtPivotgrid"
         matrix={this.matrix}
       ></ExtPivotgrid>
     )

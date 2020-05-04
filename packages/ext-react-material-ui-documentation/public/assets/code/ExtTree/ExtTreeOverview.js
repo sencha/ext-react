@@ -6,12 +6,27 @@ class Overview extends React.Component {
 
   constructor() {
     super()
+
     this.treestore = Ext.create('Ext.data.TreeStore', {
+      proxy: {
+        type: 'ajax',
+        url: datafolder + 'tree.json',
+        reader: {
+            type: 'json',
+            rootProperty: 'children'
+        }
+      },
+      autoLoad: true,
       root: {
-        text: 'Genre',
-        expanded: true,
-        children: data
-      }
+          text: 'Root',
+          id: 'data',
+          expanded: true
+      },
+      folderSort: true,
+      sorters: [{
+          property: 'text',
+          direction: 'ASC'
+      }]
     });
   }
 
@@ -19,7 +34,7 @@ class Overview extends React.Component {
     return (
       <ExtTree
         fitToParent
-        title='Favorite Shows by Genre'
+        title='ExtTree'
         store={this.treestore}
       />
     )
