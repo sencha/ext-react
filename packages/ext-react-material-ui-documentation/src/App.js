@@ -129,7 +129,7 @@ export const App = () => {
     var textForShow = ''
     var hash = window.location.hash.substr(1);
     if (showparm.trim().toLowerCase() === 'examples') {
-      if (hash === '') { hash = 'ExamplesHome' }
+      if (hash === '') { hash = 'exampleseome' }
       textForShow = 'Examples'
       menu = homepage + "assets/menu/examplesmenu.json"
     }
