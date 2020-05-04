@@ -43,7 +43,13 @@ import {
 } from 'react-live';
 
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
+import CodeIcon from '@material-ui/icons/CodeOutlined';
+import EditIcon from '@material-ui/icons/EditOutlined';
+import Icon from '@material-ui/core/Icon';
 import Avatar from '@material-ui/core/Avatar';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import theme from'./theme2'
 import Title from './Title';
@@ -71,6 +77,7 @@ export const App = () => {
   //const [menu, setMenu] = useState([]);
   const [asidevalue, setAsidevalue] = useState(0);
   const [aside] = useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const [initialRequest, setInitialRequest] = useState({
     version: '7.2.1.0',
@@ -278,6 +285,14 @@ export const App = () => {
   const onEventClick = (event, index, name, events) => {
   }
 
+  const onMoreClick = (event, index, name, events) => {
+    setAnchorEl(event.currentTarget);
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const scope = {
     homepage,
     datafolder,
@@ -439,14 +454,34 @@ export const App = () => {
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
-
                   <div className="hbox">
-                  <div className="vbox">
-                  <div style={{fontSize:'12px',minHeight:'50px',flex:'none',overflow:'auto',margin:'20px 0 0 20px',border:'1px solid gray',whiteSpace:'inherit'}}>hi</div>
-                    <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'0 0 20px 20px',border:'1px solid gray',whiteSpace:'inherit'}}/>
+                    <div className="vbox shadow" style={{margin:'20px 0 20px 20px'}}>
+                      <div style={{background:'#024059',fontSize:'12px',textAlign:'right',minHeight:'50px',flex:'none',overflow:'auto',margin:'0 0 0 0',border:'0px solid gray',whiteSpace:'inherit'}}>
+                      {/* <IconButton aria-label="code">
+                        <CodeIcon style={{color:'white'}}/>
+                      </IconButton>
+                      <IconButton aria-label="edit">
+                        <EditIcon style={{color:'white'}}/>
+                      </IconButton> */}
+                      <IconButton onClick={onMoreClick}>
+                        <Icon style={{color:'white'}}>more_vert</Icon>
+                      </IconButton>
+                      <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                      >
+                        <MenuItem onClick={handleClose}>menu</MenuItem>
+                        <MenuItem onClick={handleClose}>Coming</MenuItem>
+                        <MenuItem onClick={handleClose}>Soon</MenuItem>
+                      </Menu>
+
+                      </div>
+                      <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'0 0 0 0',border:'0px solid gray',whiteSpace:'inherit'}}/>
                     </div>
                     <LivePreview className="shadow" style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
-
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>
