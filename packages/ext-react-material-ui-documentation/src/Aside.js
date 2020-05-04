@@ -8,17 +8,16 @@ export default class Aside extends Component {
 
   constructor(props) {
     super(props);
+    this.asidevalue = 1;
     this.state = {
       selectedIndex: 0,
     };
   }
 
-  componentDidMount() {
-  }
-
-  onClick = (index, name) => {
+  handleAsideValueChange = (name, index) => {
     this.setState({selectedIndex: index});
-    this.props.onMenuClick(index, name)
+    this.asidevalue = index
+    //this.props.onMenuClick(index, name)
   }
 
   a11yProps = (index) => {
@@ -32,8 +31,8 @@ export default class Aside extends Component {
   render() {
     //const { selectedIndex } = this.state;
     const {
-      asidevalue,
-      handleAsideValueChange,
+ //     asidevalue,
+ //     handleAsideValueChange,
 
       propertySelectedIndex,
       methodSelectedIndex,
@@ -59,7 +58,7 @@ export default class Aside extends Component {
 
     <div style={{height: '50px'}}>
       <AppBar position="static">
-        <Tabs style={{xheight:'5px'}} value={asidevalue} onChange={handleAsideValueChange} aria-label="simple tabs example">
+        <Tabs style={{xheight:'5px'}} value={this.asidevalue} onChange={this.handleAsideValueChange} aria-label="simple tabs example">
           {/* <Tab label="Examples" {...this.a11yProps(0)} /> */}
           <Tab label="Properties" {...this.a11yProps(0)} />
           <Tab label="Methods" {...this.a11yProps(1)} />
@@ -79,7 +78,7 @@ export default class Aside extends Component {
       <TabPanel
       style={{display: 'flex',flex:'1',xheight:'5px'}}
       xstyle={{xminHeight:'300px',xmaxHeight:'300px',display:'flex',flex:'1',xflexGrow:'0',xflexShrink:'0',xflexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
-        value={asidevalue}
+        value={this.asidevalue}
         index={0}
         names={propertyNames}
         data={properties}
@@ -89,7 +88,7 @@ export default class Aside extends Component {
       <TabPanel
         xstyle={{xminHeight:'300px',xmaxHeight:'300px',display:'flex',flexGrow:'0',flexShrink:'0',flexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
 
-        value={asidevalue}
+        value={this.asidevalue}
         index={1}
         names={methodNames}
         data={methods}
@@ -99,7 +98,7 @@ export default class Aside extends Component {
       <TabPanel
         xstyle={{xminHeight:'300px',xheight:'300px',display:'flex',flexGrow:'1',flexShrink:'0',flexBasis:'auto',overflow:'auto',flexDirection:'column',justifyContent:'space-between'}}
 
-        value={asidevalue}
+        value={this.asidevalue}
         index={2}
         names={eventNames}
         data={events}
