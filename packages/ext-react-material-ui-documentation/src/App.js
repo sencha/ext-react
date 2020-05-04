@@ -51,6 +51,12 @@ import Aside from './Aside';
 
 export const App = () => {
   const Ext = window['Ext']
+
+  const OVERVIEW = 0;
+  const EXAMPLE = 1;
+  const GUIDE = 3;
+  const LOADING = 5;
+
   //const [navstore, setNavstore] = useState({});
   //const [selection, setSelection] = useState('');
   const homepage = `${process.env.PUBLIC_URL}/`;
@@ -148,7 +154,7 @@ export const App = () => {
   }, []);
 
   const onSelectionchange=({treelist, record, eOpts}) => {
-     if (record.data.leaf === true) {
+    if (record.data.leaf === true) {
       on()
     }
     else {
@@ -159,10 +165,6 @@ export const App = () => {
     var text = record.data.text;
     var componentname = record.data.componentname;
     window.location.hash = '#' + hash;
-//    onMenuClick(type, hash, componentname)
-//  }
-
-//  const onMenuClick = (type, hash, componentname) => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -221,7 +223,7 @@ export const App = () => {
               methods: resMethods.data.methods,
               eventnames: resEvents.data.eventNames,
               events: resEvents.data.events,
-              maintab: 0
+              maintab: OVERVIEW
             });
             off()
           }));
@@ -241,47 +243,23 @@ export const App = () => {
               examplename: examplename,
               componentname: componentname,
               code: resExampleCode.data,
-              maintab: 1
+              maintab: EXAMPLE
             });
             off()
           }));
         break;
         case 'guide':
-          console.log('guide')
-          console.log(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
           axios
           .get(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
           .then(({ data }) => {
             setPageRequest({
               title: text,
               guide: data,
-              maintab: 3
+              maintab: GUIDE
             });
             off()
           });
           break;
-        // case 'exampleshome':
-        //   axios
-        //   .get(homepage + "assets/guides/Home/exampleshome.md")
-        //   .then(({ data }) => {
-        //     setPageRequest({
-        //       guide: data,
-        //       maintab: 3
-        //     });
-        //     off()
-        //   });
-        //   break;
-        // case 'home':
-        //   axios
-        //   .get(homepage + "assets/guides/Home/Home.md")
-        //   .then(({ data }) => {
-        //     setPageRequest({
-        //       guide: data,
-        //       maintab: 3
-        //     });
-        //     off()
-        //   });
-        //   break;
         default:
           break;
     }
@@ -368,7 +346,7 @@ export const App = () => {
 
   return menu.length ? (
     <React.Fragment>
-      {console.log('render')}
+      {/* {console.log('render')} */}
       {/* header */}
       {/* <Box className="h64 header hHeader"></Box> */}
       {/* header */}
@@ -406,7 +384,7 @@ export const App = () => {
             </Box>
             {/* title */}
             {/* detail section */}
-            {maintab === 0 &&
+            {maintab === OVERVIEW &&
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* text section */}
               <Box className="vbox shadow" style={{margin:'20px 10px 20px 20px',background:'white',border:'0px solid gray',padding:'20px'}}>
@@ -445,14 +423,14 @@ export const App = () => {
             }
             {/* detail section */}
             {/* examples section */}
-            {maintab === 3 &&
+            {maintab === GUIDE &&
               <Box className="vbox" style={{background:'lightgray'}}>
                 <div className="vbox2 shadow" style={{margin:'20px 20px 20px 20px',background:'white',padding:'20px',border:'0px solid gray'}}>
                   <ReactMarkdown source={guide} escapeHtml={false}/>
                 </div>
               </Box>
             }
-            {maintab === 1 &&
+            {maintab === EXAMPLE &&
             <Box className="hbox border" style={{background:'lightgray'}}>
               {/* example code */}
               <div className="vbox ">
@@ -461,9 +439,14 @@ export const App = () => {
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
+
                   <div className="hbox">
-                    <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'20px 0 20px 20px',border:'1px solid gray',whiteSpace:'inherit'}}/>
+                  <div className="vbox">
+                  <div style={{fontSize:'12px',minHeight:'50px',flex:'none',overflow:'auto',margin:'20px 0 0 20px',border:'1px solid gray',whiteSpace:'inherit'}}>hi</div>
+                    <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'0 0 20px 20px',border:'1px solid gray',whiteSpace:'inherit'}}/>
+                    </div>
                     <LivePreview className="shadow" style={{flex:'1',margin:'20px',border:'1px solid gray'}}/>
+
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>
@@ -475,7 +458,7 @@ export const App = () => {
               {/* example code */}
             </Box>
             }
-            {maintab === 5 &&
+            {maintab === LOADING &&
               <Box className="hbox border" style={{background:'lightgray', alignItems:'center',justifyContent:'center',padding:'20px',border:'1px solid gray'}}>
                 <div style={{display:'flex',flexDirection:'column'}}>
                   <div style={{display:'flex',flexDirection:'row'}}>
