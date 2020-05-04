@@ -118,11 +118,7 @@ export const App = () => {
     // console.log(newHInt)
     // window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height = newHInt + 'px'
 
-window.frameElement.ownerDocument.getElementById('header-container-text').innerHTML = 'ExtReact for Material-UI'
 
-window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.flexDirection = 'column'
-window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.display = 'flex'
-window.frameElement.style.overflow = 'hidden'
 
 
 

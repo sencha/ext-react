@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
+
+<script>
+    if (window.frameElement != null) {
+      console.log('start')
+      window.frameElement.ownerDocument.getElementById('header-container-text').innerHTML = 'ExtReact for Material-UI'
+      window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.flexDirection = 'column'
+      window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.display = 'flex'
+      window.frameElement.style.overflow = 'hidden'
+    }
+</script>
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -43,7 +54,7 @@
 
   <body onresize="onResize()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="overlay" style="display:none"></div>
+    <div id="overlay" style="display:block"></div>
     <div class="viewport root" id="root"> </div>
 
     <!--
