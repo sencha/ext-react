@@ -1,7 +1,8 @@
 [
-  { "text": "Documentation Home", "hash": "documentationhome", "type": "guide", "iconCls": "fas fa-home", "componentname": "Home", "count": 0,
+  { "text": "Documentation", "hash": "docsroot", "type": "guide", "iconCls": "fas fa-home", "componentname": "Home", "count": 0,
     "children": [
-      { "text": "Getting Started", "hash": "Home", "componentname": "Home", "type": "guide", "leaf": true },
+      { "type": "guide",   "hash": "DocsHome",         "text": "Home",                  "componentname": "Home",         "leaf": true },
+      { "text": "Getting Started", "hash": "GettingStarted", "componentname": "Home", "type": "guide", "leaf": true },
       { "text": "Getting Started - Detailed", "hash": "GettingStartedDetailed", "componentname": "Home", "type": "guide", "leaf": true },
       { "text": "Adding ExtReact to an App", "hash": "Adding", "componentname": "Home", "type": "guide", "leaf": true }
     ]

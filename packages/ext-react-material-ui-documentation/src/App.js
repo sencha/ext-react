@@ -111,34 +111,17 @@ export const App = () => {
   }
 
   useEffect(() => {
-    //http://localhost:3000/?show=examples#home
-    // var h = window.frameElement.ownerDocument.getElementsByTagName('html')[0].clientHeight
-    // console.log(h)
-    //    var newHInt = h - 10
-    // console.log(newHInt)
-    // window.frameElement.ownerDocument.getElementsByTagName('html')[0].style.height = newHInt + 'px'
-
-
-
-
-
-
-    // var h = window.frameElement.clientHeight
-    // console.log(h)
-    //    var newHInt = h - 10
-    // console.log(newHInt)
-    // window.frameElement.style.height = newHInt + 'px'
-
-
-
     var menu = ''
     var showparm = getUrlParameter('show')
-    var textForShow = ""
-    if (showparm.trim() === 'examples') {
+    var textForShow = ''
+    var hash = window.location.hash.substr(1);
+    if (showparm.trim().toLowerCase() === 'examples') {
+      if (hash === '') { hash = 'ExamplesHome' }
       textForShow = 'Examples'
       menu = homepage + "assets/menu/examplesmenu.json"
     }
     else {
+      if (hash === '') { hash = 'DocsHome' }
       textForShow = 'Documentation'
       menu = homepage + "assets/menu/docsmenu.json"
     }
@@ -149,10 +132,6 @@ export const App = () => {
           rootVisible: true,
           root: { text: 'All', children: data }
         })
-        var hash = window.location.hash.substr(1);
-        if (hash === '') {
-          hash = 'Home'
-        }
         var node = navStore.findNode('hash', hash);
         var appversion = '7.2.1.0';
         if (process.env.REACT_APP_VERSION !== undefined) {
@@ -169,7 +148,7 @@ export const App = () => {
   }, []);
 
   const onSelectionchange=({treelist, record, eOpts}) => {
-    if (record.data.leaf === true) {
+     if (record.data.leaf === true) {
       on()
     }
     else {
@@ -177,12 +156,13 @@ export const App = () => {
     }
     var type = record.data.type;
     var hash = record.data.hash;
+    var text = record.data.text;
     var componentname = record.data.componentname;
     window.location.hash = '#' + hash;
-    onMenuClick(type, hash, componentname)
-  }
+//    onMenuClick(type, hash, componentname)
+//  }
 
-  const onMenuClick = (type, hash, componentname) => {
+//  const onMenuClick = (type, hash, componentname) => {
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -256,6 +236,7 @@ export const App = () => {
             resExampleCode,
           ) {
             setPageRequest({
+              title: text,
               hash: hash,
               examplename: examplename,
               componentname: componentname,
@@ -266,38 +247,41 @@ export const App = () => {
           }));
         break;
         case 'guide':
+          console.log('guide')
+          console.log(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
           axios
           .get(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
           .then(({ data }) => {
             setPageRequest({
+              title: text,
               guide: data,
               maintab: 3
             });
             off()
           });
           break;
-        case 'exampleshome':
-          axios
-          .get(homepage + "assets/guides/Home/exampleshome.md")
-          .then(({ data }) => {
-            setPageRequest({
-              guide: data,
-              maintab: 3
-            });
-            off()
-          });
-          break;
-        case 'home':
-          axios
-          .get(homepage + "assets/guides/Home/Home.md")
-          .then(({ data }) => {
-            setPageRequest({
-              guide: data,
-              maintab: 3
-            });
-            off()
-          });
-          break;
+        // case 'exampleshome':
+        //   axios
+        //   .get(homepage + "assets/guides/Home/exampleshome.md")
+        //   .then(({ data }) => {
+        //     setPageRequest({
+        //       guide: data,
+        //       maintab: 3
+        //     });
+        //     off()
+        //   });
+        //   break;
+        // case 'home':
+        //   axios
+        //   .get(homepage + "assets/guides/Home/Home.md")
+        //   .then(({ data }) => {
+        //     setPageRequest({
+        //       guide: data,
+        //       maintab: 3
+        //     });
+        //     off()
+        //   });
+        //   break;
         default:
           break;
     }
@@ -394,7 +378,7 @@ export const App = () => {
         <Box className="wMenu vbox">
           <Box className="hTitleleft">
             <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
-            &nbsp;&nbsp;for
+            {/* &nbsp;&nbsp;for */}
             <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
             <div style={{margin:'2px 2px 10px 20px'}} >ExtReact for Material UI {textforshow}</div>
           </Box>
