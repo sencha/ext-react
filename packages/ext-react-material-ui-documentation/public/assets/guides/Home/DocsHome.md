@@ -13,7 +13,11 @@ Open the Home menu to see these guides...
 - Getting Started - Detailed Version
 - Adding to existing Material-UI Application
 
-Links
+External Pages (will open in new window)
 - <a href="https://www.sencha.com/products/extreact/extreact-for-material-ui/" target="_blank">Product Page</a>
 - <a href="https://www.sencha.com/products/extreact/extreact-for-material-ui/evaluate/" target="_blank">Trial Signup</a>
+
+Guides
 - <a href="#GettingStarted">Getting Started</a>
+- <a href="#GettingStartedDetailed">Getting Started - Detailed</a>
+- <a href="#Adding">Adding ExtReact to an App</a>
