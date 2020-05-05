@@ -10,12 +10,8 @@
 
     <script>
 
-
-
-
-
-
       if (window.frameElement != null) {
+        window.frameElement.ownerDocument.getElementById('header-container-text').style.paddingRight = '120px'
         window.frameElement.ownerDocument.getElementById('header-container-text').innerHTML = 'ExtReact for Material-UI'
         window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.flexDirection = 'column'
         window.frameElement.ownerDocument.getElementsByTagName('body')[0].style.display = 'flex'
