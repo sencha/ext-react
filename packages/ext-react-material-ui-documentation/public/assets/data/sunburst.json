@@ -1,0 +1,35 @@
+{
+  "children":[
+  {
+      "name": "Oscorp",
+      "age":34,
+      "expanded" : true,
+      "children": [
+          {"text": "Norman Osborn"},
+          {"text": "Harry Osborn"},
+          {"text": "Arthur Stacy"}
+      ]
+  },
+  {
+      "text": "SHIELD",
+      "expanded" : true,
+      "children": [
+          {"text": "Nick Fury"},
+          {"text": "Maria Hill"},
+          {"text": "Tony Stark"}
+      ]
+  },
+  {
+      "text": "Illuminati",
+      "expanded" : true,
+      "children": [
+          {"text": "Namor"},
+          {"text": "Tony Stark"},
+          {"text": "Reed Richards"},
+          {"text": "Black Bolt"},
+          {"text": "Stephen Strange"},
+          {"text": "Charles Xavier"}
+      ]
+  }
+]
+}

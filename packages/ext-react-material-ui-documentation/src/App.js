@@ -51,7 +51,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import theme from'./theme2'
+import theme from'./livetheme'
 import Title from './Title';
 import Aside from './Aside';
 
@@ -106,7 +106,7 @@ export const App = () => {
     eventnames: [],
     events: [],
 
-    maintab: 0
+    maintab: 5
   });
 
   function getUrlParameter(name) {
@@ -463,7 +463,7 @@ export const App = () => {
               {/* example code */}
               <div className="vbox ">
 
-               {/* <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
+              {/* <Box className='h64' style={{margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
                 <ReactMarkdown source={desc} escapeHtml={false}/>
                   <div style={{fontSize:'18px',margin:'20px 20px 20px 20px',}}>{examplename}  ({componentname}/{hash}.js)</div>
                 </Box> */}

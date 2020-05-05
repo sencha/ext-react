@@ -74,9 +74,11 @@
       { "text": "ExtD3_svg", "hash": "ExtD3_svg", "componentname": "ExtD3_svg", "type": "overview" , "leaf": true },
       { "text": "ExtD3_tree", "hash": "ExtD3_tree", "componentname": "ExtD3_tree", "type": "overview" , "leaf": true },
       { "text": "ExtD3_treemap", "hash": "ExtD3_treemap", "componentname": "ExtD3_treemap", "type": "overview" , "leaf": true },
-      { "text": "Examples", "hash": "Examples", "componentname": "", "type": "examplemid",
-        "subchildren": [
-          { "type": "example", "hash": "ExtD3_heatmapOverview","text": "ExtD3_heatmap Overview","componentname": "ExtD3_heatmap","leaf": true }
+      { "text": "Examples", "hash": "", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtD3_heatmapOverview","text": "ExtD3_heatmap Overview","componentname": "ExtD3_heatmap","leaf": true },
+          { "type": "example", "hash": "ExtD3_treemapOverview","text": "ExtD3_treemap Overview","componentname": "ExtD3_treemap","leaf": true }
+
         ]
       }
     ]
