@@ -164,8 +164,8 @@ body {
 
  .hTitleleft {
   flex: none !important;
-  height: 120px;
-  min-height: 120px;
+  height: 60px;
+  min-height: 60px;
   background: #024059;
   color: white;
  }

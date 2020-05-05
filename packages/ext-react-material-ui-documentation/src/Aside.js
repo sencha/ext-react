@@ -233,7 +233,7 @@ export default class Aside extends Component {
           }
         </div>
 
-        <div style={{padding:'20px',height:'100px',background:'white',overflow:'auto'}}>
+        <div style={{padding:'20px',height:'130px',background:'white',overflow:'auto'}}>
           <div style={{fontSize:'18px',fontWeight:'bold'}}>{thenameprimary}</div>
           <div style={{margin:'5px 0 0 0'}}>{thetext}</div>
         </div>

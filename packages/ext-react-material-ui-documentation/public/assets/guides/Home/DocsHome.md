@@ -14,5 +14,6 @@ Open the Home menu to see these guides...
 - Adding to existing Material-UI Application
 
 Links
-- [Product Page](https://www.sencha.com/products/extreact/extreact-for-material-ui/)
-- [Trial](https://www.sencha.com/products/extreact/extreact-for-material-ui/evaluate/)
+- <a href="https://www.sencha.com/products/extreact/extreact-for-material-ui/" target="_blank">Product Page</a>
+- <a href="https://www.sencha.com/products/extreact/extreact-for-material-ui/evaluate/" target="_blank">Trial Signup</a>
+- <a href="#GettingStarted">Getting Started</a>
