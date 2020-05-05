@@ -1,7 +1,7 @@
 [
   { "iconCls": "fas fa-home", "type": "guide",   "hash": "exampleshome",         "text": "Examples",                  "componentname": "Home",         "leaf": true },
   { "type": "example", "hash": "ExtGridOverview",      "text": "ExtGrid", "componentname": "ExtGrid",  "iconCls": "fas fa-table",    "leaf": true },
-  { "text": "ExtGrid Row Operations", "iconCls": "", "leaf": false,
+  { "text": "ExtGrid Row Operations", "hash": "none", "iconCls": "", "leaf": false,
     "children": [
 
       { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true },
@@ -9,7 +9,7 @@
     ]
   },
 
-  { "text": "ExtGrid Column Operations", "iconCls": "", "leaf": false,
+  { "text": "ExtGrid Column Operations", "hash": "none", "iconCls": "", "leaf": false,
     "children": [
 
       { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true },

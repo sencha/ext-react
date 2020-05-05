@@ -55,6 +55,7 @@ import theme from'./livetheme'
 import Title from './Title';
 import Aside from './Aside';
 
+var treecmp2 = {}
 export const App = () => {
   const Ext = window['Ext']
 
@@ -79,14 +80,17 @@ export const App = () => {
   const [aside] = useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+
+
+
+  const [treecmp, setTreecmp] = useState({});
+
   const [initialRequest, setInitialRequest] = useState({
     version: '7.2.1.0',
-    textforshow: '',
     menu: [],
     navstore: {},
     selection: {}
   })
-
 
   const [pageRequest, setPageRequest] = useState({
     title: '',
@@ -106,6 +110,8 @@ export const App = () => {
     eventnames: [],
     events: [],
 
+    selection2: {},
+
     maintab: 5
   });
 
@@ -124,25 +130,29 @@ export const App = () => {
     document.getElementById("overlay").style.display = "none";
   }
 
+
+
   useEffect(() => {
+    console.log('useEffect')
+
+    var navStore = null
     var menu = ''
     var showparm = getUrlParameter('show')
-    var textForShow = ''
     var hash = window.location.hash.substr(1);
     if (showparm.trim().toLowerCase() === 'examples') {
       if (hash === '') { hash = 'exampleshome' }
-      textForShow = 'Examples'
+      //textForShow = 'Examples'
       menu = homepage + "assets/menu/examplesmenu.json"
     }
     else {
       if (hash === '') { hash = 'DocsHome' }
-      textForShow = 'Documentation'
+      //textForShow = 'Documentation'
       menu = homepage + "assets/menu/docsmenu.json"
     }
     axios
       .get(menu)
       .then(({ data }) => {
-        var navStore =  Ext.create('Ext.data.TreeStore', {
+        navStore =  Ext.create('Ext.data.TreeStore', {
           rootVisible: true,
           root: { text: 'All', children: data }
         })
@@ -151,17 +161,91 @@ export const App = () => {
         if (process.env.REACT_APP_VERSION !== undefined) {
           appversion = process.env.REACT_APP_VERSION;
         }
+        // setInitialRequest({
+        //   // title: text,
+        //   // hash: hash,
+        //   // examplename: examplename,
+        //   // componentname: componentname,
+        //   // code: resExampleCode.data,
+        //   // desc: desc,
+        //   // maintab: EXAMPLE
+        //   version: appversion,
+
+        //   menu: data,
+        //   navstore: navStore,
+        //   selection: node
+        // });
+
+
+
         setInitialRequest({
           version: appversion,
-          textforshow: textForShow,
           menu: data,
           navstore: navStore,
           selection: node
         });
       })
+
+
+      function myFunction() {
+        console.log('myFunction')
+        if (navStore === null) { return}
+        if (window.previoushash !== window.location.hash) {
+          console.log(window.location.hash)
+          if (window.location.hash == '#none') { return }
+          window.previoushash = window.location.hash
+
+          var node = navStore.findNode('hash', window.location.hash.substr(1));
+          console.log(node)
+
+
+          if (node.data.leaf === false) {
+            return
+          }
+
+
+          var e = {
+            treelist: null,
+            record: node,
+            eOpts: null
+          }
+          console.log(treecmp2)
+          treecmp2.setSelection(node)
+          onSelectionchange2(e)
+
+        }
+      }
+      window.addEventListener("hashchange", myFunction);
+
+
+
+
   }, []);
 
   const onSelectionchange=({treelist, record, eOpts}) => {
+    console.log('onSelectionchange')
+    var hash = record.data.hash;
+    console.log(hash)
+    if (record.data.hash === 'none') { return }
+    if (window.location.hash == '#' + hash) {
+      console.log('same')
+      var e = {
+        treelist: treelist,
+        record: record,
+        eOpts: eOpts
+      }
+      onSelectionchange2(e)
+    }
+    else {
+      console.log(window.location.hash)
+      window.location.hash = '#' + hash;
+      window.location.hash = hash;
+      console.log(window.location.hash)
+    }
+  }
+
+  const onSelectionchange2=({treelist, record, eOpts}) => {
+    console.log('onSelectionchange2')
     if (record.data.leaf === true) {
       on()
     }
@@ -172,7 +256,9 @@ export const App = () => {
     var hash = record.data.hash;
     var text = record.data.text;
     var componentname = record.data.componentname;
-    window.location.hash = '#' + hash;
+    console.log(type)
+    console.log(hash)
+    //window.location.hash = '#' + hash;
     var folder = ''
     var examplename = ''
     function useNull() {return null;}
@@ -268,10 +354,13 @@ export const App = () => {
           }));
         break;
         case 'guide':
+          console.log(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
+          console.log(record)
           axios
           .get(homepage + 'assets/guides/' + componentname + '/' + hash + '.md')
           .then(({ data }) => {
             setPageRequest({
+              selection: record,
               title: text,
               guide: data,
               maintab: GUIDE
@@ -304,6 +393,14 @@ export const App = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const extReactDidMount = ({cmp, cmpObj}) => {
+    console.log(cmp)
+    treecmp2 = cmp
+    //setTreecmp(cmp)
+    //for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
+    //console.log(this['tree'])
+  }
 
   const scope = {
     homepage,
@@ -345,13 +442,20 @@ export const App = () => {
 
   const{
     version,
-    textforshow,
     menu,
     navstore,
     selection
   } = initialRequest;
 
   const {
+
+    // version,
+    // textforshow,
+    // menu,
+    // navstore,
+    // selection,
+
+
     title,
     hash,
     examplename,
@@ -383,9 +487,9 @@ export const App = () => {
         {/* nav */}
         <Box className="wMenu vbox">
           <Box className="hTitleleft">
-            <img style={{margin:'12px 2px 2px 32px'}} alt="" src={logoExtReact}/>
+            <img style={{margin:'0 2px 2px 60px'}} alt="" width="50px" src={logoExtReact}/>
             {/* &nbsp;&nbsp;for */}
-            <img style={{margin:'2px 2px 2px 12px'}} alt="" width="60px" src={logoMaterialUI}/>
+            <img style={{margin:'0 2px 5px 12px'}} alt="" width="50px" src={logoMaterialUI}/>
             {/* <div style={{margin:'2px 2px 10px 70px'}} >{textforshow}</div> */}
           </Box>
           <Box className="vbox senchablue">
@@ -396,6 +500,8 @@ export const App = () => {
               store={navstore}
               expanderFirst={false}
               expanderOnly={false}
+              extname="tree"
+              onReady={ extReactDidMount }
               onSelectionchange={onSelectionchange}
               selection={selection}
             />
