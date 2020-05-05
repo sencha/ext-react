@@ -1,0 +1,23 @@
+{
+       "children" : [
+            {
+              "name" : "B",
+              "expanded" : true,
+              "children" : [{
+                  "name" : "D",
+                  "leaf" : true
+              },
+              {
+                  "name" : "E",
+                  "leaf" : true
+              }
+          ]
+          },
+          {
+              "name" : "C",
+              "leaf" : true
+          }
+        ]
+
+
+}

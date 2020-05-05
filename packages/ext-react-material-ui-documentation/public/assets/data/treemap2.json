@@ -1,0 +1,49 @@
+[
+  {
+    "text": "Hulk",
+    "value" : 5,
+    "children":[
+      { "text": "The Leader", value: 3 },
+      { "text": "Abomination", value: 2 },
+      { "text": "Sandman", value: 1 }
+    ]
+  },
+  {
+    "text": "Vision",
+    "value" : 4,
+    "children": [
+      { "text": "Kang", value: 4 },
+      { "text": "Magneto", value: 3 },
+      { "text": "Norman Osborn", value: 2 },
+      { "text": "Anti-Vision", value: 1 }
+    ]
+  },
+  {
+    "text": "Ghost Rider",
+    "value" : 3,
+    "children": [
+      { "text": "Mephisto", value: 1 }
+    ]
+  },
+  {
+    "text": "Loki",
+    "value" : 2,
+    "children": [
+      { "text": "Captain America", value: 3 },
+      { "text": "Deadpool", value: 4 },
+      { "text": "Odin", value: 5 },
+      { "text": "Scarlet Witch", value: 2 },
+      { "text": "Silver Surfer", value: 1 }
+    ]
+  },
+  {
+    "text": "Daredevil",
+    "value" : 1,
+    "children": [
+      { "text": "Purple Man", value: 4 },
+      { "text": "Kingpin", value: 3 },
+      { "text": "Namor", value: 2 },
+      { "text": "Sabretooth", value: 1 }
+    ]
+  }
+]
