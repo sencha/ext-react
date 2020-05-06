@@ -5,6 +5,7 @@
     "children": [
 
       { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true },
+      { "type": "example", "hash": "ExtGridGrouping",      "text": "ExtGrid Grouping",   "componentname": "ExtGrid",      "leaf": true },
       { "type": "example", "hash": "ExtGridRows",          "text": "ExtGrid Rows Example",  "componentname": "ExtGrid",      "leaf": true }
     ]
   },
