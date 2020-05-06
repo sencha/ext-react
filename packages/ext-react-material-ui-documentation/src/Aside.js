@@ -163,7 +163,7 @@ export default class Aside extends Component {
     //console.log(properties)
 
     return (
-      <div className="shadow" style={{background:'white',border:'0px solid gray',margin:'10px 20px 20px 20px',flex: '1', display: 'flex', flexDirection: 'column', overflow: 'auto'}}>
+      <div className="shadow" style={{background:'white',border:'0px solid gray',margin:'10px 20px 20px 20px',flex: 'auto', display: 'flex', flexDirection: 'column', overflow: 'auto'}}>
         <div style={{height: '50px'}}>
           <AppBar position="static">
             <Tabs
