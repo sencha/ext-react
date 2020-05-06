@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+//https://github.com/luncheon/flex-splitter-directive
+import "flex-splitter-directive"
+import "flex-splitter-directive/styles.min.css"
+
 import {
   ExtCalendar,
   ExtCalendar_day,
@@ -483,8 +487,10 @@ export const App = () => {
       {/* <Box className="h64 header hHeader"></Box> */}
       {/* header */}
       {/* main */}
+
       <Box className="hbox">
         {/* nav */}
+
         <Box className="wMenu vbox">
           <Box className="hTitleleft">
             <img style={{margin:'0 2px 2px 60px'}} alt="" width="50px" src={logoExtReact}/>
@@ -509,7 +515,8 @@ export const App = () => {
         </Box>
         {/* nav */}
         {/* center */}
-        <Box className="hbox">
+        <Box className="hbox" style={{flex:'auto'}}>
+
           {/* title and detail */}
           <Box className="vbox">
             {/* title */}
@@ -519,15 +526,16 @@ export const App = () => {
             {/* title */}
             {/* detail section */}
             {maintab === OVERVIEW &&
-            <Box className="hbox border" style={{background:'lightgray'}}>
+            <Box className="hbox border" style={{background:'lightgray'}} data-flex-splitter-horizontal>
               {/* text section */}
-              <Box className="vbox shadow" style={{margin:'20px 10px 20px 20px',background:'white',border:'0px solid gray',padding:'20px'}}>
+              <Box className="vbox shadow" style={{flex:'auto',margin:'20px 10px 20px 20px',background:'white',border:'0px solid gray',padding:'20px'}}>
                 <ReactMarkdown source={text} escapeHtml={false}/>
               </Box>
               {/* text section */}
+              <div role="separator"></div>
               {/* property method event section */}
-              <Box className="vbox">
-                <Box className="hbox shadow" style={{flex:'1',margin:'20px 20px 10px 20px',border:'0px solid gray',background:'white'}}>
+              <Box className="vbox" style={{flex:'auto',minWidth:'600px'}}  data-flex-splitter-vertical>
+                <Box className="hbox shadow" style={{height:'400px',minHeight:'300px',minWidth:'500px',flex:'auto',margin:'20px 20px 10px 20px',border:'0px solid gray',background:'white'}}>
                   {overviewcode !== '' &&
                   <LiveProvider code={overviewcode} scope={scope} theme={theme}>
                     <LivePreview style={{flex:'1'}}/>
@@ -538,19 +546,20 @@ export const App = () => {
                     <div className="hbox" style={{margin:'20px 20px 20px 10px'}}>Loading...</div>
                   }
                 </Box>
-                  <Aside
-                    asidevalue={asidevalue}
-                    handleAsideValueChange={handleAsideValueChange}
-                    propertyNames={propertynames}
-                    properties={properties}
-                    onPropertyClick={onPropertyClick}
-                    methodNames={methodnames}
-                    methods={methods}
-                    onMethodClick={onMethodClick}
-                    eventNames={eventnames}
-                    events={events}
-                    onEventClick={onEventClick}
-                  />
+                <div role="separator"></div>
+                <Aside
+                  asidevalue={asidevalue}
+                  handleAsideValueChange={handleAsideValueChange}
+                  propertyNames={propertynames}
+                  properties={properties}
+                  onPropertyClick={onPropertyClick}
+                  methodNames={methodnames}
+                  methods={methods}
+                  onMethodClick={onMethodClick}
+                  eventNames={eventnames}
+                  events={events}
+                  onEventClick={onEventClick}
+                />
               </Box>
               {/* property method event section */}
             </Box>
@@ -575,13 +584,13 @@ export const App = () => {
                 </Box> */}
 
 
-                <Box className='h100' style={{paddingLeft:'15px',margin:'20px 20px 0 20px',background:'white',border:'1px solid gray'}}>
+                <Box className='h100 shadow' style={{paddingLeft:'15px',margin:'20px 20px 0 20px',background:'white',border:'0px solid gray'}}>
                 <ReactMarkdown source={desc} escapeHtml={false}/>
                 </Box>
                 {code !== '' &&
                 <LiveProvider code={code} scope={scope} theme={theme}>
-                  <div className="hbox">
-                    <div className="vbox shadow" style={{margin:'20px 0 20px 20px'}}>
+                  <div className="hbox" data-flex-splitter-horizontal>
+                    <div className="vbox shadow" style={{flex:'auto',margin:'20px 10px 20px 20px'}}>
                       <div style={{background:'#024059',fontSize:'12px',textAlign:'right',minHeight:'50px',flex:'none',overflow:'auto',margin:'0 0 0 0',border:'0px solid gray',whiteSpace:'inherit'}}>
                       {/* <IconButton aria-label="code">
                         <CodeIcon style={{color:'white'}}/>
@@ -605,9 +614,13 @@ export const App = () => {
                       </Menu>
 
                       </div>
+
+
+
                       <LiveEditor className="shadow" style={{fontSize:'12px',flex:'1',overflow:'auto',margin:'0 0 0 0',border:'0px solid gray',whiteSpace:'inherit'}}/>
                     </div>
-                    <LivePreview className="shadow" style={{background:'darkgray',padding:'10px',flex:'1',margin:'20px',border:'1px solid gray'}}/>
+                    <div role="separator"></div>
+                    <LivePreview className="shadow" style={{background:'darkgray',padding:'10px',flex:'auto',margin:'20px 20px 20px 10px',border:'1px solid gray'}}/>
                   </div>
                   <LiveError style={{flex:'1',margin:'20px',border:'1px solid gray',background:'white'}}/>
                 </LiveProvider>
@@ -635,12 +648,15 @@ export const App = () => {
           {/* title and detail */}
         </Box>
         {/* center */}
+
         {/* aside */}
         {aside === 1 &&
         <Box className="wMenu vbox border">aside</Box>
         }
         {/* aside */}
+
       </Box>
+
       {/* main */}
       {/* <Box className="h50 border footer"></Box> */}
     </React.Fragment>

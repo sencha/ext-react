@@ -1,17 +1,16 @@
 Ext.onReady(function() {
-  const small = "width > 100";
+  console.log('onReady')
+  const small = "width < 500";
   const medium = "width > 500";
   var o = {
     xtype: 'form',
     renderTo: document.getElementById('route'),
-    width: "400px",
-    height: "400px",
     responsiveConfig: {
       [small]: {
-        layout : 'hbox'
+        layout : 'vbox'
       },
       [medium]: {
-        layout : 'vbox'
+        layout : 'hbox'
       }
     },
     items: [
