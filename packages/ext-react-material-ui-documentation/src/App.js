@@ -59,7 +59,7 @@ import theme from'./livetheme'
 import Title from './Title';
 import Aside from './Aside';
 
-var treecmp2 = {}
+var treecmp = {}
 export const App = () => {
   const Ext = window['Ext']
 
@@ -87,7 +87,7 @@ export const App = () => {
 
 
 
-  const [treecmp, setTreecmp] = useState({});
+  //const [treecmp, setTreecmp] = useState({});
 
   const [initialRequest, setInitialRequest] = useState({
     version: '7.2.1.0',
@@ -99,8 +99,8 @@ export const App = () => {
   const [pageRequest, setPageRequest] = useState({
     title: '',
     hash: '',
-    componentname: '',
-    examplename: '',
+    //componentname: '',
+    //examplename: '',
     text: '',
     overviewcode: '',
     code: '',
@@ -137,8 +137,6 @@ export const App = () => {
 
 
   useEffect(() => {
-    console.log('useEffect')
-
     var navStore = null
     var menu = ''
     var showparm = getUrlParameter('show')
@@ -165,23 +163,6 @@ export const App = () => {
         if (process.env.REACT_APP_VERSION !== undefined) {
           appversion = process.env.REACT_APP_VERSION;
         }
-        // setInitialRequest({
-        //   // title: text,
-        //   // hash: hash,
-        //   // examplename: examplename,
-        //   // componentname: componentname,
-        //   // code: resExampleCode.data,
-        //   // desc: desc,
-        //   // maintab: EXAMPLE
-        //   version: appversion,
-
-        //   menu: data,
-        //   navstore: navStore,
-        //   selection: node
-        // });
-
-
-
         setInitialRequest({
           version: appversion,
           menu: data,
@@ -190,49 +171,32 @@ export const App = () => {
         });
       })
 
-
       function myFunction() {
-        console.log('myFunction')
         if (navStore === null) { return}
         if (window.previoushash !== window.location.hash) {
-          console.log(window.location.hash)
-          if (window.location.hash == '#none') { return }
+          if (window.location.hash === '#none') { return }
           window.previoushash = window.location.hash
-
           var node = navStore.findNode('hash', window.location.hash.substr(1));
-          console.log(node)
-
-
           if (node.data.leaf === false) {
             return
           }
-
-
           var e = {
             treelist: null,
             record: node,
             eOpts: null
           }
-          console.log(treecmp2)
-          treecmp2.setSelection(node)
+          treecmp.setSelection(node)
           onSelectionchange2(e)
 
         }
       }
       window.addEventListener("hashchange", myFunction);
-
-
-
-
   }, []);
 
   const onSelectionchange=({treelist, record, eOpts}) => {
-    console.log('onSelectionchange')
     var hash = record.data.hash;
-    console.log(hash)
     if (record.data.hash === 'none') { return }
-    if (window.location.hash == '#' + hash) {
-      console.log('same')
+    if (window.location.hash === '#' + hash) {
       var e = {
         treelist: treelist,
         record: record,
@@ -241,15 +205,12 @@ export const App = () => {
       onSelectionchange2(e)
     }
     else {
-      console.log(window.location.hash)
       window.location.hash = '#' + hash;
       window.location.hash = hash;
-      console.log(window.location.hash)
     }
   }
 
   const onSelectionchange2=({treelist, record, eOpts}) => {
-    console.log('onSelectionchange2')
     if (record.data.leaf === true) {
       on()
     }
@@ -260,8 +221,6 @@ export const App = () => {
     var hash = record.data.hash;
     var text = record.data.text;
     var componentname = record.data.componentname;
-    console.log(type)
-    console.log(hash)
     //window.location.hash = '#' + hash;
     var folder = ''
     var examplename = ''
@@ -311,7 +270,7 @@ export const App = () => {
             setPageRequest({
               title: `${componentname}  -> import { ${componentname} } from "@sencha/ext-react-material-ui";`,
               hash: hash,
-              examplename: examplename,
+              //examplename: examplename,
               componentname: componentname,
               text: afterCfgLink,
               overviewcode: resOverviewCode.data,
@@ -348,8 +307,8 @@ export const App = () => {
             setPageRequest({
               title: text,
               hash: hash,
-              examplename: examplename,
-              componentname: componentname,
+              //examplename: examplename,
+              //componentname: componentname,
               code: resExampleCode.data,
               desc: desc,
               maintab: EXAMPLE
@@ -399,8 +358,7 @@ export const App = () => {
   };
 
   const extReactDidMount = ({cmp, cmpObj}) => {
-    console.log(cmp)
-    treecmp2 = cmp
+    treecmp = cmp
     //setTreecmp(cmp)
     //for (var prop in cmpObj) {this[prop] = cmpObj[prop]}
     //console.log(this['tree'])
@@ -461,9 +419,7 @@ export const App = () => {
 
 
     title,
-    hash,
-    examplename,
-    componentname,
+
     text,
     overviewcode,
     code,
