@@ -1,0 +1,5 @@
+[
+  { "name": "Marc", "email": "marc@gmail.com", "priceChangePct": "-.25" },
+  { "name": "Nick", "email": "nick@gmail.com'","priceChangePct": ".35" },
+  { "name": "Andy", "email": "andy@gmail.com'","priceChangePct": ".75" }
+]
