@@ -51,6 +51,7 @@ import IconButton from '@material-ui/core/IconButton';
 //import CodeIcon from '@material-ui/icons/CodeOutlined';
 //import EditIcon from '@material-ui/icons/EditOutlined';
 import Icon from '@material-ui/core/Icon';
+import Tooltip from '@material-ui/core/Tooltip';
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -448,7 +449,7 @@ export const App = () => {
         {/* nav */}
 
         <Box className="wMenu vbox">
-          <Box className="hTitleleft">
+          <Box className="hTitleleft" style={{borderBottom:'1px solid gray'}}>
             <img style={{margin:'0 2px 2px 60px'}} alt="" width="50px" src={logoExtReact}/>
             {/* &nbsp;&nbsp;for */}
             <img style={{margin:'0 2px 5px 12px'}} alt="" width="50px" src={logoMaterialUI}/>
@@ -468,6 +469,19 @@ export const App = () => {
               selection={selection}
             />
           </Box>
+          <Box className="hTitleleftbottom" style={{borderTop:'1px solid gray',textAlign:'right'}}>
+
+            <Tooltip title="Settings"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>settings</Icon></IconButton></Tooltip>
+            <Tooltip title="More"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>more_vert</Icon></IconButton></Tooltip>
+            <Tooltip title="Key"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>vpn_key</Icon></IconButton></Tooltip>
+            <Tooltip title="Examples"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>build</Icon></IconButton></Tooltip>
+            <Tooltip title="Documentation"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>description</Icon></IconButton></Tooltip>
+            <Tooltip title="Favorites"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>favorite</Icon></IconButton></Tooltip>
+            <Tooltip title="Help"><IconButton onClick={onMoreClick}><Icon style={{color:'white'}}>help_outline</Icon></IconButton></Tooltip>
+          </Box>
+
+
+
         </Box>
         {/* nav */}
         {/* center */}

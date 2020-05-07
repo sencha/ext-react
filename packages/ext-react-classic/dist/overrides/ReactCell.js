@@ -74,7 +74,9 @@ export function doReactCell() {
       var el = document.getElementById(this.id);
 
       if (el != undefined) {
-        el.parentNode.removeChild(el);
+        if (el != null) {
+          el.parentNode.removeChild(el);
+        }
       }
     },
     privates: {

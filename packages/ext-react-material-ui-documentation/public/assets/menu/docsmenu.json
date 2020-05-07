@@ -19,6 +19,8 @@
       },
       { "text": "Row Examples", "hash": "none", "componentname": "", "type": "examplemid",
         "children": [
+          { "type": "example", "hash": "ExtGridCellSelect",      "text": "Grid Cell Select", "componentname": "ExtGrid",      "leaf": true },
+
           { "type": "example", "hash": "ExtGridOverview",      "text": "Grid Overview Example", "componentname": "ExtGrid",      "leaf": true },
           { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true }
         ]

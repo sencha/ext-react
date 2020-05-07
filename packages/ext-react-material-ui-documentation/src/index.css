@@ -164,11 +164,20 @@ body {
 
  .hTitleleft {
   flex: none !important;
-  height: 60px;
-  min-height: 60px;
+  height: 61px;
+  min-height: 61px;
   background: #024059;
   color: white;
  }
+
+ .hTitleleftbottom {
+  flex: none !important;
+  height: 50px;
+  min-height: 50px;
+  background: #024059;
+  color: white;
+ }
+
 
 
 .h50 {
