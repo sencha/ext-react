@@ -106,7 +106,7 @@ export default function (CustomElement) {
 
       this.defer = true;
       newProps['createExtComponentDefer'] = this.defer;
-      this.element = React.createElement(tagName, _extends(_extends({}, newProps), {}, {
+      this.element = React.createElement(tagName, _extends({}, newProps, {
         style: this.props.style,
         ref: this.componentRef
       }), this.props.children);
