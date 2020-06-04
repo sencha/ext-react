@@ -1,0 +1,49 @@
+{
+  "children": [
+      {
+          "text": "Item 1",
+          "leaf": false,
+          "iconCls": "fas fa-folder",
+
+          "children": [{
+              "text": "Child 1a",
+              "leaf": true,
+              "iconCls": "fas fa-home"
+          }, {
+              "text": "Child 2a",
+              "leaf": true,
+              "iconCls": "fas fa-graduation-cap"
+          }]
+
+      }, {
+          "text": "Item 2",
+          "expanded": true,
+          "iconCls": "fas fa-folder",
+
+          "children": [{
+              "text": "Child 1b",
+              "leaf": true,
+              "iconCls": "fas fa-book"
+          }, {
+              "text": "Child 2b",
+              "leaf": true,
+              "iconCls": "fas fa-graduation-cap"
+          }]
+
+      }, {
+          "text": "Item 3",
+          "leaf": false,
+          "iconCls": "fas fa-folder",
+
+          "children": [{
+              "text": "Child 1c",
+              "leaf": true,
+              "iconCls": "fas fa-book"
+          }, {
+              "text": "Child 2c",
+              "leaf": true,
+              "iconCls": "fas fa-graduation-cap"
+          }]
+      }
+  ]
+}

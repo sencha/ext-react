@@ -1,0 +1,34 @@
+.demo-buttons {
+    &.demo-buttons-desktop .button-group-label {
+        padding: 25px 10px 0 0;
+        text-align: right;
+    }
+
+}
+
+.button-group {
+    background: white;
+    border-radius: 3px;
+    
+    &.button-group-alt {
+        background: #607d8b;
+    }
+}
+
+@include button-ui(
+    $ui: 'app-button-short',
+    $padding: 4px 10px,
+    $color: white
+);
+
+@include button-ui(
+    $ui: 'app-breadcrumb',
+    $padding: 6px 8px,
+    $text-transform: none,
+    $text-transform-big: none
+);
+
+@include button-ui(
+    $ui: 'app-show-code',
+    $icon-font-size: 20px
+)

@@ -1,13 +1,13 @@
 {
   "name": "@sencha/ext-react-classic",
-  "version": "7.2.0",
+  "version": "7.2.2",
   "description": "Sencha ext-react-classic",
   "main": "dist/index.js",
   "bin": {
     "ext-react": "./bin/ext-react.js"
   },
   "scripts": {
-    "build": "npx babel ./src --out-dir ./dist && webpack",
+    "build": "npx babel ./src --out-dir ./dist",
     "prepare": "npm run build",
     "postinstall": "npm run build & node ./postinstall.js",
     "xprepublish": "npm run build",
@@ -35,7 +35,7 @@
     "react-dom": "~16.13.1"
   },
   "dependencies": {
-    "@sencha/ext-web-components-classic": "~7.2.0"
+    "@sencha/ext-web-components-classic": "~7.2.2"
   },
   "devDependencies": {
     "fs-extra": "~9.0.0",

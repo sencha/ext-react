@@ -7,13 +7,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <link href="ext-runtime-classic/material/material-all.css" rel="stylesheet">
-  <script type="text/javascript" src="ext-runtime-classic/classic.engine.js"></script>
+  <script type="text/javascript" src="ext-runtime-classic/ext-all-debug.js"></script>
+
+  <script type="text/javascript" src="src/views/main/MainView.js"></script>
+  <script type="text/javascript" src="src/views/main/MainViewController.js"></script>
+  <script type="text/javascript" src="src/views/main/MainViewModel.js"></script>
+  <script type="text/javascript" src="src/views/main/MainViewStore.js"></script>
+  <script type="text/javascript" src="src/views/main/MainViewData.js"></script>
+  <link   rel="stylesheet"      href="src/views/main/MainView.css">
+
+<script>
+Ext.application({
+  name: 'MyApp',
+  launch: function launch() {
+
+    Ext.create(
+      {
+        xtype: 'mainview',
+        plugins: {viewport: true}
+      }
+    )
+
+    // Ext.create(
+    //   {
+    //     xtype: 'grid',
+    //     title: 'grid',
+    //     store: {
+    //       xtype: 'store',
+    //       data: [
+    //         { name: 'Marc', v: true, email: 'marc@gmail.com',priceChangePct: .25 },
+    //         { name: 'Nick', v: true, email: 'nick@gmail.com',priceChangePct: .35 },
+    //         { name: 'Andy', v: true, email: 'andy@gmail.com',priceChangePct: 1.45 }
+    //       ]
+    //     },
+    //     columns: [
+    //       {text: "name", dataIndex: "name"},
+    //       {text: "email", dataIndex: "email", width: 200},
+    //     ],
+    //     plugins: {viewport: true}
+    //   }
+    // )
+
+  }
+})
+</script>
 </head>
-<body>
-  <!-- <script type="text/javascript" src="tests/button.js"></script> -->
-  <script type="text/javascript" src="tests/grid.js"></script>
-  <!-- <script type="text/javascript" src="tests/tabpanel.js"></script> -->
-  <!-- <script type="text/javascript" src="tests/window.js"></script> -->
-  <div id="route"></div>
-</body>
+<body></body>
 </html>

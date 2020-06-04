@@ -1,0 +1,55 @@
+$component-tree-background: #fafafa;
+$component-tree-text-color: #212121;
+
+@include treelist-ui(
+    $ui: 'component-tree',
+    $padding: 0 24px,
+    $background-color: $component-tree-background,
+    $item-line-height : 44px,
+    $item-icon-color: $component-tree-text-color,
+    $item-expander-color: $component-tree-text-color,
+    $item-text-color: $component-tree-text-color,
+    $row-over-background-color: darken($component-tree-background, 10%),
+    $item-expanded-background-color: #eee,
+
+    $item-icon-over-color: $component-tree-text-color,
+    $item-expander-over-color: $component-tree-text-color,
+    $item-text-over-color: $component-tree-text-color,
+    $item-icon-width: 0,
+    $item-text-font-size: 16px,
+    $item-text-icon-gap: 0,
+
+    $row-indicator-width: 6px,
+    $row-indicator-selected-color: $accent-color,
+    $row-indicator-selected-over-color: $accent-dark-color,
+    $row-indicator-over-color: $accent-light-color,
+
+    $tool-indicator-selected-color: $accent-dark-color,
+    $tool-float-indicator-color: $accent-light-color,
+    $tool-indicator-selected-width: 6px,
+
+    $item-icon-font-size: 18px,
+    $item-icon-width: 15px,
+    $item-expander-font-size: 22px,
+    $item-expander-width: 24px,
+    $item-expander-color: lighten($component-tree-text-color, 30%),
+
+    $item-icon-over-transition: none,
+    $item-text-over-transition: none,
+    $item-expander-over-transition: none,
+
+    $item-expander-glyph: 'keyboard_arrow_down',
+    $item-expander-expanded-glyph: 'keyboard_arrow_up',
+
+    $row-selected-background-color: darken($component-tree-background, 15%)
+);
+
+.x-treelist-component-tree .x-treelist-item-text {
+    margin: 0;
+}
+
+.x-treelist-component-tree .x-treelist-item-expander {
+    &:after {
+        line-height: 44px !important;
+    }
+}

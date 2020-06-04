@@ -1,11 +1,14 @@
 {
   "dependencies": {
-    "@sencha/ext-react-classic": "^7.2.0",
-    "@sencha/ext-classic-runtime": "^7.2.0",
-    "@sencha/ext-classic-enterprise": "^7.2.0",
-    "@sencha/ext-classic-material": "^7.2.0"
+    "@sencha/ext-classic-enterprise-engine": "^7.2.1",
+    "@sencha/ext-classic-enterprise-material": "^7.2.1",
+    "@sencha/ext-react-classic": "^7.2.1",
+    "source-map-explorer": "^2.4.2",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
-
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "buildnomap": "GENERATE_SOURCEMAP=false react-scripts build",
+    "buildmap": "GENERATE_SOURCEMAP=true react-scripts build"
   }
 }

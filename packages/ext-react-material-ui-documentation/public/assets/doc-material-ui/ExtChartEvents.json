@@ -1,0 +1,3031 @@
+{
+ "xtype": "chart",
+ "reactname": "ExtChart",
+ "events": [
+  {
+   "name": "activate",
+   "text": "Fires whenever item within the Container is activated.\n",
+   "parameters": [
+    "newActiveItem",
+    "sender",
+    "oldActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,128,24",
+      "text": "411,128,38,42",
+      "type": "411,128,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,129,31",
+      "text": "411,129,36,24",
+      "type": "411,129,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,130,24",
+      "text": "411,130,38,42",
+      "type": "411,130,16"
+     }
+    }
+   ],
+   "nameprimary": "activate(newActiveItem,sender,oldActiveItem)"
+  },
+  {
+   "name": "activeItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    }
+   ],
+   "nameprimary": "activeItemchange(sender,value,oldValue)"
+  },
+  {
+   "name": "add",
+   "text": "Fires whenever item added to the Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,93,31",
+      "text": "411,93,36,24",
+      "type": "411,93,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item added to the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,94,24",
+      "text": "411,94,29,33",
+      "type": "411,94,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item within the Container.\n",
+     "type": "Number",
+     "src": {
+      "name": "411,95,24",
+      "text": "411,95,30,44",
+      "type": "411,95,16"
+     }
+    }
+   ],
+   "nameprimary": "add(sender,item,index)"
+  },
+  {
+   "name": "added",
+   "text": "Fires after a Component had been added to a Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,819,31",
+      "text": "410,819,38,33",
+      "type": "410,819,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Parent Container\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,820,31",
+      "text": "410,820,41,17",
+      "type": "410,820,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item within the Container.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,821,24",
+      "text": "410,821,30,44",
+      "type": "410,821,16"
+     }
+    }
+   ],
+   "nameprimary": "added(sender,container,index)"
+  },
+  {
+   "name": "beforeactiveItemchange",
+   "text": "This event fires when `{@link #cfg!activeItem}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Container"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!activeItem activeItem}`.",
+     "type": "Ext.Component/Object/String/Number",
+     "src": {
+      "type": "411,143,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeactiveItemchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforebottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforebottomchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforecenteredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforecenteredchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforedisabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedisabledchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforedockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforedockedchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeheightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeheightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforehiddenchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforehide",
+   "text": "Fires before the Component is hidden. Hide may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,737,31",
+      "text": "410,737,38,33",
+      "type": "410,737,16"
+     }
+    }
+   ],
+   "nameprimary": "beforehide(sender)"
+  },
+  {
+   "name": "beforeleftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeleftchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforemaxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforemaxWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminHeightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeminWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforeminWidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeorientationchange",
+   "text": "Fires before orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "beforeorientationchange()"
+  },
+  {
+   "name": "beforerefresh",
+   "text": "Fires before a refresh to the chart data is called.  If the `{@link #event!beforerefresh beforerefresh}`\nhandler returns `false` the {@link #event!refresh #refresh} action will be canceled.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,128,41",
+      "type": "780,128,16"
+     }
+    }
+   ],
+   "nameprimary": "beforerefresh(sender)"
+  },
+  {
+   "name": "beforerightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforerightchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforescrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforescrollablechange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforeshow",
+   "text": "Fires before the Component is shown. Show may be vetoed by returning `false` from a handler.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,725,31",
+      "text": "410,725,38,33",
+      "type": "410,725,16"
+     }
+    }
+   ],
+   "nameprimary": "beforeshow(sender)"
+  },
+  {
+   "name": "beforetofront",
+   "text": "Fires before a {@link #cfg!floated #cfg-floated} component is brought to the front of the visual stack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,320,31",
+      "text": "689,320,36,23",
+      "type": "689,320,16"
+     }
+    }
+   ],
+   "nameprimary": "beforetofront(sender)"
+  },
+  {
+   "name": "beforetopchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforetopchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "beforewidthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue",
+    null
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "return",
+     "text": "Return `false` to cancel the change.",
+     "type": "Boolean"
+    }
+   ],
+   "nameprimary": "beforewidthchange(sender,value,oldValue,)"
+  },
+  {
+   "name": "blur",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} loses focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,91,31",
+      "type": "283,91,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The blur event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,92,33",
+      "text": "283,92,39,16",
+      "type": "283,92,16"
+     }
+    }
+   ],
+   "nameprimary": "blur(sender,event)"
+  },
+  {
+   "name": "bodyresize",
+   "text": "Fires when the size of the draw container body changes.\n",
+   "parameters": [
+    "size"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "size",
+     "text": "The object containing 'width' and 'height' of the draw container's body.\n",
+     "type": "Object",
+     "src": {
+      "name": "876,123,24",
+      "text": "876,123,29,73",
+      "type": "876,123,16"
+     }
+    }
+   ],
+   "nameprimary": "bodyresize(size)"
+  },
+  {
+   "name": "bottomchange",
+   "text": "This event fires when `{@link #cfg!bottom}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!bottom bottom}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,352,18"
+     }
+    }
+   ],
+   "nameprimary": "bottomchange(sender,value,oldValue)"
+  },
+  {
+   "name": "centeredchange",
+   "text": "This event fires when `{@link #cfg!centered}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!centered centered}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "410,453,18"
+     }
+    }
+   ],
+   "nameprimary": "centeredchange(sender,value,oldValue)"
+  },
+  {
+   "name": "deactivate",
+   "text": "Fires whenever item within the Container is deactivated.\n",
+   "parameters": [
+    "oldActiveItem",
+    "sender",
+    "newActiveItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "oldActiveItem",
+     "text": "The old active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,136,24",
+      "text": "411,136,38,42",
+      "type": "411,136,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,137,31",
+      "text": "411,137,36,24",
+      "type": "411,137,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newActiveItem",
+     "text": "The new active item within the container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,138,24",
+      "text": "411,138,38,42",
+      "type": "411,138,16"
+     }
+    }
+   ],
+   "nameprimary": "deactivate(oldActiveItem,sender,newActiveItem)"
+  },
+  {
+   "name": "destroy",
+   "text": "Fires when the component is destroyed\n",
+   "parameters": [],
+   "nameprimary": "destroy()"
+  },
+  {
+   "name": "disabledchange",
+   "text": "This event fires when `{@link #cfg!disabled}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!disabled disabled}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,501,18"
+     }
+    }
+   ],
+   "nameprimary": "disabledchange(sender,value,oldValue)"
+  },
+  {
+   "name": "dockedchange",
+   "text": "This event fires when `{@link #cfg!docked}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!docked docked}`.",
+     "type": "String",
+     "src": {
+      "type": "410,428,18"
+     }
+    }
+   ],
+   "nameprimary": "dockedchange(sender,value,oldValue)"
+  },
+  {
+   "name": "erased",
+   "text": "Fires when the component is no longer displayed in the DOM.  Listening to this event will\ndegrade performance not recommend for general use.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,806,31",
+      "text": "410,806,38,33",
+      "type": "410,806,16"
+     }
+    }
+   ],
+   "nameprimary": "erased(sender)"
+  },
+  {
+   "name": "floatingchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,755,31",
+      "text": "410,755,38,33",
+      "type": "410,755,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,756,25",
+      "text": "410,756,36,51:410,757,8,134",
+      "type": "410,756,16"
+     }
+    }
+   ],
+   "nameprimary": "floatingchange(sender,positioned)"
+  },
+  {
+   "name": "focus",
+   "text": "Fires when this Component's {@link #property!focusEl #focusEl} receives focus.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component/Ext.Widget",
+     "src": {
+      "name": "283,84,42",
+      "type": "283,84,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focus event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,85,33",
+      "text": "283,85,39,17",
+      "type": "283,85,16"
+     }
+    }
+   ],
+   "nameprimary": "focus(sender,event)"
+  },
+  {
+   "name": "focusenter",
+   "text": "Fires when focus enters this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,98,31",
+      "type": "283,98,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusenter event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,99,33",
+      "text": "283,99,39,22",
+      "type": "283,99,16"
+     }
+    }
+   ],
+   "nameprimary": "focusenter(sender,event)"
+  },
+  {
+   "name": "focusleave",
+   "text": "Fires when focus leaves this Component's hierarchy.\n",
+   "parameters": [
+    "sender",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.Component",
+     "src": {
+      "name": "283,105,31",
+      "type": "283,105,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "text": "The focusleave event.\n",
+     "type": "Ext.event.Event",
+     "src": {
+      "name": "283,106,33",
+      "text": "283,106,39,22",
+      "type": "283,106,16"
+     }
+    }
+   ],
+   "nameprimary": "focusleave(sender,event)"
+  },
+  {
+   "name": "fullscreen",
+   "text": "Fires whenever a Component with the fullscreen config is instantiated\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,749,31",
+      "text": "410,749,38,33",
+      "type": "410,749,16"
+     }
+    }
+   ],
+   "nameprimary": "fullscreen(sender)"
+  },
+  {
+   "name": "heightchange",
+   "text": "This event fires when `{@link #cfg!height}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!height height}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,480,18"
+     }
+    }
+   ],
+   "nameprimary": "heightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hiddenchange",
+   "text": "This event fires when `{@link #cfg!hidden}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!hidden hidden}`.",
+     "type": "Boolean",
+     "src": {
+      "type": "18,491,18"
+     }
+    }
+   ],
+   "nameprimary": "hiddenchange(sender,value,oldValue)"
+  },
+  {
+   "name": "hide",
+   "text": "Fires whenever the Component is hidden\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,743,31",
+      "text": "410,743,38,33",
+      "type": "410,743,16"
+     }
+    }
+   ],
+   "nameprimary": "hide(sender)"
+  },
+  {
+   "name": "initialize",
+   "text": "Fires when the component has been initialized\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,792,31",
+      "text": "410,792,38,33",
+      "type": "410,792,16"
+     }
+    }
+   ],
+   "nameprimary": "initialize(sender)"
+  },
+  {
+   "name": "itemclick",
+   "text": "Fires when a click event occurs on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,224,41",
+      "type": "780,224,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,225,24",
+      "type": "780,225,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,226,23",
+      "type": "780,226,16"
+     }
+    }
+   ],
+   "nameprimary": "itemclick(chart,item,event)"
+  },
+  {
+   "name": "itemdblclick",
+   "text": "Fires when a double click event occurs on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,234,41",
+      "type": "780,234,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,235,24",
+      "type": "780,235,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,236,23",
+      "type": "780,236,16"
+     }
+    }
+   ],
+   "nameprimary": "itemdblclick(chart,item,event)"
+  },
+  {
+   "name": "itemhighlight",
+   "text": "Fires when an item is highlighted.\n",
+   "parameters": [
+    "sender",
+    "newItem",
+    "oldItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,156,41",
+      "type": "780,156,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newItem",
+     "text": "The new highlight item.\n",
+     "type": "Object",
+     "src": {
+      "name": "780,157,24",
+      "text": "780,157,32,24",
+      "type": "780,157,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldItem",
+     "text": "The old highlight item.\n",
+     "type": "Object",
+     "src": {
+      "name": "780,158,24",
+      "text": "780,158,32,24",
+      "type": "780,158,16"
+     }
+    }
+   ],
+   "nameprimary": "itemhighlight(sender,newItem,oldItem)"
+  },
+  {
+   "name": "itemhighlightchange",
+   "text": "Fires when an item's highlight changes.\n",
+   "parameters": [
+    "sender",
+    "newItem",
+    "oldItem"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "src": {
+      "name": "780,164,15"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newItem",
+     "text": "The new highlight item.\n",
+     "type": "Object",
+     "src": {
+      "name": "780,165,24",
+      "text": "780,165,32,24",
+      "type": "780,165,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldItem",
+     "text": "The old highlight item.\n",
+     "type": "Object",
+     "src": {
+      "name": "780,166,24",
+      "text": "780,166,32,24",
+      "type": "780,166,16"
+     }
+    }
+   ],
+   "nameprimary": "itemhighlightchange(sender,newItem,oldItem)"
+  },
+  {
+   "name": "itemmousedown",
+   "text": "Fires when a mousedown event occurs on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,194,41",
+      "type": "780,194,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,195,24",
+      "type": "780,195,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,196,23",
+      "type": "780,196,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmousedown(chart,item,event)"
+  },
+  {
+   "name": "itemmousemove",
+   "text": "Fires when the mouse is moved on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,174,41",
+      "type": "780,174,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,175,24",
+      "type": "780,175,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,176,23",
+      "type": "780,176,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmousemove(chart,item,event)"
+  },
+  {
+   "name": "itemmouseout",
+   "text": "Fires when the mouse exits a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,214,41",
+      "type": "780,214,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,215,24",
+      "type": "780,215,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,216,23",
+      "type": "780,216,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseout(chart,item,event)"
+  },
+  {
+   "name": "itemmouseover",
+   "text": "Fires when the mouse enters a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,204,41",
+      "type": "780,204,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,205,24",
+      "type": "780,205,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,206,23",
+      "type": "780,206,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseover(chart,item,event)"
+  },
+  {
+   "name": "itemmouseup",
+   "text": "Fires when a mouseup event occurs on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,184,41",
+      "type": "780,184,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,185,24",
+      "type": "780,185,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,186,23",
+      "type": "780,186,16"
+     }
+    }
+   ],
+   "nameprimary": "itemmouseup(chart,item,event)"
+  },
+  {
+   "name": "itemtap",
+   "text": "Fires when a tap event occurs on a series item.\n*Note*: This event requires the {@link Ext.chart.plugin.ItemEvents}\nplugin be added to the chart.\n",
+   "parameters": [
+    "chart",
+    "item",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,244,41",
+      "type": "780,244,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "type": "Object",
+     "src": {
+      "name": "780,245,24",
+      "type": "780,245,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "780,246,23",
+      "type": "780,246,16"
+     }
+    }
+   ],
+   "nameprimary": "itemtap(chart,item,event)"
+  },
+  {
+   "name": "layout",
+   "text": "Fires after the final layout is done.\n(Two layouts may be required to fully render a chart.\nTypically for the initial render and every time thickness\nof the chart's axes changes.)\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,150,41",
+      "type": "780,150,16"
+     }
+    }
+   ],
+   "nameprimary": "layout(sender)"
+  },
+  {
+   "name": "leftchange",
+   "text": "This event fires when `{@link #cfg!left}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!left left}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,319,18"
+     }
+    }
+   ],
+   "nameprimary": "leftchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxHeightchange",
+   "text": "This event fires when `{@link #cfg!maxHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxHeight maxHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,394,18"
+     }
+    }
+   ],
+   "nameprimary": "maxHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "maxWidthchange",
+   "text": "This event fires when `{@link #cfg!maxWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!maxWidth maxWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,383,18"
+     }
+    }
+   ],
+   "nameprimary": "maxWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minHeightchange",
+   "text": "This event fires when `{@link #cfg!minHeight}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minHeight minHeight}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,373,18"
+     }
+    }
+   ],
+   "nameprimary": "minHeightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "minWidthchange",
+   "text": "This event fires when `{@link #cfg!minWidth}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!minWidth minWidth}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,363,18"
+     }
+    }
+   ],
+   "nameprimary": "minWidthchange(sender,value,oldValue)"
+  },
+  {
+   "name": "move",
+   "text": "Fires whenever item moved within the Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "toIndex",
+    "fromIndex"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,109,31",
+      "text": "411,109,36,24",
+      "type": "411,109,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item moved within the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,110,24",
+      "text": "411,110,29,37",
+      "type": "411,110,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "toIndex",
+     "text": "The new index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "411,111,24",
+      "text": "411,111,32,27",
+      "type": "411,111,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "fromIndex",
+     "text": "The old index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "411,112,24",
+      "text": "411,112,34,27",
+      "type": "411,112,16"
+     }
+    }
+   ],
+   "nameprimary": "move(sender,item,toIndex,fromIndex)"
+  },
+  {
+   "name": "moved",
+   "text": "Fires when a component si moved within its Container.\n",
+   "parameters": [
+    "sender",
+    "container",
+    "toIndex",
+    "fromIndex"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,835,31",
+      "text": "410,835,38,33",
+      "type": "410,835,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,836,31",
+      "text": "410,836,41,36",
+      "type": "410,836,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "toIndex",
+     "text": "The new index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,837,24",
+      "text": "410,837,32,27",
+      "type": "410,837,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "fromIndex",
+     "text": "The old index of the item.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,838,24",
+      "text": "410,838,34,27",
+      "type": "410,838,16"
+     }
+    }
+   ],
+   "nameprimary": "moved(sender,container,toIndex,fromIndex)"
+  },
+  {
+   "name": "orientationchange",
+   "text": "Fires when orientation changes.\n",
+   "parameters": [],
+   "nameprimary": "orientationchange()"
+  },
+  {
+   "name": "painted",
+   "text": "Fires whenever this Element actually becomes visible (painted) on the screen. This is\nuseful when you need to perform 'read' operations on the DOM element, i.e: calculating\nnatural sizes and positioning.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!painted painted}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "sender",
+    "element"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,798,31",
+      "text": "410,798,38,33",
+      "type": "410,798,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element)\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,799,29",
+      "text": "410,799,37,45",
+      "type": "410,799,16"
+     }
+    }
+   ],
+   "nameprimary": "painted(sender,element)"
+  },
+  {
+   "name": "positionedchange",
+   "text": "Fires whenever there is a change in the positioned status of a component\n",
+   "parameters": [
+    "sender",
+    "positioned"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,764,31",
+      "text": "410,764,38,33",
+      "type": "410,764,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "positioned",
+     "text": "The component's new positioned state. This becomes\n`true` is a component is positioned using the {@link #cfg!top #cfg-top}, {@link #cfg!right #cfg-right},\n{@link #cfg!bottom #cfg-bottom} or {@link #cfg!left #cfg-left} configs.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "410,765,25",
+      "text": "410,765,36,51:410,766,8,134",
+      "type": "410,765,16"
+     }
+    }
+   ],
+   "nameprimary": "positionedchange(sender,positioned)"
+  },
+  {
+   "name": "redraw",
+   "text": "Fires after each {@link #event!redraw} call.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,140,41",
+      "type": "780,140,16"
+     }
+    }
+   ],
+   "nameprimary": "redraw(sender)"
+  },
+  {
+   "name": "refresh",
+   "text": "Fires after the chart data has been refreshed.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,134,41",
+      "type": "780,134,16"
+     }
+    }
+   ],
+   "nameprimary": "refresh(sender)"
+  },
+  {
+   "name": "remove",
+   "text": "Fires whenever item removed from the Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,101,31",
+      "text": "411,101,36,24",
+      "type": "411,101,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item removed from the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,102,24",
+      "text": "411,102,29,37",
+      "type": "411,102,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item that was removed.\n",
+     "type": "Number",
+     "src": {
+      "name": "411,103,24",
+      "text": "411,103,30,40",
+      "type": "411,103,16"
+     }
+    }
+   ],
+   "nameprimary": "remove(sender,item,index)"
+  },
+  {
+   "name": "removed",
+   "text": "Fires when a component is removed from a Container\n",
+   "parameters": [
+    "sender",
+    "container",
+    "index"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,827,31",
+      "text": "410,827,38,33",
+      "type": "410,827,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "container",
+     "text": "Container which holds the component\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "410,828,31",
+      "text": "410,828,41,36",
+      "type": "410,828,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "index",
+     "text": "The index of the item that was removed.\n",
+     "type": "Number",
+     "src": {
+      "name": "410,829,24",
+      "text": "410,829,30,40",
+      "type": "410,829,16"
+     }
+    }
+   ],
+   "nameprimary": "removed(sender,container,index)"
+  },
+  {
+   "name": "renderedchange",
+   "text": "Fires whenever an item is rendered into a container or derendered\nfrom a Container.\n",
+   "parameters": [
+    "sender",
+    "item",
+    "rendered"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The Container instance.\n",
+     "type": "Ext.Container",
+     "src": {
+      "name": "411,120,31",
+      "text": "411,120,36,24",
+      "type": "411,120,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "item",
+     "text": "The item in the Container.\n",
+     "type": "Object",
+     "src": {
+      "name": "411,121,24",
+      "text": "411,121,29,27",
+      "type": "411,121,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "rendered",
+     "text": "The current rendered status of the item.\n",
+     "type": "Boolean",
+     "src": {
+      "name": "411,122,25",
+      "text": "411,122,34,41",
+      "type": "411,122,16"
+     }
+    }
+   ],
+   "nameprimary": "renderedchange(sender,item,rendered)"
+  },
+  {
+   "name": "resize",
+   "text": "Important note: For the best performance on mobile devices, use this only when you\nabsolutely need to monitor a Element's size.\n\n__Note:__ This event is not available to be used with event delegation. Instead `{@link #event!resize resize}`\nonly fires if you explicitly add at least one listener to it, for performance reasons.\n",
+   "parameters": [
+    "element",
+    "info"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "element",
+     "text": "The component's outer element (this.element).\n",
+     "type": "Ext.dom.Element",
+     "src": {
+      "name": "410,812,29",
+      "text": "410,812,37,46",
+      "type": "410,812,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "info",
+     "text": "The component's new size parameters.\n",
+     "type": "Object",
+     "src": {
+      "name": "410,813,24",
+      "text": "410,813,29,37",
+      "type": "410,813,16"
+     }
+    }
+   ],
+   "nameprimary": "resize(element,info)"
+  },
+  {
+   "name": "rightchange",
+   "text": "This event fires when `{@link #cfg!right}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!right right}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,341,18"
+     }
+    }
+   ],
+   "nameprimary": "rightchange(sender,value,oldValue)"
+  },
+  {
+   "name": "scrollablechange",
+   "text": "This event fires when `{@link #cfg!scrollable}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!scrollable scrollable}`.",
+     "type": "Boolean/String/Object",
+     "src": {
+      "type": "410,405,18"
+     }
+    }
+   ],
+   "nameprimary": "scrollablechange(sender,value,oldValue)"
+  },
+  {
+   "name": "show",
+   "text": "Fires whenever the Component is shown\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,731,31",
+      "text": "410,731,38,33",
+      "type": "410,731,16"
+     }
+    }
+   ],
+   "nameprimary": "show(sender)"
+  },
+  {
+   "name": "spriteclick",
+   "text": "Fires when a click event occurs on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,102,24",
+      "type": "876,102,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,103,23",
+      "type": "876,103,16"
+     }
+    }
+   ],
+   "nameprimary": "spriteclick(sprite,event)"
+  },
+  {
+   "name": "spritedblclick",
+   "text": "Fires when a double click event occurs on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,109,24",
+      "type": "876,109,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,110,23",
+      "type": "876,110,16"
+     }
+    }
+   ],
+   "nameprimary": "spritedblclick(sprite,event)"
+  },
+  {
+   "name": "spritemousedown",
+   "text": "Fires when a mousedown event occurs on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,81,24",
+      "type": "876,81,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,82,23",
+      "type": "876,82,16"
+     }
+    }
+   ],
+   "nameprimary": "spritemousedown(sprite,event)"
+  },
+  {
+   "name": "spritemousemove",
+   "text": "Fires when the mouse is moved on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,67,24",
+      "type": "876,67,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,68,23",
+      "type": "876,68,16"
+     }
+    }
+   ],
+   "nameprimary": "spritemousemove(sprite,event)"
+  },
+  {
+   "name": "spritemouseout",
+   "text": "Fires when the mouse exits a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,95,24",
+      "type": "876,95,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,96,23",
+      "type": "876,96,16"
+     }
+    }
+   ],
+   "nameprimary": "spritemouseout(sprite,event)"
+  },
+  {
+   "name": "spritemouseover",
+   "text": "Fires when the mouse enters a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,88,24",
+      "type": "876,88,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,89,23",
+      "type": "876,89,16"
+     }
+    }
+   ],
+   "nameprimary": "spritemouseover(sprite,event)"
+  },
+  {
+   "name": "spritemouseup",
+   "text": "Fires when a mouseup event occurs on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,74,24",
+      "type": "876,74,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,75,23",
+      "type": "876,75,16"
+     }
+    }
+   ],
+   "nameprimary": "spritemouseup(sprite,event)"
+  },
+  {
+   "name": "spritetap",
+   "text": "Fires when a tap event occurs on a sprite.\n",
+   "parameters": [
+    "sprite",
+    "event"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sprite",
+     "type": "Object",
+     "src": {
+      "name": "876,116,24",
+      "type": "876,116,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "event",
+     "type": "Event",
+     "src": {
+      "name": "876,117,23",
+      "type": "876,117,16"
+     }
+    }
+   ],
+   "nameprimary": "spritetap(sprite,event)"
+  },
+  {
+   "name": "storechange",
+   "text": "Fires when the store of the chart changes.\n",
+   "parameters": [
+    "chart",
+    "newStore",
+    "oldStore"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "chart",
+     "type": "Ext.chart.AbstractChart",
+     "src": {
+      "name": "780,252,41",
+      "type": "780,252,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newStore",
+     "type": "Ext.data.Store",
+     "src": {
+      "name": "780,253,32",
+      "type": "780,253,16"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldStore",
+     "type": "Ext.data.Store",
+     "src": {
+      "name": "780,254,32",
+      "type": "780,254,16"
+     }
+    }
+   ],
+   "nameprimary": "storechange(chart,newStore,oldStore)"
+  },
+  {
+   "name": "tofront",
+   "text": "Fires when a {@link #cfg!floated #cfg-floated} component has been brought to the front of the visual\nstack.\n",
+   "parameters": [
+    "sender"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component instance\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "689,327,31",
+      "text": "689,327,36,23",
+      "type": "689,327,16"
+     }
+    }
+   ],
+   "nameprimary": "tofront(sender)"
+  },
+  {
+   "name": "topchange",
+   "text": "This event fires when `{@link #cfg!top}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Component"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!top top}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "410,330,18"
+     }
+    }
+   ],
+   "nameprimary": "topchange(sender,value,oldValue)"
+  },
+  {
+   "name": "updatedata",
+   "text": "Fires whenever the data of the component is updated\n",
+   "parameters": [
+    "sender",
+    "newData"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The component firing this event.\n",
+     "type": "Ext.Component",
+     "src": {
+      "name": "410,2411,39",
+      "text": "410,2411,46,33",
+      "type": "410,2411,24"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "newData",
+     "text": "The new data\n",
+     "type": "Object",
+     "src": {
+      "name": "410,2412,32",
+      "text": "410,2412,40,13",
+      "type": "410,2412,24"
+     }
+    }
+   ],
+   "nameprimary": "updatedata(sender,newData)"
+  },
+  {
+   "name": "widthchange",
+   "text": "This event fires when `{@link #cfg!width}` changes.",
+   "parameters": [
+    "sender",
+    "value",
+    "oldValue"
+   ],
+   "items": [
+    {
+     "$type": "param",
+     "name": "sender",
+     "text": "The instance firing this event.",
+     "type": "Ext.Widget"
+    },
+    {
+     "$type": "param",
+     "name": "value",
+     "text": "The current value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    },
+    {
+     "$type": "param",
+     "name": "oldValue",
+     "text": "The previous value of `{@link #cfg!width width}`.",
+     "type": "Number/String",
+     "src": {
+      "type": "18,469,18"
+     }
+    }
+   ],
+   "nameprimary": "widthchange(sender,value,oldValue)"
+  }
+ ],
+ "eventNames": [
+  "activate",
+  "activeItemchange",
+  "add",
+  "added",
+  "beforeactiveItemchange",
+  "beforebottomchange",
+  "beforecenteredchange",
+  "beforedisabledchange",
+  "beforedockedchange",
+  "beforeheightchange",
+  "beforehiddenchange",
+  "beforehide",
+  "beforeleftchange",
+  "beforemaxHeightchange",
+  "beforemaxWidthchange",
+  "beforeminHeightchange",
+  "beforeminWidthchange",
+  "beforeorientationchange",
+  "beforerefresh",
+  "beforerightchange",
+  "beforescrollablechange",
+  "beforeshow",
+  "beforetofront",
+  "beforetopchange",
+  "beforewidthchange",
+  "blur",
+  "bodyresize",
+  "bottomchange",
+  "centeredchange",
+  "deactivate",
+  "destroy",
+  "disabledchange",
+  "dockedchange",
+  "erased",
+  "floatingchange",
+  "focus",
+  "focusenter",
+  "focusleave",
+  "fullscreen",
+  "heightchange",
+  "hiddenchange",
+  "hide",
+  "initialize",
+  "itemclick",
+  "itemdblclick",
+  "itemhighlight",
+  "itemhighlightchange",
+  "itemmousedown",
+  "itemmousemove",
+  "itemmouseout",
+  "itemmouseover",
+  "itemmouseup",
+  "itemtap",
+  "layout",
+  "leftchange",
+  "maxHeightchange",
+  "maxWidthchange",
+  "minHeightchange",
+  "minWidthchange",
+  "move",
+  "moved",
+  "orientationchange",
+  "painted",
+  "positionedchange",
+  "redraw",
+  "refresh",
+  "remove",
+  "removed",
+  "renderedchange",
+  "resize",
+  "rightchange",
+  "scrollablechange",
+  "show",
+  "spriteclick",
+  "spritedblclick",
+  "spritemousedown",
+  "spritemousemove",
+  "spritemouseout",
+  "spritemouseover",
+  "spritemouseup",
+  "spritetap",
+  "storechange",
+  "tofront",
+  "topchange",
+  "updatedata",
+  "widthchange"
+ ]
+}

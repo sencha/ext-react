@@ -1,0 +1,110 @@
+[
+  { "text": "Documentation", "hash": "none", "type": "guide", "iconCls": "fas fa-home", "componentname": "Home", "count": 0,
+    "children": [
+      { "type": "guide",   "hash": "DocsHome",         "text": "Home",                  "componentname": "Home",         "leaf": true },
+      { "text": "Getting Started", "hash": "GettingStarted", "componentname": "Home", "type": "guide", "leaf": true },
+      { "text": "Getting Started - Detailed", "hash": "GettingStartedDetailed", "componentname": "Home", "type": "guide", "leaf": true },
+      { "text": "Adding ExtReact to an App", "hash": "Adding", "componentname": "Home", "type": "guide", "leaf": true }
+    ]
+  },
+  { "text": "ExtGrid (1)", "hash": "none", "iconCls": "fas fa-table", "count": 1,  "type": "root",
+    "children": [
+      { "text": "ExtGrid", "hash": "ExtGrid", "componentname": "ExtGrid", "type": "overview", "leaf": true },
+      { "type": "example", "hash": "ExtGridOverview",      "text": "Grid Overview Example", "componentname": "ExtGrid",      "leaf": true },
+      { "text": "ExtGrid Guides", "hash": "none", "componentname": "", "type": "guidemid", "leaf": false,
+        "children": [
+          { "text": "Using Components in Grids", "hash": "Using Components in Grids", "componentname": "ExtGrid", "type": "guide", "leaf": true },
+          { "text": "Grid Configurations", "hash": "Grid Configurations", "componentname": "ExtGrid", "type": "guide", "leaf": true }
+        ]
+      },
+      { "text": "Row Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtGridCellSelect",      "text": "Grid Cell Select", "componentname": "ExtGrid",      "leaf": true },
+
+          { "type": "example", "hash": "ExtGridOverview",      "text": "Grid Overview Example", "componentname": "ExtGrid",      "leaf": true },
+          { "type": "example", "hash": "ExtGridRowEditing",    "text": "ExtGrid Row Editing",   "componentname": "ExtGrid",      "leaf": true }
+        ]
+      }
+    ]
+  },
+  { "text": "ExtPivotgrid (4)", "hash": "none", "iconCls": "fas fa-grip-horizontal", "count": 4,  "type": "root",
+    "children": [
+      { "text": "ExtPivotgrid", "hash": "ExtPivotgrid", "componentname": "ExtPivotgrid", "type": "overview" , "leaf": true },
+      { "text": "ExtPivotd3container", "hash": "ExtPivotd3container", "componentname": "ExtPivotd3container", "type": "overview" , "leaf": true },
+      { "text": "ExtPivotheatmap", "hash": "ExtPivotheatmap", "componentname": "ExtPivotheatmap", "type": "overview" , "leaf": true },
+      { "text": "ExtPivottreemap", "hash": "ExtPivottreemap", "componentname": "ExtPivottreemap", "type": "overview" , "leaf": true },
+      { "text": "Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtPivotgridOverview", "text": "ExtPivotgrid Overview", "componentname": "ExtPivotgrid", "leaf": true }
+        ]
+      }
+    ]
+  },
+  { "text": "ExtTree (2)", "hash": "none", "iconCls": "fas fa-stream", "count": 2,  "type": "root",
+    "children": [
+      { "text": "ExtTree", "hash": "ExtTree", "componentname": "ExtTree", "type": "overview" , "leaf": true },
+      { "text": "ExtTreelist", "hash": "ExtTreelist", "componentname": "ExtTreelist", "type": "overview" , "leaf": true },
+      { "text": "Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtTreeOverview",      "text": "ExtTree Overview",      "componentname": "ExtTree",      "leaf": true },
+          { "type": "example", "hash": "ExtTreelistOverview",  "text": "ExtTreelist Overview",  "componentname": "ExtTreelist",  "leaf": true }
+        ]
+      }
+    ]
+  },
+  { "text": "ExtChart (2)", "hash": "none", "iconCls": "fas fa-chart-bar", "count": 2,  "type": "root",
+    "children": [
+      { "text": "ExtChart", "hash": "ExtChart", "componentname": "ExtChart", "type": "overview" , "leaf": true },
+      { "text": "ExtPolar", "hash": "ExtPolar", "componentname": "ExtPolar", "type": "overview" , "leaf": true },
+      { "text": "Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtChartOverview",     "text": "ExtChart Overview",     "componentname": "ExtChart",     "leaf": true },
+          { "type": "example", "hash": "ExtPolarOverview",     "text": "ExtPolar Overview",     "componentname": "ExtPolar",     "leaf": true }
+        ]
+      }
+    ]
+  },
+  { "text": "ExtD3 (10)", "hash": "none", "iconCls": "fas fa-project-diagram", "count": 10,  "type": "root",
+    "children": [
+      { "text": "ExtD3", "hash": "ExtD3", "componentname": "ExtD3", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_canvas", "hash": "ExtD3_canvas", "componentname": "ExtD3_canvas", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_heatmap", "hash": "ExtD3_heatmap", "componentname": "ExtD3_heatmap", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_horizontal_tree", "hash": "ExtD3_horizontal_tree", "componentname": "ExtD3_horizontal_tree", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_pack", "hash": "ExtD3_pack", "componentname": "ExtD3_pack", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_partition", "hash": "ExtD3_partition", "componentname": "ExtD3_pack", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_sunburst", "hash": "ExtD3_sunburst", "componentname": "ExtD3_sunburst", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_svg", "hash": "ExtD3_svg", "componentname": "ExtD3_svg", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_tree", "hash": "ExtD3_tree", "componentname": "ExtD3_tree", "type": "overview" , "leaf": true },
+      { "text": "ExtD3_treemap", "hash": "ExtD3_treemap", "componentname": "ExtD3_treemap", "type": "overview" , "leaf": true },
+      { "text": "Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtD3_heatmapOverview","text": "ExtD3_heatmap Overview","componentname": "ExtD3_heatmap","leaf": true },
+          { "type": "example", "hash": "ExtD3_treemapOverview","text": "ExtD3_treemap Overview","componentname": "ExtD3_treemap","leaf": true }
+
+        ]
+      }
+    ]
+  },
+  { "text": "ExtCalendar (13)", "hash": "none", "iconCls": "fas fa-calendar", "count": 13,  "type": "root",
+    "children": [
+      { "text": "ExtCalendar", "hash": "ExtCalendar", "componentname": "ExtCalendar", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_day", "hash": "ExtCalendar_day", "componentname": "ExtCalendar_day", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_days", "hash": "ExtCalendar_days", "componentname": "ExtCalendar_days", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_dayview", "hash": "ExtCalendar_dayview", "componentname": "ExtCalendar_dayview", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_daysview", "hash": "ExtCalendar_daysview", "componentname": "ExtCalendar_daysview", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_list", "hash": "ExtCalendar_list", "componentname": "ExtCalendar_list", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_month", "hash": "ExtCalendar_month", "componentname": "ExtCalendar_month", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_monthview", "hash": "ExtCalendar_monthview", "componentname": "ExtCalendar_monthview", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_multiview", "hash": "ExtCalendar_multiview", "componentname": "ExtCalendar_multiview", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_week", "hash": "ExtCalendar_week", "componentname": "ExtCalendar_week", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_weeks", "hash": "ExtCalendar_weeks", "componentname": "ExtCalendar_weeks", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_weekview", "hash": "ExtCalendar_weekview", "componentname": "ExtCalendar_weekview", "type": "overview" , "leaf": true },
+      { "text": "ExtCalendar_weeksview", "hash": "ExtCalendar_weeksview", "componentname": "ExtCalendar_weeksview", "type": "overview" , "leaf": true },
+      { "text": "Examples", "hash": "none", "componentname": "", "type": "examplemid",
+        "children": [
+          { "type": "example", "hash": "ExtCalendarOverview",  "text": "ExtCalendar Overview",  "componentname": "ExtCalendar",  "leaf": true }
+        ]
+      }
+    ]
+  }
+]

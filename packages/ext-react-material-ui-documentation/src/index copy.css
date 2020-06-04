@@ -1,0 +1,300 @@
+:xxroot {
+  --base-color: yellow;
+  --base-foreground-color: white;
+  --background-color: white;
+  --color: black;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.x-treelist-nav {
+  background-color: #024059;
+  background-position: 24px 0%;
+  padding: 0 0 0 0;
+}
+
+.x-treelist-nav .x-treelist-item-expanded {
+  background-color: #1B5369;
+}
+
+.x-treelist-nav .x-treelist-item-text {
+  color: white;
+  margin-left: 40px;
+  margin-right: 24px;
+  font-size: 16px;
+  line-height: 44px;
+}
+
+.x-treelist-nav .x-treelist-item-selected > .x-treelist-row {
+  color: white;
+  background-color: #34667A;
+}
+
+.x-treelist-nav .x-treelist-row-over {
+  color: white;
+  background-color: #99B2BC;
+}
+
+.x-treelist-nav .x-treelist-item-expander {
+  color: white;
+  font-size: 22px;
+  width: 24px;
+}
+
+.x-treelist-nav .x-treelist-item-icon, .x-treelist-nav .x-treelist-item-tool {
+  color: white;
+  font-size: 18px;
+  width: 24px;
+}
+
+
+pre {
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  padding: 10px 10px 10px 10px;
+}
+
+
+.vbox > pre::before {
+  content: "Note: Example is in Ext JS format\a\a";
+  xcontent: " (" attr('www.sencha.com') ")\a";
+  background-color: white;
+  color: darkred;
+  padding: 10px;
+  margin: 20px 20px 20px 0;
+  font-size:18px;
+  font-weight: bold;
+  white-space: pre;
+}
+
+
+.shadow {
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.mid {
+  padding-left: 15px;
+  color: #ffffff;
+  font-size:16px;
+}
+
+.example {
+  padding-left: 30px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+
+.menuroot {
+  font-size:16px;
+  font-weight:bold;
+
+}
+
+.menumid {
+  font-size:16px;
+  font-weight:normal;
+  margin:10px !important;
+}
+
+.menuleaf {
+  font-size:16px;
+  font-weight:normal;
+  margin:20px !important;
+}
+
+
+
+
+html {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wMenu {
+  flex: none !important;
+  width: 350px;
+  min-width: 350px;
+}
+
+.w150 {
+  flex: none !important;
+  width: 150px;
+  min-width: 150px;
+}
+
+.hTitle {
+  flex: none !important;
+  height: 60px;
+  min-height: 60px;
+  xbackground: #1976d2;
+  background: #024059;
+  color: white;
+ }
+
+
+ .senchablue {
+  background: #024059;
+ }
+
+ .hTitleleft {
+  flex: none !important;
+  height: 120px;
+  min-height: 120px;
+  background: #024059;
+  color: white;
+ }
+
+
+.h50 {
+  flex: none !important;
+  height: 50px;
+  min-height: 50px;
+}
+
+.h64 {
+  flex: none !important;
+  height: 64px;
+  min-height: 64px;
+}
+
+.h100 {
+  flex: none !important;
+  height: 100px;
+  min-height: 100px;
+}
+
+.h300 {
+  flex: none !important;
+  height: 300px;
+  min-height: 300px;
+}
+
+
+
+.hbox {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.vbox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.vbox2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+
+.hHeader {
+  height: 80px;
+  min-height: 80px;
+  background: white;
+  color: white;
+  border-bottom: 1px solid gray;
+}
+
+
+.header {
+ xbackground: #1976d2;
+ border-bottom: 1px solid gray;
+}
+
+.main {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: row;
+  xflex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  justify-content: space-between;
+}
+
+.nav {
+  width: 300px;
+  min-width: 300px;
+  xheight: 100vh - 200px;
+  display: flex;
+  flex-direction: column;
+  xflex: 1;
+  xflex-grow: 1;
+  xflex-shrink: 1;
+  xflex-basis: 300px;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  xflex-grow: 1;
+  fxlex-shrink: 1;
+  xflex-basis: 0n;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.aside {
+  width: 585px;
+  min-width: 585px;
+  display: flex;
+  flex-direction: column;
+  xflex: 1;
+  xflex-grow: 1;
+  xflex-shrink: 1;
+  xflex-basis: 400px;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.footer {
+  background: #1976d2;
+}
+
+.border {
+  border: 1px solid gray;
+  xpadding: 0.25em;
+  xmargin: 0.25em;
+  xborder-radius: 0.25em;
+}

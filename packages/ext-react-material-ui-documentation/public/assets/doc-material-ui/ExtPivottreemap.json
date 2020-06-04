@@ -1,0 +1,11 @@
+{
+ "name": "Ext.pivot.d3.TreeMap",
+ "xtype": "pivottreemap",
+ "reactname": "ExtPivottreemap",
+ "alias": "widget.pivottreemap",
+ "extended": "Ext.d3.hierarchy.TreeMap,Ext.d3.hierarchy.Hierarchy,Ext.d3.svg.Svg,Ext.d3.Component,Ext.d3.ComponentBase,Ext.Component,Ext.Widget,Ext.Evented,Ext.Base",
+ "extends": "Ext.d3.hierarchy.TreeMap",
+ "mixed": "Ext.Mixin,Ext.d3.mixin.ToolTip,Ext.mixin.Accessible,Ext.mixin.Bindable,Ext.mixin.ComponentDelegation,Ext.mixin.Factoryable,Ext.mixin.Focusable,Ext.mixin.Identifiable,Ext.mixin.Inheritable,Ext.mixin.Keyboard,Ext.mixin.Observable,Ext.mixin.Pluggable,Ext.state.Stateful",
+ "requires": "Ext.pivot.matrix.Local,Ext.pivot.matrix.Remote",
+ "text": "This component extends the D3 TreeMap to work with a pivot matrix.\n\nBasically this component needs a pivot matrix to be configured. The values\ncalculated by the pivot matrix are distributed as following:\n\n - `leftAxis` maps to TreeMap `{@link #cfg!colorAxis colorAxis}`\n - `aggregate` maps to TreeMap `{@link #cfg!nodeValue nodeValue}`\n\nMultiple dimensions can be configured on `leftAxis` but only one dimension\non the `aggregate`. `topAxis` dimensions are ignored.\n"
+}

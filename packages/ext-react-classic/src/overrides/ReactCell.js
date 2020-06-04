@@ -69,7 +69,11 @@ export function doReactCell() {
         this.setColumn(null);
         this.setRecord(null);
         var el = document.getElementById(this.id);
-        el.parentNode.removeChild(el);
+        if (el != undefined) {
+          if (el != null) {
+            el.parentNode.removeChild(el);
+          }
+        }
       },
 
       privates: {

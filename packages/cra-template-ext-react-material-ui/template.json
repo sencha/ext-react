@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@sencha/ext-react-material-ui-engine": "^7.2.1",
+    "@sencha/ext-react-material-ui-theme": "^7.2.1",
+    "@sencha/ext-react-material-ui": "^7.2.1",
+    "@material-ui/core": "~4.9.10",
+    "@material-ui/icons": "~4.9.1",
+    "d3": "4.7.4",
+    "source-map-explorer": "^2.4.2",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "buildnomap": "GENERATE_SOURCEMAP=false react-scripts build",
+    "buildmap": "GENERATE_SOURCEMAP=true react-scripts build"
+  }
+}
