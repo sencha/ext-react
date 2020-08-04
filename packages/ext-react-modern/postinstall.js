@@ -62,8 +62,8 @@ switch(framework) {
     copyFolder = '';
 }
 
-if (fs.existsSync(`../../../${copyFolder}ext-runtime-${toolkit}`)) {
-  console.log(`${prefix} ./${copyFolder}ext-runtime-${toolkit} exists`);
+if (fs.existsSync(`../../../${copyFolder}ext-${toolkit}-runtime`)) {
+  console.log(`${prefix} ./${copyFolder}ext-${toolkit}-runtime exists`);
   return
 }
 
@@ -111,10 +111,10 @@ try {
     else {
       theme = 'material';
     }
-    //var from = `../ext-web-components-${toolkit}/ext-runtime-${toolkit}`;
+    //var from = `../ext-web-components-${toolkit}/ext-${toolkit}-runtime`;
     var from = `../ext-${toolkit}-runtime`;
-    fs.copySync(`${from}/`,`../../../${copyFolder}ext-runtime-${toolkit}/`);
-    console.log(`${prefix} created ./${copyFolder}ext-runtime-${toolkit}/`);
+    fs.copySync(`${from}/`,`../../../${copyFolder}ext-${toolkit}-runtime/`);
+    console.log(`${prefix} created ./${copyFolder}ext-${toolkit}-runtime/`);
 
     switch(framework) {
       case 'react':
@@ -125,31 +125,31 @@ try {
        if (toolkit == 'modern') {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js"></script>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <script src="%PUBLIC_URL%/ext-${toolkit}-runtime/${toolkit}.engine.enterprise.js"></script>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
       <!--
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/ios/ios-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
       -->
           `
         }
         else {
           b =
           `
-      <script src="%PUBLIC_URL%/ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js"></script>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
+      <script src="%PUBLIC_URL%/ext-${toolkit}-runtime/${toolkit}.engine.enterprise.js"></script>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/${theme}/${theme}-all.css" rel="stylesheet" type="text/css"></link>
       <!--
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp/crisp-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/crisp-touch/crisp-touch-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/gray/gray-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/material/material-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/neptune-touch/neptune-touch-all.css" rel="stylesheet" type="text/css"></link>
-      <link href="%PUBLIC_URL%/ext-runtime-${toolkit}/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/aria/aria-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/crisp/crisp-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/crisp-touch/crisp-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/graphite/graphite-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/gray/gray-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/material/material-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/neptune/neptune-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/neptune-touch/neptune-touch-all.css" rel="stylesheet" type="text/css"></link>
+      <link href="%PUBLIC_URL%/ext-${toolkit}-runtime/triton/triton-all.css" rel="stylesheet" type="text/css"></link>
       -->
           `
         }
@@ -165,16 +165,16 @@ try {
         var angular = fs.readFileSync(angularName, 'utf8');
         const angularJson = JSON.parse(angular);
 
-        var scriptEngine = `ext-runtime-${toolkit}/${toolkit}.engine.enterprise.js`;
-        var cssFile = `ext-runtime-${toolkit}/${theme}/${theme}-all.css`;
+        var scriptEngine = `ext-${toolkit}-runtime/${toolkit}.engine.enterprise.js`;
+        var cssFile = `ext-${toolkit}-runtime/${theme}/${theme}-all.css`;
         var options = angularJson.projects[packageJsonApp.name].architect.build.options;
         angularJson.projects[packageJsonApp.name].architect.build.options.scripts.push(scriptEngine);
         //angularJson.projects[packageJsonApp.name].architect.build.options.styles.push(cssFile);
         options.styles.push(cssFile);
-        //options.styles.push(`//ext-runtime-${toolkit}/ios/ios-all.css`);
-        //options.styles.push(`//ext-runtime-${toolkit}/material/material-all.css`);
-        //options.styles.push(`//ext-runtime-${toolkit}/neptune/neptune-all.css`);
-        //options.styles.push(`//ext-runtime-${toolkit}/triton/triton-all.css`);
+        //options.styles.push(`//ext-${toolkit}-runtime/ios/ios-all.css`);
+        //options.styles.push(`//ext-${toolkit}-runtime/material/material-all.css`);
+        //options.styles.push(`//ext-${toolkit}-runtime/neptune/neptune-all.css`);
+        //options.styles.push(`//ext-${toolkit}-runtime/triton/triton-all.css`);
 
         const angularString = JSON.stringify(angularJson, null, 2);
         fs.writeFileSync(angularName, angularString);
