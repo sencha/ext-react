@@ -13,7 +13,7 @@ in the root folder of the React app:
 
 ```
 npm install @sencha/ext-react-classic
-``
+```
 
 This will create a 'public/ext-runtime-classic' folder, and also add several entries in the 'public/index.html'
 file.
