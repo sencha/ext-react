@@ -194,6 +194,14 @@ export function createWorkspaceJson(options, output) {
     nodeModulePath += "../"
   }
 
+  const cjson = require('cjson');
+  // or add ExtWebpackPlugin({..., useWorkspaces: true})
+  const lernaInfo = cjson.load(process.cwd() + '/../../lerna.json');
+  if (lernaInfo && lernaInfo.useWorkspaces) {
+    nodeModulePath += "../";
+    nodeModulePath += "../";
+  }
+
   logv(options,'isWindows: ' + isWindows)
   logv(options,'output: ' + output)
   logv(options,'pathDifference: ' + pathDifference)
@@ -230,6 +238,11 @@ export function createWorkspaceJson(options, output) {
       "extract": "${workspace.dir}/" + nodeModulePath + "packages/remote"
     }
   }
+
+  if (options.packageDirs) {
+    config.packages.dir = config.packages.dir.concat(options.packageDirs);
+  }
+
   return JSON.stringify(config, null, 2)
 }
 
