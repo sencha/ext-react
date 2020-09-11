@@ -194,6 +194,14 @@ export function createWorkspaceJson(options, output) {
     nodeModulePath += "../"
   }
 
+  const cjson = require('cjson');
+  // or add ExtWebpackPlugin({..., useWorkspaces: true})
+  const lernaInfo = cjson.load(process.cwd() + '/../../lerna.json');
+  if (lernaInfo && lernaInfo.useWorkspaces) {
+    nodeModulePath += "../";
+    nodeModulePath += "../";
+  }
+
   logv(options,'isWindows: ' + isWindows)
   logv(options,'output: ' + output)
   logv(options,'pathDifference: ' + pathDifference)
