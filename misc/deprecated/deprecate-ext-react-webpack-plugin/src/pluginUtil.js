@@ -641,6 +641,9 @@ function _getValidateOptions() {
       "packages": {
         "type": ["string", "array"]
       },
+      "packageDirs": {
+        "type": ["string", "array"]
+      },
       "profile": {
         "type": ["string"]
       },
@@ -685,7 +688,8 @@ function _getDefaultOptions() {
     treeshake: 'no',
     browser: 'yes',
     watch: 'yes',
-    verbose: 'no'
+    verbose: 'no',
+    packageDirs: []
   }
 }
 

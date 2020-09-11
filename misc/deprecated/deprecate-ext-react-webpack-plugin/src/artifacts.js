@@ -230,6 +230,11 @@ export function createWorkspaceJson(options, output) {
       "extract": "${workspace.dir}/" + nodeModulePath + "packages/remote"
     }
   }
+
+  if (options.packageDirs) {
+    config.packages.dir = config.packages.dir.concat(options.packageDirs);
+  }
+
   return JSON.stringify(config, null, 2)
 }
 
