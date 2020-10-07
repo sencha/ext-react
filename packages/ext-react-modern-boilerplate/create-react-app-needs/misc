@@ -55,7 +55,7 @@ line 119
     "@babel/preset-react": "^7.0.0",
     "@sencha/ext-react-babel-plugin": "~7.0.0",
     "@sencha/ext-webpack-plugin": "~7.0.0",
-    "@sencha/ext-react-modern: "~7.2.0",
+    "@sencha/ext-react-modern: "~7.3.0",
     "@sencha/ext": "^7.0.0",
     "@sencha/ext-modern": "^7.0.0",
     "@sencha/ext-modern-treegrid": "~7.0.0",

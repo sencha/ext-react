@@ -1,6 +1,6 @@
 ## What's new for @sencha/ext-react-modern
 
-### What's new in version 7.2.0
+### What's new in version 7.3.0
 
 - new npm package for runtime
   - @sencha/ext-classic-runtime
