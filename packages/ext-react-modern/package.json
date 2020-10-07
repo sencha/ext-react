@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-modern",
-  "version": "7.2.1",
+  "version": "7.3.0",
   "description": "Sencha ext-react-modern",
   "main": "dist/index.js",
   "bin": {
@@ -35,7 +35,7 @@
     "react-dom": "~16.13.1"
   },
   "dependencies": {
-    "@sencha/ext-web-components-modern": "~7.2.1"
+    "@sencha/ext-web-components-modern": "~7.3.0"
   },
   "devDependencies": {
     "fs-extra": "~9.0.0",

@@ -1,6 +1,6 @@
 {
     "name": "@sencha/ext-react-classic-renderwhenready-no-plugin",
-    "version": "7.2.0",
+    "version": "7.3.0",
     "description": "A Demo",
     "main": "index.js",
     "scripts": {
@@ -50,7 +50,7 @@
         "@babel/preset-react": "^7.7.4",
         "html-webpack-plugin": "^3.2.0",
         "base-href-webpack-plugin": "~2.0.0",
-        "@sencha/ext-webpack-plugin: "~7.2.0",
+        "@sencha/ext-webpack-plugin: "~7.3.0",
         "copy-webpack-plugin": "^5.1.1",
         "raw-loader": "~4.0.0",
         "babel-loader": "^8.0.6",

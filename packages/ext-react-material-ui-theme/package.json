@@ -1,6 +1,6 @@
 {
   "name": "@sencha/ext-react-material-ui-theme",
-  "version": "7.2.1",
+  "version": "7.3.0",
   "main": "ext.react.material-ui.theme.js",
   "private": false,
   "scripts": {
