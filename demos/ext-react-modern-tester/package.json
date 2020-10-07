@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sencha/ext-react-modern": "^7.2.0",
+    "@sencha/ext-react-modern": "^7.3.0",
     "d3": "4.7.4",
     "react-froala-wysiwyg": "^3.1.0",
     "react": "^16.12.0",

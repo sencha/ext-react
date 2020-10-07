@@ -79,7 +79,7 @@ export const App = () => {
 //  const [rootopen, setRootopen] = useState(false);
   //const [textforshow, setTextforshow] = useState('Documentation');
   //const [data, setData] = useState([]);
-  //const [version, setVersion] = useState('7.2.1.0');
+  //const [version, setVersion] = useState('7.3.0.0');
   //const [menu, setMenu] = useState([]);
   const [asidevalue, setAsidevalue] = useState(0);
   const [aside] = useState(0);
@@ -91,7 +91,7 @@ export const App = () => {
   //const [treecmp, setTreecmp] = useState({});
 
   const [initialRequest, setInitialRequest] = useState({
-    version: '7.2.1.0',
+    version: '7.3.0.0',
     menu: [],
     navstore: {},
     selection: {}
@@ -160,7 +160,7 @@ export const App = () => {
           root: { text: 'All', children: data }
         })
         var node = navStore.findNode('hash', hash);
-        var appversion = '7.2.1.0';
+        var appversion = '7.3.0.0';
         if (process.env.REACT_APP_VERSION !== undefined) {
           appversion = process.env.REACT_APP_VERSION;
         }

@@ -1,6 +1,6 @@
 {
     "name": "@sencha/cra-template-ext-react-classic-grid",
-    "version": "7.2.1",
+    "version": "7.3.0",
     "description": "cra-template-ext-react-classic-grid",
     "main": "template.json",
     "license": "MIT",

@@ -1,7 +1,7 @@
 {
   "name": "@sencha/ext-react-material-ui-examples",
   "product": "ext-react",
-  "version": "7.2.1",
+  "version": "7.3.0",
   "description": "A  project for Ext React Material-UI showing examples for components.",
   "main": "index.js",
   "scripts": {

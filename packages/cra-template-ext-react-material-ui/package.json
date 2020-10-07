@@ -1,6 +1,6 @@
 {
     "name": "@sencha/cra-template-ext-react-material-ui",
-    "version": "7.2.1",
+    "version": "7.3.0",
     "description": "cra-template-ext-react-material-ui",
     "main": "template.json",
     "license": "MIT",

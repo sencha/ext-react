@@ -75,9 +75,9 @@ Open package.json in the root of the app, and add the following to the dependenc
 ```
     "@material-ui/core": "~4.9.10",
     "@material-ui/icons": "~4.9.1",
-    "@sencha/ext-react-material-ui": "^7.2.1",
-    "@sencha/ext-react-material-ui-engine": "^7.2.1",
-    "@sencha/ext-react-material-ui-theme": "^7.2.1",
+    "@sencha/ext-react-material-ui": "^7.3.0",
+    "@sencha/ext-react-material-ui-engine": "^7.3.0",
+    "@sencha/ext-react-material-ui-theme": "^7.3.0",
 ```
 
 Then, in the command window, run the following:
